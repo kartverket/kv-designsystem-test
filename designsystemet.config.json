@@ -1,0 +1,33 @@
+{
+   "outDir": "./design-tokens",
+  "themes": {
+    "theme": {
+      "colors": {
+        "main": {
+          "accent": "#156630"
+        },
+        "support": {
+          "blue": "#1A589F"
+        },
+        "neutral": "#5A5858"
+      },
+      "overrides": {
+        "severity": {
+          "warning": "#8E5A1F",
+          "danger": "#A32F00"
+        },
+        "colors": {
+          "accent": {
+            "base-active": {
+              "light": "#1A532A"
+            },
+            "base-hover": {
+              "light": "#1A833B"
+            }
+          }
+        }
+      },
+      "borderRadius": 4
+    }
+  }
+}

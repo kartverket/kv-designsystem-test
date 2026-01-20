@@ -1,0 +1,26 @@
+{
+  "tokenSetOrder": [
+    "primitives/globals",
+    "primitives/modes/size/small",
+    "primitives/modes/size/medium",
+    "primitives/modes/size/large",
+    "primitives/modes/size/global",
+    "primitives/modes/typography/size/small",
+    "primitives/modes/typography/size/medium",
+    "primitives/modes/typography/size/large",
+    "primitives/modes/typography/primary/kartverket-land",
+    "primitives/modes/typography/primary/theme",
+    "primitives/modes/typography/secondary/kartverket-land",
+    "primitives/modes/typography/secondary/theme",
+    "primitives/modes/color-scheme/dark/kartverket-land",
+    "primitives/modes/color-scheme/dark/theme",
+    "primitives/modes/color-scheme/light/kartverket-land",
+    "primitives/modes/color-scheme/light/theme",
+    "themes/kartverket-land",
+    "themes/theme",
+    "semantic/color",
+    "semantic/modes/main-color/accent",
+    "semantic/modes/support-color/blue",
+    "semantic/style"
+  ]
+}
