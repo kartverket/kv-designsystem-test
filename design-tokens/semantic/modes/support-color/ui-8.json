@@ -1,69 +1,69 @@
 {
   "color": {
-    "main": {
+    "support": {
       "background-default": {
         "$type": "color",
-        "$value": "{color.accent.background-default}"
+        "$value": "{color.ui-8.background-default}"
       },
       "background-tinted": {
         "$type": "color",
-        "$value": "{color.accent.background-tinted}"
+        "$value": "{color.ui-8.background-tinted}"
       },
       "surface-default": {
         "$type": "color",
-        "$value": "{color.accent.surface-default}"
+        "$value": "{color.ui-8.surface-default}"
       },
       "surface-tinted": {
         "$type": "color",
-        "$value": "{color.accent.surface-tinted}"
+        "$value": "{color.ui-8.surface-tinted}"
       },
       "surface-hover": {
         "$type": "color",
-        "$value": "{color.accent.surface-hover}"
+        "$value": "{color.ui-8.surface-hover}"
       },
       "surface-active": {
         "$type": "color",
-        "$value": "{color.accent.surface-active}"
+        "$value": "{color.ui-8.surface-active}"
       },
       "border-subtle": {
         "$type": "color",
-        "$value": "{color.accent.border-subtle}"
+        "$value": "{color.ui-8.border-subtle}"
       },
       "border-default": {
         "$type": "color",
-        "$value": "{color.accent.border-default}"
+        "$value": "{color.ui-8.border-default}"
       },
       "border-strong": {
         "$type": "color",
-        "$value": "{color.accent.border-strong}"
+        "$value": "{color.ui-8.border-strong}"
       },
       "text-subtle": {
         "$type": "color",
-        "$value": "{color.accent.text-subtle}"
+        "$value": "{color.ui-8.text-subtle}"
       },
       "text-default": {
         "$type": "color",
-        "$value": "{color.accent.text-default}"
+        "$value": "{color.ui-8.text-default}"
       },
       "base-default": {
         "$type": "color",
-        "$value": "{color.accent.base-default}"
+        "$value": "{color.ui-8.base-default}"
       },
       "base-hover": {
         "$type": "color",
-        "$value": "{color.accent.base-hover}"
+        "$value": "{color.ui-8.base-hover}"
       },
       "base-active": {
         "$type": "color",
-        "$value": "{color.accent.base-active}"
+        "$value": "{color.ui-8.base-active}"
       },
       "base-contrast-subtle": {
         "$type": "color",
-        "$value": "{color.accent.base-contrast-subtle}"
+        "$value": "{color.ui-8.base-contrast-subtle}"
       },
       "base-contrast-default": {
         "$type": "color",
-        "$value": "{color.accent.base-contrast-default}"
+        "$value": "{color.ui-8.base-contrast-default}"
       }
     }
   }
