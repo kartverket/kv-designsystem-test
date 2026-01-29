@@ -2,7 +2,7 @@
   "theme": {
     "font-family": {
       "$type": "fontFamilies",
-      "$value": "Inter"
+      "$value": "Mulish"
     },
     "font-weight": {
       "medium": {
