@@ -36,6 +36,9 @@
           "danger": "#d72800"
         }
       },
+      "typography": {
+        "fontFamily": "Mulish"
+      },
       "borderRadius": 4
 		}
 	}

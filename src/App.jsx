@@ -3,7 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import "@digdir/designsystemet-css"; /* imported only once */
-import "@digdir/designsystemet-css/theme"; /* or your theme */
+// import "@digdir/designsystemet-css/theme"; /* or your theme */
+import "../design-tokens-build/theme.css"
 
 import { Button } from "@digdir/designsystemet-react";
 import { Card } from "@digdir/designsystemet-react";
