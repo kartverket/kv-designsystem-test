@@ -1,11 +1,10 @@
 {
 	"$schema": "https://designsystemet.no/schemas/cli/1.9.0.json",
-	"outDir": "./design-tokens",
-	"clean": true,
-	"themes": {
-		"theme": {
-			"colors": {
-				"main": { 
+	  "outDir": "./design-tokens",
+  "themes": {
+    "theme": {
+      "colors": {
+        "main": {
           "brand-green": "#1A833B",
           "brand-blue": "#1A589F",
           "brand-lightblue": "#439CCD",
@@ -14,7 +13,8 @@
           "brand-yellow": "#FFC600",
           "brand-orange": "#fa782d",
           "brand-red": "#d72800",
-          "brand-purple": "#8c4799" },
+          "brand-purple": "#8c4799"
+        },
         "support": {
           "ui-1": "#1a833b",
           "ui-2": "#1a589f",
@@ -26,20 +26,17 @@
           "ui-8": "#d72800",
           "ui-9": "#8c4799"
         },
-				"neutral": "#403f3f"
-			},
-			"overrides": {
+        "neutral": "#403f3f"
+      },
+      "overrides": {
         "severity": {
-          "info": "#1a589f",
+          "info": "#439CCD",
           "success": "#1a833b",
           "warning": "#ffc600",
           "danger": "#d72800"
         }
       },
-      "typography": {
-        "fontFamily": "Mulish"
-      },
       "borderRadius": 4
-		}
-	}
+    }
+  }
 }
