@@ -2,7 +2,7 @@
 	"$schema": "https://designsystemet.no/schemas/cli/1.9.0.json",
 	  "outDir": "./design-tokens",
   "themes": {
-    "theme": {
+    "green": {
       "colors": {
         "main": {
           "brand-green": "#1A833B",
@@ -35,6 +35,48 @@
           "warning": "#ffc600",
           "danger": "#d72800"
         }
+      },
+      "typography": {
+        "fontFamily": "Mulish"
+      },
+      "borderRadius": 4
+    },
+    "blue": {
+      "colors": {
+        "main": {
+          "brand-green": "#1A833B",
+          "brand-blue": "#1A589F",
+          "brand-lightblue": "#439CCD",
+          "brand-grey": "#403F3F",
+          "brand-white": "#ffffff",
+          "brand-yellow": "#FFC600",
+          "brand-orange": "#fa782d",
+          "brand-red": "#d72800",
+          "brand-purple": "#8c4799"
+        },
+        "support": {
+          "ui-1": "#1a589f",
+          "ui-2": "#1a833b",
+          "ui-3": "#439ccd",
+          "ui-4": "#403f3f",
+          "ui-5": "#ffffff",
+          "ui-6": "#ffc600",
+          "ui-7": "#fa782d",
+          "ui-8": "#d72800",
+          "ui-9": "#8c4799"
+        },
+        "neutral": "#403f3f"
+      },
+      "overrides": {
+        "severity": {
+          "info": "#439CCD",
+          "success": "#1a833b",
+          "warning": "#ffc600",
+          "danger": "#d72800"
+        }
+      },
+      "typography": {
+        "fontFamily": "Mulish"
       },
       "borderRadius": 4
     }
