@@ -39,19 +39,9 @@
     "group": "Size"
   },
   {
-    "id": "dc151a5a2b81059b41f6ee78dbae34c114ce1528",
-    "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:6",
-    "name": "theme",
-    "selectedTokenSets": {
-      "themes/theme": "enabled"
-    },
-    "group": "Theme"
-  },
-  {
     "id": "bc74f4f071a5a33f00ab88a6d6385b5e6638b86c",
     "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:7",
+    "$figmaModeId": "40960:6",
     "name": "green",
     "selectedTokenSets": {
       "themes/green": "enabled"
@@ -61,7 +51,7 @@
   {
     "id": "4c9a82ce72ca2519f38d0af0abbb4cecb9fceca9",
     "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:8",
+    "$figmaModeId": "40960:7",
     "name": "blue",
     "selectedTokenSets": {
       "themes/blue": "enabled"
@@ -74,7 +64,6 @@
     "$figmaModeId": "36248:2",
     "name": "Primary",
     "selectedTokenSets": {
-      "primitives/modes/typography/primary/theme": "enabled",
       "primitives/modes/typography/primary/green": "enabled",
       "primitives/modes/typography/primary/blue": "enabled"
     },
@@ -86,7 +75,6 @@
     "$figmaModeId": "36248:3",
     "name": "Secondary",
     "selectedTokenSets": {
-      "primitives/modes/typography/secondary/theme": "enabled",
       "primitives/modes/typography/secondary/green": "enabled",
       "primitives/modes/typography/secondary/blue": "enabled"
     },
@@ -95,7 +83,6 @@
   {
     "name": "Dark",
     "selectedTokenSets": {
-      "primitives/modes/color-scheme/dark/theme": "enabled",
       "primitives/modes/color-scheme/dark/green": "enabled",
       "primitives/modes/color-scheme/dark/blue": "enabled"
     },
@@ -107,7 +94,6 @@
   {
     "name": "Light",
     "selectedTokenSets": {
-      "primitives/modes/color-scheme/light/theme": "enabled",
       "primitives/modes/color-scheme/light/green": "enabled",
       "primitives/modes/color-scheme/light/blue": "enabled"
     },
