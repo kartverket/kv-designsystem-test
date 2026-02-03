@@ -36,9 +36,6 @@
           "danger": "#d72800"
         }
       },
-      "typography": {
-        "fontFamily": "Mulish"
-      },
       "borderRadius": 4
     },
     "blue": {
@@ -74,9 +71,6 @@
           "warning": "#ffc600",
           "danger": "#d72800"
         }
-      },
-      "typography": {
-        "fontFamily": "Mulish"
       },
       "borderRadius": 4
     }
