@@ -50,7 +50,7 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => {
-      const stylesheet = `/${context.globals.theme}.css`; // Serve as static file from the public directory.
+      const stylesheet = `/style/${context.globals.theme}.css`; // Serve as static file from the public directory.
       return (
         <>
           <link rel="stylesheet" href={stylesheet} />
