@@ -5,33 +5,18 @@
     "green": {
       "colors": {
         "main": {
-          "brand-green": "#1A833B",
-          "brand-blue": "#1A589F",
-          "brand-lightblue": "#439CCD",
-          "brand-grey": "#403F3F",
-          "brand-white": "#ffffff",
-          "brand-yellow": "#FFC600",
-          "brand-orange": "#fa782d",
-          "brand-red": "#d72800",
-          "brand-purple": "#8c4799"
+          "accent": "#1a833b"
         },
         "support": {
-          "ui-1": "#1a833b",
-          "ui-2": "#1a589f",
-          "ui-3": "#439ccd",
-          "ui-4": "#403f3f",
-          "ui-5": "#ffffff",
-          "ui-6": "#ffc600",
-          "ui-7": "#fa782d",
-          "ui-8": "#d72800",
-          "ui-9": "#8c4799"
+          "support-1": "#fa782d",
+          "support-2": "#8c4799"
         },
-        "neutral": "#403f3f"
+        "neutral": "#171717"
       },
       "overrides": {
         "severity": {
-          "info": "#439CCD",
-          "success": "#1a833b",
+          "info": "#439ccd",
+          "success": "#3AA426",
           "warning": "#ffc600",
           "danger": "#d72800"
         }
@@ -41,33 +26,18 @@
     "blue": {
       "colors": {
         "main": {
-          "brand-green": "#1A833B",
-          "brand-blue": "#1A589F",
-          "brand-lightblue": "#439CCD",
-          "brand-grey": "#403F3F",
-          "brand-white": "#ffffff",
-          "brand-yellow": "#FFC600",
-          "brand-orange": "#fa782d",
-          "brand-red": "#d72800",
-          "brand-purple": "#8c4799"
+          "accent": "#1A589F"
         },
         "support": {
-          "ui-1": "#1a589f",
-          "ui-2": "#1a833b",
-          "ui-3": "#439ccd",
-          "ui-4": "#403f3f",
-          "ui-5": "#ffffff",
-          "ui-6": "#ffc600",
-          "ui-7": "#fa782d",
-          "ui-8": "#d72800",
-          "ui-9": "#8c4799"
+          "support-1": "#fa782d",
+          "support-2": "#8c4799"
         },
-        "neutral": "#403f3f"
+        "neutral": "#171717"
       },
       "overrides": {
         "severity": {
-          "info": "#439CCD",
-          "success": "#1a833b",
+          "info": "#439ccd",
+          "success": "#3AA426",
           "warning": "#ffc600",
           "danger": "#d72800"
         }
