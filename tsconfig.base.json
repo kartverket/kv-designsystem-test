@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2022", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "paths": {
+      "@kv-design/react": ["./@kv-design/react/src/index.ts"],
+      "@kv-design/theme": ["./@kv-design/theme/src/index.ts"],
+      "@kv-design/icons": ["./@kv-design/icons/src/index.ts"],
+      "@kv-design/icons/metadata": ["./@kv-design/icons/src/metadata.ts"],
+      "@kv-design/symbols": ["./@kv-design/symbols/generated-src/index.ts"],
+      "@kv-design/symbols/metadata": [
+        "./@kv-design/symbols/generated-src/metadata.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
