@@ -1,0 +1,18 @@
+import {
+  Link as DigdirLink,
+  type LinkProps as DigdirLinkProps,
+} from '@digdir/designsystemet-react';
+import type {
+  ComponentRef,
+  ForwardRefExoticComponent,
+  RefAttributes,
+} from 'react';
+
+type LinkProps = Omit<DigdirLinkProps, 'data-color'>;
+
+const Link = DigdirLink as ForwardRefExoticComponent<
+  LinkProps & RefAttributes<ComponentRef<typeof DigdirLink>>
+>;
+
+export type { LinkProps };
+export { Link };
