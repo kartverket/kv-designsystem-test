@@ -22,7 +22,6 @@ const config: StorybookConfig = {
       shouldExtractLiteralValuesFromEnum: true,
       // Removes "undefined" as an option in Storybook controls for optional properties
       shouldRemoveUndefinedFromOptional: true,
-      shouldExtractValuesFromUnion: true,
     },
   },
 };
