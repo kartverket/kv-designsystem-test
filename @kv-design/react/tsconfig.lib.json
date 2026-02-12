@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "types": ["vite/client", "../../design-tokens-build/types.d.ts"]
+    "types": ["vite/client", "../../design-tokens-build/types.d.ts", "@digdir/designsystemet-react/react-types"]
   },
   "exclude": [
     "**/*.spec.ts",
