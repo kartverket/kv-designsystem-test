@@ -16,7 +16,7 @@
       "@kv-design/symbols": ["../symbols/generated-src/index.ts"],
       "@kv-design/symbols/metadata": ["../symbols/generated-src/metadata.ts"]
     },
-    "types": ["vite/client", "../theme/dist/types", "./dist/html"]
+    "types": ["vite/client", "../../design-tokens-build/types.d.ts", "@digdir/designsystemet-react/react-types"]
   },
   "files": [],
   "exclude": [
