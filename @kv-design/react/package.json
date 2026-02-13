@@ -18,35 +18,32 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test-storybook": "vitest --project=storybook",
-    "chromatic": "npx chromatic"
+    "chromatic": "npx chromatic --project_token=CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
-    "@digdir/designsystemet-css": "^1.11.0",
-    "@digdir/designsystemet-react": "^1.11.0",
-    "@digdir/designsystemet-types": "^1.11.0"
+    "@digdir/designsystemet-css": "catalog:",
+    "@digdir/designsystemet-react": "catalog:",
+    "@digdir/designsystemet-types": "catalog:"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^5.0.1",
-    "@storybook/addon-vitest": "^10.2.8",
-    "@storybook/addon-a11y": "^10.2.8",
-    "@storybook/addon-docs": "^10.2.8",
-    "@storybook/addon-onboarding": "^10.2.8",
-    "@storybook/react-vite": "^10.2.8",
-    "@types/react": "^19.2.5",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "vite": "npm:rolldown-vite@7.2.5",
-    "storybook": "^10.2.8",
-    "eslint-plugin-storybook": "^10.2.8",
-    "vitest": "^4.0.17",
-    "playwright": "^1.57.0",
-    "@vitest/browser-playwright": "^4.0.17",
-    "@vitest/coverage-v8": "^4.0.17",
-    "chromatic": "^13.3.5"
-  },
-  "overrides": {
-    "vite": "npm:rolldown-vite@7.2.5"
+    "@chromatic-com/storybook": "catalog:",
+    "@storybook/addon-a11y": "catalog:",
+    "@storybook/addon-docs": "catalog:",
+    "@storybook/addon-onboarding": "catalog:",
+    "@storybook/addon-vitest": "catalog:",
+    "@storybook/react-vite": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "@vitest/browser-playwright": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "chromatic": "catalog:",
+    "eslint-plugin-storybook": "catalog:",
+    "playwright": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "storybook": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
   }
 }
