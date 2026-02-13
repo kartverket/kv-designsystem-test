@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "eslint-plugin-storybook": "^10.2.8",
-    "playwright": "^1.57.0",
-    "typescript": "^5.9.3"
+    "@eslint/js": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-react-refresh": "catalog:",
+    "eslint-plugin-storybook": "catalog:",
+    "playwright": "catalog:",
+    "typescript": "catalog:"
   }
 }
