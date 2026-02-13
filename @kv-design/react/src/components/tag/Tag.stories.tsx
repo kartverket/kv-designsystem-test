@@ -3,6 +3,7 @@ import { Tag } from './Tag';
 
 const meta = {
   component: Tag,
+  parameters: {layout: 'centered'},
 } satisfies Meta<typeof Tag>;
 
 export default meta;

@@ -3,6 +3,7 @@ import { Checkbox } from './Checkbox';
 
 const meta = {
   component: Checkbox,
+  parameters: {layout: 'centered'},
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;

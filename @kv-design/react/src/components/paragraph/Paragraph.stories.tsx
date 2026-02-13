@@ -13,4 +13,11 @@ export const Preview: Story = {
   args: {
     children: 'Paragraph',
   },
+  render: (args) => (
+    <Paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed sodales lacus. 
+      Nullam varius erat sit amet arcu fringilla eleifend. Aenean dictum libero leo, 
+      vitae consequat augue luctus vel.
+    </Paragraph>
+  ),
 };

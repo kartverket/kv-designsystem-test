@@ -3,6 +3,7 @@ import { Input } from './Input';
 
 const meta = {
   component: Input,
+  parameters: {layout: 'centered'},
 } satisfies Meta<typeof Input>;
 
 export default meta;

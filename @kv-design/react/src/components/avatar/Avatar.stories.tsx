@@ -3,6 +3,7 @@ import { Avatar } from './Avatar';
 
 const meta = {
   component: Avatar,
+  parameters: {layout: 'centered'},
 } satisfies Meta<typeof Avatar>;
 
 export default meta;

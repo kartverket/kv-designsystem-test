@@ -5,10 +5,12 @@ const meta = {
   component: Heading,
   tags: ['alfa', 'digdir'],
   parameters: {
+    layout: 'centered',
     componentOrigin: {
       originator: 'digdir',
     },
   },
+  
   argTypes: {
     'data-size': {
       options: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
@@ -23,6 +25,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Heading',
+    children: 'Dette er en overskrift',
   },
 };
