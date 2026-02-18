@@ -3,6 +3,7 @@ import { Label } from './Label';
 
 const meta = {
   component: Label,
+  parameters: {layout: 'centered'},
   title: 'Components/Typography/Label',
 } satisfies Meta<typeof Label>;
 

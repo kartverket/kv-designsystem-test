@@ -3,6 +3,7 @@ import { Chip } from './Chip';
 
 const meta = {
   component: Chip.Radio,
+  parameters: {layout: 'centered'},
 } satisfies Meta<typeof Chip.Radio>;
 
 export default meta;

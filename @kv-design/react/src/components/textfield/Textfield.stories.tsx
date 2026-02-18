@@ -3,6 +3,7 @@ import { Textfield } from './Textfield';
 
 const meta = {
   component: Textfield,
+  parameters: {layout: 'centered'},
 } satisfies Meta<typeof Textfield>;
 
 export default meta;

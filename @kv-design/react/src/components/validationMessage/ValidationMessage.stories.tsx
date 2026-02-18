@@ -3,6 +3,7 @@ import { ValidationMessage } from './ValidationMessage';
 
 const meta = {
   component: ValidationMessage,
+  parameters: {layout: 'centered'},
   title: 'Components/Typography/ValidationMessage',
 } satisfies Meta<typeof ValidationMessage>;
 

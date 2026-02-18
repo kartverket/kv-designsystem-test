@@ -3,6 +3,7 @@ import { Radio } from './Radio';
 
 const meta = {
   component: Radio,
+  parameters: {layout: 'centered'},
 } satisfies Meta<typeof Radio>;
 
 export default meta;
