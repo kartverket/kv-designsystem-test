@@ -1,0 +1,19 @@
+{
+  "name": "@kv-design/tokens",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./dist/green.css",
+    "./*": "./dist/*"
+  },
+  "scripts": {
+    "create": "designsystemet tokens create",
+    "build": "pnpm clean && designsystemet tokens build -t ./src -o ./dist",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "@digdir/designsystemet": "catalog:",
+    "rimraf": "catalog:"
+  }
+}

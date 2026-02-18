@@ -1,0 +1,13 @@
+{
+  "name": "@internal/build-tools",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/micromatch": "catalog:",
+    "@types/yargs": "catalog:",
+    "micromatch": "catalog:",
+    "tsx": "catalog:",
+    "yargs": "catalog:"
+  }
+}
