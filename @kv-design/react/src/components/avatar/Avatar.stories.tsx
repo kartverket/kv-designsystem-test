@@ -14,11 +14,12 @@ const profileImage = '';
 export const Preview: Story = {
   args: { 
     'aria-label': 'Ola Nordmann',
-    children: '',
+    // children: '',
    },
   render: (args) => (
     <>
     <Avatar {...args}>
+      {/* TODO: Remove this? Add an image or keep it with default icon? */}
       {/* <img src={profileImage} alt="" /> */}
     </Avatar>
     </>
