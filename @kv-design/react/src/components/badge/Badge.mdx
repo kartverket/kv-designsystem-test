@@ -1,0 +1,83 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as BadgeStories from './Badge.stories';
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+`Badge` er en ikke-interaktiv komponent som viser status med eller utan tall.
+
+**Bruk `Badge` når**
+
+- det er tall som viser antall nye meldinger, varsel eller oppgaver
+- du skal formulere statusindikatorer i form av en sirkel, som for eksempel viser om en person er opptatt, borte eller aktiv
+
+**Unngå `Badge` når**
+
+- du trenger tekst, bruk [`Tag`](/docs/components-tag--docs) i stedet
+- den skal utføre interaktive handlinger, bruk [`Chip`](/docs/components-chip--docs) eller [`Button`](/docs/components-button--docs) i stedet
+
+## Slik bruker vi Badge
+
+<Primary />
+<Controls />
+
+```tsx
+import { Badge } from './Badge';
+
+/* Inline */
+<Badge />
+
+/* Flytende over element */
+<Badge.Position>
+  <Badge />
+  <Avatar />
+</Badge.Position>
+```
+
+## Variantar av Badge
+
+### Farger
+
+`Badge` kan brukes med neutral og varselfargene. Bruk `danger` til notifikasjoner på f.eks. `ikon` og `avatar`, siden rød er en allerede godt etablert indikasjon for dette. For inline notifikasjoner kan du også velge mellom de andre fargene.
+
+Du kan velge mellom variantene `base` og `tinted`.
+
+<Canvas of={BadgeStories.ColorVariants} />
+
+### Vise status
+
+Dersom du ikke sender inn `count`, blir bare en sirkel vist. Dette kan brukes for å vise status.
+
+<Canvas of={BadgeStories.Status} />
+
+## Eksempler
+
+### Inline
+
+`Badge` kan plasseres ved siden av (inline) annen tekst eller komponenter.
+
+<Canvas of={BadgeStories.InTabs} />
+
+### Flytende
+
+`Badge` kan plasseres flytende over andre elementer.
+
+<Canvas of={BadgeStories.Floating} />
+
+## Retningslinjer
+
+Bruk `Badge` for å tiltrekke oppmerksomhet mot statuser, varsler eller tall. 
+
+## Tekst i Badge
+
+Denne komponenten er ikke ment for tekst. Om du trenger å vise ord eller korte fraser, bør du heller bruke `Tag`.
+
+## Tilgjengeligheit
+
+[Badge gir ingen informasjon til skjermlesere](https://github.com/digdir/designsystemet/issues/3560).
+Sørg derfor for at elementet som `Badge` er plassert over, inneholder den samme informasjonen ved å bruke `aria-label`.
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

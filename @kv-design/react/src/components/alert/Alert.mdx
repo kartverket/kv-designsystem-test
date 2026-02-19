@@ -5,7 +5,7 @@ import {
   Controls,
   Primary,
 } from '@storybook/addon-docs/blocks';
-import * as AlertStories from './Alert.stories';
+import * as AlertStories from './Alert.stories.tsx';
 
 <Meta of={AlertStories} />
 
@@ -33,7 +33,7 @@ Vi bruker `Alert` til å gi brukeren informasjon som det er ekstra viktig at de 
 <Controls />
 
 ```tsx
-import { Alert } from '@kv-design/react';
+import { Alert } from './Alert';
 
 <Alert {...args}>
     <Heading 
@@ -142,23 +142,23 @@ For mer veiledning om hvordan du skriver tydelig og effektiv tekst i varsler, se
 Ut av boksen blir `Alert` presentert for skjermleserbrukere som vanlig statisk innhold. For varsler som oppstår dynamisk kan du selv definere en _live region_ for skjermlesere, men vær opperksom på hvilken oppførsel dette medfører.
 Du kan lese mer om dette i [MDN sin dokumentasjon om ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions).
 
-Legg spesielt merke til at live-regionen — altså elementet med attributt `role="alert"`, `role="status"` eller `aria-live` med verdi `"assertive"` eller `"polite"` — må eksistere på siden **før** varselet som skal leses opp.
+Legg spesielt merke til at live-regionen — altså elementet med attributt `role='alert'`, `role='status'` eller `aria-live` med verdi `'assertive'` eller `'polite'` — må eksistere på siden **før** varselet som skal leses opp.
 
-For dynamiske varsler er det mest aktuelt å bruke `role="alert"` for kritiske varsel eller `role="status"` for mindre kritiske vasel, som beskrevet i [mønsteret for systemvarsler](https://www.designsystemet.no/monstre/systemvarsler#niv%C3%A5er-for-dynamiske-varsler). Se også [alert role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role) og [status role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/status_role) hos MDN.
+For dynamiske varsler er det mest aktuelt å bruke `role='alert'` for kritiske varsel eller `role='status'` for mindre kritiske vasel, som beskrevet i [mønsteret for systemvarsler](https://www.designsystemet.no/monstre/systemvarsler#niv%C3%A5er-for-dynamiske-varsler). Se også [alert role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role) og [status role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/status_role) hos MDN.
 
-**Ikke** kombiner `role="alert"` og `aria-live`, siden [dette fører at varselet leses opp dobbelt i VoiceOver](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions#:~:text=adding%20both%20aria%2Dlive%20and%20role=%22alert%22%20causes%20double%20speaking%20issues%20in%20VoiceOver%20on%20iOS).
+**Ikke** kombiner `role='alert'` og `aria-live`, siden [dette fører at varselet leses opp dobbelt i VoiceOver](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions#:~:text=adding%20both%20aria%2Dlive%20and%20role=%22alert%22%20causes%20double%20speaking%20issues%20in%20VoiceOver%20on%20iOS).
 
-Du **bør** kombinere `role="status"` og `aria-live="polite"` [for å maksimere kompatibilitet](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions#roles_with_implicit_live_region_attributes).
+Du **bør** kombinere `role='status'` og `aria-live='polite'` [for å maksimere kompatibilitet](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions#roles_with_implicit_live_region_attributes).
 
 #### Ikke gjør dette
 
-Ikke definer en _live region_ direkte på `Alert`. For statiske varsler har det ingen effekt, og for dynamiske varsler vil det ikke bli tolket riktig av alle skjermlesere, selv om mange skjermlesere har spesialhåndtering som går ut over ARIA-spesifikasjonen for akkurat `role="alert"`.
+Ikke definer en _live region_ direkte på `Alert`. For statiske varsler har det ingen effekt, og for dynamiske varsler vil det ikke bli tolket riktig av alle skjermlesere, selv om mange skjermlesere har spesialhåndtering som går ut over ARIA-spesifikasjonen for akkurat `role='alert'`.
 
 {/* <Source of={AlertStories.WrongLiveRegion} dark /> */}
 
 #### Gjør dette for dynamiske varsler
 
-Definer en _live region_, f.eks. med `role="alert"`, for varsler som kan dukke opp dynamisk underveis som følge av brukerens handlinger eller andre faktorer. Dette vil også fungere på samme måte med `role="status"`.
+Definer en _live region_, f.eks. med `role='alert'`, for varsler som kan dukke opp dynamisk underveis som følge av brukerens handlinger eller andre faktorer. Dette vil også fungere på samme måte med `role='status'`.
 
 {/* <Canvas of={AlertStories.CorrectLiveRegion} /> */}
 

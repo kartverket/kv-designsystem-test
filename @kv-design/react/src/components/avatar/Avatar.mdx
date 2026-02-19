@@ -1,5 +1,5 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as AvatarStories from './Avatar.stories';
+import * as AvatarStories from './Avatar.stories.tsx';
 
 <Meta of={AvatarStories} />
 
@@ -22,17 +22,17 @@ import * as AvatarStories from './Avatar.stories';
 <Controls />
 
 ```tsx
-import { Avatar } from '@udir-design/react';
+import { Avatar } from './Avatar';
 
 /* Med standard brukerikon */
-<Avatar aria-label="Ola Nordmann" />
+<Avatar aria-label='Ola Nordmann' />
 
 /* Med initialer */
-<Avatar aria-label="Ola Nordmann">ON</Avatar>
+<Avatar aria-label='Ola Nordmann'>ON</Avatar>
 
 /* Med bilde */
-<Avatar aria-label="Ola Nordmann">
-  <img src="..." />
+<Avatar aria-label='Ola Nordmann'>
+  <img src='...' />
 </Avatar>
 
 /* Sammen med synlig tekst */
@@ -46,40 +46,42 @@ import { Avatar } from '@udir-design/react';
 
 ### Innhold
 
-`Avatar` kan inneholde et ikon, et bilde, eller initialer. Ikon og bilde legger du inn som `children` i komponenten. Innholdet får automatisk `aria-hidden="true"` for å unngå dobbel informasjon.
+`Avatar` kan inneholde et ikon, et bilde, eller initialer. Ikon og bilde legger du inn som `children` i komponenten. Innholdet får automatisk `aria-hidden='true'` for å unngå dobbel informasjon.
 Initialer sendes inn i `initials`-propen. Det vil fungere som en fallback dersom bildet ikke lastes. Et standard ikon vises dersom det ikke sendes inn `children` eller `initials`.
 
-{/* <Canvas of={AvatarStories.Content} /> */}
+<Canvas of={AvatarStories.Content} />
 
 ### Størrelser
 
 `Avatar` har størrelser fra xs til lg. Tekst og ikon vil skalere, men det kan hende ikonet ditt må tilpasses.
 
-{/* <Canvas of={AvatarStories.Sizes} /> */}
+<Canvas of={AvatarStories.Sizes} />
 
 ### Farger
 
 Du kan bruke alle temafargene på `Avatar`.
 
-{/* <Canvas of={AvatarStories.ColorVariants} /> */}
+<Canvas of={AvatarStories.ColorVariants} />
 
 ### Varianter 
 
 {/* TODO: Keep this or decide on a fixed version? */}
 `Avatar` kan være rund eller kvadratisk. Bruk dem konsekvent i hele løsningen.
 
+<Canvas of={AvatarStories.Shapes} />
+
 ### Kombinasjoner
 
 Du kan kombinere `Avatar` med andre komponenter, for eksempel integrere den i en `Dropdown` eller sammen med en `Badge` for å indikere status.
 
-{/* <Canvas of={AvatarStories.InDropdown} /> */}
+<Canvas of={AvatarStories.InDropdown} />
 
 ### Som lenke
 
 Legg lenker eller knapper rundt `Avatar` for å gjøre den klikkbar.
 Du må selv sette styling dersom du skal ha en interaktiv `Avatar`.
 
-{/* <Canvas of={AvatarStories.AsLink} /> */}
+<Canvas of={AvatarStories.AsLink} />
 
 ## Retningslinjer
 
@@ -95,9 +97,9 @@ Du må selv sette styling dersom du skal ha en interaktiv `Avatar`.
 
 ## Tilgjengelighet
 
-`Avatar` må enten ha en `aria-label` som forklarer hvem eller hva avataren representerer, eller ha `aria-hidden` og synlig tekst som formidler den samme informasjonen. Ikke spesifiser i `aria-label` at det er et bilde, skjermleseren formidler dette automatisk. Det holder å bruke navnet, som for eksempel `aria-label="Ola Nordmann"`.
+`Avatar` må enten ha en `aria-label` som forklarer hvem eller hva avataren representerer, eller ha `aria-hidden` og synlig tekst som formidler den samme informasjonen. Ikke spesifiser i `aria-label` at det er et bilde, skjermleseren formidler dette automatisk. Det holder å bruke navnet, som for eksempel `aria-label='Ola Nordmann'`.
 
-Bilder, og andre `children`, får automatisk `aria-hidden="true"` for å unngå dobbel informasjon.
+Bilder, og andre `children`, får automatisk `aria-hidden='true'` for å unngå dobbel informasjon.
 
 ## Kilde
 
