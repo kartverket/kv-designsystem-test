@@ -1,11 +1,13 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as AvatarStories from './Avatar.stories.tsx';
+import * as AvatarStories from './Avatar.stories';
 
 <Meta of={AvatarStories} />
 
 # Avatar
 
 `Avatar` viser et bilde, initialer eller et ikon for en bruker eller profil.
+
+<Primary />
 
 **Bruk `Avatar` når**
 
@@ -15,32 +17,6 @@ import * as AvatarStories from './Avatar.stories.tsx';
 
 - noe annet enn en person eller enhet skal representeres, for eksempel et dokument. Bruk heller ikoner eller andre visuelle symboler
 - det brukes rent visuelt, uten funksjon eller mening
-
-## Slik bruker du Avatar
-
-<Primary />
-<Controls />
-
-```tsx
-import { Avatar } from './Avatar';
-
-/* Med standard brukerikon */
-<Avatar aria-label='Ola Nordmann' />
-
-/* Med initialer */
-<Avatar aria-label='Ola Nordmann'>ON</Avatar>
-
-/* Med bilde */
-<Avatar aria-label='Ola Nordmann'>
-  <img src='...' />
-</Avatar>
-
-/* Sammen med synlig tekst */
-<>
-  <Avatar aria-hidden>ON</Avatar>
-  <span>Ola Nordmann</span>
-</>
-```
 
 ## Eksempler
 

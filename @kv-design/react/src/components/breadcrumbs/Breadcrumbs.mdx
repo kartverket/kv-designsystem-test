@@ -1,0 +1,71 @@
+import { Meta, Controls, Primary, Canvas } from '@storybook/addon-docs/blocks';
+import * as BreadcrumbsStories from './Breadcrumbs.stories';
+
+<Meta of={BreadcrumbsStories} />
+
+# Breadcrumbs
+
+Vi bruker `Breadcrumbs` til å hjelpe brukerne å forstå hvor de befinner seg i en hierarkisk struktur. Brukerne kan enkelt navigere tilbake til tidligere nivåer i strukturen.
+
+<Primary />
+
+**Bruk `Breadcrumbs` når**
+
+- løsningen har tre eller flere nivåer
+- brukerne kan ha behov for å gå tilbake til et tidligere nivå
+- det er viktig at brukerne raskt ser hvor i strukturen de befinner seg
+
+**Unngå `Breadcrumbs` når**
+- navigasjonen er lineær, for eksempel i en stegvis arbeidsflyt eller et skjema
+- løsningen ikke har flere nivåer, eller kun ett nivå over aktuell side - bruk heller en vanlig lenke tilbake
+
+
+## Eksempler
+
+### Sti eller tilbake-knapp avhengig av skjermstørrelse
+
+Hvis komponenten settes opp med både `Breadcrumbs.Link` og `Breadcrumbs.List`, vises:
+- en tilbake-knapp på skjermer smalere enn 650 px
+- en full sti på bredere skjermer
+
+
+Dette gir god plassutnyttelse og gjør navigasjonen enkel på både mobil og større skjermer.
+
+<Canvas of={BreadcrumbsStories.Preview} />
+
+### Kun sti
+
+Hvis du kun legger inn `Breadcrumbs.List`, vises komponenten som en tradisjonell sti.
+
+<Canvas of={BreadcrumbsStories.ListOnly} />
+
+### Kun tilbake-knapp
+
+Hvis du kun legger inn `Breadcrumbs.Link`, vises denne som en tilbake-knapp. Dette kan være nyttig på små flater eller der løsningen ellers blir trang. Vær konsekvent - ikke bland knapp og sti i samme kontekst.
+
+<Canvas of={BreadcrumbsStories.BackOnly} />
+
+## Retningslinjer
+
+### Plassering
+- Plasser breadcrumbs øverst til venstre på siden.
+- Legg den under hovedmeny og toppnavigasjon, men over sidetittelen.
+
+Denne plasseringen gjør komponenten lett å oppdage uten å forstyrre annet innhold.
+
+
+## Tekst i Breadcrumbs
+
+Bruk korte og tydelige navn som samsvarer med overskriftene og navigasjonen på siden. Målet er at brukerne umiddelbart skal kjenne igjen nivåene i strukturen.
+
+## Tilgjengelighet
+
+For å sikre god tilgjengelighet:
+- Den siste lenken skal tilsvare den nåværende siden. Den vises som tekst, men kodes som lenke med aria-current='page'.
+- Sørg for at det ikke ligger interaktive elementer for tett på komponenten.
+- Pass på at det ikke finnes skjulte elementer som kan forstyrre navigasjonen.
+- `SkipLink` skal hoppe over `Breadcrumbs`, slik at tastaturnavigasjon ikke krever unødige tastetrykk.
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

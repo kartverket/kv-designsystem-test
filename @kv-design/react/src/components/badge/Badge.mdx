@@ -7,6 +7,8 @@ import * as BadgeStories from './Badge.stories';
 
 `Badge` er en ikke-interaktiv komponent som viser status med eller utan tall.
 
+<Primary />
+
 **Bruk `Badge` når**
 
 - det er tall som viser antall nye meldinger, varsel eller oppgaver
@@ -17,23 +19,6 @@ import * as BadgeStories from './Badge.stories';
 - du trenger tekst, bruk [`Tag`](/docs/components-tag--docs) i stedet
 - den skal utføre interaktive handlinger, bruk [`Chip`](/docs/components-chip--docs) eller [`Button`](/docs/components-button--docs) i stedet
 
-## Slik bruker vi Badge
-
-<Primary />
-<Controls />
-
-```tsx
-import { Badge } from './Badge';
-
-/* Inline */
-<Badge />
-
-/* Flytende over element */
-<Badge.Position>
-  <Badge />
-  <Avatar />
-</Badge.Position>
-```
 
 ## Variantar av Badge
 

@@ -5,13 +5,15 @@ import {
   Controls,
   Primary,
 } from '@storybook/addon-docs/blocks';
-import * as AlertStories from './Alert.stories.tsx';
+import * as AlertStories from './Alert.stories';
 
 <Meta of={AlertStories} />
 
 # Alert
 
 Vi bruker `Alert` til å gi brukeren informasjon som det er ekstra viktig at de ser og forstår. Komponenten er designet for å fange brukernes oppmerksomhet. Teksten i varselet skal være kort og tydelig.
+
+<Primary />
 
 **Bruk `Alert` når**
 
@@ -26,28 +28,6 @@ Vi bruker `Alert` til å gi brukeren informasjon som det er ekstra viktig at de 
 - du skal gjøre brukeren oppmerksom på feil i enkeltfelt, bruk heller komponentens egen feilmelding [`ValidationMessage`](/docs/components-typography-validationMessage--docs)
 - varslene er statiske infobokser, bruk heller [`Card`](/docs/components-card--docs)
 - flere feilmeldinger skal oppsummeres, bruk heller [`ErrorSummary`](/docs/components-errorSummary--docs)
-
-## Slik bruker vi Alert
-
-<Primary />
-<Controls />
-
-```tsx
-import { Alert } from './Alert';
-
-<Alert {...args}>
-    <Heading 
-    level={2}
-    data-size='xs'
-    style={{
-        marginBottom: 'var(--ds-size-2)',
-    }}
-    >
-    Overskrift
-    </Heading>
-    En beskjed det er viktig at brukeren ser
-</Alert>;
-```
 
 ## Eksempler
 
