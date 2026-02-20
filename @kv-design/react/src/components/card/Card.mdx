@@ -1,0 +1,74 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as CardStories from './Card.stories';
+
+<Meta of={CardStories} />
+
+# Card
+
+Vi bruker `Card` for å samle og tydelig presentere informasjon eller oppgaver som hører sammen. Den finnes i to varianter og kan inneholde elementer som tekst, bilder, videoer, knapper, tekstfelt og lenker. 
+
+<Primary /> 
+
+Bruk `Card` når:
+
+- du vil gruppere innhold på en oversiktlig måte
+- du vil skille funksjonalitet eller valg skal fra resten av siden
+- brukeren skal få en rask visuell inngang til et tema eller en handling, som å navigere til en annen side
+
+Unngå `Card` når:
+
+- innholdet består av lange tekstblokker eller detaljerte forklaringer
+- budskapet er kritisk eller krever høy oppmerksomhet - bruk heller `Alert`
+
+## Eksempler
+
+### Farger og varianter
+
+`Card` støtter alle temafarger og finnes i variantene `default` og `tinted`. Fargevalg bør understøtte innholdets betydning og helheten i grensesnittet.
+
+### Med inndeling
+
+Et `Card` kan deles inn i flere seksjoner ved bruk av `Card.Block`. Seksjonene får skillelinjer, og kan inneholde media som bilder eller video som går helt ut i kanten. Merk at når du bruker `Card.Block` må alt innholdet ligge inni `Card.Block`, og ikke plasseres direkte i `Card`.
+
+<Canvas of={CardStories.Media} />
+
+### Lenkekort
+
+`Card` kan brukes som navigasjonskort for å føre brukeren videre til en ny side.
+
+Se kodeeksempler for anbefalt implementasjon for å sikre riktig semantikk. Legg inn lenken som en `a`-tag i `Heading`-elementet til `Card`. Hele `Card` blir da automatisk klikkbar, og skjermlesere får en [bedre brukeropplevelse enn dersom hele var en lenke](https://adrianroselli.com/2020/02/block-links-cards-clickable-regions-etc.html) fordi kun tittelen blir lest opp som lenketekst.
+
+<Canvas of={CardStories.WithLink} />
+
+### Kort som knapp
+
+Et `Card` kan rendres som en knapp når innholdet er kortfattet og skal åpne en dialog eller utføre en handling på samme side.
+Vær oppmerksom på at innholdet i kortet mister semantikk når det brukes på denne måten. Bruk derfor denne varianten med varsomhet.
+
+<Canvas of={CardStories.AsButton} />
+
+### Horisontal visning
+
+Du kan vise `Card` horisontalt når det passer bedre for innholdet eller layouten. Bruk `display: flex` eller `display: grid` for å legge `Card.Block` ved siden av hverandre.
+
+<Canvas of={CardStories.Horizontal} /> 
+
+## Retningslinjer
+
+`Card` er en fleksibel komponent som vi bruker til å strukturere og presentere innhold på en tydelig og visuelt avgrenset måte. Kortet kan inneholde ulike typer innhold, og brukes ofte i oversikter, navigasjon eller for å fremheve enkeltemner.
+
+Følg disse retningslinjene for å sikre at et `Card` er enkelt å bruke og forstå:
+- Et `Card` skal oppfattes som en selvstendig, avgrenset enhet. Innholdet skal være helhetlig og relatert til et enkelt emne eller en destinasjon.
+- `Card` skal kunne stå alene uten å være avhengig av omkringliggende elementer for kontekst. Det skal gi tilstrekkelig informasjon til å forstå det presenterte innholdet uten eksterne referanser.
+
+## Tekst i Card
+
+- Teksten i et `Card` skal være presis, relevant og støtte brukerens forståelse av hva kortet handler om.
+- Formuleringen må tilpasses konteksten - om kortet fungerer som navigasjon, et valg i en prosess eller en del av en informasjonsoversikt.
+- Bruk korte, men tydelige titler.
+- Sørg for at tittel og beskrivelse henger godt sammen og gir mening med resten av innholdet.
+- Unngå unødvendige detaljer. `Card` skal hjelpe brukeren å orientere seg raskt.
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

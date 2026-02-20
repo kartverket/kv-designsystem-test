@@ -1,0 +1,119 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Vi benytter Button når brukeren skal utføre en tydelig handling.
+
+<Primary />
+
+**Bruk `Button` når**
+- brukeren skal utføre en konkret handling, som å lagre, sende inn, slette eller starte en prosess
+- handlingen setter i gang noe i løsningen, for eksempel åpner en dialog eller starter et steg-for-steg-løp
+
+**Unngå `Button` når**
+- brukeren skal navigere til andre sider - bruk heller [`Link`](/docs/components-link--docs)
+- brukeren skal filtrere innhold - bruk heller [`Chip`](/docs/components-chip--docs)
+- du skal vise hvilke filter som er aktive - bruk heller [`Chip`](/docs/components-chip--docs)
+
+## Varianter av Button
+
+Vi bruker ulike knappetyper for å hjelpe brukeren å forstå hva som er viktigst å gjøre.
+
+### Primary Button
+
+Den viktigste handlingen på siden, for eksempel Lagre, Neste eller Send inn. Det skal som regel kun være én primærknapp per side.
+
+<Canvas of={ButtonStories.PrimaryButton} />
+
+
+### Secondary Button
+
+Vi bruker denne knappen til alternative eller støttende handlinger, ofte sammen med primærknappen.
+Eksempelvis ved «Lagre» kan sekundær være «Avbryt».
+
+<Canvas of={ButtonStories.SecondaryButton} />
+
+### Tertiary Button
+
+Denne knappen bruker vi til mindre viktige handlinger. Hvis den brukes alene, bør den ha et ikon slik at den er synlig som en knapp.
+
+<Canvas of={ButtonStories.TertiaryButton} />
+
+## Farger
+
+- Knapper kan ha hovedfargen i temaet ditt, neutral eller danger.
+- En gruppe knapper bør bruke samme fargevariant.
+- Unntak: bruk danger-fargen for handlinger som brukeren ikke kan angre, for eksempel “Slett”.
+
+<Canvas of={ButtonStories.Colors} />
+
+## Eksempler
+
+### Knapp med kun ikon
+
+Vi kan bruke knapper med kun ikon når disse er godt kjente, for eksempel “Lukk” og “Slett”. Da må knappen ha tilgjengelig tekst som forklarer hva knappen gjør. Dette kan legges i  `title`, `aria-label` eller i en `Tooltip`.
+
+<Canvas of={ButtonStories.IconOnly} />
+
+### Knapp med tekst og ikon
+
+I dette tilfellet må ikonet ha `aria-hidden` slik at skjermlesere kun leser opp teksten.
+
+Knapper kan inneholde et ikon til venstre eller høyre for teksten. Som hovedregel:
+
+- Ikon til venstre er standard og mest lesbart.
+- Hold deg til ett ikon per knapp.
+
+Unntak:
+
+- En knapp som sier «Start» kan ha en pil til høyre.
+- For knapper plassert fast på høyre side av grensesnittet, er det best at ikonet er høyrestilt for teksten.
+
+<Canvas of={ButtonStories.TextAndIcon} />
+
+### Lenkeknapper
+En lenke kan styles som knapp dersom utseendet er viktig for strukturen, men vurder alltid først om det er bedre å bruke `Link`-komponenten.
+
+<Canvas of={ButtonStories.AsLink} />
+
+### Knapper i lasting
+
+Når en handling pågår, kan knappen vise en spinner for å signalisere at prosessen kjører. Dette hindrer at brukeren klikker flere ganger.
+
+<Canvas of={ButtonStories.Loading} />
+
+
+## Retningslinjer
+
+### Én handling per knapp
+
+Knappen skal beskrive én tydelig handling. Kombiner aldri flere handlinger i samme knapp.
+
+### Én hovedhandling per side
+
+Sørg for at brukeren lett ser hva som er viktigst. Flere primærknapper på en side skaper usikkerhet.
+
+### Plassering
+
+Når knapper står ved siden av hverandre skal Primary stå før Secondary.
+
+Unntak:
+Ved «Forrige» og «Neste» skal Forrige stå først (selv om den er sekundær).
+
+
+## Tekst i Button
+
+- Korte tekster - helst maks tre ord.
+- Bruk verb i imperativ («Send», «Lagre», «Endre»).
+- Unngå blanding av skrivestil.
+    - Første ord med stor forbokstav.
+    - Ikke bruk ALL CAPS.
+- Bruk de samme begrepene på knappetekster som går igjen i tjenesten.
+
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

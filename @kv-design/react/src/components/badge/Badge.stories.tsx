@@ -101,12 +101,12 @@ export const InTabs: Story = {
       <Tabs.List>
         <Tabs.Tab value='value1'>
           Favoritter
-          <Badge count={64} maxCount={10} data-color='neutral' />
+          <Badge count={64} maxCount={10} data-color='accent' />
         </Tabs.Tab>
         <Tabs.Tab value='value2'>Arkiv</Tabs.Tab>
         <Tabs.Tab value='value3'>
           Nylige
-          <Badge count={2} data-color='neutral' />
+          <Badge count={2} data-color='accent' />
         </Tabs.Tab>
       </Tabs.List>
       <Tabs.Panel value='value1'>content 1</Tabs.Panel>
