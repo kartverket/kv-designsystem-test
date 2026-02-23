@@ -1,0 +1,61 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as ChipStories from './Chip.stories';
+
+<Meta of={ChipStories} />
+
+# Chip
+
+`Chip` er en liten, interaktiv komponent som lar brukeren styre hvordan innhold vises. Den brukes ofte til å filtrere informasjon, for eksempel i søkeresultat, og til å tydeliggjøre hvilke filtre som er aktive.
+
+<Primary />
+
+Bruk `Chip` når:
+
+- brukeren skal filtrere informasjon i lister, tabeller eller andre datavisninger
+- brukeren skal se hvilke valg eller filtre som er aktivert
+
+Unngå `Chip` når: 
+
+- du vil vise status eller tall - bruk heller [`Badge`](/docs/components-badge--docs)
+- innhold skal merkes med en kategori eller et emne som ikke er interaktivt - bruk heller [`Tag`](/docs/components-tag--docs)
+- du skal bygge menyer eller andre navigasjonselementer
+
+## Varianter med eksempler
+
+### Chip.Button
+
+Du kan bruke `Chip.Button` for å presentere valg i en gruppe, for eksempel hurtigvalg eller søkeforslag.
+
+<Canvas of={ChipStories.Button} />
+
+### Chip.Checkbox
+
+Du kan bruke `Chip.Checkbox` som et alternativ til en vanlig `Checkbox` når filtrering gjøres ved å aktivere flere valg.
+
+<Canvas of={ChipStories.Checkbox} />
+
+### Chip.Radio
+
+Du kan bruke `Chip.Radio` når brukeren kun kan velge ett filter av gangen, som et alternativ til `Radio`-komponenten.
+
+<Canvas of={ChipStories.Radio} />
+
+### Chip.Removable
+
+Du kan bruke `Chip.Removable` for å vise aktive filtre som kan fjernes. Komponenten har et kryssikon, og det må legges inn en tydelig `aria-label` dersom innholdet alene ikke formidler at elementet kan slettes, for eksempel `aria-label='Slett {nivå}'`.
+
+<Canvas of={ChipStories.Removable} />
+
+## Retningslinjer
+
+- Unngå å plassere `Chip` i vertikale lister. Skal du vise alternativ under hverandre, bruk heller  [`Checkbox`](/docs/components-checkbox--docs) eller [`Radio`](/docs/components-radio--docs).
+- En gruppe med `Chip` kan brytes over flere linjer ved behov.
+- En `Chip` bør ha så kort tekst som mulig - helst ett eller to ord.
+
+## Tilgjengelighet
+
+Når deler av siden oppdateres samtidig som brukeren gjør et valg, må skjermleserbrukere få beskjed om endringer. Bruk en `ARIA live region` for å formidle oppdatert treffmengde eller andre relevante endringer.
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

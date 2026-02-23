@@ -127,7 +127,7 @@ export const Horizontal: Story = {
   },
   render: (args) => (
     <Card
-      data-color='neutral'
+      data-color='accent'
       style={{ 
         display: 'grid', 
         gridTemplateColumns: '1fr 1fr',

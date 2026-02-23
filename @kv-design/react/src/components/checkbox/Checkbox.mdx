@@ -1,0 +1,37 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# UFERDIG! Tas til slutt.
+
+# Checkbox
+
+En `Checkbox` lar brukeren velge ett eller flere alternativer, eller bekrefte en opplysning. Den fungerer godt når valgene er uavhengige av hverandre, eller når det kreves en bevisst handling fra brukeren.
+
+<Primary />
+
+Bruk `Checkbox` når:
+
+- brukeren kan velge ett eller flere alternativer
+- brukeren skal bekrefte eller avkrefte noe (for eksempel at informasjon er lest og forstått)
+
+Unngå `Checkbox` når:
+
+- brukeren kun kan velge ett alternativ - bruk heller [`Radio`](/docs/components-radio--docs)
+- brukeren møter mange alternativer - bruk heller [`Select`](/docs/components-select--docs)
+- brukeren skal slå av eller på en funksjon - bruk heller [`Switch`](/docs/components-switch--docs)
+
+## Eksempler
+
+### Bekreftelse
+
+En `Checkbox` kan stå alene når brukeren kun skal bekrefte noe, for eksempel korrigerte opplysninger eller samtykke til vilkår.
+
+`Checkbox` for samtykke skal alltid kreve en aktiv handling. Boksen skal aldri være forhåndsvalgt. Dette sikrer at samtykket er frivillig og tydelig avgitt.
+
+<Canvas of={CheckboxStories.OneOption} /> 
+
+### Gruppering
+
+I de fleste tilfeller brukes `Checkbox` i grupper, der brukeren kan velge flere alternativer. Gruppen bør ligge i et `<fieldset>` med en tittel som beskriver hva valgene handler om. Dette gir struktur, tydelighet og bedre tilgjengelighet.

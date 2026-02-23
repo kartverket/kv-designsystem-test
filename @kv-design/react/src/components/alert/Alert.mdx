@@ -29,7 +29,7 @@ Vi bruker `Alert` til å gi brukeren informasjon som det er ekstra viktig at de 
 - varslene er statiske infobokser, bruk heller [`Card`](/docs/components-card--docs)
 - flere feilmeldinger skal oppsummeres, bruk heller [`ErrorSummary`](/docs/components-errorSummary--docs)
 
-## Eksempler
+## Varianter med eksempler
 
 `Alert` kan brukes til fire ulike budskap: Informasjon, suksess, advarsler og feilmelding.
 
@@ -73,11 +73,11 @@ Du kan ha en lenke i `Alert` hvis det hjelper brukeren med å løse oppgaven. Me
 
 ## Retningslinjer
 
-Vi bruker `Alert` for å vise viktige meldinger som krever oppmerksomhet, men ikke nødvendigvis handling. Den kan brukes til å informere brukeren om status, endringer eller problemer i en løsning. Meldingen vises tydelig og skiller seg visuelt fra resten av innholdet.
-
-Bruk komponenten varsomt. Brukere kan forveksle varsler med reklame, og dermed overse dem. Hvis vi bruker varsler for ofte, kan vi forverre dette problemet.
-
-Pass på at `Alert` har samme utseende og formspråk i alle tjenester og produkter. Denne komponenten skal være mulig å kjenne igjen overalt, så vi skal unngå å justere den.
+Vi bruker `Alert` for å vise viktige meldinger som krever oppmerksomhet, men ikke nødvendigvis handling. Den kan brukes til å informere brukeren om status, endringer eller problemer i en løsning: 
+- Bruk komponenten varsomt:
+  - Brukere kan forveksle varsler med reklame, og dermed overse dem. 
+  - Hvis vi bruker varsler for ofte, kan vi forverre dette problemet.
+- Pass på at `Alert` har samme utseende og formspråk i alle tjenester og produkter - slik at den er lett gjenkjennelig. 
 
 ## Tekst i Alert
 
@@ -87,8 +87,6 @@ Slik skriver vi tydelige og lett forståelige varsler:
 - Tenk på teksten som en samtale med brukeren, bruk ord som «vi» og «du» for å tydeliggjøre hvem som gjør hva.
 - Gjenta nøkkelord fra ledeteksten dersom varselet er knyttet til en handling.
 - Forklar tydelig hva brukeren må eller kan gjøre for å komme videre.
-
-<br />
 
 Teksten i `Alert` bør følge disse prinsippene:
 
@@ -117,30 +115,12 @@ For mer veiledning om hvordan du skriver tydelig og effektiv tekst i varsler, se
 
 ## Tilgjengelighet
 
-### Interaksjon med skjermleser
-
-Ut av boksen blir `Alert` presentert for skjermleserbrukere som vanlig statisk innhold. For varsler som oppstår dynamisk kan du selv definere en _live region_ for skjermlesere, men vær opperksom på hvilken oppførsel dette medfører.
-Du kan lese mer om dette i [MDN sin dokumentasjon om ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions).
-
-Legg spesielt merke til at live-regionen — altså elementet med attributt `role='alert'`, `role='status'` eller `aria-live` med verdi `'assertive'` eller `'polite'` — må eksistere på siden **før** varselet som skal leses opp.
-
-For dynamiske varsler er det mest aktuelt å bruke `role='alert'` for kritiske varsel eller `role='status'` for mindre kritiske vasel, som beskrevet i [mønsteret for systemvarsler](https://www.designsystemet.no/monstre/systemvarsler#niv%C3%A5er-for-dynamiske-varsler). Se også [alert role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alert_role) og [status role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/status_role) hos MDN.
-
-**Ikke** kombiner `role='alert'` og `aria-live`, siden [dette fører at varselet leses opp dobbelt i VoiceOver](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions#:~:text=adding%20both%20aria%2Dlive%20and%20role=%22alert%22%20causes%20double%20speaking%20issues%20in%20VoiceOver%20on%20iOS).
-
-Du **bør** kombinere `role='status'` og `aria-live='polite'` [for å maksimere kompatibilitet](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions#roles_with_implicit_live_region_attributes).
-
-#### Ikke gjør dette
-
-Ikke definer en _live region_ direkte på `Alert`. For statiske varsler har det ingen effekt, og for dynamiske varsler vil det ikke bli tolket riktig av alle skjermlesere, selv om mange skjermlesere har spesialhåndtering som går ut over ARIA-spesifikasjonen for akkurat `role='alert'`.
-
-{/* <Source of={AlertStories.WrongLiveRegion} dark /> */}
-
-#### Gjør dette for dynamiske varsler
-
-Definer en _live region_, f.eks. med `role='alert'`, for varsler som kan dukke opp dynamisk underveis som følge av brukerens handlinger eller andre faktorer. Dette vil også fungere på samme måte med `role='status'`.
-
-{/* <Canvas of={AlertStories.CorrectLiveRegion} /> */}
+For dynamiske varsler må _live-regionen_ være definert før varselet vises.
+- Bruk `role='alert'` for kritiske varsler og `role='status'` for mindre kritiske.
+- Ikke kombiner `role='alert'` og `aria-live` for å unngå at varselet leses opp dobbelt i VoiceOver.
+- Kombiner `role='status'` og `aria-live='polite'` for å maksimere kompatibilitet.
+- Ikke definer en _live-region_ direkte på `Alert`. Det vil ikke ha en effekt på statiske varsler, og på dynamiske varsler blir de ikke tolket riktig på alle skjermlesere.
+- Definer en _live region_, f.eks. med `role='alert'` eller `role='status'`, der brukerens handling fører til et varsel.
 
 ## Kilde
 
