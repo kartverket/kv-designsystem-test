@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Chip } from './Chip';
 import { useState } from 'react';
 import { Search } from '../search/Search';
-import { Paragraph } from '../paragraph/Paragraph';
+import { Paragraph } from '../typography/paragraph/Paragraph';
 
 const meta = {
   component: Chip.Radio,

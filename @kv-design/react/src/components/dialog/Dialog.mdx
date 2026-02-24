@@ -1,0 +1,71 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as DialogStories from './Dialog.stories';
+
+<Meta of={DialogStories} />
+
+# Dialog 
+
+Vi har to typer dialoger: modale og ikke-modale. En modal dialog stopper arbeidsflyten og krever at brukeren tar stilling til noe før de kan gå videre. En ikke-modal dialog kan stå åpen mens brukeren fortsetter å jobbe.
+
+## 1) Modal Dialog
+
+<Primary />
+
+**Bruk modal `Dialog` når**
+- brukeren må bekrefte en kritisk handling, for eksempel å slette noe de ikke kan angre
+- dialogen inneholder informasjon brukeren må forholde seg til før de kan gå videre
+- du må sikre at brukeren får med seg viktig informasjon
+
+**Unngå modal `Dialog` når**
+- innholdet er omfattende eller krever mye lesing
+- dialogen er ett av flere steg i en prosess
+- du bare skal varsle om noe som ikke krever handling - bruk heller [`Alert`](/docs/components-alert--docs) eller en ikke-modal `Dialog`
+- du vil gi kort tilleggsinformasjon som brukeren selv velger å åpne - bruk heller [`Popover`](/docs/components-popover--docs)
+
+## 2) Ikke-modal Dialog
+
+<Canvas of={DialogStories.DialogNonModal} /> 
+
+**Bruk ikke-modal `Dialog` når**
+- du vil gi brukeren tilgang til informasjon eller handlinger parallelt med resten av innholdet
+
+**Unngå ikke-modal `Dialog` når**
+- du gir brukeren kritiske valg, bekreftelser eller varsler som de må ta stilling til før de kan fortsette - bruk heller modal `Dialog`
+
+På mobil kan en 'ikke-modal' `Dialog` være problematisk på grunn av begrenset skjermplass. Den kan dekke viktig innhold og forstyrre brukeropplevelsen. I slike tilfeller kan det være bedre å bruke modal `Dialog` eller andre løsninger.
+
+## Plassering 
+
+En `Dialog` åpnes default midt på skjermen. Ved å bruke `placement` kan dialogen oppføre seg som en 'drawer', som skyves inn fra valgt kant av skjermen.
+ 
+<Canvas of={DialogStories.Drawer} /> 
+
+## Retningslinjer
+
+### Bruk dialog med omtanke
+
+Dialoger avbryter arbeidsflyten og bør brukes når det er nødvendig for å forhindre feil eller sikre at brukeren gjør et bevisst valg. Unødvendige avbrudd skaper frustrasjon og kan være særlig utfordrende for brukere med nedsatt konsentrasjon, syn eller som bruker skjermleser.
+
+### Lukking av dialog
+
+Sørg for at brukeren alltid har en enkel måte å lukke dialogen på:
+
+Ha en synlig lukkeknapp (X) øverst til høyre. Den skal være tilgjengelig selv om innholdet er langt og krever scrolling.
+Hvis lukkeknappen ikke passer i layouten, bruk for eksempel en Avbryt-knapp.
+Vurder nøye om dialogen skal kunne lukkes ved å klikke utenfor. For kritiske handlinger bør brukeren alltid lukke dialogen aktivt.
+Når dialogen lukkes uten aktivt valg, skal det tilsvare det minst kritiske alternativet.
+
+### Vær obs på fokusrekkefølge
+
+I ikke-modale dialoger må du være oppmerksom på fokusrekkefølgen: elementer som får fokus må ikke skjules bak dialogen.
+
+## Tekst i dialoger
+
+- Overskrift: Gjør det tydelig for brukeren hva de skal ta stilling til. Et spørsmål fungerer ofte godt.
+- Innhold: Hold teksten kort og konkret. Gi bare informasjonen brukeren trenger for å ta et valg.
+- Knappetekster: Vær tydelig på hva som skjer når brukeren trykker på en knapp - særlig ved irreversible handlinger.
+
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

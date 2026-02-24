@@ -18,7 +18,7 @@ Vi benytter Button når brukeren skal utføre en tydelig handling.
 - brukeren skal filtrere innhold - bruk heller [`Chip`](/docs/components-chip--docs)
 - du skal vise hvilke filter som er aktive - bruk heller [`Chip`](/docs/components-chip--docs)
 
-## Varianter av Button
+## Varianter med eksempler
 
 Vi bruker ulike knappetyper for å hjelpe brukeren å forstå hva som er viktigst å gjøre.
 
@@ -42,7 +42,7 @@ Denne knappen bruker vi til mindre viktige handlinger. Hvis den brukes alene, b�
 
 <Canvas of={ButtonStories.TertiaryButton} />
 
-## Farger
+### Farger
 
 - Knapper kan ha hovedfargen i temaet ditt, neutral eller danger.
 - En gruppe knapper bør bruke samme fargevariant.
@@ -50,15 +50,16 @@ Denne knappen bruker vi til mindre viktige handlinger. Hvis den brukes alene, b�
 
 <Canvas of={ButtonStories.Colors} />
 
-## Eksempler
+### Ikoner
 
-### Knapp med kun ikon
+{/* TODO: This is the only place we use the #### heading, do we want to avoid that? */}
+#### Knapp med kun ikon
 
 Vi kan bruke knapper med kun ikon når disse er godt kjente, for eksempel “Lukk” og “Slett”. Da må knappen ha tilgjengelig tekst som forklarer hva knappen gjør. Dette kan legges i  `title`, `aria-label` eller i en `Tooltip`.
 
 <Canvas of={ButtonStories.IconOnly} />
 
-### Knapp med tekst og ikon
+#### Knapp med tekst og ikon
 
 I dette tilfellet må ikonet ha `aria-hidden` slik at skjermlesere kun leser opp teksten.
 

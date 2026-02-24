@@ -5,7 +5,7 @@ import { fn } from 'storybook/test';
 
 const meta = {
   component: Button,
-  tags: ['alfa', 'digdir'],
+  tags: ['alpha', 'digdir'],
   decorators: [
     (Story) => (
       <div

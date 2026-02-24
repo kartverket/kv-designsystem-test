@@ -7,8 +7,8 @@ import { Chip } from '../../../components/chip/Chip';
 import { Divider } from '../../../components/divider/Divider';
 import { Fieldset } from '../../../components/fieldset/Fieldset';
 import { Table } from '../../../components/table/Table';
-import { Paragraph } from '../../../components/paragraph/Paragraph';
-import { ValidationMessage } from '../../..//components/validationMessage/ValidationMessage';
+import { Paragraph } from '../../../components/typography/paragraph/Paragraph';
+import { ValidationMessage } from '../../../components/typography/validationMessage/ValidationMessage';
 
 import {
   type UseCheckboxGroupProps,

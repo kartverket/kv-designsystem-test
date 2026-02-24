@@ -1,0 +1,44 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as LinkStories from './Link.stories';
+
+<Meta of={LinkStories} />
+
+# Link
+
+En `Link` er klikkbar tekst eller grafikk som tar brukeren videre til en annen side eller et dokument.
+
+<Primary />
+
+**Bruk `Link` når**
+
+- du viser til en ny side, internt eller eksternt
+- du leder brukeren til et annet sted på samme side
+- en fil skal lastes ned
+
+**Unngå `Link` når**
+- brukeren skal utføre en handling, for eksempel «Lagre» eller «Logg inn» - bruk heller [`Button`](/docs/components-button--docs)
+- handlingen utløser en prosess i løsningen, for eksempel åpner en dialog eller starter en arbeidsflyt - bruk heller [`Button`](/docs/components-button--docs)
+
+## Eksempler
+
+### Med ikon
+
+Et ikon til en lenke skal fortelle brukeren hva den leder dem til. Ikoner til lenker skal som hovedregel plasseres til venstre. Ikonet burde være skjult fra skjermleser, ved å legge på `aria-hidden`. Plasser teksten i `<span>` for å få anbefalt mellomrom uten understrek mellom ikon og tekst.
+
+<Canvas of={LinkStories.WithIcon} />
+
+### I løpende tekst 
+
+Lenker brukes ofte integrert i brødtekst. Teksten som omfattes av lenken bør indikere tydelig hvor den går.
+
+<Canvas of={LinkStories.InText} /> 
+
+### Nøytral farge
+
+Lenker kan vises i en nøytral farge, særlig i områder med egen bakgrunnsfarge.
+
+### Flere linjer
+
+<Canvas of={LinkStories.LongLink} /> 
+
+### Åpne fil

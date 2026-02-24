@@ -10,9 +10,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  args: {
-    children: 'Dropdown',
-  },
   render: (args) => (
     <Dropdown.TriggerContext>
       <Dropdown.Trigger>Dropdown</Dropdown.Trigger>

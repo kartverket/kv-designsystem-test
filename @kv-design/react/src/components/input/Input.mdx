@@ -1,0 +1,58 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as InputStories from './Input.stories';
+
+<Meta of={InputStories} />
+
+# Input
+
+`Input` er et skjemaelement for å samle inn brukerdata. Det tilbyr grunnleggende funksjonalitet og er ideell når du trenger full kontroll over komponentens oppsett og validering, noe som gjør den ideell for bygging av spesialtilpassede elementer.
+
+<Primary />
+
+**Bruk `Input` når**
+
+- du trenger et grunnleggende inputfelt uten ekstra funksjonalitet
+- du skal bygge spesialtilpassede felt eller sammensatte komponenter
+- du vil styre egen logikk for feilvisning og hjelpetekster
+
+**Unngå `Input` når**
+
+- du trenger et komplett skjemafelt med label, hjelpetekst og valideringsmelding, bruk heller [`Textfield`](/docs/components-textfield--docs)
+- feltet krever tilleggslogikk som allerede finnes i høyere komponenter som [`Textfield`](/docs/components-textfield--docs)
+
+## Eksempler
+
+Dette er en komponent som blir brukt for å bygge opp andre komponenter, som for eksempel `Textfield`. Av den grunn vil ikke denne komponenten ha mange eksempler og tilhørende tekst.
+
+### Med label
+
+<Canvas of={InputStories.WithLabel}/>
+
+### Med feil
+
+<Canvas of={InputStories.WithError}/>
+
+### Diabled
+
+Unngå bruk av `disabled` der det er mulig. Vurder heller å bruke `readOnly`.
+
+<Canvas of={InputStories.Disabled}/>
+
+### ReadOnly
+
+<Canvas of={InputStories.ReadOnly}/>
+
+## Retningslinjer og Tilgjengelighet
+
+Ledeteksten og eventuell beskrivelse skal alltid stå over `Input`. Dette gjør det enkelt å se feltene på små skjermer og hindres ikke av eventuelle feilmeldinger.
+
+For ytterligere informasjon om tilgjengelighet og retningslinjer, se dokumentasjonen som dekker den aktuelle inputtypen:
+
+- [`Textfield`](/docs/components-textfield--docs)
+- [`Checkbox`](/docs/components-checkbox--docs)
+- [`Radio`](/docs/components-radio--docs)
+- [`Switch`](/docs/components-switch--docs)
+
+## Kilde
+
+`Fieldset` bygger på arbeid gjort i Digdirs og Udirs designsystem.

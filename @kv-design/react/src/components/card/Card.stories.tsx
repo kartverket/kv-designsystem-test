@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Card } from './Card';
-import { Heading } from '../heading/Heading';
-import { Paragraph } from '../paragraph/Paragraph';
+import { Heading } from '../typography/heading/Heading';
+import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Button } from '../button/Button';
 
 const meta = {

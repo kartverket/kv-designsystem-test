@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Textarea } from './Textarea';
-import { Label } from '../label/Label';
+import { Label } from '../typography/label/Label';
 import { Field } from '../field/Field';
 
 const meta = {

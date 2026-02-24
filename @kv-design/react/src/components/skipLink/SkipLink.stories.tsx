@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SkipLink } from './SkipLink';
-import { Paragraph } from '../paragraph/Paragraph';
+import { Paragraph } from '../typography/paragraph/Paragraph';
 
 const meta = {
   component: SkipLink,

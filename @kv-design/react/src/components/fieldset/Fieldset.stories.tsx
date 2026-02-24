@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Fieldset } from './Fieldset';
 import { Radio } from '../radio/Radio';
+import { Checkbox } from '../checkbox/Checkbox';
+import { Heading } from '../typography/heading/Heading';
 
 const meta = {
   component: Fieldset,
@@ -11,10 +13,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  args: {
-    children: 'Fieldset',
-  },
-  render: (args) => (
+  render: () => (
     <Fieldset>
       <Fieldset.Legend>Hvilken fjordarm bor du ved?</Fieldset.Legend>
       <Fieldset.Description>
@@ -26,3 +25,44 @@ export const Preview: Story = {
     </Fieldset>
   ),
 };
+
+export const WithCheckbox: Story = {
+  render: () => (
+    <Fieldset>
+      <Fieldset.Legend>Godtar du vilkårene?</Fieldset.Legend>
+      <Checkbox label='Ja, jeg godtar' value='agree' />
+    </Fieldset>
+  )
+};
+
+// TODO: make example more relevant to Kartverket?
+export const LegendAsHeading: Story = {
+  render: () => (
+    <Fieldset>
+      <Fieldset.Legend>
+        <Heading
+          data-size="sm"
+          level={2}
+        >
+          Hvilke foretrekket du?
+        </Heading>
+      </Fieldset.Legend>
+      <Fieldset.Description>
+        Fellesbeskrivelse
+      </Fieldset.Description>
+      <Checkbox
+        id="components-fieldset--legend-as-heading-alternativ-1"
+        label="Alternativ 1"
+        name="components-fieldset--legend-as-heading-alternativ-1"
+        value="alternativ-1"
+      />
+      <Checkbox
+        id="components-fieldset--legend-as-heading-alternativ-2"
+        label="Alternativ-2"
+        name="components-fieldset--legend-as-heading-alternativ-2"
+        value="alternativ-2"
+      />
+    </Fieldset>
+  )
+}
+
