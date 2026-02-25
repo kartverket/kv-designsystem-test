@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as SkeletonStories from './Skeleton.stories';
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+Vi bruker Skeleton for å vise at innhold på en side er i ferd med å lastes inn. Komponenten gir brukeren et visuelt hint om hvordan det ferdige innholdet vil ta form.
+
+<Primary />
+
+**Bruk `Skeleton` når**
+- du skal indikere at innhold på siden lastes inn
+- du skal gi brukeren en forventning om hvordan innholdet vil se ut når det er lastet inn
+- det er områder der innholdet er forventet å ta mer enn 1 sekund å laste inn
+
+**Unngå `Skeleton` når**
+- du skal indikere at systemet utfører en oppgave brukeren må vente på - bruk heller [`Spinner`](/docs/components-spinner--docs)
+
+ 
+## Varianter med eksempler
+
+Skeleton finnes i tre varianter:
+- rectangle
+- circle
+- text
+
+
+Velg variant basert på typen innhold som lastes, som for eksempel overskrifter, tekstblokker eller bilder.
+
+<Canvas of={SkeletonStories.UsageExample} />
+
+## Skalering av komponenten
+- Alle varianter støtter `height` og `width`, som kan settes i `px`, `%`, eller andre gyldige enheter.
+- For `variant='text'` holder det ofte å angi kun bredde; høyden tilpasses automatisk tekstens størrelse.
+- Skeleton skalerer også etter innholdet du legger inni komponenten, men `children` vises ikke som egne skeletons.
+- Når komponenten får barn, vises ett samlet skeleton med høyde og bredde som tilsvarer det totale innholdet.
+
+<Canvas of={SkeletonStories.Children} />
+
+## Kilde
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

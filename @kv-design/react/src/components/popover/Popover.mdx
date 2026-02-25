@@ -1,0 +1,51 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as PopoverStories from './Popover.stories';
+
+<Meta of={PopoverStories} />
+
+# Popover
+
+`Popover` vises over andre elementer i grensesnittet og er knyttet til et bestemt element. Den brukes for å vise tilleggsinformasjon, interaktive elementer eller korte forklaringer uten at brukeren forlater siden.
+
+<Primary />
+
+**Bruk `Popover` når**
+- du skal gi forklaringer som krever mer plass enn en kort `Tooltip`, for eksempel definisjoner eller utdypende instruksjoner
+- du vil tilby kontekstspesifikk hjelp som brukeren selv kan åpne og lukke
+- du vil vise tilleggsinformasjon som ikke er nødvendig for å fullføre oppgaven, men som kan være nyttig for enkelte brukere
+
+**Unngå `Popover` når**
+- du skal forklare et symbol eller en tastatursnarvei - bruk heller [`Tooltip`](/docs/components-tooltip--docs)
+- informasjonen innebærer navigasjon eller valg av alternativer - bruk heller [`Dropdown`](/docs/components-dropdown--docs)
+- innholdet skal vises ved hover
+
+## Varianter med eksempler
+
+### Farger
+
+Du kan bruke alle fargene på `Popover`. Du kan også sette `variant='tinted'` for å få valgt farge som bakgrunn.
+
+### Interaktiv Popover
+
+`Popover` kan inneholde knapper og andre interaktive komponenter.
+
+<Canvas of={PopoverStories.Interactive} />
+
+### Ordforklaring
+
+Du kan bruke `Popover` inline i tekst med stiplet understrek, for eksempel når du skal forklare et fagbegrep.
+
+<Canvas of={PopoverStories.DottedUnderline} />
+
+## Retningslinjer
+
+`Popover` brukes for å vise mer detaljert eller interaktiv tilleggsinformasjon uten å ta brukeren bort fra konteksten. Den åpnes ved et bevisst klikk og kan inneholde tekst, lenker eller enkle skjemakomponenter. Innholdet skal være relevant og ikke kritisk for å gjennomføre oppgaven.
+
+### Plassering
+`Popover` plasseres etter behov, men tilpasser seg automatisk innenfor det synlige området i nettleseren. Denne oppførselen kan deaktiveres med `autoPlacement`.
+
+## Tekst i Popover
+Unngå lange tekstblokker eller kompliserte forklaringer. Dersom innholdet krever mer omfattende forklaring, vurder å lenke til en egen side.
+
+## Kilde
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

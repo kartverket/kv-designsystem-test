@@ -1,0 +1,74 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as SearchStories from './Search.stories';
+
+<Meta of={SearchStories} />
+
+# Search
+
+Search gjør det mulig for brukere å finne relevant innhold raskt på et nettsted eller i en applikasjon. Komponenten består av et søkefelt, med eller uten en tilhørende søkeknapp.
+
+<Primary />
+
+**Bruk `Search` når**
+
+- brukeren trenger støtte til å finne informasjon raskt
+- situasjonen krever at brukeren skriver inn nøkkelord eller setninger for å finne det mest relevante innholdet
+
+**Unngå `Search` når**
+
+- innholdet er så oversiktlig at brukeren enkelt kan navigere uten søk
+- søk brukes som en erstatning for god navigasjon. Søk skal supplere strukturen, ikke erstatte den
+
+## Varianter med eksempler
+
+Du kan endre `variant` på `Button` for å tilpasse visningen. Alternativt kan du fjerne knappen og bruke et søkefelt med ikon. Eksemplene nedenfor viser varianter som inkluderer ikon, primær- og sekundærknapp.
+
+<Canvas of={SearchStories.Variants} />
+
+### Utføre søkehandling "live"
+
+I mange tilfeller er det mer hensiktsmessig å utføre søkehandling mens brukeren skriver i inputfeltet, heller enn å vente på `Enter` eller klikk.
+
+<Canvas of={SearchStories.LiveSearch} />
+
+## Retningslinjer
+
+### Bredde
+
+Bredden på søkefeltet bør tilpasses lengden på det brukerne vanligvis skriver inn. Størrelsen gir et viktig signal om hva feltet brukes til.
+
+Eksempler:
+
+- Et søkefelt for personnummer bør være like bredt som et personnummer.
+- Et hovedsøkefelt på et nettsted bør være bredere, slik at brukerne kan lese flere ord uten å måtte scrolle.
+
+Unngå korte felt der innholdet ikke vises fullt ut.
+
+## Tekst i Search
+
+Placeholder-tekst bør brukes med forsiktighet. Teksten forsvinner når brukeren skriver, og kan bidra til misforståelser. Den må også oppfylle krav til kontrast, noe som kan gjøre den vanskelig å skille fra vanlig innhold. Skjermlesere håndterer placeholder-tekst ulikt, derfor bør vi gi viktig informasjon via `Label` eller beskrivelse.
+
+Bruk `Label` over feltet når:
+
+- det ikke er opplagt hva brukeren skal søke etter
+- søkefeltet inngår i et skjema
+
+For å koble sammen `Label` og `Search.Input` kan du bruke `Field` rundt. Legg til `aria-label` eller `aria-labelledby` dersom du ikke kobler `Search.Input` med en synlig `Label`.
+
+<Canvas of={SearchStories.WithLabel} />
+
+## Tilgjengelighet
+
+### Søk-landemerke
+
+For å gjøre søket tilgjengelig for hjelpemidler kan du legge det i et element med `role='search'`. Bruk det ytterste elementet som hører til søket, for eksempel `<form role='search'>`. Dette gjør det mulig for brukere av hjelpemidler å navigere direkte til søkefeltet. Det er spesielt nyttig på sider der søk er en hovedfunksjonalitet.
+
+### Tastaturnavigering
+{/* TODO: add <kbd> for Keyboard key style, it currently being overwritten */}
+- `ESC` - tømmer søkefeltet for en enhetlig opplevelse på tvers av nettlesere.
+- `Tab` - lar brukere bevege seg mellom inputfelt, clear-knapp og søkeknapp.
+- `Enter`- sender inn søket når fokus er i inputfeltet.
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

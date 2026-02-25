@@ -24,6 +24,7 @@ export const Default: Story ={
   },
 };
 
+// TODO: add icon
 export const WithIcon:  Story = {
   render: () => (
    <Link href='https://designsystemet.no/slack'>
@@ -45,6 +46,14 @@ export const InText:  Story = {
   ),
 };
 
+export const NeutralColor:  Story = {
+  render: () => (
+    <Link href={'https://www.kartverket.no/om-kartverket/personvern'} data-color='neutral'>
+      Kartverkets personvernerklæring
+    </Link>
+  ),
+};
+
 // TODO: make the link actually go over multiple lines
 export const LongLink:  Story = {
   parameters: {
@@ -59,3 +68,15 @@ export const LongLink:  Story = {
   ),
 };
 
+// TODO: add icon
+export const File:  Story = {
+  args: {
+    href: 'https://kartverket.no/globalassets/geodataarbeid/hoydemodell/samfunnsokonomisk-analyse-nasjonal-detaljert-hoydemodell.pdf'
+  },
+  render: (args) => (
+    <Link {...args}>
+      {/* <FilePdfFillIcon aria-hidden /> */}
+      <span>Samfunnsøkonomisk analyse (PDF, 2.1MB)</span>
+    </Link>
+  ),
+};

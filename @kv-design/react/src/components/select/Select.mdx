@@ -1,0 +1,66 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as SelectStories from './Select.stories';
+
+<Meta of={SelectStories} />
+
+# Select
+
+Vi bruker `Select` når brukeren skal velge ett alternativ fra en liste. Komponenten er særlig nyttig ved mange valg og når vi ønsker en kompakt presentasjon.
+
+<Primary />
+
+**Bruk `Select` når**
+
+- listen inneholder mange alternativer, og brukeren kun kan velge ett
+- du trenger en plassbesparende løsning som fungerer godt på både desktop og mobil
+
+**Unngå `Select` når**
+
+- du har få alternativer og god plass - bruk heller [`Radio`](/docs/components-radio--docs)
+- valget styrer navigasjon mellom sider eller seksjoner
+- brukeren skal velge flere alternativer. Selv om HTML Select støtter dette via `multiple`, er løsningen lite brukervennlig, særlig på mobil. Bruk heller [`Checkbox`](/docs/components-checkbox--docs) eller [`Suggestion`](/docs/components-suggestion--docs)
+
+## Varianter med eksempler
+
+### Gruppering av alternativer
+
+Gruppering gjør lange lister enklere å orientere seg i, ved å samle alternativer i tydelige kategorier.
+
+<Canvas of={SelectStories.WithOptgroup} />
+
+### Unngå Disabled
+
+Vi anbefaler å unngå deaktiverte `Select`-komponenter der det er mulig. Brukere kan ha vansker med å forstå hvorfor feltet ikke er tilgjengelig. Les mer om [hvorfor deaktiverte tilstander er problematisk (nav.no)](https://aksel.nav.no/god-praksis/artikler/deaktiverte-tilstander) og hvilke alternativer som finnes.
+
+<Canvas of={SelectStories.Disabled} />
+
+### ReadOnly
+
+Bruk `readOnly` når en verdi skal vises, men ikke endres. Dette er aktuelt når valget er bestemt av systemet eller et tidligere steg i prosessen. Vurder uansett nøye om dette er riktig å bruke, siden slike felt kan være forvirrende for noen brukere.
+
+(View + kode)
+
+## Retningslinjer
+
+- Bruk `Select` når listen har sju eller flere alternativer.
+- For færre valg kan `Radio` være enklere og mer oversiktlig.
+- `Select`-komponenten fungerer godt på mobil og følger operativsystemets standarder for tilgjengelighet.
+- Dersom brukeren skal velge flere alternativer eller filtrere innhold, vurder [`Suggestion`](/docs/components-suggestion--docs).
+- Tilpass bredden etter hva brukerne skal velge, f.eks. kort bredde for telefonnummer og bredere for stedsnavn.
+
+Merk: [Gov.uk anbefaler å unngå `Select`](https://design-system.service.gov.uk/components/select/) i offentlige digitale tjenester. Deres brukertester viser at brukere ofte synes komponenten er krevende. Det kan være bedre å stille flere og mer presise spørsmål for å redusere antallet alternativer før valget presenteres.
+
+## Tekst i Select
+
+- `Select` skal alltid ha en ledetekst.
+- Ledetekst og eventuell beskrivelse plasseres over feltet for god synlighet, også på små skjermer.
+- Hold ledeteksten kort, helst på én linje.
+- I tabeller kan ledeteksten skjules dersom tabelloverskriften fungerer som erstatning. Skjult ledetekst skal uansett være meningsbærende for skjermlesere.
+
+## Tilgjengelighet
+
+Det er en kjent feil at HTML-elementet `<select>` ikke fungerer med VoiceOver i Chrome på Mac.
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.
