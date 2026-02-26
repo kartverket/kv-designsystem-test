@@ -1,0 +1,76 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as TextareaStories from './Textarea.stories';
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+Vi bruker `Textarea` når brukeren skal kunne skrive tekst som går over flere linjer.
+
+<Primary />
+
+**Bruk `Textarea` når**
+
+- brukeren skal skrive mer enn én linje tekst
+- fritekstsvar er nødvendig, og brukeren trenger plass til å formulere seg fritt
+- svaret ikke følger en fast struktur
+
+**Unngå `Textarea` når**
+
+- du forventer korte svar - bruk heller [`Textfield`](/docs-components-textfield--docs)
+- det skal samles inn strukturerte data som skal valideres, for eksempel fødselsnummer eller dato
+
+
+## Eksempel
+
+### Angi høyden
+
+Utviklere kan sette antall rader i tekstområdet ved å bruke `rows`-attributtet. Dette påvirker kun den første høyden, men gir brukeren en tydelig forventning om hvor mye tekst som skal fylles inn.
+
+<Canvas of={TextareaStories.WithRows} />
+
+## Retningslinjer
+ 
+### Bruk
+
+`Textarea` egner seg godt ved åpne spørsmål, fritekstfelt eller tilbakemeldinger. Vær samtidig oppmerksom på at åpne spørsmål kan oppleves krevende. I noen tilfeller kan det være bedre å dele opp spørsmålet eller bruke lukkede svaralternativer som [`Radio`](/docs/components-radio--docs)-knapper. 
+
+Vær obs på risikoen for at brukere kan skrive inn sensitive personopplysninger. I noen tilfeller kan det være lurt å fortelle brukeren om å ikke gjøre dette.
+
+### Størrelse og tilpasning
+
+#### Høyde
+
+Tilpass høyden etter forventet tekstmengde.
+- Forventes tre linjer, bør feltet vise omtrent tre.
+- For lengre svar bør feltet gi mer visuell plass.
+
+Dersom du ikke setter `rows`, vil tekstområdet vokse automatisk når brukeren skriver.
+
+#### Bredde
+
+Bredden bør ikke overstige 50-75 tegn for å ivareta god lesbarhet.
+
+#### Unngå Disabled
+
+Unngå å deaktivere et `Textarea` hvis det finnes alternativer. Et deaktivert felt kan gjøre det uklart for brukeren hvorfor det ikke kan brukes. Les mer om [hvorfor deaktiverte tilstander er problematiske (nav.no)](https://aksel.nav.no/god-praksis/artikler/deaktiverte-tilstander) og hvilke alternativer som finnes.
+
+#### Unngå ReadOnly
+
+Et tekstfelt forventes vanligvis å være redigerbart. `readOnly` bør derfor brukes med varsomhet. I mange tilfeller er det bedre å vise informasjon som vanlig tekst.
+
+Felter med `readonly`-attributtet er en del av tabrekkefølgen. Brukere kan kopiere innholdet, men ikke endre det. Informasjonen i et `readonly`-felt blir sendt inn sammen med skjemaet.
+
+Det kan være aktuelt å bruke `readOnly` når informasjon skal inngå i en oppsummering som sendes inn. Husk å forklare brukeren hvorfor innholdet ikke kan redigeres.
+
+### Øvrige retningslinjer
+
+`Textarea` følger de samme generelle prinsippene som [`Textfield`](/docs/components-textfield--docs), blant annet:
+- Unngå placeholder-tekst.
+- Gi tydelige regler for inndata og formatering.
+- Sørg for god tilgjengelighet.
+
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

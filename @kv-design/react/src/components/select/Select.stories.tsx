@@ -71,3 +71,17 @@ export const Disabled: Story = {
     </Field>
   )
 };
+
+export const ReadOnly: Story = {
+  args: {
+    readOnly: true
+  },
+  render: (args) => (
+    <Field>
+      <Label>Velg et fjell</Label>
+      <Select aria-readonly value='everest' {...args}>
+        <Select.Option value='everest'>Mount Everest</Select.Option>
+      </Select>
+    </Field>
+  )
+};

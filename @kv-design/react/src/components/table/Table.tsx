@@ -1,4 +1,8 @@
-import { Table, type TableProps } from '@digdir/designsystemet-react';
+import { 
+    Table, 
+    type TableProps,
+    type TableHeaderCellProps,
+} from '@digdir/designsystemet-react';
 
-export type { TableProps };
+export type { TableProps, TableHeaderCellProps };
 export { Table };

@@ -15,14 +15,23 @@ export const Preview: Story = {
   args: {
     disabled: false,
     readOnly: false,
-    rows: 3,
+    rows: 2,
     cols: 20,
     id: 'my-textarea',
   },
   render: (args) => (
     <Field>
-      <Label htmlFor='my-textarea'>Label</Label>
+      <Label>Label</Label>
       <Textarea {...args} />
     </Field>
   ),
 };
+
+export const WithRows: Story = {
+  render: () => (
+    <>
+      <Label htmlFor='my-textarea-rows'>Beskrivelse</Label>
+      <Textarea id='my-textarea-rows' rows={6} />
+    </>
+  )
+}

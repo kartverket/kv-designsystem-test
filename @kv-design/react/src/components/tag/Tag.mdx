@@ -1,0 +1,58 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as TagStories from './Tag.stories';
+
+<Meta of={TagStories} />
+
+# Tag
+
+`Tag` brukes som merkelapp for å kategorisere innhold eller vise fremdrift, status eller prosess. Den gir brukeren et raskt overblikk og gjør det enklere å forstå hvilken type informasjon et element representerer. 
+
+<Primary />
+
+**Bruk `Tag` når**
+
+- innhold trenger en tydelig kategori, som «Beta», «Ny» eller «Populær»
+- status skal vises, som «Pågående», «Fullført» eller «Avbrutt»
+- du vil hjelpe brukeren å skanne og tolke informasjon raskt
+
+Unngå `Tag` når
+
+- elementet skal lenke til en annen side - bruk heller Link
+- det er en handling - bruk heller [`Button`](/docs/components-button--docs)
+- brukeren skal filtrere innhold - bruk heller [`Chip`](/docs/components-chip--docs)
+
+
+## Variater med eksempler 
+
+`Tag` finnes i to varianter: med og uten outline. Du kan bruke alle fargene på `Tag`. Dersom taggen får for lav kontrast mot bakgrunnen, kan du bytte variant for å sikre god lesbarhet.
+
+### Ikoner
+
+Du kan bruke ikoner i kombinasjon med `Tag` for å gi ekstra visuell støtte. Du må selv sørge for riktig avstand mellom tekst og ikon. Vi anbefaler at padding på taggen og margin rundt ikonet er like, slik at uttrykket blir balansert.
+
+### Komponering
+
+<Canvas of={TagStories.Article} /> 
+
+## Retningslinjer
+
+- Bruk `Tag` for å tydeliggjøre kategori, status eller egenskaper ved et element.
+- De bør være korte, konsise og konsekvente, og unngås dersom informasjonen allerede fremgår tydelig av konteksten.
+- `Tag` er ikke klikkbar og fungerer kun som en visuell markering.
+
+### Plassering
+
+Plasser `Tag` som hovedregel etter tittelen eller navnet på det elementet den tilhører. Ikke plasser den sammen med knapper, da dette kan forvirre brukeren. Vurder plasseringen helhetlig – gjerne gjennom brukertesting.
+
+## Tekst i Tag
+
+- Bruk korte etiketter som er enkle å skanne. Ideelt ett ord, maks to.
+- `Tag` skal alltid ha stor forbokstav.
+- Velg ord som er godt kjent i løsningen og unngå begreper som kan skape usikkerhet.
+- Dersom du bruker flere tags samtidig, bør de ligge i en `<ul>` med `<li>`-elementer, slik at hjelpeteknologier leser dem som en tydelig liste.
+
+## Tilgjengelighet
+`Tag` har i seg selv ingen semantisk verdi. Hvis du vil bruke flere sammen bør du derfor bruke en `<ul>` med en `<li>` for hver `Tag` for å sikre at hver `Tag` blir lest opp hver for seg og ikke som en del av en setning.
+
+## Kilde
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

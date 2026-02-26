@@ -1,0 +1,69 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as SwitchStories from './Switch.stories';
+
+<Meta of={SwitchStories} />
+
+# Switch
+
+Vi bruker `Switch` for å gi brukeren mulighet til å slå en funksjon av eller på. Den skal alltid ha et forhåndsdefinert standardvalg.
+
+<Primary />
+
+**Bruk `Switch` når**
+
+- valget styrer en innstilling eller funksjon som kan være av eller på, for eksempel varsler
+- endringen skal tre i kraft umiddelbart når brukeren endrer bryteren
+
+
+**Unngå `Switch` når**
+
+- brukeren skal svare på spørsmål i skjema - bruk heller [`Radio`](/docs/components-radio--docs) eller [`Checkbox`](/docs/components-checkbox--docs)
+- innhold skal vise ulike kategorier - bruk heller [`ToggleGroup`](/docs/components-togglegroup--docs)
+- innhold skal filtreres - bruk heller [`Chip`](/docs/components-chip--docs)
+
+
+## Eksempel
+
+### Gruppering
+
+Bruk [`Fieldset`](/docs/components-fieldset--docs) for å gruppere flere `Switch`-komponenter når de hører naturlig sammen.
+
+<Canvas of={SwitchStories.Group} />
+
+## Retningslinjer
+
+### Switch skal ha umiddelbar effekt 
+
+`Switch` skal alltid ha en umiddelbar effekt når den endres. Dette betyr at endringen skjer med en gang, uten behov for å lagre eller bekrefte valget.
+
+### Plassering
+
+`Switch` skal som hovedregel være plassert på venstre side av label. 
+
+**Unntak**
+
+Høyrejustering av `Switch` kan være nyttig i tabeller eller faste oppsett. Pass på at avstanden ikke blir for stor slik at det blir vanskelig å se hvilken tekst som hører til hvilken `Switch`.
+
+<Canvas of={SwitchStories.RightAligned} />
+
+### Unngå Disabled
+
+Vi unngår deaktivert (disabled) `Switch` fordi de kan være vanskelige å oppfatte. Noen brukere vil ikke forstå hva den sier eller hvorfor den ikke er klikkbar. Hvis en `Switch` ikke er relevant, bør du helst fjerne den fremfor å deaktivere den. Tilby gjerne brukeren informasjon om hvorfor valget ikke er tilgjengelig.
+
+Nav har en god forklaring på [hvorfor deaktiverte tilstander er problematisk](https://aksel.nav.no/god-praksis/artikler/deaktiverte-tilstander) og hvilke alternativer som finnes.
+
+### Unngå ReadOnly
+
+`Radio` støtter `readOnly` for å vise informasjon som ikke kan endres. Vi unngår `readOnly` så langt det lar seg gjøre, fordi slike felter kan være forvirrende for noen brukere. Ikke alle vil forstå hvorfor de ikke får til å endre innholdet i feltet.
+
+## Tekst til Switch
+
+- Hold teksten kort og presis, helst ett til to ord.
+- Test teksten ved å si den høyt og legge til «av/på» etterpå. Det skal gi mening.
+- Når du har flere `Switch` i en gruppe, bruk samme språklige struktur for alle.
+- Beskriv funksjonen, ikke tilstanden. Unngå å skrive «Varsler på» eller «Mørk modus av». Selve bryteren viser tilstanden.
+
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.
