@@ -24,7 +24,7 @@ catalog:
   '@vitest/coverage-v8': '^4.0.17'
 
   # Storybook
-  'storybook': '^10.2.8'
+  'storybook': '^10.2.10'
   '@storybook/react-vite': '^10.2.8'
   '@storybook/addon-a11y': '^10.2.8'
   '@storybook/addon-docs': '^10.2.8'
