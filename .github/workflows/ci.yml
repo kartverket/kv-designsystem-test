@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+
+permissions:
+  actions: read
+  contents: read
+  checks: write
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: tree:0
+          fetch-depth: 0
+
+      
+      - uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+        name: Install pnpm
+        with:
+          run_install: false
+      
+      # This enables task distribution via Nx Cloud
+      # Run this command as early as possible, before dependencies are installed
+      # Learn more at https://nx.dev/ci/reference/nx-cloud-cli#npx-nxcloud-startcirun
+      # Connect your workspace by running "nx connect" and uncomment this line to enable task distribution
+      # - run: pnpm dlx nx start-ci-run --distribute-on="3 linux-medium-js" --stop-agents-after="build"
+
+      
+      # Cache node_modules
+      - uses: actions/setup-node@v4
+        with:
+          cache: 'pnpm'
+          node-version-file: 'package.json'
+       
+      - run: pnpm install
+      - uses: nrwl/nx-set-shas@3e9ad7370203c1e93d109be57f3b72eb0eb511b1 # v4.4.0
+        name: Set Nx shas for affected commands
+        with:
+            main-branch-name: ${{ github.base_ref || github.ref_name }}
+
+      - name: Print affected projects
+        run: |
+          pnpm nx show projects --affected --base $NX_BASE --head $NX_HEAD \
+            | grep -v "^info" || echo "No projects affected" && true
+            
+    #   - name: Validate current commit (last commit) with commitlint
+    #     if: github.event_name == 'push'
+    #     run: pnpm commitlint --last --verbose
+
+    #   - name: Validate PR commits with commitlint
+    #     if: github.event_name == 'pull_request'
+    #     run: pnpm commitlint --from ${{ github.event.pull_request.base.sha}} --to ${{ github.event.pull_request.head.sha }} --verbose
+
+      - run: pnpm build
+
+      - name: Fail if the build changed any checked-in files
+        run: git diff --stat --exit-code
+
+      - name: Publish Storybook to Chromatic
+        uses: chromaui/action@07791f8243f4cb2698bf4d00426baf4b2d1cb7e0 # v13.3.5
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: '@kv-design/react'
+          exitZeroOnChanges: true
+          exitOnceUploaded: true
+          onlyChanged: true
+          externals: 'design-tokens/src/**'

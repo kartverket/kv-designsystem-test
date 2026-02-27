@@ -1,0 +1,30 @@
+{
+  "name": "@kv-design/react",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "@kv-design/react/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project @kv-design/react --web",
+  "targets": {
+    "dev": {
+      "continuous": true,
+      "dependsOn": [
+        "build",
+        { "projects": "!css", "target": "^watch" },
+        "lint-circular-dependencies"
+      ]
+    },
+    "test-storybook": {
+      "cache": true,
+      "dependsOn": ["build"],
+      "outputs": [
+        "{projectRoot}/test-reports/storybook.json",
+        "{projectRoot}/test-reports/storybook"
+      ]
+    },
+    "view-storybook-test-report": {
+      "continuous": true,
+      "dependsOn": ["test-storybook"]
+    }
+  }
+}

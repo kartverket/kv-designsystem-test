@@ -1,0 +1,52 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as AvatarStories from './Avatar.stories';
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+`Avatar` viser et bilde, initialer eller et ikon for en bruker eller profil.
+
+**Passer til å**
+
+- representere en person eller enhet
+
+**Passer ikke til å**
+
+- representere handlinger, objekter eller steder, bruk heller ikoner eller andre visuelle symboler
+- brukes som visuell dekor
+
+## Slik bruker du Avatar
+
+<Primary />
+<Controls />
+
+```tsx
+import { Avatar } from '@udir-design/react';
+
+/* Med standard brukerikon */
+<Avatar aria-label="Ola Nordmann" />
+
+/* Med initialer */
+<Avatar aria-label="Ola Nordmann">ON</Avatar>
+
+/* Med bilde */
+<Avatar aria-label="Ola Nordmann">
+  <img src="..." />
+</Avatar>
+
+/* Sammen med synlig tekst */
+<>
+  <Avatar aria-hidden>ON</Avatar>
+  <span>Ola Nordmann</span>
+</>
+```
+
+## Eksempler
+
+### Innhold
+
+`Avatar` kan inneholde et ikon, et bilde, eller initialer. Ikon og bilde legger du inn som `children` i komponenten. Innholdet får automatisk `aria-hidden="true"` for å unngå dobbel informasjon.
+Initialer sendes inn i `initials`-propen. Det vil fungere som en fallback dersom bildet ikke lastes. Et standard ikon vises dersom det ikke sendes inn `children` eller `initials`.
+
+<Canvas of={AvatarStories.Content} />
