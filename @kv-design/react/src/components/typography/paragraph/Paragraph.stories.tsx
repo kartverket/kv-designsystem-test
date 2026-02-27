@@ -21,3 +21,15 @@ export const Preview: Story = {
     </Paragraph>
   ),
 };
+
+export const Sizes: Story = {
+  render: () => (
+    <>
+      <Paragraph data-size='xl'>This is an xl paragraph</Paragraph>
+      <Paragraph data-size='lg'>This is a lg paragraph</Paragraph>
+      <Paragraph data-size='md'>This is a md paragraph</Paragraph>
+      <Paragraph data-size='sm'>This is a sm paragraph</Paragraph>
+      <Paragraph data-size='xs'>This is an xs paragraph</Paragraph>
+    </>
+  )
+};

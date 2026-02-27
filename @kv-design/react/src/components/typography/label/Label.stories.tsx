@@ -12,6 +12,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   args: {
-    children: 'Label',
+    children: 'Fødselsnummer (11 sifre)',
   },
 };

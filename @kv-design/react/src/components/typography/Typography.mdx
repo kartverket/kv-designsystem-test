@@ -1,0 +1,86 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as HeadingStories from './heading/Heading.stories';
+import * as ParagraphStories from './paragraph/Paragraph.stories';
+import * as LabelStories from './label/Label.stories';
+import * as ValidationMessageStories from './validationMessage/ValidationMessage.stories';
+
+# Typography
+
+Typografi er en viktig del av det å bygge opp innhold på en nettside. Det er avgjørende at vi bruker tekst konsistent på tvers av et nettsted slik at brukeren enkelt kan prosessere informasjonen som er der. Typografien er delt inn i fire komponenter som er ment å dekke alle behov som måtte dukke opp på et nettsted:
+
+- [`Heading`](#heading)
+- [`Paragraph`](#paragraph)
+- [`Label`](#label)
+- [`ValidationMessage`](#validationmessage)
+
+## Font
+
+For å sørge for at typografikomponentene bruker riktig font, må den importeres og defineres. I Kartverket bruker vi [Inter](https://rsms.me/inter/).
+
+Den er tilgjengelig i Altinn CDN.
+
+```html
+<link rel="stylesheet" href="https://altinncdn.no/fonts/inter/v4/inter.css" />
+```
+
+Biblioteket setter ingen globale stiler. For å få en konsistent typografi på nettsiden må du derfor selv sette en standard typografistil for HTML som ikke bruker komponenter fra biblioteket.
+
+
+## Heading
+
+Alle overskrifter skal bruke `Heading`-komponenten. Bruk komponenten når du skal vise sidetitler, seksjonstitler eller undertitler. Headingene er utformet for å skille seg tydelig fra brødtekst, skape visuell hierarki og hjelpe leserne med å forstå strukturen i innholdet.
+
+### Retningslinjer
+
+- Det skal kun være én `<h1>` tag per side, men det kan være flere h2-h6. 
+- Det er viktig at heading-hierarkiet på en side går logisk fra `<h1>` og nedover, både når det kommer til størrelse og rekkefølge.
+- `<h1>` elementet skal beskrive hele sidens innhold, mens hver mellomtittel skal være unik og presist fortelle hva teksten under handler om.
+- Overskrifter og mellomtitler bør være korte og tydelige om innholdet under.
+- Start gjerne overskrifter og mellomtitler med nøkkelord for at det skal være enklere å skumlese og finne det man leter etter. 
+
+<Canvas of={HeadingStories.Sizes} />
+
+## Paragraph
+
+Vi bruker `Paragraph` til brødtekst - altså løpende tekst som strekker seg over flere linjer. Dette er den mest brukte teksttypen på et nettsted og benyttes typisk i artikler, komponenter, hjelpetekster og lignende.
+
+### Retningslinjer
+
+- Hold avsnitt fokuserte og godt strukturerte, og del opp lange tekstblokker i mindre deler for å gjøre innholdet lettere å skanne og forstå. 
+- Sørg for at linjelengde og luft rundt teksten bidrar til god leseflyt.
+- Brødtekst skal være tydelig, konsis og skrevet i klart språk.
+- Start med det viktigste.
+- Hvert avsnitt bør handle om ett tema eller én idé av gangen.
+- Del opp komplekst innhold i flere avsnitt.
+
+<Canvas of={ParagraphStories.Sizes} />
+
+## Label
+
+`Label` fungerer som en tydelig og tilgjengelig tekstlig «etikett» som forteller brukeren hva et tilhørende skjemaelement handler om. `Label` har mindre linjehøyde enn `Paragraph`. Hvis du vil ha label-stil på et annet element, for eksempel en `<p>`, kan du bruke `asChild`.
+
+### Retningslinjer
+- `Label` skal være tydelig koblet til det tilhørende feltet.
+- Skriv kort og presist hva feltet inneholder  eller hva brukeren skal gjøre.
+- Unngå å endre `font-weight` med mindre det har en meningsfull rolle for brukeren.
+- Suppler med beskrivelse (description) hvis `Label` blir unødvendig lang.
+- Unngå forkortelser og intern terminologi med mindre målgruppa er godt kjent med de.
+
+<Canvas of={LabelStories.Preview} />
+
+## ValidationMessage
+
+Vi bruker `ValidationMessage` til å vise umiddelbare tilbakemeldinger knyttet til validering av brukerinput, for eksempel feilmeldinger eller advarsler i skjema.
+
+### Retningslinjer
+
+- Bruk riktig farge og ikon til type validering (feil, advarsel, suksess eller informasjon).
+- Skriv korte og tydelige meldinger som hjelper brukeren å forstå statusen til et skjemafelt. 
+- `ValidationMessage` skal plasseres nær feltet de gjelder.
+
+<Canvas of={ValidationMessageStories.AllColors} /> 
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.
