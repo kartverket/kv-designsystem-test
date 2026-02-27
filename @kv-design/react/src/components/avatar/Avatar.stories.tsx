@@ -6,7 +6,7 @@ import { Link } from '../link/Link';
 
 const meta = {
   component: Avatar,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Avatar>;
 
 export default meta;
@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 const profileImage = '';
 
 export const Preview: Story = {
-  args: { 
+  args: {
     'aria-label': 'Ola Nordmann',
     // children: '',
    },

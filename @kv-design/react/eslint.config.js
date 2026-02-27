@@ -5,9 +5,15 @@ import baseConfig, { importConfig } from '../../eslint.config.js';
 
 // Shared restricted imports across the repo
 const commonRestrictedImports = [
-  { group: ['@kv-design/react', '@kv-design/react/*'], message: 'Do not import from @kv-design/react. Use relative paths instead.' },
+  {
+    group: ['@kv-design/react', '@kv-design/react/*'],
+    message: 'Do not import from @kv-design/react. Use relative paths instead.',
+  },
   { group: ['**/dist/*'], message: 'Do not import from the dist directory.' },
-  { group: ['**/node_modules/*'], message: 'Do not import from the node_modules directory.' },
+  {
+    group: ['**/node_modules/*'],
+    message: 'Do not import from the node_modules directory.',
+  },
 ];
 
 export default defineConfig([

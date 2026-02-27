@@ -3,9 +3,7 @@
   "defaultProject": "@kv-design/react",
   "targetDefaults": {
     "build": {
-      "outputs": [
-        "{projectRoot}/dist"
-      ],
+      "outputs": ["{projectRoot}/dist"],
       "inputs": ["default", "^default"],
       "dependsOn": [
         "lint-circular-dependencies",
@@ -28,19 +26,13 @@
       "dependsOn": ["build"]
     },
     "test-storybook": {
-      "outputs": [
-        "{projectRoot}/test-reports/storybook"
-      ],
+      "outputs": ["{projectRoot}/test-reports/storybook"],
       "cache": true,
-      "dependsOn": [
-        "build"
-      ]
+      "dependsOn": ["build"]
     },
     "chromatic": {
       "cache": true,
-      "dependsOn": [
-        "build"
-      ]
+      "dependsOn": ["build"]
     }
   },
   "plugins": [
@@ -52,11 +44,7 @@
     }
   ],
   "namedInputs": {
-    "sharedGlobals": [
-      "{workspaceRoot}/.github/workflows/ci.yml"
-    ],
-    "default": [
-      "sharedGlobals"
-    ]
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"],
+    "default": ["sharedGlobals"]
   }
 }
