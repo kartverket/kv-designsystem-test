@@ -9,7 +9,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const gitignorePath = resolve(__dirname, '.gitignore');
 
 export const importConfig = { named: true };
-
 export default defineConfig([
   includeIgnoreFile(gitignorePath),
 
