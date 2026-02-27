@@ -1,0 +1,4 @@
+@import '@kv-design/theme';
+@import '@digdir/designsystemet-css';
+
+@import '../../react/src/components/**/*.!(module.)css' layer(kv.components);

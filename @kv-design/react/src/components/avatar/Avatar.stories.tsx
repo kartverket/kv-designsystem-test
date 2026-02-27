@@ -24,3 +24,15 @@ export const Preview: Story = {
     </>
   ),
 };
+
+export const Content: Story = {
+  args: {
+    'aria-label': 'Ola Nordmann',
+    initials: 'ON',
+   },
+  render: (args) => (
+    <Avatar {...args}>
+      {/* <img src={profileImage} alt="" /> */}
+    </Avatar>
+  ),
+};

@@ -26,3 +26,9 @@ dist-ssr
 *storybook.log
 storybook-static
 .env*
+
+
+
+.nx/cache
+.nx/workspace-data
+vite.config.*.timestamp*
