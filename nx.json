@@ -1,0 +1,62 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "defaultProject": "@kv-design/react",
+  "targetDefaults": {
+    "build": {
+      "outputs": [
+        "{projectRoot}/dist"
+      ],
+      "inputs": ["default", "^default"],
+      "dependsOn": [
+        "lint-circular-dependencies",
+        "^build",
+        "^install-dependencies"
+      ],
+      "cache": true
+    },
+    "lint": {
+      "cache": true
+    },
+    "typecheck": {
+      "cache": true,
+      "dependsOn": ["build"]
+    },
+    "lint-circular-dependencies": {
+      "cache": true
+    },
+    "install-dependencies": {
+      "dependsOn": ["build"]
+    },
+    "test-storybook": {
+      "outputs": [
+        "{projectRoot}/test-reports/storybook"
+      ],
+      "cache": true,
+      "dependsOn": [
+        "build"
+      ]
+    },
+    "chromatic": {
+      "cache": true,
+      "dependsOn": [
+        "build"
+      ]
+    }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
+  ],
+  "namedInputs": {
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yml"
+    ],
+    "default": [
+      "sharedGlobals"
+    ]
+  }
+}
