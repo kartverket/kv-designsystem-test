@@ -23,7 +23,6 @@
     "./style.css": "./dist/style.css"
   },
   "scripts": {
-    "lint": "nx eslint:lint",
     "lint-circular-dependencies": "pnpm madge --circular ./src/alpha.ts",
     "typecheck": "tsgo --build",
     "install-dependencies": "pnpm i",
