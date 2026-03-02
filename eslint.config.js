@@ -8,7 +8,17 @@ import importPlugin from 'eslint-plugin-import';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const gitignorePath = resolve(__dirname, '.gitignore');
 
-export const importConfig = { named: true };
+export const importOrderRules = { 
+  named: true,
+  pathGroups: [
+    {
+      pattern: '@kv-design/**',
+      group: 'external',
+      position: 'after',
+    },
+    { pattern: 'src/**', group: 'internal' },
+  ],
+ };
 export default defineConfig([
   includeIgnoreFile(gitignorePath),
 

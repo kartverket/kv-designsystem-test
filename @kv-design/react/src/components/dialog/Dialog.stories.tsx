@@ -24,7 +24,7 @@ export const Preview: Story = {
   render: () => (
     <Dialog.TriggerContext>
       <Dialog.Trigger>Åpne modal Dialog</Dialog.Trigger>
-      <Dialog id='my-dialog-modal'>
+      <Dialog>
         <Dialog.Block>
           <Heading>Lagre før du går videre </Heading>
         </Dialog.Block>
@@ -41,19 +41,16 @@ export const Preview: Story = {
               marginTop: 'var(--ds-size-4)',
             }}
           >
-            {/* TODO: Seems like the 'command' works, even though we get an error*/}
             <Button
               variant='primary'
               data-color='danger'
-              command='close'
-              commandfor='my-dialog-modal'
+              data-command='close'
             >
               Lagre
             </Button>
             <Button
               variant='secondary'
-              command='close'
-              commandfor='my-dialog-modal'
+              data-command='close'
             >
               Avbryt
             </Button>

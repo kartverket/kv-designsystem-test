@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "type": "module",
   "private": true,
+  "bin": {
+    "pretty-format-check": "bin/pretty-format-check.sh"
+  },
   "devDependencies": {
     "@types/micromatch": "catalog:",
     "@types/yargs": "catalog:",
