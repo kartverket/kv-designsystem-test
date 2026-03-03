@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Spinner } from './Spinner';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 
-const meta = {
+const meta:Meta<typeof Spinner> = {
   component: Spinner,
   decorators: [
     (Story) => (
@@ -19,11 +19,11 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Spinner>;
+};
 
 export default meta;
 // TODO: had to change to <typeof Spinner> to avoid decorators: [] to cast error on args
-type Story = StoryObj<typeof Spinner>; 
+type Story = StoryObj<typeof meta>; 
 
 export const Preview: Story = {
   args: {

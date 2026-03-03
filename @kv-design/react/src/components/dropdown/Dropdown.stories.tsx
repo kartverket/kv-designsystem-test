@@ -10,7 +10,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (args) => (
+  render: () => (
     <Dropdown.TriggerContext>
       <Dropdown.Trigger>Dropdown</Dropdown.Trigger>
       <Dropdown placement='bottom-end'>

@@ -1,0 +1,58 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as SuggestionStories from './Suggestion.stories';
+import { Alert } from '../alert/Alert';
+
+<Meta of={SuggestionStories} />
+
+<Alert type="warning">
+  Suggestion er under utvikling. Finner du feil eller mangler, meld i fra på Slack.
+</Alert>
+
+# Suggestion
+
+`Suggestion` er en søkbar select-komponent som lar brukeren velge ett eller flere alternativer fra en større liste.
+
+<Primary /> 
+
+**Bruk `Suggestion` når**
+- brukeren skal velge ett eller flere alternativer fra en omfattende liste
+- det er hensiktsmessig at alternativene filtreres fortløpende basert på det brukeren skriver
+- det er raskere å søke enn å skrolle
+
+
+**Unngå `Suggestion` når**
+- brukeren skal velge mellom få alternativer - bruk heller [`Radio`](/docs/components-radio--docs) eller [`Checkbox`](/docs/components-checkbox--docs)
+- brukeren forventer en operativsystem-styrt opplevelse - bruk heller en native `<select>`-komponent
+
+
+## Varianter med eksempler
+
+### Flervalg
+
+Du kan gi brukeren mulighet til å velge flere alternativer. Valgte alternativer vises som slettbare `Chips` etter `label`, men før inndatafeltet.
+
+### Filter
+
+`Filter` er aktivert som standard og søker i teksten brukeren skriver. Du kan også overstyre filteret, for eksempel ved å slå det helt av.
+
+### Asynkrone data
+
+`Suggestion` har ikke en egen `loading` state. I eksempelet under viser vi hvordan du kan bruke `Spinner` i `Suggestion.Empty`.
+
+*eks. fra udir*
+
+## Retningslinjer
+
+`Suggestion` egner seg når brukeren skal finne riktig alternativ i en større mengde valg. Komponentens styrke ligger i løpende filtrering, som gjør det enklere å navigere i lange lister.
+
+## Tekst i Suggestion
+
+- Bruk en tydelig og beskrivende `label` som forklarer hva brukeren skal velge.
+- Labelen skal beskrive informasjonen, ikke hvordan feltet brukes.
+- Hvert alternativ bør være kort - helst ett ord eller en kort frase.
+- Hvis ingen treff finnes, vis en kort og informativ melding, for eksempel «Ingen treff».
+
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Checkbox } from './Checkbox';
 import { Fieldset } from '../fieldset/Fieldset';
+import { useState } from 'react';
 
 const meta = {
   component: Checkbox,
@@ -33,6 +34,4 @@ export const OneOption: Story = {
   )
 };
 
-
-
-
+// TODO: create Do-Don't-story functionality

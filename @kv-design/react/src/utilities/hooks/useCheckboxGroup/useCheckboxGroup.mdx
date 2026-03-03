@@ -9,18 +9,19 @@ import { Alert } from '../../../components/alert/Alert'
 import * as Stories from './useCheckboxGroup.stories';
 import { useCheckboxGroup } from './useCheckboxGroup';
 
-<Meta of={Stories} />
+<Meta of={Stories} /> 
 
 # useCheckboxGroup
 
-En React-hook for å koble sammen en gruppe av avmerkingsbokser.
+En React-hook for å lettere håndtere en gruppe av `Checkbox`-komponenter.
 
 <Primary />
 
 I respons får du objektet:
 
+{/* TODO: What do we actually get as a respons? Udir has a different value for getCheckboxProps */}
 ```ts
-{
+{  
   getCheckboxProps: (value: string | { allowIndeterminate: true }) => CheckboxProps, // Returnerer props du kan spre på <Checkbox /> eller <input type="checkbox" />
   validationMessageProps: ValidationMessageProps, // Properties du kan valgfritt spre på ValidationMessage
   setValue: string[], // Funksjon for å sette checkboxgruppens verdi
@@ -38,7 +39,7 @@ I `getCheckboxProps`-funksjonen er første parameter enten `value` — en unik i
 ```tsx
 <Checkbox label="Barnehage" {...getCheckboxProps('barnehage')} />;
 // eller
-<Checkbox label="Barnehage" {...getCheckboxProps({ value: 'barnehage' /* ...and other props... */ }) />;
+<Checkbox label="Barnehage" {...getCheckboxProps({ value: 'barnehage' /* ...and other props... */ })} />;
 ```
 
 <Alert type="info" heading="Tips">
@@ -73,3 +74,7 @@ return (
   </Fieldset>
 );
 ```
+
+## Kilde 
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

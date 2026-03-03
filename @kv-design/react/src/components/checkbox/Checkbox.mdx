@@ -1,9 +1,8 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
 import * as CheckboxStories from './Checkbox.stories';
+import * as useCheckboxGroupStories from '../../utilities/hooks/useCheckboxGroup/useCheckboxGroup.stories';
 
 <Meta of={CheckboxStories} />
-
-# UFERDIG! Tas til slutt.
 
 # Checkbox
 
@@ -32,6 +31,101 @@ En `Checkbox` kan stå alene når brukeren kun skal bekrefte noe, for eksempel k
 
 <Canvas of={CheckboxStories.OneOption} /> 
 
-### Gruppering
+### Gruppering 
 
-I de fleste tilfeller brukes `Checkbox` i grupper, der brukeren kan velge flere alternativer. Gruppen bør ligge i et `<fieldset>` med en tittel som beskriver hva valgene handler om. Dette gir struktur, tydelighet og bedre tilgjengelighet.
+Bruk `Fieldset` og `useCheckboxGroup` for gruppering av flere valg. 
+
+I de fleste tilfeller brukes `Checkbox` i grupper, der brukeren kan velge flere alternativer. Gruppen bør ligge i et `Fieldset` med en tittel som beskriver hva valgene handler om. Dette gir struktur, tydelighet og bedre tilgjengelighet.
+
+[Les mer om `useCheckboxGroup`](/docs/utilities-usecheckboxgroup--docs)
+
+<Canvas of={useCheckboxGroupStories.Group} />
+
+### Feilmeldinger
+
+Når `Checkbox` brukes i grupper, skal feilmeldingen vises på Fieldset, ikke på hver enkelt `Checkbox`. Det gir en samlet og tydelig beskjed om hva som må rettes.
+
+
+## Retningslinjer
+
+### Sorter alternativene
+
+Sorter alternativene alfabetisk når det ikke finnes en god grunn til å gjøre noe annet. Unngå å plassere det mest brukte eller «riktige» alternativet først i spørsmål som gjelder personlige eller verdibaserte forhold.
+
+### Plassering
+
+Plasser alternativene vertikalt. Det gir bedre lesbarhet og gjør det enklere for brukere med forstørret tekst å lese hvert alternativ.
+
+### Unngå ReadOnly
+
+`Checkbox` støtter `readOnly` for å vise informasjon som ikke kan endres. Feltet får en visuell markering som skiller det fra redigerbare valg. Selv om feltet er skrivebeskyttet, er det med i tabrekkefølgen og blir sendt inn med skjemaet.
+
+Vi unngår `readOnly` så langt det lar seg gjøre, fordi slike felter kan være forvirrende for noen brukere. Ikke alle vil forstå hvorfor de ikke får til å endre innholdet i feltet.
+
+### Unngå Disabled
+
+Vi unngår helst deaktiverte (disabled) `Checkbox`. De kan være vanskelige å oppfatte og gjør det uklart for brukeren hva valget betyr og hvorfor det ikke kan brukes. Hvis et valg ikke er relevant, er det ofte bedre å fjerne det helt. Dersom du må vise at et valg ikke er tilgjengelig, bør du informere brukeren om hvorfor.
+
+Nav har en god forklaring på [hvorfor deaktiverte tilstander er problematisk (nav.no)](https://aksel.nav.no/god-praksis/artikler/deaktiverte-tilstander) og hvilke alternativer som finnes.
+
+## Tekst i Checkbox
+- Ledeteksten skal henge godt sammen med valgene og formuleres i du-form.
+- Alternativene bør stå i jeg-form og alltid starte med stor forbokstav.
+- `Label` skal stå til høyre for boksen. Hvis det er nødvendig med ekstra beskrivelse, kan du ha en `description` under `label`.
+- Lag logiske sammenhenger mellom forklaringen og svaralternativene.
+- Gi svaralternativene samme språklige form. Skriv enten fullstendige setninger eller ett ord, ikke begge deler.
+
+### I skjema
+
+Formuler forklaringen og alternativene som spørsmål og svar. Tenk på skjemaet som en samtale med den som svarer. Brukerne leser gjerne innholdet i den rekkefølgen det opptrer i skjemaet.
+
+*Do/Don't Story - funksjonalitet må lages* 
+
+Eksempel - Gjør:
+Hva vil du melde inn om eiendommen?
+☐ Feil i eiendomsgrenser 
+☐ Feil eller manglende adresse  
+☐ Endring i bygningsinformasjon
+
+Eksempel - Ikke gjør:
+Meldes inn om eiendommen
+☐ Feil i eiendomsgrenser 
+☐ Feil eller manglende adresse 
+☐ Endring i bygningsinformasjon
+
+### I andre grensesnitt
+
+Når `Checkbox` er brukt som del av andre typer interaktive elementer, er det ofte som del av filtre eller andre handlinger. Her forventer vi at brukeren skanner raskt etter mulige handlinger ved behov, og at det ikke nødvendigvis leses i rekkefølge. Unngå derfor overflødig tekst.
+
+*Do/Don't Story - funksjonalitet må lages* 
+
+Eksempel - Gjør:
+Område
+☐ Alna 
+☐ Bjerke 
+☐ Frogner
+
+Kartlag
+☐ Gåstier 
+☐ Skiløyper
+
+Eksempel - Ikke gjør:
+Hvilke områder er du interessert i?
+☐ Alna 
+☐ Bjerke 
+☐ Frogner
+
+Hvilke kartlag ønsker du å se?
+☐ Gåstier
+☐ Skiløyper
+
+
+## Tilgjengelighet
+
+Det skal være mulig å flytte fokus til `Checkbox`, ved å trykke `Tab` på tastaturet. Det skal være mulig å merke og fjerne avmerking ved å trykke `Space`.
+
+Bruk label for at `Checkbox` skal ha et tilgjengelig navn. I spesielle tilfeller gir det mer mening å bruke `aria-label` eller `aria-labelledby`, for eksempel i en tabell.
+
+
+## Kilde
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.
