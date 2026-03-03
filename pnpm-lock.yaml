@@ -379,9 +379,6 @@ packages:
   '@digdir/designsystemet-types@1.11.1':
     resolution: {integrity: sha512-sCPTFx1FplAfFIO8LMP68ts3HeUFgw/5Py9D+d5y4CPFJzxYk05/Bk7fHiKbVr57ZhbkKO4C88o7B2s63bOTlg==}
 
-  '@digdir/designsystemet-types@1.12.1':
-    resolution: {integrity: sha512-HE6D81h9IuNofEq1Gx1/FEVomxDID4SxCo7tcCYT16ZOQzHsUpSjirJD4Z3cIBY1SDDknwUTszyGz7QsBb5a8A==}
-
   '@digdir/designsystemet@1.11.0':
     resolution: {integrity: sha512-pQTfjCJ5X4dY0pGxUvkI7xD1YbiKKilsy9c1BLUgqg30+aK2P1W6ngD8DSDec09X3AvCBxLwJV7bK4Jg3jNBnw==}
     engines: {node: '>=20 <25'}
@@ -2813,7 +2810,7 @@ snapshots:
 
   '@digdir/designsystemet-react@1.11.1(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@digdir/designsystemet-types': 1.12.1
+      '@digdir/designsystemet-types': 1.11.1
       '@floating-ui/dom': 1.7.5
       '@floating-ui/react': 0.26.23(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@navikt/aksel-icons': 8.4.1
@@ -2829,8 +2826,6 @@ snapshots:
       - '@types/react'
 
   '@digdir/designsystemet-types@1.11.1': {}
-
-  '@digdir/designsystemet-types@1.12.1': {}
 
   '@digdir/designsystemet@1.11.0(tslib@2.8.1)':
     dependencies:
