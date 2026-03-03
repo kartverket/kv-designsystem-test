@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tabs } from './Tabs';
+import { Tooltip } from '../tooltip/Tooltip';
 
 const meta = {
   component: Tabs,
@@ -26,3 +27,60 @@ export const Preview: Story = {
     </Tabs>
   ),
 };
+
+// TODO: add icons
+export const IconsOnly: Story = {
+  render: () => (
+    <Tabs defaultValue='bygninger'>
+      <Tabs.List>
+        <Tooltip content='Bygninger'>
+          <Tabs.Tab value='bygninger'>
+            {/* <Buildings2Icon aria-hidden />  */}
+            ICON
+          </Tabs.Tab>
+        </Tooltip>
+        <Tooltip content='Dokumenter'>
+          <Tabs.Tab value='dokumenter'>
+            {/* <FilesIcon aria-hidden /> */}
+            ICON
+          </Tabs.Tab>
+        </Tooltip>
+        <Tooltip content='Instillinger'>
+          <Tabs.Tab value='instillinger'>
+            {/* <CogIcon aria-hidden /> */}
+            ICON
+          </Tabs.Tab>
+        </Tooltip>
+      </Tabs.List>
+    </Tabs>
+  )
+};
+
+// TODO: add icons
+export const IconsWithText: Story = {
+  render: () => (
+    <Tabs defaultValue='bygninger'>
+      <Tabs.List>
+        <Tooltip content='Bygninger'>
+          <Tabs.Tab value='bygninger'>
+            {/* <Buildings2Icon aria-hidden />  */}
+            [ICON]Bygninger
+          </Tabs.Tab>
+        </Tooltip>
+        <Tooltip content='Dokumenter'>
+          <Tabs.Tab value='dokumenter'>
+            {/* <FilesIcon aria-hidden /> */}
+            [ICON]Dokumenter
+          </Tabs.Tab>
+        </Tooltip>
+        <Tooltip content='Instillinger'>
+          <Tabs.Tab value='instillinger'>
+            {/* <CogIcon aria-hidden /> */}
+            [ICON]Instillinger
+          </Tabs.Tab>
+        </Tooltip>
+      </Tabs.List>
+    </Tabs>
+  )
+};
+

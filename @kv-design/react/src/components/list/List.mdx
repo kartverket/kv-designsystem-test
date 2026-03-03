@@ -1,0 +1,89 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as ListStories from './List.stories';
+
+<Meta of={ListStories} />
+
+# List
+
+`List` gir en ryddig og oversiktlig presentasjon av innhold, og gjør det enklere for brukerne å orientere seg. De egner seg godt når vi skal oppsummere hovedpunkter eller vise trinn som må gjennomføres i en bestemt rekkefølge.
+
+<Primary />
+
+**Bruk `List` når**
+- brukerne trenger en rask oversikt over lengre tekster
+- flere trinn i en prosess skal vises i riktig rekkefølge
+- kriterier eller vilkår skal presenteres tydelig
+
+
+**Unngå `List` når**
+- brukerne skal lese lengre innhold
+- flere grupper av informasjon skal kunne sammenlignes - bruk heller en [`Table`](/docs/components-table--docs)
+
+## Varianter med eksempler
+
+### Usortert liste
+
+Usorterte lister brukes når rekkefølgen ikke er viktig. Vi må likevel passe på at vi sorterer listen med det som er mest relevant først.
+
+<Canvas of={ListStories.Unordered} />
+
+### Sortert liste
+
+Sorterte lister brukes når trinn må følge en bestemt rekkefølge eller når det finnes en prioritert rekkefølge.
+
+<Canvas of={ListStories.Ordered} /> 
+
+### Lister i lister 
+
+Vi kan legge en liste under et enkelt listepunkt når punktet inneholder tilleggsinformasjon som må deles opp videre. Før du bruker en underliste, vurder om dette er et hovedpunkt som kan stå for seg selv, eller om det er informasjon som passer best som underpunkt.
+
+<Canvas of={ListStories.Indented} /> 
+
+### Liste med lenker
+
+Vi kan bruke `List` til å lage en liste med lenker, og i eksempelet under har vi skrudd av list-stylingen på `List.Unordered`
+
+<Canvas of={ListStories.WithLinks} /> 
+
+## Retningslinjer
+
+Vurder alltid hvor mange punkter du inkluderer. Lange punktlister bør deles opp for bedre lesbarhet og tilgjengelighet.
+
+### Liste eller tabell?
+
+Lister og tabeller dekker ulike behov:
+- Lister gir rask oversikt over relatert informasjon.
+- Tabeller egner seg når brukerne må kunne sammenligne flere grupper av informasjon.
+
+Riktig valg av format gir en bedre opplevelse for alle brukere, spesielt for de som bruker skjermleser eller har kognitive utfordringer.
+
+## Tekst i List
+
+- Hvert punkt bør være kort - helst en setning eller noen få ord.
+- Punktene skal ha lik form og struktur for forutsigbarhet.
+- List kan brukes sammen med en `Heading` for å gi brukeren en rask oversikt over innholdet, spesielt for lengre lister.
+
+### Rettskrivingsregler for lister
+
+1. Når punktene fortsetter innledningen, bruker vi
+    - ikke kolon etter innledningen
+    - liten forbokstav i punktene
+    - ikke punktum eller komma til slutt
+
+<Canvas of={ListStories.ContinueSentence} />
+
+2. Når punktene er hele setninger, bruker vi
+    - kolon i innledningen
+    - stor forbokstav i hvert punkt
+    - punktum etter hvert punkt
+
+<Canvas of={ListStories.NewSentence} />
+
+## Tilgjengelighet
+
+### List som navigasjon
+
+Dersom liste brukes som navigasjonselement (for eksempel i bunn eller ved siden av hovedinnholdet), kan du legge et `<nav>` element rundt med en `aria-label` for å gi skjermlesere en bedre brukeropplevelse. [W3C anbefaler](https://www.w3.org/TR/using-aria/#label-support) å unngå `aria-label`/`aria-labelledby` rett på `ul`/`ol`.
+
+## Kilde
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

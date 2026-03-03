@@ -1,0 +1,91 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as TableStories from './Table.stories';
+
+<Meta of={TableStories} />
+
+# Table
+
+En `Table` gir en strukturert og oversiktlig presentasjon av informasjon. Den gjør det enklere for brukerne å skanne, sammenligne og forstå data på tvers av rader og kolonner.
+
+<Primary />
+
+**Bruk `Table` når**
+
+- du skal gjøre det enkelt for brukeren å sammenligne informasjon
+- data trenger en tydelig struktur i rader og kolonner
+- innholdet kan sorteres eller filtreres
+
+**Unngå `Table` når**
+
+- målet er visuell layout, ikke datavisning
+- informasjonen passer bedre i liste- eller kortvisning
+- innholdet er svært begrenset, for eksempel én kolonne eller kun noen få punkt uten behov for sammenligning
+- datamengden gjør tabellen vanskelig å lese på mobil
+
+
+## Varianter med eksempler
+
+### Zebra-striper
+
+Zebra-striper kan gjøre tabellen lettere å lese ved å tydelig skille radene fra hverandre.
+
+<Canvas of={TableStories.ZebraStripes} />
+
+### Med border
+
+Bruk `border` for å legge til synlige kantlinjer som avgrenser tabellen fra annet innhold og gir et mer strukturert uttrykk.
+
+<Canvas of={TableStories.WithBorder} /> 
+
+### Sortering
+Du kan vise at tabellen kan sorteres etter innholdet i en kolonne.
+
+Du kan sortere i 3 retninger:
+- `'none'` - ingen sortering
+- `'ascending'` - stigende rekkefølge
+- `'descending'` - synkende rekkefølge
+
+Sorteringsindikatorer gir brukeren tydelig tilbakemelding og gjør det mulig å lage egen sorteringslogikk.
+
+<Canvas of={TableStories.Sortable} />
+
+### Fast kolonnebredde
+
+Fast bredde er nyttig når tabellen oppdateres dynamisk eller bruker paginering. Det sikrer stabil visning og bedre opplevelse.
+
+<Canvas of={TableStories.FixedTable} /> 
+ 
+### Tall i tabeller
+
+Plasser tall til høyre i tabellfeltet slik at det blir enklere å sammenligne verdier. Tekst skal som hovedregel venstrejusteres.
+
+<Canvas of={TableStories.Numbers} />
+
+## Retningslinjer
+
+- Venstrejuster innhold, med unntak av tall og valuta.
+- Bruk `<Table.HeaderCell>` for overskrifter. En celle regnes som overskrift når den beskriver innhold i samme rad eller kolonne.
+- Overskrifter skal tydelig beskrive hva brukeren finner i hver rad og kolonne.
+- For å spare plass i tabellrader med flere handlinger, kan du bruke en meny dersom handlingene ikke må være synlige hele tiden.
+- Unngå lange tekstblokker i celler. Hold innholdet kort. Bruk lenker til mer detaljerte sider ved behov.
+
+## Tilgjengelighet
+
+For å sikre at tabeller fungerer optimalt for alle brukere er det viktig å følge disse retningslinjene:
+
+- **Enkelt celleinnhold:**
+    Tabellceller bør ikke slås sammen, og hver celle bør inneholde kun ett interaktivt element. Dette bidrar til at brukerne raskt får oversikt over innholdet og lettere kan sammenligne og skanne informasjonen.
+- **Overskrifter:**
+    For at brukerne skal kunne navigere i innholdet med skjermleser, er det viktig å bruke rad- og/eller kolonneoverskrifter (`<Table.HeaderCell>`). Bruk `scope='row'` og `scope='col'` for å angi om overskriften gjelder en rad eller kolonne. Hvis det er behov for å spare plass, kan vi visuelt skjule én eller flere overskrifter.
+- **Caption-element:**
+    Tabeller skal alltid ha et `<caption>`-element med kort tekst om hva tabellen viser. Skjermlesere vil lese `<caption>`-elementet, og brukerne kan ta stilling til om de vil lese videre i tabellen.
+- **Tomme celler:** 
+    Tomme celler skal være `Table.Cell`. Dette er viktig for å sikre at skjermlesere kan navigere riktig i tabellen.
+- **Tastaturnavigering:**
+    Sjekk at du kan velge ulik sortering med tastatur. Test med skjermleser at du hører hva som er sorterbart, typer sortering og at du ikke mister fokus når du endrer sortering.
+- **Tilpasning for mobil:**
+    Det kan være vanskelig å vise tabeller på mobil, siden det ikke finnes et felles design som fungerer i alle sammenhenger. De vanligste alternativene for mobil er en tabell som ruller horisontalt eller omgjøring til listevisning.
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

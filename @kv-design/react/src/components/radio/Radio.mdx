@@ -1,0 +1,109 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as RadioStories from './Radio.stories';
+import * as useRadioGroupStories from '../../utilities/hooks/useRadioGroup/useRadioGroup.stories';
+
+<Meta of={RadioStories} />
+
+# Radio
+
+`Radio` er et valgkomponent som lar brukeren velge ett alternativ fra en liste. Når du trenger flere alternativer, legger du inn flere radioknapper. Brukeren kan bytte mellom alternativene, men kun ett kan være aktivt samtidig.
+
+<Primary />
+
+**Bruk `Radio` når**
+- brukeren skal velge ett av flere alternativer i et skjema
+
+**Unngå `Radio` når**
+
+- brukeren skal kunne velge flere alternativer - bruk heller [`Checkbox`](/docs/components-checkbox--docs)
+
+
+## Varianter med eksempler
+
+### Gruppering
+
+Bruk `Fieldset` for gruppering av radioknapper. Still spørsmålet i en ledetekst (legend). Bruk en beskrivende tekst hvis brukeren trenger mer informasjon for å forstå hva valget innebærer.
+
+<Canvas of={useRadioGroupStories.Group} />
+
+### Feilvisning
+
+Hvis brukeren går videre uten å svare på et obligatorisk spørsmål, skal feilmeldingen vises for hele gruppen med alternativer.
+
+<Canvas of={useRadioGroupStories.WithError} />
+
+Eksempel: 
+Hva gjelder forespørselen?
+Bestilling av vertikalbilder
+Tilgang til arkiverte bilder
+Innsending av bildemateriale
+*ikon* Du må velge et alternativ før du kan fortsette.
+
+## Retningslinjer
+
+### Generelt 
+
+- Bruk `Radio` når det kun skal velges ett alternativ.
+- Hvis brukeren kan velge flere alternativer, bruker du [`Checkbox`](/docs/components-checkbox--docs).
+- Unngå mer enn sju alternativer i samme gruppe. Hvis du trenger flere, vurder [`Suggestion`](/docs/components-suggestion--docs) eller [`Select`](/docs/components-select--docs).
+- Hvis det bare finnes ett valg, kan [`Switch`](/docs/components-switch--docs) eller [`Checkbox`](/docs/components-checkbox--docs) være mer passende.
+
+### Sortering
+
+- Sorter alternativene alfabetisk, med mindre det finnes en god grunn til en annen rekkefølge.
+- Unngå å plassere det mest brukte alternativet først dersom valget er sensitivt eller personlig, for eksempel legning eller politisk tilhørighet.
+
+### Plassering
+
+Plasser radioknapper vertikalt. Det gjør det lettere å skanne listen og lese alternativene.
+Horisontal visning kan brukes når det kun er to korte alternativer, som «Ja» og «Nei», eller for skalaer som «helt uenig» til «helt enig».
+
+<Canvas of={RadioStories.InLine} />
+
+### Unngå forhåndsvalg
+
+Vurder nøye om det er riktig å forhåndsvelge et alternativ. Et forhåndsvalg kan påvirke brukerens beslutning og oppleves som styrende.
+
+### Unngå ReadOnly
+
+`Radio` støtter `readOnly` for å vise informasjon som ikke kan endres. Vi unngår `readOnly` så langt det lar seg gjøre, fordi slike felter kan være forvirrende for noen brukere. Ikke alle vil forstå hvorfor de ikke får til å endre innholdet i feltet.
+
+### Unngå Disabled
+
+Vi unngår helst deaktiverte (disabled) `Radio`. De kan være vanskelige å oppfatte og gjør det uklart for brukeren hva valget betyr og hvorfor det ikke kan brukes. Hvis et valg ikke er relevant, er det ofte bedre å fjerne det helt. Dersom du må vise at et valg ikke er tilgjengelig, bør du informere brukeren om hvorfor.
+
+Nav har en god forklaring på [hvorfor deaktiverte tilstander er problematisk (nav.no)](https://aksel.nav.no/god-praksis/artikler/deaktiverte-tilstander) og hvilke alternativer som finnes.
+
+
+## Tekst i Radio
+
+- `Label` skal stå til høyre for boksen.
+- `Label` skal alltid ha stor forbokstav.
+- Både `legend` og `label` kan ha en tilhørende beskrivelse (description).
+- Beskrivelsen etter ledeteksten skal hjelpe brukeren å forstå spørsmålet.
+- Beskrivelsen etter hvert alternativ skal gjøre svaret klart og entydig.
+- Lag logiske sammenhenger mellom forklaringen og svaralternativene.
+- Gi svaralternativene samme språklige form. Skriv enten fullstendige setninger eller ett ord, ikke begge deler.
+
+### I skjema
+
+Formuler forklaringen og alternativene som spørsmål og svar. Tenk på skjemaet som en samtale med den som svarer. Brukerne leser gjerne innholdet i den rekkefølgen det opptrer i skjemaet.
+
+*Do/Don't Story - funksjonalitet må lages* 
+
+Eksempel - Gjør:
+Hva vil du melde inn om eiendommen?
+Feil i eiendomsgrenser
+Feil eller manglende adresse
+Endring i bygningsinformasjon
+
+Eksempel - Ikke gjør:
+Meldes inn om eiendommen
+Feil i eiendomsgrenser
+Feil eller manglende adresse
+Endring i bygningsinformasjon
+
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

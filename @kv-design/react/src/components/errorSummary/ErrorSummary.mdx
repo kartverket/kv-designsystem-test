@@ -1,0 +1,58 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as ErrorSummaryStories from './ErrorSummary.stories';
+
+<Meta of={ErrorSummaryStories} />
+
+# ErrorSummary
+
+`ErrorSummary` gir brukeren en samlet oversikt over feil og mangler som må rettes før de kan gå videre på en side eller i et skjema.
+
+<Primary />
+
+**Bruk ErrorSummary når**
+
+- du skal vise en tydelig oversikt over hvilke feil som brukeren må rette før de kan sende inn et skjema
+- et skjema har mange felt, og det kan være vanskelig å se hvor feilene ligger
+
+**Unngå ErrorSummary når**
+
+- tilbakemeldingene ikke hindrer innsending, for eksempel advarsler eller anbefalinger
+- du skal vise systemvarsler - bruk heller [`Alert`](/docs/components-alert--docs)
+
+
+## Eksempler
+
+### Koble sammen skjemafelt og feilmelding
+
+I dette forenklede eksempelet ser du hvordan `id` på skjemafeltene og `href` på `ErrorSummary.Link` skal henge sammen for å kunne navigere til det aktuelle feltet med feil.
+
+<Canvas of={ErrorSummaryStories.WithForm} />
+
+### Flytte fokus når ErrorSummary vises
+
+`ErrorSummary` skal være skjult helt til brukeren prøver å komme seg videre, for eksempel ved å sende inn et skjema, og det finnes feil eller mangler som hindrer innsending.
+
+Det er viktig at `ErrorSummary` får fokus når den dukker opp, slik at brukeren får med seg hva hen må gjøre for å komme seg videre. 
+
+## Retningslinjer
+
+- Oppsummeringen kan gjelde én eller flere feil, og den skal alltid inneholde alle feilmeldingene som vises på siden.
+- Lenker i oppsummeringen skal føre brukeren direkte til de aktuelle feltene.
+- Lenketeksten skal stemme overens med feilmeldingen den peker til.
+- Hvis feilen gjelder flere felt, for eksempel når to felt valideres på tvers, lenker vi til det første tilfellet av feilen.
+- Hvis valideringen skjer fortløpende (for eksempel med `onBlur`), venter vi med å vise `ErrorSummary` til brukeren forsøker å sende inn skjemaet.
+
+## Plassering
+
+Vi anbefaler å plassere `ErrorSummary` rett over Neste/Send inn-knappen. Det gjør det tydelig hvorfor brukeren ikke kan gå videre.
+I noen tilfeller kan det likevel være bedre å vise `ErrorSummary` i toppen, det kan du lese mer om i [artikkelen om feilmeldinger hos Digdir](https://designsystemet.no/monstre/feilmeldinger#oppsummering-av-flere-feilmeldinger).
+
+## Tekst i ErrorSummary
+
+- Bruk overskriften: «For å gå videre må du rette opp følgende feil», eller en setning som formidler det samme på språket som brukes.
+- Feilmeldingene i `ErrorSummary` skal være identiske med feilmeldingene ved de enkelte feltene.
+
+
+## Kilde
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.
+

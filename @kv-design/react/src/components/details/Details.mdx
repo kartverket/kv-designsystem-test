@@ -1,0 +1,74 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as DetailsStories from './Details.stories';
+
+<Meta of={DetailsStories} />
+
+# Details 
+
+`Details` er en sammenleggbar komponent som lar brukeren vise eller skjule innhold.
+
+<Primary />
+
+**Bruk `Details` når**
+
+- informasjonen kun er relevant for noen brukere
+- du gir eksempler eller svarer på ofte stilte spørsmål
+- det er opp til brukeren om de vil lese innholdet
+
+**Unngå `Details` når**
+
+- innholdet er viktig og bør være synlig for alle
+- du skal vise en handlingsknapp
+- du skal oppsummere feilmeldinger - bruk heller [`ErrorSummary`](/docs/components-errorSummary--docs)
+
+## Varianter med eksempler
+
+### Med ramme
+
+Du kan plassere `Details` i et `Card` for å gi en tydelig ramme rundt innholdet. Dette passer når komponenten ikke dekker hele siden, eller når det kun er én rad.
+
+<Canvas of={DetailsStories.InCard} /> 
+
+### Med farger
+ 
+Du kan hovedsakelig bruke neutral eller accent-fargen i temaet ditt. Details i et `Card` kan ha tinted-varianten for enda tydeligere visning.
+  
+<Canvas of={DetailsStories.InCardWithColor} />
+
+## Retningslinjer
+
+### Vurder hva som bør skjules
+
+- Bruk `Details` for å gjøre store tekstmengder mer håndterbare.
+- Unngå å bruke komponenten for å rydde i layouten. Skjult innhold kan bli oversett. 
+- Vurder nøye om innholdet faktisk bør skjules, og vær tydelig på hvorfor.
+
+### Unngå nøsting
+
+- Ikke plasser en `Details`-komponent inni en annen.
+- Nøsting gjør det vanskelig for brukeren å forstå hva som er åpnet eller lukket.
+
+### Skriv tydelige overskrifter
+- La overskriften beskrive innholdet presist og tilgjengelig.
+- Unngå generelle titler som «Vis mer» eller «Les mer».
+- Legg til en hoved- eller temaoverskriftl når flere `Details`-komponenter står etter hverandre.
+
+### Begrens mengden innhold
+- Hold innholdet i `Details` kort, slik at det er lett å knytte det til overskriften. 
+- Del opp lange tekster i flere `Details`-elementer. Ved svært mye innhold bør du vurdere om det er bedre å lage egne sider.
+
+## Tilgjengelig
+
+Ikke plasser andre interaktive elementer inn i `Details.Summary`, da hele raden skal være klikkbar. Ikonet og teksten skal _ikke_ lenke til ulike handlinger (for eksempel at teksten går videre til en side, mens ikonet åpner listen). Brukerne forventer ikke at ikon og tekst skal gi ulikt resultat når de velger dem.
+
+- `Tab` flytter fokus til neste element som kan ha fokus
+- `Shift` + `Tab` flytter fokus til forrige element som kan ha fokus
+- `Space` eller `Enter` aktiverer knapp
+
+## Kjente mangler
+
+I Firefox og Safari spilles det ikke av animasjon når `Details` åpnes og lukkes. Se [`interpolate-size` hos MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/interpolate-size).
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

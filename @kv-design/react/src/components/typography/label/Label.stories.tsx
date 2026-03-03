@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ValidationMessage } from './ValidationMessage';
+import { Label } from './Label';
 
 const meta = {
-  component: ValidationMessage,
+  component: Label,
   parameters: {layout: 'centered'},
-  title: 'Components/Typography/ValidationMessage',
-} satisfies Meta<typeof ValidationMessage>;
+  title: 'Components/Typography/Label',
+} satisfies Meta<typeof Label>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   args: {
-    children: 'ValidationMessage',
+    children: 'Fødselsnummer (11 sifre)',
   },
 };
