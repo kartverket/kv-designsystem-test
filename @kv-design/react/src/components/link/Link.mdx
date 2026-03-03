@@ -1,0 +1,86 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as LinkStories from './Link.stories';
+
+<Meta of={LinkStories} />
+
+# Link
+
+En `Link` er klikkbar tekst eller grafikk som tar brukeren videre til en annen side eller et dokument.
+
+<Primary />
+
+**Bruk `Link` når**
+
+- du viser til en ny side, internt eller eksternt
+- du leder brukeren til et annet sted på samme side
+- en fil skal lastes ned
+
+**Unngå `Link` når**
+- brukeren skal utføre en handling, for eksempel «Lagre» eller «Logg inn» - bruk heller [`Button`](/docs/components-button--docs)
+- handlingen utløser en prosess i løsningen, for eksempel åpner en dialog eller starter en arbeidsflyt - bruk heller [`Button`](/docs/components-button--docs)
+
+## Eksempler
+
+### Med ikon
+
+Et ikon til en lenke skal fortelle brukeren hva den leder dem til. Ikoner til lenker skal som hovedregel plasseres til venstre. Ikonet burde være skjult fra skjermleser, ved å legge på `aria-hidden`. Plasser teksten i `<span>` for å få anbefalt mellomrom uten understrek mellom ikon og tekst.
+
+<Canvas of={LinkStories.WithIcon} />
+
+### I løpende tekst 
+
+Lenker brukes ofte integrert i brødtekst. Teksten som omfattes av lenken bør indikere tydelig hvor den går.
+
+<Canvas of={LinkStories.InText} /> 
+
+### Nøytral farge
+
+Lenker kan vises i en nøytral farge, særlig i områder med egen bakgrunnsfarge.
+
+<Canvas of={LinkStories.NeutralColor} /> 
+
+### Flere linjer
+
+<Canvas of={LinkStories.LongLink} /> 
+
+### Åpne fil
+
+<Canvas of={LinkStories.File} /> 
+
+## Retningslinjer
+
+- Lenken skal peke direkte til informasjonen brukeren trenger for å løse oppgaven. Unngå generelle sider der brukeren må lete videre.
+- Unngå å bruke for mange lenker på samme side - det gjør navigasjonen mindre oversiktlig.
+
+### Unngå at lenker blir åpnet i ny fane
+
+Som hovedregel skal både interne og eksterne lenker åpnes i samme fane. Dette gir en forutsigbar brukeropplevelse.
+
+Unntak der ny fane kan være riktig:
+- hvis systemet må logge ut brukeren når de navigerer til en annen side, og det er hensiktsmessig å unngå at de blir logget ut.
+- hvis brukeren kan miste data i en pågående prosess
+- hvis brukeren trenger innhold, f.eks. veiledning, for å fullføre en oppgave
+
+I slike tilfeller bør du merke lenken med «(åpnes i ny fane)».
+
+### Tekst i Link
+
+En god lenketekst er selvforklarende og gir mening også når den leses isolert, for eksempel av en skjermleser.
+
+- Plasser viktige ord tidlig i teksten (triggerord).
+- Unngå «Gå til», «Klikk her», «Les mer» som eneste tekst.
+- Alle lenker på en side må ha unike lenketekster.
+- Start gjerne lenketeksten med et verb.
+- Skriv korte lenketekster. Ikke prøv å gjenskape informasjon på siden du lenker til, men hva innholdet dreier seg om.
+
+## Tilgjengelighet
+
+- Lenker skal fungere som et vanlig `Anchor-element`.
+- Lenker får tydelig bakgrunnsfarge når de får fokus via tastatur.
+- Besøkte lenker vises i en annen farge for å hjelpe brukeren å se hva som allerede er åpnet.
+- Hvis et bilde brukes som lenke, må bildet ha alternativ tekst som beskriver hvor lenken leder.
+- Dersom det står lenketekst ved siden av bildet, skal både bildet og teksten ligge i samme `Anchor-element`. Bildet skal da ha tom alt-tekst (`alt=''`).
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

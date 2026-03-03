@@ -1,0 +1,34 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as DividerStories from './Divider.stories';
+
+<Meta of={DividerStories} />
+
+# Divider 
+
+Vi bruker `Divider` for å skape et tydelig visuelt skille mellom innhold. Den består av en enkel horisontal linje som strekker seg over tilgjengelig bredde.
+
+<Primary />
+
+**Bruk `Divider` når**
+
+- du vil dele opp innhold for å gjøre det mer oversiktlig
+- mellomrom alene ikke gir tilstrekkelig separasjon
+
+**Unngå `Divider` når**
+
+- naturlig spacing eller andre visuelle virkemidler allerede gir god nok avstand
+- bruk av mange `Divider`-elementer skaper et urolig eller rotete uttrykk
+
+## Retningslinjer
+
+Bruk `Divider` for å strukturere innhold i mindre og tydeligere deler. Det gjør materialet enklere å lese og gir en mer forutsigbar opplevelse. `Divider` kan også bidra til å skille innhold som hører tematisk sammen, men som likevel trenger et klart visuelt skille.
+
+## Tilgjengeliget
+
+`Divider` er et rent visuelt virkemiddel, og leses ikke opp av skjermlesere.
+
+Unngå likevel å bruke `Divider` utelukkende for visuell effekt uten funksjonell betydning. En`Divider` representerer en tematisk inndeling av innhold. For å kommunisere denne inndelingen på en tilgjengelig måte må man i tillegg bruke elementer som en skjermleser forstår. Dette kan for eksempel være en `Heading`, en `List`, `<section>`-elementer, eller elementer med `role='group'`.
+
+## Kilde 
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

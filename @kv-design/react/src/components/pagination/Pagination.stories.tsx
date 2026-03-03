@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Pagination } from './Pagination';
+import { useArgs } from 'storybook/preview-api';
+import { 
+    type UsePaginationProps,
+    usePagination,
+} from '../../utilities/hooks/usePagination/usePagination';
+
 
 const meta = {
   component: Pagination,
@@ -10,10 +16,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  args: {
-    children: 'Pagination',
-  },
-  render: (args) => (
+  render: () => (
     <Pagination>
       <Pagination.List>
         <Pagination.Item>
@@ -57,3 +60,95 @@ export const Preview: Story = {
     </Pagination>
   ),
 };
+
+
+export const WithAnchor: StoryObj<UsePaginationProps> = {
+  args: {
+    currentPage: 2,
+    totalPages: 10,
+    showPages: 7,
+  },
+  render: (args) => {
+    const [, updateArgs] = useArgs();
+
+    const { pages, nextButtonProps, prevButtonProps } = usePagination({
+      ...args,
+      setCurrentPage: (currentPage) => updateArgs({ currentPage }),
+    });
+
+    return (
+      <Pagination aria-label="Sidenavigering">
+        <Pagination.List>
+          <Pagination.Item>
+            <Pagination.Button
+              asChild
+              aria-label="Forrige side"
+              {...prevButtonProps}
+            >
+              <a href="#forrige-side">Forrige</a>
+            </Pagination.Button>
+          </Pagination.Item>
+
+          {pages.map(({ page, itemKey, buttonProps }) => (
+            <Pagination.Item key={itemKey}>
+              {typeof page === 'number' && (
+                <Pagination.Button
+                  asChild
+                  aria-label={`Side ${page}`}
+                  {...buttonProps}
+                >
+                  <a href={`#side-${page}`}>{page}</a>
+                </Pagination.Button>
+              )}
+            </Pagination.Item>
+          ))}
+
+          <Pagination.Item>
+            <Pagination.Button
+              asChild
+              aria-label="Neste side"
+              {...nextButtonProps}
+            >
+              <a href="#neste-side">Neste</a>
+            </Pagination.Button>
+          </Pagination.Item>
+        </Pagination.List>
+      </Pagination>
+    );
+  }
+};
+
+export const Mobile: Story = {
+  render: () => (
+    <Pagination>
+      <Pagination.List>
+        <Pagination.Item>
+          <Pagination.Button
+            aria-label='Forrige side'
+            data-variant='tertiary'
+          />
+        </Pagination.Item>
+
+        <Pagination.Item>
+          <Pagination.Button aria-label='Side 2' data-variant='tertiary'>
+            2
+          </Pagination.Button>
+        </Pagination.Item>
+
+        <Pagination.Item>
+          <Pagination.Button aria-label='Side 3'>3</Pagination.Button>
+        </Pagination.Item>
+
+        <Pagination.Item>
+          <Pagination.Button aria-label='Side 4' data-variant='tertiary'>
+            4
+          </Pagination.Button>
+        </Pagination.Item>
+
+        <Pagination.Item>
+          <Pagination.Button aria-label='Neste side' data-variant='tertiary' />
+        </Pagination.Item>
+      </Pagination.List>
+    </Pagination>
+  )
+}

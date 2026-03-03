@@ -1,0 +1,77 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as TabsStories from './Tabs.stories';
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+`Tabs` brukes for å la brukeren navigere mellom relaterte deler av innhold, der én seksjon vises om gangen. Dette er en effektiv måte å organisere informasjon på én side uten å belaste brukeren med for mye innhold samtidig.
+
+<Primary />
+
+**Bruk `Tabs` når**
+
+- innholdet kan struktureres uten behov for å laste inn en ny side
+- informasjonen med fordel kan deles inn i tydelig merkede seksjoner
+- navigasjonen blir enklere når brukeren slipper å forholde seg til alt innholdet samtidig
+
+**Unngå `Tabs` når**
+
+- brukeren trenger umiddelbar oversikt over alt innholdet
+- brukeren må kunne sammenligne innhold på tvers av seksjoner
+- brukeren skal gjennomføre en stegvis prosess med en viktig rekkefølge
+- store datamengder kan føre til treg innlasting
+- innholdet like godt kan vises samlet på én side, eller fordeles naturlig på flere sider
+
+
+## Varianter med eksempler
+
+### Kun ikoner
+
+`Tabs` kan vises med bare ikoner for å gi et mer kompakt uttrykk. Da er det viktig at ikonene er intuitive og har beskrivende titler for skjermlesere. I eksemplet under brukes `Tooltip` rundt `Tabs.Tab` for å tilby forklarende tekst til ikonene.
+
+<Canvas of={TabsStories.IconsOnly} />
+
+### Ikoner med tekst
+
+Kombinasjonen av ikon og tekst gir både visuell og språklig støtte. Ikonene bør være dekorative og merkes med `aria-hidden`.
+
+<Canvas of={TabsStories.IconsWithText} />
+
+## Retningslinjer
+
+`Tabs` skal brukes til å organisere relatert innhold i separate og forståelige seksjoner.
+
+### Alternativer til Tabs
+
+Før du velger `Tabs`, vurder om det er bedre å
+
+- forenkle og redusere innholdet
+- fordele informasjonen på flere sider
+- samle alt på én side med tydelige overskrifter
+- bruke en innholdsfortegnelse for enklere navigasjon
+
+### Beste praksis
+
+- Begrens antall `Tabs` - for mange gjør navigasjonen uoversiktlig, særlig på små skjermer.
+- Gi `Tabs` tydelige navn - brukeren skal raskt forstå hva seksjonen inneholder.
+- Plasser det viktigste først - prioriter innhold etter brukerbehov.
+- Hold `Tabs` på én linje - lange eller mange `Tabs` kan gjøre navigasjonen krevende.
+- Unngå deaktiverte `Tabs` - fjern dem helt, eller forklar hvorfor innhold mangler.
+
+
+## Tekst i Tabs
+
+`Tabs` bør ha korte og presise navn som tydelig beskriver innholdet bak. Dersom det er vanskelig å definere gode titler, kan det tyde på at innholdet ikke er godt nok strukturert.
+
+Ved behov kan en overordnet tittel plasseres over `Tabs`-komponenten. Dette gir en samlet introduksjon og hjelper brukeren å forstå helheten før de navigerer mellom seksjonene.
+
+## Tilgjengelighet
+
+- Hver `Tab` må ha en unik tittel.
+- Ved bruk av ikoner, sørg for at de har `aria-hidden`.
+- Dersom et `Tabs.Panel` ikke har fokuserbare elementer, får selve panelet fokus.
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

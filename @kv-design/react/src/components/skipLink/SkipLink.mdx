@@ -1,0 +1,31 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as SkipLinkStories from './SkipLink.stories';
+
+<Meta of={SkipLinkStories} />
+
+# SkipLink
+
+`SkipLink` gjør det enklere for brukere som navigerer med tastatur å komme raskt til hovedinnholdet på en side. Den lar brukeren hoppe over innhold som gjentas fra side til side.
+
+<Primary />
+
+**Bruk `SkipLink` når**
+
+- det finnes flere tab-stopp før hovedinnholdet
+- brukeren skal kunne hoppe over gjentakende elementer som menyer, lenker eller topptekst
+
+**Unngå `SkipLink` når**
+
+- siden har få tab-stopp før hovedinnholdet
+- nettstedet består av én enkelt side uten gjentakende innhold
+
+## Retningslinjer
+
+- Plasser `SkipLink` som det første fokuserbare elementet på siden.
+- Dersom siden har et varsel om informasjonskapsler, plasser `SkipLink` rett etter dette.
+- `SkipLink` skal tydelig skille seg ut fra annet innhold. Det hjelper brukere som kan se, men som navigerer med tastatur, til å oppdage snarveien raskt.
+- Bruk enkel og tydelig tekst, for eksempel «Hopp til hovedinnhold».
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

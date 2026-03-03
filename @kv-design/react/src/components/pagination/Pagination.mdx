@@ -1,0 +1,50 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as PaginationStories from './Pagination.stories';
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+`Pagination` er en liste med knapper som lar brukeren navigere mellom flere sider med innhold, som søkeresultater eller tabeller.
+
+<Primary />
+
+**Bruk `Pagination` når**
+- søkeresultater eller store datamengder må deles opp i flere sider
+- brukeren trenger oversikt over hvor de befinner seg i en større mengde innhold
+- lasting av alt innholdet samtidig gir dårlig ytelse
+
+**Unngå `Pagination` når**
+- innholdet er så lite at det får plass på én side
+- du skal dele inn et skjema i flere steg
+- du skal vise fremdrift
+
+
+## Varianter med eksempler
+
+`Pagination` kommer i to varianter: med og uten tekst til knappene for forrige og neste side.
+
+### Med lenker
+
+Du kan bruke `Pagination` med lenker (anchor tags) for å gi tydelig navigasjon mellom sidene.
+
+<Canvas of={PaginationStories.WithAnchor} />
+
+### Mobilvariant
+
+På mobil viser vi færre sider og utelater tekst for «Forrige» og «Neste» for å spare plass.
+
+<Canvas of={PaginationStories.Mobile} />
+
+## Retningslinjer
+
+Bruk `Pagination` når innholdet er for stort for én visning, som ved søkeresultater eller lange lister, og brukeren må kunne bla frem og tilbake. Vi deler bare opp innhold i flere sider når det gir bedre lastetid eller brukervennlighet.
+
+## Tekst i Pagination
+
+- Bruk faste ord for navigasjon: «Forrige» og «Neste».
+    - Unngå alternativene: «Forrige side», «Neste side», «Gå tilbake», «Gå videre», «Videre» og «Tilbake».
+
+
+## Kilde
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

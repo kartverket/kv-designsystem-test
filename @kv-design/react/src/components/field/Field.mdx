@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as FieldStories from './Field.stories';
+
+<Meta of={FieldStories} />
+
+# Field
+
+`Field` er et hjelpemiddel for å automatisk koble et felt sammen med `Label`, `Field.Description`, `ValidationMessage` og `Field.Counter`.
+
+<Primary />
+
+**Bruk `Field` når**
+
+- du skal sørge for at [`Label`](/docs/components-typography-label--docs), `Field.Description`, [`ValidationMessage`](/docs/components-typography-validationMessage--docs) og `Field.Counter` er riktig koblet til et felt
+
+**Unngå `Field` når** 
+
+- du skal semantisk gruppere flere felt - bruk heller [`Fieldset`](/docs/components-fieldset--docs)
+
+## Eksempler
+
+### Prefix/Suffix
+
+Prefixer og suffixer er nyttige for å vise enheter, valuta eller andre typer informasjon som er relevant for feltet. Du skal ikke bruke disse alene, siden skjermlesere ikke leser dem opp. Det er viktig at samme informasjon som vises i prefixet eller suffixet også er inkludert i ledeteksten.
+
+<Canvas of={FieldStories.Affix} />
+
+### Antall tegn
+
+Bruk `Field.Counter` til å informere om antall tegn brukerne kan skrive i feltet.
+
+<Canvas of={FieldStories.Counter} />
+
+### Plassering
+
+Når du bruker `Field` sammen med valgkomponenter som `Switch`, kan du plassere etiketten enten før eller etter kontrollen. Dette gjør det mulig å tilpasse komponenten til sammenhengen.
+
+<Canvas of={FieldStories.Position} />
+
+## Tilgjengelighet
+
+`Field` hjelper deg med å strukturere skjemafelt på en tilgjengelig og konsistent måte. Den kobler automatisk sammen `Label`, `Field.Description`, `ValidationMessage` og `Field.Counter` med det tilhørende feltet via riktige ARIA-attributter.
+
+## Kilde
+
+`Field` bygger på arbeid gjort i Digdirs designsystem.

@@ -1,0 +1,44 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as SpinnerStories from './Spinner.stories';
+
+<Meta of={SpinnerStories} />
+
+# Spinner
+
+Vi bruker `Spinner` for å indikere at innhold eller en handling er i ferd med å laste, og at brukeren må vente før de kan fortsette. Den gir en visuell bekreftelse på at en prosess pågår, og bidrar til forutsigbarhet og trygghet.
+
+<Primary/>
+
+**Bruk `Spinner` når**
+- systemet utfører en oppgave brukeren må vente på
+- det er lokale handlinger, som innsending av skjema eller oppdatering av tabeller
+- du skal fortelle brukeren at lastetiden vil ta mer enn 1 sekund
+
+**Unngå `Spinner` når**
+- enkeltkomponenter på en side lastes inn - bruk heller [`Skeleton`](/docs/components-skeleton--docs)
+- lastetiden er under 1 sekund
+
+
+## Varianter med eksempler
+
+### Størrelser
+
+Du kan justere størrelsen på `Spinner` etter hvor den skal plasseres.
+Velg en størrelse som harmonerer med komponenten den vises i, for eksempel knapp, input-felt eller andre avgrensede områder.
+
+<Canvas of={SpinnerStories.Sizes} />
+
+### Farger
+
+Du kan bruke neutral, accent og support-fargene på `Spinner`.
+
+<Canvas of={SpinnerStories.Colors} />
+
+### Tekst med Spinner
+
+I noen tilfeller er det nyttig å supplere `Spinner` med en kort forklaring som beskriver hvorfor brukeren må vente. En tydelig tekst kan redusere forvirring og styrke brukerens forståelse av situasjonen.
+
+<Canvas of={SpinnerStories.WithText} />
+
+## Kilde 
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

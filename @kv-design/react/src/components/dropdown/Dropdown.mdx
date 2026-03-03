@@ -1,0 +1,53 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as DropdownStories from './Dropdown.stories';
+
+<Meta of={DropdownStories} />
+
+# Dropdown
+
+`Dropdown` er en generell nedtrekksliste som fungerer som et grunnleggende byggeelement for menyer og lister.
+
+<Primary />
+
+**Bruk `Dropdown` når**
+
+- du vil presentere flere valg uten å bruke mye plass i grensesnittet
+- alternativene er sekundære, men fortsatt bør være lett tilgjengelige
+
+**Unngå `Dropdown` når**
+
+- handlingen er primær eller utføres ofte - bruk heller en synlig [`Button`](/docs/components-button--docs)
+- det finnes kun ett valg - en `Dropdown` skaper da unødvendig kompleksitet
+
+## Eksempler
+
+### Med ikoner
+
+Du kan kombinere ikoner og tekst i elementene for å gjøre valgene tydeligere.
+
+### Kontrollert tilstand
+
+Tilstanden til `Dropdown`kan kontrolleres ved å bruke `open`og `onClose`.
+
+### Trigger
+
+Triggeren er en [`Button`](/docs/components-button--docs) som standard. Du kan bruke `asChild` for å endre `Dropdown.Trigger`-elementet. Dersom du skal legge på funksjoner som `onClick`, legg det på ditt element, og legg `asChild` på `Dropdown.Trigger`.
+
+Fordi `Dropdown` bruker popover API-et, kan du også bruke `Dropdown` uten `Dropdown.Trigger`. Da må du legge til `popovertarget={id}` på komponenten som skal brukes som trigger, og `id` på `Dropdown`.
+
+### Vis aktivt element
+
+Du kan bruke `aria-current='true'`på et `Dropdown.Item` for å indikere hvilket element som er aktivt/valgt.
+
+## Retningslinjer
+
+- En `Dropdown` er ikke en semantisk meny, men gir grunnlaget for å bygge en. Se ['Menu and Menubar Pattern' hos w3c](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/) for mer informasjon om tilgjengelige menyer.
+- Bruk dropdowns til handlinger eller navigasjon som ikke må være synlige hele tiden.
+- Begrens antallet elementer slik at listen er enkel å navigere.
+- Bruk overskrifter for å gruppere relaterte valg.
+- Unngå flere nivåer med dropdowns (nøstede menyer), da dette gjør navigasjonen mer krevende.
+
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.
