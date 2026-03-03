@@ -1,4 +1,6 @@
 /// <reference types="vitest/config" />
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig, createFilter } from 'vite';
 import react from '@vitejs/plugin-react';
 import ts from 'typescript';
@@ -6,15 +8,12 @@ import tsConfigPaths from 'vite-tsconfig-paths';
 import dts from 'vite-plugin-dts';
 import type { Plugin as VitePlugin } from 'vite';
 
-
 // https://vite.dev/config/
-import { dirname, join, resolve} from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
 import pkg from './package.json';
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const dependencies = Object.keys({
   ...pkg.dependencies,
@@ -30,7 +29,8 @@ const dependenciesSubmodules = dependencies.map(
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [react(), 
+  plugins: [
+    react(),
     processComponentCss(),
     tsConfigPaths(),
     dts({
@@ -71,28 +71,33 @@ export default defineConfig({
     },
   },
   test: {
-    projects: [{
-      extends: true,
-      plugins: [
-      // The plugin will run tests for the stories defined in your Storybook config
-      // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
-      storybookTest({
-        configDir: join(__dirname, '.storybook')
-      })],
-      test: {
-        name: 'storybook',
-        browser: {
-          enabled: true,
-          headless: true,
-          provider: playwright({}),
-          instances: [{
-            browser: 'chromium'
-          }]
+    projects: [
+      {
+        extends: true,
+        plugins: [
+          // The plugin will run tests for the stories defined in your Storybook config
+          // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
+          storybookTest({
+            configDir: join(__dirname, '.storybook'),
+          }),
+        ],
+        test: {
+          name: 'storybook',
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright({}),
+            instances: [
+              {
+                browser: 'chromium',
+              },
+            ],
+          },
+          setupFiles: ['.storybook/vitest.setup.ts'],
         },
-        setupFiles: ['.storybook/vitest.setup.ts']
-      }
-    }], 
-  }
+      },
+    ],
+  },
 });
 
 function processComponentCss(): VitePlugin {
