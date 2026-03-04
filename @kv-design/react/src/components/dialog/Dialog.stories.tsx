@@ -122,15 +122,15 @@ export const Drawer: Story = {
               marginBottom: 'var(--ds-size-8)',
             }}
           >
-            <Radio name='drawer' label='Center' value='center' />
-            <Radio name='drawer' label='Top' value='top' />
-            <Radio name='drawer' label='Bottom' value='bottom' />
-            <Radio name='drawer' label='Left' value='left' />
-            <Radio name='drawer' label='Right' value='right' />
+            <Radio name='drawer' label='Midten' value='midten' />
+            <Radio name='drawer' label='Topp' value='topp' />
+            <Radio name='drawer' label='Bunn' value='bunn' />
+            <Radio name='drawer' label='Venstre' value='venstre' />
+            <Radio name='drawer' label='Høyre' value='høyre' />
           </div>
         </Fieldset>
         <Dialog.TriggerContext>
-          <Dialog.Trigger>Open Dialog</Dialog.Trigger>
+          <Dialog.Trigger>Åpne Dialog</Dialog.Trigger>
           <Dialog
             modal={modal}
             closedby='any'
@@ -139,8 +139,8 @@ export const Drawer: Story = {
           >
             <Dialog.Block>
               <Paragraph>
-                {/* TODO: the <code> doen't get the outline like all other examples in the Storybook */}
-                This is a {modal ? 'modal' : 'non-modal'} Dialog with{' '}
+                {/* TODO: the <code> doen't get the outline like all other examples in the Storybook, also wrong font? */}
+                Dette er en {modal ? 'modal' : 'non-modal'} Dialog med{' '}
                 <code>placement='{placement}'</code>
               </Paragraph>
             </Dialog.Block>

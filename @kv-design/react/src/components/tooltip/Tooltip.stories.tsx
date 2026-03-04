@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tooltip } from './Tooltip';
 import { Button } from '../button/Button';
+import { 
+  FilesIcon, 
+  TrashIcon,
+  FloppydiskIcon,
+  PrinterSmallIcon,
+} from '@navikt/aksel-icons';
 
 const meta = {
   component: Tooltip,
@@ -14,7 +20,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// TODO: add ICON
 export const Preview: Story = {
   args: {
     content:'Kopier',
@@ -22,8 +27,7 @@ export const Preview: Story = {
   render: (args) => (
     <Tooltip {...args} placement='top'>
       <Button icon aria-label='Kopier'>
-        ICON
-        {/* <FilesIcon aria-hidden /> */}
+        <FilesIcon aria-hidden />
       </Button>
     </Tooltip>
   ),
@@ -38,7 +42,6 @@ export const WithText: Story = {
   )
 };
 
-// TODO: add ICONs
 export const Placement: Story = {
   args: {
     content: ''
@@ -47,29 +50,24 @@ export const Placement: Story = {
     <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
       <Tooltip placement="left" content="Slett">
         <Button icon variant="secondary">
-          {/* <TrashIcon aria-hidden /> */}
-          ICON
+          <TrashIcon aria-hidden />
         </Button>
       </Tooltip>
       <Tooltip placement="top" content="Lagre">
         <Button icon variant="secondary">
-          {/* <FloppydiskIcon aria-hidden /> */}
-          ICON
+          <FloppydiskIcon aria-hidden />
         </Button>
       </Tooltip>
       <Tooltip placement="bottom" content="ctrl + p">
         <Button icon variant="secondary">
-          {/* <PrinterSmallIcon aria-hidden /> */}
-          ICON
+          <PrinterSmallIcon aria-hidden />
         </Button>
       </Tooltip>
       <Tooltip placement="right" content="Kopier">
         <Button icon variant="secondary">
-          {/* <FilesIcon aria-hidden /> */}
-          ICON
+          <FilesIcon aria-hidden />
         </Button>
       </Tooltip>
     </div>
   )
-
 }

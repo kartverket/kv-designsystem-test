@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge } from './Badge';
 import { Tabs } from '../tabs/Tabs';
+import { FloppydiskFillIcon, EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
 
-const meta = {
+const meta: Meta<typeof Badge> = {
   component: Badge,
   parameters: {layout: 'centered'},
-} satisfies Meta<typeof Badge>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -57,24 +58,32 @@ const ColorsMap: {
   },
 };
 
+// TODO: fix styling to be implemented the same across all components
 export const ColorVariants: Story = {
   args: {  
   },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 60px)',
+          gap: 'var(--ds-size-2)',
+          justifyContent: 'center',
+          height: '100%',
+          width: '100%',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
   render: () => (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 60px)',
-        gap: 'var(--ds-size-2)',
-        justifyContent: 'center',
-        height: '100%',
-        width: '100%',
-      }}
-    >
+    <>
       {Object.entries(ColorsMap).map(([key, value]) => (
         <Badge key={key} {...value} count={15} maxCount={9} />
       ))}
-    </div>
+    </>
   ),
 };
 
@@ -83,20 +92,17 @@ export const Status: Story = {
     'data-color': 'danger'
   },
   render: (args) => (
-    <div>
+    <>
       <Badge.Position data-size='lg'>
         <Badge {...args} />
-        {/* TODO: add icon */}
-        {/* <FloppydiskFillIcon title="Lagre" /> */}
+        <FloppydiskFillIcon title="Lagre" />
       </Badge.Position>
-    </div>
+    </>
   )
 }
 
 export const InTabs: Story = {
-  args: {
-  },
-  render: (args) => (
+  render: () => (
     <Tabs defaultValue='value1'>
       <Tabs.List>
         <Tabs.Tab value='value1'>
@@ -123,8 +129,7 @@ export const Floating: Story = {
   render: (args) => (
     <Badge.Position placement='top-right'>
       <Badge data-color='danger' count={2}></Badge>
-      {/* TODO: add icon */}
-      {/* <EnvelopeClosedFillIcon title='Meldinger' style={{ fontSize: '2rem' }} /> */}
+      <EnvelopeClosedFillIcon title='Meldinger' style={{ fontSize: '2rem' }} />
     </Badge.Position>
   )
 }

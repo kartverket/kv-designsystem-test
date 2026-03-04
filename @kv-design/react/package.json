@@ -23,7 +23,8 @@
   "dependencies": {
     "@digdir/designsystemet-css": "catalog:",
     "@digdir/designsystemet-react": "catalog:",
-    "@digdir/designsystemet-types": "catalog:"
+    "@digdir/designsystemet-types": "catalog:",
+    "@navikt/aksel-icons": "catalog:"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:",

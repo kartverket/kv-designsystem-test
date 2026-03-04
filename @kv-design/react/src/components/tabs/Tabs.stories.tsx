@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tabs } from './Tabs';
 import { Tooltip } from '../tooltip/Tooltip';
+import { Buildings2Icon, FilesIcon, CogIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Tabs,
@@ -28,27 +29,23 @@ export const Preview: Story = {
   ),
 };
 
-// TODO: add icons
 export const IconsOnly: Story = {
   render: () => (
     <Tabs defaultValue='bygninger'>
       <Tabs.List>
         <Tooltip content='Bygninger'>
           <Tabs.Tab value='bygninger'>
-            {/* <Buildings2Icon aria-hidden />  */}
-            ICON
+            <Buildings2Icon aria-hidden /> 
           </Tabs.Tab>
         </Tooltip>
         <Tooltip content='Dokumenter'>
           <Tabs.Tab value='dokumenter'>
-            {/* <FilesIcon aria-hidden /> */}
-            ICON
+            <FilesIcon aria-hidden />
           </Tabs.Tab>
         </Tooltip>
         <Tooltip content='Instillinger'>
           <Tabs.Tab value='instillinger'>
-            {/* <CogIcon aria-hidden /> */}
-            ICON
+            <CogIcon aria-hidden />
           </Tabs.Tab>
         </Tooltip>
       </Tabs.List>
@@ -56,27 +53,26 @@ export const IconsOnly: Story = {
   )
 };
 
-// TODO: add icons
 export const IconsWithText: Story = {
   render: () => (
     <Tabs defaultValue='bygninger'>
       <Tabs.List>
         <Tooltip content='Bygninger'>
           <Tabs.Tab value='bygninger'>
-            {/* <Buildings2Icon aria-hidden />  */}
-            [ICON]Bygninger
+            <Buildings2Icon aria-hidden /> 
+            Bygninger
           </Tabs.Tab>
         </Tooltip>
         <Tooltip content='Dokumenter'>
           <Tabs.Tab value='dokumenter'>
-            {/* <FilesIcon aria-hidden /> */}
-            [ICON]Dokumenter
+            <FilesIcon aria-hidden />
+            Dokumenter
           </Tabs.Tab>
         </Tooltip>
         <Tooltip content='Instillinger'>
           <Tabs.Tab value='instillinger'>
-            {/* <CogIcon aria-hidden /> */}
-            [ICON]Instillinger
+            <CogIcon aria-hidden />
+            Instillinger
           </Tabs.Tab>
         </Tooltip>
       </Tabs.List>

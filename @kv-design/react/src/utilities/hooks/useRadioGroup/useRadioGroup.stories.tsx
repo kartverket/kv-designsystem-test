@@ -10,6 +10,7 @@ import {
 const meta: Meta<UseRadioGroupProps> = {
   title: 'Utilities/useRadioGroup',
   tags: ['alpha'],
+  parameters: { layout: 'centered' },
   argTypes: {
     name: {
       table: { type: { summary: 'string' } },

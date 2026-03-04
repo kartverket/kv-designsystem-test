@@ -15,9 +15,10 @@ const meta = {
         style={{
           width: '100%',
           maxWidth: '800px',
+          alignItems: 'center',
           display: 'grid',
           gap: 'var(--ds-size-4)',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px , 320px))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px , 1fr))',
         }}
       >
         <Story />
@@ -33,7 +34,7 @@ export const Preview: Story = {
   args: {
     children: [],
   },
-  render: (args) => (
+  render: () => (
     <Card style={{ maxWidth: '320px' }} data-color='accent'>
       <Heading>Tittel</Heading>
       <Paragraph>Innhold</Paragraph>
@@ -73,9 +74,9 @@ export const WithLink: Story = {
   args: {
     ...Preview.args,
   },
-  render: (args) => (
+  render: () => (
     <>
-      <Card data-color='accent' {...args}>
+      <Card style={{ maxWidth: '320px' }}>
         <Card.Block>
           {/* <img src={studentsImg} alt='' /> */}
           *Bilde*
@@ -103,8 +104,8 @@ export const AsButton: Story = {
   args: {
     ...Preview.args,
   },
-  render: (args) => (
-    <Card asChild data-color='accent'>
+  render: () => (
+    <Card asChild style={{ maxWidth: '320px' }}>
       <button type='button'>
         <Card.Block>
           <Heading>Innstillinger og personvern</Heading>
@@ -125,12 +126,11 @@ export const Horizontal: Story = {
   args: {
     ...Preview.args,
   },
-  render: (args) => (
+  render: () => (
     <Card
-      data-color='accent'
       style={{ 
         display: 'grid', 
-        gridTemplateColumns: '1fr 1fr',
+        gridAutoFlow: 'column',
         width: '700px',
       }}
     >
@@ -152,5 +152,5 @@ export const Horizontal: Story = {
         </Paragraph>
       </Card.Block>
     </Card>
-  )
+  ),
 }

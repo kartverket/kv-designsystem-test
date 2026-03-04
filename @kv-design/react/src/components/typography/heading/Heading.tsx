@@ -7,7 +7,6 @@ import type {
   ForwardRefExoticComponent,
   RefAttributes,
 } from 'react';
-import './heading.css';
 
 type HeadingProps = DsHeadingProps;
 

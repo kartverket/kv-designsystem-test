@@ -11,6 +11,7 @@ import {
 const meta: Meta<UseCheckboxGroupProps> = {
   title: 'Utilities/useCheckboxGroup',
   tags: ['alpha'],
+  parameters: {layout: 'centered'},
   argTypes: {
     name: {
       table: { type: { summary: 'string' } },

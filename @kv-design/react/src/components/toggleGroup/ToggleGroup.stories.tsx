@@ -1,6 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ToggleGroup } from './ToggleGroup';
 import { Tooltip } from '../tooltip/Tooltip';
+import { 
+  CheckmarkCircleIcon,
+  ExclamationmarkTriangleIcon,
+  XMarkOctagonIcon,
+  AlignLeftIcon,
+  AlignCenterIcon,
+  AlignRightIcon 
+} from '@navikt/aksel-icons';
 
 const meta = {
   component: ToggleGroup,
@@ -21,47 +29,41 @@ export const Preview: Story = {
   ),
 };
 
-// TODO: add icons
 export const TextAndIcons: Story = {
   render: () => (
     <ToggleGroup defaultValue="aktiv">
       <ToggleGroup.Item value="aktiv">
-        {/* <CheckmarkCircleIcon aria-hidden /> */}
-        [ICON]Aktiv
+        <CheckmarkCircleIcon aria-hidden />
+        Aktiv
       </ToggleGroup.Item>
       <ToggleGroup.Item value="advarsel">
-        {/* <ExclamationmarkTriangleIcon aria-hidden /> */}
-        [ICON]Advarsel
+        <ExclamationmarkTriangleIcon aria-hidden />
+        Advarsel
       </ToggleGroup.Item>
       <ToggleGroup.Item value="kritisk">
-        {/* <XMarkOctagonIcon aria-hidden /> */}
-        [ICON]Kritisk
+        <XMarkOctagonIcon aria-hidden />
+        Kritisk
       </ToggleGroup.Item>
     </ToggleGroup>
   ),
 };
 
-
-// TODO: add icons
 export const OnlyIcons: Story = {
   render: () => (
     <ToggleGroup data-toggle-group='Tekstjustering' defaultValue='option-1'>
       <Tooltip content='Venstrestilt'>
         <ToggleGroup.Item value='option-1'>
-          {/* <AlignLeftIcon aria-hidden /> */}
-          ICON
+          <AlignLeftIcon aria-hidden />
         </ToggleGroup.Item>
       </Tooltip>
       <Tooltip content='Midtstilt'>
         <ToggleGroup.Item value='option-2'>
-          {/* <AlignCenterIcon aria-hidden /> */}
-          ICON
+          <AlignCenterIcon aria-hidden />
         </ToggleGroup.Item>
       </Tooltip>
       <Tooltip content='Høyrestilt'>
         <ToggleGroup.Item value='option-3'>
-          {/* <AlignRightIcon aria-hidden /> */}
-          ICON
+          <AlignRightIcon aria-hidden />
         </ToggleGroup.Item>
       </Tooltip>
     </ToggleGroup>

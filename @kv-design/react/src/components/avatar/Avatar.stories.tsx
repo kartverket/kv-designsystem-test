@@ -3,11 +3,29 @@ import { Avatar } from './Avatar';
 import { Dropdown } from '../dropdown/Dropdown';
 import { Badge } from '../badge/Badge';
 import { Link } from '../link/Link';
+import { BriefcaseIcon } from '@navikt/aksel-icons';
 
-const meta = {
+// TODO: fix styling to be implemented the same across all components
+const meta: Meta<typeof Avatar> = {
   component: Avatar,
   parameters: {layout: 'centered'},
-} satisfies Meta<typeof Avatar>;
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: 'var(--ds-size-4)',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -17,7 +35,6 @@ const profileImage = '';
 export const Preview: Story = {
   args: { 
     'aria-label': 'Ola Nordmann',
-    // children: '',
    },
   render: (args) => (
     <>
@@ -39,8 +56,9 @@ export const Content: Story = {
     <Avatar {...args} />
     {/* TODO: fix so avatar is aligned with the others */}
     <Avatar {...args} initials='ON'/>
-    {/* TODO: add icon, briefcase? */}
-    <Avatar {...args} /> 
+    <Avatar {...args}>
+      <BriefcaseIcon />
+    </Avatar> 
     {/* TODO: add image */}
     <Avatar {...args} />
     </>
@@ -53,10 +71,10 @@ export const Sizes: Story = {
   },
   render: (args) => (
     <>
-    <Avatar {...args} data-size='xs' aria-label='extra small' initials='xs' />
-    <Avatar {...args} data-size='sm' aria-label='small' initials='sm' />
-    <Avatar {...args} data-size='md' aria-label='medium' initials='md' />
-    <Avatar {...args} data-size='lg' aria-label='large' initials='lg' />
+    <Avatar  data-size='xs' aria-label='extra small' initials='xs' />
+    <Avatar  data-size='sm' aria-label='small' initials='sm' />
+    <Avatar  data-size='md' aria-label='medium' initials='md' />
+    <Avatar  data-size='lg' aria-label='large' initials='lg' />
     </>
   )
 }
@@ -67,10 +85,10 @@ export const ColorVariants: Story = {
   },
   render: (args) => (
     <>
-    <Avatar {...args} data-color='neutral' aria-label='color neutral' />
-    <Avatar {...args} data-color='accent' aria-label='color accent' />
-    <Avatar {...args} data-color='support-1' aria-label='color support-1' />
-    <Avatar {...args} data-color='support-2' aria-label='color support-2' />
+    <Avatar data-color='neutral' aria-label='color neutral' />
+    <Avatar  data-color='accent' aria-label='color accent' />
+    <Avatar  data-color='support-1' aria-label='color support-1' />
+    <Avatar  data-color='support-2' aria-label='color support-2' />
     </>
   )
 }
@@ -79,12 +97,12 @@ export const Shapes: Story = {
   args: {
     'aria-label': 'Ola Nordmann'
   },
-  render: (args) => (
+  render: () => (
     <>
-    <Avatar {...args} variant='circle' aria-label='variant circle' />
-    <Avatar {...args} variant='square' aria-label='variant square' />
-    <Avatar {...args} variant='circle' aria-label='Ola Nordmann' initials='ON'/>
-    <Avatar {...args} variant='square' aria-label='Ola Nordmann' initials='ON'/>
+    <Avatar variant='circle' aria-label='variant circle' />
+    <Avatar variant='square' aria-label='variant square' />
+    <Avatar variant='circle' aria-label='Ola Nordmann' initials='ON'/>
+    <Avatar variant='square' aria-label='Ola Nordmann' initials='ON'/>
     </>
   )
 }
