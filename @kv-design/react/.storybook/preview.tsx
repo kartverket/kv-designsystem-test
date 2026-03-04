@@ -7,6 +7,7 @@ import '../.storybook/style.css';
 const preview: Preview = {
   tags: ['autodocs'], // Every component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   parameters: {
+    // docs: { disable: true }, // Disable docs for all stories. Workaround for .stories Vite HMR bug. Add and remove in order to force refresh page.
     a11y: {
       // 'todo' - show a11y violations in the test UI only
       // 'error' - fail CI on a11y violations

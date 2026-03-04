@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+/out-tsc
 dist-ssr
 *.local
 
@@ -26,3 +27,7 @@ dist-ssr
 *storybook.log
 storybook-static
 .env*
+
+.nx/cache
+.nx/workspace-data
+vite.config.*.timestamp*

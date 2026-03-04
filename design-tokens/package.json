@@ -9,7 +9,8 @@
   },
   "scripts": {
     "create": "designsystemet tokens create",
-    "build": "pnpm clean && designsystemet tokens build -t ./src -o ./dist",
+    "build": "pnpm clean && designsystemet tokens build -t ./src -o ./dist && pnpm copy-themes-to-storybook",
+    "copy-themes-to-storybook": "cp ./dist/*.css ../@kv-design/react/public/style/",
     "clean": "rimraf dist"
   },
   "devDependencies": {

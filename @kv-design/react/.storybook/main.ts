@@ -17,7 +17,7 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      tsconfigPath: 'tsconfig.storybook.json',
+      tsconfigPath: 'tsconfig.lib.json',
       // Required for unions like Size, Color etc from @digdir to generate options in Storybook controls
       shouldExtractLiteralValuesFromEnum: true,
       // Removes "undefined" as an option in Storybook controls for optional properties

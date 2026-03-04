@@ -1,5 +1,5 @@
 {
-  "name": "@kv-desing/react",
+  "name": "@kv-design/react",
   "repository": {
     "type": "git",
     "url": "github:kartverket/kv-designsystem-test"
@@ -10,20 +10,36 @@
   "license": "MIT",
   "version": "0.0.0",
   "type": "module",
+  "types": "./dist/alpha.d.ts",
+  "main": "./dist/alpha.js",
+  "exports": {
+    ".": {
+      "import": "./dist/alpha.js",
+      "require": "./dist/alpha.cjs"
+    },
+    "./html": {
+      "types": "./dist/html.d.ts"
+    },
+    "./style.css": "./dist/style.css"
+  },
   "scripts": {
-    "dev": "vite",
+    "lint": "nx eslint:lint",
+    "lint-circular-dependencies": "pnpm madge --circular ./src/alpha.ts",
+    "typecheck": "tsgo --build",
+    "install-dependencies": "pnpm i",
     "build": "vite build",
-    "lint": "eslint .",
+    "dev": "storybook dev --port 6006 --ci",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "test-storybook": "vitest --project=storybook",
-    "chromatic": "npx chromatic --project_token=CHROMATIC_PROJECT_TOKEN"
+    "test-storybook": "pnpm nx test --project=storybook",
+    "view-storybook-test-report": "pnpm dlx http-server ./test-reports/storybook",
+    "chromatic": "pnpm dlx chromatic --project_token=CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
     "@digdir/designsystemet-css": "catalog:",
     "@digdir/designsystemet-react": "catalog:",
-    "@digdir/designsystemet-types": "catalog:"
+    "@digdir/designsystemet-types": "catalog:",
+    "@kv-design/css": "workspace:*",
+    "tslib": "catalog:"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:",
@@ -33,6 +49,7 @@
     "@storybook/addon-vitest": "catalog:",
     "@storybook/react-vite": "catalog:",
     "@types/react": "catalog:",
+    "@types/ramda": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "@vitest/browser-playwright": "catalog:",
@@ -40,10 +57,25 @@
     "chromatic": "catalog:",
     "eslint-plugin-storybook": "catalog:",
     "playwright": "catalog:",
+    "ramda": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "storybook": "catalog:",
     "vite": "catalog:",
-    "vitest": "catalog:"
+    "vite-plugin-dts": "catalog:",
+    "vite-tsconfig-paths": "catalog:",
+    "vitest": "catalog:",
+    "nx": "catalog:"
+  },
+
+  "peerDependencies": {
+    "@types/react": "^18.3.7 || ^19.0.0",
+    "react": "^18.3.1 || ^19.0.0",
+    "react-dom": "^18.3.1 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   }
 }
