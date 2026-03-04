@@ -3,13 +3,40 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "pnpm@10.27.0+sha512.72d699da16b1179c14ba9e64dc71c9a40988cbdc65c264cb0e489db7de917f20dcf4d64d8723625f2969ba52d4b7e2a1170682d9ac2a5dcaeaab732b7e16f04a",
+  "engines": {
+    "node": ">= 24.6.0 < 25"
+  },
+  "scripts": {
+    "build": "pnpm nx format:check && pnpm nx affected -t typecheck lint build"
+  },
   "devDependencies": {
     "@eslint/js": "catalog:",
+    "@eslint/compat": "catalog:",
+    "@nx/eslint": "catalog:",
+    "@nx/eslint-plugin": "catalog:",
+    "@nx/storybook": "catalog:",
+    "@nx/vite": "catalog:",
+    "@nx/web": "catalog:",
+    "@vitest/ui": "catalog:",
     "eslint": "catalog:",
+    "eslint-plugin-import": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-react-refresh": "catalog:",
     "eslint-plugin-storybook": "catalog:",
+    "eslint-plugin-jsx-a11y": "catalog:",
+    "@typescript/native-preview": "catalog:",
+    "@typescript-eslint/eslint-plugin": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
+    "@types/node": "catalog:",
+    "madge": "catalog:",
+    "jiti": "catalog:",
+    "nx": "catalog:",
     "playwright": "catalog:",
-    "typescript": "catalog:"
-  }
+    "storybook": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "tslib": "catalog:"
+  },
+  "dependencies": {}
 }
