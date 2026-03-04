@@ -344,12 +344,12 @@ importers:
       '@digdir/designsystemet-types':
         specifier: 'catalog:'
         version: 1.11.1
-      '@navikt/aksel-icons':
-        specifier: 'catalog:'
-        version: 8.4.1
       '@kv-design/css':
         specifier: workspace:*
         version: link:../css
+      '@navikt/aksel-icons':
+        specifier: 'catalog:'
+        version: 8.4.1(@types/react@19.2.14)(react@19.2.4)
       tslib:
         specifier: 'catalog:'
         version: 2.8.1
