@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge } from './Badge';
 import { Tabs } from '../tabs/Tabs';
-import { EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
+import { FloppydiskFillIcon, EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
 
 const meta: Meta<typeof Badge> = {
   component: Badge,
@@ -60,6 +60,8 @@ const ColorsMap: {
 
 // TODO: fix styling to be implemented the same across all components
 export const ColorVariants: Story = {
+  args: {  
+  },
   decorators: [
     (Story) => (
       <div
@@ -91,13 +93,13 @@ export const Status: Story = {
   },
   render: (args) => (
     <>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Badge {...args} style={{ marginInlineEnd: '0.5rem' }} />
-        Aktiv
-      </div>
+      <Badge.Position data-size='lg'>
+        <Badge {...args} />
+        <FloppydiskFillIcon title="Lagre" />
+      </Badge.Position>
     </>
-  ),
-};
+  )
+}
 
 export const InTabs: Story = {
   render: () => (
