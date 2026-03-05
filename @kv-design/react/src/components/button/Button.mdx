@@ -18,16 +18,16 @@ Vi benytter Button når brukeren skal utføre en tydelig handling.
 - brukeren skal filtrere innhold - bruk heller [`Chip`](/docs/components-chip--docs)
 - du skal vise hvilke filter som er aktive - bruk heller [`Chip`](/docs/components-chip--docs)
 
+
 ## Varianter med eksempler
 
 Vi bruker ulike knappetyper for å hjelpe brukeren å forstå hva som er viktigst å gjøre.
 
 ### Primary Button
 
-Den viktigste handlingen på siden, for eksempel Lagre, Neste eller Send inn. Det skal som regel kun være én primærknapp per side.
+Den viktigste handlingen på siden. Det skal som regel kun være én primærknapp per side, for eksempel “Lagre”, “Neste” eller “Send inn”.
 
 <Canvas of={ButtonStories.PrimaryButton} />
-
 
 ### Secondary Button
 
@@ -42,7 +42,7 @@ Denne knappen bruker vi til mindre viktige handlinger. Hvis den brukes alene, b�
 
 <Canvas of={ButtonStories.TertiaryButton} />
 
-### Farger
+### Farger 
 
 - Knapper kan ha hovedfargen i temaet ditt, neutral eller danger.
 - En gruppe knapper bør bruke samme fargevariant.
@@ -52,7 +52,6 @@ Denne knappen bruker vi til mindre viktige handlinger. Hvis den brukes alene, b�
 
 ### Ikoner
 
-{/* TODO: This is the only place we use the #### heading, do we want to avoid that? */}
 #### Knapp med kun ikon
 
 Vi kan bruke knapper med kun ikon når disse er godt kjente, for eksempel “Lukk” og “Slett”. Da må knappen ha tilgjengelig tekst som forklarer hva knappen gjør. Dette kan legges i  `title`, `aria-label` eller i en `Tooltip`.

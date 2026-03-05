@@ -7,12 +7,24 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 const meta = {
   component: Chip.Radio,
   parameters: {layout: 'centered'},
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--ds-size-4)',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Chip.Radio>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// TODO: not possible to untoggle the chip when toggled
 export const Preview: Story = {
   args: {
     children: 'Chip',
@@ -62,13 +74,7 @@ export const Checkbox: Story = {
     const options = ['2020', '2021', '2022', '2023', '2024', '2025'];
 
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--ds-size-4)',
-        }}
-      >
+      <>
         <Paragraph>Vis data for</Paragraph>
         <div style={{ display: 'flex', gap: 'var(--ds-size-1)' }}>
           {options.map((year) => (
@@ -77,7 +83,7 @@ export const Checkbox: Story = {
             </Chip.Checkbox>
           ))}
         </div>
-      </div>
+      </>
     );
   },
 };
@@ -87,13 +93,7 @@ export const Radio: Story = {
     const options = ['Sjøkart', 'Dybder', 'Sjømerker'];
 
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--ds-size-4)',
-        }}
-      >
+      <>
         <Paragraph>Vis data for</Paragraph>
         <div style={{ display: 'flex', gap: 'var(--ds-size-1)' }}>
           {options.map((grade) => (
@@ -102,7 +102,7 @@ export const Radio: Story = {
             </Chip.Radio>
           ))}
         </div>
-      </div>
+      </>
     );
   },
 };
@@ -113,7 +113,7 @@ export const Removable = {
     const [filter, setFilter] = useState(schoolOptions);
 
     return (
-      <>
+      <div style={{ display: 'flex', gap: 'var(--ds-size-1)' }}>
         {filter.map((item) => (
           <Chip.Removable
             key={item}
@@ -127,7 +127,7 @@ export const Removable = {
             {item}
           </Chip.Removable>
         ))}
-      </>
+      </div>
     );
   },
 };

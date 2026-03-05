@@ -14,7 +14,6 @@ export const Preview: Story = {
         'aria-label':'Du er her:',
     },
     render: (args) => (
-        // TODO: In storybook-view code the outermost Breadcrumbs is swapped with React.ForwardRef
         <Breadcrumbs {...args}>
             <Breadcrumbs.Link href='#' aria-label='Tilbake til Nivå 3'>
                 Nivå 3

@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Card } from './Card';
 import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
-import { Button } from '../button/Button';
 
 const meta = {
   component: Card,
@@ -43,6 +42,8 @@ export const Preview: Story = {
   ),
 };
 
+const geodesyImg = 'https://images.unsplash.com/photo-1732362129903-abc909ab1067?q=80&w=1329&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
 export const Media: Story = {
   args: {
     ...Preview.args,
@@ -51,13 +52,10 @@ export const Media: Story = {
     <>
       <Card {...args} style={{ maxWidth: '320px' }} >
         <Card.Block>
-          {/* <img
-            src={schoolSuppliesImg}
-            alt='Fotografi av forskjellig skoleutstyr'
-          /> */}
-          <Paragraph>
-            *Bilde*
-          </Paragraph>
+          <img
+            src={geodesyImg}
+            alt='Historisk fotografi av landmåling'
+          />
         </Card.Block>
         <Card.Block>
           <Heading>Geodesi</Heading>
@@ -70,6 +68,8 @@ export const Media: Story = {
   )
 }
 
+const houseImg = 'https://images.unsplash.com/photo-1730184474747-f0b85ebc5f94?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
 export const WithLink: Story = {
   args: {
     ...Preview.args,
@@ -78,8 +78,10 @@ export const WithLink: Story = {
     <>
       <Card style={{ maxWidth: '320px' }}>
         <Card.Block>
-          {/* <img src={studentsImg} alt='' /> */}
-          *Bilde*
+          <img 
+            src={houseImg} 
+            alt='Bilde av 3D printet hus' 
+          />
         </Card.Block>
         <Card.Block>
           <Heading>

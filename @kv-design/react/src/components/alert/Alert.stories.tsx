@@ -11,11 +11,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  args: {
-    // children: 'En beskjed det er viktig at brukeren ser',
-  },
-  render: (args) => (
-    <Alert {...args}>
+  render: () => (
+    <Alert>
       <Heading 
         level={2}
         data-size='xs'
@@ -63,7 +60,7 @@ export const VariantSuccess: Story = {
           marginBottom: 'var(--ds-size-2)',
         }}
       >
-        Endringen ble lagret
+        Endringen din ble lagret
       </Heading>
       Vi har oppdatert innstillingene dine, og kartvisningen bruker nå de nye valgene.
     </Alert>
@@ -83,7 +80,7 @@ export const VariantWarning: Story = {
           marginBottom: 'var(--ds-size-2)',
         }}
       >
-        Mangler tilknytning til kommunen
+        Eiendommen mangler tilknytning til kommunen
       </Heading>
       Vi finner ikke kommuneinformasjon for eiendommen. Sjekk matrikkelnummeret og prøv igjen.
     </Alert>
@@ -103,7 +100,7 @@ export const VariantDanger: Story = {
           marginBottom: 'var(--ds-size-2)',
         }}
       >
-        Kan ikke hente kartlag
+        Vi kan ikke hente kartlag
       </Heading>
       Vi klarte ikke å laste kartlaget. Prøv å laste inn siden på nytt. {' '}
       <Link href='https://www.kartverket.no/om-kartverket/kontakt-oss'>Kontakt oss</Link>
@@ -121,7 +118,7 @@ export const NoHeading: Story = {
   )
 };
 
-//TODO: swap to a more relevant example and fix link
+//TODO: fix link
 export const WithLink: Story = {
   args: {
     'data-color': 'warning',
@@ -135,12 +132,11 @@ export const WithLink: Story = {
           marginBottom: 'var(--ds-size-2)',
         }}
       >
-        Oppdatering kreves
+        Du må oppdatere API-nøkkel
       </Heading>
       Fristen for å bytte til ny API-nøkkel er om 3 dager. {' '} 
       <Link href='https://www.kartverket.no'>Oppdater nå</Link>
+      {' '} for å sikre fortsatt tilgang.
     </Alert>
   )
 };
-
-//TODO: Add version for WrongLiveRegion and CorrectLiveRegion

@@ -89,14 +89,14 @@ export const ColorVariants: Story = {
 
 export const Status: Story = {
   args: {
-    'data-color': 'danger'
+    'data-color': 'success'
   },
   render: (args) => (
     <>
-      <Badge.Position data-size='lg'>
-        <Badge {...args} />
-        <FloppydiskFillIcon title="Lagre" />
-      </Badge.Position>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Badge {...args} style={{ marginInlineEnd: '0.5rem' }} />
+        Aktiv
+      </div>
     </>
   )
 }

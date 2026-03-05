@@ -3,12 +3,12 @@ import { Button } from './Button';
 import { Tooltip } from '../tooltip/Tooltip'
 import { fn } from 'storybook/test';
 import { 
-  PlusCircleIcon, 
-  BellIcon, 
-  CogIcon,
   ArrowRightIcon,
   ArrowUndoIcon,
-  NotePencilIcon
+  BellIcon, 
+  CogIcon,
+  NotePencilIcon,
+  PlusCircleIcon, 
 } from '@navikt/aksel-icons';
 
 const meta = {
@@ -35,7 +35,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Preview: Story = {
   args: {
     variant: 'primary',
@@ -72,10 +71,10 @@ export const TertiaryButton: Story = {
 export const Colors: Story = {
   render: (args) => (
     <>
-      <Button variant='primary' data-color='neutral' {...args}>
+      <Button variant='primary' data-color='accent' {...args}>
         Publiser
       </Button>
-      <Button variant='secondary' data-color='neutral' {...args}>
+      <Button variant='secondary' data-color='accent' {...args}>
         Lagre kladd
       </Button>
       <Button variant='tertiary' data-color='danger' {...args}>
@@ -141,8 +140,6 @@ export const AsLink: Story = {
   },
 };
 
-
-
 export const Loading: Story = {
   args: {
     loading: true,
@@ -163,3 +160,4 @@ export const Loading: Story = {
   )
 };
 
+// TODO: add do-dont to Retningslinjer, see Udir for inspiration

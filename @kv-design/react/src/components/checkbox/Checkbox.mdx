@@ -18,7 +18,7 @@ En `Checkbox` lar brukeren velge ett eller flere alternativer, eller bekrefte en
 **Unngå `Checkbox` når**
 
 - brukeren kun kan velge ett alternativ - bruk heller [`Radio`](/docs/components-radio--docs)
-- brukeren møter mange alternativer - bruk heller [`Select`](/docs/components-select--docs)
+- brukeren møter mange alternativer - bruk heller [`Select`](/docs/components-select--docs) eller [`Suggestion`](/docs/components-suggestion--docs)
 - brukeren skal slå av eller på en funksjon - bruk heller [`Switch`](/docs/components-switch--docs)
 
 ## Varianter med eksempler
@@ -69,6 +69,7 @@ Vi unngår helst deaktiverte (disabled) `Checkbox`. De kan være vanskelige å o
 Nav har en god forklaring på [hvorfor deaktiverte tilstander er problematisk (nav.no)](https://aksel.nav.no/god-praksis/artikler/deaktiverte-tilstander) og hvilke alternativer som finnes.
 
 ## Tekst i Checkbox
+
 - Ledeteksten skal henge godt sammen med valgene og formuleres i du-form.
 - Alternativene bør stå i jeg-form og alltid starte med stor forbokstav.
 - `Label` skal stå til høyre for boksen. Hvis det er nødvendig med ekstra beskrivelse, kan du ha en `description` under `label`.
@@ -124,7 +125,7 @@ Hvilke kartlag ønsker du å se?
 
 Det skal være mulig å flytte fokus til `Checkbox`, ved å trykke `Tab` på tastaturet. Det skal være mulig å merke og fjerne avmerking ved å trykke `Space`.
 
-Bruk label for at `Checkbox` skal ha et tilgjengelig navn. I spesielle tilfeller gir det mer mening å bruke `aria-label` eller `aria-labelledby`, for eksempel i en tabell.
+- Bruk `label` for at `Checkbox` skal ha et tilgjengelig navn. I spesielle tilfeller gir det mer mening å bruke `aria-label` eller `aria-labelledby`, for eksempel i en tabell.
 
 
 ## Kilde

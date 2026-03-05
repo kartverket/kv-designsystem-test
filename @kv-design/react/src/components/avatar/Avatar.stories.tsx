@@ -3,7 +3,7 @@ import { Avatar } from './Avatar';
 import { Dropdown } from '../dropdown/Dropdown';
 import { Badge } from '../badge/Badge';
 import { Link } from '../link/Link';
-import { BriefcaseIcon } from '@navikt/aksel-icons';
+import { BriefcaseIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 
 // TODO: fix styling to be implemented the same across all components
 const meta: Meta<typeof Avatar> = {
@@ -30,23 +30,17 @@ const meta: Meta<typeof Avatar> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const profileImage = '';
-
 export const Preview: Story = {
   args: { 
     'aria-label': 'Ola Nordmann',
    },
   render: (args) => (
-    <>
-    <Avatar {...args}>
-      {/* TODO: Remove this? Add an image or keep it with default icon? */}
-      {/* <img src={profileImage} alt='' /> */}
-    </Avatar>
-    </>
+    <Avatar {...args} />
   ),
 };
 
-// TODO: add spacing between icons
+const profileImage = 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
 export const Content: Story = {
   args: {
     'aria-label': 'Ola Nordmann',
@@ -54,13 +48,13 @@ export const Content: Story = {
   render: (args) => (
     <>
     <Avatar {...args} />
-    {/* TODO: fix so avatar is aligned with the others */}
     <Avatar {...args} initials='ON'/>
     <Avatar {...args}>
       <BriefcaseIcon />
     </Avatar> 
-    {/* TODO: add image */}
-    <Avatar {...args} />
+    <Avatar {...args}>
+      <img src={profileImage} alt="" />
+    </Avatar>
     </>
   ),
 }
@@ -116,6 +110,7 @@ export const InDropdown: Story = {
       <Dropdown.Trigger variant='tertiary'>
         <Avatar aria-hidden='true' data-size='sm' initials='ON' />
         Ola Nordmann
+        <ChevronUpIcon />
       </Dropdown.Trigger>
       <Dropdown placement='bottom-end' autoPlacement={false} data-size='md'>
         <Dropdown.List>
@@ -131,7 +126,7 @@ export const InDropdown: Story = {
           <Dropdown.Item>
             <Dropdown.Button>
               <Avatar aria-hidden='true' data-size='xs'>
-                {/* <BriefcaseIcon /> */}
+                <BriefcaseIcon />
               </Avatar>
               Sogndal kommune
             </Dropdown.Button>
