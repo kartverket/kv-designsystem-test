@@ -41,19 +41,16 @@ export const Preview: Story = {
               marginTop: 'var(--ds-size-4)',
             }}
           >
-            {/* TODO: Seems like the 'command' works, even though we get an error*/}
             <Button
               variant='primary'
-              command='close'
-              commandfor='my-dialog-modal'
+              data-command='close'
             >
               Lagre
             </Button>
             <Button
               variant='secondary'
               data-color='danger'
-              command='close'
-              commandfor='my-dialog-modal'
+              data-command='close'
             >
               Avbryt
             </Button>
@@ -64,9 +61,18 @@ export const Preview: Story = {
   )
 };
 
-// TODO: The display doesn't fit the whole Dialog, change size
+// TODO: Not happy with this display, make a an example more similar to Udir?
 export const DialogNonModal: Story = {
   render: () => (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '400px',
+        position: 'relative',
+      }}
+    >
   <Dialog.TriggerContext>
     <Dialog.Trigger>Åpne ikke-modal Dialog</Dialog.Trigger>
     <Dialog
@@ -92,6 +98,7 @@ export const DialogNonModal: Story = {
       <Button>Send inn</Button>
     </Dialog>
   </Dialog.TriggerContext>
+  </div>
   )
 };
 
