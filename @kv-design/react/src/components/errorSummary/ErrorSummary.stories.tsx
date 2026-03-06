@@ -4,7 +4,7 @@ import { Textfield } from '../textfield/Textfield';
 
 const meta = {
   component: ErrorSummary,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof ErrorSummary>;
 
 export default meta;

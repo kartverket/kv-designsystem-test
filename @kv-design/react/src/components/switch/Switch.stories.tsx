@@ -9,7 +9,7 @@ import { Heading } from '../typography/heading/Heading';
 
 const meta = {
   component: Switch,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Switch>;
 
 export default meta;

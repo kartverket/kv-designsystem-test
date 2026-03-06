@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
-import { Tooltip } from '../tooltip/Tooltip'
+import { Tooltip } from '../tooltip/Tooltip';
 import { fn } from 'storybook/test';
 import { 
   ArrowRightIcon,
@@ -41,7 +41,7 @@ export const Preview: Story = {
     children: 'Knapp',
     icon: false,
     disabled: false,
-  },
+  }
 };
 
 export const PrimaryButton: Story = {
@@ -49,7 +49,7 @@ export const PrimaryButton: Story = {
     ...Preview.args,
     variant: 'primary',
     children: 'Lagre',
-  },
+  }
 };
 
 export const SecondaryButton: Story = {
@@ -57,7 +57,7 @@ export const SecondaryButton: Story = {
     ...Preview.args,
     variant: 'secondary',
     children: 'Avbryt',
-  },
+  }
 };
 
 export const TertiaryButton: Story = {
@@ -65,7 +65,7 @@ export const TertiaryButton: Story = {
     ...Preview.args,
     variant: 'tertiary',
     children: [<NotePencilIcon aria-hidden />, 'Rediger'],
-  },
+  }
 };
 
 export const Colors: Story = {
@@ -157,7 +157,7 @@ export const Loading: Story = {
         Laster...
       </Button>
     </>
-  )
+  ),
 };
 
 // TODO: add do-dont to Retningslinjer, see Udir for inspiration

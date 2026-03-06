@@ -17,13 +17,13 @@ export const Preview: Story = {
         Hvorfor må Kartverket behandle bestillingen min?
       </Details.Summary>
       <Details.Content>
-        Når du bestiller et eiendomsdokument mottar du en attestert eller bekreftet 
-        utskrift. Ved bestilling av attestert dokument må Kartverket sikre at vi ikke 
-        leverer ut innhold i dokumentet som anses som taushetsbelagte opplysninger. 
-        Disse bestillingene må derfor til behandling før det blir tilgjengelig for deg.
+        Når du bestiller et eiendomsdokument mottar du en attestert eller bekreftet utskrift. Ved 
+        bestilling av attestert dokument må Kartverket sikre at vi ikke leverer ut innhold i 
+        dokumentet som anses som taushetsbelagte opplysninger. Disse bestillingene må derfor til 
+        behandling før det blir tilgjengelig for deg.
       </Details.Content>
     </Details>
-  ),
+  )
 };
 
 export const InCard: Story = {
@@ -34,22 +34,23 @@ export const InCard: Story = {
           Hvorfor må Kartverket behandle bestillingen min
         </Details.Summary>
         <Details.Content>
-          Når du bestiller et eiendomsdokument mottar du en attestert eller bekreftet 
-          utskrift. Ved bestilling av attestert dokument må Kartverket sikre at vi ikke 
-          leverer ut innhold i dokumentet som anses som taushetsbelagte opplysninger. 
-          Disse bestillingene må derfor til behandling før det blir tilgjengelig for deg.
+          Når du bestiller et eiendomsdokument mottar du en attestert eller bekreftet utskrift. Ved
+          bestilling av attestert dokument må Kartverket sikre at vi ikke leverer ut innhold i 
+          dokumentet som anses som taushetsbelagte opplysninger. Disse bestillingene må derfor til 
+          behandling før det blir tilgjengelig for deg.
         </Details.Content>
       </Details>
     </Card>
-  ),
+  )
 };
 
 export const InCardWithColor: Story = {
   render: () => (
     <>
-    {/* TODO: adjust size and format to have padding? */}
-    <Heading data-size='xs' >Når bør jeg bruke hvilken karttjeneste?</Heading>
-    <Card>
+      <Heading 
+        style={{marginBottom: 'var(--ds-size-4)'}}
+        data-size='xs' 
+      >Når bør jeg bruke hvilken karttjeneste?</Heading>
       <Details>
         <Details.Summary>
           Topografisk kart
@@ -82,7 +83,6 @@ export const InCardWithColor: Story = {
           nøyaktighet.
         </Details.Content>
       </Details>
-    </Card>
     </>
-  ),
+  )
 };

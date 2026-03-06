@@ -7,7 +7,7 @@ import { Divider } from '../divider/Divider';
 
 const meta = {
   component: Tag,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Tag>;
 
 export default meta;

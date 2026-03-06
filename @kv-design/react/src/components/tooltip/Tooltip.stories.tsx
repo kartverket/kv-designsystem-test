@@ -10,7 +10,7 @@ import {
 
 const meta = {
   component: Tooltip,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
   args: {
     // Children is required in Tooltip props, so we must set something
     children: undefined,

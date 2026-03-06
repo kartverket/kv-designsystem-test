@@ -3,7 +3,7 @@ import { Dropdown } from './Dropdown';
 
 const meta = {
   component: Dropdown,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;

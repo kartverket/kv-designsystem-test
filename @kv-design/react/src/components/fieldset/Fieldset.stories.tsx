@@ -6,7 +6,7 @@ import { Heading } from '../typography/heading/Heading';
 
 const meta = {
   component: Fieldset,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Fieldset>;
 
 export default meta;

@@ -5,7 +5,7 @@ import { Buildings2Icon, FilesIcon, CogIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Tabs,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Tabs>;
 
 export default meta;

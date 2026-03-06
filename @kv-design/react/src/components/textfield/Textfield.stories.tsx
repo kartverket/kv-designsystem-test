@@ -4,7 +4,7 @@ import { Tag } from '../tag/Tag';
 
 const meta = {
   component: Textfield,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Textfield>;
 
 export default meta;

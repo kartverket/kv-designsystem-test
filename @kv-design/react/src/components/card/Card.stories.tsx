@@ -5,9 +5,7 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 
 const meta = {
   component: Card,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   decorators: [
     (Story) => (
       <div
@@ -65,8 +63,8 @@ export const Media: Story = {
         </Card.Block>
       </Card>
     </>
-  )
-}
+  ),
+};
 
 const houseImg = 'https://images.unsplash.com/photo-1730184474747-f0b85ebc5f94?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
@@ -99,8 +97,8 @@ export const WithLink: Story = {
         </Card.Block>
       </Card>
     </>
-  )
-}
+  ),
+};
 
 export const AsButton: Story = {
   args: {
@@ -121,8 +119,8 @@ export const AsButton: Story = {
         </Card.Block>
       </button>
     </Card>
-  )
-}
+  ),
+};
 
 export const Horizontal: Story = {
   args: {
@@ -155,4 +153,4 @@ export const Horizontal: Story = {
       </Card.Block>
     </Card>
   ),
-}
+};

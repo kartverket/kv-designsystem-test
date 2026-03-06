@@ -14,7 +14,7 @@ import type { ChangeEvent } from 'react';
 
 const meta = {
   component: Dialog,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Dialog>;
 
 export default meta;
@@ -44,7 +44,6 @@ export const Preview: Story = {
             {/* TODO: Seems like the 'command' works, even though we get an error*/}
             <Button
               variant='primary'
-              data-color='danger'
               command='close'
               commandfor='my-dialog-modal'
             >
@@ -52,6 +51,7 @@ export const Preview: Story = {
             </Button>
             <Button
               variant='secondary'
+              data-color='danger'
               command='close'
               commandfor='my-dialog-modal'
             >
@@ -61,7 +61,7 @@ export const Preview: Story = {
         </Dialog.Block>
       </Dialog>
     </Dialog.TriggerContext>
-  ),
+  )
 };
 
 // TODO: The display doesn't fit the whole Dialog, change size
@@ -92,7 +92,7 @@ export const DialogNonModal: Story = {
       <Button>Send inn</Button>
     </Dialog>
   </Dialog.TriggerContext>
-  ),
+  )
 };
 
 export const Drawer: Story = {
@@ -149,4 +149,4 @@ export const Drawer: Story = {
       </>
     );
   }
-}
+};

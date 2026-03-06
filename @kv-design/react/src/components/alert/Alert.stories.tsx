@@ -44,7 +44,7 @@ export const VariantInfo: Story = {
       </Heading>
       Vi har oppdatert datasettet for ditt område. Last inn kartet på nytt for å se endringene.
     </Alert>
-  )
+  ),
 };
 
 export const VariantSuccess: Story = {
@@ -64,7 +64,7 @@ export const VariantSuccess: Story = {
       </Heading>
       Vi har oppdatert innstillingene dine, og kartvisningen bruker nå de nye valgene.
     </Alert>
-  )
+  ),
 };
 
 export const VariantWarning: Story = {
@@ -84,7 +84,7 @@ export const VariantWarning: Story = {
       </Heading>
       Vi finner ikke kommuneinformasjon for eiendommen. Sjekk matrikkelnummeret og prøv igjen.
     </Alert>
-  )
+  ),
 };
 
 export const VariantDanger: Story = {
@@ -106,7 +106,7 @@ export const VariantDanger: Story = {
       <Link href='https://www.kartverket.no/om-kartverket/kontakt-oss'>Kontakt oss</Link>
       {' '} hvis problemet fortsetter.
     </Alert>
-  )
+  ),
 };
 
 export const NoHeading: Story = {
@@ -115,7 +115,7 @@ export const NoHeading: Story = {
   },
   render: (args) => (
     <Alert {...args}>Du har 7 dager igjen på å fullføre søknaden.</Alert>
-  )
+  ),
 };
 
 //TODO: fix link
@@ -138,5 +138,5 @@ export const WithLink: Story = {
       <Link href='https://www.kartverket.no'>Oppdater nå</Link>
       {' '} for å sikre fortsatt tilgang.
     </Alert>
-  )
+  ),
 };

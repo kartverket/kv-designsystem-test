@@ -6,7 +6,7 @@ import { ValidationMessage } from '../typography/validationMessage/ValidationMes
 import { Textarea } from '../textarea/Textarea';
 const meta = {
   component: Field,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Field>;
 
 export default meta;

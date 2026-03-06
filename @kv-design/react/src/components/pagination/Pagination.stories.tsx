@@ -9,7 +9,7 @@ import {
 
 const meta = {
   component: Pagination,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Pagination>;
 
 export default meta;

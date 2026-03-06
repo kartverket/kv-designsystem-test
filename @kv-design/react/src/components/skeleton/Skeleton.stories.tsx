@@ -7,7 +7,7 @@ import { Button } from '../button/Button';
 
 const meta = {
   component: Skeleton,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Skeleton>;
 
 export default meta;

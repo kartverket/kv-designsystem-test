@@ -8,7 +8,7 @@ import { BriefcaseIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 // TODO: fix styling to be implemented the same across all components
 const meta: Meta<typeof Avatar> = {
   component: Avatar,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
   decorators: [
     (Story) => (
       <div
@@ -57,13 +57,10 @@ export const Content: Story = {
     </Avatar>
     </>
   ),
-}
+};
 
 export const Sizes: Story = {
-  args: {
-    'aria-label': 'Ola Nordmann'
-  },
-  render: (args) => (
+  render: () => (
     <>
     <Avatar  data-size='xs' aria-label='extra small' initials='xs' />
     <Avatar  data-size='sm' aria-label='small' initials='sm' />
@@ -71,13 +68,10 @@ export const Sizes: Story = {
     <Avatar  data-size='lg' aria-label='large' initials='lg' />
     </>
   )
-}
+};
 
 export const ColorVariants: Story = {
-  args: {
-    'aria-label': 'Ola Nordmann'
-  },
-  render: (args) => (
+  render: () => (
     <>
     <Avatar data-color='neutral' aria-label='color neutral' />
     <Avatar  data-color='accent' aria-label='color accent' />
@@ -85,12 +79,9 @@ export const ColorVariants: Story = {
     <Avatar  data-color='support-2' aria-label='color support-2' />
     </>
   )
-}
+};
 
 export const Shapes: Story = {
-  args: {
-    'aria-label': 'Ola Nordmann'
-  },
   render: () => (
     <>
     <Avatar variant='circle' aria-label='variant circle' />
@@ -99,13 +90,10 @@ export const Shapes: Story = {
     <Avatar variant='square' aria-label='Ola Nordmann' initials='ON'/>
     </>
   )
-}
+};
 
 export const InDropdown: Story = {
-  args: {
-    'aria-label': 'Ola Nordmann'
-  },
-  render: (args) => (
+  render: () => (
     <Dropdown.TriggerContext>
       <Dropdown.Trigger variant='tertiary'>
         <Avatar aria-hidden='true' data-size='sm' initials='ON' />
@@ -135,7 +123,7 @@ export const InDropdown: Story = {
       </Dropdown>
     </Dropdown.TriggerContext>
   )
-}
+};
 
 export const AsLink: Story = {
   args: {

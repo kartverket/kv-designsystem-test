@@ -4,7 +4,7 @@ import { Fieldset } from '../fieldset/Fieldset';
 
 const meta = {
   component: Radio,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Radio>;
 
 export default meta;

@@ -12,7 +12,7 @@ import {
 
 const meta = {
   component: ToggleGroup,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof ToggleGroup>;
 
 export default meta;

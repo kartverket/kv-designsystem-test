@@ -8,7 +8,7 @@ import { useDebounceCallback } from '@digdir/designsystemet-react';
 
 const meta = {
     component: Suggestion,
-    parameters: {layout: 'centered'},
+    parameters: { layout: 'centered' },
 } satisfies Meta<typeof Suggestion>;
 
 export default meta;

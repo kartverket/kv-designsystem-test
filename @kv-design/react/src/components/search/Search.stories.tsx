@@ -8,7 +8,7 @@ import { Label } from '../typography/label/Label';
 
 const meta = {
   component: Search,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Search>;
 
 export default meta;

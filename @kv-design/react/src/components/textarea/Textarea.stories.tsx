@@ -5,7 +5,7 @@ import { Field } from '../field/Field';
 
 const meta = {
   component: Textarea,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Textarea>;
 
 export default meta;

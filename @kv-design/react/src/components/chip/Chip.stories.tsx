@@ -6,7 +6,7 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 
 const meta = {
   component: Chip.Radio,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
   decorators: [
     (Story) => (
       <div
@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     children: 'Chip',
-  },
+  }
 };
 
 export const Button: Story = {
@@ -66,7 +66,7 @@ export const Button: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 
 export const Checkbox: Story = {
@@ -85,7 +85,7 @@ export const Checkbox: Story = {
         </div>
       </>
     );
-  },
+  }
 };
 
 export const Radio: Story = {
@@ -104,7 +104,7 @@ export const Radio: Story = {
         </div>
       </>
     );
-  },
+  }
 };
 
 export const Removable = {
@@ -129,5 +129,5 @@ export const Removable = {
         ))}
       </div>
     );
-  },
+  }
 };

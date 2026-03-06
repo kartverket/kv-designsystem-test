@@ -4,7 +4,7 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 
 const meta = {
   component: SkipLink,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof SkipLink>;
 
 export default meta;

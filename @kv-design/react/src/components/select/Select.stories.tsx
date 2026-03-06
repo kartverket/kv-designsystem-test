@@ -5,7 +5,7 @@ import { Label } from '../typography/label/Label';
 
 const meta = {
   component: Select,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Select>;
 
 export default meta;

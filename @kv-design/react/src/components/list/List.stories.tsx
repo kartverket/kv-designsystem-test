@@ -6,7 +6,7 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 
 const meta = {
   component: List.Item,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof List.Item>;
 
 export default meta;

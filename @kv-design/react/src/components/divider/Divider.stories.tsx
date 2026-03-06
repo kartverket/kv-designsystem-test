@@ -4,7 +4,7 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 
 const meta = {
   component: Divider,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Divider>;
 
 export default meta;

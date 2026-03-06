@@ -6,7 +6,7 @@ import { TrashIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Popover,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Popover>;
 
 export default meta;
