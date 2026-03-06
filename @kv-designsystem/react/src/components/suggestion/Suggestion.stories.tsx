@@ -17,12 +17,12 @@ type Story = StoryObj<typeof meta>;
 
 const DATA_PLACES = [
 	'Sogndal',
-  'Oslo',
-  'Brønnøysund',
-  'Stavanger',
-  'Trondheim',
-  'Bergen',
-  'Lillestrøm',
+	'Oslo',
+	'Brønnøysund',
+	'Stavanger',
+	'Trondheim',
+	'Bergen',
+	'Lillestrøm',
 ];
 
 export const Preview: Story = {
