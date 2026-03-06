@@ -11,7 +11,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Preview: Story = {};
+export const Preview: Story = {
+  args: {
+    'aria-label': 'input',
+  }
+};
 
 export const WithLabel: Story = {
   render: () => (

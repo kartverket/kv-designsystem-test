@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Popover } from './Popover';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Button } from '../button/Button';
+import { TrashIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Popover,
@@ -26,12 +27,11 @@ export const Preview: Story = {
   ),
 };
 
-// TODO: add icon
 export const Interactive: Story = {
   render: () => (
     <Popover.TriggerContext>
       <Popover.Trigger data-color='danger' aria-label='Slett rad'>
-        {/* <TrashIcon title='Slett rad' /> */}
+        <TrashIcon title='Slett rad' />
       </Popover.Trigger>
       <Popover data-color='danger'>
         <Paragraph>

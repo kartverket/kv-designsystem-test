@@ -2,6 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
 import { Tooltip } from '../tooltip/Tooltip'
 import { fn } from 'storybook/test';
+import { 
+  PlusCircleIcon, 
+  BellIcon, 
+  CogIcon,
+  ArrowRightIcon,
+  ArrowUndoIcon,
+  NotePencilIcon
+} from '@navikt/aksel-icons';
 
 const meta = {
   component: Button,
@@ -53,12 +61,11 @@ export const SecondaryButton: Story = {
   },
 };
 
-// TODO: add icon to the button
 export const TertiaryButton: Story = {
   args: {
     ...Preview.args,
     variant: 'tertiary',
-    children: 'Rediger',
+    children: [<NotePencilIcon aria-hidden />, 'Rediger'],
   },
 };
 
@@ -78,7 +85,6 @@ export const Colors: Story = {
   )
 }
 
-// TODO: add icons and align horizontally
 export const IconOnly: Story = {
   args: {
     variant: 'tertiary',
@@ -89,27 +95,23 @@ export const IconOnly: Story = {
     <>
       <Tooltip content='Legg til ny'>
         <Button {...args}>
-          (Icon)
-          {/* <PlusCircleIcon aria-hidden /> */}
+          <PlusCircleIcon aria-hidden />
         </Button>
       </Tooltip>
       <Tooltip content='Varslinger'>
         <Button {...args}>
-          (Icon)
-          {/* <BellIcon aria-hidden /> */}
+          <BellIcon aria-hidden />
         </Button>
       </Tooltip>
       <Tooltip content='Instillinger'>
         <Button {...args}>
-          (Icon)
-          {/* <CogIcon aria-hidden /> */}
+          <CogIcon aria-hidden />
         </Button>
       </Tooltip>
     </>
   ),
 };
 
-// TODO: add icons and align horizontally
 export const TextAndIcon: Story = {
   args: {
     'data-color': 'accent',
@@ -118,10 +120,10 @@ export const TextAndIcon: Story = {
     <>
       <Button variant='primary' {...args}>
         Start utfylling
-        {/* <ArrowRightIcon aria-hidden /> */}
+        <ArrowRightIcon aria-hidden />
       </Button>
       <Button variant='secondary' {...args}>
-        {/* <ArrowUndoIcon aria-hidden /> */}
+        <ArrowUndoIcon aria-hidden />
         Angre
       </Button>
     </>

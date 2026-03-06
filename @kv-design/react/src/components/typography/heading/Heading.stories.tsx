@@ -4,12 +4,9 @@ import { Heading } from './Heading';
 const meta = {
   component: Heading,
   tags: ['alfa', 'digdir'],
-  parameters: {
-    layout: 'centered',
-    componentOrigin: {
-      originator: 'digdir',
-    },
-  },
+  // parameters: {
+  //   layout: 'centered',
+  // },
   
   argTypes: {
     'data-size': {

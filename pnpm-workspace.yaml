@@ -36,6 +36,7 @@ catalog:
   '@chromatic-com/storybook': '^5.0.1'
   'chromatic': '^13.3.5'
   'eslint-plugin-storybook': '^10.2.8'
+  '@navikt/aksel-icons': '^8.4.1' 
 
   # Linting & Code Quality
   'eslint': '^9.39.2'

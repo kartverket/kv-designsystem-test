@@ -2,13 +2,12 @@ import preview from '../../../.storybook/preview';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Link } from './Link';
 import { Paragraph } from '../typography/paragraph/Paragraph';
+import { Chat2Icon, FilePdfFillIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Link,
   tags: ['alfa', 'digdir'],
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   args: {
     children: undefined,
   },
@@ -17,28 +16,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story ={
+export const Preview: Story ={
   args: {
     href: 'https://www.kartverket.no/',
     children: 'Gå til kartverket.no',
   },
 };
 
-// TODO: add icon
 export const WithIcon:  Story = {
   render: () => (
    <Link href='https://designsystemet.no/slack'>
-      {/* <Chat2Icon aria-hidden fontSize={24} /> */}
+      <Chat2Icon aria-hidden fontSize={24} />
       <span>Snakk med oss på Slack</span>
     </Link>
   ),
 };
 
 export const InText:  Story = {
-  render: () => (
+  args: {
+    href: 'https://designsystemet.no/no',
+  },
+  render: (args) => (
     <Paragraph>
       Vi bruker komponenter fra{' '}
-      <Link href={'https://designsystemet.no/no'}>
+      <Link {...args}>
         designsystemet.no
       </Link>
       .
@@ -47,35 +48,43 @@ export const InText:  Story = {
 };
 
 export const NeutralColor:  Story = {
-  render: () => (
-    <Link href={'https://www.kartverket.no/om-kartverket/personvern'} data-color='neutral'>
+  args: {
+    href: 'https://www.kartverket.no/om-kartverket/personvern',
+  },
+  render: (args) => (
+    <Link {...args} data-color='neutral'>
       Kartverkets personvernerklæring
     </Link>
   ),
 };
 
-// TODO: make the link actually go over multiple lines
 export const LongLink:  Story = {
-  parameters: {
-    customStyles: { width: '200px' },
+  args: {
+    href: 'https://www.kartverket.no/',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ width: '200px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   render: (args) => (
-    <Paragraph>
-      <Link href="https://www.kartverket.no/" {...args}>
+      <Paragraph>
+      <Link {...args}>
         Dette er en lenke som brekker over flere linjer
       </Link>
     </Paragraph>
   ),
 };
 
-// TODO: add icon
 export const File:  Story = {
   args: {
     href: 'https://kartverket.no/globalassets/geodataarbeid/hoydemodell/samfunnsokonomisk-analyse-nasjonal-detaljert-hoydemodell.pdf'
   },
   render: (args) => (
     <Link {...args}>
-      {/* <FilePdfFillIcon aria-hidden /> */}
+      <FilePdfFillIcon aria-hidden />
       <span>Samfunnsøkonomisk analyse (PDF, 2.1MB)</span>
     </Link>
   ),
