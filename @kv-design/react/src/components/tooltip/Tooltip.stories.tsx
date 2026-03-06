@@ -70,4 +70,4 @@ export const Placement: Story = {
       </Tooltip>
     </div>
   )
-}
+};

@@ -1,6 +1,6 @@
-import type { Preview } from '@storybook/react-vite'
+import type { Preview } from '@storybook/react-vite';
 
-import "@digdir/designsystemet-css"; /* imported only once */
+import '@digdir/designsystemet-css'; /* imported only once */
 // import "@digdir/designsystemet-css/theme"; /* and this */
 import '../.storybook/style.css';
 
@@ -12,8 +12,8 @@ const preview: Preview = {
       // 'todo' - show a11y violations in the test UI only
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
-      test: 'todo'
-    }
+      test: 'todo',
+    },
   },
   globalTypes: {
     theme: {
@@ -38,7 +38,6 @@ const preview: Preview = {
     },
   },
   initialGlobals: {
-
     // Set "theme" to the first theme you want to load when launching Storybook
     theme: 'green',
   },

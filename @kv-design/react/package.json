@@ -23,16 +23,16 @@
     "./style.css": "./dist/style.css"
   },
   "scripts": {
-    "lint": "nx eslint:lint",
+    "format-check": "pretty-format-check",
     "lint-circular-dependencies": "pnpm madge --circular ./src/alpha.ts",
     "typecheck": "tsgo --build",
     "install-dependencies": "pnpm i",
     "build": "vite build",
     "dev": "storybook dev --port 6006 --ci",
     "preview": "vite preview",
+    "build-storybook": "storybook build --stats-json",
     "test-storybook": "pnpm nx test --project=storybook",
-    "view-storybook-test-report": "pnpm dlx http-server ./test-reports/storybook",
-    "chromatic": "pnpm dlx chromatic --project_token=CHROMATIC_PROJECT_TOKEN"
+    "view-storybook-test-report": "pnpm dlx http-server ./test-reports/storybook"
   },
   "dependencies": {
     "@digdir/designsystemet-css": "catalog:",
@@ -40,6 +40,7 @@
     "@digdir/designsystemet-types": "catalog:",
     "@navikt/aksel-icons": "catalog:",
     "@kv-design/css": "workspace:*",
+    "@internal/build-tools": "workspace:*",
     "tslib": "catalog:"
   },
   "devDependencies": {
@@ -68,7 +69,6 @@
     "vitest": "catalog:",
     "nx": "catalog:"
   },
-
   "peerDependencies": {
     "@types/react": "^18.3.7 || ^19.0.0",
     "react": "^18.3.1 || ^19.0.0",
