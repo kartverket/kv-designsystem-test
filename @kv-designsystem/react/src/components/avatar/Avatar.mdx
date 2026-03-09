@@ -16,18 +16,18 @@ import * as AvatarStories from './Avatar.stories';
 - noe annet enn en person eller enhet skal representeres, for eksempel et dokument. Bruk heller ikoner eller andre visuelle symboler
 - det brukes rent visuelt, uten funksjon eller mening
 
-## Varianter med eksempler 
+## Varianter med eksempler
 
 `Avatar` kan inneholde et ikon, et bilde, eller initialer. Ikon og bilde legger du inn som `children` i komponenten. Innholdet får automatisk `aria-hidden='true'` for å unngå dobbel informasjon.
 Initialer sendes inn i `initials`-propen. Det vil fungere som en fallback dersom bildet ikke lastes. Et standard ikon vises dersom det ikke sendes inn `children` eller `initials`.
 
-<Canvas of={AvatarStories.Content} /> 
+<Canvas of={AvatarStories.Content} />
 
 ### Størrelser
 
 `Avatar` har størrelser fra xs til lg. Tekst og ikon vil skalere, men det kan hende ikonet ditt må tilpasses.
 
-<Canvas of={AvatarStories.Sizes} /> 
+<Canvas of={AvatarStories.Sizes} />
 
 ### Farger
 
@@ -52,7 +52,7 @@ Du kan kombinere `Avatar` med andre komponenter, for eksempel integrere den i en
 Legg lenker eller knapper rundt `Avatar` for å gjøre den klikkbar.
 Du må selv sette styling dersom du skal ha en interaktiv `Avatar`.
 
-<Canvas of={AvatarStories.AsLink} /> 
+<Canvas of={AvatarStories.AsLink} />
 
 ## Retningslinjer
 
@@ -72,6 +72,6 @@ Du må selv sette styling dersom du skal ha en interaktiv `Avatar`.
 
 Bilder, og andre `children`, får automatisk `aria-hidden='true'` for å unngå dobbel informasjon.
 
-## Kilde 
+## Kilde
 
 Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.
