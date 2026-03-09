@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Spinner } from './Spinner';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 
+// TODO: had to change to <typeof Spinner> to avoid decorators: [] to cast error on args
 const meta:Meta<typeof Spinner> = {
   component: Spinner,
   decorators: [
@@ -22,13 +23,12 @@ const meta:Meta<typeof Spinner> = {
 };
 
 export default meta;
-// TODO: had to change to <typeof Spinner> to avoid decorators: [] to cast error on args
 type Story = StoryObj<typeof meta>; 
 
 export const Preview: Story = {
   args: {
     'aria-label': 'Laster...',
-  },
+  }
 };
 
 export const Sizes: Story = {
@@ -44,7 +44,7 @@ export const Sizes: Story = {
       <Spinner {...args} data-size='lg' />
       <Spinner {...args} data-size='xl' />
     </>
-  )
+  ),
 };
 
 export const Colors: Story = {
@@ -59,7 +59,7 @@ export const Colors: Story = {
       <Spinner {...args} data-color='support-1' />
       <Spinner {...args} data-color='support-2' />
     </>
-  )
+  ),
 };
 
 export const WithText: Story = {
@@ -70,4 +70,3 @@ export const WithText: Story = {
     </>
   )
 };
-

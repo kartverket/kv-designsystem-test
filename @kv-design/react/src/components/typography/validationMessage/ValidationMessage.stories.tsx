@@ -3,8 +3,8 @@ import { ValidationMessage } from './ValidationMessage';
 
 const meta = {
   component: ValidationMessage,
+  title: 'Components/Typography/ValidationMessage', 
   parameters: { layout: 'centered' },
-  title: 'Components/Typography/ValidationMessage',
 } satisfies Meta<typeof ValidationMessage>;
 
 export default meta;
@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     children: 'ValidationMessage',
-  },
+  }
 };
 
 export const AllColors: Story = {
@@ -36,4 +36,4 @@ export const AllColors: Story = {
       </ValidationMessage>
     </div>
   )
-}
+};

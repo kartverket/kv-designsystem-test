@@ -23,7 +23,7 @@ export const Preview: Story = {
       <Radio label='Eidsfjorden' name='radio' value='eidsfjorden' />
       <Radio label='Ingen av de' name='radio' value='ingen-av-de' />
     </Fieldset>
-  ),
+  )
 };
 
 export const WithCheckbox: Story = {
@@ -35,13 +35,12 @@ export const WithCheckbox: Story = {
   )
 };
 
-// TODO: make example more relevant to Kartverket?
 export const LegendAsHeading: Story = {
   render: () => (
     <Fieldset>
       <Fieldset.Legend>
         <Heading
-          data-size="sm"
+          data-size='sm'
           level={2}
         >
           Hvilke foretrekket du?
@@ -51,18 +50,17 @@ export const LegendAsHeading: Story = {
         Fellesbeskrivelse
       </Fieldset.Description>
       <Checkbox
-        id="components-fieldset--legend-as-heading-alternativ-1"
-        label="Alternativ 1"
-        name="components-fieldset--legend-as-heading-alternativ-1"
-        value="alternativ-1"
+        id='components-fieldset--legend-as-heading-alternativ-1'
+        label='Alternativ 1'
+        name='components-fieldset--legend-as-heading-alternativ-1'
+        value='alternativ-1'
       />
       <Checkbox
-        id="components-fieldset--legend-as-heading-alternativ-2"
-        label="Alternativ-2"
-        name="components-fieldset--legend-as-heading-alternativ-2"
-        value="alternativ-2"
+        id='components-fieldset--legend-as-heading-alternativ-2'
+        label='Alternativ-2'
+        name='components-fieldset--legend-as-heading-alternativ-2'
+        value='alternativ-2'
       />
     </Fieldset>
   )
-}
-
+};

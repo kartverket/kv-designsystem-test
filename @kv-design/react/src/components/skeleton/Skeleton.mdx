@@ -17,7 +17,6 @@ Vi bruker Skeleton for å vise at innhold på en side er i ferd med å lastes in
 **Unngå `Skeleton` når**
 - du skal indikere at systemet utfører en oppgave brukeren må vente på - bruk heller [`Spinner`](/docs/components-spinner--docs)
 
- 
 ## Varianter med eksempler
 
 Skeleton finnes i tre varianter:
@@ -25,12 +24,12 @@ Skeleton finnes i tre varianter:
 - circle
 - text
 
-
 Velg variant basert på typen innhold som lastes, som for eksempel overskrifter, tekstblokker eller bilder.
 
 <Canvas of={SkeletonStories.UsageExample} />
 
-## Skalering av komponenten
+### Skalering av komponenten
+
 - Alle varianter støtter `height` og `width`, som kan settes i `px`, `%`, eller andre gyldige enheter.
 - For `variant='text'` holder det ofte å angi kun bredde; høyden tilpasses automatisk tekstens størrelse.
 - Skeleton skalerer også etter innholdet du legger inni komponenten, men `children` vises ikke som egne skeletons.
@@ -39,4 +38,5 @@ Velg variant basert på typen innhold som lastes, som for eksempel overskrifter,
 <Canvas of={SkeletonStories.Children} />
 
 ## Kilde
+
 Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

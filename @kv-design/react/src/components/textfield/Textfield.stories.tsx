@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     label: 'Textfield',
-  },
+  }
 };
 
 export const Multiline: Story = {
@@ -21,7 +21,7 @@ export const Multiline: Story = {
     label: 'Beskrivelse',
     multiline: true,
     rows: 4,
-  },
+  }
 };
 
 export const Affix: Story = {
@@ -29,14 +29,14 @@ export const Affix: Story = {
     label: 'Hvor mange kroner koster det per måned?',
     prefix: 'NOK',
     suffix: 'pr. mnd'
-  },
+  }
 };
 
 export const Counter: Story = {
   args: {
     label: 'Hvor mange kroner koster det per måned?',
     counter: 10
-  },
+  }
 };
 
 export const Required: Story = {
@@ -45,19 +45,19 @@ export const Required: Story = {
   },
   render: () => (
     <Textfield
-    label={
-      <>
-        Hvor bor du?
-        <Tag
-          data-color='warning'
-          style={{ marginInlineStart: 'var(--ds-size-2)' }}
-        >
-          Må fylles ut
-        </Tag>
-      </>
-    }
-    required
-  />
-  )
+      label={
+        <>
+          Hvor bor du?
+          <Tag
+            data-color='warning'
+            style={{ marginInlineStart: 'var(--ds-size-2)' }}
+          >
+            Må fylles ut
+          </Tag>
+        </>
+      }
+      required
+    />
+  ),
 };
 

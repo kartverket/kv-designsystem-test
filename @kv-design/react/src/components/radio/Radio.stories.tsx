@@ -33,5 +33,5 @@ export const InLine: Story = {
         <Radio name='my-inline' label='Nei' value='nei' />
       </div>
     </Fieldset>
-  )
-}
+  ),
+};

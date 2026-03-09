@@ -10,12 +10,10 @@ Search gjør det mulig for brukere å finne relevant innhold raskt på et nettst
 <Primary />
 
 **Bruk `Search` når**
-
 - brukeren trenger støtte til å finne informasjon raskt
 - situasjonen krever at brukeren skriver inn nøkkelord eller setninger for å finne det mest relevante innholdet
 
 **Unngå `Search` når**
-
 - innholdet er så oversiktlig at brukeren enkelt kan navigere uten søk
 - søk brukes som en erstatning for god navigasjon. Søk skal supplere strukturen, ikke erstatte den
 
@@ -27,7 +25,7 @@ Du kan endre `variant` på `Button` for å tilpasse visningen. Alternativt kan d
 
 ### Utføre søkehandling "live"
 
-I mange tilfeller er det mer hensiktsmessig å utføre søkehandling mens brukeren skriver i inputfeltet, heller enn å vente på `Enter` eller klikk.
+I mange tilfeller er det mer hensiktsmessig å utføre søkehandling mens brukeren skriver i input-feltet, heller enn å vente på `Enter` eller klikk.
 
 <Canvas of={SearchStories.LiveSearch} />
 
@@ -48,8 +46,7 @@ Unngå korte felt der innholdet ikke vises fullt ut.
 
 Placeholder-tekst bør brukes med forsiktighet. Teksten forsvinner når brukeren skriver, og kan bidra til misforståelser. Den må også oppfylle krav til kontrast, noe som kan gjøre den vanskelig å skille fra vanlig innhold. Skjermlesere håndterer placeholder-tekst ulikt, derfor bør vi gi viktig informasjon via `Label` eller beskrivelse.
 
-Bruk `Label` over feltet når:
-
+Bruk `Label` over feltet når
 - det ikke er opplagt hva brukeren skal søke etter
 - søkefeltet inngår i et skjema
 
@@ -62,12 +59,6 @@ For å koble sammen `Label` og `Search.Input` kan du bruke `Field` rundt. Legg t
 ### Søk-landemerke
 
 For å gjøre søket tilgjengelig for hjelpemidler kan du legge det i et element med `role='search'`. Bruk det ytterste elementet som hører til søket, for eksempel `<form role='search'>`. Dette gjør det mulig for brukere av hjelpemidler å navigere direkte til søkefeltet. Det er spesielt nyttig på sider der søk er en hovedfunksjonalitet.
-
-### Tastaturnavigering
-{/* TODO: add <kbd> for Keyboard key style, it currently being overwritten */}
-- `ESC` - tømmer søkefeltet for en enhetlig opplevelse på tvers av nettlesere.
-- `Tab` - lar brukere bevege seg mellom inputfelt, clear-knapp og søkeknapp.
-- `Enter`- sender inn søket når fokus er i inputfeltet.
 
 ## Kilde
 

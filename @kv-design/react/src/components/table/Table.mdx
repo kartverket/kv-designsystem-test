@@ -10,18 +10,15 @@ En `Table` gir en strukturert og oversiktlig presentasjon av informasjon. Den gj
 <Primary />
 
 **Bruk `Table` når**
-
 - du skal gjøre det enkelt for brukeren å sammenligne informasjon
 - data trenger en tydelig struktur i rader og kolonner
 - innholdet kan sorteres eller filtreres
 
 **Unngå `Table` når**
-
 - målet er visuell layout, ikke datavisning
 - informasjonen passer bedre i liste- eller kortvisning
 - innholdet er svært begrenset, for eksempel én kolonne eller kun noen få punkt uten behov for sammenligning
 - datamengden gjør tabellen vanskelig å lese på mobil
-
 
 ## Varianter med eksempler
 
@@ -35,9 +32,10 @@ Zebra-striper kan gjøre tabellen lettere å lese ved å tydelig skille radene f
 
 Bruk `border` for å legge til synlige kantlinjer som avgrenser tabellen fra annet innhold og gir et mer strukturert uttrykk.
 
-<Canvas of={TableStories.WithBorder} /> 
+<Canvas of={TableStories.WithBorder} />
 
 ### Sortering
+
 Du kan vise at tabellen kan sorteres etter innholdet i en kolonne.
 
 Du kan sortere i 3 retninger:
@@ -53,17 +51,11 @@ Sorteringsindikatorer gir brukeren tydelig tilbakemelding og gjør det mulig å 
 
 Fast bredde er nyttig når tabellen oppdateres dynamisk eller bruker paginering. Det sikrer stabil visning og bedre opplevelse.
 
-<Canvas of={TableStories.FixedTable} /> 
+<Canvas of={TableStories.FixedTable} />
  
-### Tall i tabeller
-
-Plasser tall til høyre i tabellfeltet slik at det blir enklere å sammenligne verdier. Tekst skal som hovedregel venstrejusteres.
-
-<Canvas of={TableStories.Numbers} />
-
 ## Retningslinjer
 
-- Venstrejuster innhold, med unntak av tall og valuta.
+- Venstrejuster innhold, med unntak av tall og valuta som høyrejusteres for at brukerne lett skal kunne sammenligne tallene.
 - Bruk `<Table.HeaderCell>` for overskrifter. En celle regnes som overskrift når den beskriver innhold i samme rad eller kolonne.
 - Overskrifter skal tydelig beskrive hva brukeren finner i hver rad og kolonne.
 - For å spare plass i tabellrader med flere handlinger, kan du bruke en meny dersom handlingene ikke må være synlige hele tiden.

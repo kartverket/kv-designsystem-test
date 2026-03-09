@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tag } from './Tag';
 import { Heading } from '../typography/heading/Heading';
-import { Avatar } from '../avatar/Avatar';
 import { Paragraph } from '../typography/paragraph/Paragraph';
-import { Divider } from '../divider/Divider';
+import { RobotIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Tag,
@@ -16,7 +15,22 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     children: 'Tag',
-  },
+  }
+};
+
+export const Icons: Story = {
+  render: () => (
+    <Tag
+      data-color='neutral'
+      data-size='md'
+      style={{
+        paddingInlineStart: 'var(--ds-size-1)',
+      }}
+    >
+      <RobotIcon aria-hidden style={{ marginInlineEnd: 'var(--ds-size-1)' }} />
+      Teksten er KI-generert
+    </Tag>
+  )
 };
 
 const propertyImage =
@@ -27,7 +41,7 @@ export const Article: Story = {
     <div>
       <img
         src={propertyImage}
-        alt="Et hus ved en fjord"
+        alt='Et hus ved en fjord'
         style={{
           width: '100%',
           height: '200px',
@@ -44,11 +58,11 @@ export const Article: Story = {
         }}
       >
         <Heading>Egenregistrering</Heading>
-        <Tag data-color="accent" data-size="sm">Nyhet</Tag>
+        <Tag data-color='accent' data-size='sm'>Nyhet</Tag>
       </div>
       <Paragraph>
         Nå kan du som eier eller fester registrere opplysninger om din bolig eller fritidsbolig.
       </Paragraph>
     </div>
-  ),
+  )
 };

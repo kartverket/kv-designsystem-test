@@ -31,19 +31,19 @@ Usorterte lister brukes når rekkefølgen ikke er viktig. Vi må likevel passe p
 
 Sorterte lister brukes når trinn må følge en bestemt rekkefølge eller når det finnes en prioritert rekkefølge.
 
-<Canvas of={ListStories.Ordered} /> 
+<Canvas of={ListStories.Ordered} />
 
-### Lister i lister 
+### Lister i lister
 
 Vi kan legge en liste under et enkelt listepunkt når punktet inneholder tilleggsinformasjon som må deles opp videre. Før du bruker en underliste, vurder om dette er et hovedpunkt som kan stå for seg selv, eller om det er informasjon som passer best som underpunkt.
 
-<Canvas of={ListStories.Indented} /> 
+<Canvas of={ListStories.Indented} />
 
 ### Liste med lenker
 
 Vi kan bruke `List` til å lage en liste med lenker, og i eksempelet under har vi skrudd av list-stylingen på `List.Unordered`
 
-<Canvas of={ListStories.WithLinks} /> 
+<Canvas of={ListStories.WithLinks} />
 
 ## Retningslinjer
 
@@ -86,4 +86,5 @@ Riktig valg av format gir en bedre opplevelse for alle brukere, spesielt for de 
 Dersom liste brukes som navigasjonselement (for eksempel i bunn eller ved siden av hovedinnholdet), kan du legge et `<nav>` element rundt med en `aria-label` for å gi skjermlesere en bedre brukeropplevelse. [W3C anbefaler](https://www.w3.org/TR/using-aria/#label-support) å unngå `aria-label`/`aria-labelledby` rett på `ul`/`ol`.
 
 ## Kilde
+
 Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

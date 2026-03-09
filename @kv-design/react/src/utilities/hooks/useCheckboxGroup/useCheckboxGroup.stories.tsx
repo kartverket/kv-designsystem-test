@@ -77,23 +77,23 @@ export const Default: Story = {
       <Fieldset>
         <Checkbox
           id={context.id + '-email'}
-          label="E-post"
+          label='E-post'
           {...getCheckboxProps('epost')}
         />
         <Checkbox
           id={context.id + '-telefon'}
-          label="Telefon"
+          label='Telefon'
           {...getCheckboxProps('telefon')}
         />
         <Checkbox
           id={context.id + '-sms'}
-          label="SMS"
+          label='SMS'
           {...getCheckboxProps({ value: 'sms' })}
         />
         <ValidationMessage {...validationMessageProps} />
       </Fieldset>
     );
-  },
+  }
 };
 
 export const Group: Story = { 
@@ -113,22 +113,21 @@ export const Group: Story = {
         </Fieldset.Description>
         <Checkbox
           id={context.id + '-email'}
-          label="E-post"
+          label='E-post'
           {...getCheckboxProps('epost')}
         />
         <Checkbox
           id={context.id + '-telefon'}
-          label="Telefon"
+          label='Telefon'
           {...getCheckboxProps('telefon')}
         />
         <Checkbox
           id={context.id + '-sms'}
-          label="SMS"
+          label='SMS'
           {...getCheckboxProps({ value: 'sms' })}
         />
         <ValidationMessage {...validationMessageProps} />
       </Fieldset>
     );
-  },
+  }
 };
-

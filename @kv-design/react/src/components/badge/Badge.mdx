@@ -10,15 +10,12 @@ import * as BadgeStories from './Badge.stories';
 <Primary />
 
 **Bruk `Badge` når**
-
 - det er tall som viser antall nye meldinger, varsel eller oppgaver
 - du skal formulere statusindikatorer i form av en sirkel, som for eksempel viser om en person er opptatt, borte eller aktiv
 
 **Unngå `Badge` når**
-
 - du trenger tekst, bruk [`Tag`](/docs/components-tag--docs) i stedet
 - den skal utføre interaktive handlinger, bruk [`Chip`](/docs/components-chip--docs) eller [`Button`](/docs/components-button--docs) i stedet
-
 
 ## Varianter med eksempler
 
@@ -28,7 +25,7 @@ import * as BadgeStories from './Badge.stories';
 
 Du kan velge mellom variantene `base` og `tinted`.
 
-<Canvas of={BadgeStories.ColorVariants} /> 
+<Canvas of={BadgeStories.ColorVariants} />
 
 ### Vise status
 
@@ -37,7 +34,7 @@ Dersom du ikke sender inn `count`, blir bare en sirkel vist. Dette kan brukes fo
 Uten tekst inni må `Badge` ha en tilhørende tekst ved siden av, fordi informasjon ikke skal kommuniseres med kun farge eller form.
 
 <Canvas of={BadgeStories.Status} />
- 
+
 ### Inline
 
 `Badge` kan plasseres ved siden av (inline) annen tekst eller komponenter.

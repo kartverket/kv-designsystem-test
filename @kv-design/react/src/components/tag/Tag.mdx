@@ -10,19 +10,16 @@ import * as TagStories from './Tag.stories';
 <Primary />
 
 **Bruk `Tag` når**
-
 - innhold trenger en tydelig kategori, som «Beta», «Ny» eller «Populær»
 - status skal vises, som «Pågående», «Fullført» eller «Avbrutt»
 - du vil hjelpe brukeren å skanne og tolke informasjon raskt
 
 Unngå `Tag` når
-
 - elementet skal lenke til en annen side - bruk heller Link
 - det er en handling - bruk heller [`Button`](/docs/components-button--docs)
 - brukeren skal filtrere innhold - bruk heller [`Chip`](/docs/components-chip--docs)
 
-
-## Variater med eksempler 
+## Varianter med eksempler
 
 `Tag` finnes i to varianter: med og uten outline. Du kan bruke alle fargene på `Tag`. Dersom taggen får for lav kontrast mot bakgrunnen, kan du bytte variant for å sikre god lesbarhet.
 
@@ -30,9 +27,11 @@ Unngå `Tag` når
 
 Du kan bruke ikoner i kombinasjon med `Tag` for å gi ekstra visuell støtte. Du må selv sørge for riktig avstand mellom tekst og ikon. Vi anbefaler at padding på taggen og margin rundt ikonet er like, slik at uttrykket blir balansert.
 
+<Canvas of={TagStories.Icons} />
+
 ### Komponering
 
-<Canvas of={TagStories.Article} /> 
+<Canvas of={TagStories.Article} />
 
 ## Retningslinjer
 
@@ -52,7 +51,9 @@ Plasser `Tag` som hovedregel etter tittelen eller navnet på det elementet den t
 - Dersom du bruker flere tags samtidig, bør de ligge i en `<ul>` med `<li>`-elementer, slik at hjelpeteknologier leser dem som en tydelig liste.
 
 ## Tilgjengelighet
+
 `Tag` har i seg selv ingen semantisk verdi. Hvis du vil bruke flere sammen bør du derfor bruke en `<ul>` med en `<li>` for hver `Tag` for å sikre at hver `Tag` blir lest opp hver for seg og ikke som en del av en setning.
 
 ## Kilde
+
 Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

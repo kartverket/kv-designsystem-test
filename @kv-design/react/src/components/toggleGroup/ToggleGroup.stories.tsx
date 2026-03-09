@@ -26,26 +26,26 @@ export const Preview: Story = {
       <ToggleGroup.Item value='arkiv'>Arkiv</ToggleGroup.Item>
       <ToggleGroup.Item value='sendt'>Sendt</ToggleGroup.Item>
     </ToggleGroup>
-  ),
+  )
 };
 
 export const TextAndIcons: Story = {
   render: () => (
-    <ToggleGroup defaultValue="aktiv">
-      <ToggleGroup.Item value="aktiv">
+    <ToggleGroup defaultValue='aktiv'>
+      <ToggleGroup.Item value='aktiv'>
         <CheckmarkCircleIcon aria-hidden />
         Aktiv
       </ToggleGroup.Item>
-      <ToggleGroup.Item value="advarsel">
+      <ToggleGroup.Item value='advarsel'>
         <ExclamationmarkTriangleIcon aria-hidden />
         Advarsel
       </ToggleGroup.Item>
-      <ToggleGroup.Item value="kritisk">
+      <ToggleGroup.Item value='kritisk'>
         <XMarkOctagonIcon aria-hidden />
         Kritisk
       </ToggleGroup.Item>
     </ToggleGroup>
-  ),
+  )
 };
 
 export const OnlyIcons: Story = {
@@ -67,7 +67,7 @@ export const OnlyIcons: Story = {
         </ToggleGroup.Item>
       </Tooltip>
     </ToggleGroup>
-  ),
+  )
 };
 
 export const Secondary: Story = {
@@ -82,5 +82,5 @@ export const Secondary: Story = {
       <ToggleGroup.Item value='arkiv'>Arkiv</ToggleGroup.Item>
       <ToggleGroup.Item value='sendt'>Sendt</ToggleGroup.Item>
     </ToggleGroup>
-  ),
+  )
 };

@@ -34,4 +34,4 @@ export const WithRows: Story = {
       <Textarea id='my-textarea-rows' rows={6} />
     </>
   )
-}
+};

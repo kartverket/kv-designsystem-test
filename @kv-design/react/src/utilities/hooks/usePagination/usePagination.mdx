@@ -2,7 +2,7 @@ import { Meta, Primary, ArgTypes, Controls } from '@storybook/addon-docs/blocks'
 import * as Stories from './usePagination.stories';
 import { usePagination } from './usePagination';
 
-<Meta of={Stories} /> 
+<Meta of={Stories} />
 
 # usePagination
 
@@ -19,7 +19,7 @@ I respons får du objektet:
   prevButtonProps: PaginationButtonProps, // Properties du kan spre på forrige-knappen
   nextButtonProps: PaginationButtonProps, // Properties du kan spre på neste-knappen
   pages: Array<{
-    page: number | string; // Tall for side, eller "ellipsis" streng dersom knappen skal være ...
+    page: number | string; // Tall for side, eller 'ellipsis' streng dersom knappen skal være ...
     itemKey: string; // key du kan sende til Pagination.Item for å sikre riktig fokus håndtering
     buttonProps: PaginationButtonProps; // Properties du kan spre på Pagination.Button
   }>

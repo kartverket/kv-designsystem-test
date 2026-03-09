@@ -1,4 +1,3 @@
-import preview from '../../../.storybook/preview';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Link } from './Link';
 import { Paragraph } from '../typography/paragraph/Paragraph';
@@ -6,7 +5,6 @@ import { Chat2Icon, FilePdfFillIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Link,
-  tags: ['alfa', 'digdir'],
   parameters: { layout: 'centered' },
   args: {
     children: undefined,
@@ -20,7 +18,7 @@ export const Preview: Story ={
   args: {
     href: 'https://www.kartverket.no/',
     children: 'Gå til kartverket.no',
-  },
+  }
 };
 
 export const WithIcon:  Story = {
@@ -29,7 +27,7 @@ export const WithIcon:  Story = {
       <Chat2Icon aria-hidden fontSize={24} />
       <span>Snakk med oss på Slack</span>
     </Link>
-  ),
+  )
 };
 
 export const InText:  Story = {
