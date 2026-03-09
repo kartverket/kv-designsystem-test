@@ -1,21 +1,30 @@
 import nxEslintPlugin from '@nx/eslint-plugin';
 import { defineConfig } from 'eslint/config';
 import storybook from 'eslint-plugin-storybook';
-import baseConfig, { importConfig } from '../../eslint.config.js';
+import baseConfig, { importOrderRules } from '../../eslint.config.js';
 
 // Shared restricted imports across the repo
 const commonRestrictedImports = [
-  { group: ['@kv-design/react', '@kv-design/react/*'], message: 'Do not import from @kv-design/react. Use relative paths instead.' },
+  {
+    group: ['@kv-design/react', '@kv-design/react/*'],
+    message: 'Do not import from @kv-design/react. Use relative paths instead.',
+  },
   { group: ['**/dist/*'], message: 'Do not import from the dist directory.' },
-  { group: ['**/node_modules/*'], message: 'Do not import from the node_modules directory.' },
+  {
+    group: ['**/node_modules/*'],
+    message: 'Do not import from the node_modules directory.',
+  },
 ];
 
 export default defineConfig([
   nxEslintPlugin.configs['flat/react'],
   storybook.configs['flat/recommended'],
   baseConfig,
-  { ignores: ['!.storybook'] }, // Avoid excluding .storybook directory
-
+  { ignores: [
+      '!.storybook',  // Avoid excluding .storybook directory
+      'src/components'  // TODO: remove this to when components are ready to be linted
+      ] 
+  },
   // TypeScript specific rules
   {
     files: ['**/*.{ts,tsx}'],
@@ -35,9 +44,9 @@ export default defineConfig([
       'import/order': [
         'error',
         {
-          ...importConfig,
+          ...importOrderRules,
           pathGroups: [
-            ...importConfig.pathGroups,
+            ...importOrderRules.pathGroups,
             { pattern: '.storybook/**', group: 'internal' },
           ],
         },

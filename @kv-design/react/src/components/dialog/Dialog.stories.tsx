@@ -24,7 +24,7 @@ export const Preview: Story = {
   render: () => (
     <Dialog.TriggerContext>
       <Dialog.Trigger>Åpne modal Dialog</Dialog.Trigger>
-      <Dialog id='my-dialog-modal'>
+      <Dialog>
         <Dialog.Block>
           <Heading>Lagre før du går videre </Heading>
         </Dialog.Block>

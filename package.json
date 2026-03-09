@@ -8,7 +8,7 @@
     "node": ">= 24.6.0 < 25"
   },
   "scripts": {
-    "build": "pnpm nx format:check && pnpm nx affected -t typecheck lint build"
+    "build": "pnpm nx format-check && pnpm nx affected -t typecheck lint build"
   },
   "devDependencies": {
     "@eslint/js": "catalog:",
@@ -21,6 +21,7 @@
     "@vitest/ui": "catalog:",
     "eslint": "catalog:",
     "eslint-plugin-import": "catalog:",
+    "eslint-plugin-react": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",
     "eslint-plugin-react-refresh": "catalog:",
     "eslint-plugin-storybook": "catalog:",
