@@ -44,16 +44,16 @@ export const ListOnly: Story = {
 	<Breadcrumbs {...args}>
 		<Breadcrumbs.List>
 			<Breadcrumbs.Item>
-				<Breadcrumbs.Link href="#">Kartverket</Breadcrumbs.Link>
+				<Breadcrumbs.Link href='#'>Kartverket</Breadcrumbs.Link>
 			</Breadcrumbs.Item>
 			<Breadcrumbs.Item>
-				<Breadcrumbs.Link href="#">Til lands</Breadcrumbs.Link>
+				<Breadcrumbs.Link href='#'>Til lands</Breadcrumbs.Link>
 			</Breadcrumbs.Item>
 			<Breadcrumbs.Item>
-				<Breadcrumbs.Link href="#">Stadnamn</Breadcrumbs.Link>
+				<Breadcrumbs.Link href='#'>Stadnamn</Breadcrumbs.Link>
 			</Breadcrumbs.Item>
 			<Breadcrumbs.Item>
-				<Breadcrumbs.Link href="#">Søk stadnamn i kart</Breadcrumbs.Link>
+				<Breadcrumbs.Link href='#'>Søk stadnamn i kart</Breadcrumbs.Link>
 			</Breadcrumbs.Item>
 		</Breadcrumbs.List>
 	</Breadcrumbs>
@@ -67,8 +67,8 @@ export const BackOnly: Story = {
 	render: (args) => (
 		<Breadcrumbs>
 			<Breadcrumbs.Link
-				aria-label="Tilbake til Stadnamn"
-				href="#"
+				aria-label='Tilbake til Stadnamn'
+				href='#'
 			>
 				Stadnamn
 			</Breadcrumbs.Link>

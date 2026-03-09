@@ -62,10 +62,10 @@ export const Preview: Story = {
     });
 
     return (
-      <Pagination aria-label="Sidenavigering">
+      <Pagination aria-label='Sidenavigering'>
         <Pagination.List>
           <Pagination.Item>
-            <Pagination.Button aria-label="Forrige side" {...prevButtonProps}>
+            <Pagination.Button aria-label='Forrige side' {...prevButtonProps}>
               Forrige
             </Pagination.Button>
           </Pagination.Item>
@@ -79,12 +79,12 @@ export const Preview: Story = {
             </Pagination.Item>
           ))}
           <Pagination.Item>
-            <Pagination.Button aria-label="Neste side" {...nextButtonProps}>
+            <Pagination.Button aria-label='Neste side' {...nextButtonProps}>
               Neste
             </Pagination.Button>
           </Pagination.Item>
         </Pagination.List>
       </Pagination>
     );
-	}
+	},
 };

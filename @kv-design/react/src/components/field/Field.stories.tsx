@@ -24,7 +24,7 @@ export const Preview: Story = {
         Du kan ikke ha mellomrom i etternavnet ditt
       </ValidationMessage>
     </Field>
-  ),
+  )
 };
 
 export const Affix: Story = {
@@ -59,4 +59,4 @@ export const Position: Story = {
       </Field>
     </>
   )
-}
+};

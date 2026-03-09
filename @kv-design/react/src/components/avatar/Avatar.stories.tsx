@@ -53,7 +53,7 @@ export const Content: Story = {
       <BriefcaseIcon />
     </Avatar> 
     <Avatar {...args}>
-      <img src={profileImage} alt="" />
+      <img src={profileImage} alt='' />
     </Avatar>
     </>
   ),
@@ -98,14 +98,14 @@ export const InDropdown: Story = {
       <Dropdown.Trigger variant='tertiary'>
         <Avatar aria-hidden='true' data-size='sm' initials='ON' />
         Ola Nordmann
-        <ChevronUpIcon />
+        <ChevronUpIcon aria-hidden='true' />
       </Dropdown.Trigger>
       <Dropdown placement='bottom-end' autoPlacement={false} data-size='md'>
         <Dropdown.List>
           <Dropdown.Item>
             <Dropdown.Button>
               <Badge.Position overlap='circle'>
-                <Badge data-color='danger' data-size='sm'></Badge>
+                <Badge data-color='danger' data-size='sm' />
                 <Avatar aria-hidden='true' data-size='xs' initials='ON' />
               </Badge.Position>
               Ola Nordmann

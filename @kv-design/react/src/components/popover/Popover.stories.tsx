@@ -51,7 +51,7 @@ export const Interactive: Story = {
         </div>
       </Popover>
     </Popover.TriggerContext>
-  ),
+  )
 };
 
 export const DottedUnderline: Story = {
@@ -74,4 +74,4 @@ export const DottedUnderline: Story = {
       </Popover>
     </Popover.TriggerContext>
   )
-}
+};

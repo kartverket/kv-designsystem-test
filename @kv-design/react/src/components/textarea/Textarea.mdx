@@ -10,24 +10,13 @@ Vi bruker `Textarea` når brukeren skal kunne skrive tekst som går over flere l
 <Primary />
 
 **Bruk `Textarea` når**
-
 - brukeren skal skrive mer enn én linje tekst
 - fritekstsvar er nødvendig, og brukeren trenger plass til å formulere seg fritt
 - svaret ikke følger en fast struktur
 
 **Unngå `Textarea` når**
-
 - du forventer korte svar - bruk heller [`Textfield`](/docs-components-textfield--docs)
 - det skal samles inn strukturerte data som skal valideres, for eksempel fødselsnummer eller dato
-
-
-## Eksempel
-
-### Angi høyden
-
-Utviklere kan sette antall rader i tekstområdet ved å bruke `rows`-attributtet. Dette påvirker kun den første høyden, men gir brukeren en tydelig forventning om hvor mye tekst som skal fylles inn.
-
-<Canvas of={TextareaStories.WithRows} />
 
 ## Retningslinjer
  
@@ -40,6 +29,8 @@ Vær obs på risikoen for at brukere kan skrive inn sensitive personopplysninger
 ### Størrelse og tilpasning
 
 #### Høyde
+
+Utviklere kan sette antall rader i tekstområdet ved å bruke `rows`-attributtet. Dette påvirker kun den første høyden, men gir brukeren en tydelig forventning om hvor mye tekst som skal fylles inn.
 
 Tilpass høyden etter forventet tekstmengde.
 - Forventes tre linjer, bør feltet vise omtrent tre.
@@ -69,7 +60,6 @@ Det kan være aktuelt å bruke `readOnly` når informasjon skal inngå i en opps
 - Unngå placeholder-tekst.
 - Gi tydelige regler for inndata og formatering.
 - Sørg for god tilgjengelighet.
-
 
 ## Kilde
 

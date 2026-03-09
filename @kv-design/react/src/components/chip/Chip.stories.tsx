@@ -45,12 +45,12 @@ export const Button: Story = {
       >
         <Search>
           <Search.Input
-            aria-label="søk"
+            aria-label='søk'
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
           <Search.Clear />
-          <Search.Button type="submit" />
+          <Search.Button type='submit' />
         </Search>
         <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
           <Paragraph>Hurtigsøk: </Paragraph>
@@ -97,7 +97,7 @@ export const Radio: Story = {
         <Paragraph>Vis data for</Paragraph>
         <div style={{ display: 'flex', gap: 'var(--ds-size-1)' }}>
           {options.map((grade) => (
-            <Chip.Radio name="my-radio" aria-label={grade}>
+            <Chip.Radio name='my-radio' aria-label={grade}>
               {grade}
             </Chip.Radio>
           ))}
@@ -109,8 +109,8 @@ export const Radio: Story = {
 
 export const Removable = {
   render: () => {
-    const schoolOptions = ['Sjøkart', 'Dybder', 'Sjømerker'];
-    const [filter, setFilter] = useState(schoolOptions);
+    const mapOptions = ['Sjøkart', 'Dybder', 'Sjømerker'];
+    const [filter, setFilter] = useState(mapOptions);
 
     return (
       <div style={{ display: 'flex', gap: 'var(--ds-size-1)' }}>
@@ -120,7 +120,7 @@ export const Removable = {
             aria-label={`Slett ${item}`}
             onClick={() => {
               setFilter((x) =>
-                x.length === 1 ? schoolOptions : x.filter((y) => y !== item),
+                x.length === 1 ? mapOptions : x.filter((y) => y !== item),
               );
             }}
           >

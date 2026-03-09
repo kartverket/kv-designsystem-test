@@ -18,7 +18,7 @@ export const Preview: Story = {
     children: 'Skeleton',
     width: 200,
     height: 100,
-  },
+  }
 };
 
 const schoolImage =
@@ -33,10 +33,14 @@ export const UsageExample: Story = {
         margin: 'var(--ds-size-12)',
       }}
     >
-      <div style={{ flex: '1 1 200px' }}>
-        <Skeleton height="200px" {...args} />
+      <div 
+        style={{ 
+          flex: '1 1 200px',
+          gap: 'var(--ds-size-4)',
+        }}>
+        <Skeleton height='200px' {...args} />
         <Heading>
-          <Skeleton variant="text" width="15" />
+          <Skeleton variant='text' width='15' />
         </Heading>
 
         <div
@@ -44,22 +48,22 @@ export const UsageExample: Story = {
             display: 'flex',
             gap: '10px',
             alignItems: 'center',
-            padding: '5px 0',
+            padding: '5px 0 5px 0',
           }}
         >
-          <Skeleton variant="circle" width="40px" height="40px" {...args} />
-          <Skeleton variant="text" {...args}>
+          <Skeleton variant='circle' width='40px' height='40px' {...args} />
+          <Skeleton variant='text' {...args}>
             Forfatter | sist endret
           </Skeleton>
         </div>
 
-        <Skeleton variant="text" width="200" />
+        <Skeleton variant='text' width='200' />
       </div>
 
       <div style={{ flex: '1 1 200px' }}>
         <img
           src={schoolImage}
-          alt="Kart"
+          alt='Kart'
           style={{
             width: '100%',
             height: '200px',
@@ -72,9 +76,9 @@ export const UsageExample: Story = {
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <Avatar
-            data-size="xs"
-            initials="KV"
-            aria-label="Kartverket"
+            data-size='xs'
+            initials='KV'
+            aria-label='Kartverket'
           />
           <Paragraph>Kartverket | 03.02.2026</Paragraph>
         </div>
@@ -86,12 +90,12 @@ export const UsageExample: Story = {
         </Paragraph>
       </div>
     </div>
-  ),
+  )
 };
 
 export const Children: Story = {
   render: () => (
-    <Skeleton variant="rectangle">
+    <Skeleton variant='rectangle'>
       <Paragraph>
         Her er en tekst som blir sendt inn som barn av en Skeleton.
       </Paragraph>
@@ -104,4 +108,3 @@ export const Children: Story = {
     </Skeleton>
   )
 };
-

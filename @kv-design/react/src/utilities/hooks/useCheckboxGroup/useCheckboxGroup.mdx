@@ -9,7 +9,7 @@ import { Alert } from '../../../components/alert/Alert'
 import * as Stories from './useCheckboxGroup.stories';
 import { useCheckboxGroup } from './useCheckboxGroup';
 
-<Meta of={Stories} /> 
+<Meta of={Stories} />
 
 # useCheckboxGroup
 
@@ -22,7 +22,7 @@ I respons får du objektet:
 {/* TODO: What do we actually get as a respons? Udir has a different value for getCheckboxProps */}
 ```ts
 {  
-  getCheckboxProps: (value: string | { allowIndeterminate: true }) => CheckboxProps, // Returnerer props du kan spre på <Checkbox /> eller <input type="checkbox" />
+  getCheckboxProps: (value: string | { allowIndeterminate: true }) => CheckboxProps, // Returnerer props du kan spre på <Checkbox /> eller <input type='checkbox' />
   validationMessageProps: ValidationMessageProps, // Properties du kan valgfritt spre på ValidationMessage
   setValue: string[], // Funksjon for å sette checkboxgruppens verdi
   value: string[], // Nåværende verdi for checkboxgruppen
@@ -37,12 +37,12 @@ Du kan også hente ut `validationMessageProps`, `value` og `setValue`.
 I `getCheckboxProps`-funksjonen er første parameter enten `value` — en unik identifikator for avmerkingsboksen — eller et objekt med props som kan legges på en `Checkbox`. Dersom du sender inn et objekt, må du passe på at det inneholder `value`.
 
 ```tsx
-<Checkbox label="Barnehage" {...getCheckboxProps('barnehage')} />;
+<Checkbox label='Barnehage' {...getCheckboxProps('barnehage')} />;
 // eller
-<Checkbox label="Barnehage" {...getCheckboxProps({ value: 'barnehage' /* ...and other props... */ })} />;
+<Checkbox label='Barnehage' {...getCheckboxProps({ value: 'barnehage' /* ...and other props... */ })} />;
 ```
 
-<Alert type="info" heading="Tips">
+<Alert type='info' heading='Tips'>
   Dersom du skal sende props til en `Checkbox`, er det viktig at du sender disse
   som objekt til `getCheckboxProps` og **ikke** direkte på `Checkbox`. Ellers
   kan du risikere å overstyre funksjonaliteten fra `useCheckboxGroup`.
@@ -64,12 +64,12 @@ return (
       Velg de alternativene som er relevante for deg.
     </Fieldset.Description>
     <Checkbox
-      label="Alle"
+      label='Alle'
       {...getCheckboxProps({ allowIndeterminate: true })}
     />
-    <Checkbox label="Barnehage" {...getCheckboxProps('barnehage')} />
-    <Checkbox label="Grunnskole" {...getCheckboxProps('grunnskole')} />
-    <Checkbox label="Videregående" {...getCheckboxProps('videregaende')} />
+    <Checkbox label='Barnehage' {...getCheckboxProps('barnehage')} />
+    <Checkbox label='Grunnskole' {...getCheckboxProps('grunnskole')} />
+    <Checkbox label='Videregående' {...getCheckboxProps('videregaende')} />
     <ValidationMessage {...validationMessageProps} />
   </Fieldset>
 );

@@ -46,43 +46,45 @@ export const InCard: Story = {
 
 export const InCardWithColor: Story = {
   render: () => (
-    <>
+    <div>
       <Heading 
         style={{marginBottom: 'var(--ds-size-4)'}}
         data-size='xs' 
       >Når bør jeg bruke hvilken karttjeneste?</Heading>
-      <Details>
-        <Details.Summary>
-          Topografisk kart
-        </Details.Summary>
-        <Details.Content>
-          Topografisk kart gir oversikt over terreng, bygninger, vann og infrastruktur. 
-          Når du åpner kartet, får du et helhetlig bilde av landskapet, noe som er nyttig 
-          i planlegging av turer, beredskap, orientering i felt eller som bakgrunn i analyser.
-        </Details.Content>
-      </Details>
-      <Details>
-        <Details.Summary>
-          Eiendomskart
-        </Details.Summary>
-        <Details.Content>
-          Eiendomskart gir detaljert informasjon om eiendomsgrenser, adresser og bygninger. 
-          Når du åpner dette valget, kan du se hvilke grenser som er registrert i matrikkelen, 
-          kontrollere eiendomsforhold og bruke dataene i forbindelse med saksbehandling, planlegging 
-          eller dialog med brukere.
-        </Details.Content>
-      </Details>
-      <Details>
-        <Details.Summary>
-          Høydedata
-        </Details.Summary>
-        <Details.Content>
-          Høydedata gir tilgang til detaljerte terreng- og høydemodeller. Når du åpner innholdet, 
-          får du innsikt i hvordan terrenget faktisk ser ut. Dette er særlig nyttig for analyser av 
-          flomsoner, skredfare, vannveier, landskapsendringer eller andre oppgaver som krever høy 
-          nøyaktighet.
-        </Details.Content>
-      </Details>
-    </>
+      <Card data-color='accent' variant='tinted'>
+        <Details>
+          <Details.Summary>
+            Topografisk kart
+          </Details.Summary>
+          <Details.Content>
+            Topografisk kart gir oversikt over terreng, bygninger, vann og infrastruktur. 
+            Når du åpner kartet, får du et helhetlig bilde av landskapet, noe som er nyttig 
+            i planlegging av turer, beredskap, orientering i felt eller som bakgrunn i analyser.
+          </Details.Content>
+        </Details>
+        <Details>
+          <Details.Summary>
+            Eiendomskart
+          </Details.Summary>
+          <Details.Content>
+            Eiendomskart gir detaljert informasjon om eiendomsgrenser, adresser og bygninger. 
+            Når du åpner dette valget, kan du se hvilke grenser som er registrert i matrikkelen, 
+            kontrollere eiendomsforhold og bruke dataene i forbindelse med saksbehandling, planlegging 
+            eller dialog med brukere.
+          </Details.Content>
+        </Details>
+        <Details>
+          <Details.Summary>
+            Høydedata
+          </Details.Summary>
+          <Details.Content>
+            Høydedata gir tilgang til detaljerte terreng- og høydemodeller. Når du åpner innholdet, 
+            får du innsikt i hvordan terrenget faktisk ser ut. Dette er særlig nyttig for analyser av 
+            flomsoner, skredfare, vannveier, landskapsendringer eller andre oppgaver som krever høy 
+            nøyaktighet.
+          </Details.Content>
+        </Details>
+      </Card>
+    </div>
   )
 };

@@ -16,14 +16,12 @@ Vi bruker `Alert` til å gi brukeren informasjon som det er ekstra viktig at de 
 <Primary />
 
 **Bruk `Alert` når**
-
 - det er korte og informative tidsbegrensede varsler
 - det er informasjon om feil som kun påvirker én del av systemet eller en mindre funksjon
 - det oppstår tilkoblingsproblemer eller API-feil som sannsynligvis løser seg ved å laste inn siden på nytt
 
-**Unngå `Alert` når**
-
 {/* TODO: add correct link to 'feilside' anf fix link-color*/}
+**Unngå `Alert` når**
 - feilen hindrer all videre bruk av tjenesten, bruk [feilside](https://designsystemet.no/no/patterns/systemnotifications#når-bruker-vi-feilsider) i stedet 
 - du skal gjøre brukeren oppmerksom på feil i enkeltfelt, bruk heller komponentens egen feilmelding [`ValidationMessage`](/docs/components-typography-validationMessage--docs)
 - varslene er statiske infobokser, bruk heller [`Card`](/docs/components-card--docs)

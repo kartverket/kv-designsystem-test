@@ -68,7 +68,7 @@ const ageGroups = [
   { value: '46-80', label: '46-80 år' },
 ];
 
-const GroupBase = {
+export const Group: Story = {
   args: {
     name: 'my-group',
     readOnly: false,
@@ -100,15 +100,38 @@ const GroupBase = {
   },
 };
 
-export const Group: Story = {
-  ...GroupBase,
-};
+const requestOptions = [
+  { value: 'vertical-order', label: 'Bestilling av vertikalbilder' },
+  { value: 'archived-access', label: 'Tilgang til arkiverte bilder' },
+  { value: 'submit-material', label: 'Innsending av bildemateriale' },
+];
 
 export const WithError: Story = {
   args: {
-    ...GroupBase.args,
-    error: 'Du må velge en aldersgruppe',
-    name: 'my-error',
+    readOnly: false,
+    disabled: false,
+    value: '',
+    error: 'Du må velge et alternativ før du kan fortsette.',
+    name: 'request-type',
   },
-  render: GroupBase.render,
-}
+  render: (args: UseRadioGroupProps, context: StoryContext<UseRadioGroupProps>) => {
+    const { getRadioProps, validationMessageProps } = useRadioGroup({
+      ...args,
+    });
+
+    return (
+      <Fieldset>
+        <Fieldset.Legend>Hva gjelder forespørselen?</Fieldset.Legend>
+        {requestOptions.map((option) => (
+          <Radio
+            key={option.value}
+            id={context.id + '-' + option.value}
+            label={option.label}
+            {...getRadioProps(option.value)}
+          />
+        ))}
+        <ValidationMessage {...validationMessageProps} />
+      </Fieldset>
+    );
+  },
+};

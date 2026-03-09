@@ -4,9 +4,7 @@ import { Paragraph } from './Paragraph';
 const meta = {
   component: Paragraph,
   title: 'Components/Typography/Paragraph',
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Paragraph>;
 
 export default meta;
@@ -28,11 +26,11 @@ export const Preview: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <Paragraph data-size='xl'>This is an xl paragraph</Paragraph>
-      <Paragraph data-size='lg'>This is a lg paragraph</Paragraph>
-      <Paragraph data-size='md'>This is a md paragraph</Paragraph>
-      <Paragraph data-size='sm'>This is a sm paragraph</Paragraph>
-      <Paragraph data-size='xs'>This is an xs paragraph</Paragraph>
+      <Paragraph data-size='xl'>Dette er en xl paragraf</Paragraph>
+      <Paragraph data-size='lg'>Dette er en lg paragraf</Paragraph>
+      <Paragraph data-size='md'>Dette er en md paragraf</Paragraph>
+      <Paragraph data-size='sm'>Dette er en sm paragraf</Paragraph>
+      <Paragraph data-size='xs'>Dette er en xs paragraf</Paragraph>
     </>
   )
 };

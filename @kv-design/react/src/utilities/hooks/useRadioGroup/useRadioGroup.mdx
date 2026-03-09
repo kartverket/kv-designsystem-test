@@ -3,7 +3,7 @@ import { Alert } from '../../../components/alert/Alert'
 import * as Stories from './useRadioGroup.stories';
 import { useRadioGroup } from './useRadioGroup';
 
-<Meta of={Stories} /> 
+<Meta of={Stories} />
 
 # useRadioGroup
 
@@ -15,7 +15,7 @@ I respons får du objektet:
 
 ```ts
 {
-  getRadioProps: (value: string | RadioProps) => RadioProps, // Returnerer props du kan spre på <Radio /> eller <input type="radio" />
+  getRadioProps: (value: string | RadioProps) => RadioProps, // Returnerer props du kan spre på <Radio /> eller <input type='radio' />
   validationMessageProps: ValidationMessageProps, // Props du valgfritt spre på ValidationMessage for å koble feilmelding til radio gruppen
   setValue: string, // Funksjon for å sette radiogruppens verdi
   value: string, // Nåværende verdi for radiogruppen
@@ -30,13 +30,12 @@ Du kan også hente ut `validationMessageProps`, `value` og `setValue`.
 I `getRadioProps`-funksjonen er første parameter enten `value` — en unik identifikator for avmerkingsboksen — eller et objekt med props som kan legges på en `Radio`. Dersom du sender inn et objekt, må du passe på at det inneholder `value`.
 
 ```tsx
-<Radio label="Barnehage" {...getRadioProps('barnehage')} />;
+<Radio label='Barnehage' {...getRadioProps('barnehage')} />;
 // eller
-<Radio label="Barnehage" {...getRadioProps({ value: 'barnehage' /* ...and other props... */ })} />;
+<Radio label='Barnehage' {...getRadioProps({ value: 'barnehage' /* ...and other props... */ })} />;
 ```
 
-
-<Alert type="info" heading="Tips">
+<Alert type='info' heading='Tips'>
   Dersom du skal sende props til en `Radio`, er det viktig at du sender disse
   som objekt til `getRadioProps` og **ikke** direkte på `Radio`. Ellers kan du
   risikere å overstyre funksjonaliteten fra `useRadioGroup`.
@@ -57,9 +56,9 @@ return (
     <Fieldset.Description>
       Informasjonen blir brukt til å tilpasse innholdet.
     </Fieldset.Description>
-    <Radio label="10-20år" {...getRadioProps('10-20')} />
-    <Radio label="21-45år" {...getRadioProps('21-45')} />
-    <Radio label="46-80år" {...getRadioProps('46-80')} />
+    <Radio label='10-20år' {...getRadioProps('10-20')} />
+    <Radio label='21-45år' {...getRadioProps('21-45')} />
+    <Radio label='46-80år' {...getRadioProps('46-80')} />
     <ValidationMessage {...validationMessageProps} />
   </Fieldset>
 );
