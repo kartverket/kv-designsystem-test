@@ -1,0 +1,46 @@
+name: Setup with pnpm and NX
+
+on:
+  workflow_call:
+
+permissions:
+  actions: read
+  contents: read
+  checks: write
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      nx-base: ${{ steps.set-nx-base.outputs.nx-base }}
+
+    steps:
+        # Checkout
+      - uses: actions/checkout@v4
+        with:
+          filter: tree:0
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false # Delay running pnpm install until cache is set up
+
+      # Set up Node and cache node_modules
+      - uses: actions/setup-node@v4
+        with:
+          cache: 'pnpm'
+          node-version-file: 'package.json'
+          registry-url: https://registry.npmjs.org
+          scope: '@kv-design'
+
+      # Install dependencies
+      - run: pnpm install
+
+      - uses: nrwl/nx-set-shas@v4
+        name: Set Nx shas for affected commands
+        with:
+          main-branch-name: ${{ github.base_ref || github.ref_name }}
+    
+      - id: set-nx-base
+        run: echo "nx-base=main" >> $GITHUB_OUTPUT
