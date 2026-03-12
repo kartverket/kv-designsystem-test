@@ -1,0 +1,63 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title='Introduction' />
+
+# Kom i gang som utvikler 
+
+Her får du en guide med steg for steg for å starte å bruke Kartverkets designsystem som utvikler.
+
+## 1. Installer
+
+For å ta i bruk komponentbiblioteket må du installere `@kv-design/react`.
+
+```jsx
+$ npm add @kv-design/react
+```
+
+## 2. Last inn stilsett
+
+Du kan velge mellom to temaer, grønt eller blått.
+
+Importer stilsettet enten i JavaScript-/TypeScript-entrypointet:
+
+```tsx
+// Grønt tema
+import '@kv-design/react/style/green.css';
+
+// Blått tema
+import '@kv-design/react/style/blue.css';
+```
+
+Eller i din primære css-fil:
+
+```tsx
+// Grønt tema
+@import '@kv-design/react/style/green.css';
+
+// Blått tema
+@import '@kv-design/react/style/blue.css';
+```
+
+## 3. TypeScript: ekstra typedefinisjoner for data-color og data-size
+
+Du kan legge til typedefinisjoner fra `@kv-design/theme` og `@kv-design/react/html` hvis du bruker TypeScript. Legg til disse typene i `tsconfig.json`-filen din:
+
+```jsonc
+{
+  "compilerOptions": {
+    "types": ["@udir-design/theme", "@udir-design/react/html"],
+  },
+}
+```
+
+# 4. Importer og bruk React-komponenter
+
+Nå er du klar til å ta i bruk komponentene. Importer dem slik:
+
+```tsx
+import { Button } from "@kv-design/react";
+```
+
+
+{/* TODO: Last inn font (eller pakk den med i riktig pakke) */}
+{/* TODO: importere ikonbibliotek fra aksel */}
