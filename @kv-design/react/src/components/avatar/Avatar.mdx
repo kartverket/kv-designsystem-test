@@ -10,15 +10,13 @@ import * as AvatarStories from './Avatar.stories';
 <Primary />
 
 **Bruk `Avatar` når**
-
 - en person eller enhet skal representeres, f.eks. i lister, teamoversikter eller meldingsgrensesnitt.
 
-**Unngå `Avatar` når** 
-
+**Unngå `Avatar` når**
 - noe annet enn en person eller enhet skal representeres, for eksempel et dokument. Bruk heller ikoner eller andre visuelle symboler
 - det brukes rent visuelt, uten funksjon eller mening
 
-## Varianter med eksempler 
+## Varianter med eksempler
 
 `Avatar` kan inneholde et ikon, et bilde, eller initialer. Ikon og bilde legger du inn som `children` i komponenten. Innholdet får automatisk `aria-hidden='true'` for å unngå dobbel informasjon.
 Initialer sendes inn i `initials`-propen. Det vil fungere som en fallback dersom bildet ikke lastes. Et standard ikon vises dersom det ikke sendes inn `children` eller `initials`.
@@ -37,9 +35,8 @@ Du kan bruke alle temafargene på `Avatar`.
 
 <Canvas of={AvatarStories.ColorVariants} />
 
-### Varianter 
+### Varianter
 
-{/* TODO: Keep this or decide on a fixed version? */}
 `Avatar` kan være rund eller kvadratisk. Bruk dem konsekvent i hele løsningen.
 
 <Canvas of={AvatarStories.Shapes} />

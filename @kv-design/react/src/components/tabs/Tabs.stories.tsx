@@ -5,7 +5,7 @@ import { Buildings2Icon, FilesIcon, CogIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Tabs,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
@@ -43,8 +43,8 @@ export const IconsOnly: Story = {
             <FilesIcon aria-hidden />
           </Tabs.Tab>
         </Tooltip>
-        <Tooltip content='Instillinger'>
-          <Tabs.Tab value='instillinger'>
+        <Tooltip content='Innstillinger'>
+          <Tabs.Tab value='innstillinger'>
             <CogIcon aria-hidden />
           </Tabs.Tab>
         </Tooltip>
@@ -69,8 +69,8 @@ export const IconsWithText: Story = {
             Dokumenter
           </Tabs.Tab>
         </Tooltip>
-        <Tooltip content='Instillinger'>
-          <Tabs.Tab value='instillinger'>
+        <Tooltip content='Innstillinger'>
+          <Tabs.Tab value='innstillinger'>
             <CogIcon aria-hidden />
             Instillinger
           </Tabs.Tab>
@@ -79,4 +79,3 @@ export const IconsWithText: Story = {
     </Tabs>
   )
 };
-

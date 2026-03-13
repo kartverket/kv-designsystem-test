@@ -24,7 +24,7 @@ Vi har to typer dialoger: modale og ikke-modale. En modal dialog stopper arbeids
 
 ## 2) Ikke-modal Dialog
 
-<Canvas of={DialogStories.DialogNonModal} /> 
+<Canvas of={DialogStories.DialogNonModal} />
 
 **Bruk ikke-modal `Dialog` når**
 - du vil gi brukeren tilgang til informasjon eller handlinger parallelt med resten av innholdet
@@ -34,11 +34,11 @@ Vi har to typer dialoger: modale og ikke-modale. En modal dialog stopper arbeids
 
 På mobil kan en 'ikke-modal' `Dialog` være problematisk på grunn av begrenset skjermplass. Den kan dekke viktig innhold og forstyrre brukeropplevelsen. I slike tilfeller kan det være bedre å bruke modal `Dialog` eller andre løsninger.
 
-## Plassering 
+## Plassering
 
 En `Dialog` åpnes default midt på skjermen. Ved å bruke `placement` kan dialogen oppføre seg som en 'drawer', som skyves inn fra valgt kant av skjermen.
  
-<Canvas of={DialogStories.Drawer} /> 
+<Canvas of={DialogStories.Drawer} />
 
 ## Retningslinjer
 
@@ -50,10 +50,10 @@ Dialoger avbryter arbeidsflyten og bør brukes når det er nødvendig for å for
 
 Sørg for at brukeren alltid har en enkel måte å lukke dialogen på:
 
-Ha en synlig lukkeknapp (X) øverst til høyre. Den skal være tilgjengelig selv om innholdet er langt og krever scrolling.
-Hvis lukkeknappen ikke passer i layouten, bruk for eksempel en Avbryt-knapp.
-Vurder nøye om dialogen skal kunne lukkes ved å klikke utenfor. For kritiske handlinger bør brukeren alltid lukke dialogen aktivt.
-Når dialogen lukkes uten aktivt valg, skal det tilsvare det minst kritiske alternativet.
+- Ha en synlig lukkeknapp (X) øverst til høyre. Den skal være tilgjengelig selv om innholdet er langt og krever scrolling.
+- Hvis lukkeknappen ikke passer i layouten, bruk for eksempel en Avbryt-knapp.
+- Vurder nøye om dialogen skal kunne lukkes ved å klikke utenfor. For kritiske handlinger bør brukeren alltid lukke dialogen aktivt.
+- Når dialogen lukkes uten aktivt valg, skal det tilsvare det minst kritiske alternativet.
 
 ### Vær obs på fokusrekkefølge
 
@@ -64,7 +64,6 @@ I ikke-modale dialoger må du være oppmerksom på fokusrekkefølgen: elementer 
 - Overskrift: Gjør det tydelig for brukeren hva de skal ta stilling til. Et spørsmål fungerer ofte godt.
 - Innhold: Hold teksten kort og konkret. Gi bare informasjonen brukeren trenger for å ta et valg.
 - Knappetekster: Vær tydelig på hva som skjer når brukeren trykker på en knapp - særlig ved irreversible handlinger.
-
 
 ## Kilde
 

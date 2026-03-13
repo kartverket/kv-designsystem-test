@@ -9,21 +9,18 @@ import * as TextfieldStories from './Textfield.stories';
 
 `Textfield` har innebygget `label`, `description`, `validationmessage`, `affix` og `counter`. Trenger du full kontroll over komponentenes oppsett bruker du heller [`Input`](/docs/components-input--docs) eller [`Textarea`](/docs/components-textarea--docs) direkte.
 
-OBS: Ikke legg `Field` rundt `Textfield`, siden den allerede benytter `Field`-komponenten.
+**OBS:** Ikke legg `Field` rundt `Textfield`, siden den allerede benytter `Field`-komponenten.
 
 <Primary />
 
 **Bruk `Textfield` når**
-
 - feltet inngår i et komplett skjemafelt med label, beskrivelse og valideringsmelding
 - feltet skal valideres underveis eller ved innsending
 - brukeren kan skrive inn en unik verdi som ikke kan velges fra en liste
 
-
 **Unngå `Textfield` når**
-
 - du kun trenger et enkelt input-felt uten skjemalogikk - bruk heller [`Input`](/docs/components-input--docs)
-- brukeren skal velge fra et begrenset sett med alternativer - bruk heller [`Radio`](/docs/components-radio--docs), [`Checkbox`](/docs/components-checkbox--docs) eller [`Select`](/docs/components-select--docs)
+- brukeren skal velge fra et begrenset sett med alternativer - bruk heller [`Radio`](/docs/components-radio--docs), [`Checkbox`](/docs/components-checkbox--docs), [`Select`](/docs/components-select--docs) eller [`Suggestion`](/docs/components-suggestion--docs)
 
 ## Varianter med eksempler
 
@@ -47,9 +44,13 @@ Bruk `counter` til å informere om antall tegn brukerne kan skrive i feltet.
  
 ### Påkrevde og valgfrie felt
 
-Påkrevde felt må merkes tydelig, siden dette er lovpålagt. Når du plasserer en `Tag` i `label`, anbefaler vi `margin-inline-start: var(--ds-size-2)` for god avstand mellom tekst og tag.
+Påkrevde felt må merkes tydelig, siden dette er lovpålagt. Når du plasserer en `Tag` i `label`, anbefaler vi `margin-inline-start: var(--ds-size-2)` for god avstand mellom tekst og tag. 
+
+**OBS:** Ikke bruk stjerne (`*`) for å markere felt som må fylles ut.
 
 <Canvas of={TextfieldStories.Required} />
+
+{/* TODO: add do-dont that shows not to use asterisks (*) */}
 
 ## Retningslinjer
 
@@ -96,13 +97,13 @@ Velg input-type som samsvarer med informasjonen du ber om, for eksempel tel, sea
 
 Bruk heller `type='text'` med `inputmode='numeric'`.
 
-#### Unngå Disabled
+### Unngå Disabled
 
 Vi unngår deaktivert (disabled) `Textfield` fordi de kan være vanskelige å oppfatte. Noen brukere vil ikke forstå hvorfor den ikke er klikkbar. Hvis et `Textfield` ikke er relevant, bør du helst fjerne det fremfor å deaktivere det. Tilby gjerne brukeren informasjon om hvorfor noe ikke er tilgjengelig.
 
 Nav har en god forklaring på [hvorfor deaktiverte tilstander er problematisk](https://aksel.nav.no/god-praksis/artikler/deaktiverte-tilstander) og hvilke alternativer som finnes.
 
-#### Unngå ReadOnly
+### Unngå ReadOnly
 
 `Textfield` støtter `readOnly`-attributtet for å gjøre feltet skrivebeskyttet, og gir en visuell indikasjon som skiller seg fra redigerbare felter. Vi unngår likevel `readOnly` så langt det lar seg gjøre, fordi slike felter kan være forvirrende for noen brukere.
 

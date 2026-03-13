@@ -5,7 +5,7 @@ import { Label } from '../typography/label/Label';
 
 const meta = {
   component: Input,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Input>;
 
 export default meta;

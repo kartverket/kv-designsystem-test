@@ -14,7 +14,7 @@ import type { ChangeEvent } from 'react';
 
 const meta = {
   component: Dialog,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Dialog>;
 
 export default meta;
@@ -43,13 +43,13 @@ export const Preview: Story = {
           >
             <Button
               variant='primary'
-              data-color='danger'
               data-command='close'
             >
               Lagre
             </Button>
             <Button
               variant='secondary'
+              data-color='danger'
               data-command='close'
             >
               Avbryt
@@ -58,12 +58,21 @@ export const Preview: Story = {
         </Dialog.Block>
       </Dialog>
     </Dialog.TriggerContext>
-  ),
+  )
 };
 
-// TODO: The display doesn't fit the whole Dialog, change size
+// TODO: Not happy with this display, make a an example more similar to Udir?
 export const DialogNonModal: Story = {
   render: () => (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '400px',
+        position: 'relative',
+      }}
+    >
   <Dialog.TriggerContext>
     <Dialog.Trigger>Åpne ikke-modal Dialog</Dialog.Trigger>
     <Dialog
@@ -89,7 +98,8 @@ export const DialogNonModal: Story = {
       <Button>Send inn</Button>
     </Dialog>
   </Dialog.TriggerContext>
-  ),
+  </div>
+  )
 };
 
 export const Drawer: Story = {
@@ -146,4 +156,4 @@ export const Drawer: Story = {
       </>
     );
   }
-}
+};

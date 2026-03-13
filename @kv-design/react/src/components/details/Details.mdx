@@ -10,13 +10,11 @@ import * as DetailsStories from './Details.stories';
 <Primary />
 
 **Bruk `Details` når**
-
 - informasjonen kun er relevant for noen brukere
 - du gir eksempler eller svarer på ofte stilte spørsmål
 - det er opp til brukeren om de vil lese innholdet
 
 **Unngå `Details` når**
-
 - innholdet er viktig og bør være synlig for alle
 - du skal vise en handlingsknapp
 - du skal oppsummere feilmeldinger - bruk heller [`ErrorSummary`](/docs/components-errorSummary--docs)
@@ -27,7 +25,7 @@ import * as DetailsStories from './Details.stories';
 
 Du kan plassere `Details` i et `Card` for å gi en tydelig ramme rundt innholdet. Dette passer når komponenten ikke dekker hele siden, eller når det kun er én rad.
 
-<Canvas of={DetailsStories.InCard} /> 
+<Canvas of={DetailsStories.InCard} />
 
 ### Med farger
  
@@ -61,13 +59,9 @@ Du kan hovedsakelig bruke neutral eller accent-fargen i temaet ditt. Details i e
 
 Ikke plasser andre interaktive elementer inn i `Details.Summary`, da hele raden skal være klikkbar. Ikonet og teksten skal _ikke_ lenke til ulike handlinger (for eksempel at teksten går videre til en side, mens ikonet åpner listen). Brukerne forventer ikke at ikon og tekst skal gi ulikt resultat når de velger dem.
 
-- `Tab` flytter fokus til neste element som kan ha fokus
-- `Shift` + `Tab` flytter fokus til forrige element som kan ha fokus
-- `Space` eller `Enter` aktiverer knapp
-
 ## Kjente mangler
 
-I Firefox og Safari spilles det ikke av animasjon når `Details` åpnes og lukkes. Se [`interpolate-size` hos MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/interpolate-size).
+I Firefox og Safari spilles det ikke av animasjon når `Details` åpnes og lukkes. Se [interpolate-size hos MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/interpolate-size).
 
 ## Kilde
 

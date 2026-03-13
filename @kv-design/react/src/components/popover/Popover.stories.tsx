@@ -6,7 +6,7 @@ import { TrashIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Popover,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Popover>;
 
 export default meta;
@@ -51,7 +51,7 @@ export const Interactive: Story = {
         </div>
       </Popover>
     </Popover.TriggerContext>
-  ),
+  )
 };
 
 export const DottedUnderline: Story = {
@@ -74,4 +74,4 @@ export const DottedUnderline: Story = {
       </Popover>
     </Popover.TriggerContext>
   )
-}
+};

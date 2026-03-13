@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
-import { Tooltip } from '../tooltip/Tooltip'
+import { Tooltip } from '../tooltip/Tooltip';
 import { fn } from 'storybook/test';
 import { 
-  PlusCircleIcon, 
-  BellIcon, 
-  CogIcon,
   ArrowRightIcon,
   ArrowUndoIcon,
-  NotePencilIcon
+  BellIcon, 
+  CogIcon,
+  NotePencilIcon,
+  PlusCircleIcon, 
 } from '@navikt/aksel-icons';
 
 const meta = {
@@ -35,14 +35,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Preview: Story = {
   args: {
     variant: 'primary',
     children: 'Knapp',
     icon: false,
     disabled: false,
-  },
+  }
 };
 
 export const PrimaryButton: Story = {
@@ -50,7 +49,7 @@ export const PrimaryButton: Story = {
     ...Preview.args,
     variant: 'primary',
     children: 'Lagre',
-  },
+  }
 };
 
 export const SecondaryButton: Story = {
@@ -58,7 +57,7 @@ export const SecondaryButton: Story = {
     ...Preview.args,
     variant: 'secondary',
     children: 'Avbryt',
-  },
+  }
 };
 
 export const TertiaryButton: Story = {
@@ -66,16 +65,16 @@ export const TertiaryButton: Story = {
     ...Preview.args,
     variant: 'tertiary',
     children: [<NotePencilIcon aria-hidden />, 'Rediger'],
-  },
+  }
 };
 
 export const Colors: Story = {
   render: (args) => (
     <>
-      <Button variant='primary' data-color='neutral' {...args}>
+      <Button variant='primary' data-color='accent' {...args}>
         Publiser
       </Button>
-      <Button variant='secondary' data-color='neutral' {...args}>
+      <Button variant='secondary' data-color='accent' {...args}>
         Lagre kladd
       </Button>
       <Button variant='tertiary' data-color='danger' {...args}>
@@ -141,8 +140,6 @@ export const AsLink: Story = {
   },
 };
 
-
-
 export const Loading: Story = {
   args: {
     loading: true,
@@ -160,6 +157,7 @@ export const Loading: Story = {
         Laster...
       </Button>
     </>
-  )
+  ),
 };
 
+// TODO: add do-dont to Retningslinjer, see Udir for inspiration

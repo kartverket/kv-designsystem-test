@@ -4,7 +4,7 @@ import { Textfield } from '../textfield/Textfield';
 
 const meta = {
   component: ErrorSummary,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof ErrorSummary>;
 
 export default meta;
@@ -32,11 +32,18 @@ export const Preview: Story = {
         </ErrorSummary.Item>
       </ErrorSummary.List>
     </ErrorSummary>
-  ),
+  )
 };
 
 // TODO: when clicking the .Link-items it changes the path, we want to stay on the same path
 export const WithForm: Story = {
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'grid', gap: 'var(--ds-size-4)' }}>
+        <Story />
+      </div>
+    ),
+  ],
   render: () => (
     <>
       <Textfield
@@ -70,5 +77,5 @@ export const WithForm: Story = {
         </ErrorSummary.List>
       </ErrorSummary>
     </>
-  )
-}
+  ),
+};

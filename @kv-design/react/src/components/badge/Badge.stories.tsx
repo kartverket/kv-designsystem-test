@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge } from './Badge';
 import { Tabs } from '../tabs/Tabs';
-import { FloppydiskFillIcon, EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
+import { EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
 
 const meta: Meta<typeof Badge> = {
   component: Badge,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 };
 
 export default meta;
@@ -15,7 +15,7 @@ export const Preview: Story = {
   args: {
     count: 15,
     maxCount: 9,  
-  },
+  }
 };
 
 const ColorsMap: {
@@ -60,8 +60,6 @@ const ColorsMap: {
 
 // TODO: fix styling to be implemented the same across all components
 export const ColorVariants: Story = {
-  args: {  
-  },
   decorators: [
     (Story) => (
       <div
@@ -89,17 +87,17 @@ export const ColorVariants: Story = {
 
 export const Status: Story = {
   args: {
-    'data-color': 'danger'
+    'data-color': 'success'
   },
   render: (args) => (
     <>
-      <Badge.Position data-size='lg'>
-        <Badge {...args} />
-        <FloppydiskFillIcon title="Lagre" />
-      </Badge.Position>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Badge {...args} style={{ marginInlineEnd: '0.5rem' }} />
+        Aktiv
+      </div>
     </>
-  )
-}
+  ),
+};
 
 export const InTabs: Story = {
   render: () => (
@@ -120,7 +118,7 @@ export const InTabs: Story = {
       <Tabs.Panel value='value3'>content 3</Tabs.Panel>
     </Tabs>
   )
-}
+};
 
 export const Floating: Story = {
   args: {
@@ -131,5 +129,5 @@ export const Floating: Story = {
       <Badge data-color='danger' count={2}></Badge>
       <EnvelopeClosedFillIcon title='Meldinger' style={{ fontSize: '2rem' }} />
     </Badge.Position>
-  )
-}
+  ),
+};

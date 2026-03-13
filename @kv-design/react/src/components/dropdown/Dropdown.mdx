@@ -10,22 +10,22 @@ import * as DropdownStories from './Dropdown.stories';
 <Primary />
 
 **Bruk `Dropdown` når**
-
 - du vil presentere flere valg uten å bruke mye plass i grensesnittet
 - alternativene er sekundære, men fortsatt bør være lett tilgjengelige
 
 **Unngå `Dropdown` når**
-
 - handlingen er primær eller utføres ofte - bruk heller en synlig [`Button`](/docs/components-button--docs)
 - det finnes kun ett valg - en `Dropdown` skaper da unødvendig kompleksitet
 
-## Eksempler
+## Eksempler 
 
-### Med ikoner
+### Med ikoner 
 
-Du kan kombinere ikoner og tekst i elementene for å gjøre valgene tydeligere.
+Du kan kombinere ikoner og tekst i elementene for å gjøre valgene tydeligere. Som hovedregel skal ikoner stå til venstre for teksten.
 
-### Kontrollert tilstand
+<Canvas of={DropdownStories.WithIcons}/>
+
+### Kontrollert tilstand 
 
 Tilstanden til `Dropdown`kan kontrolleres ved å bruke `open`og `onClose`.
 
@@ -39,6 +39,8 @@ Fordi `Dropdown` bruker popover API-et, kan du også bruke `Dropdown` uten `Drop
 
 Du kan bruke `aria-current='true'`på et `Dropdown.Item` for å indikere hvilket element som er aktivt/valgt.
 
+<Canvas of={DropdownStories.Selected}/>
+
 ## Retningslinjer
 
 - En `Dropdown` er ikke en semantisk meny, men gir grunnlaget for å bygge en. Se ['Menu and Menubar Pattern' hos w3c](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/) for mer informasjon om tilgjengelige menyer.
@@ -46,7 +48,6 @@ Du kan bruke `aria-current='true'`på et `Dropdown.Item` for å indikere hvilket
 - Begrens antallet elementer slik at listen er enkel å navigere.
 - Bruk overskrifter for å gruppere relaterte valg.
 - Unngå flere nivåer med dropdowns (nøstede menyer), da dette gjør navigasjonen mer krevende.
-
 
 ## Kilde
 

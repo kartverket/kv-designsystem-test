@@ -8,7 +8,7 @@ import { Label } from '../typography/label/Label';
 
 const meta = {
   component: Search,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Search>;
 
 export default meta;
@@ -21,35 +21,31 @@ export const Preview: Story = {
       <Search.Clear />
       <Search.Button />
     </Search>
-  ),
+  )
 };
 
 export const Variants: Story = {
   render: () => (
     <div>
       <Search>
-        <Search.Input aria-label="Søk" />
+        <Search.Input aria-label='Søk' />
         <Search.Clear />
       </Search>
-
       <Divider style={{
       marginTop: 'var(--ds-size-4)'
     }} />
-
       <Search>
-        <Search.Input aria-label="Søk" />
+        <Search.Input aria-label='Søk' />
         <Search.Clear />
         <Search.Button />
       </Search>
-
       <Divider style={{
       marginTop: 'var(--ds-size-4)'
     }} />
-
       <Search>
-        <Search.Input aria-label="Søk" />
+        <Search.Input aria-label='Søk' />
         <Search.Clear />
-        <Search.Button variant="secondary" />
+        <Search.Button variant='secondary' />
       </Search>
     </div>
   )
@@ -59,7 +55,6 @@ export const LiveSearch: Story = {
   parameters: {
     docs: { source: { type: 'code' } },
   },
-
   decorators: [
     (Story) => (
       <div
@@ -73,12 +68,10 @@ export const LiveSearch: Story = {
       </div>
     ),
   ],
-
   render: (args) => {
     const [value, setValue] = useState('');
     const [searchValue, setSearchValue] = useState('');
 
-    // Debounce logic
     useEffect(() => {
       if (!value) {
         setSearchValue('');
@@ -96,7 +89,7 @@ export const LiveSearch: Story = {
       <>
         <Search {...args}>
           <Search.Input
-            aria-label="Søk"
+            aria-label='Søk'
             value={value}
             onChange={(e) => {
               setValue(e.target.value);
@@ -104,7 +97,6 @@ export const LiveSearch: Story = {
           />
           <Search.Clear />
         </Search>
-
         {searchValue !== '' && (
           <div
             style={{
@@ -113,7 +105,7 @@ export const LiveSearch: Story = {
               alignItems: 'center',
             }}
           >
-            <Spinner aria-hidden data-size="xs" />
+            <Spinner aria-hidden data-size='xs' />
             <span>Søker etter: {searchValue}</span>
           </div>
         )}
@@ -133,5 +125,4 @@ export const WithLabel: Story = {
       </Search>
     </Field>
   )
-}
-
+};

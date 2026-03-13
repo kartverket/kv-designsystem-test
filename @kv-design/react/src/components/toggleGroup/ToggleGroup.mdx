@@ -10,18 +10,15 @@ import * as ToggleGroupStories from './ToggleGroup.stories';
 <Primary />
 
 **Bruk `ToggleGroup` når** 
-
 - brukeren kan bytte mellom visninger, for eksempel mellom liste og graf
 - brukeren kan filtrere innhold i en liste eller tabell
 - du vil gi en direkte og synlig endring i grensesnittet
 
 **Unngå `ToggleGroup` når**
-
 - du har så mange valg at de ikke får plass i bredden
 - valgene inneholder lange tekster som gjør gruppen tung eller uoversiktlig
 - valgene brukes som svar i et skjema - bruk heller [`Radio`](/docs/components-radio--docs)
 - valget er en av/på-innstilling - bruk heller [`Switch`](/docs/components-switch--docs)
-
 
 ## Varianter med eksempler
 
@@ -43,7 +40,6 @@ Denne varianten kan brukes for å tone ned viktigheten av valgene i forhold til 
 
 <Canvas of={ToggleGroupStories.Secondary} />
 
-
 ## Retningslinjer
 
 Det er ikke alltid opplagt om du bør bruke `ToggleGroup` i stedet for `Tabs` eller `Radio`. En tommelfingerregel er å bruke `ToggleGroup` når brukerens valg påvirker innholdet umiddelbart og synlig.
@@ -53,12 +49,12 @@ Antall valg og plassering:
 - Unngå flere valg enn det som får plass i bredden uten linjebryting.
 - Sikre at hele komponenten er synlig på skjermen - også på mobil.
 
-
 ## Tekst i ToogleGroup
+
 - Bruk gjerne en kort overskrift som forklarer hva valgene gjelder.
 - Formuler tydelige og konsise valgtekster i samme språklige form.
 - Legg til `Tooltip` ved behov, særlig når du bare viser ikoner.
 
-
 ## Kilde
+
 Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

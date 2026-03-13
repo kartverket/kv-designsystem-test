@@ -3,8 +3,8 @@ import { Label } from './Label';
 
 const meta = {
   component: Label,
-  parameters: {layout: 'centered'},
   title: 'Components/Typography/Label',
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Label>;
 
 export default meta;
@@ -13,5 +13,5 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     children: 'Fødselsnummer (11 sifre)',
-  },
+  }
 };

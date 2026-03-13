@@ -24,10 +24,9 @@ Vi bruker ulike knappetyper for å hjelpe brukeren å forstå hva som er viktigs
 
 ### Primary Button
 
-Den viktigste handlingen på siden, for eksempel Lagre, Neste eller Send inn. Det skal som regel kun være én primærknapp per side.
+Den viktigste handlingen på siden. Det skal som regel kun være én primærknapp per side, for eksempel “Lagre”, “Neste” eller “Send inn”.
 
 <Canvas of={ButtonStories.PrimaryButton} />
-
 
 ### Secondary Button
 
@@ -52,7 +51,6 @@ Denne knappen bruker vi til mindre viktige handlinger. Hvis den brukes alene, b�
 
 ### Ikoner
 
-{/* TODO: This is the only place we use the #### heading, do we want to avoid that? */}
 #### Knapp med kun ikon
 
 Vi kan bruke knapper med kun ikon når disse er godt kjente, for eksempel “Lukk” og “Slett”. Da må knappen ha tilgjengelig tekst som forklarer hva knappen gjør. Dette kan legges i  `title`, `aria-label` eller i en `Tooltip`.
@@ -86,7 +84,6 @@ Når en handling pågår, kan knappen vise en spinner for å signalisere at pros
 
 <Canvas of={ButtonStories.Loading} />
 
-
 ## Retningslinjer
 
 ### Én handling per knapp
@@ -104,7 +101,6 @@ Når knapper står ved siden av hverandre skal Primary stå før Secondary.
 Unntak:
 Ved «Forrige» og «Neste» skal Forrige stå først (selv om den er sekundær).
 
-
 ## Tekst i Button
 
 - Korte tekster - helst maks tre ord.
@@ -113,7 +109,6 @@ Ved «Forrige» og «Neste» skal Forrige stå først (selv om den er sekundær)
     - Første ord med stor forbokstav.
     - Ikke bruk ALL CAPS.
 - Bruk de samme begrepene på knappetekster som går igjen i tjenesten.
-
 
 ## Kilde
 

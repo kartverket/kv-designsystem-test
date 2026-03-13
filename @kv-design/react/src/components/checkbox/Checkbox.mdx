@@ -11,14 +11,12 @@ En `Checkbox` lar brukeren velge ett eller flere alternativer, eller bekrefte en
 <Primary />
 
 **Bruk `Checkbox` når**
-
 - brukeren kan velge ett eller flere alternativer
 - brukeren skal bekrefte eller avkrefte noe (for eksempel at informasjon er lest og forstått)
 
 **Unngå `Checkbox` når**
-
 - brukeren kun kan velge ett alternativ - bruk heller [`Radio`](/docs/components-radio--docs)
-- brukeren møter mange alternativer - bruk heller [`Select`](/docs/components-select--docs)
+- brukeren møter mange alternativer - bruk heller [`Select`](/docs/components-select--docs) eller [`Suggestion`](/docs/components-suggestion--docs)
 - brukeren skal slå av eller på en funksjon - bruk heller [`Switch`](/docs/components-switch--docs)
 
 ## Varianter med eksempler
@@ -45,7 +43,6 @@ I de fleste tilfeller brukes `Checkbox` i grupper, der brukeren kan velge flere 
 
 Når `Checkbox` brukes i grupper, skal feilmeldingen vises på Fieldset, ikke på hver enkelt `Checkbox`. Det gir en samlet og tydelig beskjed om hva som må rettes.
 
-
 ## Retningslinjer
 
 ### Sorter alternativene
@@ -69,6 +66,7 @@ Vi unngår helst deaktiverte (disabled) `Checkbox`. De kan være vanskelige å o
 Nav har en god forklaring på [hvorfor deaktiverte tilstander er problematisk (nav.no)](https://aksel.nav.no/god-praksis/artikler/deaktiverte-tilstander) og hvilke alternativer som finnes.
 
 ## Tekst i Checkbox
+
 - Ledeteksten skal henge godt sammen med valgene og formuleres i du-form.
 - Alternativene bør stå i jeg-form og alltid starte med stor forbokstav.
 - `Label` skal stå til høyre for boksen. Hvis det er nødvendig med ekstra beskrivelse, kan du ha en `description` under `label`.
@@ -119,13 +117,11 @@ Hvilke kartlag ønsker du å se?
 ☐ Gåstier
 ☐ Skiløyper
 
-
 ## Tilgjengelighet
 
 Det skal være mulig å flytte fokus til `Checkbox`, ved å trykke `Tab` på tastaturet. Det skal være mulig å merke og fjerne avmerking ved å trykke `Space`.
 
-Bruk label for at `Checkbox` skal ha et tilgjengelig navn. I spesielle tilfeller gir det mer mening å bruke `aria-label` eller `aria-labelledby`, for eksempel i en tabell.
-
+- Bruk `label` for at `Checkbox` skal ha et tilgjengelig navn. I spesielle tilfeller gir det mer mening å bruke `aria-label` eller `aria-labelledby`, for eksempel i en tabell.
 
 ## Kilde
 Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

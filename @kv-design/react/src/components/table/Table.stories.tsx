@@ -107,7 +107,7 @@ export const WithBorder: Story = {
             Rita Nordmann
           </Table.Cell>
           <Table.Cell>
-            Rektor
+            Eier
           </Table.Cell>
           <Table.Cell>
             rita@nordmann.no
@@ -118,7 +118,7 @@ export const WithBorder: Story = {
             Kari Nordmann
           </Table.Cell>
           <Table.Cell>
-            Lektor
+            Eiendomsmegler
           </Table.Cell>
           <Table.Cell>
             kari@nordmann.no
@@ -129,7 +129,7 @@ export const WithBorder: Story = {
             Ola Nordmann
           </Table.Cell>
           <Table.Cell>
-            Lektor
+            Eier
           </Table.Cell>
           <Table.Cell>
             ola@nordmann.no
@@ -140,7 +140,7 @@ export const WithBorder: Story = {
             Kai Nordmann
           </Table.Cell>
           <Table.Cell>
-            Lektor
+            Eiendomsutvikler
           </Table.Cell>
           <Table.Cell>
             kai@nordmann.no
@@ -151,7 +151,7 @@ export const WithBorder: Story = {
             Mateo Nordmann
           </Table.Cell>
           <Table.Cell>
-            Ass. rektor
+            Eiendomsmegler
           </Table.Cell>
           <Table.Cell>
             mateo@nordmann.no
@@ -251,7 +251,7 @@ export const Sortable: Story = {
         </Table.Body>
       </Table>
     );
-  },
+  }
 };
 
 export const FixedTable: Story = {

@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Suggestion } from './Suggestion';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
-import { Spinner } from '../spinner/Spinner';
-import { type ChangeEvent, useState } from 'react';
-import { useDebounceCallback } from '@digdir/designsystemet-react';
+// import { Spinner } from '../spinner/Spinner';
+// import { type ChangeEvent, useState } from 'react';
+// import { useDebounceCallback } from '@digdir/designsystemet-react';
 
 const meta = {
-    component: Suggestion,
-    parameters: {layout: 'centered'},
+	component: Suggestion,
+	parameters: { layout: 'centered' },
 } satisfies Meta<typeof Suggestion>;
 
 export default meta;
@@ -16,7 +16,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const DATA_PLACES = [
-  'Sogndal',
+	'Sogndal',
   'Oslo',
   'Brønnøysund',
   'Stavanger',
@@ -26,7 +26,7 @@ const DATA_PLACES = [
 ];
 
 export const Preview: Story = {
- render: (args) => (
+ 	render: (args) => (
     <Field>
 			<Label>Velg en destinasjon</Label>
 			<Suggestion {...args}>
@@ -43,7 +43,7 @@ export const Preview: Story = {
 				</Suggestion.List>
 			</Suggestion>
 		</Field>
- )
+ 	)
 };
 
 // TODO: understand and fix this Story

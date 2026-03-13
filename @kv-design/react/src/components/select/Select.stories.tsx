@@ -5,31 +5,43 @@ import { Label } from '../typography/label/Label';
 
 const meta = {
   component: Select,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Select>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const fylker = [
+  'Agder',
+  'Akershus',
+  'Buskerud',
+  'Finnmark',
+  'Innlandet',
+  'Møre og Romsdal',
+  'Nordland',
+  'Oslo',
+  'Rogaland',
+  'Telemark',
+  'Troms',
+  'Trøndelag',
+  'Vestfold',
+  'Vestland',
+  'Østfold',
+];
+
 export const Preview: Story = {
-  args: {
-    children: 'Select',
-  },
-  render: (args) => (
+  render: () => (
     <Field>
-      <Label>Velg et fjell</Label>
+      <Label>Velg et fylke</Label>
       <Select defaultValue=''>
         <Select.Option value='' disabled>
-          Velg et fjell &hellip;
+          Velg et fylke &hellip;
         </Select.Option>
-        <Select.Option value='everest'>Mount Everest</Select.Option>
-        <Select.Option value='aconcagua'>Aconcagua</Select.Option>
-        <Select.Option value='denali'>Denali</Select.Option>
-        <Select.Option value='kilimanjaro'>Kilimanjaro</Select.Option>
-        <Select.Option value='elbrus'>Elbrus</Select.Option>
-        <Select.Option value='vinson'>Mount Vinson</Select.Option>
-        <Select.Option value='puncakjaya'>Puncak Jaya</Select.Option>
-        <Select.Option value='kosciuszko'>Mount Kosciuszko</Select.Option>
+        {fylker.map((fylke) => (
+          <Select.Option key={fylke} value={fylke}>
+            {fylke}
+          </Select.Option>
+        ))}
       </Select>
     </Field>
   ),

@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { List } from './List';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
-import { Paragraph } from '../typography/paragraph/Paragraph';
+import { List } from './List';
 
 const meta = {
   component: List.Item,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof List.Item>;
 
 export default meta;
@@ -15,11 +14,11 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   render: () => (
     <List.Unordered>
-      <List.Item>Bøyabreen</List.Item>
-      <List.Item>Briksdalsbreen</List.Item>
-      <List.Item>Nigardsbreen</List.Item>
+      <List.Item>Den norske los</List.Item>
+      <List.Item>Historiske stedsnavn</List.Item>
+      <List.Item>Norgeskart</List.Item>
     </List.Unordered>
-  ),
+  )
 };
 
 export const Unordered: Story = {
@@ -30,15 +29,23 @@ export const Unordered: Story = {
         data-size='xs'
         style={{ marginBottom: 'var(--ds-size-2)' }}
       >
-        For å få tilgang til datasettet, må du gjøre følgende:
+        Kort fortalt om Eiendomsregisteret:
       </Heading>
       <List.Unordered>
-        <List.Item>Registrere en bruker i Geonorge-portalen.</List.Item>
-        <List.Item>Godta vilkårene for bruk av åpne data.</List.Item>
-        <List.Item>Laste ned datasettet i ønsket format.</List.Item>
+        <List.Item>
+          Eiendomsregisteret samler opplysninger fra flere kilder, inkludert data som kommunen har 
+          registrert.
+        </List.Item>
+        <List.Item>
+          Opplysningene du registrerer, erstatter ikke kommunens eksisterende data, men kan brukes 
+          som grunnlag for oppdatering.
+        </List.Item>
+        <List.Item>
+          Tjenesten er frivillig, og bare én eier per bolig eller fritidsbolig trenger å gjennomføre registreringen.
+        </List.Item>
       </List.Unordered>
     </>
-  ),
+  )
 };
 
 export const Ordered: Story = {
@@ -49,19 +56,21 @@ export const Ordered: Story = {
         data-size='xs'
         style={{ marginBottom: 'var(--ds-size-2)' }}
       >
-        Slik gjør du:
+        Hva skal du gjøre?
       </Heading>
       <List.Ordered>
         <List.Item>
-          Tørk over kyllingfiletene før du krydrer og steker
+          Logg inn og sjekk opplysningene
         </List.Item>
-        <List.Item>Ha salt og pepper på filetene</List.Item>
         <List.Item>
-          Stek filetene på sterk varme i to minutter på hver side
+          Registrer det du mener er riktig
+        </List.Item>
+        <List.Item>
+          Kom tilbake om noe endrer seg
         </List.Item>
       </List.Ordered>
     </>
-  ),
+  )
 };
 
 export const Indented: Story = {
@@ -70,7 +79,7 @@ export const Indented: Story = {
   },
   render: (...args) => (
     <>
-      <Heading level={2} data-size="xs">
+      <Heading level={2} data-size='xs'>
         Innhold
       </Heading>
       <List.Ordered {...args}>
@@ -104,19 +113,18 @@ export const Indented: Story = {
   ),
 };
 
-// TODO: swap with Kartverket-links
 const designLinks = [
   {
-    href: 'https://www.udir.no/om-udir/designprofil/identitet/',
-    text: 'Identitet',
+    href: 'https://www.kartverket.no/til-sjos/nautiske-publikasjoner/den-norske-los',
+    text: 'Den norske los',
   },
   {
-    href: 'https://www.udir.no/om-udir/designprofil/farger/',
-    text: 'Farger',
+    href: 'https://www.kartverket.no/til-lands/stadnamn/finn-stadnamn-i-kart-og-sentralt-stadnamnregister',
+    text: 'Historiske stedsnavn',
   },
   {
-    href: 'https://www.udir.no/om-udir/designprofil/typografi/',
-    text: 'Typografi',
+    href: 'https://www.norgeskart.no/',
+    text: 'Norgeskart',
   },
 ];
 
@@ -128,7 +136,7 @@ export const WithLinks: Story = {
     <List.Unordered {...args}>
       {designLinks.map((link) => (
         <List.Item key={link.href}>
-          <Link href={link.href} target="_blank">
+          <Link href={link.href} target='_blank'>
             {link.text}
           </Link>
         </List.Item>
@@ -166,13 +174,11 @@ export const NewSentence: Story = {
       >
         For å få tilgang til datasettet, må du gjøre følgende:
       </Heading>
-      <List.Unordered>
+      <List.Ordered>
         <List.Item>Registrere en bruker i Geonorge-portalen.</List.Item>
         <List.Item>Godta vilkårene for bruk av åpne data.</List.Item>
         <List.Item>Laste ned datasettet i ønsket format.</List.Item>
-      </List.Unordered>
+      </List.Ordered>
     </>
   )
-}
-
-
+};

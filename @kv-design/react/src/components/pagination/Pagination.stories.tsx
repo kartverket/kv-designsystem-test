@@ -9,7 +9,7 @@ import {
 
 const meta = {
   component: Pagination,
-  parameters: {layout: 'centered'},
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Pagination>;
 
 export default meta;
@@ -58,9 +58,8 @@ export const Preview: Story = {
         </Pagination.Item>
       </Pagination.List>
     </Pagination>
-  ),
+  )
 };
-
 
 export const WithAnchor: StoryObj<UsePaginationProps> = {
   args: {
@@ -77,15 +76,15 @@ export const WithAnchor: StoryObj<UsePaginationProps> = {
     });
 
     return (
-      <Pagination aria-label="Sidenavigering">
+      <Pagination aria-label='Sidenavigering'>
         <Pagination.List>
           <Pagination.Item>
             <Pagination.Button
               asChild
-              aria-label="Forrige side"
+              aria-label='Forrige side'
               {...prevButtonProps}
             >
-              <a href="#forrige-side">Forrige</a>
+              <a href='#forrige-side'>Forrige</a>
             </Pagination.Button>
           </Pagination.Item>
 
@@ -106,16 +105,16 @@ export const WithAnchor: StoryObj<UsePaginationProps> = {
           <Pagination.Item>
             <Pagination.Button
               asChild
-              aria-label="Neste side"
+              aria-label='Neste side'
               {...nextButtonProps}
             >
-              <a href="#neste-side">Neste</a>
+              <a href='#neste-side'>Neste</a>
             </Pagination.Button>
           </Pagination.Item>
         </Pagination.List>
       </Pagination>
     );
-  }
+  },
 };
 
 export const Mobile: Story = {
@@ -151,4 +150,4 @@ export const Mobile: Story = {
       </Pagination.List>
     </Pagination>
   )
-}
+};
