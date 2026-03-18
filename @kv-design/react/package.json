@@ -38,9 +38,9 @@
     "@digdir/designsystemet-css": "catalog:",
     "@digdir/designsystemet-react": "catalog:",
     "@digdir/designsystemet-types": "catalog:",
-    "@navikt/aksel-icons": "catalog:",
-    "@kv-design/css": "workspace:*",
     "@internal/build-tools": "workspace:*",
+    "@kv-design/css": "workspace:*",
+    "@navikt/aksel-icons": "catalog:",
     "tslib": "catalog:"
   },
   "devDependencies": {
@@ -50,14 +50,15 @@
     "@storybook/addon-onboarding": "catalog:",
     "@storybook/addon-vitest": "catalog:",
     "@storybook/react-vite": "catalog:",
-    "@types/react": "catalog:",
     "@types/ramda": "catalog:",
+    "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "chromatic": "catalog:",
     "eslint-plugin-storybook": "catalog:",
+    "nx": "catalog:",
     "playwright": "catalog:",
     "ramda": "catalog:",
     "react": "catalog:",
@@ -66,8 +67,7 @@
     "vite": "catalog:",
     "vite-plugin-dts": "catalog:",
     "vite-tsconfig-paths": "catalog:",
-    "vitest": "catalog:",
-    "nx": "catalog:"
+    "vitest": "catalog:"
   },
   "peerDependencies": {
     "@types/react": "^18.3.7 || ^19.0.0",
