@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { TranslationTable } from './Migration';
+import { Button } from '../../components/button/Button';
+import { Link } from '../../components/link/Link';
+import { FeedbackSection } from '../FeedbackSection';
+import { UnderConstructionAlert } from '../UnderConstructionAlert';
+
+<Meta title='Migreringsguide' />
+
+<UnderConstructionAlert />
+
+# Migreringsguide
+
+Når du skal gå fra det gamle designsystemet (KVIB) til det nye basert på Digdir Designsystemet, er det noen ekstra ting du må tenke på. Vi har testet litt med migrering og lister opp mulige problemer som kan oppstå og løsninger til dem. Guiden skal hjelpe deg med å gjøre overgangen til det nye designsystemet mer sømløs.
+
+Denne migreringsguiden hjelper deg å gå fra det gamle designsystemet til det nye. Her finner du anbefalte prosesser, vanlige fallgruver og konkrete eksempler som gjør overgangen mer sømløs.
+
+<FeedbackSection />
+
+## 1. Skru av KvibProvider
+
+For å unngå at stilene våre overskrives av det gamle designsystemet (KVIB), må du skru av KvibProvider. 
+
+## 2. Anbefalinger
+
+{/* TODO: complete this! */}
+Hva skal bruker gjøre dersom gamle kvib tilbyr import mot andre biblioteker, skal vi skrive at bruker importerer rett fra kilden etc??
+Importer rett fra Recharts i stedet for å gå via Chakra
+
+Gi anbefaling om kodestruktur? Gi en mal?
+
+Override Chakra CSS globalt?
+
+## 3. Bytt fra gamle til nye komponent-navn
+
+Etter dette må du bytte komponent-navnene som brukes i KVIB til navnene som brukes i det nye, f.eks. heter komponenten for brødtekst “text” i KVIB og “paragraph” i det nye. Den enkleste og sikreste måten å gjøre dette på er med manuelle søk.
+
+I tabellen under kan du se hvilke gamle komponenter som tilsvarer de nye. De komponentene fra KVIB som ikke er listet opp har ikke en tilsvarende komponent i det nye designsystemet.
+
+<TranslationTable />
+
+*Vi har også en ny Input-komponent, men du må sjekke om du har brukt det som en Textfield i dokumentasjonen.
+
+## 4. Bytt til riktig fargevariabler
+
+Du må også huske å endre til riktig fargevariabel manuelt på ikoner fra andre biblioteker enn NAV Aksel Icons (disse byttes automatisk).
+ 
+Dette er en gylden mulighet for å se om alle like komponenter har de samme fargene, f.eks. all brødtekst.

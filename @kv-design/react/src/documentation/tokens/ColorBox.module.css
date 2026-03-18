@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ds-size-4); /*TODO: does gap show and is it correct size? 'var(--ds-size-4)*/
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box {
+    height: 90px;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--ds-size-2); /*TODO: does margin show and is it correct size? 'var(--ds-size-2)'*/
+}

@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Button } from '../../components/button/Button';
+import { Link } from '../../components/link/Link';
+import { ColorBox } from './ColorBox';
+import { FeedbackSection } from '../FeedbackSection';
+import { UnderConstructionAlert } from '../UnderConstructionAlert';
+import Theming_Blue_Dark_Mode from '../../../assets/img/Theming_Blue_Dark_Mode.png';
+import Theming_Blue_Light_Mode from '../../../assets/img/Theming_Blue_Light_Mode.png';
+import Theming_Green_Dark_Mode from '../../../assets/img/Theming_Green_Dark_Mode.png';
+import Theming_Green_Light_Mode from '../../../assets/img/Theming_Green_Light_Mode.png';
+
+<Meta title='Design tokens og variabler' />
+
+<UnderConstructionAlert />
+
+# Design tokens og variabler
+
+Design tokens er fleksible variabler som kan benyttes uavhengig av teknologi eller designverktøy.
+
+<FeedbackSection />
+
+## Design tokens
+
+Design tokens er små, navngitte verdier som representerer de grunnleggende byggeklossene i designsystemet - som farger, spacing, typografi, radius og skygger.
+
+De fungerer som en felles “kilde til sannhet” som både designere og utviklere bruker for å sikre at utseende og stil er konsekvent på tvers av alle produkter og plattformer.  
+
+Vi bruker samme Design tokens som Digdir Designsystemet. [Les om variablene for farger, størrelser, border-radius, skygger, opasitet og typografi her.](https://designsystemet.no/no/fundamentals/theme/variables)
+
+## Variabler i Figma
+
+På Digdir Designsystemet sin side kan du lese om [hvordan man bruker variablene i Figma](https://designsystemet.no/no/fundamentals/figma/variables-in-figma).
+
+## Farger
+
+Dette er standardfargene vi bruker på brukergrensenittene våre:
+
+<ColorBox />
+
+Vi har basert fargestrukturen vår på Digdir Designsystemet. Hver standardfarge har en fargeskala på totalt 16 farger for å dekke ulike behov (se bilder under).
+
+Du kan lese om [hvordan fargene er strukturert og hvordan de brukes på Digdir Designsystemet sin side](https://designsystemet.no/no/fundamentals/theme/colors).
+
+### Fargetema og fargemodus
+
+Vi har to fargetema: green og blue. Den eneste forskjellen mellom disse temaene er at hovedfargen (accent) er enten grønn eller blå. 
+
+Under kan du se fargeskalaene i hvert tema i både lys og mørk modus. Standardfargene i pallettet vårt er de som heter base-default. På Digdir Designsystemet sin side viser de hvordan du enkelt kan [bytte mellom tema og modus i Figma](https://designsystemet.no/no/fundamentals/figma/modes-in-figma).
+
+#### Theme green
+
+{/* TODO: add spacing between images when theming is correct */}
+
+<img src={Theming_Green_Light_Mode} alt='Fargeskala for grønt tema i lyst modus' />
+
+<img src={Theming_Green_Dark_Mode} alt='Fargeskala for grønt tema i mørk modus' />
+
+
+#### Theme blue
+
+<img src={Theming_Blue_Light_Mode} alt='Fargeskala for blått tema i lyst modus' />
+
+<img src={Theming_Blue_Dark_Mode} alt='Fargeskala for blått tema i mørk modus' />

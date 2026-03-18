@@ -10,7 +10,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// TODO:  fix that when clicking link it goes direktly to main content
+// TODO:  fix that when clicking link it goes direktly to main content (see udir with scrollHashBehavior)
 export const Preview: Story = {
   args: {
     children: undefined,
