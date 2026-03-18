@@ -26,25 +26,25 @@ export const Sizes: Story = {
   render: () => (
     <>
       <Heading data-size='2xl' style={{ marginBottom: 'var(--ds-size-4)' }}>
-        Heading 2xl
+        Overskrift 2xl
       </Heading>
       <Heading data-size='xl' style={{ marginBottom: 'var(--ds-size-4)' }}>
-        Heading xl
+        Overskrift xl
       </Heading>
       <Heading data-size='lg' style={{ marginBottom: 'var(--ds-size-4)' }}>
-        Heading lg
+        Overskrift lg
       </Heading>
       <Heading data-size='md' style={{ marginBottom: 'var(--ds-size-4)' }}>
-        Heading md
+        Overskrift md
       </Heading>
       <Heading data-size='sm' style={{ marginBottom: 'var(--ds-size-4)' }}>
-        Heading sm
+        Overskrift sm
       </Heading>
       <Heading data-size='xs' style={{ marginBottom: 'var(--ds-size-4)' }}>
-        Heading xs
+        Overskrift xs
       </Heading>
       <Heading data-size='2xs' style={{ marginBottom: 'var(--ds-size-4)' }}>
-        Heading 2xs
+        Overskrift 2xs
       </Heading>
     </>
   )

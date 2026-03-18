@@ -26,11 +26,11 @@ export const Preview: Story = {
 export const Sizes: Story = {
   render: () => (
     <>
-      <Paragraph data-size='xl'>Dette er en xl paragraf</Paragraph>
-      <Paragraph data-size='lg'>Dette er en lg paragraf</Paragraph>
-      <Paragraph data-size='md'>Dette er en md paragraf</Paragraph>
-      <Paragraph data-size='sm'>Dette er en sm paragraf</Paragraph>
-      <Paragraph data-size='xs'>Dette er en xs paragraf</Paragraph>
+      <Paragraph data-size='xl'>Dette er et xl avsnitt</Paragraph>
+      <Paragraph data-size='lg'>Dette er et lg avsnitt</Paragraph>
+      <Paragraph data-size='md'>Dette er et md avsnitt</Paragraph>
+      <Paragraph data-size='sm'>Dette er et sm avsnitt</Paragraph>
+      <Paragraph data-size='xs'>Dette er et xs avsnitt</Paragraph>
     </>
   )
 };

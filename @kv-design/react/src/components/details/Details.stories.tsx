@@ -17,7 +17,7 @@ export const Preview: Story = {
         Hvorfor må Kartverket behandle bestillingen min?
       </Details.Summary>
       <Details.Content>
-        Når du bestiller et eiendomsdokument mottar du en attestert eller bekreftet utskrift. Ved 
+        Når du bestiller et eiendomsdokument, mottar du en attestert eller bekreftet utskrift. Ved 
         bestilling av attestert dokument må Kartverket sikre at vi ikke leverer ut innhold i 
         dokumentet som anses som taushetsbelagte opplysninger. Disse bestillingene må derfor til 
         behandling før det blir tilgjengelig for deg.

@@ -15,15 +15,24 @@ Typografi er en viktig del av det å bygge opp innhold på en nettside. Det er a
 
 ## Font
 
-For å sørge for at typografikomponentene bruker riktig font, må den importeres og defineres. I Kartverket bruker vi [Inter](https://rsms.me/inter/).
+For å sørge for at typografikomponentene bruker riktig font, må den importeres og defineres. I Kartverket bruker vi [Mulish](https://fonts.google.com/specimen/Mulish/about?query=mulish).
 
-Den er tilgjengelig i Altinn CDN.
+Den kan lastes ned fra Google Fonts.
 
 ```html
-<link rel='stylesheet' href='https://altinncdn.no/fonts/inter/v4/inter.css' />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 ```
 
-Biblioteket setter ingen globale stiler. For å få en konsistent typografi på nettsiden må du derfor selv sette en standard typografistil for HTML som ikke bruker komponenter fra biblioteket.
+For å få en konsistent typografi på nettsiden må du sette en standard typografistil.
+
+```css
+html {
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+}
+```
 
 ## Heading
 

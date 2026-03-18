@@ -58,7 +58,7 @@ export const Placement: Story = {
           <FloppydiskIcon aria-hidden />
         </Button>
       </Tooltip>
-      <Tooltip placement='bottom' content='Print ut'>
+      <Tooltip placement='bottom' content='Skriv ut'>
         <Button icon variant='secondary'>
           <PrinterSmallIcon aria-hidden />
         </Button>
