@@ -11,7 +11,13 @@
     ]
   },
   "targets": {
+    "prebuild": {
+      "cache": true,
+      "inputs": ["css"],
+      "outputs": ["{projectRoot}/src/components.css"]
+    },
     "build": {
+      "dependsOn": ["prebuild"],
       "cache": true,
       "inputs": ["css", "default", "^default"]
     },

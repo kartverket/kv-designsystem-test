@@ -4,28 +4,28 @@ import { fileURLToPath } from 'node:url';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import postcss from 'postcss';
-import easyImport from 'postcss-easy-import';
+import postcssImport from 'postcss-import';
+// import postcssImportExtGlob from 'postcss-import-ext-glob';
 import nesting from 'postcss-nesting';
 import pkg from './package.json' with { type: 'json' };
 
-const dependencies = Object.keys({
-  ...pkg.dependencies,
-  ...pkg.peerDependencies,
-});
-
 /** @type Array<(path: string) => boolean> */
 const importFilters = [
-  // Don't inline external dependencies
-  (path) => !dependencies.includes(path),
-  // Don't inline local imports
+  //Don't inline external dependencies (including subpaths)
+  (path) => !path.startsWith('@'),
+
+  // Don't inline internal imports
   (path) => !path.startsWith('./'),
+
+  // inline relative imports from other packages in the monorepo
+  (path) => path.startsWith('../'),
 ];
 
 /** @import { Config } from 'postcss-load-config'; */
 /** @type {Config} */
 export default {
   plugins: [
-    easyImport({
+    postcssImport({
       /** @type (path: string) => boolean */
       filter: (path) => importFilters.every((fn) => fn(path)),
     }),

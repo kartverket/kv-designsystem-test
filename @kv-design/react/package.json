@@ -2,7 +2,8 @@
   "name": "@kv-design/react",
   "repository": {
     "type": "git",
-    "url": "github:kartverket/kv-designsystem-test"
+    "url": "github:kartverket/kv-designsystem-test",
+    "directory": "@kv-design/react"
   },
   "publishConfig": {
     "access": "public"
@@ -20,8 +21,12 @@
     "./html": {
       "types": "./dist/html.d.ts"
     },
-    "./style.css": "./dist/style.css"
+    "./green": "./dist/style/green.css",
+    "./blue": "./dist/style/blue.css"
   },
+  "files": [
+    "./dist"
+  ],
   "scripts": {
     "format-check": "pretty-format-check",
     "lint-circular-dependencies": "pnpm madge --circular ./src/alpha.ts",
@@ -40,7 +45,6 @@
     "@digdir/designsystemet-types": "catalog:",
     "@navikt/aksel-icons": "catalog:",
     "@kv-design/css": "workspace:*",
-    "@internal/build-tools": "workspace:*",
     "tslib": "catalog:"
   },
   "devDependencies": {
