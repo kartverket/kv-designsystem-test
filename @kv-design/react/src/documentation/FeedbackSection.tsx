@@ -33,4 +33,4 @@ export function FeedbackSection({ level = 2 }: HeadingProps) {
             </div>
         </section>
     )
-};
+}

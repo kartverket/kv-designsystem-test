@@ -53,15 +53,15 @@
 //       {...rest}
 //     >
 //       <div>
-//         <LogoContainer href={href as string} className="uds-header__logo">
-//           {isMain ? <Logo padding="0" /> : <LogoSymbol padding="0" />}
+//         <LogoContainer href={href as string} className='uds-header__logo'>
+//           {isMain ? <Logo padding='0' /> : <LogoSymbol padding='0' />}
 //           {!isMain && (
-//             <Heading data-size="xs" asChild>
+//             <Heading data-size='xs' asChild>
 //               <span>{applicationName}</span>
 //             </Heading>
 //           )}
 //         </LogoContainer>
-//         {children && <div className="uds-header__content">{children}</div>}
+//         {children && <div className='uds-header__content'>{children}</div>}
 //       </div>
 //     </header>
 //   );
