@@ -2,6 +2,6 @@
   "$schema": "https://www.chromatic.com/config-file.schema.json",
   "onlyChanged": true,
   "projectId": "Project:69807c19372f56252545b353",
-  "storybookBaseDir": "@kv-design/react",
+  "storybookBaseDir": "@kv-designsystem/react",
   "externals": ["../theme/dist/**"]
 }

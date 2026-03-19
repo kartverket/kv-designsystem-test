@@ -3,13 +3,13 @@
   "repository": {
     "type": "git",
     "url": "github:kartverket/kv-designsystem-test",
-    "directory": "@kv-design/css"
+    "directory": "@kv-designsystem/css"
   },
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "exports": {
     "./green": "./dist/green.css",

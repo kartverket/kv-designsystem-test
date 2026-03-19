@@ -21,7 +21,7 @@ jobs:
         uses: chromaui/action@v13
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          workingDir: '@kv-design/react'
+          workingDir: '@kv-designsystem/react'
           exitZeroOnChanges: true
           exitOnceUploaded: true
           onlyChanged: true

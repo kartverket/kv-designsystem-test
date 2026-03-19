@@ -1,6 +1,4 @@
 /// <reference types="vitest/config" />
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { defineConfig, createFilter } from 'vite';
 import react from '@vitejs/plugin-react';
 import ts from 'typescript';
@@ -9,6 +7,8 @@ import dts from 'vite-plugin-dts';
 import type { Plugin as VitePlugin } from 'vite';
 
 // https://vite.dev/config/
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
 import pkg from './package.json';
@@ -55,7 +55,7 @@ export default defineConfig({
     outDir: './dist',
     lib: {
       entry: 'src/components/alpha.ts',
-      name: '@kv-design/react',
+      name: '@kv-designsystem/react',
       fileName: 'alpha',
       formats: ['es', 'cjs'],
     },
@@ -67,7 +67,7 @@ export default defineConfig({
     alias: {
       src: resolve(__dirname, 'src'),
       '.storybook': resolve(__dirname, '.storybook'),
-      '@kv-design/react': resolve(__dirname, 'src'),
+      '@kv-designsystem/react': resolve(__dirname, 'src'),
     },
   },
   test: {
@@ -101,7 +101,7 @@ export default defineConfig({
 });
 
 function processComponentCss(): VitePlugin {
-  const componentBase = '**/@kv-design/react/src/components';
+  const componentBase = '**/@kv-designsystem/react/src/components';
   const include = `${componentBase}/**/*.css`;
   const exclude = `${componentBase}/**/*.module.css`;
   const filter = createFilter(include, exclude);
@@ -113,11 +113,11 @@ function processComponentCss(): VitePlugin {
 
       const isStorybook = process.env.IS_STORYBOOK === 'true';
       if (isStorybook) {
-        // Ensure the loaded css is wrapped in a layer the same way as in @kv-design/css/src/index.css
+        // Ensure the loaded css is wrapped in a layer the same way as in @kv-designsystem/css/src/index.css
         return `@layer kv.components {\n${code}\n}`;
       } else {
-        // Remove the css from the @kv-design/react bundle by returning an empty string.
-        // Consumers will load it from @kv-design/css instead.
+        // Remove the css from the @kv-designsystem/react bundle by returning an empty string.
+        // Consumers will load it from @kv-designsystem/css instead.
         return '';
       }
     },

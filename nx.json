@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "defaultProject": "@kv-design/react",
+  "defaultProject": "@kv-designsystem/react",
   "targetDefaults": {
     "build": {
       "outputs": ["{projectRoot}/dist"],

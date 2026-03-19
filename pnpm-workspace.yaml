@@ -1,6 +1,6 @@
 packages:
   - '@internal/*'
-  - '@kv-design/*'
+  - '@kv-designsystem/*'
   - 'design-tokens'
 
 catalog:

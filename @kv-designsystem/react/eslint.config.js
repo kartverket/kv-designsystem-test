@@ -6,8 +6,8 @@ import baseConfig, { importOrderRules } from '../../eslint.config.js';
 // Shared restricted imports across the repo
 const commonRestrictedImports = [
   {
-    group: ['@kv-design/react', '@kv-design/react/*'],
-    message: 'Do not import from @kv-design/react. Use relative paths instead.',
+    group: ['@kv-designsystem/react', '@kv-designsystem/react/*'],
+    message: 'Do not import from @kv-designsystem/react. Use relative paths instead.',
   },
   { group: ['**/dist/*'], message: 'Do not import from the dist directory.' },
   {
@@ -31,8 +31,8 @@ export default defineConfig([
     languageOptions: {
       parserOptions: {
         project: [
-          '@kv-design/react/tsconfig.*?.json',
-          '@kv-design/react/tsconfig.storybook.json',
+          '@kv-designsystem/react/tsconfig.*?.json',
+          '@kv-designsystem/react/tsconfig.storybook.json',
         ],
       },
     },

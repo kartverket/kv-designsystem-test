@@ -6,15 +6,15 @@
     "paths": {
       "src/*": ["./src/*"],
       ".storybook/*": ["./.storybook/*"],
-      "@kv-design/react/utilities/form/alpha": [
+      "@kv-designsystem/react/utilities/form/alpha": [
         "./src/utilities/form/alpha.ts"
       ],
       // Repeat paths form tsconfig.base.json because they apparently aren't included
-      "@kv-design/theme": ["../theme/src/index.ts"],
-      "@kv-design/icons": ["../icons/src/index.ts"],
-      "@kv-design/icons/metadata": ["../icons/src/metadata.ts"],
-      "@kv-design/symbols": ["../symbols/generated-src/index.ts"],
-      "@kv-design/symbols/metadata": ["../symbols/generated-src/metadata.ts"]
+      "@kv-designsystem/theme": ["../theme/src/index.ts"],
+      "@kv-designsystem/icons": ["../icons/src/index.ts"],
+      "@kv-designsystem/icons/metadata": ["../icons/src/metadata.ts"],
+      "@kv-designsystem/symbols": ["../symbols/generated-src/index.ts"],
+      "@kv-designsystem/symbols/metadata": ["../symbols/generated-src/metadata.ts"]
     },
     "types": ["vite/client", "./dist/html", "../theme/dist/types"]
   },

@@ -26,16 +26,16 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
- # Publish @kv-design/react
-      - name: Publish @kv-design/react
+ # Publish @kv-designsystem/react
+      - name: Publish @kv-designsystem/react
         working-directory: packages/react
         run: |
           echo "Setting version to 0.0.0-test for publishing"
           pnpm pkg set version 0.0.0-test
           pnpm publish --access public --tag test
 
-      # Publish @kv-design/css
-      - name: Publish @kv-design/css
+      # Publish @kv-designsystem/css
+      - name: Publish @kv-designsystem/css
         working-directory: packages/css
         run: |
           echo "Setting version to 0.0.0-test for publishing"
