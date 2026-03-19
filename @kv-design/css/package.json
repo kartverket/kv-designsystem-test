@@ -1,5 +1,5 @@
 {
-  "name": "@kv-design/css",
+  "name": "@kv-designsystem/css",
   "repository": {
     "type": "git",
     "url": "github:kartverket/kv-designsystem-test",
@@ -9,7 +9,7 @@
     "access": "public"
   },
   "license": "MIT",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "type": "module",
   "exports": {
     "./green": "./dist/green.css",
@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "@digdir/designsystemet-css": "catalog:",
-    "@kv-design/theme": "workspace:*"
+    "@kv-designsystem/theme": "workspace:*"
   },
   "devDependencies": {
     "autoprefixer": "catalog:",

@@ -1,5 +1,5 @@
 {
-  "name": "@kv-design/react",
+  "name": "@kv-designsystem/react-test",
   "repository": {
     "type": "git",
     "url": "github:kartverket/kv-designsystem-test",
@@ -45,6 +45,7 @@
     "@digdir/designsystemet-types": "catalog:",
     "@navikt/aksel-icons": "catalog:",
     "@kv-design/css": "workspace:*",
+    "@kv-designsystem/css": "workspace:*",
     "tslib": "catalog:"
   },
   "devDependencies": {

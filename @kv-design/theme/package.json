@@ -1,5 +1,5 @@
 {
-  "name": "@kv-design/theme",
+  "name": "@kv-designsystem/theme",
   "repository": {
     "type": "git",
     "url": "github:kartverket/kv-designsystem-test",
@@ -9,7 +9,7 @@
     "access": "public"
   },
   "license": "MIT",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0",
   "type": "module",
   "exports": {
     "./types": "./dist/types.d.ts",
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@internal/build-tools": "workspace:*",
-    "@kv-design/tokens": "workspace:*",
+    "@kv-designsystem/tokens": "workspace:*",
     "rimraf": "catalog:"
   },
   "scripts": {

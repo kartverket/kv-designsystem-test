@@ -310,7 +310,7 @@ importers:
       '@digdir/designsystemet-css':
         specifier: 'catalog:'
         version: 1.11.1
-      '@kv-design/theme':
+      '@kv-designsystem/theme':
         specifier: workspace:*
         version: link:../theme
     devDependencies:
@@ -329,9 +329,6 @@ importers:
       postcss-import:
         specifier: ^16.1.1
         version: 16.1.1(postcss@8.5.6)
-      postcss-import-ext-glob:
-        specifier: ^2.1.1
-        version: 2.1.1(postcss@8.5.6)
       postcss-load-config:
         specifier: 'catalog:'
         version: 6.0.1(jiti@2.4.2)(postcss@8.5.6)(tsx@4.21.0)(yaml@2.8.2)
@@ -350,7 +347,7 @@ importers:
       '@digdir/designsystemet-types':
         specifier: 'catalog:'
         version: 1.11.1
-      '@kv-design/css':
+      '@kv-designsystem/css':
         specifier: workspace:*
         version: link:../css
       '@navikt/aksel-icons':
@@ -442,7 +439,7 @@ importers:
       '@internal/build-tools':
         specifier: workspace:*
         version: link:../../@internal/build-tools
-      '@kv-design/tokens':
+      '@kv-designsystem/tokens':
         specifier: workspace:*
         version: link:../../design-tokens
       rimraf:
@@ -3244,9 +3241,6 @@ packages:
   fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
 
-  fast-sort@3.4.1:
-    resolution: {integrity: sha512-76uvGPsF6So53sZAqenP9UVT3p5l7cyTHkLWVCMinh41Y8NDrK1IYXJgaBMfc1gk7nJiSRZp676kddFG2Aa5+A==}
-
   fast-uri@3.1.0:
     resolution: {integrity: sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==}
 
@@ -4294,11 +4288,6 @@ packages:
     engines: {node: ^18.12.0 || ^20.9.0 || >=22.0}
     peerDependencies:
       postcss: ^8.4.32
-
-  postcss-import-ext-glob@2.1.1:
-    resolution: {integrity: sha512-qd4ELOx2G0hyjgtmLnf/fSVJXXPhkcxcxhLT1y1mAnk53JYbMLoGg+AFtnJowOSvnv4CvjPAzpLpAcfWeofP5g==}
-    peerDependencies:
-      postcss: ^8.2.0
 
   postcss-import@16.1.1:
     resolution: {integrity: sha512-2xVS1NCZAfjtVdvXiyegxzJ447GyqCeEI5V7ApgQVOWnros1p5lGNovJNapwPpMombyFBfqDwt7AD3n2l0KOfQ==}
@@ -8751,8 +8740,6 @@ snapshots:
 
   fast-levenshtein@2.0.6: {}
 
-  fast-sort@3.4.1: {}
-
   fast-uri@3.1.0: {}
 
   fastq@1.20.1:
@@ -9836,13 +9823,6 @@ snapshots:
   postcss-discard-overridden@7.0.1(postcss@8.5.6):
     dependencies:
       postcss: 8.5.6
-
-  postcss-import-ext-glob@2.1.1(postcss@8.5.6):
-    dependencies:
-      fast-glob: 3.3.3
-      fast-sort: 3.4.1
-      postcss: 8.5.6
-      postcss-value-parser: 4.2.0
 
   postcss-import@16.1.1(postcss@8.5.6):
     dependencies:
