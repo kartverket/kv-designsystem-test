@@ -3,6 +3,21 @@ import * as HeadingStories from './heading/Heading.stories';
 import * as ParagraphStories from './paragraph/Paragraph.stories';
 import * as LabelStories from './label/Label.stories';
 import * as ValidationMessageStories from './validationMessage/ValidationMessage.stories';
+import { Alert } from '../alert/Alert';
+import { Heading } from './heading/Heading';
+
+<Alert>
+  <Heading 
+    level={2} 
+    data-size='xs'
+    style={{
+      marginBottom: 'var(--ds-size-2)'
+    }}
+  >
+    Vi bruker Inter i første fase
+  </Heading>
+  I første fase følger vi Digdir Designsystemet sin font-family: Inter. Videre skal vi vurdere å bytte til Mulish, og dermed kan det endre seg senere.
+</Alert>
 
 # Typography
 
@@ -15,7 +30,7 @@ Typografi er en viktig del av det å bygge opp innhold på en nettside. Det er a
 
 ## Font
 
-For å sørge for at typografikomponentene bruker riktig font, må den importeres og defineres. I Kartverket bruker vi [Inter](https://rsms.me/inter/).
+For å sørge for at typografikomponentene bruker riktig font, må den importeres og defineres. I første omgang bruker vi [Inter](https://rsms.me/inter/).
 
 Den er tilgjengelig i Altinn CDN.
 
