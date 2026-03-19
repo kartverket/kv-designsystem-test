@@ -11,7 +11,7 @@ const colors = [
     { hex: '#3AA426', textColor: '#000000', label: 'success' },
     { hex: '#FFC600', textColor: '#000000', label: 'warning' },
     { hex: '#D72800', textColor: '#ffffff', label: 'danger' },
-]
+];
 
 function ColorItem({ hex, textColor, label }) {
     return (
@@ -43,4 +43,4 @@ export function ColorBox() {
             ))}
         </div>
     )
-};
+}

@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
-import classes from '../componentCatalog/componentCatalog.module.css';
+import classes from '../styles/layout.module.css';
 import { Card } from '../../components/card/Card';
 import { Link } from '../../components/link/Link';
 import { Heading } from '../../components/typography/heading/Heading';
@@ -34,10 +34,7 @@ const pages = [
     },
 ];
 
-
-// TODO: we are reusing .grid from componentCatalog, should we make it more global or make its own?
-// TODO: change name of function??
-export function PagesIndex() {
+export function DocumentationOverview() {
     return (
         <div className={classes.grid} >
             {pages.map((page) => (

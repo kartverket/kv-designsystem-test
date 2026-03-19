@@ -6,4 +6,4 @@ export function UnderConstructionAlert() {
             Denne siden er under utvikling.
         </Alert>
     )
-};
+}

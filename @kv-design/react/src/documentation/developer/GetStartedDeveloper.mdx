@@ -14,15 +14,36 @@ Her får du en guide med steg for steg for å starte å bruke Kartverkets design
 
 ## 1. Installer
 
-For å ta i bruk komponentbiblioteket må du installere `@kv-design/react`.
+For å ta i bruk komponentbiblioteket må du installere `@kv-designsystem/react`.
 
 ```jsx
-$ npm add @kv-design/react
+$ npm install @kv-designsystem/react
 ```
 
 ## 2. Sett riktig font
 
+I Kartverket bruker vi [Inter](https://rsms.me/inter/).
 
+Den er tilgjengelig i Altinn CDN.
+
+```html
+<link
+  rel="stylesheet"
+  href="https://altinncdn.no/fonts/inter/v4.1/inter.css"
+  integrity="sha384-OcHzc/By/OPw9uJREawUCjP2inbOGKtKb4A/I2iXxmknUfog2H8Adx71tWVZRscD"
+  crossorigin="anonymous"
+/>
+```
+
+For å få en konsistent typografi på nettsiden må du sette en standard typografistil.
+
+```css
+body {
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
+}
+```
 
 ## 3. Last inn stilsett
 
@@ -32,20 +53,20 @@ Importer stilsettet enten i JavaScript-/TypeScript-entrypointet:
 
 ```tsx
 // Grønt tema
-import '@kv-design/react/style/green.css';
+import '@kv-design/react/green';
 
 // Blått tema
-import '@kv-design/react/style/blue.css';
+import '@kv-design/react/blue';
 ```
 
 Eller i din primære css-fil:
 
 ```tsx
 // Grønt tema
-@import '@kv-design/react/style/green.css';
+@import '@kv-design/react/green';
 
 // Blått tema
-@import '@kv-design/react/style/blue.css';
+@import '@kv-design/react/blue';
 ```
 
 ## 4. TypeScript: ekstra typedefinisjoner for data-color og data-size
@@ -60,13 +81,36 @@ Du kan legge til typedefinisjoner fra `@kv-design/theme` og `@kv-design/react/ht
 }
 ```
 
-# 5. Importer og bruk React-komponenter
+## 5. Installer ikoner fra Aksel (Nav)
+
+For å ta i bruk ikonbiblioteket til Aksel må du installere `@navikt/aksel-icons`.
+
+```jsx
+$ npm install @navikt/aksel-icons
+```
+
+Slik bruker du ikonene i React-prosjektet ditt:
+
+```tsx
+import { ChevronDownIcon, TrashIcon, FilterIcon } from '@navikt/aksel-icons';
+
+function MyComponent () {
+  return (
+    <div>
+      <FilterIcon />
+      <TrashIcon aria-hidden />
+      <ChevronDownIcon
+        title='Åpne panel'
+      />
+    </div>
+  )
+}
+```
+
+## 5. Importer og bruk React-komponenter
 
 Nå er du klar til å ta i bruk komponentene. Importer dem slik:
 
 ```tsx
 import { Button } from '@kv-design/react';
 ```
-
-{/* TODO: Last inn font (eller pakk den med i riktig pakke) */}
-{/* TODO: importere ikonbibliotek fra aksel */}
