@@ -4,9 +4,9 @@ import { Link } from '../link/Link';
 import { List } from './List';
 
 const meta = {
-  component: List.Item,
+  component: List.Unordered,
   parameters: { layout: 'centered' },
-} satisfies Meta<typeof List.Item>;
+} satisfies Meta<typeof List.Unordered>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -73,11 +73,12 @@ export const Ordered: Story = {
   )
 };
 
-export const Indented: Story = {
+// Since we need to pass args to List.Ordered but the component type of the meta object is List.Unordered, we need to explicitly set the component type of the Story to List.Ordered
+export const Indented: StoryObj<React.ComponentProps<typeof List.Ordered>> = {
   args: {
     style: { marginTop: 'var(--ds-size-2)' },
   },
-  render: (...args) => (
+  render: (args) => (
     <>
       <Heading level={2} data-size='xs'>
         Innhold
@@ -132,7 +133,7 @@ export const WithLinks: Story = {
   args: {
     style: { listStyle: 'none', padding: 0 },
   },
-  render: (...args) => (
+  render: (args) => (
     <List.Unordered {...args}>
       {designLinks.map((link) => (
         <List.Item key={link.href}>
@@ -175,9 +176,9 @@ export const NewSentence: Story = {
         For å få tilgang til datasettet, må du gjøre følgende:
       </Heading>
       <List.Ordered>
-        <List.Item>Registrere en bruker i Geonorge-portalen.</List.Item>
+        <List.Item>Registrer en bruker i Geonorge-portalen.</List.Item>
         <List.Item>Godta vilkårene for bruk av åpne data.</List.Item>
-        <List.Item>Laste ned datasettet i ønsket format.</List.Item>
+        <List.Item>Last ned datasettet i ønsket format.</List.Item>
       </List.Ordered>
     </>
   )
