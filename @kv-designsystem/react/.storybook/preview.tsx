@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react-vite';
+import { useEffect } from 'react';
 
 import '@digdir/designsystemet-css'; /* imported only once */
 // import "@digdir/designsystemet-css/theme"; /* and this */
@@ -43,15 +44,36 @@ const preview: Preview = {
   },
   decorators: [
     (Story, context) => {
-      const stylesheet = `/style/${context.globals.theme}.css`; // Serve as static file from the public directory.
+      // const stylesheet = `/style/${context.globals.theme}.css`; // Serve as static file from the public directory.
+
       return (
-        <>
-          <link rel="stylesheet" href={stylesheet} />
+        <ThemeWrapper theme={context.globals.theme}>
           <Story />
-        </>
+        </ThemeWrapper>
       );
     },
   ],
+};
+
+type Theme = 'green' | 'blue';
+
+const themes: Record<Theme, () => Promise<unknown>> = {
+  green: () => import('@kv-designsystem/css/green'),
+  blue: () => import('@kv-designsystem/css/blue'),
+}
+
+const ThemeWrapper = ({
+  theme,
+  children,
+}: {
+  theme: Theme;
+  children: React.ReactNode;
+}) => {
+  useEffect(() => {
+    themes[theme]();
+  }, [theme]);
+
+  return children;
 };
 
 export default preview;
