@@ -1,43 +1,54 @@
 name: Build and Publish Storybook to GitHub Pages
+
 on:
-  push:
-    branches:
-      - 'main'
+  workflow_run:
+    workflows: ["Build"]
+    types: [completed]
+    branches: [main]
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
-  group: 'pages'
+  group: pages
   cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' }}
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
         with:
-          fetch-depth: 0
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: 'package.json'
-          cache: 'pnpm'
-      - name: Install dependencies
-        run: npm ci # Replace with appropriate command if using other package managers
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Check whether React package is affected
+        id: affected
+        shell: bash
+        run: |
+          if pnpm nx show projects --affected --base "$NX_BASE" --head "$NX_HEAD" | grep -Fxq "@kv-designsystem/react"; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Build Storybook
-        run: npm run build-storybook
-      # Upload pages artifact
+        if: steps.affected.outputs.run == 'true'
+        working-directory: '@kv-designsystem/react'
+        run: pnpm build-storybook
+
       - name: Upload Pages artifact
+        if: steps.affected.outputs.run == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'storybook-static'
-      # Deploy to Github Pages
+          path: '@kv-designsystem/react/storybook-static'
+
       - id: deploy
-        name: Deploy to GitHub Pages
+        if: steps.affected.outputs.run == 'true'
         uses: actions/deploy-pages@v4
-        with:
-          token: ${{ github.token }}

@@ -5,10 +5,9 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened]
 
 permissions:
-  actions: read
   contents: read
   checks: write
 
@@ -16,22 +15,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/setup.yml # path should be relative to the repository root
+      - uses: ./.github/actions/setup
+        with:
+          ref: ${{ github.sha }}
+
       - name: Print affected projects
-        run: |
-          pnpm nx show projects --affected --base $NX_BASE --head $NX_HEAD \
-            | grep -v "^info" || echo "No projects affected" && true
+        run: pnpm nx show projects --affected --base "$NX_BASE" --head "$NX_HEAD"
 
-      #   - name: Validate current commit (last commit) with commitlint
-      #     if: github.event_name == 'push'
-      #     run: pnpm commitlint --last --verbose
-
-      #   - name: Validate PR commits with commitlint
-      #     if: github.event_name == 'pull_request'
-      #     run: pnpm commitlint --from ${{ github.event.pull_request.base.sha}} --to ${{ github.event.pull_request.head.sha }} --verbose
-      
-      # Build all packages
-      - run: pnpm build
+      - name: Build affected projects
+        run: pnpm nx affected -t build --base "$NX_BASE" --head "$NX_HEAD"
 
       - name: Fail if the build changed any checked-in files
         run: git diff --stat --exit-code
