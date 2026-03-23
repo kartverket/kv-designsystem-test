@@ -13,14 +13,13 @@
   "targets": {
     "prebuild": {
       "cache": true,
-      "inputs": ["css"],
-      "outputs": ["{projectRoot}/src/components.css"]
+      "inputs": ["css", "default", "^default"],
+      "outputs": ["{projectRoot}/src/components.css", "{projectRoot}/src/green.css", "{projectRoot}/src/blue.css"]
     },
     "build": {
       "dependsOn": ["prebuild"],
       "cache": true,
-      "inputs": ["css", "default", "^default"],
-      "outputs": ["{projectRoot}/dist"]
+      "inputs": ["css", "default", "^default"]
     },
     "watch": {
       "continuous": true,

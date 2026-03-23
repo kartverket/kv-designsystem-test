@@ -35,7 +35,7 @@
     "build": "vite build",
     "dev": "storybook dev --port 6006 --ci",
     "preview": "vite preview",
-    "build-storybook": "storybook build --stats-json",
+    "build-storybook": "pnpm nx build @kv-designsystem/css && storybook build --stats-json",
     "test-storybook": "pnpm nx test --project=storybook",
     "view-storybook-test-report": "pnpm dlx http-server ./test-reports/storybook"
   },

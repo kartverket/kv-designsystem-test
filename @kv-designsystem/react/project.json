@@ -15,8 +15,11 @@
       ]
     },
     "build-storybook": {
-      "cache": true,
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "executor": "@storybook/react-vite:build",
+      "options": {
+        "outputDir": "dist/storybook"
+      }
     },
     "test-storybook": {
       "cache": true,
