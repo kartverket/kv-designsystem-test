@@ -7,7 +7,6 @@ import postcss from 'postcss';
 import postcssImport from 'postcss-import';
 // import postcssImportExtGlob from 'postcss-import-ext-glob';
 import nesting from 'postcss-nesting';
-import pkg from './package.json' with { type: 'json' };
 
 /** @type Array<(path: string) => boolean> */
 const importFilters = [

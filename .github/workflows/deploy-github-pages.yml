@@ -24,6 +24,9 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
 
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: ./.github/actions/setup
         with:
           ref: ${{ github.event.workflow_run.head_sha }}

@@ -44,7 +44,6 @@
     "@digdir/designsystemet-react": "catalog:",
     "@digdir/designsystemet-types": "catalog:",
     "@navikt/aksel-icons": "catalog:",
-    "@kv-design/css": "workspace:*",
     "@kv-designsystem/css": "workspace:*",
     "tslib": "catalog:"
   },

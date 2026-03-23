@@ -1515,6 +1515,17 @@ packages:
   '@napi-rs/wasm-runtime@0.2.4':
     resolution: {integrity: sha512-9zESzOO5aDByvhIAsOy9TbpZ0Ur2AJbUI7UT73kcUTS2mxAMHOBaa1st/jAymNoCtvrit99kkzT1FZuXVcgfIQ==}
 
+  '@navikt/aksel-icons@8.4.1':
+    resolution: {integrity: sha512-NF1hXW7fmInZ9sT/Ld7e7UE7XaTIidgo/Mamf4Wpm1JlJoyi0vukKIXN9M4ULRw7nSmAz481I5+uJtMIRatCHA==}
+    peerDependencies:
+      '@types/react': ^18.3.11 || ^19.0.0
+      react: ^18.3.1 || ^19.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+
   '@navikt/aksel-icons@8.7.0':
     resolution: {integrity: sha512-pANfaE/xr2a9Q3CYMWbCjhAk9+UNuUa50Ez37Zk2nZQYtjP1vLXluOgHrxGAGTs6T4ToE+IjtJdU9DoEBnBbdw==}
     peerDependencies:
@@ -6617,6 +6628,11 @@ snapshots:
       '@emnapi/core': 1.9.0
       '@emnapi/runtime': 1.9.0
       '@tybys/wasm-util': 0.9.0
+
+  '@navikt/aksel-icons@8.4.1(@types/react@19.2.14)(react@19.2.4)':
+    optionalDependencies:
+      '@types/react': 19.2.14
+      react: 19.2.4
 
   '@navikt/aksel-icons@8.7.0(@types/react@19.2.14)(react@19.2.4)':
     optionalDependencies:

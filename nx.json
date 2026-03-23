@@ -47,10 +47,6 @@
       "outputs": ["{projectRoot}/test-reports/storybook"],
       "cache": true,
       "dependsOn": ["build"]
-    },
-    "chromatic": {
-      "cache": true,
-      "dependsOn": ["build"]
     }
   },
   "plugins": [

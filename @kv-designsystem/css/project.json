@@ -19,7 +19,8 @@
     "build": {
       "dependsOn": ["prebuild"],
       "cache": true,
-      "inputs": ["css", "default", "^default"]
+      "inputs": ["css", "default", "^default"],
+      "outputs": ["{projectRoot}/dist"]
     },
     "watch": {
       "continuous": true,
