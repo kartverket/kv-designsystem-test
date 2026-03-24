@@ -1,6 +1,7 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { FeedbackSection } from '../FeedbackSection';
 import { UnderConstructionAlert } from '../UnderConstructionAlert';
+import { Alert } from '../../components/alert/Alert';
 
 <Meta title='Kom i gang som utvikler' />
 
@@ -81,7 +82,11 @@ Du kan legge til typedefinisjoner fra `@kv-design/theme` og `@kv-design/react/ht
 }
 ```
 
-## 5. Installer ikoner fra Aksel (Nav)
+## 5. Installer ikoner fra Aksel (Nav) og Open Bridge 
+
+Så langt det lar seg gjøre anbefaler vi å bruke Navs ikonbiblioteket Aksel. Hvis du har behov for ikoner du ikke finner i Aksel, kan du bruke Open Bridge. Som regel bruker vi outline-ikoner, men unntaksvis kan filled være et godt alternativ. 
+
+### Aksel 
 
 For å ta i bruk ikonbiblioteket til Aksel må du installere `@navikt/aksel-icons`.
 
@@ -107,7 +112,37 @@ function MyComponent () {
 }
 ```
 
-## 5. Importer og bruk React-komponenter
+### Open Bridge
+
+<Alert>
+Ettersom `stroke-width` er ulik i de to ikonpakkene, er det ønskelig at man unngår å bruke ikoner fra pakkene nær hverandre. 
+
+Vi har ikke prioritert å løse dette ennå.
+
+Finner du en fornuftig løsning på dette så gi oss gjerne beskjed.
+</Alert>
+
+For å ta i bruk ikonbiblioteket til Open Source må du installere `@oicl/openbridge-webcomponents-react`.
+
+```jsx
+$ npm install @oicl/openbridge-webcomponents-react
+```
+
+Open Bridge ikonene skalerer ikke automatisk etter tekststørrelse, du må dermed justere størrelsen selv ved å sette `height`/`width` med inline-styling. Velg `var(--ds-font-size-<tall>)` tilpasset konteksten.
+
+Slik bruker du ikonene i React-prosjektet ditt:
+
+```tsx
+import {Obi02Illustration } from '@oicl/openbridge-webcomponents-react/icons/icon-02-illustration.js';
+
+function MyComponent () {
+  return (
+    <Obi02Illustration style={{width: 'var(--ds-font-size-6)' }}/>
+  )
+}
+```
+
+## 6. Importer og bruk React-komponenter
 
 Nå er du klar til å ta i bruk komponentene. Importer dem slik:
 
