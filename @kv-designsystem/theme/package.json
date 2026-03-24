@@ -1,0 +1,36 @@
+{
+  "name": "@kv-designsystem/theme",
+  "repository": {
+    "type": "git",
+    "url": "github:kartverket/kv-designsystem-test",
+    "directory": "@kv-designsystem/theme"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "version": "0.0.2",
+  "type": "module",
+  "exports": {
+    "./types": "./dist/types.d.ts",
+    "./green": "./dist/green.css",
+    "./blue": "./dist/blue.css",
+    "./dist/*": "./dist/*"
+  },
+  "files": [
+    "./dist"
+  ],
+  "dependencies": {
+    "@digdir/designsystemet-types": "catalog:"
+  },
+  "devDependencies": {
+    "@internal/build-tools": "workspace:*",
+    "@kv-designsystem/tokens": "workspace:*",
+    "rimraf": "catalog:"
+  },
+  "scripts": {
+    "copy-css": "cp ../../design-tokens/dist/*.* ./dist/ && rm ./dist/colors.d.ts",
+    "clean": "rimraf ./dist && mkdir ./dist",
+    "build": "pnpm clean && pnpm copy-css"
+  }
+}

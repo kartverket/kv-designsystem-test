@@ -1,0 +1,58 @@
+name: Build and Publish Storybook to GitHub Pages
+
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types: [completed]
+    # branches: [main]  TODO: Make sure the publish to github workflow works before only running it on push to main.
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' }} TODO: Make sure the publish to github workflow works before only running it on push to main.
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request' }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./.github/actions/setup
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Check whether React package is affected
+        id: affected
+        shell: bash
+        run: |
+          if pnpm nx show projects --affected --base "$NX_BASE" --head "$NX_HEAD" | grep -Fxq "@kv-designsystem/react"; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build Storybook
+        if: steps.affected.outputs.run == 'true'
+        working-directory: '@kv-designsystem/react'
+        run: pnpm build-storybook
+
+      - name: Upload Pages artifact
+        if: steps.affected.outputs.run == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '@kv-designsystem/react/storybook-static'
+
+      - id: deploy
+        if: steps.affected.outputs.run == 'true'
+        uses: actions/deploy-pages@v4

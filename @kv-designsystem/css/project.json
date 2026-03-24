@@ -1,0 +1,29 @@
+{
+  "name": "@kv-designsystem/css",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "@kv-designsystem/css/src",
+  "projectType": "library",
+  "tags": [],
+  "namedInputs": {
+    "css": [
+      "{workspaceRoot}/@kv-designsystem/react/src/components/**/*.css",
+      "!{workspaceRoot}/@kv-designsystem/react/src/components/**/*.module.css"
+    ]
+  },
+  "targets": {
+    "prebuild": {
+      "cache": true,
+      "inputs": ["css", "default", "^default"],
+      "outputs": ["{projectRoot}/src/components.css", "{projectRoot}/src/green.css", "{projectRoot}/src/blue.css"]
+    },
+    "build": {
+      "dependsOn": ["prebuild"],
+      "cache": true,
+      "inputs": ["css", "default", "^default"]
+    },
+    "watch": {
+      "continuous": true,
+      "inputs": ["css", "default", "^default"]
+    }
+  }
+}

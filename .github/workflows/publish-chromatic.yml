@@ -1,0 +1,44 @@
+
+name: Publish to Chromatic
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Check whether React package is affected
+        id: affected
+        shell: bash
+        run: |
+          if pnpm nx show projects --affected --base "$NX_BASE" --head "$NX_HEAD" | grep -Fxq "@kv-designsystem/react"; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish Storybook to Chromatic
+        if: steps.affected.outputs.run == 'true'
+        uses: chromaui/action@v13
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: '@kv-designsystem/react'
+          buildScriptName: build-storybook
+          exitZeroOnChanges: true
+          exitOnceUploaded: true
+          onlyChanged: true
+          externals: 'design-tokens/src/**'

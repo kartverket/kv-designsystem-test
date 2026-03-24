@@ -12,7 +12,7 @@ export const importOrderRules = {
   named: true,
   pathGroups: [
     {
-      pattern: '@kv-design/**',
+      pattern: '@kv-designsystem/**',
       group: 'external',
       position: 'after',
     },

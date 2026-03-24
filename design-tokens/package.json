@@ -1,5 +1,5 @@
 {
-  "name": "@kv-design/tokens",
+  "name": "@kv-designsystem/tokens",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,8 +9,7 @@
   },
   "scripts": {
     "create": "designsystemet tokens create",
-    "build": "pnpm clean && designsystemet tokens build -t ./src -o ./dist && pnpm copy-themes-to-storybook",
-    "copy-themes-to-storybook": "cp ./dist/*.css ../@kv-design/react/public/style/",
+    "build": "pnpm clean && designsystemet tokens build -t ./src -o ./dist",
     "clean": "rimraf dist"
   },
   "devDependencies": {

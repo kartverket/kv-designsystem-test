@@ -1,0 +1,40 @@
+{
+  "name": "@kv-designsystem/css",
+  "repository": {
+    "type": "git",
+    "url": "github:kartverket/kv-designsystem-test",
+    "directory": "@kv-designsystem/css"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "version": "0.0.2",
+  "type": "module",
+  "exports": {
+    "./green": "./dist/green.css",
+    "./blue": "./dist/blue.css",
+    "./components.css": "./dist/components.css"
+  },
+  "files": [
+    "./dist"
+  ],
+  "dependencies": {
+    "@digdir/designsystemet-css": "catalog:",
+    "@kv-designsystem/theme": "workspace:*"
+  },
+  "devDependencies": {
+    "autoprefixer": "catalog:",
+    "cssnano": "catalog:",
+    "postcss": "catalog:",
+    "postcss-cli": "catalog:",
+    "postcss-import": "catalog:",
+    "postcss-load-config": "catalog:",
+    "postcss-nesting": "catalog:"
+  },
+  "scripts": {
+    "prebuild": "node scripts/generate-components-css.js",
+    "build": "postcss \"src/*.css\" --base src --dir dist",
+    "watch": "pnpm build --watch"
+  }
+}

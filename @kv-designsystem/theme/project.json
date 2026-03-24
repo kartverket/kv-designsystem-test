@@ -1,0 +1,14 @@
+{
+  "name": "@kv-designsystem/theme",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "@kv-designsystem/theme/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project @kv-designsystem/theme --web",
+  "targets": {
+    "build": {
+      "cache": true,
+      "inputs": ["default", "^default"]
+    }
+  }
+}

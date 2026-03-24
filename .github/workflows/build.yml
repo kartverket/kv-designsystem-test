@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - uses: ./.github/actions/setup
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Print affected projects
+        run: pnpm nx show projects --affected --base "$NX_BASE" --head "$NX_HEAD"
+
+      - name: Run root build script
+        run: pnpm build
+
+      - name: Fail if the build changed any checked-in files
+        run: git diff --stat --exit-code
