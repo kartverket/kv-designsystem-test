@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Avatar } from './Avatar';
+import { Avatar, type AvatarProps } from './Avatar';
 import { Dropdown } from '../dropdown/Dropdown';
 import { Badge } from '../badge/Badge';
 import { Link } from '../link/Link';
 import { BriefcaseIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 
 // TODO: fix styling to be implemented the same across all components
-const meta: Meta<typeof Avatar> = {
+const meta = {
   component: Avatar,
   parameters: { layout: 'centered' },
   decorators: [
@@ -25,18 +25,15 @@ const meta: Meta<typeof Avatar> = {
       </div>
     ),
   ],
-};
+} satisfies Meta<AvatarProps>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<AvatarProps>;
 
 export const Preview: Story = {
   args: {
     'aria-label': 'Ola Nordmann',
    },
-  render: (args) => (
-    <Avatar {...args} />
-  ),
 };
 
 const profileImage = 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
@@ -45,7 +42,7 @@ export const Content: Story = {
   args: {
     'aria-label': 'Ola Nordmann',
   },
-  render: (args) => (
+  render: (args: AvatarProps) => (
     <>
     <Avatar {...args} />
     <Avatar {...args} initials='ON'/>
@@ -129,7 +126,7 @@ export const AsLink: Story = {
   args: {
     'aria-hidden': true,
   },
-  render: (args) => (
+  render: (args: AvatarProps) => (
     <Link
       href='https://www.kartverket.no/'
       style={{ display: 'flex', gap: 'var(--ds-size-2)', alignItems: 'center' }}

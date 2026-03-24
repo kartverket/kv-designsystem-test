@@ -1,10 +1,5 @@
 {
   "name": "@kv-designsystem/tokens",
-  "repository": {
-    "type": "git",
-    "url": "github:kartverket/kv-designsystem-test",
-    "directory": "@kv-designsystem/tokens"
-  },
   "private": true,
   "version": "0.0.0",
   "type": "module",

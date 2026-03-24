@@ -28,7 +28,7 @@
     "cssnano": "catalog:",
     "postcss": "catalog:",
     "postcss-cli": "catalog:",
-    "postcss-import": "^16.1.1",
+    "postcss-import": "catalog:",
     "postcss-load-config": "catalog:",
     "postcss-nesting": "catalog:"
   },

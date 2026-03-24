@@ -1,4 +1,6 @@
 /// <reference types="vitest/config" />
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig, createFilter } from 'vite';
 import react from '@vitejs/plugin-react';
 import ts from 'typescript';
@@ -7,8 +9,6 @@ import dts from 'vite-plugin-dts';
 import type { Plugin as VitePlugin } from 'vite';
 
 // https://vite.dev/config/
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
 import pkg from './package.json';

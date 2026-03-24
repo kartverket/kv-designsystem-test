@@ -48,6 +48,7 @@
     "tslib": "catalog:"
   },
   "devDependencies": {
+    "@internal/build-tools": "workspace:*",
     "@chromatic-com/storybook": "catalog:",
     "@storybook/addon-a11y": "catalog:",
     "@storybook/addon-docs": "catalog:",

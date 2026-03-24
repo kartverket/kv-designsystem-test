@@ -26,8 +26,8 @@ jobs:
       - name: Print affected projects
         run: pnpm nx show projects --affected --base "$NX_BASE" --head "$NX_HEAD"
 
-      - name: Build affected projects
-        run: pnpm nx affected -t build --base "$NX_BASE" --head "$NX_HEAD"
+      - name: Run root build script
+        run: pnpm build
 
       - name: Fail if the build changed any checked-in files
         run: git diff --stat --exit-code
