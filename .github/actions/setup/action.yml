@@ -1,11 +1,6 @@
 name: Setup pnpm + Node + Nx
 description: Install dependencies and prepare Nx SHAs
 
-inputs:
-  ref:
-    description: Git ref to checkout
-    required: true
-
 runs:
   using: composite
   steps:
@@ -15,7 +10,7 @@ runs:
         run_install: false
 
     - name: Setup Node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version-file: package.json
         cache: pnpm
@@ -27,6 +22,6 @@ runs:
       run: pnpm install --frozen-lockfile
 
     - name: Set Nx SHAs
-      uses: nrwl/nx-set-shas@v4
+      uses: nrwl/nx-set-shas@v5
       with:
         main-branch-name: main

@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Build"]
     types: [completed]
-    # branches: [main]  TODO: Make sure the publish to github workflow works before only running it on push to main.
+    branches: [main]
 
 permissions:
   contents: read
@@ -18,19 +18,17 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' }} TODO: Make sure the publish to github workflow works before only running it on push to main.
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' }}
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+
       - uses: ./.github/actions/setup
-        with:
-          ref: ${{ github.event.workflow_run.head_sha }}
 
       - name: Check whether React package is affected
         id: affected
@@ -49,7 +47,7 @@ jobs:
 
       - name: Upload Pages artifact
         if: steps.affected.outputs.run == 'true'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: '@kv-designsystem/react/storybook-static'
 
