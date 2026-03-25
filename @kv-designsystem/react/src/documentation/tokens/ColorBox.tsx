@@ -1,6 +1,7 @@
 import { Label } from '../../components/typography/label/Label';
 import styles from './ColorBox.module.css';
 
+
 const colors = [
     { hex: '#1A833B', textColor: '#ffffff', label: 'accent' },
     { hex: '#1A589F', textColor: '#ffffff', label: 'accent' },
@@ -13,14 +14,20 @@ const colors = [
     { hex: '#D72800', textColor: '#ffffff', label: 'danger' },
 ];
 
-function ColorItem({ hex, textColor, label }) {
+type ColorItemProps = {
+    hex: string;
+    textColor: string;
+    label: string;
+}
+
+function ColorItem({ hex, textColor, label }: ColorItemProps) {
     return (
         <div className={styles.item}>
             <div 
                 className={styles.box}
                 style={{
-                    backgroundColor: hex,
-                    color: textColor,
+                    backgroundColor: hex, // `var(--ds-${label}-base-default)`
+                    color: textColor, //`var(--ds-${label}-text-default)`
                 }} 
             >
                 {hex}

@@ -4,7 +4,7 @@ import { Link } from '../components/link/Link';
 
 export function UnderConstructionAlert() {
     return (
-        <Alert>
+        <Alert data-color='warning'>
             <Heading     
                 data-size='xs'
                 level={2}

@@ -5,7 +5,7 @@ import { Heading, type HeadingProps } from '../components/typography/heading/Hea
 export function FeedbackSection({ level = 2 }: HeadingProps) {
     return (
         <section>
-            <Heading level={level} data-size='xs'>Hjelp oss å forbedre</Heading>
+            <Heading level={level} data-size='xs'>Hjelp oss med å forbedre designsystemet</Heading>
             <div 
                 style={{
                     display: 'flex',

@@ -5,8 +5,6 @@ import { Alert } from '../../components/alert/Alert';
 
 <Meta title='Kom i gang som utvikler' />
 
-<UnderConstructionAlert />
-
 # Kom i gang som utvikler 
 
 Her får du en guide med steg for steg for å starte å bruke Kartverkets designsystem som utvikler.
@@ -15,10 +13,10 @@ Her får du en guide med steg for steg for å starte å bruke Kartverkets design
 
 ## 1. Installer
 
-For å ta i bruk komponentbiblioteket må du installere `@kv-designsystem/react`.
+For å ta i bruk komponentbiblioteket må du installere `@kv-designsystem/react@alpha`.
 
 ```jsx
-$ npm install @kv-designsystem/react
+$ npm install @kv-designsystem/react@alpha
 ```
 
 ## 2. Sett riktig font
@@ -54,25 +52,25 @@ Importer stilsettet enten i JavaScript-/TypeScript-entrypointet:
 
 ```tsx
 // Grønt tema
-import '@kv-design/react/green';
+import '@kv-designsystem/react/green';
 
 // Blått tema
-import '@kv-design/react/blue';
+import '@kv-designsystem/react/blue';
 ```
 
 Eller i din primære css-fil:
 
 ```tsx
 // Grønt tema
-@import '@kv-design/react/green';
+@import '@kv-designsystem/react/green';
 
 // Blått tema
-@import '@kv-design/react/blue';
+@import '@kv-designsystem/react/blue';
 ```
 
 ## 4. TypeScript: ekstra typedefinisjoner for data-color og data-size
 
-Du kan legge til typedefinisjoner fra `@kv-design/theme` og `@kv-design/react/html` hvis du bruker TypeScript. Legg til disse typene i `tsconfig.json`-filen din:
+Du kan legge til typedefinisjoner fra `@kv-designsystem/theme` og `@kv-designsystem/react/html` hvis du bruker TypeScript. Legg til disse typene i `tsconfig.json`-filen din:
 
 ```jsonc
 {
@@ -82,7 +80,15 @@ Du kan legge til typedefinisjoner fra `@kv-design/theme` og `@kv-design/react/ht
 }
 ```
 
-## 5. Installer ikoner fra Aksel (Nav) og Open Bridge 
+## 5. Importer og bruk React-komponenter
+
+Nå er du klar til å ta i bruk komponentene. Importer dem slik:
+
+```tsx
+import { Button } from '@kv-designsystem/react';
+```
+
+## 6. Installer ikoner fra Aksel (Nav) og Open Bridge 
 
 Så langt det lar seg gjøre anbefaler vi å bruke Navs ikonbiblioteket Aksel. Hvis du har behov for ikoner du ikke finner i Aksel, kan du bruke Open Bridge. Som regel bruker vi outline-ikoner, men unntaksvis kan filled være et godt alternativ. 
 
@@ -140,12 +146,4 @@ function MyComponent () {
     <Obi02Illustration style={{width: 'var(--ds-font-size-6)' }}/>
   )
 }
-```
-
-## 6. Importer og bruk React-komponenter
-
-Nå er du klar til å ta i bruk komponentene. Importer dem slik:
-
-```tsx
-import { Button } from '@kv-design/react';
 ```

@@ -3,7 +3,6 @@ import { Card } from '../../components/card/Card';
 import { Heading } from '../../components/typography/heading/Heading';
 import classes from '../styles/layout.module.css';
 
-
 function getComponentNames() {
     const modules = import.meta.glob('../../components/**/*.stories.tsx', {
     });
