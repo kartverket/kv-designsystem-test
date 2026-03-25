@@ -3,6 +3,21 @@ import * as HeadingStories from './heading/Heading.stories';
 import * as ParagraphStories from './paragraph/Paragraph.stories';
 import * as LabelStories from './label/Label.stories';
 import * as ValidationMessageStories from './validationMessage/ValidationMessage.stories';
+import { Alert } from '../alert/Alert';
+import { Heading } from './heading/Heading';
+
+<Alert>
+  <Heading 
+    level={2} 
+    data-size='xs'
+    style={{
+      marginBottom: 'var(--ds-size-2)'
+    }}
+  >
+    Vi bruker Inter i første fase
+  </Heading>
+  I første fase følger vi Digdir Designsystemet sin font-family: Inter. Videre skal vi vurdere å bytte til Mulish, og dermed kan det endre seg senere.
+</Alert>
 
 # Typography
 
@@ -15,22 +30,27 @@ Typografi er en viktig del av det å bygge opp innhold på en nettside. Det er a
 
 ## Font
 
-For å sørge for at typografikomponentene bruker riktig font, må den importeres og defineres. I Kartverket bruker vi [Mulish](https://fonts.google.com/specimen/Mulish/about?query=mulish).
+For å sørge for at typografikomponentene bruker riktig font, må den importeres og defineres. I første omgang bruker vi [Inter](https://rsms.me/inter/).
 
-Den kan lastes ned fra Google Fonts.
+Den er tilgjengelig i Altinn CDN.
 
 ```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+<link
+  rel="stylesheet"
+  href="https://altinncdn.no/fonts/inter/v4.1/inter.css"
+  integrity="sha384-OcHzc/By/OPw9uJREawUCjP2inbOGKtKb4A/I2iXxmknUfog2H8Adx71tWVZRscD"
+  crossorigin="anonymous"
+/>
+
 ```
 
 For å få en konsistent typografi på nettsiden må du sette en standard typografistil.
 
 ```css
-html {
-  font-family: "Mulish", sans-serif;
+body {
+  font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
+  font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
 }
 ```
 

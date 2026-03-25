@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import '@digdir/designsystemet-css'; /* imported only once */
 // import "@digdir/designsystemet-css/theme"; /* and this */
 import '../.storybook/style.css';
+// import { Heading } from '../src/components/typography/heading/Heading';
 
 const preview: Preview = {
   tags: ['autodocs'], // Every component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
@@ -15,6 +16,11 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: 'todo',
     },
+    // docs: {
+    //   components: {
+    //     h2: Heading,
+    //   }
+    // }
   },
   globalTypes: {
     theme: {

@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Button } from '../../components/button/Button';
+import { Link } from '../../components/link/Link';
+import { Alert } from '../../components/alert/Alert';
+import { Heading } from '../../components/typography/heading/Heading';
+import { DocumentationOverview } from './DocumentationOverview';
+import { FeedbackSection } from '../FeedbackSection';
+import { UnderConstructionAlert } from '../UnderConstructionAlert';
+
+<Meta title='Introduksjon' />
+
+# Kartverkets Designsystem
+
+<Alert data-color='warning'>
+    <Heading     
+        data-size='xs'
+        level={2}
+        style={{
+            marginBottom: 'var(--ds-size-2)'
+        }}
+    >
+        Designsystemet er under utvikling
+    </Heading>
+        Vi jobber med å gå over til et nytt designsystem basert på <Link href='https://designsystemet.no/no'>Designsystemet</Link> av Digdir. I første omgang er det kun komponentene fra Digidr som er lagt til med våre farger. Tilpasninger, tillegg og andre endringer vil skje fortløpende.  
+</Alert>
+
+## Hva er designsystemet?
+
+Designsystemet består av
+- gjenbrukbare komponenter
+- visuelle retningslinjer 
+- mønstre til bruk for alle i Kartverket 
+
+Designsystemet gir oss et felles språk og forståelse av hvordan vi jobber sammen på tvers av produkter og tjenester. Ved å ha et bibliotek av elementer som er klare til bruk, bidrar det til
+- økt effektivitet i design og utviklingsprosessene våre
+- mindre dobbeltarbeid 
+- at prosjektene våre kommer raskere ut i produksjon
+- helhetlig uttrykk og brukeropplevelse på tvers
+- sikre og tilgjengelige løsninger
+
+Kartverkets designsystem skal tilrettelegge for bedre forutsetninger for innovasjon. 
+
+## Designsystemet er i test-fase
+
+Systemet er for tiden i test-fase. Vi ønsker at systemteamene tar det i bruk og gir oss tilbakemelding både om det som fungerer godt og om noe mangler eller bør endres. Vi trenger tilbakemeldingene for å kunne  gjøre endringer før det nye designsystemet lanseres og gamle `<KVIB>` kan depricates. 
+
+<FeedbackSection />
+
+<br />
+
+<DocumentationOverview />

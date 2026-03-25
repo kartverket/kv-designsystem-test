@@ -17,12 +17,12 @@ type Story = StoryObj<typeof meta>;
 
 const DATA_PLACES = [
 	'Sogndal',
-  'Oslo',
-  'Brønnøysund',
-  'Stavanger',
-  'Trondheim',
-  'Bergen',
-  'Lillestrøm',
+	'Oslo',
+	'Brønnøysund',
+	'Stavanger',
+	'Trondheim',
+	'Bergen',
+	'Lillestrøm',
 ];
 
 export const Preview: Story = {
@@ -78,12 +78,12 @@ export const Preview: Story = {
 //     };
 
 //     return (
-//       <Field lang="en">
+//       <Field lang='en'>
 //         <Label>Search for countries (in english)</Label>
 //         <Suggestion {...args} filter={false}>
 //           <Suggestion.Input id={id} onInput={handleInput} />
 //           <Suggestion.Clear />
-//           <Suggestion.List singular="%d country" plural="%d countries">
+//           <Suggestion.List singular='%d country' plural='%d countries'>
 //             {value ? (
 //               <Suggestion.Empty>
 //                 {options ? (
@@ -96,7 +96,7 @@ export const Preview: Story = {
 //                       gap: 8,
 //                     }}
 //                   >
-//                     <Spinner aria-hidden="true" data-size="sm" /> Laster...
+//                     <Spinner aria-hidden='true' data-size='sm' /> Laster...
 //                   </span>
 //                 )}
 //               </Suggestion.Empty>

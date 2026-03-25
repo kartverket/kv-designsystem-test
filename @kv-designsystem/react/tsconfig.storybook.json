@@ -11,8 +11,8 @@
       ],
       // Repeat paths form tsconfig.base.json because they apparently aren't included
       "@kv-designsystem/theme": ["../theme/src/index.ts"],
-      "@kv-designsystem/icons": ["../icons/src/index.ts"],
-      "@kv-designsystem/icons/metadata": ["../icons/src/metadata.ts"],
+      // "@kv-designsystem/icons": ["icons/src/index.ts"],
+      // "@kv-designsystem/icons/metadata": ["icons/src/metadata.ts"],
       "@kv-designsystem/symbols": ["../symbols/generated-src/index.ts"],
       "@kv-designsystem/symbols/metadata": ["../symbols/generated-src/metadata.ts"]
     },

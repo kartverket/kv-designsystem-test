@@ -1,0 +1,149 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { FeedbackSection } from '../FeedbackSection';
+import { UnderConstructionAlert } from '../UnderConstructionAlert';
+import { Alert } from '../../components/alert/Alert';
+
+<Meta title='Kom i gang som utvikler' />
+
+# Kom i gang som utvikler 
+
+Her får du en guide med steg for steg for å starte å bruke Kartverkets designsystem som utvikler.
+
+<FeedbackSection />
+
+## 1. Installer
+
+For å ta i bruk komponentbiblioteket må du installere `@kv-designsystem/react@alpha`.
+
+```jsx
+$ npm install @kv-designsystem/react@alpha
+```
+
+## 2. Sett riktig font
+
+I Kartverket bruker vi [Inter](https://rsms.me/inter/).
+
+Den er tilgjengelig i Altinn CDN.
+
+```html
+<link
+  rel="stylesheet"
+  href="https://altinncdn.no/fonts/inter/v4.1/inter.css"
+  integrity="sha384-OcHzc/By/OPw9uJREawUCjP2inbOGKtKb4A/I2iXxmknUfog2H8Adx71tWVZRscD"
+  crossorigin="anonymous"
+/>
+```
+
+For å få en konsistent typografi på nettsiden må du sette en standard typografistil.
+
+```css
+body {
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
+}
+```
+
+## 3. Last inn stilsett
+
+Du kan velge mellom to temaer, grønt eller blått.
+
+Importer stilsettet enten i JavaScript-/TypeScript-entrypointet:
+
+```tsx
+// Grønt tema
+import '@kv-designsystem/react/green';
+
+// Blått tema
+import '@kv-designsystem/react/blue';
+```
+
+Eller i din primære css-fil:
+
+```tsx
+// Grønt tema
+@import '@kv-designsystem/react/green';
+
+// Blått tema
+@import '@kv-designsystem/react/blue';
+```
+
+## 4. TypeScript: ekstra typedefinisjoner for data-color og data-size
+
+Du kan legge til typedefinisjoner fra `@kv-designsystem/theme` og `@kv-designsystem/react/html` hvis du bruker TypeScript. Legg til disse typene i `tsconfig.json`-filen din:
+
+```jsonc
+{
+  'compilerOptions': {
+    'types': ['@udir-design/theme', '@udir-design/react/html'],
+  },
+}
+```
+
+## 5. Importer og bruk React-komponenter
+
+Nå er du klar til å ta i bruk komponentene. Importer dem slik:
+
+```tsx
+import { Button } from '@kv-designsystem/react';
+```
+
+## 6. Installer ikoner fra Aksel (Nav) og Open Bridge 
+
+Så langt det lar seg gjøre anbefaler vi å bruke Navs ikonbiblioteket Aksel. Hvis du har behov for ikoner du ikke finner i Aksel, kan du bruke Open Bridge. Som regel bruker vi outline-ikoner, men unntaksvis kan filled være et godt alternativ. 
+
+### Aksel 
+
+For å ta i bruk ikonbiblioteket til Aksel må du installere `@navikt/aksel-icons`.
+
+```jsx
+$ npm install @navikt/aksel-icons
+```
+
+Slik bruker du ikonene i React-prosjektet ditt:
+
+```tsx
+import { ChevronDownIcon, TrashIcon, FilterIcon } from '@navikt/aksel-icons';
+
+function MyComponent () {
+  return (
+    <div>
+      <FilterIcon />
+      <TrashIcon aria-hidden />
+      <ChevronDownIcon
+        title='Åpne panel'
+      />
+    </div>
+  )
+}
+```
+
+### Open Bridge
+
+<Alert>
+Ettersom `stroke-width` er ulik i de to ikonpakkene, er det ønskelig at man unngår å bruke ikoner fra pakkene nær hverandre. 
+
+Vi har ikke prioritert å løse dette ennå.
+
+Finner du en fornuftig løsning på dette så gi oss gjerne beskjed.
+</Alert>
+
+For å ta i bruk ikonbiblioteket til Open Source må du installere `@oicl/openbridge-webcomponents-react`.
+
+```jsx
+$ npm install @oicl/openbridge-webcomponents-react
+```
+
+Open Bridge ikonene skalerer ikke automatisk etter tekststørrelse, du må dermed justere størrelsen selv ved å sette `height`/`width` med inline-styling. Velg `var(--ds-font-size-<tall>)` tilpasset konteksten.
+
+Slik bruker du ikonene i React-prosjektet ditt:
+
+```tsx
+import {Obi02Illustration } from '@oicl/openbridge-webcomponents-react/icons/icon-02-illustration.js';
+
+function MyComponent () {
+  return (
+    <Obi02Illustration style={{width: 'var(--ds-font-size-6)' }}/>
+  )
+}
+```
