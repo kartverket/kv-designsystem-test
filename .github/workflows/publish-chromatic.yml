@@ -37,7 +37,6 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: '@kv-designsystem/react'
-          storybookBuildDir: ./storybook-static
           buildScriptName: build-storybook
           exitZeroOnChanges: true
           exitOnceUploaded: true
