@@ -1,4 +1,6 @@
-html {
+@import '../public/style/green.css';
+
+body {
   font-family: var(--ds-font-family), sans-serif;
   font-optical-sizing: auto;
   font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
