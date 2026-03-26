@@ -14,10 +14,9 @@
     "prebuild": {
       "cache": true,
       "inputs": ["css", "default", "^default"],
-      "outputs": ["{projectRoot}/src/components.css", "{projectRoot}/src/green.css", "{projectRoot}/src/blue.css"]
+      "outputs": ["{projectRoot}/src/components.css"]
     },
     "build": {
-      "dependsOn": ["prebuild"],
       "cache": true,
       "inputs": ["css", "default", "^default"]
     },
