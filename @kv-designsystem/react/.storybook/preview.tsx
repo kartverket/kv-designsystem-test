@@ -1,19 +1,27 @@
 import type { Preview } from '@storybook/react-vite';
 import { useEffect } from 'react';
 import * as icons from '@navikt/aksel-icons';
-import type { ComponentType } from 'react';
 import '@digdir/designsystemet-css'; /* imported only once */
 // import "@digdir/designsystemet-css/theme"; /* and this */
 import '../.storybook/style.css';
 
 // Fix icons being displayed as React.ForwardRef in Storybook code examples
-type IconComponent = ComponentType & {
+type ForwardRefComponent = {
   displayName?: string;
+  render?: {
+    displayName?: string;
+  };
 };
 
 Object.entries(icons).forEach(([name, component]) => {
-  if (typeof component === 'function') {
-    (component as IconComponent).displayName = name;
+  if (typeof component === 'object' && component !== null) {
+    const comp = component as unknown as ForwardRefComponent;
+
+    comp.displayName = name;
+
+    if (comp.render) {
+      comp.render.displayName = name;
+    }
   }
 });
 
