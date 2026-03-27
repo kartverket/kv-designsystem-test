@@ -9,7 +9,7 @@ const config: StorybookConfig = {
     '@storybook/addon-docs',
     '@storybook/addon-onboarding',
   ],
-  docs: { defaultName: 'Dokumentasjon' },
+  // docs: { defaultName: 'Dokumentasjon' },
   staticDirs: ['../assets'],
   framework: '@storybook/react-vite',
   typescript: {

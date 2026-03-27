@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react-vite';
 import { useEffect } from 'react';
+import { componentOverrides } from './docs/componentOverrides';
+import './docs/customTheme.css';
 
 import '@digdir/designsystemet-css'; /* imported only once */
 // import "@digdir/designsystemet-css/theme"; /* and this */
@@ -18,6 +20,7 @@ const preview: Preview = {
     },
     docs: {
       theme: customTheme,
+      components: componentOverrides,
     }
   },
   globalTypes: {
