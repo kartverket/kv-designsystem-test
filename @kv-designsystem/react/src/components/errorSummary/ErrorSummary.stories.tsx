@@ -35,7 +35,7 @@ export const Preview: Story = {
   )
 };
 
-// TODO: when clicking the .Link-items it changes the path, we want to stay on the same path
+// TODO: when clicking the .Link-items it changes the path, we want to stay on the same path. Udir has avoided this by creating withScrollHashBehaviour
 export const WithForm: Story = {
   decorators: [
     (Story) => (
