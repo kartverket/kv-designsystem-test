@@ -29,7 +29,6 @@ export function TranslationTable() {
             <Table.Cell>{row.ds}</Table.Cell>
         </Table.Row>
         ))}
-        
       </Table.Body>
     </Table>
   )

@@ -1,0 +1,55 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Button } from '../../components/button/Button';
+import { CookiesTable } from './CookiesTable';
+
+<Meta title='Cookies og personvern' />
+
+# Bruk av informasjonskapsler på Kartverkets designsystem
+
+Informasjonskapsler (cookies) er små tekstfiler som lagres på datamaskinen din når du laster ned en nettside. Disse filene informerer om aktiviteten og preferansene dine på nettstedet.
+
+## Om våre informasjonskapsler
+
+### Nødvendige informasjonskapsler
+
+{/* TODO: bytt ut Tjenestetittel? */}
+Når du besøker *Tjenestetittel* bruker vi informasjonskapsler som gjør nettsiden trygg å bruke. Disse er nødvendige for at tjenesten skal fungere og kan derfor ikke velges bort. 
+
+### Webanalyse
+
+Dersom du gir samtykke til webanalyse, bruker vi informasjonskapsler til å analysere brukeraktiviteten din på nettsiden vår. Vi benytter analyseverktøyet PostHog til å innhente og analysere aktivitet om hvordan du navigerer og feilmeldinger som oppstår. Formålet med dette er å samle brukerinnsikt til å forbedre ytelsen til tjenesten. Som besøkende blir du anonymisert, slik at vi ikke kan knytte innsikten til deg som person. Funksjonaliteten på nettsiden blir ikke påvirket om du lar være å samtykke til dette. 
+
+### Administrer informasjonskapsler
+
+{/* TODO: button must open cookie banner that lets the user adjust preferences */}
+<Button variant='secondary'>Administrer informasjonskapsler</Button>
+
+Du kan når som helst trekke tilbake samtykket.
+
+## Oversikt over informasjonskapslene
+
+<CookiesTable />
+
+\* Dersom du samtykker, vil valgfrie cookies lagres inntil du trekker samtykket tilbake. Valgfrie cookies vil uansett slettes automatisk etter 90 dager dersom du ikke har besøkt nettsidene våre i dette tidsrommet.
+
+## Informasjon om hver enkel informasjonskapsel
+
+### Cookie nr 1 (samtykke-cookie)
+
+Denne informasjonskapselen har som formål å administrere samtykket ditt. Den lagrer informasjon om hvilke cookies samtykket gjelder ut i fra hva du har godtatt og ikke. Denne informasjonen lagres i 90 dager, slik at du ikke skal bli plaget med en samtykkeforespørsel hver gang du besøker nettstedet.
+
+Valgfriheten til denne samtykke-cookien er betinget, fordi den kun lagres dersom du gjør et valg i samtykkebanneret.
+
+### Cookie nr 2
+
+Formålet med denne informasjonskapselen er å...
+
+## Personvern og GDPR
+
+### Anonymiserte data
+
+I forbindelse med webanalyse blir du som besøkende anonymisert, slik at vi ikke kan knytte dataen vi samler inn til deg som person. Dette gjøres ved at vi tillegger deg en irreversibel unik ID, som er en tilfeldig kode. Vi gjør dette for å kunne skille på tidligere og nye besøkende uten å samle noe identifiserende data. 
+
+### Lagring
+
+Når dataen til webanalyse er anonymisert blir den sendt videre til lagring hos PostHog. Dataen blir trygt oppbevart på servere i Frankfurt innenfor EU. Dersom du velger å trekke tilbake samtykket for analyse, blir dataene slettet her også.
