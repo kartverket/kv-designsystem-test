@@ -1,10 +1,12 @@
 import type { Preview } from '@storybook/react-vite';
 import { useEffect } from 'react';
+import { componentOverrides } from './docs/componentOverrides';
+import './docs/customTheme.css';
 
 import '@digdir/designsystemet-css'; /* imported only once */
 // import "@digdir/designsystemet-css/theme"; /* and this */
-import '../.storybook/style.css';
-// import { Heading } from '../src/components/typography/heading/Heading';
+// import '../.storybook/style.css';
+import customTheme from './docs/customTheme';
 
 const preview: Preview = {
   tags: ['autodocs'], // Every component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
@@ -16,11 +18,10 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: 'todo',
     },
-    // docs: {
-    //   components: {
-    //     h2: Heading,
-    //   }
-    // }
+    docs: {
+      theme: customTheme,
+      components: componentOverrides,
+    }
   },
   globalTypes: {
     theme: {
