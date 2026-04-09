@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite';
 
 const config: StorybookConfig = {
   stories: ['../src/documentation/introduction/Introduction.mdx', '../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -12,6 +13,11 @@ const config: StorybookConfig = {
   // docs: { defaultName: 'Dokumentasjon' },
   staticDirs: ['../assets'],
   framework: '@storybook/react-vite',
+  async viteFinal(baseConfig) {
+    return mergeConfig(baseConfig, {
+      base: process.env.NODE_ENV === 'production' ? '/kv-designsystem-test/' : '/',
+    });
+  },
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
