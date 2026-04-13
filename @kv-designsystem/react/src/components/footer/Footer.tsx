@@ -1,4 +1,5 @@
 import { forwardRef, HTMLAttributes, CSSProperties } from 'react';
+import type { Size } from '@digdir/designsystemet-types';
 import './Footer.css';
 import logo from '../../../assets/img/KV_Logo_Horisontal.svg';
 
@@ -7,9 +8,7 @@ Hovedkomponenten, fungerer som en container for hele footeren.
 Den kan ta inn children (alt innhold), og vi kan angi maxWidth for å holde innholdet på ønsket bredde.
 */
 
-export type FooterProps = HTMLAttributes<HTMLElement> & {
-  maxWidth?: string;
-};
+export type FooterProps = HTMLAttributes<HTMLElement>;
 
 /* 
 forwardRef: gjør at andre komponenter kan få referenase til <footer>-elementet
@@ -18,21 +17,22 @@ maxWidth: begrenser bredden på innholdet for å matche layouten på resten av s
 className + Footer.css: gjør at vi kan style footeren
 */
 export const Footer = forwardRef<HTMLElement, FooterProps>(function Footer(
-  { children, className = '', maxWidth = '1200px', ...rest },
+  { children, className, ...rest },
   ref
 ) {
   return (
     <footer
       className={`footer ${className}`}
       ref={ref}
-      style={{ maxWidth } as CSSProperties}
       {...rest}
     >
       <div className='footer-content'>
         <a href='https://kartverket.no'>
           <img src={logo} alt='Kartverket logo' className='footer-logo' />
         </a>
-        {children}
+        <div className='footer-columns'>
+          {children}
+        </div>
       </div>
     </footer>
   );

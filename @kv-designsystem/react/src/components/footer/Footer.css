@@ -1,16 +1,29 @@
 .footer {
   background: var(--ds-color-neutral-background-tinted);
   padding: var(--ds-size-10) var(--ds-size-18) var(--ds-size-10) var(--ds-size-18);
-  border-top: 10px solid var(--ds-color-accent-border-default);
-  text-align: center;
+  border-top: 8px solid var(--ds-color-accent-border-default);
+  width: 100%;
 }
 
-.footer-content {
+/* TODO: hva er maxWidth på resten av innholdet?? 
+KVIB har 1200, udir bruker 80rem (1280px), 
+Eiendomsregisteret har 1200px på header og 1140px? på footer, 
+KArtverket.no har 1500px og 1400px */
+.footer-content { /* det udir har som div */
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
+  align-items: flex-start;
+  justify-content: center; 
+  gap: var(--ds-size-10);
+}
+
+.footer-columns {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  /* gap: auto; */
+  gap: var(--ds-size-10);
+  justify-content: space-evenly;
+  flex: 1;
 }
 
 .footer-list {
@@ -20,6 +33,12 @@
   display: flex;
   flex-direction: column;
   gap: var(--ds-size-3);
+  align-items: flex-start;
+}
+
+.footer-item {
+  display: flex;
+  gap: 4px;
 }
 
 .footer-logo {
@@ -27,6 +46,25 @@
   width: auto;
 }
 
-/* @media (max-width: 768) {
-  
-} */
+/* TODO: til tablet, hva er en god størrelse? */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-columns {
+    justify-content: flex-start;
+  }
+}
+
+/* TODO: til mobil, hva er en god størrelse? */
+@media (max-width: 480px) {
+  .footer {
+    padding: var(--ds-size-10) var(--ds-size-6) var(--ds-size-10) var(--ds-size-6);
+  }
+
+  .footer-item {
+    flex-wrap: wrap;
+  }
+}

@@ -1,14 +1,18 @@
 import { forwardRef } from 'react';
-import type { LinkProps } from '../link/Link';
-import { Link } from '../link/Link';
 
-export type FooterItemProps = LinkProps;
+export type FooterItemProps = React.HTMLAttributes<HTMLLIElement>;
 
-export const FooterItem = forwardRef<HTMLAnchorElement, FooterItemProps>(
-  function FooterItem(props, ref) {
+// Listeelementene kan være av valgfri type, eks. ren tekst, lenker, heading.
+export const FooterItem = forwardRef<HTMLLIElement, FooterItemProps>(
+  // children: alt innholdet som ligger i <Footer.Item>...</Footer.Item>
+  function FooterItem({ children, ...rest }, ref) {
     return (
-      <li>
-        <Link ref={ref} {...props} />
+      <li 
+        className='footer-item'
+        ref={ref} 
+        {...rest}
+      >
+        {children}
       </li>
     );
   }

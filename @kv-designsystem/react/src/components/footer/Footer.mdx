@@ -1,3 +1,4 @@
+import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
 import * as FooterStories from './Footer.stories';
 
@@ -6,3 +7,19 @@ import * as FooterStories from './Footer.stories';
 # Footer
 
 <Primary />
+
+{/* TODO: lage vindu større så man ikke må scrolle i det eller få innhold til å tilpasse seg? */}
+<div
+  style={{
+    width: INITIAL_VIEWPORTS['iphone6'].styles.width,
+    justifySelf: 'center',
+  }}
+>
+  <Canvas
+    of={FooterStories.Preview}
+    story={{
+      inline: false,
+      height: '400px',
+    }}
+  />
+</div>
