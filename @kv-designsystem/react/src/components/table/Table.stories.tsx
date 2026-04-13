@@ -10,7 +10,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <Table>
       <caption>Table caption</caption>
       <Table.Head>
@@ -44,7 +44,7 @@ export const Preview: Story = {
 };
 
 export const ZebraStripes: Story = {
-  render: () => (
+  render: (_args) => (
     <Table 
       zebra
       style={{
@@ -86,80 +86,44 @@ export const ZebraStripes: Story = {
 };
 
 export const WithBorder: Story = {
-  render: () => (
-    <Table border >
+  render: (_args) => (
+    <Table border>
       <Table.Head>
         <Table.Row>
-          <Table.HeaderCell>
-            Navn
-          </Table.HeaderCell>
-          <Table.HeaderCell>
-            Rolle
-          </Table.HeaderCell>
-          <Table.HeaderCell>
-            Epost
-          </Table.HeaderCell>
+          <Table.HeaderCell>Navn</Table.HeaderCell>
+          <Table.HeaderCell>Rolle</Table.HeaderCell>
+          <Table.HeaderCell>E-post</Table.HeaderCell>
         </Table.Row>
       </Table.Head>
       <Table.Body>
         <Table.Row>
-          <Table.Cell>
-            Rita Nordmann
-          </Table.Cell>
-          <Table.Cell>
-            Eier
-          </Table.Cell>
-          <Table.Cell>
-            rita@nordmann.no
-          </Table.Cell>
+          <Table.Cell>Rita Nordmann</Table.Cell>
+          <Table.Cell>Eier</Table.Cell>
+          <Table.Cell>rita@nordmann.no</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell>
-            Kari Nordmann
-          </Table.Cell>
-          <Table.Cell>
-            Eiendomsmegler
-          </Table.Cell>
-          <Table.Cell>
-            kari@nordmann.no
-          </Table.Cell>
+          <Table.Cell>Kari Nordmann</Table.Cell>
+          <Table.Cell>Eiendomsmegler</Table.Cell>
+          <Table.Cell>kari@nordmann.no</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell>
-            Ola Nordmann
-          </Table.Cell>
-          <Table.Cell>
-            Eier
-          </Table.Cell>
-          <Table.Cell>
-            ola@nordmann.no
-          </Table.Cell>
+          <Table.Cell>Ola Nordmann</Table.Cell>
+          <Table.Cell>Eier</Table.Cell>
+          <Table.Cell>ola@nordmann.no</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell>
-            Kai Nordmann
-          </Table.Cell>
-          <Table.Cell>
-            Eiendomsutvikler
-          </Table.Cell>
-          <Table.Cell>
-            kai@nordmann.no
-          </Table.Cell>
+          <Table.Cell>Kai Nordmann</Table.Cell>
+          <Table.Cell>Eiendomsutvikler</Table.Cell>
+          <Table.Cell>kai@nordmann.no</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.Cell>
-            Mateo Nordmann
-          </Table.Cell>
-          <Table.Cell>
-            Eiendomsmegler
-          </Table.Cell>
-          <Table.Cell>
-            mateo@nordmann.no
-          </Table.Cell>
+          <Table.Cell>Mateo Nordmann</Table.Cell>
+          <Table.Cell>Eiendomsmegler</Table.Cell>
+          <Table.Cell>mateo@nordmann.no</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
-  )
+  ),
 };
 
 export const Sortable: Story = {
@@ -255,7 +219,7 @@ export const Sortable: Story = {
 };
 
 export const FixedTable: Story = {
-  render: () => {
+  render: (_args) => {
     const rows = Array.from({ length: 3 }, (_, i) => i + 1);
     return (
       <Table
@@ -285,7 +249,7 @@ export const FixedTable: Story = {
 };
 
 export const Numbers: Story = {
-  render: () => (
+  render: (_args) => (
     <Table
       style={{
         tableLayout: 'fixed',

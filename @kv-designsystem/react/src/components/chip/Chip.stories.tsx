@@ -32,7 +32,7 @@ export const Preview: Story = {
 };
 
 export const Button: Story = {
-  render: () => {
+  render: (_args) => {
     const [inputValue, setInputValue] = useState('');
 
     return (
@@ -70,50 +70,62 @@ export const Button: Story = {
 };
 
 export const Checkbox: Story = {
-  render: () => {
+  render: (_args) => {
     const options = ['2020', '2021', '2022', '2023', '2024', '2025'];
 
     return (
-      <>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--ds-size-4)',
+        }}
+      >
         <Paragraph>Vis data for</Paragraph>
-        <div style={{ display: 'flex', gap: 'var(--ds-size-1)' }}>
+        <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
           {options.map((year) => (
             <Chip.Checkbox key={year} aria-label={year}>
               {year}
             </Chip.Checkbox>
           ))}
         </div>
-      </>
+      </div>
     );
   }
 };
 
 export const Radio: Story = {
-  render: () => {
+  render: (_args) => {
     const options = ['Sjøkart', 'Dybder', 'Sjømerker'];
 
     return (
-      <>
+       <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--ds-size-4)',
+        }}
+      >
         <Paragraph>Vis data for</Paragraph>
-        <div style={{ display: 'flex', gap: 'var(--ds-size-1)' }}>
+        <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
           {options.map((grade) => (
             <Chip.Radio name='my-radio' aria-label={grade}>
               {grade}
             </Chip.Radio>
           ))}
         </div>
-      </>
+      </div>
     );
   }
 };
 
-export const Removable = {
-  render: () => {
+export const Removable: Story = {
+  render: (_args) => {
     const mapOptions = ['Sjøkart', 'Dybder', 'Sjømerker'];
     const [filter, setFilter] = useState(mapOptions);
 
     return (
-      <div style={{ display: 'flex', gap: 'var(--ds-size-1)' }}>
+      <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
         {filter.map((item) => (
           <Chip.Removable
             key={item}

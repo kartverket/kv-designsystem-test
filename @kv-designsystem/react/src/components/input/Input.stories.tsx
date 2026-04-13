@@ -18,7 +18,7 @@ export const Preview: Story = {
 };
 
 export const WithLabel: Story = {
-  render: () => (
+  render: (args) => (
     <Field>
       <Label>Fødselsnummer</Label>
       <Input />
@@ -27,7 +27,7 @@ export const WithLabel: Story = {
 };
 
 export const WithError: Story = {
-  render: () => (
+  render: (_args) => (
     <Field>
       <Label>Fødselsnummer</Label>
       <Input aria-invalid />
@@ -36,7 +36,7 @@ export const WithError: Story = {
 };
 
 export const Disabled: Story = {
-  render: () => (
+  render: (_args) => (
     <Field>
       <Label>Fødselsnummer</Label>
       <Input disabled value='12345678901' />
@@ -45,7 +45,7 @@ export const Disabled: Story = {
 };
 
 export const ReadOnly: Story = {
-  render: () => (
+  render: (_args) => (
     <Field>
       <Label>Fødselsnummer</Label>
       <Input readOnly value='12345678901' />

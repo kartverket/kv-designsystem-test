@@ -23,7 +23,7 @@ export const Preview: Story = {
 };
 
 export const Sizes: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       <Heading data-size='2xl' style={{ marginBottom: 'var(--ds-size-4)' }}>
         Overskrift 2xl

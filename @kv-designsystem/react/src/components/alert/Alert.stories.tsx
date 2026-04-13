@@ -11,7 +11,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <Alert>
       <Heading 
         level={2}
@@ -102,9 +102,9 @@ export const VariantDanger: Story = {
       >
         Vi kan ikke hente kartlag
       </Heading>
-      Vi klarte ikke å laste kartlaget. Prøv å laste inn siden på nytt. {' '}
+      Vi klarte ikke å laste kartlaget. Prøv å laste inn siden på nytt.{' '}
       <Link href='https://www.kartverket.no/om-kartverket/kontakt-oss'>Kontakt oss</Link>
-      {' '} hvis problemet fortsetter.
+      {' '}hvis problemet fortsetter.
     </Alert>
   ),
 };
@@ -134,9 +134,9 @@ export const WithLink: Story = {
       >
         Du må oppdatere API-nøkkel
       </Heading>
-      Fristen for å bytte til ny API-nøkkel er om 3 dager. {' '} 
+      Fristen for å bytte til ny API-nøkkel er om 3 dager.{' '} 
       <Link href='https://www.kartverket.no'>Oppdater nå</Link>
-      {' '} for å sikre fortsatt tilgang.
+      {' '}for å sikre fortsatt tilgang.
     </Alert>
   ),
 };

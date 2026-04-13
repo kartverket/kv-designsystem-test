@@ -21,12 +21,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <Dialog.TriggerContext>
       <Dialog.Trigger>Åpne modal Dialog</Dialog.Trigger>
       <Dialog>
         <Dialog.Block>
-          <Heading>Lagre før du går videre </Heading>
+          <Heading>Lagre før du går videre</Heading>
         </Dialog.Block>
         <Dialog.Block>
           <Paragraph>
@@ -63,7 +63,7 @@ export const Preview: Story = {
 
 // TODO: Not happy with this display, make a an example more similar to Udir?
 export const DialogNonModal: Story = {
-  render: () => (
+  render: (_args) => (
     <div
       style={{
         display: 'flex',
@@ -103,7 +103,7 @@ export const DialogNonModal: Story = {
 };
 
 export const Drawer: Story = {
-  render: () => {
+  render: (_args) => {
     const [placement, setPlacement] = useState<DialogProps['placement']>('bottom');
     const [modal, setModal] = useState(true);
 

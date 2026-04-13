@@ -15,7 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <Search>
       <Search.Input aria-label='Søk' />
       <Search.Clear />
@@ -25,7 +25,7 @@ export const Preview: Story = {
 };
 
 export const Variants: Story = {
-  render: () => (
+  render: (_args) => (
     <div>
       <Search>
         <Search.Input aria-label='Søk' />
@@ -115,7 +115,7 @@ export const LiveSearch: Story = {
 };
 
 export const WithLabel: Story = {
-  render: () => (
+  render: (_args) => (
     <Field>
       <Label>Søk etter datasett</Label>
       <Search>

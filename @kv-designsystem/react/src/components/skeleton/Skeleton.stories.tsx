@@ -94,7 +94,7 @@ export const UsageExample: Story = {
 };
 
 export const Children: Story = {
-  render: () => (
+  render: (_args) => (
     <Skeleton variant='rectangle'>
       <Paragraph>
         Her er en tekst som blir sendt inn som barn av en Skeleton.

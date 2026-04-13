@@ -19,7 +19,7 @@ export const Preview: Story = {
 };
 
 export const Icons: Story = {
-  render: () => (
+  render: (_args) => (
     <Tag
       data-color='neutral'
       data-size='md'
@@ -37,7 +37,7 @@ const propertyImage =
   'https://eiendomsregisteret.kartverket.no/egenregistrering.jpeg';
 
 export const Article: Story = {
-  render: () => (
+  render: (_args) => (
     <div>
       <img
         src={propertyImage}

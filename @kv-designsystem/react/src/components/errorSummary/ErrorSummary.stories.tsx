@@ -11,7 +11,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <ErrorSummary>
       <ErrorSummary.Heading>
         For å gå videre må du rette opp følgende feil:
@@ -37,28 +37,19 @@ export const Preview: Story = {
 
 // TODO: when clicking the .Link-items it changes the path, we want to stay on the same path
 export const WithForm: Story = {
-  decorators: [
-    (Story) => (
-      <div style={{ display: 'grid', gap: 'var(--ds-size-4)' }}>
-        <Story />
-      </div>
-    ),
-  ],
-  render: () => (
-    <>
+  render: (_args) => (
+    <div style={{ display: 'grid', gap: 'var(--ds-size-4)' }}>
       <Textfield
         label='Fornavn'
         id='fornavn'
         error='Fornavn må være minst 2 tegn'
       />
-
       <Textfield
         label='Telefon'
         id='telefon'
         type='tel'
         error='Telefonnummer kan kun inneholde siffer'
       />
-
       <ErrorSummary>
         <ErrorSummary.Heading>
           For å gå videre må du rette opp følgende feil:
@@ -76,6 +67,6 @@ export const WithForm: Story = {
           </ErrorSummary.Item>
         </ErrorSummary.List>
       </ErrorSummary>
-    </>
+    </div>
   ),
 };

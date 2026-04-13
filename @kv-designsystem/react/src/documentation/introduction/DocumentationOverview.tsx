@@ -1,4 +1,3 @@
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import classes from '../styles/layout.module.css';
 import { Card } from '../../components/card/Card';
 import { Link } from '../../components/link/Link';
@@ -34,13 +33,20 @@ const pages = [
     },
 ];
 
+function extractBaseUrl(href: string) {
+    const hostname = new URL(href).hostname;
+    const parts = hostname.split('.');
+    const base = parts.slice(-2).join('.');
+    return base.charAt(0).toUpperCase() + base.slice(1);
+}
+
 export function DocumentationOverview() {
     return (
         <div className={classes.grid} >
             {pages.map((page) => (
                 <Card key={page.title}>
                     <Card.Block>
-                        <Heading>
+                        <Heading className="sb-unstyled">
                             <Link 
                                 href={page.href}
                                 {...(page.external && {
@@ -49,10 +55,10 @@ export function DocumentationOverview() {
                                 })}
                             >
                                 {page.title}
-                                {page.external && <ExternalLinkIcon />}
+                                {page.external &&  ` (${extractBaseUrl(page.href)})`}
                             </Link>
                         </Heading>
-                        <Paragraph>{page.description}</Paragraph>
+                        <Paragraph className="sb-unstyled">{page.description}</Paragraph>
                     </Card.Block>
                 </Card>
             ))}

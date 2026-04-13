@@ -3,6 +3,7 @@ import { Popover } from './Popover';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Button } from '../button/Button';
 import { TrashIcon } from '@navikt/aksel-icons';
+import { useState } from 'react';
 
 const meta = {
   component: Popover,
@@ -20,7 +21,7 @@ export const Preview: Story = {
     <Popover.TriggerContext>
       <Popover.Trigger>Åpne popover</Popover.Trigger>
       <Popover placement='top'>
-        Popoveret gir en rask beskjed. Her kan du vise brukeren informasjon som
+        Popoveren gir en rask beskjed. Her kan du vise brukeren informasjon som
         er relevant for konteksten.
       </Popover>
     </Popover.TriggerContext>
@@ -28,48 +29,48 @@ export const Preview: Story = {
 };
 
 export const Interactive: Story = {
-  render: () => (
-    <Popover.TriggerContext>
-      <Popover.Trigger data-color='danger' aria-label='Slett rad'>
-        <TrashIcon title='Slett rad' />
-      </Popover.Trigger>
-      <Popover data-color='danger'>
-        <Paragraph>
-          Er du sikker på at du vil slette raden? Handlingen kan ikke angres.
-        </Paragraph>
-        <div
-          style={{
-            display: 'flex',
-            gap: 'var(--ds-size-2)',
-            marginTop: 'var(--ds-size-2)',
-          }}
-        >
-          <Button data-size='sm'>Ja, slett den</Button>
-          <Button data-size='sm' variant='tertiary'>
-            Avbryt
-          </Button>
-        </div>
-      </Popover>
-    </Popover.TriggerContext>
-  )
+  render: (_args) => {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <Popover.TriggerContext>
+        <Popover.Trigger
+          data-color='danger'
+          aria-label='Slett rad' 
+          onClick={() => setOpen(!open)}>
+          <TrashIcon title='Slett rad' aria-hidden />
+        </Popover.Trigger>
+        <Popover open={open} data-color='danger'>
+          <Paragraph>
+            Er du sikker på at du vil slette raden? Handlingen kan ikke angres.
+          </Paragraph>
+          <div
+            style={{
+              display: 'flex',
+              gap: 'var(--ds-size-2)',
+              marginTop: 'var(--ds-size-2)',
+            }}
+          >
+            <Button data-size='sm' onClick={() => setOpen(false)}>Ja, slett den</Button>
+            <Button data-size='sm' variant='tertiary' onClick={() => setOpen(false)}>
+              Avbryt
+            </Button>
+          </div>
+        </Popover>
+      </Popover.TriggerContext>
+    );
+  },
 };
 
 export const DottedUnderline: Story = {
-  render: () => (
+  render: (_args) => (
     <Popover.TriggerContext>
       <Paragraph>
         Systemet beregner avstander basert på valgt <Popover.Trigger inline>kartprojeksjon</Popover.Trigger>.
       </Paragraph>
       <Popover data-color='neutral'>
         <Paragraph>
-          <strong
-            style={{
-              display: 'block',
-            }}
-          >
-            Kartprojeksjon
-          </strong>
-          En matematisk metode som overfører jordens krumme overflate til et flatt kart.
+          <strong>Kartprojeksjon</strong> er en matematisk metode som overfører jordens krumme overflate til et flatt kart.
         </Paragraph>
       </Popover>
     </Popover.TriggerContext>

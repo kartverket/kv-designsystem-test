@@ -30,7 +30,7 @@ export const Preview: Story = {
 };
 
 export const IconsOnly: Story = {
-  render: () => (
+  render: (_args) => (
     <Tabs defaultValue='bygninger'>
       <Tabs.List>
         <Tooltip content='Bygninger'>
@@ -54,7 +54,7 @@ export const IconsOnly: Story = {
 };
 
 export const IconsWithText: Story = {
-  render: () => (
+  render: (_args) => (
     <Tabs defaultValue='bygninger'>
       <Tabs.List>
         <Tooltip content='Bygninger'>

@@ -17,7 +17,7 @@ export const Preview: Story = {
 };
 
 export const AllColors: Story = {
-  render: () => (
+  render: (_args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <ValidationMessage data-color='danger'>
         Dette er en feilmelding.

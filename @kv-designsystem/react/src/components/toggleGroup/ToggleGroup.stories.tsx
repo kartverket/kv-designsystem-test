@@ -19,7 +19,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <ToggleGroup defaultValue='innboks'>
       <ToggleGroup.Item value='innboks'>Innboks</ToggleGroup.Item>
       <ToggleGroup.Item value='utkast'>Utkast</ToggleGroup.Item>
@@ -30,7 +30,7 @@ export const Preview: Story = {
 };
 
 export const TextAndIcons: Story = {
-  render: () => (
+  render: (_args) => (
     <ToggleGroup defaultValue='aktiv'>
       <ToggleGroup.Item value='aktiv'>
         <CheckmarkCircleIcon aria-hidden />
@@ -49,7 +49,7 @@ export const TextAndIcons: Story = {
 };
 
 export const OnlyIcons: Story = {
-  render: () => (
+  render: (_args) => (
     <ToggleGroup data-toggle-group='Tekstjustering' defaultValue='option-1'>
       <Tooltip content='Venstrestilt'>
         <ToggleGroup.Item value='option-1'>
@@ -71,7 +71,7 @@ export const OnlyIcons: Story = {
 };
 
 export const Secondary: Story = {
-  render: () => (
+  render: (_args) => (
     <ToggleGroup
       data-toggle-group='Filter'
       defaultValue='innboks'

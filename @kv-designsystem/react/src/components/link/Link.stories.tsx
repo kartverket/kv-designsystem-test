@@ -22,7 +22,7 @@ export const Preview: Story ={
 };
 
 export const WithIcon:  Story = {
-  render: () => (
+  render: (_args) => (
    <Link href='https://designsystemet.no/slack'>
       <Chat2Icon aria-hidden fontSize={24} />
       <span>Snakk med oss på Slack</span>
@@ -60,19 +60,14 @@ export const LongLink:  Story = {
   args: {
     href: 'https://www.kartverket.no/',
   },
-  decorators: [
-    (Story) => (
-      <div style={{ width: '200px' }}>
-        <Story />
-      </div>
-    ),
-  ],
   render: (args) => (
+    <div style={{ width: '200px' }}>
       <Paragraph>
-      <Link {...args}>
-        Dette er en lenke som brekker over flere linjer
-      </Link>
-    </Paragraph>
+        <Link {...args}>
+          <span>Dette er en lenke som brekker over flere linjer</span>
+        </Link>
+      </Paragraph>
+    </div>
   ),
 };
 

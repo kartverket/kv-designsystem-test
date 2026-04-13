@@ -57,7 +57,7 @@ export const Content: Story = {
 };
 
 export const Sizes: Story = {
-  render: () => (
+  render: (_args: AvatarProps) => (
     <>
     <Avatar  data-size='xs' aria-label='extra small' initials='xs' />
     <Avatar  data-size='sm' aria-label='small' initials='sm' />
@@ -68,7 +68,7 @@ export const Sizes: Story = {
 };
 
 export const ColorVariants: Story = {
-  render: () => (
+  render: (_args: AvatarProps) => (
     <>
     <Avatar data-color='neutral' aria-label='color neutral' />
     <Avatar  data-color='accent' aria-label='color accent' />
@@ -79,7 +79,7 @@ export const ColorVariants: Story = {
 };
 
 export const Shapes: Story = {
-  render: () => (
+  render: (_args: AvatarProps) => (
     <>
     <Avatar variant='circle' aria-label='variant circle' />
     <Avatar variant='square' aria-label='variant square' />
@@ -90,7 +90,7 @@ export const Shapes: Story = {
 };
 
 export const InDropdown: Story = {
-  render: () => (
+  render: (_args: AvatarProps) => (
     <Dropdown.TriggerContext>
       <Dropdown.Trigger variant='tertiary'>
         <Avatar aria-hidden='true' data-size='sm' initials='ON' />

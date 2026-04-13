@@ -9,7 +9,7 @@ import '@digdir/designsystemet-css'; /* imported only once */
 import customTheme from './docs/customTheme';
 
 const preview: Preview = {
-  tags: ['autodocs'], // Every component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+  // tags: ['autodocs'], // Every component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   parameters: {
     // docs: { disable: true }, // Disable docs for all stories. Workaround for .stories Vite HMR bug. Add and remove in order to force refresh page.
     a11y: {

@@ -46,7 +46,7 @@ export const Placement: Story = {
   args: {
     content: ''
   },
-  render: () => (
+  render: (_args) => (
     <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
       <Tooltip placement='left' content='Slett'>
         <Button icon variant='secondary'>

@@ -63,7 +63,7 @@ export const Colors: Story = {
 };
 
 export const WithText: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       <Spinner aria-label='Laster...' data-size='sm' />
       <Paragraph>Forbereder filen din</Paragraph>

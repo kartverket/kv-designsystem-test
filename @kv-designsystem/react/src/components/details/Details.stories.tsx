@@ -11,7 +11,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <Details>
       <Details.Summary>
         Hvorfor må Kartverket behandle bestillingen min?
@@ -27,7 +27,7 @@ export const Preview: Story = {
 };
 
 export const InCard: Story = {
-  render: () => (
+  render: (_args) => (
     <Card>
       <Details>
         <Details.Summary>
@@ -45,7 +45,7 @@ export const InCard: Story = {
 };
 
 export const InCardWithColor: Story = {
-  render: () => (
+  render: (_args) => (
     <div>
       <Heading 
         style={{marginBottom: 'var(--ds-size-4)'}}
