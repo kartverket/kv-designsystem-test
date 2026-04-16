@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import * as icons from '@navikt/aksel-icons';
 import { componentOverrides } from './docs/componentOverrides';
 import './docs/customTheme.css';
-
 import '@digdir/designsystemet-css'; /* imported only once */
 // import "@digdir/designsystemet-css/theme"; /* and this */
 // import '../.storybook/style.css';
