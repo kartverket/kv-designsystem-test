@@ -1,12 +1,25 @@
 import type { Preview } from '@storybook/react-vite';
 import { useEffect } from 'react';
+import * as icons from '@navikt/aksel-icons';
 import { componentOverrides } from './docs/componentOverrides';
 import './docs/customTheme.css';
-
 import '@digdir/designsystemet-css'; /* imported only once */
 // import "@digdir/designsystemet-css/theme"; /* and this */
 // import '../.storybook/style.css';
 import customTheme from './docs/customTheme';
+
+// Fix icons being displayed as React.ForwardRef in Storybook code examples
+Object.entries(icons).forEach(([name, component]) => {
+  if (typeof component === 'object' && component !== null) {
+    const comp = component as {
+      displayName?: string;
+      render?: { displayName?: string }; 
+    };
+
+    comp.displayName = name;
+    if (comp.render) comp.render.displayName = name;
+  }
+});
 
 const preview: Preview = {
   tags: ['autodocs'], // Every component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
