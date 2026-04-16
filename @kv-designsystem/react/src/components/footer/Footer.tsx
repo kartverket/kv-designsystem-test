@@ -1,5 +1,4 @@
-import { forwardRef, HTMLAttributes, CSSProperties } from 'react';
-import type { Size } from '@digdir/designsystemet-types';
+import { forwardRef, HTMLAttributes } from 'react';
 import './Footer.css';
 import logo from '../../../assets/img/KV_Logo_Horisontal.svg';
 
