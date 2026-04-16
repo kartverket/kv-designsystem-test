@@ -14,14 +14,14 @@ export const Preview: Story = {
   },
   render: (args) => (
     <Header {...args} >
-      <Header.Item
+      <Header.NavLink
           href='https://www.kartverket.no'
           rel='noreferrer'
           target='_blank'
           typeof='button' 
       >
         Tjenesteside 1
-      </Header.Item>
+      </Header.NavLink>
       {/* En hamburgerermeny er en knapp? */}
     </Header>
   )

@@ -52,7 +52,7 @@
   gap: var(--ds-size-5)
 }
 
-.header-item {
+.header-nav-link {
   display: flex;
   
   /* & a {
@@ -60,10 +60,10 @@
   } */
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .header {
     padding: var(--ds-size-3) var(--ds-size-6);
-    height: var(--ds-size-18);
+    height: var(--ds-size-22);
   }
 
   .header-brand {
@@ -72,5 +72,11 @@
   
   .header-logo {
     height: var(--ds-size-8);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: var(--ds-size-18);
   }
 }

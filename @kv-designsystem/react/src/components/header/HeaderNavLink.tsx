@@ -1,14 +1,13 @@
 import { forwardRef } from 'react';
 import { LinkProps, Link } from '../link/Link';
 
-export type HeaderItemProps = LinkProps & {
+export type HeaderNavLinkProps = LinkProps & {
 
   variant?: 'secondary' | 'tertiary',
 };
 
-// HeaderItem er alltid en Link
-export const HeaderItem = forwardRef<HTMLAnchorElement, HeaderItemProps>(
-  function HeaderItem({ variant='tertiary', ...props }, ref) {
+export const HeaderNavLink = forwardRef<HTMLAnchorElement, HeaderNavLinkProps>(
+  function HeaderNavLink({ variant='tertiary', ...props }, ref) {
     return (
       <li className='header-item'>
         <Link 

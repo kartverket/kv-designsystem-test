@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Footer } from './';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Footer
@@ -38,7 +37,7 @@ export const Preview: Story = {
             rel='noreferrer'
             target='_blank' 
           >
-            Kontaktinfo og adresser <ExternalLinkIcon />
+            Kontaktinfo og adresser
           </Link>
         </Footer.Item>
       </Footer.List>
@@ -54,7 +53,7 @@ export const Preview: Story = {
             rel='noreferrer'
             target='_blank'
           >
-            Cookieerklæring <ExternalLinkIcon />
+            Cookieerklæring
           </Link>
         </Footer.Item>
         <Footer.Item>
@@ -63,7 +62,7 @@ export const Preview: Story = {
             rel='noreferrer'
             target='_blank'
           >
-            Personvernerklæring <ExternalLinkIcon />
+            Personvernerklæring
           </Link>
         </Footer.Item>
         <Footer.Item>
@@ -72,7 +71,7 @@ export const Preview: Story = {
             rel='noreferrer'
             target='_blank'
           >
-            Tilgjengelighetserklæring <ExternalLinkIcon />
+            Tilgjengelighetserklæring
           </Link>
           </Footer.Item>
       </Footer.List>

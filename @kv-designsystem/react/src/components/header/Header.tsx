@@ -6,7 +6,7 @@ export type HeaderProps = HTMLAttributes<HTMLElement> & {
   /**
    * The name of the application, displayed in the header.
    */
-  applicationName: String;
+  applicationName: string;
   /**
    * The URL the header logo links to. Set to `null` to disable the link.
    * @default '/' (root of the site)
