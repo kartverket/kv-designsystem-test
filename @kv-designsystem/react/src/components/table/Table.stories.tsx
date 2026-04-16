@@ -40,7 +40,7 @@ export const Preview: Story = {
         </Table.Row>
       </Table.Foot>
     </Table>
-  ),
+  )
 };
 
 export const ZebraStripes: Story = {
@@ -123,7 +123,7 @@ export const WithBorder: Story = {
         </Table.Row>
       </Table.Body>
     </Table>
-  ),
+  )
 };
 
 export const Sortable: Story = {

@@ -78,7 +78,7 @@ export const Checkbox: Story = {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 'var(--ds-size-4)',
+          gap: 'var(--ds-size-2)',
         }}
       >
         <Paragraph>Vis data for</Paragraph>
@@ -103,7 +103,7 @@ export const Radio: Story = {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 'var(--ds-size-4)',
+          gap: 'var(--ds-size-2)',
         }}
       >
         <Paragraph>Vis data for</Paragraph>

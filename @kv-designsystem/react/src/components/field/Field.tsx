@@ -1,6 +1,6 @@
 import { Field, type FieldProps } from '@digdir/designsystemet-react';
 
-// Fixing Field being displayed as React.ForwardRef in Storybook code snippets.
+// Fixing Field being displayed as React.ForwardRef in Storybook preview code snippets.
 Field.displayName = 'Field';
 
 export type { FieldProps };

@@ -89,16 +89,8 @@ export const Status: Story = {
   args: {
     'data-color': 'success'
   },
-  decorators: [
-    (Story) => (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Story />
-      </div>
-    ),
-  ],
-
   render: (args) => (
-    <div>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
       <Badge {...args} style={{ marginInlineEnd: '0.5rem' }} />
       Aktiv
     </div>
@@ -127,9 +119,6 @@ export const InTabs: Story = {
 };
 
 export const Floating: Story = {
-  args: {
-    'data-color': 'danger'
-  },
   render: (_args) => (
     <Badge.Position placement='top-right'>
       <Badge data-color='danger' count={2}></Badge>

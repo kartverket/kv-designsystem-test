@@ -4,11 +4,10 @@ import { Heading, type HeadingProps } from '../components/typography/heading/Hea
 
 export function FeedbackSection({ level = 2 }: HeadingProps) {
     return (
-        <section style={{margin: 'var(--ds-size-6) 0'}}>
+        <section>
             <Heading level={level} data-size='xs'>Hjelp oss med å forbedre designsystemet</Heading>
             <div 
                 style={{
-                    marginTop: 'var(--ds-size-4)',
                     display: 'flex',
                     flexDirection: 'row',
                     flexWrap: 'wrap',

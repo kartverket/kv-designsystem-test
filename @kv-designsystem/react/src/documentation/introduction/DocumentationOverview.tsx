@@ -26,19 +26,12 @@ const pages = [
         description: 'Våre design tokens som styrer blant annet farger, størrelser og avstander på tvers av kode og Figma.',
     },
     {
-        title: 'Visuell identitet',
+        title: 'Visuell identitet (kartverket.no)',
         href: 'https://www.kartverket.no/om-kartverket/kartverkets-identitet',
         description: 'Bli kjent med Kartverket sin merkevare. Veiledning og retningslinjer til deg som skal ta identiteten i bruk.',
         external: true,
     },
 ];
-
-function extractBaseUrl(href: string) {
-    const hostname = new URL(href).hostname;
-    const parts = hostname.split('.');
-    const base = parts.slice(-2).join('.');
-    return base.charAt(0).toUpperCase() + base.slice(1);
-}
 
 export function DocumentationOverview() {
     return (
@@ -55,7 +48,6 @@ export function DocumentationOverview() {
                                 })}
                             >
                                 {page.title}
-                                {page.external &&  ` (${extractBaseUrl(page.href)})`}
                             </Link>
                         </Heading>
                         <Paragraph className="sb-unstyled">{page.description}</Paragraph>

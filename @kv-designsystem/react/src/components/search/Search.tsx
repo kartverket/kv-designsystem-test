@@ -1,6 +1,6 @@
 import { Search, type SearchProps } from '@digdir/designsystemet-react';
 
-// Fixing Search being displayed as React.ForwardRef in Storybook snippets.
+// Fixing Search being displayed as React.ForwardRef in Storybook preview code snippets.
 Search.displayName = 'Search';
 
 export type { SearchProps };
