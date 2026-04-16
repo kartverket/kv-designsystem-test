@@ -2,13 +2,21 @@ import { Button } from '../components/button/Button';
 import { Link } from '../components/link/Link';
 import { Heading, type HeadingProps } from '../components/typography/heading/Heading'; 
 
-export function FeedbackSection({ level = 2 }: HeadingProps) {
+export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: HeadingProps) {
     return (
-        <section style={{margin: 'var(--ds-size-6) 0'}}>
-            <Heading level={level} data-size='xs'>Hjelp oss med å forbedre designsystemet</Heading>
-            <div 
+        <section style={{marginBlock: 'var(--ds-size-6) var(--ds-size-14)'}}>
+            <Heading 
+                level={level}
+                data-size={dataSize}
+                className='sb-unstyled'
+                style={{ marginBlock: 'var(--ds-size-4) var(--ds-size-2)' }}
+            >
+                Hjelp oss med å forbedre designsystemet
+            </Heading>
+            <div
+                className='sb-unstyled' 
                 style={{
-                    marginTop: 'var(--ds-size-4)',
+                    marginTop: 'var(--ds-size-6)',
                     display: 'flex',
                     flexDirection: 'row',
                     flexWrap: 'wrap',

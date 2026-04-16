@@ -34,20 +34,13 @@ const pages = [
     },
 ];
 
-function extractBaseUrl(href: string) {
-    const hostname = new URL(href).hostname;
-    const parts = hostname.split('.');
-    const base = parts.slice(-2).join('.');
-    return base.charAt(0).toUpperCase() + base.slice(1);
-}
-
 export function DocumentationOverview() {
     return (
-        <div className={classes.grid} >
+        <div className={`${classes.grid} sb-unstyled`} >
             {pages.map((page) => (
                 <Card key={page.title}>
                     <Card.Block>
-                        <Heading className="sb-unstyled">
+                        <Heading level={3} data-size='sm'>
                             <Link 
                                 href={page.href}
                                 {...(page.external && {

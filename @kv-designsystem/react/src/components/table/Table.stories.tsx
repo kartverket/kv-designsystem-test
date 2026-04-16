@@ -123,7 +123,7 @@ export const WithBorder: Story = {
         </Table.Row>
       </Table.Body>
     </Table>
-  ),
+  )
 };
 
 export const Sortable: Story = {

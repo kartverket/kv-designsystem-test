@@ -6,58 +6,76 @@ import { Table } from 'src/components/table/Table';
 import type { MdxComponentOverrides } from '../types/storybook';
 import { getPath } from '.storybook/utils/getPath';
 
+const headingConfig = [
+  { level: 1, size: 'xl', marginBlock: '0 var(--ds-size-6)' },
+  { level: 2, size: 'md' },
+  { level: 3, size: 'xs' },
+  { level: 4, size: '2xs' },
+  { level: 5, size: 'xs' },
+  { level: 6, size: 'xs' },
+] as const;
+
+const createHeadingOverrides = (): Partial<MdxComponentOverrides> => {
+  const overrides: Partial<MdxComponentOverrides> = {};
+
+  headingConfig.forEach((config) => {
+    const {level, size } = config;
+    const marginBlock = 'marginBlock' in config ? config.marginBlock : 'var(--ds-size-6)';
+    const key = `h${level}` as const;
+    overrides[key as keyof MdxComponentOverrides] = (props) => (
+      <Heading
+        data-size={size}
+        className="sb-unstyled"
+        {...props}
+        level={level}
+        style={{ marginBlock: marginBlock }}
+      />
+    );
+  });
+  return overrides;
+};
+
 export const componentOverrides: MdxComponentOverrides = {
-  h1: (props) => <Heading data-size="lg" {...props} level={1} />,
-  h2: (props) => <Heading data-size="md" {...props} level={2} />,
-  h3: (props) => <Heading data-size="sm" {...props} level={3} />,
-  h4: (props) => <Heading data-size="xs" {...props} level={4} />,
-  h5: (props) => <Heading data-size="xs" {...props} level={5} />,
-  h6: (props) => <Heading data-size="xs" {...props} level={6} />,
+  ...createHeadingOverrides(),
   p: (props) => (
     <Paragraph
       {...props}
       className={`sb-unstyled`}
     />
   ),
-  ol: (props) => (
-    <List.Ordered
+  ol: (props) => <List.Ordered {...props} className={`sb-unstyled`} />,
+  ul: (props) => <List.Unordered {...props} className={`sb-unstyled`} />,
+  li: (props) => (
+    <List.Item
       {...props}
-      className={`sb-unstyled`}
-    />
-  ),
-  ul: (props) => (
-    <List.Unordered
-      {...props}
-      className={`sb-unstyled`}
-    />
-  ),
-  li: (props) => <List.Item {...props} className="sb-unstyled" />,
-  a: (props) => <Link {...props} href={getPath(props.href)} >{props.children}</Link>,
-//   a: ({ children = '', ...props }) => {
-//     // if link starts with /, add current path to link
-//     const href = getPath(props.href);
-
-//     return (
-//       <Link
-//         {...props}
-//         href={href}
-//         className="sb-unstyled"
-//         onClick={handleLinkClick(props.href ?? '')}
-//         // Add a data-attribute for use when styling links which include code snippets
-//         {...(Children.count(children) === 1 && { 'data-single-child': true })}
-//       >
-//         {children}
-//       </Link>
-//     );
-//   },
-  table: (props) => (
-    <Table
-      {...props}
-      border={false}
-      zebra
       className="sb-unstyled"
-      style={{ width: '100%' }}
+      style={{ marginBlockStart: 'var(--ds-size-0)' }}
     />
+  ),
+  a: (props) => (
+    <Link {...props} href={getPath(props.href)}>
+      {props.children}
+    </Link>
+  ),
+  //   a: ({ children = '', ...props }) => {
+  //     // if link starts with /, add current path to link
+  //     const href = getPath(props.href);
+
+  //     return (
+  //       <Link
+  //         {...props}
+  //         href={href}
+  //         className="sb-unstyled"
+  //         onClick={handleLinkClick(props.href ?? '')}
+  //         // Add a data-attribute for use when styling links which include code snippets
+  //         {...(Children.count(children) === 1 && { 'data-single-child': true })}
+  //       >
+  //         {children}
+  //       </Link>
+  //     );
+  //   },
+  table: (props) => (
+    <Table {...props} border={false} zebra className="sb-unstyled" style={{ width: '100%' }} />
   ),
   thead: (props) => <Table.Head {...props} className="sb-unstyled" />,
   tbody: (props) => <Table.Body {...props} className="sb-unstyled" />,

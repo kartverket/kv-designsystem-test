@@ -20,7 +20,7 @@ export const Preview: Story = {
       <Input defaultValue="Nordmann Svenske" />
       <ValidationMessage>Du kan ikke ha mellomrom i etternavnet ditt</ValidationMessage>
     </Field>
-  ),
+  )
 };
 
 export const Affix: Story = {
@@ -33,7 +33,7 @@ export const Affix: Story = {
         <Field.Affix>pr. mnd.</Field.Affix>
       </Field.Affixes>
     </Field>
-  ),
+  )
 };
 
 export const Counter: Story = {
@@ -43,7 +43,7 @@ export const Counter: Story = {
       <Textarea rows={2} />
       <Field.Counter limit={10} />
     </Field>
-  ),
+  )
 };
 
 export const Position: Story = {
