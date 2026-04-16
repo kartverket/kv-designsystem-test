@@ -1,9 +1,13 @@
 import type { Preview } from '@storybook/react-vite';
 import { useEffect } from 'react';
 import * as icons from '@navikt/aksel-icons';
+import { componentOverrides } from './docs/componentOverrides';
+import './docs/customTheme.css';
+
 import '@digdir/designsystemet-css'; /* imported only once */
 // import "@digdir/designsystemet-css/theme"; /* and this */
-import '../.storybook/style.css';
+// import '../.storybook/style.css';
+import customTheme from './docs/customTheme';
 
 // Fix icons being displayed as React.ForwardRef in Storybook code examples
 Object.entries(icons).forEach(([name, component]) => {
@@ -28,11 +32,10 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: 'todo',
     },
-    // docs: {
-    //   components: {
-    //     h2: Heading,
-    //   }
-    // }
+    docs: {
+      theme: customTheme,
+      components: componentOverrides,
+    }
   },
   globalTypes: {
     theme: {
