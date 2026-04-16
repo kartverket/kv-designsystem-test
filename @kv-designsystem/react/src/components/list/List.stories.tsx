@@ -12,7 +12,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <List.Unordered>
       <List.Item>Den norske los</List.Item>
       <List.Item>Historiske stedsnavn</List.Item>
@@ -22,7 +22,7 @@ export const Preview: Story = {
 };
 
 export const Unordered: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       <Heading
         level={2}
@@ -49,7 +49,7 @@ export const Unordered: Story = {
 };
 
 export const Ordered: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       <Heading
         level={2}
@@ -75,15 +75,12 @@ export const Ordered: Story = {
 
 // Since we need to pass args to List.Ordered but the component type of the meta object is List.Unordered, we need to explicitly set the component type of the Story to List.Ordered
 export const Indented: StoryObj<React.ComponentProps<typeof List.Ordered>> = {
-  args: {
-    style: { marginTop: 'var(--ds-size-2)' },
-  },
-  render: (args) => (
+  render: (_args) => (
     <>
-      <Heading level={2} data-size='xs'>
+      <Heading level={2} data-size='xs' style={{ marginBottom: 'var(--ds-size-2)' }}>
         Innhold
       </Heading>
-      <List.Ordered {...args}>
+      <List.Ordered>
         <List.Item>
           Barnehagens verdigrunnlag
           <List.Unordered>
@@ -147,7 +144,7 @@ export const WithLinks: Story = {
 };
 
 export const ContinueSentence: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       <Heading
         level={2}
@@ -166,7 +163,7 @@ export const ContinueSentence: Story = {
 };
 
 export const NewSentence: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       <Heading
         level={2}

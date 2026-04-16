@@ -76,7 +76,7 @@ export const ColorVariants: Story = {
       </div>
     ),
   ],
-  render: () => (
+  render: (_args) => (
     <>
       {Object.entries(ColorsMap).map(([key, value]) => (
         <Badge key={key} {...value} count={15} maxCount={9} />
@@ -90,17 +90,15 @@ export const Status: Story = {
     'data-color': 'success'
   },
   render: (args) => (
-    <>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Badge {...args} style={{ marginInlineEnd: '0.5rem' }} />
-        Aktiv
-      </div>
-    </>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <Badge {...args} style={{ marginInlineEnd: '0.5rem' }} />
+      Aktiv
+    </div>
   ),
 };
 
 export const InTabs: Story = {
-  render: () => (
+  render: (_args) => (
     <Tabs defaultValue='value1'>
       <Tabs.List>
         <Tabs.Tab value='value1'>
@@ -121,10 +119,7 @@ export const InTabs: Story = {
 };
 
 export const Floating: Story = {
-  args: {
-    'data-color': 'danger'
-  },
-  render: (args) => (
+  render: (_args) => (
     <Badge.Position placement='top-right'>
       <Badge data-color='danger' count={2}></Badge>
       <EnvelopeClosedFillIcon title='Meldinger' style={{ fontSize: '2rem' }} />

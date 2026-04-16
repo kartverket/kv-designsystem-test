@@ -3,6 +3,9 @@ import { Textfield } from './Textfield';
 import { Tag } from '../tag/Tag';
 
 const meta = {
+  args: {
+    label: '',
+  },
   component: Textfield,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Textfield>;
@@ -12,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   args: {
-    label: 'Textfield',
+    label: 'Label',
   }
 };
 
@@ -40,22 +43,17 @@ export const Counter: Story = {
 };
 
 export const Required: Story = {
-  args: {
-    label: '',
-  },
-  render: () => (
+  render: (_args) => (
     <Textfield
-      label={
-        <>
-          Hvor bor du?
-          <Tag
-            data-color='warning'
-            style={{ marginInlineStart: 'var(--ds-size-2)' }}
-          >
-            Må fylles ut
-          </Tag>
-        </>
-      }
+      label={[
+        'Hvor bor du?',
+        <Tag
+          data-color='warning'
+          style={{ marginInlineStart: 'var(--ds-size-2)' }}
+        >
+          Må fylles ut
+        </Tag>
+      ]}
       required
     />
   ),

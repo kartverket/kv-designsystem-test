@@ -16,8 +16,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
-    <Pagination>
+  render: (_args) => (
+    <Pagination aria-label="Sidenavigering">
       <Pagination.List>
         <Pagination.Item>
           <Pagination.Button aria-label='Forrige side' data-variant='tertiary'>
@@ -118,8 +118,8 @@ export const WithAnchor: StoryObj<UsePaginationProps> = {
 };
 
 export const Mobile: Story = {
-  render: () => (
-    <Pagination>
+  render: (_args) => (
+    <Pagination aria-label="Sidenavigering">
       <Pagination.List>
         <Pagination.Item>
           <Pagination.Button

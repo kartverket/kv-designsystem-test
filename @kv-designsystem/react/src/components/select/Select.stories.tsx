@@ -30,7 +30,7 @@ const fylker = [
 ];
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <Field>
       <Label>Velg et fylke</Label>
       <Select defaultValue=''>
@@ -48,7 +48,7 @@ export const Preview: Story = {
 };
 
 export const WithOptgroup: Story = {
-  render: () => (
+  render: (_args) => (
     <Field>
       <Label>Velg en park</Label>
       <Select>
@@ -73,7 +73,7 @@ export const WithOptgroup: Story = {
 };
 
 export const Disabled: Story = {
-  render: () => (
+  render: (_args) => (
     <Field>
       <Label>Velg et fjell</Label>
       <Select disabled>

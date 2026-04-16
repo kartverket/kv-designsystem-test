@@ -3,7 +3,7 @@ import { Divider } from './Divider';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 import { Paragraph } from '../typography/paragraph/Paragraph';
-import { ListItem, ListUnordered } from '@digdir/designsystemet-react';
+import { List } from '../list/List';
 
 const meta = {
   component: Divider,
@@ -14,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <div style={{textAlign: 'center'}}>
       <Paragraph >
         Divider er brukt for å dele opp innhold i mindre deler.
@@ -29,8 +29,8 @@ export const Preview: Story = {
 
 // TODO: add links
 export const InText: Story = {
-  render: () => (
-    <>
+  render: (_args) => (
+    <div>
       <Heading 
         data-size='md'
         level={1}
@@ -45,8 +45,9 @@ export const InText: Story = {
         grunnboken. Når du tinglyser, blir opplysningene offentlige og kan brukes av både 
         myndigheter og private aktører. Dette bidrar til oversiktlige og trygge 
         eiendomstransaksjoner.
-        <br />
-        <br />
+      </Paragraph>
+      <br/>
+      <Paragraph>
         Tinglysingen følger reglene i tinglysingsloven og tilhørende forskrifter. Disse danner 
         rammen for hvordan vi behandler dokumentene dine, og sikrer at rettighetene blir registrert 
         på en korrekt og pålitelig måte.
@@ -64,28 +65,28 @@ export const InText: Story = {
       >
         Se også
       </Heading>
-      <ListUnordered
+      <List.Unordered
         style={{
           listStyle: 'none',
           padding: 0
         }}
       >
-      <ListItem>
+      <List.Item>
         <Link href=''>
           Slik følger du saken din i grunnboken
         </Link>
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         <Link href=''>
           Slik retter du feil i et tinglyst dokument
         </Link>
-      </ListItem>
-      <ListItem>
+      </List.Item>
+      <List.Item>
         <Link href=''>
           Veiledning for eiendomsmegler og profesjonelle aktører
         </Link>
-      </ListItem>
-      </ListUnordered>
-    </>
+      </List.Item>
+      </List.Unordered>
+    </div>
   )
 };

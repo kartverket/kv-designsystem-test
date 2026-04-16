@@ -12,23 +12,19 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Preview: Story = { 
-  render: () => (
+export const Preview: Story = {
+  render: (_args) => (
     <Field>
       <Label>Etternavn</Label>
-      <Field.Description>
-        Etternavn kan ikke inneholde mellomrom
-      </Field.Description>
-      <Input defaultValue='Nordmann Svenske' />
-      <ValidationMessage>
-        Du kan ikke ha mellomrom i etternavnet ditt
-      </ValidationMessage>
+      <Field.Description>Etternavn kan ikke inneholde mellomrom</Field.Description>
+      <Input defaultValue="Nordmann Svenske" />
+      <ValidationMessage>Du kan ikke ha mellomrom i etternavnet ditt</ValidationMessage>
     </Field>
   )
 };
 
 export const Affix: Story = {
-  render: () => (
+  render: (_args) => (
     <Field>
       <Label>Hvor mange kroner koster det per måned?</Label>
       <Field.Affixes>
@@ -41,7 +37,7 @@ export const Affix: Story = {
 };
 
 export const Counter: Story = {
-  render: () => (
+  render: (_args) => (
     <Field>
       <Label>Legg til en beskrivelse</Label>
       <Textarea rows={2} />
@@ -51,12 +47,10 @@ export const Counter: Story = {
 };
 
 export const Position: Story = {
-  render: () => (
-    <>
-      <Field position='end'>
-        <Label>Flymodus</Label>
-        <Input type='checkbox' role='switch' />
-      </Field>
-    </>
+  render: (_args) => (
+    <Field position="end">
+      <Label>Flymodus</Label>
+      <Input type="checkbox" role="switch" />
+    </Field>
   )
 };

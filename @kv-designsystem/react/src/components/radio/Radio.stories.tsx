@@ -20,7 +20,7 @@ export const InLine: Story = {
   args: {
     label: 'Radio',
   },
-  render: () => (
+  render: (_args) => (
     <Fieldset>
       <Fieldset.Legend>Kontaktes på e-post?</Fieldset.Legend>
       <Fieldset.Description>

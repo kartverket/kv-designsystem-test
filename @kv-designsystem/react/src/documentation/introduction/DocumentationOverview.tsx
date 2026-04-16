@@ -1,4 +1,3 @@
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import classes from '../styles/layout.module.css';
 import { Card } from '../../components/card/Card';
 import { Link } from '../../components/link/Link';
@@ -27,7 +26,7 @@ const pages = [
         description: 'Våre design tokens som styrer blant annet farger, størrelser og avstander på tvers av kode og Figma.',
     },
     {
-        title: 'Visuell identitet',
+        title: 'Visuell identitet (kartverket.no)',
         href: 'https://www.kartverket.no/om-kartverket/kartverkets-identitet',
         description: 'Bli kjent med Kartverket sin merkevare. Veiledning og retningslinjer til deg som skal ta identiteten i bruk.',
         external: true,
@@ -40,7 +39,7 @@ export function DocumentationOverview() {
             {pages.map((page) => (
                 <Card key={page.title}>
                     <Card.Block>
-                        <Heading>
+                        <Heading className="sb-unstyled">
                             <Link 
                                 href={page.href}
                                 {...(page.external && {
@@ -49,10 +48,9 @@ export function DocumentationOverview() {
                                 })}
                             >
                                 {page.title}
-                                {page.external && <ExternalLinkIcon />}
                             </Link>
                         </Heading>
-                        <Paragraph>{page.description}</Paragraph>
+                        <Paragraph className="sb-unstyled">{page.description}</Paragraph>
                     </Card.Block>
                 </Card>
             ))}
