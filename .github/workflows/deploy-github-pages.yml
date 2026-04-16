@@ -44,6 +44,8 @@ jobs:
         if: steps.affected.outputs.run == 'true'
         working-directory: '@kv-designsystem/react'
         run: pnpm build-storybook
+        env: 
+          STORYBOOK_BASE_PATH: /kv-designsystem-test/
 
       - name: Upload Pages artifact
         if: steps.affected.outputs.run == 'true'

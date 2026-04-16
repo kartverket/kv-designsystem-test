@@ -15,7 +15,7 @@ const config: StorybookConfig = {
   framework: '@storybook/react-vite',
   async viteFinal(baseConfig) {
     return mergeConfig(baseConfig, {
-      base: process.env.NODE_ENV === 'production' ? '/kv-designsystem-test/' : '/',
+      base: process.env.STORYBOOK_BASE_PATH || '/',
     });
   },
   typescript: {
