@@ -4,20 +4,7 @@ import { List } from 'src/components/list/List';
 import { Link } from 'src/components/link/Link';
 import { Table } from 'src/components/table/Table';
 import type { MdxComponentOverrides } from '../types/storybook';
-
-const getPath = (href: string | undefined): string => {
-    if (!href) {
-        return '';
-    }
-
-    if (href.startsWith('/')) {
-        const { origin, pathname } = window.parent.location;
-
-        return `${origin}${pathname}?path=${href}`;
-    }
-    return href;
-}
-
+import { getPath } from '.storybook/utils/getPath';
 
 export const componentOverrides: MdxComponentOverrides = {
   h1: (props) => <Heading data-size="lg" {...props} level={1} />,
