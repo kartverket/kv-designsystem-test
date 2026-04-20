@@ -25,7 +25,7 @@ export const Footer = forwardRef<HTMLElement, FooterProps>(function Footer(
       ref={ref}
       {...rest}
     >
-      <div className='footer-content'>
+      <div className='footer-container'>
         <a href='https://kartverket.no'>
           <img src={logo} alt='Kartverket logo' className='footer-logo' />
         </a>

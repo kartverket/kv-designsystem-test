@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Header } from './';
 
+
 const meta = {
   component: Header
 } satisfies Meta<typeof Header>;
@@ -14,15 +15,25 @@ export const Preview: Story = {
   },
   render: (args) => (
     <Header {...args} >
-      <Header.NavLink
-          href='https://www.kartverket.no'
-          rel='noreferrer'
-          target='_blank'
-          typeof='button' 
-      >
-        Tjenesteside 1
-      </Header.NavLink>
-      {/* En hamburgerermeny er en knapp? */}
+      <Header.Button asChild>
+        <a
+          href="https://www.kartverket.no/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Lenkeknapp 
+         </a>
+      </Header.Button>
+
+      <Header.Button asChild variant='secondary'>
+        <a
+          href="https://www.kartverket.no/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Logg inn
+         </a>
+      </Header.Button>
     </Header>
   )
 };

@@ -5,6 +5,7 @@ const meta = {
   component: Label,
   title: 'Components/Typography/Label',
   parameters: { layout: 'centered' },
+  tags: ['!autodocs'],
 } satisfies Meta<typeof Label>;
 
 export default meta;

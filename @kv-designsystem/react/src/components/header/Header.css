@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-.header-content {
+.header-container {
   max-width: 1296px;
   width: 100%;
   height: 100%;
@@ -52,12 +52,8 @@
   gap: var(--ds-size-5)
 }
 
-.header-nav-link {
+.header-button {
   display: flex;
-  
-  /* & a {
-    text-decoration: none;
-  } */
 }
 
 @media (max-width: 768px) {

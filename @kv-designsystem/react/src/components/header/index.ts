@@ -1,22 +1,22 @@
 import { Header as HeaderRoot } from './Header';
-import { HeaderNavLink } from './HeaderNavLink';
+import { HeaderButton } from './HeaderButton';
 import { HeaderList } from './HeaderList';
 
 type HeaderProps = typeof HeaderRoot & {
   List: typeof HeaderList;
-  NavLink: typeof HeaderNavLink;
+  Button: typeof HeaderButton;
 };
 
 // Object.assign gjør at Header.Item kan brukes som underkomponent
 const Header: HeaderProps = Object.assign(HeaderRoot, {
   List: HeaderList,
-  NavLink: HeaderNavLink,
+  Button: HeaderButton,
 });
 
 Header.List.displayName = 'Header.List';
-Header.NavLink.displayName = 'Header.NavLink';
+Header.Button.displayName = 'Header.Button';
 
 export type { HeaderProps } from './Header';
 export type { HeaderListProps } from './HeaderList';
-export type { HeaderNavLinkProps } from './HeaderNavLink';
+export type { HeaderButtonProps } from './HeaderButton';
 export { Header };

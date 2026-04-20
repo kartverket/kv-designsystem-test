@@ -6,37 +6,54 @@ export type HeaderProps = HTMLAttributes<HTMLElement> & {
   /**
    * The name of the application, displayed in the header.
    */
-  applicationName: string;
+  applicationName?: string;
   /**
-   * The URL the header logo links to. Set to `null` to disable the link.
-   * @default '/' (root of the site)
+   * The URL the applicationName links to. Set to `null` to disable the link.
    */
-  logoLink?: string | null;
+  applicationHref?: string | null;
 };
 
+type HeaderBrandProps = {
+  applicationName?: string;
+  applicationHref?: string | null;
+};
+
+function HeaderBrand({ applicationName, applicationHref }: HeaderBrandProps) {
+  return (
+    <div className='header-brand'>
+      <a href='https://kartverket.no'>
+        <img src={logo} alt='Kartverket logo' className='header-logo' />
+      </a>
+
+      {applicationName && (
+        <>
+          <span className='header-divider' />
+          {applicationHref ? (
+            <a href={applicationHref}>{applicationName}</a>
+          ) : (
+            <span>{applicationName}</span>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
 export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
-  { applicationName, children, className, logoLink = '/', ...rest},
+  { applicationHref, applicationName, children, className, ...rest},
   ref
 ) {
   return (
     <header 
-      className={`header ${className}`}
+      className={`header ${className ?? ''}`}
       ref={ref}
       {...rest}
     >
       <div className='header-content'>
-        <div className='header-brand'>
-          {/* TODO: add logoLink-prop to a */}
-          <a href='https://kartverket.no'>
-            <img src={logo} alt='Kartverket logo' className='header-logo' />
-          </a>
-          <span className='header-divider' />
-          {/* TODO: add link to applicationName? */}
-          {/* TODO: hva med når vi er på Kartverket.no, da trenger vi ikke tjenestetittel */}
-          <span>
-            {applicationName}
-          </span>
-        </div>
+        <HeaderBrand
+          applicationName={applicationName}
+          applicationHref={applicationHref}
+        />
 
         <div className='header-nav'>
           {children}

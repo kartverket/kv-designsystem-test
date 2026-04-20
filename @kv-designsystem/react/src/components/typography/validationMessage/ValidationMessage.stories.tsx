@@ -5,6 +5,7 @@ const meta = {
   component: ValidationMessage,
   title: 'Components/Typography/ValidationMessage', 
   parameters: { layout: 'centered' },
+  tags: ['!autodocs'],
 } satisfies Meta<typeof ValidationMessage>;
 
 export default meta;

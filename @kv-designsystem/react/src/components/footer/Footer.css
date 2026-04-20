@@ -1,3 +1,5 @@
+/* TODO: se over navngiving, bruke - eller __ ? */
+
 .footer {
   background: var(--ds-color-neutral-background-tinted);
   padding: var(--ds-size-10) var(--ds-size-18);
@@ -9,7 +11,7 @@
 KVIB har 1200, udir bruker 80rem (1280px), 
 Eiendomsregisteret har 1200px på header og 1140px? på footer, 
 KArtverket.no har 1500px og 1400px */
-.footer-content { /* det udir har som div */
+.footer-container { /* det udir har som div */
   max-width: 1296px;
   margin: 0 auto;
   display: flex;
@@ -50,7 +52,7 @@ KArtverket.no har 1500px og 1400px */
 
 /* TODO: til tablet, hva er en god størrelse? */
 @media (max-width: 768px) {
-  .footer-content {
+  .footer-container {
     flex-direction: column;
   }
 
