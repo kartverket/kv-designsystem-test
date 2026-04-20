@@ -11,10 +11,11 @@
 }
 
 .box {
-    height: 90px;
-    width: 90px;
+    font-weight: 300;
+    font-size: var(--ds-font-size-2);
+    height: 70px;
+    width: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--ds-size-2); /*TODO: does margin show and is it correct size? 'var(--ds-size-2)'*/
 }

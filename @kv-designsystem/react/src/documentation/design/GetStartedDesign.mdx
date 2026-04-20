@@ -4,51 +4,49 @@ import { Link } from '../../components/link/Link';
 import { Alert } from '../../components/alert/Alert';
 import { Heading } from '../../components/typography/heading/Heading';
 import { FeedbackSection } from '../FeedbackSection';
-import { UnderConstructionAlert } from '../UnderConstructionAlert';
 
 <Meta title='Kom i gang med design' />
 
 # Kom i gang med design
-
 Designsystemet til Kartverket skal hjelpe deg som designer å bygge digitale løsninger som følger [Kartverkets visuelle identitet](https://www.kartverket.no/om-kartverket/kartverkets-identitet) og som er universelt utformet.
-
 <FeedbackSection />
 
-<Alert data-color='warning'>
-    <Heading     
-        data-size='xs'
-        level={3}
-        style={{
-            marginBottom: 'var(--ds-size-2)'
-        }}
-    >
-        Vi har flere ressurser tilgjengelig i Figma enn i Storybook per nå
+<Alert 
+    data-color='warning'
+    className='sb-unstyled'
+    style={{
+            marginBlock: 'var(--ds-size-10) var(--ds-size-10)'
+        }}>
+    <Heading data-size='xs' level={3}>
+        {'Vi har flere ressurser tilgjengelig i Figma enn i Storybook per nå'}
     </Heading>
     Dette gjelder blant annet komponentene Logo, Header, Footer, og informasjon om layouts og størrelser. Bruk litt tid på å se gjennom og **bli kjent** med det som finnes i Figma-fila. Dersom du ser at dokumentasjonen i Figma og Storybook ikke viser mulige properties/stories godt nok, kan du se på [Digdir Designsystemet sine sider](https://designsystemet.no/no/components) mens vi oppdaterer fortløpende. 
 </Alert>
 
 ## Tilgang til Figma
-
 Kartverket bruker Figma som designverktøy. I Figma finner du komponenter, variabler og stiler fra Kartverkets designsystem som du kan bruke i produkter eller løsninger du jobber med. Komponentene er tilpasset Kartverkets identitet og behov, og er i kontinuerlig utvikling. 
 
 Vi har to ulike nivåer for tilgang:
 - Full editor-tilgang: for designere og andre som må redigere og endre skisser.
 - Viewer-restricted: for utviklere og andre som ønsker å se skissene.
 
-<Button variant='secondary'> 
-    <a
+<Button asChild variant='secondary' className='sb-unstyled' style={{marginBlock: 'var(--ds-size-10)', display: 'inline-flex'}}> 
+    <Link
         href="https://www.figma.com/design/DSYFangmzynAJFyVbTaYjM/NY--Kartverket-designsystem--digdir-?node-id=4-476&t=G3DbmDCxZIkUtvbg-1"
         rel="noreferrer"
         target="_blank"
     >
-        Kartverkets designsystem i Figma
-    </a>
+        <>Kartverkets designsystem i Figma</>
+    </Link>
 </Button>
 
 ### Hvordan kan jeg få editor-tilgang?
+Dersom du er designer og ønsker editor-tilgang, må du først ta det opp med din nærmeste leder.
+Leder må avklare med Elena Alvares Nyhagen (lisensansvarlig) om hvorfor du trenger Figma. 
+Hvis du får innvilget bruk, kan du sende en forespørsel via [Pureservice](https://kartverket.pureservice.com/)
+og fylle ut skjemaet “Bestilling av tilganger til systemer”. Alle editors må godkjennes av Sandy Chapar (support).
 
-Dersom du er designer og ønsker editor-tilgang kan du sende en forespørsel via [Pureservice](https://kartverket.pureservice.com/) og fylle ut skjemaet “Bestilling av tilganger til systemer”. Alle editors må godkjennes av en admin i Figma.
-
+<br />
 ## Steg for steg i Figma
 
 ### 1. Opprett et prosjekt
@@ -57,7 +55,7 @@ Når du oppretter et nytt prosjekt i Figma, kan du bruke cover-templaten vår ti
 - I Figma-pagen ["Mal for coverbilde"](https://www.figma.com/design/DSYFangmzynAJFyVbTaYjM/NY--Kartverket-designsystem--digdir-?node-id=12955-8017) i Kartverkets designsystem kan du kopiere cover-templaten over til prosjektet ditt.
 - Legg til prosjektnavn og eier av prosjektet.
 - Høyreklikk på coveret og trykk “set as thumbnail”.
-
+<br />
 ### 2. Aktiver biblioteker
 
 - Gå til panelet på venstre siden og trykk på “Assets”
@@ -68,13 +66,17 @@ Når du oppretter et nytt prosjekt i Figma, kan du bruke cover-templaten vår ti
     - OpenBridge Icon Pack
 
 Nå kan du ta i bruk de nye komponentene og ikonene du trenger til skissene dine.
-
+<br />
 ## Merknader
 
 ### Ny Header og Footer er kun tilgjengelig i Figma
 
-Dette betyr at de ikke er med i den nye npm-pakken, og må dermed kodes lokalt. Vi har beskrevet alle verdier for størrelser og avstander ved siden av komponentene. Vi kommer til å tilby disse i npm-pakken senere, men trenger bistand fra teamene som allerede har kodet etter de nye skissene. Gjerne send tilbakemelding på Slack om du har utviklet og testet de.
+Dette betyr at de ikke er med i den nye npm-pakken, og må dermed kodes lokalt. 
+Vi har beskrevet alle verdier for størrelser og avstander ved siden av komponentene. 
+Vi kommer til å tilby disse i npm-pakken senere, men trenger bistand fra teamene som allerede har kodet etter de nye skissene. 
+Send oss gjerne en tilbakemelding på Slack om du har utviklet og testet dem.
 
+<br />
 ## Nyttige lenker
 
 **Slack:**

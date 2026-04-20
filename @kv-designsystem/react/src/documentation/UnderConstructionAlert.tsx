@@ -4,7 +4,12 @@ import { Link } from '../components/link/Link';
 
 export function UnderConstructionAlert() {
     return (
-        <Alert data-color='warning'>
+        <Alert 
+            data-color='warning'
+            className="sb-unstyled"
+            style={{
+                marginBottom: 'var(--ds-size-10)'
+            }}>
             <Heading     
                 data-size='xs'
                 level={2}

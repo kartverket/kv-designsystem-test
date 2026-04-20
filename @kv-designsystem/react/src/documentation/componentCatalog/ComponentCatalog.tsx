@@ -23,9 +23,9 @@ export function ComponentIndex() {
     const componentNames = getComponentNames();
 
     return (
-        <div className={classes.grid} >
+        <div className={`${classes.grid} sb-unstyled`} >
             {componentNames.map((name) => (
-                <Card >
+                <Card className='sb-unstyled' >
                     <Card.Block>
                         <Heading>
                             <Link href={getPath(`/docs/components-${toCamelCase(name)}--docs`)}>
