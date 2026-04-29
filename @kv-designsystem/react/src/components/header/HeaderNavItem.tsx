@@ -1,10 +1,11 @@
-import { forwardRef, AnchorHTMLAttributes } from 'react';
-import { ButtonProps, Button } from '../button/Button';
+import { forwardRef, AnchorHTMLAttributes, RefAttributes, ForwardRefExoticComponent } from 'react';
+import type { ButtonProps } from '../button/Button';
+import { Button } from '../button/Button';
 
 export type HeaderNavItemProps = ButtonProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 // HeaderNavItem er alltid en lenkeknapp
-export const HeaderNavItem = forwardRef<
+export const HeaderNavItem: ForwardRefExoticComponent<HeaderNavItemProps & RefAttributes<HTMLAnchorElement>> = forwardRef<
   HTMLAnchorElement, HeaderNavItemProps>(
   function HeaderNavItem({children, ...rest }, ref) {
     return (
