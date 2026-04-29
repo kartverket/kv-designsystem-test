@@ -3,10 +3,15 @@
   padding: 0 var(--ds-size-18);
   height: var(--ds-size-26);
   box-sizing: border-box;
+
+  * {
+  outline: 1px solid red;
+}
 }
 
 .header-container {
   max-width: 1296px;
+  min-width: 0;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -14,12 +19,25 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--ds-size-18);
+
+  /* * {
+    min-width: 0;
+  } */
 }
 
 .header-brand {
   display: flex;
   align-items: center;
   gap: var(--ds-size-5);
+
+  a {
+    color: var(--ds-color-neutral-text-default); /* hvilken farge?*/
+    text-decoration: none
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .header-logo {
@@ -40,9 +58,21 @@
   flex-direction: row;
   align-items: flex-end;
   gap: var(--ds-size-5);
+
+  /* Pass på så den ikke wrapper! Sjekk Logg inn-knapp */
+  * { 
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+  }
+
+  .hidden {
+    display: none;
+    position: absolute;
+    /* pointer-events: none; */
+  }
 }
 
-.header-list {
+.header-nav-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -52,14 +82,25 @@
   gap: var(--ds-size-5)
 }
 
-.header-button {
+.header-nav-item {
   display: flex;
+}
+
+.header-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: var(--ds-size-5)
 }
 
 @media (max-width: 768px) {
   .header {
     padding: var(--ds-size-3) var(--ds-size-6);
     height: var(--ds-size-22);
+  }
+
+  .header-container {
+    gap: var(--ds-size-6);
   }
 
   .header-brand {

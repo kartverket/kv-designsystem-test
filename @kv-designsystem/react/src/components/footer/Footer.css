@@ -11,7 +11,7 @@
 KVIB har 1200, udir bruker 80rem (1280px), 
 Eiendomsregisteret har 1200px på header og 1140px? på footer, 
 KArtverket.no har 1500px og 1400px */
-.footer-container { /* det udir har som div */
+.footer-container {
   max-width: 1296px;
   margin: 0 auto;
   display: flex;
