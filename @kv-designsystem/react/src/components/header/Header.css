@@ -4,6 +4,15 @@
   height: var(--ds-size-26);
   box-sizing: border-box;
   position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.2s ease-in-out 0.15s;
+  &.visible {
+    transform: translateY(0);
+  }
+  &.hidden {
+    transform: translateY(-100%);
+}
 
   /* * {
     outline: 1px solid red;

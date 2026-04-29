@@ -1,5 +1,39 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
 import * as HeaderStories from './Header.stories';
+import { Button } from '../button/Button';
+import { Header } from './Header';
+import { Alert } from '../alert/Alert';
+import { Heading } from '../typography/heading/Heading';
+
+ <Header className="sb-unstyled" applicationName='Tjenestetittel'>
+      <Header.Nav>
+        <Header.NavItem
+            href='https://www.kartverket.no/'
+            rel='noreferrer'
+            target='_blank'
+        >
+          Lenkeknapp 
+        </Header.NavItem>
+        <Header.NavItem
+            href='https://www.kartverket.no/'
+            rel='noreferrer'
+            target='_blank'
+        >
+          Lenkeknapp 
+        </Header.NavItem>
+      </Header.Nav>
+      
+      {/* Lage HeaderMenu og gjenbruke Header.NavItem til å ha inni. Lage Header.MenuButton. */}
+      <Button asChild variant='secondary'>
+        <a
+          href='https://www.kartverket.no/'
+          rel='noreferrer'
+          target='_blank'
+        >
+          Logg inn
+        </a>
+      </Button>
+    </Header>
 
 <Meta of={HeaderStories} />
 
@@ -7,7 +41,153 @@ import * as HeaderStories from './Header.stories';
 
 <Primary />
 
-{/* <Canvas of={HeaderStories.Preview} /> */}
+<Canvas of={HeaderStories.Preview} />
+
+<Alert data-color='warning' className="sb-unstyled">
+    <Heading     
+        data-size='xs'
+        level={3}
+        style={{
+            marginBottom: 'var(--ds-size-2)'
+        }}
+    >
+        TODO: Oppdater header-dokumentasjon!
+    </Heading>
+    Dokumentasjonen er direkte copy/pastet fra Figma for å ha nok innhold til å teste om sticky header fungerer.
+</Alert>
+
+
+(H2) Varianter med eksempler
+Header kan brukes med flere forskjellige kombinasjoner av subkomponenter. Vi har hovedsakelig to måter å strukturere Headeren på:
+
+med navigasjonslenker
+med meny
+
+Du kan legge til andre handlinger som knapper, for eksempel:
+Logg inn
+Språkendring
+Søk
+
+Du må selv gjøre en vurdering om disse handlingene er viktig for tjenesten, og dermed burde implementeres i Headeren.
+
+Kartverkets logo og tjenestenavnet har standard plassering til venstre uansett hvilken type Header du velger. 
+
+
+(H3) Navigasjonslenker
+Bruk navigasjonslenker til viktige sider som brukeren kan navigere seg til globalt på tjenesten. Disse er lenker stylet som en knapp. Navigasjonslenkene skal ikke ha ikon.
+
+*kodevisning*
+
+
+(H3) Meny
+Bruk meny når du har for mange navigasjonslenker og andre handlinger enn det er plass til i selve Headeren. Navigasjonslenkene kan også kategoriseres i tema i menyen.
+
+Menyen i en Header kan stå alene eller sammen med viktige handlinger. Menyen skal alltid være plassert helt til høyre.
+
+Under er et eksempel på Header med kun meny.
+*Kodevisning som er responsiv*
+
+Ting å tenke på:
+På smale skjermer kan man benytte kun ikoner (husk aria-label), men på store skjermer skal vi ha med tekst i tillegg til ikon.
+Handlinger som logg inn, søk og språkendring går i menyen over navigasjonslenkene med en Divider i mellom.
+
+
+Under er et eksempel på Header med kombinert meny og handlinger som søk og profil.
+*Kodevisning*
+
+Unngå å kombinere navigasjonslenker og meny i Headeren. Hvis du skal benytte deg av en meny skal navigasjonslenkene plasseres i denne. Unntaket er om det er essensielt å fremheve en side som er lett tilgjengelig for brukeren.
+
+
+(H3) Søkefeltets funksjon
+
+Når søkefunksjonen er plassert i Header åpnes den under Headeren på samme måte som meny. (Se Digdir.no for inspo). Se eksempelet for Header med kombinert meny og handlinger. 
+
+Søkefelt i en meny presenteres som et fullstendig felt øverst for mindre klikk. (inspo: lanekassen.no). Se eksempelet for Header med kun meny.
+
+
+(H3) Inn- og utlogging og profil i Header
+Innlogging:
+Bruk en sekundær-knapp med ikon og tekst. Du kan bruke en primær-knapp hvis du ønsker å tiltrekke brukerens oppmerksomhet til denne handlingen.
+
+Utlogging og profil:
+Bruk Avatar kombinert med en Button. I knappen kan du skrive brukernavn og legge til et dropdown-ikon på høyre side. Ved å klikke på knappen åpnes en dropdown der du kan plassere valg som “Bytt bruker”, “Logg ut”, varsler og innstillinger.
+For smalere skjermer kan du bruke kun Avatar med initial-varianten.
+
+
+(H3) Språkvelger
+Bruk Button sammen med Dropdown for å lage en språkvelger i Header. 
+*kodevisning* (eventuelt at det ligger i et tidligere eksempel man kan lenke til)
+
+Lagre språkvalg i URL...
+
+
+
+(H2) Retningslinjer
+
+Unngå for mye innhold i Header. Vurder hva du trenger å ha lett tilgjengelig for brukeren, og hva som kan plasseres andre steder i tjenesten. 
+
+(H3) Valg av navigasjonstype
+Oversikten under gir en pekepinn på hva du burde velge til løsningen din.
+
+Navigasjonslenker:
+2-4 sider
+Antallet vurderes ut i fra hvor mange du får plass til med den spacingen som er satt mellom lenkene og fra logo + tjenestenavn.
+Sidene er like viktige
+Brukeren bytter ofte mellom dem
+
+Meny:
+4+ hovedsider
+Flere nivåer i navigasjonen
+
+Temameny:
+2–3 tydelige temaer for navigasjon
+Mange sider ellers
+Flere nivåer i navigasjonen
+
+
+
+(H2) Responsivitet
+
+(H3) Vise eller skjule innhold
+For å håndtere ulike skjermstørrelser og enheter har vi satt opp noen predefinerte breakpoints for når innhold skal vises eller skjules. Dette brukes ved å sette data-show=[size] eller data-hide=[size] på komponentene du legger inn i Header. De tilgjengelige verdiene for size er:
+'sm': 30rem (480px)
+'md': 48rem (768px)
+'lg': 64rem (1024px)
+'xl': 80rem (1280px)
+'2xl': 90rem (1440px)
+
+data-show viser elementet fra og med den angitte skjermstørrelsen, mens data-hide skjuler elementet fra og med den angitte skjermstørrelsen.
+
+I eksempelet under "flytter" vi Header.UserButton fra Header til Header.Menu når skjermen blir liten. For å få til det bruker vi:
+data-show="md" på Header.UserButton i Header -> da vises den i Header fra og med "md" skjermstørrelse.
+data-hide="md" på Header.UserButton i Header.Menu -> da skjules den fra Header.Menu fra og med "md" skjermstørrelse.
+
+Resultatet er at knappen alltid finnes tilgjengelig for brukeren – bare på ulike steder avhengig av skjermstørrelsen. Åpne menyen og endre størrelsen på nettleservinduet for å se hvordan det fungerer.
+
+*kodevisning?*
+
+(H3) Endringer ved brekkpunkter
+Fra brekkpunkt medium (768px) og mindre:
+Logo skaleres ned proporsjonalt til size-8 (32px).
+Bruk en meny. Det vil si at både navigasjonslenker og funksjoner som søk flyttes hit.
+Menyen åpnes som en egen side, slik at den fyller hele skjermen. Se eksempel over.
+Navigasjonslenker organisert i tema plasseres i en Details-komponent. Se eksempel over (lenke til kodevisning for kun meny).
+
+Fra brekkpunkt small (480px) og mindre:
+Bruk logo med kun symbolet uten “Kartverket”-teksten.
+Utelat label til meny for bedre plass, men husk ARIA-label.
+
+(H3) Test på ulike skjermstørrelser
+Husk å teste Header på ulike enheter og skjermstørrelser for å sikre at det fungerer som forventet.
+
+
+
+(H2) Kompatibilitet
+Header.Menu bruker Popover under panseret, se dokumentasjon om kompatibilitet med Popover for å sørge for at det fungerer som forventet i din applikasjon. Det gjelder også ved bruk av Dropdown.
+
+(H2) Kilde
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.
+
 
 {/* TODO: lage vindu større så man ikke må scrolle i det eller få innhold til å tilpasse seg? */}
 {/* <div
