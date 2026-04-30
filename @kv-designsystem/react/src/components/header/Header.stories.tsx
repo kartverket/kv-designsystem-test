@@ -17,7 +17,7 @@ export const Preview: Story = {
   },
   render: (args) => (
     <Header {...args}>
-      <Header.Nav>
+      <Header.Nav data-show-from='md'>
         <Header.NavItem
             href='https://www.kartverket.no/'
             rel='noreferrer'
@@ -35,7 +35,7 @@ export const Preview: Story = {
       </Header.Nav>
       
       {/* Lage HeaderMenu og gjenbruke Header.NavItem til å ha inni. Lage Header.MenuButton. */}
-      <Button asChild variant='secondary'>
+      <Button asChild variant='secondary' data-hide-from='md'>
         <a
           href='https://www.kartverket.no/'
           rel='noreferrer'
