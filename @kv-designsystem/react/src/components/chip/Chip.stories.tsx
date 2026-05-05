@@ -40,7 +40,7 @@ export const Button: Story = {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: 'var(--ds-size-4)',
+          gap: 'var(--ds-size-2)',
         }}
       >
         <Search>
@@ -52,7 +52,7 @@ export const Button: Story = {
           <Search.Clear />
           <Search.Button type='submit' />
         </Search>
-        <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
+        <div style={{ display: 'flex', alignItems: 'baseline',gap: 'var(--ds-size-2)' }}>
           <Paragraph>Hurtigsøk: </Paragraph>
           <Chip.Button onClick={() => setInputValue('Høydedata')}>
             Høydedata
