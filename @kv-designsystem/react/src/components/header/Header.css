@@ -41,7 +41,7 @@
   gap: var(--ds-size-5);
 
   a {
-    color: var(--ds-color-neutral-text-default); /* hvilken farge?*/
+    color: var(--ds-color-neutral-text-default); /* TODO: hvilken farge?*/
     text-decoration: none
   }
 
@@ -65,7 +65,6 @@
 
 .header-content {
   display: flex;
-  align-items: flex-end;
   gap: var(--ds-size-5);
 
   /* Pass på så den ikke wrapper! Sjekk Logg inn-knapp */
@@ -80,12 +79,61 @@
   padding: 0;
   margin: 0;
   display: flex;
-  align-items: flex-end;
   gap: var(--ds-size-5)
 }
 
 .header-nav-item {
   /* display: flex; */
+}
+
+.header-menu {
+  max-width: unset;
+  /* all: unset; */
+  display: block;
+  /* padding: var(--ds-size-10) 0; */
+  width: 100%;
+  /* border: none; */
+  box-shadow: none;
+  /* position: absolute; */
+  /* left: 0;
+  right: 0; */
+  /* max-width: 100%; */
+  /* box-sizing: border-box; */
+  background-color: red;
+  overflow: hidden;
+  /* position: fixed; */
+  inset-inline-start: 0;
+  /* inset-block-start: var(--ds-size-26); */
+
+  /* &:popover-open {
+    translate: 0 0;
+  } */
+}
+
+.header-menu-content {
+  max-width: 1296px;
+  margin: 0 auto;
+  padding: 0 var(--ds-size-18);
+  box-sizing: border-box;
+}
+
+.header-menu-button {
+  > svg:first-of-type {
+    display: block;
+  }
+
+  > svg:last-of-type {
+    display: none;
+  }
+
+  &:has(+ [popover]:popover-open) {
+    > svg:first-of-type {
+      display: none;
+    }
+    > svg:last-of-type {
+      display: block;
+    }
+  }
 }
 
 @media (width <= 768px) {
