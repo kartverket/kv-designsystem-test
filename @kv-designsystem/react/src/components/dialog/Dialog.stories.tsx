@@ -11,6 +11,7 @@ import type { DialogProps } from './Dialog';
 import { Checkbox } from '../checkbox/Checkbox';
 import { Fieldset } from '../fieldset/Fieldset';
 import type { ChangeEvent } from 'react';
+import styles from './Dialog.stories.module.css';
 
 const meta = {
   component: Dialog,
@@ -73,31 +74,31 @@ export const DialogNonModal: Story = {
         position: 'relative',
       }}
     >
-  <Dialog.TriggerContext>
-    <Dialog.Trigger>Åpne ikke-modal Dialog</Dialog.Trigger>
-    <Dialog
-      modal={false}
-      style={{
-        zIndex: '10',
-        top: 'calc(100vh - 290px)',
-        left: 'calc(100vw - 385px)',
-        margin: 0,
-        maxWidth: '350px',
-      }}
-    >
-      <Heading style={{ marginBottom: 'var(--ds-size-4)' }}>
-        Vi ønsker din mening
-      </Heading>
-      <Label htmlFor='my-textarea'>Hvordan var din opplevelse?</Label>
-      <Textarea
-        id='my-textarea'
+    <Dialog.TriggerContext>
+      <Dialog.Trigger>Åpne ikke-modal Dialog</Dialog.Trigger>
+      <Dialog
+        modal={false}
         style={{
-          marginBottom: 'var(--ds-size-6)',
+          zIndex: '10',
+          top: 'calc(100vh - 290px)',
+          left: 'calc(100vw - 385px)',
+          margin: 0,
+          maxWidth: '350px',
         }}
-      />
-      <Button>Send inn</Button>
-    </Dialog>
-  </Dialog.TriggerContext>
+      >
+        <Heading style={{ marginBottom: 'var(--ds-size-4)' }}>
+          Vi ønsker din mening
+        </Heading>
+        <Label htmlFor='my-textarea'>Hvordan var din opplevelse?</Label>
+        <Textarea
+          id='my-textarea'
+          style={{
+            marginBottom: 'var(--ds-size-6)',
+          }}
+        />
+        <Button>Send inn</Button>
+      </Dialog>
+    </Dialog.TriggerContext>
   </div>
   )
 };
@@ -108,7 +109,14 @@ export const Drawer: Story = {
     const [modal, setModal] = useState(true);
 
     return (
-      <>
+      <div
+        className={styles.disableStorybookScale}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
         <Checkbox
           label='Modal'
           checked={modal}
@@ -129,11 +137,11 @@ export const Drawer: Story = {
               marginBottom: 'var(--ds-size-8)',
             }}
           >
-            <Radio name='drawer' label='Midten' value='midten' />
-            <Radio name='drawer' label='Topp' value='topp' />
-            <Radio name='drawer' label='Bunn' value='bunn' />
-            <Radio name='drawer' label='Venstre' value='venstre' />
-            <Radio name='drawer' label='Høyre' value='høyre' />
+            <Radio name='drawer' label='Midten' value='middle' />
+            <Radio name='drawer' label='Topp' value='top' />
+            <Radio name='drawer' label='Bunn' value='bottom' />
+            <Radio name='drawer' label='Venstre' value='left' />
+            <Radio name='drawer' label='Høyre' value='right' />
           </div>
         </Fieldset>
         <Dialog.TriggerContext>
@@ -153,7 +161,7 @@ export const Drawer: Story = {
             </Dialog.Block>
           </Dialog>
         </Dialog.TriggerContext>
-      </>
+      </div>
     );
   }
 };
