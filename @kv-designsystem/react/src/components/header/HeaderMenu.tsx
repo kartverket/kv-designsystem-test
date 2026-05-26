@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
-import { DropdownProps } from '../dropdown/Dropdown';
-import { Dropdown } from '../dropdown/Dropdown';
+import { DialogProps } from '../dialog/Dialog';
+import { Dialog } from '../dialog/Dialog';
 
-export type HeaderMenuProps = DropdownProps;
+export type HeaderMenuProps = DialogProps;
 
 export const HeaderMenu = forwardRef<HTMLDivElement, HeaderMenuProps>(
   function HeaderMenu(
@@ -14,18 +14,19 @@ export const HeaderMenu = forwardRef<HTMLDivElement, HeaderMenuProps>(
     ref
   ) {
     return (
-      <Dropdown
+      <Dialog
         id={id}
         className='header-menu'
-        popover='auto'
-        placement='bottom-start'
+        // popover='auto'
+        placement='top'
+        closedby='any'
         ref={ref}
         {...rest}
       >
         <div className='header-menu-content'>
           {children}
         </div>
-      </Dropdown>
+      </Dialog>
     );
   },
 );

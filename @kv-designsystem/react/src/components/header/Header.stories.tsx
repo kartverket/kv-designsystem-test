@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from '../button/Button';
 import { Header } from './';
+import { Divider } from '../divider/Divider';
+import { Link } from '../link/Link';
+import { Avatar } from '../avatar/Avatar';
 
 
 const meta = {
@@ -124,17 +127,7 @@ export const WithNavigationLinksAndButtons: Story = {
     <>
       <style>
         {`
-          .header-menu-actions {
-            display: flex;
-            justify-content: flex-end;
-            gap: var(--ds-size-5);
 
-            * {
-              display: inline-block;
-              flex-shrink: 1;
-              width: fit-content;
-            }
-          }
         `}
       </style>
       <Header {...args}>
@@ -155,8 +148,7 @@ export const WithNavigationLinksAndButtons: Story = {
           </Header.NavItem>
         </Header.Nav>
         
-        {/* Lage HeaderMenu og gjenbruke Header.NavItem til å ha inni. Lage Header.MenuButton. */}
-        <Button asChild variant='tertiary' data-show-from='lg'>
+        <Button asChild variant='tertiary' data-show-from='md'>
           <a
             href='https://www.kartverket.no/'
             rel='noreferrer'
@@ -165,7 +157,7 @@ export const WithNavigationLinksAndButtons: Story = {
             Språk
           </a>
         </Button>
-        <Button asChild variant='secondary' data-show-from='lg'>
+        <Button asChild variant='secondary' data-show-from='md'>
             <a
               href='https://www.kartverket.no/'
               rel='noreferrer'
@@ -176,8 +168,12 @@ export const WithNavigationLinksAndButtons: Story = {
           </Button>
 
         <Header.MenuButton data-hide-from='lg' />
-        <Header.Menu>
-          <div className='header-menu-actions' data-hide-from='lg'>
+        <Header.Menu data-hide-from='lg'>
+          <div className='header-menu-actions' data-hide-from='md'>
+            <Button variant='tertiary' style={{ display: 'flex', padding: '0', gap: 'var(--ds-size-2)' }}>
+                <Avatar aria-label='none' initials='ON' data-size='sm'/>
+                <span>Ola Nordmann</span>
+            </Button>
             <Button asChild variant='tertiary'>
               <a
                 href='https://www.kartverket.no/'
@@ -197,7 +193,15 @@ export const WithNavigationLinksAndButtons: Story = {
               </a>
             </Button>
           </div>
+          <Divider data-hide-from='md' />
           <Header.Nav>
+            <Header.NavItem
+                href='https://www.kartverket.no/'
+                rel='noreferrer'
+                target='_blank'
+            >
+              Lenkeknapp 
+            </Header.NavItem>
             <Header.NavItem
                 href='https://www.kartverket.no/'
                 rel='noreferrer'

@@ -1,7 +1,8 @@
 .header {
+  --kvdsc-header-height: var(--ds-size-26);
   background: var(--ds-color-neutral-background-default);
   padding: 0 var(--ds-size-18);
-  height: var(--ds-size-26);
+  height: var(--kvdsc-header-height);
   box-sizing: border-box;
   position: sticky;
   top: 0;
@@ -13,10 +14,6 @@
   &.hidden {
     transform: translateY(-100%);
   }
-
-  /* * {
-    outline: 1px solid red;
-  } */
 }
 
 .header-container {
@@ -29,10 +26,6 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--ds-size-18);
-
-  /* * {
-    min-width: 0;
-  } */
 }
 
 .header-brand {
@@ -87,27 +80,33 @@
 }
 
 .header-menu {
-  max-width: unset;
+  max-width: 100vw;
   /* all: unset; */
-  display: block;
+  display: none;
   /* padding: var(--ds-size-10) 0; */
   width: 100%;
   /* border: none; */
   box-shadow: none;
-  /* position: absolute; */
+  position: fixed;
   /* left: 0;
   right: 0; */
   /* max-width: 100%; */
-  /* box-sizing: border-box; */
-  background-color: red;
+  box-sizing: border-box;
   overflow: hidden;
   /* position: fixed; */
   inset-inline-start: 0;
-  /* inset-block-start: var(--ds-size-26); */
+  /* Position menu at the bottom edge of the header content.
+  paddingY = (headerHeight - buttonHeight(md)) / 2
+  Round down to whole px to avoid subpixel jitter, then subtract by default dropdown offset */
+  inset-block-start:  calc(
+    round(down, (var(--kvdsc-header-height) - var(--ds-size-12)) / 2, 1px) + var(--kvdsc-header-height) - var(--ds-size-3)
+  );
+  /* inset-block-start:  var(--kvdsc-header-height); */
 
-  /* &:popover-open {
-    translate: 0 0;
-  } */
+  &:popover-open {
+    /* translate: 0 0; */
+    display: block;
+  }
 }
 
 .header-menu-content {
@@ -115,6 +114,28 @@
   margin: 0 auto;
   padding: 0 var(--ds-size-18);
   box-sizing: border-box;
+  container-type: inline-size;
+  container-name: header-menu-content;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--ds-size-5);
+  }
+}
+
+.header-menu-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--ds-size-5);
+  padding: var(--ds-size-6) 0;
+  align-items: center;
+  max-width: 100%;
+  flex-wrap: wrap;
+
+  * {
+    width: fit-content;
+  }
 }
 
 .header-menu-button {
@@ -138,8 +159,8 @@
 
 @media (width <= 768px) {
   .header {
+    --kvdsc-header-height: var(--ds-size-22);
     padding: var(--ds-size-3) var(--ds-size-6);
-    height: var(--ds-size-22);
   }
 
   .header-container {
@@ -157,7 +178,13 @@
 
 @media (width <= 480px) {
   .header {
-    height: var(--ds-size-18);
+    --kvdsc-header-height: var(--ds-size-18);
+  }
+}
+
+@container header-menu-content (width < 420px) {
+  div.header-menu-actions {
+    justify-content: flex-start;
   }
 }
 
@@ -191,6 +218,9 @@
 }
 [data-hide-from='lg'] {
   @media (width > 1024px) {
+    &:popover-open {
+    display: none;
+  }
     display: none;
   }
 }
