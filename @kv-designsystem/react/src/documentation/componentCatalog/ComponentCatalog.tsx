@@ -2,6 +2,7 @@ import { Link } from '../../components/link/Link';
 import { Card } from '../../components/card/Card';
 import { Heading } from '../../components/typography/heading/Heading';
 import classes from '../styles/layout.module.css';
+import { getPath } from '../../../.storybook/utils/getPath';
 
 function getComponentNames() {
     const modules = import.meta.glob('../../components/**/*.stories.tsx', {
@@ -22,12 +23,12 @@ export function ComponentIndex() {
     const componentNames = getComponentNames();
 
     return (
-        <div className={classes.grid} >
+        <div className={`${classes.grid} sb-unstyled`} >
             {componentNames.map((name) => (
-                <Card >
+                <Card className='sb-unstyled' >
                     <Card.Block>
                         <Heading>
-                            <Link href={`/?path=/docs/components-${toCamelCase(name)}--docs`}>
+                            <Link href={getPath(`/docs/components-${toCamelCase(name)}--docs`)}>
                             {name}
                             </Link>
                         </Heading>

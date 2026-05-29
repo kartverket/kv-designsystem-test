@@ -1,4 +1,4 @@
-import { Label } from '../../components/typography/label/Label';
+import { Paragraph } from '../../components/typography/paragraph/Paragraph';
 import styles from './ColorBox.module.css';
 
 
@@ -22,9 +22,9 @@ type ColorItemProps = {
 
 function ColorItem({ hex, textColor, label }: ColorItemProps) {
     return (
-        <div className={styles.item}>
+        <div className={`sb-unstyled ${styles.item}`}>
             <div 
-                className={styles.box}
+                className={`sb-unstyled ${styles.box}`}
                 style={{
                     backgroundColor: hex, // `var(--ds-${label}-base-default)`
                     color: textColor, //`var(--ds-${label}-text-default)`
@@ -32,14 +32,19 @@ function ColorItem({ hex, textColor, label }: ColorItemProps) {
             >
                 {hex}
             </div>
-            <Label>{label}</Label>
+            <Paragraph 
+                data-size="xs"
+                style={{ marginTop: 'var(--ds-size-2)' }}
+            >
+                {label}
+            </Paragraph>
         </div>
     )
 }
 
 export function ColorBox() {
     return (
-        <div className={styles.container}>
+        <div className={`sb-unstyled ${styles.container}`}>
             {colors.map((color) => (
                 <ColorItem 
                     key={color.hex}

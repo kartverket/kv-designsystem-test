@@ -46,7 +46,7 @@ export const InText: Story = {
         myndigheter og private aktører. Dette bidrar til oversiktlige og trygge 
         eiendomstransaksjoner.
       </Paragraph>
-      <br/>
+      <br />
       <Paragraph>
         Tinglysingen følger reglene i tinglysingsloven og tilhørende forskrifter. Disse danner 
         rammen for hvordan vi behandler dokumentene dine, og sikrer at rettighetene blir registrert 

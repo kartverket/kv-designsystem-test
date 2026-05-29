@@ -6,10 +6,11 @@
     "directory": "@kv-designsystem/css"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "tag": "alpha"
   },
   "license": "MIT",
-  "version": "0.0.2",
+  "version": "1.0.0-alpha.0",
   "type": "module",
   "exports": {
     "./green": "./dist/green.css",

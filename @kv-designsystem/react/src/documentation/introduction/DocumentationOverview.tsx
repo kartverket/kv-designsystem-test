@@ -3,26 +3,27 @@ import { Card } from '../../components/card/Card';
 import { Link } from '../../components/link/Link';
 import { Heading } from '../../components/typography/heading/Heading';
 import { Paragraph } from '../../components/typography/paragraph/Paragraph';
+import { getPath } from '../../../.storybook/utils/getPath';
 
 const pages = [
     {
         title: 'Kom i gang som utvikler',
-        href: '/?path=/docs/kom-i-gang-som-utvikler--docs',
+        href: getPath('/docs/kom-i-gang-som-utvikler--docs'),
         description: 'En steg for steg guide for hvordan du tar i bruk designsystemet som utvikler.',
     },
     {
         title: 'Kom i gang med design',
-        href: '/?path=/docs/kom-i-gang-med-design--docs',
+        href: getPath('/docs/kom-i-gang-med-design--docs'),
         description: 'En guide for hvordan du tar i bruk designsystemet i Figma.',
     },
     {
         title: 'Komponenter',
-        href: '/?path=/docs/komponentoversikt--docs',
+        href: getPath('/docs/komponentoversikt--docs'),
         description: 'Et bibliotek med komponenter, forhåndsvisninger, kildekode og retningslinjer for bruk.',
     },
     {
         title: 'Tokens',
-        href: '/?path=/docs/design-tokens-og-variabler--docs',
+        href: getPath('/docs/design-tokens-og-variabler--docs'),
         description: 'Våre design tokens som styrer blant annet farger, størrelser og avstander på tvers av kode og Figma.',
     },
     {
@@ -35,11 +36,11 @@ const pages = [
 
 export function DocumentationOverview() {
     return (
-        <div className={classes.grid} >
+        <div className={`${classes.grid} sb-unstyled`} >
             {pages.map((page) => (
                 <Card key={page.title}>
                     <Card.Block>
-                        <Heading className="sb-unstyled">
+                        <Heading level={3} data-size='sm'>
                             <Link 
                                 href={page.href}
                                 {...(page.external && {

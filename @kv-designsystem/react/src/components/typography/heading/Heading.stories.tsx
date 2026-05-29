@@ -26,25 +26,25 @@ export const Preview: Story = {
 export const Sizes: Story = {
   render: (_args) => (
     <>
-      <Heading data-size='2xl' style={{ marginBottom: 'var(--ds-size-4)' }}>
+      <Heading level={1} data-size='2xl' style={{ marginBottom: 'var(--ds-size-4)' }}>
         Overskrift 2xl
       </Heading>
-      <Heading data-size='xl' style={{ marginBottom: 'var(--ds-size-4)' }}>
+      <Heading level={2} data-size='xl' style={{ marginBottom: 'var(--ds-size-4)' }}>
         Overskrift xl
       </Heading>
-      <Heading data-size='lg' style={{ marginBottom: 'var(--ds-size-4)' }}>
+      <Heading level={3} data-size='lg' style={{ marginBottom: 'var(--ds-size-4)' }}>
         Overskrift lg
       </Heading>
-      <Heading data-size='md' style={{ marginBottom: 'var(--ds-size-4)' }}>
+      <Heading level={4} data-size='md' style={{ marginBottom: 'var(--ds-size-4)' }}>
         Overskrift md
       </Heading>
-      <Heading data-size='sm' style={{ marginBottom: 'var(--ds-size-4)' }}>
+      <Heading level={5} data-size='sm' style={{ marginBottom: 'var(--ds-size-4)' }}>
         Overskrift sm
       </Heading>
-      <Heading data-size='xs' style={{ marginBottom: 'var(--ds-size-4)' }}>
+      <Heading level={6} data-size='xs' style={{ marginBottom: 'var(--ds-size-4)' }}>
         Overskrift xs
       </Heading>
-      <Heading data-size='2xs' style={{ marginBottom: 'var(--ds-size-4)' }}>
+      <Heading level={6} data-size='2xs' style={{ marginBottom: 'var(--ds-size-4)' }}>
         Overskrift 2xs
       </Heading>
     </>
