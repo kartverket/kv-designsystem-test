@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from '../button/Button';
 import { Header } from './';
 import { Divider } from '../divider/Divider';
-import { Link } from '../link/Link';
 import { Avatar } from '../avatar/Avatar';
 
 
@@ -37,7 +36,6 @@ export const Preview: Story = {
         </Header.NavItem>
       </Header.Nav>
       
-      {/* Lage HeaderMenu og gjenbruke Header.NavItem til å ha inni. Lage Header.MenuButton. */}
       <Button asChild variant='secondary' data-hide-from='md'>
         <a
           href='https://www.kartverket.no/'
@@ -75,7 +73,6 @@ export const WithMenu: Story = {
         </Header.NavItem>
       </Header.Nav>
       
-      {/* Lage HeaderMenu og gjenbruke Header.NavItem til å ha inni. Lage Header.MenuButton. */}
       <Button asChild variant='secondary' data-show-from='md'>
         <a
           href='https://www.kartverket.no/'
@@ -125,11 +122,6 @@ export const WithNavigationLinksAndButtons: Story = {
   },
   render: (args) => (
     <>
-      <style>
-        {`
-
-        `}
-      </style>
       <Header {...args}>
         <Header.Nav data-show-from='lg'>
           <Header.NavItem
@@ -170,7 +162,7 @@ export const WithNavigationLinksAndButtons: Story = {
         <Header.MenuButton data-hide-from='lg' />
         <Header.Menu data-hide-from='lg'>
           <div className='header-menu-actions' data-hide-from='md'>
-            <Button variant='tertiary' style={{ display: 'flex', padding: '0', gap: 'var(--ds-size-2)' }}>
+            <Button variant='tertiary' style={{ display: 'flex', paddingBlock: '0', gap: 'var(--ds-size-2)' }}>
                 <Avatar aria-label='none' initials='ON' data-size='sm'/>
                 <span>Ola Nordmann</span>
             </Button>

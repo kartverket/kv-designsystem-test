@@ -4,6 +4,7 @@
   padding: 0 var(--ds-size-18);
   height: var(--kvdsc-header-height);
   box-sizing: border-box;
+
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -34,7 +35,7 @@
   gap: var(--ds-size-5);
 
   a {
-    color: var(--ds-color-neutral-text-default); /* TODO: hvilken farge?*/
+    color: var(--ds-color-neutral-text-default);
     text-decoration: none
   }
 
@@ -46,10 +47,10 @@
 .header-logo {
   height: var(--ds-size-10);
   width: auto;
-  display: block; /* Fjerner automatisk link-spacing under logo */
+  display: block;
 }
 
-/* TODO: width og height i --ds-size variabler, hva skal width være? size-8 (32px) size-9 (36px)*/
+/* TODO: width og height i --ds-size variabler, hva skal height være? size-8 (32px) size-9 (36px)*/
 .header-divider {
   width: 1px;
   height: 34px;
@@ -60,7 +61,6 @@
   display: flex;
   gap: var(--ds-size-5);
 
-  /* Pass på så den ikke wrapper! Sjekk Logg inn-knapp */
   * { 
     flex-wrap: nowrap;
     flex-shrink: 0;
@@ -75,42 +75,31 @@
   gap: var(--ds-size-5)
 }
 
-.header-nav-item {
-  /* display: flex; */
+.header-nav-item a{
+  justify-content: left;
 }
 
 .header-menu {
-  max-width: 100vw;
-  /* all: unset; */
-  display: none;
-  /* padding: var(--ds-size-10) 0; */
-  width: 100%;
-  /* border: none; */
+  max-height: calc(100vh - var(--kvdsc-header-height));
+  border: none;
   box-shadow: none;
   position: fixed;
-  /* left: 0;
-  right: 0; */
-  /* max-width: 100%; */
   box-sizing: border-box;
-  overflow: hidden;
-  /* position: fixed; */
+  overflow-y: auto;
   inset-inline-start: 0;
-  /* Position menu at the bottom edge of the header content.
-  paddingY = (headerHeight - buttonHeight(md)) / 2
-  Round down to whole px to avoid subpixel jitter, then subtract by default dropdown offset */
-  inset-block-start:  calc(
-    round(down, (var(--kvdsc-header-height) - var(--ds-size-12)) / 2, 1px) + var(--kvdsc-header-height) - var(--ds-size-3)
-  );
-  /* inset-block-start:  var(--kvdsc-header-height); */
 
-  &:popover-open {
-    /* translate: 0 0; */
-    display: block;
+  /* Position menu at the bottom edge of the header content. */
+  inset-block-start: var(--kvdsc-header-height);
+
+  &::backdrop {
+    margin-block-start: var(--kvdsc-header-height);
   }
 }
 
 .header-menu-content {
   max-width: 1296px;
+  display: grid;
+  row-gap: var(--ds-size-6);
   margin: 0 auto;
   padding: 0 var(--ds-size-18);
   box-sizing: border-box;
@@ -128,7 +117,6 @@
   display: flex;
   justify-content: flex-end;
   gap: var(--ds-size-5);
-  padding: var(--ds-size-6) 0;
   align-items: center;
   max-width: 100%;
   flex-wrap: wrap;
@@ -147,7 +135,7 @@
     display: none;
   }
 
-  &:has(+ [popover]:popover-open) {
+  &:has(+ .header-menu:open) {
     > svg:first-of-type {
       display: none;
     }
@@ -182,7 +170,7 @@
   }
 }
 
-@container header-menu-content (width < 420px) {
+@container header-menu-content (width < 768px) {
   div.header-menu-actions {
     justify-content: flex-start;
   }
@@ -218,9 +206,6 @@
 }
 [data-hide-from='lg'] {
   @media (width > 1024px) {
-    &:popover-open {
-    display: none;
-  }
     display: none;
   }
 }

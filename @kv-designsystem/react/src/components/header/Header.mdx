@@ -3,65 +3,99 @@ import * as HeaderStories from './Header.stories';
 import { Button } from '../button/Button';
 import { Header } from './Header';
 import { Alert } from '../alert/Alert';
+import { Avatar } from '../avatar/Avatar';
+import { Divider } from '../divider/Divider';
 import { Heading } from '../typography/heading/Heading';
 
 {/* TODO: fjern dette 'eksempelet' */}
 <Header className='sb-unstyled' applicationName='Tjenestetittel' applicationHref='https://eiendomsregisteret.kartverket.no/'>
   <Header.Nav data-show-from='lg'>
-    <Header.NavItem
-        href='https://www.kartverket.no/'
-        rel='noreferrer'
-        target='_blank'
-    >
-      Lenkeknapp 
-    </Header.NavItem>
-    <Header.NavItem
-        href='https://www.kartverket.no/'
-        rel='noreferrer'
-        target='_blank'
-    >
-      Lenkeknapp 
-    </Header.NavItem>
-  </Header.Nav>
-  
-  {/* Lage HeaderMenu og gjenbruke Header.NavItem til å ha inni. Lage Header.MenuButton. */}
-  <Button asChild variant='secondary' data-show-from='md'>
-    <a
-      href='https://www.kartverket.no/'
-      rel='noreferrer'
-      target='_blank'
-    >
-      Logg inn
-    </a>
-  </Button>
-  <Header.MenuButton data-hide-from='lg' />
-  <Header.Menu>
-    <Button asChild variant='secondary'>
-      <a
-        href='https://www.kartverket.no/'
-        rel='noreferrer'
-        target='_blank'
-      >
-        Logg inn
-      </a>
-    </Button>
-    <Header.Nav>
-      <Header.NavItem
-          href='https://www.kartverket.no/'
-          rel='noreferrer'
-          target='_blank'
-      >
-        Lenkeknapp 
-      </Header.NavItem>
-      <Header.NavItem
-          href='https://www.kartverket.no/'
-          rel='noreferrer'
-          target='_blank'
-      >
-        Lenkeknapp 
-      </Header.NavItem>
-    </Header.Nav>
-  </Header.Menu>
+          <Header.NavItem
+              href='https://www.kartverket.no/'
+              rel='noreferrer'
+              target='_blank'
+          >
+            Lenkeknapp 
+          </Header.NavItem>
+          <Header.NavItem
+              href='https://www.kartverket.no/'
+              rel='noreferrer'
+              target='_blank'
+          >
+            Lenkeknapp 
+          </Header.NavItem>
+        </Header.Nav>
+        
+        <Button asChild variant='tertiary' data-show-from='md'>
+          <a
+            href='https://www.kartverket.no/'
+            rel='noreferrer'
+            target='_blank'
+          >
+            Språk
+          </a>
+        </Button>
+        <Button asChild variant='secondary' data-show-from='md'>
+            <a
+              href='https://www.kartverket.no/'
+              rel='noreferrer'
+              target='_blank'
+            >
+              Logg inn
+            </a>
+          </Button>
+
+        <Header.MenuButton data-hide-from='lg' />
+        <Header.Menu data-hide-from='lg'>
+          <div className='header-menu-actions' data-hide-from='md'>
+            <Button variant='tertiary' style={{ display: 'flex', paddingBlock: '0', gap: 'var(--ds-size-2)' }}>
+                <Avatar aria-label='none' initials='ON' data-size='sm'/>
+                <span>Ola Nordmann</span>
+            </Button>
+            <Button asChild variant='tertiary'>
+              <a
+                href='https://www.kartverket.no/'
+                rel='noreferrer'
+                target='_blank'
+              >
+                Språk
+              </a>
+            </Button>
+            <Button asChild variant='secondary'>
+              <a
+                href='https://www.kartverket.no/'
+                rel='noreferrer'
+                target='_blank'
+              >
+                Logg inn
+              </a>
+            </Button>
+          </div>
+          <Divider data-hide-from='md' />
+          <Header.Nav>
+            <Header.NavItem
+                href='https://www.kartverket.no/'
+                rel='noreferrer'
+                target='_blank'
+            >
+              Lenkeknapp 
+            </Header.NavItem>
+            <Header.NavItem
+                href='https://www.kartverket.no/'
+                rel='noreferrer'
+                target='_blank'
+            >
+              Lenkeknapp 
+            </Header.NavItem>
+            <Header.NavItem
+                href='https://www.kartverket.no/'
+                rel='noreferrer'
+                target='_blank'
+            >
+              Lenkeknapp 
+            </Header.NavItem>
+          </Header.Nav>
+        </Header.Menu>
 </Header>
 
 <Meta of={HeaderStories} />
@@ -86,8 +120,6 @@ import { Heading } from '../typography/heading/Heading';
 <Primary />
 
 <Canvas of={HeaderStories.WithMenu} />
-
-<Canvas of={HeaderStories.WithNavigationLinksAndButtons} />
 
 **Bruk `Header` når**
 - du skal ha et toppfelt for alle tjenestene i Kartverket
@@ -117,7 +149,7 @@ Kartverkets logo og tjenestenavnet har standard plassering til venstre uansett h
 
 Bruk navigasjonslenker til viktige sider som brukeren kan navigere seg til globalt på tjenesten. Disse er lenker stylet som en knapp. Navigasjonslenkene skal ikke ha ikon.
 
-*kodevisning*
+<Canvas of={HeaderStories.WithNavigationLinksAndButtons} />
 
 ### Meny
 
