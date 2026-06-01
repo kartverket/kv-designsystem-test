@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
-import logo from '../../../assets/img/KV_Logo_Horisontal.svg';
+import logoFull from '../../../assets/img/KV_Logo_Horisontal.svg';
+import logoIcon from '../../../assets/img/KV_Logo_FAVICON_32x32px.svg';
 import { Link } from '../link/Link';
 
 type HeaderBrandProps = {
@@ -12,7 +13,8 @@ export const HeaderBrand = forwardRef<HTMLDivElement, HeaderBrandProps>(
     return (
       <div className='header-brand' ref={ref}>
         <a href='https://kartverket.no'>
-          <img src={logo} alt='Kartverket logo' className='header-logo' />
+          <img src={logoFull} alt='Kartverket logo' className='header-logo header-logo--full' />
+          <img src={logoIcon} alt='Kartverket logo' className='header-logo header-logo--icon' />
         </a>
 
         {applicationName && (

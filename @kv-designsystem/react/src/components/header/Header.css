@@ -47,10 +47,18 @@
 .header-logo {
   height: var(--ds-size-10);
   width: auto;
+  /* display: block; */
+}
+
+/* Default */
+.header-logo--full {
   display: block;
 }
 
-/* TODO: width og height i --ds-size variabler, hva skal height være? size-8 (32px) size-9 (36px)*/
+.header-logo--icon {
+  display: none;
+}
+
 .header-divider {
   width: 1px;
   height: 34px;
@@ -81,6 +89,7 @@
 
 .header-menu {
   max-height: calc(100vh - var(--kvdsc-header-height));
+  /* padding: var(--ds-size-10) var(--ds-size-18); */
   border: none;
   box-shadow: none;
   position: fixed;
@@ -109,7 +118,7 @@
   ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--ds-size-5);
+    gap: var(--ds-size-3) var(--ds-size-5);
   }
 }
 
@@ -148,7 +157,7 @@
 @media (width <= 768px) {
   .header {
     --kvdsc-header-height: var(--ds-size-22);
-    padding: var(--ds-size-3) var(--ds-size-6);
+    padding: 0 var(--ds-size-6);
   }
 
   .header-container {
@@ -162,12 +171,25 @@
   .header-logo {
     height: var(--ds-size-8);
   }
+
+  /* .header-menu {
+    padding: var(--ds-size-10) var(--ds-size-6);
+  } */
 }
 
 @media (width <= 480px) {
   .header {
     --kvdsc-header-height: var(--ds-size-18);
   }
+
+  .header-logo--full {
+    display: none;
+  }
+
+  .header-logo--icon {
+    display: block;
+  }
+
 }
 
 @container header-menu-content (width < 768px) {

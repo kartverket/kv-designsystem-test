@@ -4,7 +4,6 @@ import { Button } from '../button/Button';
 
 export type HeaderNavItemProps = ButtonProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-// HeaderNavItem er alltid en lenkeknapp
 export const HeaderNavItem: ForwardRefExoticComponent<HeaderNavItemProps & RefAttributes<HTMLAnchorElement>> = forwardRef<
   HTMLAnchorElement, HeaderNavItemProps>(
   function HeaderNavItem({children, ...rest }, ref) {

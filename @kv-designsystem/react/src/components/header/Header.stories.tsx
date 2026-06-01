@@ -157,7 +157,7 @@ export const WithNavigationLinksAndButtons: Story = {
             >
               Logg inn
             </a>
-          </Button>
+        </Button>
 
         <Header.MenuButton data-hide-from='lg' />
         <Header.Menu data-hide-from='lg'>
