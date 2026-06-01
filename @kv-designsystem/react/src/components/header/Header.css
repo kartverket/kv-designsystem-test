@@ -1,7 +1,8 @@
 .header {
   --kvdsc-header-height: var(--ds-size-26);
   background: var(--ds-color-neutral-background-default);
-  padding: 0 var(--ds-size-18);
+  padding-block: 0;
+  padding-inline: clamp(var(--ds-size-base) * 1px, calc(5.625vw / 2), var(--ds-size-18)); /* Scaling padding instead of media queries*/
   height: var(--kvdsc-header-height);
   box-sizing: border-box;
 
@@ -26,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--ds-size-18);
+  gap: calc(clamp(var(--ds-size-base) * 1px, 5.625vw, var(--ds-size-18))); /* Scaling gap size instead of media queries */
 }
 
 .header-brand {
@@ -89,7 +90,7 @@
 
 .header-menu {
   max-height: calc(100vh - var(--kvdsc-header-height));
-  /* padding: var(--ds-size-10) var(--ds-size-18); */
+  padding: var(--ds-size-10) clamp(var(--ds-size-base) * 1px, calc(5.625vw / 2), var(--ds-size-18));
   border: none;
   box-shadow: none;
   position: fixed;
@@ -110,7 +111,7 @@
   display: grid;
   row-gap: var(--ds-size-6);
   margin: 0 auto;
-  padding: 0 var(--ds-size-18);
+  padding: 0;
   box-sizing: border-box;
   container-type: inline-size;
   container-name: header-menu-content;
@@ -157,12 +158,12 @@
 @media (width <= 768px) {
   .header {
     --kvdsc-header-height: var(--ds-size-22);
-    padding: 0 var(--ds-size-6);
   }
 
-  .header-container {
+  /* TODO: We can use clamping instead of setting gaps and spacing with media queries.  */
+  /* .header-container {
     gap: var(--ds-size-6);
-  }
+  } */
 
   .header-brand {
     gap: var(--ds-size-4);

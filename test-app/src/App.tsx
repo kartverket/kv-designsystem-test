@@ -4,13 +4,14 @@ import { Avatar } from '@kv-designsystem/react'
 import { Divider } from '@kv-designsystem/react'
 import { Button } from '@kv-designsystem/react'
 import '@kv-designsystem/css/green'
+import './App.css'
 
 function App() {
 
   return (
     <>
  {console.log(Header)}
-  <Header className='sb-unstyled' applicationName='Tjenestetittel' applicationHref='https://eiendomsregisteret.kartverket.no/'>
+  <Header applicationName='Tjenestetittel' applicationHref='https://eiendomsregisteret.kartverket.no/'>
   <Header.Nav data-show-from='lg'>
           <Header.NavItem
               href='https://www.kartverket.no/'
