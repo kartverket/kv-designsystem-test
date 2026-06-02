@@ -6,6 +6,7 @@ import { Alert } from '../alert/Alert';
 import { Avatar } from '../avatar/Avatar';
 import { Divider } from '../divider/Divider';
 import { Heading } from '../typography/heading/Heading';
+import { LanguageIcon } from '@navikt/aksel-icons';
 
 {/* TODO: fjern dette 'eksempelet' */}
 <Header className='sb-unstyled' applicationName='Tjenestetittel' applicationHref='https://eiendomsregisteret.kartverket.no/'>
@@ -58,7 +59,7 @@ import { Heading } from '../typography/heading/Heading';
                 rel='noreferrer'
                 target='_blank'
               >
-                Språk
+                <LanguageIcon aria-hidden />Språk
               </a>
             </Button>
             <Button asChild variant='secondary'>

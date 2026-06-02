@@ -2,6 +2,7 @@ import { forwardRef } from 'react';
 import logoFull from '../../../assets/img/KV_Logo_Horisontal.svg';
 import logoIcon from '../../../assets/img/KV_Logo_FAVICON_32x32px.svg';
 import { Link } from '../link/Link';
+import { Heading } from '../typography/heading/Heading';
 
 type HeaderBrandProps = {
   applicationName?: string;
@@ -21,9 +22,11 @@ export const HeaderBrand = forwardRef<HTMLDivElement, HeaderBrandProps>(
           <>
             <span className='header-divider' />
             {applicationHref ? (
-              <Link href={applicationHref}>{applicationName}</Link>
+              <Link href={applicationHref}>
+                <Heading data-size='2xs'>{applicationName}</Heading>
+              </Link>
             ) : (
-              <span>{applicationName}</span>
+              <Heading data-size='2xs'>{applicationName}</Heading>
             )}
           </>
         )}

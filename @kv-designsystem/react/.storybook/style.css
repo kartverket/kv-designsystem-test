@@ -5,3 +5,21 @@ body {
   font-optical-sizing: auto;
   font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
 }
+
+/* Remove extra padding to display header more accurate in Preview mode */
+.sb-main-padded:has(.header) {
+  padding: 0;
+}
+
+/* Remove extra padding to display header more accurate in Docs-stories */
+.sbdocs .docs-story:has(.header) {
+  padding: 0 0 var(--ds-size-8);
+
+  & .innerZoomElementWrapper > div:first-child {
+    border-block: none !important;
+  }
+
+  .header {
+    transform: none;
+  }
+}

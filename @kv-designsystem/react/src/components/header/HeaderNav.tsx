@@ -4,14 +4,14 @@ export type HeaderNavProps = HTMLAttributes<HTMLUListElement>;
 
 
 export const HeaderNav = forwardRef<HTMLUListElement, HeaderNavProps>(
-  function HeaderNav({ className, ...rest }, ref) {
+  function HeaderNav({ children, className, ...rest }, ref) {
     return (
-      <nav aria-label='header-navigation'>
-        <ul
-          className={`header-nav-list ${className}`}
-          ref={ref}
-          {...rest}
-        />
+      <nav 
+        aria-label='header-navigation'
+        ref={ref}
+        {...rest}
+      >
+        <ul className={`header-nav-list ${className}`}>{children}</ul>
       </nav>
     );
   }
