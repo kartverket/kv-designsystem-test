@@ -4,6 +4,7 @@ import { Header } from './';
 import { Divider } from '../divider/Divider';
 import { Avatar } from '../avatar/Avatar';
 import { LanguageIcon } from '@navikt/aksel-icons';
+import { Heading } from '../typography/heading/Heading';
 
 
 const meta = {
@@ -141,28 +142,26 @@ export const WithNavigationLinksAndButtons: Story = {
             Lenkeknapp 
           </Header.NavItem>
         </Header.Nav>
-
-        <Button asChild variant='tertiary' data-show-from='md'>
-          <a
-            href='https://www.kartverket.no/'
-            rel='noreferrer'
-            target='_blank'
-          >
-            <LanguageIcon aria-hidden />Språk
-          </a>
-        </Button>
-        <Button variant='tertiary' style={{ display: 'flex', padding: '0 var(--ds-size-2)', gap: 'var(--ds-size-2)' }}>
-            <Avatar aria-label='none' data-size='xs' style={{fontSize: '12px'}}/>
-            <span data-show-from='lg'>Ola Nordmann</span>
-        </Button>
+        <Header.ActionsList>
+          <Button asChild variant='tertiary' data-show-from='md'>
+            <a
+              href='https://www.kartverket.no/'
+              rel='noreferrer'
+              target='_blank'
+            >
+              <LanguageIcon aria-hidden />Språk
+            </a>
+          </Button>
+          <Button variant='tertiary' style={{ display: 'flex', padding: '0 var(--ds-size-2)', gap: 'var(--ds-size-2)' }}>
+              <Avatar aria-label='none' data-size='xs' style={{fontSize: 'var(--ds-size-3)'}}/>
+              <span data-show-from='lg'>Ola Nordmann</span>
+          </Button>
+        </Header.ActionsList>
+        
 
         <Header.MenuButton data-hide-from='lg' />
         <Header.Menu data-hide-from='lg'>
-          <div className='header-menu-actions' data-hide-from='md'>
-            {/* <Button variant='tertiary' style={{ display: 'flex', paddingBlock: '0', gap: 'var(--ds-size-2)' }}>
-                <Avatar aria-label='none' initials='ON' data-size='sm'/>
-                <span>Ola Nordmann</span>
-            </Button> */}
+          <Header.ActionsList data-hide-from='md'>
             <Button asChild variant='tertiary'>
               <a
                 href='https://www.kartverket.no/'
@@ -172,7 +171,7 @@ export const WithNavigationLinksAndButtons: Story = {
                 <LanguageIcon aria-hidden />Språk
               </a>
             </Button>
-            {/* <Button asChild variant='secondary'>
+            <Button asChild variant='secondary'>
               <a
                 href='https://www.kartverket.no/'
                 rel='noreferrer'
@@ -180,32 +179,75 @@ export const WithNavigationLinksAndButtons: Story = {
               >
                 Logg inn
               </a>
-            </Button> */}
-          </div>
+            </Button>
+          </Header.ActionsList>
           <Divider data-hide-from='md' />
           <Header.Nav>
-            <Header.NavItem
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-            >
-              Lenkeknapp 
-            </Header.NavItem>
-            <Header.NavItem
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-                aria-current='page'
-            >
-              Lenkeknapp 
-            </Header.NavItem>
-            <Header.NavItem
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-            >
-              Lenkeknapp 
-            </Header.NavItem>
+            <li>
+              <ul>
+                <Heading data-size='sm'>Temameny</Heading>
+              <Header.NavItem
+                  href='https://www.kartverket.no/'
+                  rel='noreferrer'
+                  target='_blank'
+              >
+                Lenkeknapp 
+              </Header.NavItem>
+              <Header.NavItem
+                  href='https://www.kartverket.no/'
+                  rel='noreferrer'
+                  target='_blank'
+                  aria-current='page'
+              >
+                Lenkeknapp 
+              </Header.NavItem>
+              <Header.NavItem
+                  href='https://www.kartverket.no/'
+                  rel='noreferrer'
+                  target='_blank'
+              >
+                Lenkeknapp 
+              </Header.NavItem>
+              </ul>
+            </li>
+            <li>
+              <Heading>Temameny</Heading>
+              <Header.NavItem
+                  href='https://www.kartverket.no/'
+                  rel='noreferrer'
+                  target='_blank'
+              >
+                Lenkeknapp 
+              </Header.NavItem>
+              <Header.NavItem
+                  href='https://www.kartverket.no/'
+                  rel='noreferrer'
+                  target='_blank'
+              >
+                Lenkeknapp 
+              </Header.NavItem>
+              <Header.NavItem
+                  href='https://www.kartverket.no/'
+                  rel='noreferrer'
+                  target='_blank'
+              >
+                Lenkeknapp 
+              </Header.NavItem>
+            </li>
+              {/* <Header.NavItem
+                  href='https://www.kartverket.no/'
+                  rel='noreferrer'
+                  target='_blank'
+              >
+                Lenkeknapp 
+              </Header.NavItem>
+              <Header.NavItem
+                  href='https://www.kartverket.no/'
+                  rel='noreferrer'
+                  target='_blank'
+              >
+                Lenkeknapp 
+              </Header.NavItem> */}
           </Header.Nav>
         </Header.Menu>
       </Header>

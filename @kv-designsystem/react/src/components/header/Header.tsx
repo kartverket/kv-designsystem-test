@@ -1,3 +1,4 @@
+import cl from 'clsx/lite';
 import { forwardRef, HTMLAttributes } from 'react';
 import './Header.css';
 import { HeaderBrand } from './HeaderBrand';
@@ -39,7 +40,7 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
   }, []);
 
   return (
-    <header className={`header ${showHeader ? "visible" : "hidden"} ${className ?? ''}`} ref={ref} {...rest}>
+    <header className={cl('header', (showHeader ? "visible" : "hidden"), className)} ref={ref} {...rest}>
       <div className='header-container'>
 
         <HeaderBrand

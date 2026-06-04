@@ -22,8 +22,10 @@ export const HeaderMenuButton: ForwardRefExoticComponent<
 				ref={ref}
 				{...rest}
 			>
-				<MenuHamburgerIcon aria-hidden />
-				<XMarkIcon aria-hidden />
+				<span className='menu-button-icon'>
+					<MenuHamburgerIcon className='hamburger-icon' aria-hidden />
+					<XMarkIcon className='close-icon' aria-hidden />
+				</span>
 				<span>{children ? children : 'Meny'}</span>
 			</Button>
 		);

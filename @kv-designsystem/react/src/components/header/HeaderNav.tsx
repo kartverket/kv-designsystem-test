@@ -1,3 +1,4 @@
+import cl from 'clsx/lite';
 import { forwardRef, HTMLAttributes } from 'react';
 
 export type HeaderNavProps = HTMLAttributes<HTMLUListElement>;
@@ -11,7 +12,7 @@ export const HeaderNav = forwardRef<HTMLUListElement, HeaderNavProps>(
         ref={ref}
         {...rest}
       >
-        <ul className={`header-nav-list ${className}`}>{children}</ul>
+        <ul className={cl('header-nav-list', className)}>{children}</ul>
       </nav>
     );
   }
