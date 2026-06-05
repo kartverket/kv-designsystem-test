@@ -6,9 +6,12 @@ import * as FooterStories from './Footer.stories';
 
 # Footer
 
+`Footer` markerer bunnen av siden og inneholder lenker til essensiell informasjon. Den henger tett sammen med `Header` som tilsammen tydeliggjør Kartverket som avsender for tjenesten.
+
+Vi bruker `Footer` på alle Kartverkets tjenester, med et unntak for kartløsningene våre.
+
 <Primary />
 
-{/* TODO: lage vindu større så man ikke må scrolle i det eller få innhold til å tilpasse seg? */}
 <div
   style={{
     width: INITIAL_VIEWPORTS['iphone6'].styles.width,
@@ -19,7 +22,67 @@ import * as FooterStories from './Footer.stories';
     of={FooterStories.Preview}
     story={{
       inline: false,
-      height: '400px',
+      width: '375px',
+      height: '515px',
     }}
   />
 </div>
+
+## Retningslinjer
+
+### Innhold
+
+I eksempelet over viser vi standard-innholdet som skal være med:
+1. Logo
+2. Kontakt oss
+    - Telefon: 32 11 80 00
+    - E-post: post@kartverket.no
+    - Kontaktinfo og adresser
+3. Informasjon
+    - Personvernerklæring
+    - Informasjonskapsler
+    - Tilgjengelighetserklæring
+
+Andre lenker som kan være relevant å ha med:
+- Om tjenesten
+- Aktuelt
+  - Nyheter
+  - Ledige stillinger
+- Hjelp
+  - Driftsmeldinger
+  - Ofte stilte spørsmål
+- Følg oss
+  - Lenker til sosiale medier
+
+Utover disse skal `Footer` stort sett kun inneholde lenker som også finnes andre steder på siden. Dette er fordi det vil være tungvindt for en bruker å måtte scrolle helt ned for å finne innholdet de leter etter.
+
+### Kolonner
+
+For et responsivt design vil antallet kolonner endre seg basert på skjermbredden.
+
+På skjermbredder fra brekkpunkt medium (768px) og større, bruker vi hovedsakelig tre kolonner.
+Du kan ha opptil 5 kolonner avhengig av antall temaer du skal ha med.
+
+På skjermbredder mindre enn brekkpunkt medium (768 px), wrappes kolonnene under hverandre til flere rader i én kolonne, der logo kommer først.
+
+### Lenke til ekstern side
+
+#### Unngå at lenker blir åpnet i en ny fane
+
+Det er mer forutsigbart for brukeren når lenker åpnes i samme fane. 
+
+Unntak:
+- Hvis systemet må logge ut brukeren når det navigeres til en annen side, og det er hensiktsmessig å unngå utlogging.
+- Når brukeren er midt i en prosess og risikerer å miste innhold ved å klikke på lenken. Ny fane bør vurderes hvis systemet ikke klarer å lagre brukerens inndata.
+
+#### Unngå "ekstern-lenke"-ikon
+
+“Ekstern-lenke”-ikonet forveksles ofte med “Åpnes i ny fane”-ikonet. Hvis brukeren blir sendt til en ekstern side er det mer effektivt å kommunisere dette i lenketeksten.
+
+Eksempler:
+- “Parkering i Flekkefjord kommune”
+- “Parkering (flekkefjord.kommune.no)”
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

@@ -49,20 +49,20 @@ export const Preview: Story = {
         </Footer.Item>
         <Footer.Item>
           <Link 
-            href='https://eiendomsregisteret.kartverket.no/cookies'
-            rel='noreferrer'
-            target='_blank'
-          >
-            Cookieerklæring
-          </Link>
-        </Footer.Item>
-        <Footer.Item>
-          <Link 
             href='https://www.kartverket.no/om-kartverket/personvern'
             rel='noreferrer'
             target='_blank'
           >
             Personvernerklæring
+          </Link>
+        </Footer.Item>
+        <Footer.Item>
+          <Link 
+            href='https://eiendomsregisteret.kartverket.no/cookies'
+            rel='noreferrer'
+            target='_blank'
+          >
+            Informasjonskapsler
           </Link>
         </Footer.Item>
         <Footer.Item>

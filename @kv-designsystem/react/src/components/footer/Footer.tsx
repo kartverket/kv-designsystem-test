@@ -16,12 +16,12 @@ maxWidth: begrenser bredden på innholdet for å matche layouten på resten av s
 className + Footer.css: gjør at vi kan style footeren
 */
 export const Footer = forwardRef<HTMLElement, FooterProps>(function Footer(
-  { children, className, ...rest },
+  { children, ...rest },
   ref
 ) {
   return (
     <footer
-      className={`footer ${className}`}
+      className='footer'
       ref={ref}
       {...rest}
     >

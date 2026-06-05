@@ -7,7 +7,7 @@ body {
 }
 
 /* Remove extra padding to display header more accurate in Preview mode */
-.sb-main-padded:has(.header) {
+.sb-main-padded:has(.header, .footer) {
   padding: 0;
 }
 
