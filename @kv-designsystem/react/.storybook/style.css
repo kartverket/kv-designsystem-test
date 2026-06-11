@@ -6,20 +6,27 @@ body {
   font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
 }
 
-/* Remove extra padding to display header more accurate in Preview mode */
+/* Remove extra padding to display footer and header more accurate in Preview mode */
 .sb-main-padded:has(.header, .footer) {
   padding: 0;
 }
 
-/* Remove extra padding to display header more accurate in Docs-stories */
-.sbdocs .docs-story:has(.header) {
-  padding: 0 0 var(--ds-size-8);
-
-  & .innerZoomElementWrapper > div:first-child {
-    border-block: none !important;
+/* Remove extra padding to display footer and header more accurate in Docs-stories */
+.sbdocs .docs-story {
+  &:has(.footer) {
+    padding: 0;
+    /* overflow-y: hidden; */
   }
 
-  .header {
-    transform: none;
+  &:has(.header) {
+    padding: 0 0 var(--ds-size-8);
+
+    & .innerZoomElementWrapper > div:first-child {
+      border-block: none !important;
+    }
+
+    .header {
+      transform: none;
+    }
   }
 }

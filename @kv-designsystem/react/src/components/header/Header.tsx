@@ -1,8 +1,8 @@
 import cl from 'clsx/lite';
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, type HTMLAttributes } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Header.css';
 import { HeaderBrand } from './HeaderBrand';
-import { useState, useEffect, useRef } from 'react';
 
 export type HeaderProps = HTMLAttributes<HTMLElement> & {
   /**

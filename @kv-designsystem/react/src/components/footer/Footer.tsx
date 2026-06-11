@@ -1,3 +1,4 @@
+import cl from 'clsx/lite';
 import { forwardRef, HTMLAttributes } from 'react';
 import './Footer.css';
 import logo from '../../../assets/img/KV_Logo_Horisontal.svg';
@@ -15,13 +16,11 @@ children: gjør at vi kan sette FooterList og andre elementer inni footeren
 maxWidth: begrenser bredden på innholdet for å matche layouten på resten av siden
 className + Footer.css: gjør at vi kan style footeren
 */
-export const Footer = forwardRef<HTMLElement, FooterProps>(function Footer(
-  { children, ...rest },
-  ref
-) {
+export const Footer = forwardRef<HTMLElement, FooterProps>(
+  function Footer({ children, className, ...rest }, ref) {
   return (
     <footer
-      className='footer'
+      className={cl('footer', className)}
       ref={ref}
       {...rest}
     >

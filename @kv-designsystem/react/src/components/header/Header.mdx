@@ -8,97 +8,6 @@ import { Divider } from '../divider/Divider';
 import { Heading } from '../typography/heading/Heading';
 import { LanguageIcon } from '@navikt/aksel-icons';
 
-{/* TODO: fjern dette 'eksempelet' */}
-<Header className='sb-unstyled' applicationName='Tjenestetittel' applicationHref='https://eiendomsregisteret.kartverket.no/'>
-  <Header.Nav data-show-from='lg'>
-          <Header.NavItem
-              href='https://www.kartverket.no/'
-              rel='noreferrer'
-              target='_blank'
-          >
-            Lenkeknapp 
-          </Header.NavItem>
-          <Header.NavItem
-              href='https://www.kartverket.no/'
-              rel='noreferrer'
-              target='_blank'
-          >
-            Lenkeknapp 
-          </Header.NavItem>
-        </Header.Nav>
-        
-        <Button asChild variant='tertiary' data-show-from='md'>
-          <a
-            href='https://www.kartverket.no/'
-            rel='noreferrer'
-            target='_blank'
-          >
-            Språk
-          </a>
-        </Button>
-        <Button asChild variant='secondary' data-show-from='md'>
-            <a
-              href='https://www.kartverket.no/'
-              rel='noreferrer'
-              target='_blank'
-            >
-              Logg inn
-            </a>
-          </Button>
-
-        <Header.MenuButton data-hide-from='lg' />
-        <Header.Menu data-hide-from='lg'>
-          <div className='header-menu-actions' data-hide-from='md'>
-            <Button variant='tertiary' style={{ display: 'flex', paddingBlock: '0', gap: 'var(--ds-size-2)' }}>
-                <Avatar aria-label='none' initials='ON' data-size='sm'/>
-                <span>Ola Nordmann</span>
-            </Button>
-            <Button asChild variant='tertiary'>
-              <a
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-              >
-                <LanguageIcon aria-hidden />Språk
-              </a>
-            </Button>
-            <Button asChild variant='secondary'>
-              <a
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-              >
-                Logg inn
-              </a>
-            </Button>
-          </div>
-          <Divider data-hide-from='md' />
-          <Header.Nav>
-            <Header.NavItem
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-            >
-              Lenkeknapp 
-            </Header.NavItem>
-            <Header.NavItem
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-            >
-              Lenkeknapp 
-            </Header.NavItem>
-            <Header.NavItem
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-            >
-              Lenkeknapp 
-            </Header.NavItem>
-          </Header.Nav>
-        </Header.Menu>
-</Header>
-
 <Meta of={HeaderStories} />
 
 <Alert data-color='info' className='sb-unstyled'>
@@ -120,8 +29,6 @@ import { LanguageIcon } from '@navikt/aksel-icons';
 
 <Primary />
 
-<Canvas of={HeaderStories.WithMenu} />
-
 **Bruk `Header` når**
 - du skal ha et toppfelt for alle tjenestene i Kartverket
 - du skal samle viktige handlinger som navigasjon, søk, innlogging/utlogging, profil og varsle
@@ -131,7 +38,7 @@ import { LanguageIcon } from '@navikt/aksel-icons';
 
 ## Varianter med eksempler
 
-`Header`kan brukes med flere forskjellige kombinasjoner av subkomponenter. Vi har hovedsakelig to måter å strukturere Headeren på:
+`Header` kan brukes med flere forskjellige kombinasjoner av subkomponenter. Vi har hovedsakelig to måter å strukturere Headeren på:
 
 1. med navigasjonslenker
 2. med meny
@@ -143,43 +50,43 @@ Du kan legge til andre handlinger som knapper, for eksempel:
 
 Du må selv gjøre en vurdering om disse handlingene er viktig for tjenesten, og dermed burde implementeres i Headeren.
 
-Kartverkets logo og tjenestenavnet har standard plassering til venstre uansett hvilken type `Header`du velger. 
+Kartverkets logo og tjenestenavnet har standard plassering til venstre uansett hvilken type `Header`du velger.
 
 
 ### Navigasjonslenker
 
 Bruk navigasjonslenker til viktige sider som brukeren kan navigere seg til globalt på tjenesten. Disse er lenker stylet som en knapp. Navigasjonslenkene skal ikke ha ikon.
 
-<Canvas of={HeaderStories.WithNavigationLinksAndButtons} />
+<Canvas of={HeaderStories.WithNavigationLinks} />
 
 ### Meny
 
 Bruk meny når du har for mange navigasjonslenker og andre handlinger enn det er plass til i selve Headeren. Navigasjonslenkene kan også kategoriseres i tema i menyen.
 
-Menyen i en `Header`kan stå alene eller sammen med viktige handlinger. Menyen skal alltid være plassert helt til høyre.
+Menyen i en `Header` kan stå alene eller sammen med viktige handlinger. Menyen skal alltid være plassert helt til høyre.
 
-Under er et eksempel på `Header`med kun meny.
+Under er et eksempel på `Header` med kun meny.
 
-*Kodevisning som er responsiv*
+<Canvas of={HeaderStories.WithMenu} />
 
 Ting å tenke på:
 - På smale skjermer kan man benytte kun ikoner (husk aria-label), men på store skjermer skal vi ha med tekst i tillegg til ikon.
 - Handlinger som logg inn, søk og språkendring går i menyen over navigasjonslenkene med en Divider i mellom.
 
+Under er et eksempel på `Header` med kombinert meny og handlinger som søk og profil.
 
-Under er et eksempel på `Header`med kombinert meny og handlinger som søk og profil.
-
-*Kodevisning*
+<Canvas of={HeaderStories.WithButtonsAndMenu} />
 
 Unngå å kombinere navigasjonslenker og meny i Headeren. Hvis du skal benytte deg av en meny skal navigasjonslenkene plasseres i denne. Unntaket er om det er essensielt å fremheve en side som er lett tilgjengelig for brukeren.
 
 
 ### Søkefeltets funksjon
-{/* TODO: lenke til eksempler */}
-Når søkefunksjonen er plassert i `Header`åpnes den under Headeren på samme måte som meny. Se eksempelet for `Header`med kombinert meny og handlinger. 
 
-Søkefelt i en meny presenteres som et fullstendig felt øverst for mindre klikk. Se eksempelet for `Header`med kun meny.
+Søkefeltet kan plasseres direkte i `Header` eller åpnes under Headeren på samme måte som meny. Se eksempelet over for `Header` med kombinert søkefelt, handlinger og meny.
 
+<Canvas of={HeaderStories.WithSearch} />
+
+Søkefelt i en meny presenteres som et fullstendig felt øverst for mindre klikk. Se eksempelet for `Header` med kombinert søkefelt, handlinger og meny.
 
 ### Inn- og utlogging og profil i Header
 
@@ -194,9 +101,7 @@ Utlogging og profil:
 ### Språkvelger
 Bruk Button sammen med Dropdown for å lage en språkvelger i Header. 
 
-*kodevisning* (eventuelt at det ligger i et tidligere eksempel man kan lenke til)
-
-Lagre språkvalg i URL...
+<Canvas of={HeaderStories.WithLanguagePicker} />
 
 ### Retningslinjer
 
@@ -224,22 +129,20 @@ Temameny:
 ## Responsivitet
 
 ### Vise eller skjule innhold
-For å håndtere ulike skjermstørrelser og enheter har vi satt opp noen predefinerte breakpoints for når innhold skal vises eller skjules. Dette brukes ved å sette `data-show-from`=[size] eller `data-hide-from=[size] på komponentene du legger inn i Header. De tilgjengelige verdiene for size er:
+For å håndtere ulike skjermstørrelser og enheter har vi satt opp noen predefinerte breakpoints for når innhold skal vises eller skjules. Dette brukes ved å sette `data-show-from=[size]` eller `data-hide-from=[size]` på komponentene du legger inn i `Header`. De tilgjengelige verdiene for `size` er:
 - 'sm': 30rem (480px)
 - 'md': 48rem (768px)
 - 'lg': 64rem (1024px)
-- 'xl': 80rem (1280px)
-- '2xl': 90rem (1440px)
 
 `data-show-from` viser elementet fra og med den angitte skjermstørrelsen, mens `data-hide-from` skjuler elementet fra og med den angitte skjermstørrelsen.
 
-I eksempelet under 'flytter' vi `Header.UserButton` fra `Header` til `Header.Menu` når skjermen blir liten. For å få til det bruker vi:
-- `data-show-from='md'` på `Header.UserButton` i `Header` -> da vises den i `Header` fra og med `'md'` skjermstørrelse.
-`data-hide-from='md'` på `Header.UserButton` i `Header.Menu` -> da skjules den fra `Header.Menu` fra og med `'md'` skjermstørrelse.
+I eksempelet under 'flytter' vi `Header.Nav` fra `Header` til `Header.Menu` når skjermen blir liten. For å få til det bruker vi:
+- `data-show-from='md'` på `Header.Nav` i `Header` -> da vises den i `Header` fra og med `'md'` skjermstørrelse.
+`data-hide-from='md'` på `Header.Nav` i `Header.Menu` -> da skjules den fra `Header.Menu` fra og med `'md'` skjermstørrelse.
 
-Resultatet er at knappen alltid finnes tilgjengelig for brukeren - bare på ulike steder avhengig av skjermstørrelsen. Åpne menyen og endre størrelsen på nettleservinduet for å se hvordan det fungerer.
+Resultatet er at navigasjonslenkene alltid finnes tilgjengelig for brukeren - bare på ulike steder avhengig av skjermstørrelsen. Åpne menyen og endre størrelsen på nettleservinduet for å se hvordan det fungerer.
 
-*kodevisning?*
+<Canvas of={HeaderStories.WithNavigationLinks} />
 
 ### Endringer ved brekkpunkter
 

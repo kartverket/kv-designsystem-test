@@ -1,8 +1,10 @@
+/* clamp() viewport width-values are based on clamp max / 1296px * 100  */
+
 .footer {
   background: var(--ds-color-neutral-background-tinted);
-  padding: var(--ds-size-10) var(--ds-size-18);
   border-top: 8px solid var(--ds-color-accent-border-default);
   box-sizing: border-box;
+  container-type: inline-size;
 }
 
 /* TODO: hva er maxWidth på resten av innholdet?? 
@@ -15,16 +17,21 @@ Kartverket.no har 1500px og 1400px */
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: center; 
-  gap: var(--ds-size-10);
+  justify-content: flex-start; 
+  row-gap: var(--ds-size-10);
+  column-gap: clamp(var(--ds-size-10), 11.1cqw, calc(var(--ds-size-18) * 2));
+
+  box-sizing: content-box;
+  padding: var(--ds-size-10) var(--kvds-layout-padding-inline);
 }
 
 .footer-columns {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--ds-size-10);
-  justify-content: space-evenly;
-  flex: 1;
+  row-gap: var(--ds-size-10);
+  column-gap: clamp(var(--ds-size-10), 11.1cqw, calc(var(--ds-size-18) * 2));
+  justify-content: flex-start;
+  flex: 1 auto;
 }
 
 .footer-list {
@@ -39,6 +46,7 @@ Kartverket.no har 1500px og 1400px */
 
 .footer-item {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--ds-size-1);
 }
 
@@ -46,26 +54,4 @@ Kartverket.no har 1500px og 1400px */
   height: var(--ds-size-10);
   width: auto;
   display: block;
-}
-
-/* TODO: til tablet, hva er en god størrelse? */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-  }
-
-  .footer-columns {
-    justify-content: flex-start;
-  }
-
-  .footer-item {
-    flex-wrap: wrap;
-  }
-}
-
-/* TODO: til mobil, hva er en god størrelse? */
-@media (max-width: 480px) {
-  .footer {
-    padding: var(--ds-size-10) var(--ds-size-6);
-  }
 }

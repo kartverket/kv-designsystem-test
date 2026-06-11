@@ -1,0 +1,23 @@
+.ds-dropdown {
+  [aria-current='true'] button {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: var(--ds-size-1);
+      display: inline-block;
+      width: 1.3em;
+      height: 1.3em;
+      background: currentColor;
+      mask: center / 100% no-repeat var(--kvds-icon-checkmark);
+      vertical-align: middle;
+    }
+  }
+  [aria-current='true'],
+  [aria-current='true'] ~ li,
+  li:has(~ [aria-current='true']) {
+    & :is(a, button, [role='button']) {
+      padding-inline-start: var(--ds-size-7);
+    }
+  }
+}

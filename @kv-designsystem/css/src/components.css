@@ -1,2 +1,4 @@
+@import "../../react/src/components/dropdown/dropdown.css" layer(kv.components);
 @import "../../react/src/components/footer/Footer.css" layer(kv.components);
 @import "../../react/src/components/header/Header.css" layer(kv.components);
+@import "../../react/src/components/variables.css" layer(kv.components);

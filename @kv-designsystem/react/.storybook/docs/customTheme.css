@@ -6,12 +6,12 @@
     background: var(--ds-color-background-tinted);
   }
   
-  p {
+  p:not(.ds-heading + p) {
     margin-block: var(--ds-size-4) var(--ds-size-2);
-  }
 
-  p:has(+ .ds-list) {
+    &:has(+ .ds-list) {
       margin-block: var(--ds-size-4) var(--ds-size-0);
+    }
   }
 
   .header p {

@@ -1,3 +1,4 @@
+import cl from 'clsx/lite';
 import {
 	forwardRef,
 	type ForwardRefExoticComponent,
@@ -12,12 +13,12 @@ export type HeaderMenuButtonProps = ButtonProps;
 export const HeaderMenuButton: ForwardRefExoticComponent<
 	HeaderMenuButtonProps & RefAttributes<HTMLButtonElement>
 > = forwardRef<HTMLButtonElement, HeaderMenuButtonProps>(
-	function HeaderMenuButton({ children, ...rest }, ref) {
+	function HeaderMenuButton({ children, className, commandFor='header-menu', ...rest }, ref) {
 		return (
 			<Button
-				className='header-menu-button'
+				className={cl('header-menu-button', className)} 
 				variant='tertiary'
-				commandFor='header-menu'
+				commandFor={commandFor}
 				command='show-modal'
 				ref={ref}
 				{...rest}

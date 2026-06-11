@@ -1,3 +1,4 @@
+import cl from 'clsx/lite';
 import { 
   forwardRef,
   type ForwardRefExoticComponent,
@@ -6,22 +7,22 @@ import {
 import type { DialogProps } from '../dialog/Dialog';
 import { Dialog } from '../dialog/Dialog';
 
-export type HeaderMenuProps = DialogProps;
+export type HeaderDialogProps = DialogProps;
 
-export const HeaderMenu: ForwardRefExoticComponent<HeaderMenuProps & RefAttributes<HTMLDialogElement>> 
-  = forwardRef<HTMLDialogElement, HeaderMenuProps>(
-  function HeaderMenu({ id='header-menu', children, ...rest }, ref) {
+export const HeaderDialog: ForwardRefExoticComponent<HeaderDialogProps & RefAttributes<HTMLDialogElement>> 
+  = forwardRef<HTMLDialogElement, HeaderDialogProps>(
+  function HeaderDialog({ children, className, id='header-dialog',  ...rest }, ref) {
     return (
       <Dialog
         id={id}
-        className='header-menu'
+        className={cl('header-dialog', className)} 
         placement='top'
         closedby='any'
         closeButton={false}
         ref={ref}
         {...rest}
       >
-        <div className='header-menu-content'>
+        <div className='header-dialog-content'>
           {children}
         </div>
       </Dialog>
