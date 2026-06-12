@@ -3,7 +3,7 @@ import { Button } from '../button/Button';
 import { Header } from './';
 import { Divider } from '../divider/Divider';
 import { Avatar } from '../avatar/Avatar';
-import { LanguageIcon, MagnifyingGlassIcon } from '@navikt/aksel-icons';
+import { LanguageIcon, MagnifyingGlassIcon, XMarkIcon } from '@navikt/aksel-icons';
 import { Heading } from '../typography/heading/Heading';
 import { Dropdown } from '../dropdown/Dropdown';
 import { Search } from '../search/Search';
@@ -208,7 +208,7 @@ export const WithButtonsAndMenu: Story = {
       <Header {...args}>
         <Header.ActionsList>
           <Button variant='tertiary' command='show-modal' commandFor='search-dialog' data-show-from='md'>
-            <MagnifyingGlassIcon />
+            <MagnifyingGlassIcon aria-hidden />
             Søk
           </Button>
           <Header.SearchDialog id='search-dialog'>
@@ -219,7 +219,7 @@ export const WithButtonsAndMenu: Story = {
             </Search>
           </Header.SearchDialog>
           <Button variant='tertiary' style={{ display: 'flex', padding: '0 var(--ds-size-2)', gap: 'var(--ds-size-2)' }}>
-              <Avatar aria-label='none' data-size='xs' style={{fontSize: 'var(--ds-size-3)'}}/>
+              <Avatar aria-label='none' data-size='xs' initials='ON' style={{fontSize: 'var(--ds-size-3)'}}/>
               <span data-show-from='lg'>Ola Nordmann</span>
           </Button>
         </Header.ActionsList>
@@ -236,7 +236,7 @@ export const WithButtonsAndMenu: Story = {
             <Button 
               asChild 
               variant='secondary' 
-              // @ts-expect-error We want the native "autofocus" and Reacts onMount smartness (see https://react.dev/reference/react-dom/components/input#input)
+              // @ts-expect-error We want the native 'autofocus' and Reacts onMount smartness (see https://react.dev/reference/react-dom/components/input#input)
               autofocus='true'
             >
               <a
@@ -347,7 +347,7 @@ export const WithLanguagePicker: Story = {
     docs: {
       story: {
         inline: false,
-        iframeHeight: '300px',
+        iframeHeight: '275px',
       }
     },
   },
@@ -496,7 +496,7 @@ export const ComplexHeader: Story = {
                   rel='noreferrer'
                   target='_blank'
                 >
-                  <LanguageIcon aria-hidden />NO/EN
+                  <LanguageIcon aria-hidden />Language
                 </a>
               </Button>
               <Button asChild variant='secondary'>
@@ -642,7 +642,7 @@ export const ComplexHeader: Story = {
 //             <Button 
 //               asChild 
 //               variant='secondary' 
-//               // @ts-expect-error We want the native "autofocus" and Reacts onMount smartness (see https://react.dev/reference/react-dom/components/input#input)
+//               // @ts-expect-error We want the native 'autofocus' and Reacts onMount smartness (see https://react.dev/reference/react-dom/components/input#input)
 //               autofocus='true'
 //             >
 //               <a

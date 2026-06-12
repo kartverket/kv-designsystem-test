@@ -32,11 +32,7 @@ export const Preview: Story = {
             </Link>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://www.kartverket.no/om-kartverket/kontakt-oss'
-            rel='noreferrer'
-            target='_blank' 
-          >
+          <Link href='https://www.kartverket.no/om-kartverket/kontakt-oss'>
             Kontaktinfo og adresser
           </Link>
         </Footer.Item>
@@ -48,29 +44,17 @@ export const Preview: Story = {
           </Heading>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://www.kartverket.no/om-kartverket/personvern'
-            rel='noreferrer'
-            target='_blank'
-          >
+          <Link href='https://www.kartverket.no/om-kartverket/personvern'>
             Personvernerklæring
           </Link>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://eiendomsregisteret.kartverket.no/cookies'
-            rel='noreferrer'
-            target='_blank'
-          >
-            Informasjonskapsler
+          <Link href='https://eiendomsregisteret.kartverket.no/cookies'>
+            Erklæring om informasjonskapsler
           </Link>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://uustatus.no/nb/erklaringer/publisert/b26daa41-074f-4153-88e6-8414c7732e03'
-            rel='noreferrer'
-            target='_blank'
-          >
+          <Link href='https://uustatus.no/nb/erklaringer/publisert/b26daa41-074f-4153-88e6-8414c7732e03'>
             Tilgjengelighetserklæring
           </Link>
           </Footer.Item>
@@ -101,11 +85,7 @@ export const WithThreeColumns: Story = {
             </Link>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://www.kartverket.no/om-kartverket/kontakt-oss'
-            rel='noreferrer'
-            target='_blank' 
-          >
+          <Link href='https://www.kartverket.no/om-kartverket/kontakt-oss'>
             Kontaktinfo og adresser
           </Link>
         </Footer.Item>
@@ -117,65 +97,35 @@ export const WithThreeColumns: Story = {
           </Heading>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://www.kartverket.no/om-kartverket/personvern'
-            rel='noreferrer'
-            target='_blank'
-          >
+          <Link href='https://www.kartverket.no/om-kartverket/personvern'>
             Personvernerklæring
           </Link>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://eiendomsregisteret.kartverket.no/cookies'
-            rel='noreferrer'
-            target='_blank'
-          >
-            Informasjonskapsler
+          <Link href='https://eiendomsregisteret.kartverket.no/cookies'>
+            Erklæring om informasjonskapsler
           </Link>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://uustatus.no/nb/erklaringer/publisert/b26daa41-074f-4153-88e6-8414c7732e03'
-            rel='noreferrer'
-            target='_blank'
-          >
-            Tilgjengelighetserklæring
+          <Link href='https://uustatus.no/nb/erklaringer/publisert/b26daa41-074f-4153-88e6-8414c7732e03'>
+            Tilgjengelighetserklæring (uustatus.no)
           </Link>
           </Footer.Item>
       </Footer.List>
       <Footer.List>
         <Footer.Item >
           <Heading data-size='2xs'>
-            Informasjon 2
+            Hjelp
           </Heading>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://www.kartverket.no/om-kartverket/personvern'
-            rel='noreferrer'
-            target='_blank'
-          >
-            Personvernerklæring 2
-          </Link>
+          <Link href='#'>Driftsmeldinger</Link>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://eiendomsregisteret.kartverket.no/cookies'
-            rel='noreferrer'
-            target='_blank'
-          >
-            Informasjonskapsler 2
-          </Link>
+          <Link href='#'>Ofte stilte spørsmål</Link>
         </Footer.Item>
         <Footer.Item>
-          <Link 
-            href='https://uustatus.no/nb/erklaringer/publisert/b26daa41-074f-4153-88e6-8414c7732e03'
-            rel='noreferrer'
-            target='_blank'
-          >
-            Tilgjengelighetserklæring 2
-          </Link>
+          <Link href='#'>Skjemaer</Link>
           </Footer.Item>
       </Footer.List>
     </Footer>
