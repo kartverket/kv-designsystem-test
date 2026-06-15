@@ -4,6 +4,7 @@ import { List } from 'src/components/list/List';
 import { Link } from 'src/components/link/Link';
 import { Table } from 'src/components/table/Table';
 import type { MdxComponentOverrides } from '../types/storybook';
+import componentStyles from './componentOverrides.module.css';
 import { getPath } from '.storybook/utils/getPath';
 
 const headingConfig = [
@@ -83,4 +84,5 @@ export const componentOverrides: MdxComponentOverrides = {
   th: (props) => <Table.HeaderCell {...props} className="sb-unstyled" />,
   td: (props) => <Table.Cell {...props} className="sb-unstyled" />,
   dl: (props) => <dl {...props} className="sb-unstyled" />,
+  code: (props) => <code {...props} className={`sb-unstyled ${componentStyles.code}`} />,
 };
