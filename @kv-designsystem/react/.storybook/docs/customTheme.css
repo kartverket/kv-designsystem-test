@@ -4,6 +4,11 @@
     border: none;
     border-radius: var(--ds-border-radius-sm);
     background: var(--ds-color-background-tinted);
+    font-size: 0.9em;
+  }
+
+  a:has(code) {
+    color: var(--ds-color-neutral-text-default);
   }
   
   p {
