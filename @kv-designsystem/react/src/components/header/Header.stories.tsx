@@ -176,7 +176,7 @@ export const WithMenu: Story = {
 
 export const WithButtonsAndMenu: Story = {
   args: {
-    applicationName: 'Tjenestetittel',
+    applicationName: 'Eiendoms\u00ADregisteret',
     applicationHref: 'https://eiendomsregisteret.kartverket.no/',
   },
   parameters: {
@@ -203,6 +203,10 @@ export const WithButtonsAndMenu: Story = {
         .withButtonsAndMenu-header-sub-menu ul {
           margin-bottom: var(--ds-size-3);
         }
+
+        .withButtonsAndMenu-small-initials:before {
+          font-size: var(--ds-size-4);
+        }
         `}
       </style>
       <Header {...args}>
@@ -219,7 +223,7 @@ export const WithButtonsAndMenu: Story = {
             </Search>
           </Header.SearchDialog>
           <Button variant='tertiary' style={{ display: 'flex', padding: '0 var(--ds-size-2)', gap: 'var(--ds-size-2)' }}>
-              <Avatar aria-label='none' data-size='xs' initials='ON' style={{fontSize: 'var(--ds-size-3)'}}/>
+              <Avatar className='withButtonsAndMenu-small-initials' aria-label='none' data-size='xs' initials='ON' />
               <span data-show-from='lg'>Ola Nordmann</span>
           </Button>
         </Header.ActionsList>

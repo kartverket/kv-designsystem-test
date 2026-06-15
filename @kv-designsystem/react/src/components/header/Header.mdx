@@ -93,6 +93,8 @@ Søkefelt i en meny presenteres som et fullstendig felt øverst for mindre klikk
 Innlogging:
 - Bruk en sekundær-knapp med ikon og tekst. Du kan bruke en primær-knapp hvis du ønsker å tiltrekke brukerens oppmerksomhet til denne handlingen.
 
+{/* TODO: Alert med info om at vi ikke har noe kode-eksempel, men her er et forslag til hvordan vi ser for oss profil-komponenten. Gjerne kom med tilbakemelding. */}
+
 Utlogging og profil:
 - Bruk Avatar kombinert med en Button. I knappen kan du skrive brukernavn og legge til et dropdown-ikon på høyre side. Ved å klikke på knappen åpnes en dropdown der du kan plassere valg som “Bytt bruker”, “Logg ut”, varsler og innstillinger.
   - For smalere skjermer kan du bruke kun Avatar med initial-varianten.
@@ -158,7 +160,21 @@ Fra brekkpunkt small (480px) og mindre:
 
 #### Lange tjenestenavn
 
-Hvis tjenestenavnet blir for langt i forhold til skjermbredden, skal den deles over to linjer i mindre font-størrelse.
+Hvis tjenesten har et langt navn, bruker du 'soft hyphen' for å indikere hvor navnet kan deles opp i flere linjer. Det gjør at navnet kan brytes på en pen måte på mindre skjermer, samtidig som det vises i sin helhet på større skjermer.
+
+Soft hyphen settes inn med HTML entity `&shy;` eller unicode-sekvens `\u00AD` avhengig av kontekst.
+
+```tsx
+// Når verdien settes direkte som komponent-property
+<Header applicationName='Eiendoms&shy;registeret' />
+
+// Når verdien først settes som en variabel
+const appName = 'Eiendoms\u00ADregisteret'
+// ...
+<Header applicationName={appName} />
+```
+
+Lange tjenestenavn som består av flere ord bryter automatisk der hvor det er mellomrom. 
 
 ### Test på ulike skjermstørrelser
 
@@ -171,20 +187,3 @@ Husk å teste `Header` på ulike enheter og skjermstørrelser for å sikre at de
 ## Kilde
 
 Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.
-
-
-{/* TODO: lage vindu større så man ikke må scrolle i det eller få innhold til å tilpasse seg? */}
-{/* <div
-  style={{
-    width: INITIAL_VIEWPORTS['iphone6'].styles.width,
-    justifySelf: 'center',
-  }}
->
-  <Canvas
-    of={HeaderStories.Preview}
-    story={{
-      inline: false,
-      height: '400px',
-    }}
-  />
-</div> */}

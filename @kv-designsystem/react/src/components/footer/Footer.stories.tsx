@@ -40,7 +40,7 @@ export const Preview: Story = {
       <Footer.List>
         <Footer.Item >
           <Heading data-size='2xs'>
-            Informasjon
+            Om nettstedet
           </Heading>
         </Footer.Item>
         <Footer.Item>
@@ -53,9 +53,14 @@ export const Preview: Story = {
             Erklæring om informasjonskapsler
           </Link>
         </Footer.Item>
+                <Footer.Item>
+          <Link href='#'>
+            Endre valg for informasjon vi kan lagre
+          </Link>
+        </Footer.Item>
         <Footer.Item>
           <Link href='https://uustatus.no/nb/erklaringer/publisert/b26daa41-074f-4153-88e6-8414c7732e03'>
-            Tilgjengelighetserklæring
+            Tilgjengelighetserklæring (uustatus.no)
           </Link>
           </Footer.Item>
       </Footer.List>
@@ -93,7 +98,7 @@ export const WithThreeColumns: Story = {
       <Footer.List>
         <Footer.Item >
           <Heading data-size='2xs'>
-            Informasjon
+            Om nettstedet
           </Heading>
         </Footer.Item>
         <Footer.Item>
@@ -104,6 +109,11 @@ export const WithThreeColumns: Story = {
         <Footer.Item>
           <Link href='https://eiendomsregisteret.kartverket.no/cookies'>
             Erklæring om informasjonskapsler
+          </Link>
+        </Footer.Item>
+        <Footer.Item>
+          <Link href='#'>
+            Endre valg for informasjon vi kan lagre
           </Link>
         </Footer.Item>
         <Footer.Item>

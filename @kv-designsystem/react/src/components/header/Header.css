@@ -34,7 +34,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(calc(var(--ds-size-base) * 1px), 5.556vw, var(--ds-size-18)); /* Scaling gap size instead of media queries */
+  gap: clamp(var(--ds-size-4), 5.556vw, var(--ds-size-18)); /* Scaling gap size instead of media queries */
 }
 
 .header-brand {

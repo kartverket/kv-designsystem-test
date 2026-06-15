@@ -1,6 +1,8 @@
 /* clamp() viewport width-values are based on clamp max / 1296px * 100  */
 
 .footer {
+  --kvdsc-footer-gap: clamp(var(--ds-size-10), 9.259cqw, var(--ds-size-30)); /* Scaling gap size instead of media queries */
+
   background: var(--ds-color-neutral-background-tinted);
   border-top: 8px solid var(--ds-color-accent-border-default);
   box-sizing: border-box;
@@ -19,7 +21,7 @@ Kartverket.no har 1500px og 1400px */
   align-items: flex-start;
   justify-content: flex-start; 
   row-gap: var(--ds-size-10);
-  column-gap: clamp(var(--ds-size-10), 11.1cqw, calc(var(--ds-size-18) * 2));
+  column-gap: var(--kvdsc-footer-gap);
 
   box-sizing: content-box;
   padding: var(--ds-size-10) var(--kvds-layout-padding-inline);
@@ -29,7 +31,7 @@ Kartverket.no har 1500px og 1400px */
   display: flex;
   flex-wrap: wrap;
   row-gap: var(--ds-size-10);
-  column-gap: clamp(var(--ds-size-10), 11.1cqw, calc(var(--ds-size-18) * 2));
+  column-gap: var(--kvdsc-footer-gap);
   justify-content: flex-start;
   flex: 1 auto;
 }
