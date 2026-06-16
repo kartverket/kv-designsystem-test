@@ -10,7 +10,7 @@ import { LanguageIcon } from '@navikt/aksel-icons';
 
 <Meta of={HeaderStories} />
 
-<Alert data-color='info' className='sb-unstyled'>
+<Alert data-color='info' className='sb-unstyled' style={{ marginBottom: 'var(--ds-size-4)' }}>
     <Heading     
         data-size='xs'
         level={3}
@@ -93,7 +93,18 @@ Søkefelt i en meny presenteres som et fullstendig felt øverst for mindre klikk
 Innlogging:
 - Bruk en sekundær-knapp med ikon og tekst. Du kan bruke en primær-knapp hvis du ønsker å tiltrekke brukerens oppmerksomhet til denne handlingen.
 
-{/* TODO: Alert med info om at vi ikke har noe kode-eksempel, men her er et forslag til hvordan vi ser for oss profil-komponenten. Gjerne kom med tilbakemelding. */}
+<Alert data-color='info' className='sb-unstyled' style={{ marginBlock: 'var(--ds-size-4)' }}>
+    <Heading     
+        data-size='xs'
+        level={3}
+        style={{
+            marginBottom: 'var(--ds-size-2)'
+        }}
+    >
+        Manglende oversikt for profil-meny
+    </Heading>
+    Vi har ikke full oversikt over bruksbehovet for profil-meny, men her er et forslag til hvordan vi ser for oss komponenten. Vi tar gjerne imot innspill.
+</Alert>
 
 Utlogging og profil:
 - Bruk Avatar kombinert med en Button. I knappen kan du skrive brukernavn og legge til et dropdown-ikon på høyre side. Ved å klikke på knappen åpnes en dropdown der du kan plassere valg som “Bytt bruker”, “Logg ut”, varsler og innstillinger.
@@ -129,6 +140,14 @@ Temameny:
 - Flere nivåer i navigasjonen
 
 ## Responsivitet
+
+### Header skjules og vises automatisk
+
+`Header` er scroll-aware og skjules automatisk ved scrolling. Det vil si at når brukeren scroller nedover på siden, vil `Header` skjule seg for å gi mer plass til innholdet. Når brukeren starter å scrolle opp igjen, vil den vises igjen. Slik har brukerne alltid tilgang til viktig funksjonalitet, uavhengig av hvor langt ned på siden de har scrollet.
+
+Foreldreelementet får automatisk `overflow: visible`. Sørg for at dette ikke blir overskrevet.
+
+<Canvas of={HeaderStories.WithScroll} />
 
 ### Vise eller skjule innhold
 For å håndtere ulike skjermstørrelser og enheter har vi satt opp noen predefinerte breakpoints for når innhold skal vises eller skjules. Dette brukes ved å sette `data-show-from=[size]` eller `data-hide-from=[size]` på komponentene du legger inn i `Header`. De tilgjengelige verdiene for `size` er:
@@ -182,7 +201,7 @@ Husk å teste `Header` på ulike enheter og skjermstørrelser for å sikre at de
 
 ## Kompatibilitet
 
-`Header.Menu` bruker `Popover` under panseret, se dokumentasjon om kompatibilitet med `Popover` for å sørge for at det fungerer som forventet i din applikasjon. Det gjelder også ved bruk av `Dropdown`.
+`Header.Menu` bruker `Popover` under panseret, se dokumentasjon om kompatibilitet med [`Popover`](/docs/components-popover--docs) for å sørge for at det fungerer som forventet i din applikasjon. Det gjelder også ved bruk av `Dropdown`.
 
 ## Kilde
 

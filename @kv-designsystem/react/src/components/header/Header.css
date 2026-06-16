@@ -15,7 +15,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: transform 0.2s ease-in-out 0.1s;
+  transition: transform 0.2s ease-in-out;
   &.visible {
     transform: translateY(0);
   }
@@ -105,12 +105,12 @@
   justify-content: flex-end;
 }
 
-.header-menu-button {
-  & .menu-button-icon {
+.header-dialog-trigger {
+  & .dialog-trigger-icon {
     transition: transform 0.4s ease;
   }
   
-  & .hamburger-icon {
+  & .primary-icon {
     display: block;
   }
 
@@ -119,10 +119,10 @@
   }
 
   &:has(+ .header-dialog:open) {
-    & .menu-button-icon {
+    & .dialog-trigger-icon {
       transform: rotate(90deg);
     }
-    & .hamburger-icon {
+    & .primary-icon {
       display: none;
     }
     & .close-icon {
@@ -184,6 +184,10 @@
   .header-logo {
     height: var(--ds-size-8);
   }
+
+  .header-menu-button {
+    padding-inline: var(--ds-size-2);
+  }
 }
 
 @container header-container (width <= 480px) {
@@ -200,11 +204,11 @@
   }
 
   .header-menu-button {
-    gap: 0;
-
-    span {
-      font-size: 0px;
+    span:not(:has(svg)) {
+      display: none;
     }
+
+    padding-inline: var(--ds-size-1);
   }
 }
 

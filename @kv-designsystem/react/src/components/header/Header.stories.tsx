@@ -1,13 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button } from '../button/Button';
-import { Header } from './';
-import { Divider } from '../divider/Divider';
-import { Avatar } from '../avatar/Avatar';
-import { LanguageIcon, MagnifyingGlassIcon, XMarkIcon } from '@navikt/aksel-icons';
-import { Heading } from '../typography/heading/Heading';
-import { Dropdown } from '../dropdown/Dropdown';
-import { Search } from '../search/Search';
 import { useRef, useState } from 'react';
+import { Avatar } from '../avatar/Avatar';
+import { Button } from '../button/Button';
+import { Divider } from '../divider/Divider';
+import { Dropdown } from '../dropdown/Dropdown';
+import { Header } from './';
+import { Heading } from '../typography/heading/Heading';
+import { Link } from '../link/Link';
+import { List } from '../list/List';
+import { Paragraph } from '../typography/paragraph/Paragraph';
+import { Search } from '../search/Search';
+import { EnterIcon, LanguageIcon } from '@navikt/aksel-icons';
+
 
 const meta = {
   component: Header
@@ -23,7 +27,7 @@ export const Preview: Story = {
   },
   render: (args) => (
     <Header {...args} />
-  )
+  ),
 };
 
 export const WithNavigationLinks: Story = {
@@ -43,19 +47,10 @@ export const WithNavigationLinks: Story = {
     <>
       <Header {...args}>
         <Header.Nav data-show-from='md'>
-          <Header.NavItem
-              href='https://www.kartverket.no/'
-              rel='noreferrer'
-              target='_blank'
-              aria-current='page'
-          >
+          <Header.NavItem href='#' aria-current='page'>
             Lenkeknapp 
           </Header.NavItem>
-                    <Header.NavItem
-              href='https://www.kartverket.no/'
-              rel='noreferrer'
-              target='_blank'
-          >
+          <Header.NavItem href='#'>
             Lenkeknapp 
           </Header.NavItem>
         </Header.Nav>
@@ -63,26 +58,17 @@ export const WithNavigationLinks: Story = {
         <Header.MenuButton data-hide-from='md' commandFor='with-navigation-links'/>
         <Header.Menu data-hide-from='md' id='with-navigation-links'>
           <Header.Nav>
-            <Header.NavItem
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-                aria-current='page'
-            >
+            <Header.NavItem href='#' aria-current='page'>
               Lenkeknapp 
             </Header.NavItem>
-            <Header.NavItem
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-            >
+            <Header.NavItem href='https://www.kartverket.no/'>
               Lenkeknapp 
             </Header.NavItem>
           </Header.Nav>
         </Header.Menu>
       </Header>
     </>
-  )
+  ),
 };
 
 export const WithMenu: Story = {
@@ -102,12 +88,13 @@ export const WithMenu: Story = {
     <>
       <style>
         {`
-        .withMenu-header-sub-menu .ds-heading {
-          margin-bottom: var(--ds-size-3);
-        }
-        .withMenu-header-sub-menu ul {
-          margin-bottom: var(--ds-size-3);
-        }
+          /* Styles defined in application-specific css */
+          .withMenu-header-sub-menu .ds-heading {
+            margin-bottom: var(--ds-size-3);
+          }
+          .withMenu-header-sub-menu ul {
+            margin-bottom: var(--ds-size-3);
+          }
         `}
       </style>
       <Header {...args}>
@@ -117,26 +104,13 @@ export const WithMenu: Story = {
               <li className='withMenu-header-sub-menu'>
                 <Heading data-size='sm'>Temameny</Heading>
                 <ul>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                      aria-current='page'
-                  >
+                  <Header.NavItem href='#' aria-current='page'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
                 </ul>
@@ -144,25 +118,13 @@ export const WithMenu: Story = {
               <li className='withMenu-header-sub-menu'>
                 <Heading>Temameny</Heading>
                 <ul>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
                 </ul>
@@ -171,7 +133,7 @@ export const WithMenu: Story = {
         </Header.Menu>
       </Header>
     </>
-  )
+  ),
 };
 
 export const WithButtonsAndMenu: Story = {
@@ -191,32 +153,25 @@ export const WithButtonsAndMenu: Story = {
     <>
       <style>
         {`
-        .header-dialog-content:has(> .ds-search:[visible]) {
-          max-width: 708px;
-          width: 100%;
-        }
+          /* Styles defined in application-specific css */
+          .withButtonsAndMenu-header-sub-menu .ds-heading {
+            margin-bottom: var(--ds-size-3);
+          }
 
-        .withButtonsAndMenu-header-sub-menu .ds-heading {
-          margin-bottom: var(--ds-size-3);
-        }
+          .withButtonsAndMenu-header-sub-menu ul {
+            margin-bottom: var(--ds-size-3);
+          }
 
-        .withButtonsAndMenu-header-sub-menu ul {
-          margin-bottom: var(--ds-size-3);
-        }
-
-        .withButtonsAndMenu-small-initials:before {
-          font-size: var(--ds-size-4);
-        }
+          .withButtonsAndMenu-small-initials:before {
+            font-size: var(--ds-size-4);
+          }
         `}
       </style>
       <Header {...args}>
         <Header.ActionsList>
-          <Button variant='tertiary' command='show-modal' commandFor='search-dialog' data-show-from='md'>
-            <MagnifyingGlassIcon aria-hidden />
-            Søk
-          </Button>
-          <Header.SearchDialog id='search-dialog'>
-            <Search>
+          <Header.SearchButton commandFor='with-buttons-and-menu-search' data-show-from='md'/>
+          <Header.SearchDialog id='with-buttons-and-menu-search'>
+            <Search style={{ maxWidth: '708px', justifySelf: 'center' }}>
               <Search.Input aria-label='Søk' />
               <Search.Clear />
               <Search.Button type='submit' />
@@ -235,48 +190,24 @@ export const WithButtonsAndMenu: Story = {
             <Search.Clear />
             <Search.Button type='submit' />
           </Search>
+
           <Divider data-hide-from='md' />
-          <Header.ActionsList data-hide-from='md'>
-            <Button 
-              asChild 
-              variant='secondary' 
-              // @ts-expect-error We want the native 'autofocus' and Reacts onMount smartness (see https://react.dev/reference/react-dom/components/input#input)
-              autofocus='true'
-            >
-              <a
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-              >
-                Logg inn
-              </a>
-            </Button>
-          </Header.ActionsList>
-          <Divider data-hide-from='md' />
+
           <Header.Nav>
               <li className='withButtonsAndMenu-header-sub-menu'>
                 <Heading data-size='sm'>Temameny</Heading>
                 <ul>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
+                  <Header.NavItem 
+                    href='#'
+                    // @ts-expect-error We want the native 'autofocus' and Reacts onMount smartness (see https://react.dev/reference/react-dom/components/input#input)
+                    autofocus='true'
                   >
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                      aria-current='page'
-                  >
+                  <Header.NavItem href='#' aria-current='page'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
                 </ul>
@@ -284,25 +215,13 @@ export const WithButtonsAndMenu: Story = {
               <li className='withButtonsAndMenu-header-sub-menu'>
                 <Heading>Temameny</Heading>
                 <ul>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
                 </ul>
@@ -311,7 +230,7 @@ export const WithButtonsAndMenu: Story = {
         </Header.Menu>
       </Header>
     </>
-  )
+  ),
 };
 
 export const WithSearch: Story = {
@@ -339,7 +258,7 @@ export const WithSearch: Story = {
         </Header.Menu>
       </Header>
     </>
-  )
+  ),
 };
 
 export const WithLanguagePicker: Story = {
@@ -376,7 +295,7 @@ export const WithLanguagePicker: Story = {
           ref={buttonRef}
         >
           <LanguageIcon aria-hidden />
-          Language
+          <span data-show-from='sm'>Language</span>
         </Button>
         <Dropdown id='language-picker'>
           <Dropdown.List>
@@ -400,12 +319,144 @@ export const WithLanguagePicker: Story = {
         </Dropdown>
       </Header>
     );
-  }
+  },
+};
+
+export const WithScroll: Story = {
+  args: {
+    applicationName: 'Tjenestetittel',
+    applicationHref: 'https://eiendomsregisteret.kartverket.no/',
+  },
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: '420px',
+      }
+    },
+  },
+  render: (args) => (
+    <>
+      <style>
+        {`
+        /* Styles defined in application-specific css */
+          .withScroll-header-sub-menu .ds-heading {
+            margin-bottom: var(--ds-size-3);
+          }
+          .withScroll-header-sub-menu ul {
+            margin-bottom: var(--ds-size-3);
+          }
+        `}
+      </style>
+      <Header {...args}>
+        <Header.MenuButton commandFor='with-scroll'/>
+          <Header.Menu id='with-scroll'>
+            <Header.Nav>
+              <li className='withScroll-header-sub-menu'>
+                <Heading data-size='sm'>Temameny</Heading>
+                <ul>
+                  <Header.NavItem href='#'>
+                    Lenkeknapp 
+                  </Header.NavItem>
+                  <Header.NavItem href='#' aria-current='page'>
+                    Lenkeknapp 
+                  </Header.NavItem>
+                  <Header.NavItem href='#'>
+                    Lenkeknapp 
+                  </Header.NavItem>
+                </ul>
+              </li>
+              <li className='withScroll-header-sub-menu'>
+                <Heading>Temameny</Heading>
+                <ul>
+                  <Header.NavItem href='#'>
+                    Lenkeknapp 
+                  </Header.NavItem>
+                  <Header.NavItem href='#'>
+                    Lenkeknapp 
+                  </Header.NavItem>
+                  <Header.NavItem href='#'>
+                    Lenkeknapp 
+                  </Header.NavItem>
+                </ul>
+              </li>
+            </Header.Nav>
+        </Header.Menu>
+      </Header>
+      
+      <main style={{ maxWidth: '1296px', margin: '0 auto', }}>
+        <div 
+            style={{ 
+              maxWidth: '70ch', 
+              justifyContent: 'left', 
+              padding: 'var(--ds-size-18) clamp(var(--kvds-layout-padding-inline), 10vw, calc(var(--ds-size-15) * 2))',
+            }}>
+          <Heading 
+            data-size='md'
+            level={1}
+            style={{
+            marginBottom: 'var(--ds-size-2)'
+            }}
+          >
+            Tinglysing av eiendom
+          </Heading>
+          <Paragraph>
+            Å tinglyse en eiendom sikrer rettighetene dine og gjør informasjonen tilgjengelig i 
+            grunnboken. Når du tinglyser, blir opplysningene offentlige og kan brukes av både 
+            myndigheter og private aktører. Dette bidrar til oversiktlige og trygge 
+            eiendomstransaksjoner.
+          </Paragraph>
+          <br />
+          <Paragraph>
+            Tinglysingen følger reglene i tinglysingsloven og tilhørende forskrifter. Disse danner 
+            rammen for hvordan vi behandler dokumentene dine, og sikrer at rettighetene blir registrert 
+            på en korrekt og pålitelig måte.
+          </Paragraph>
+          <Divider 
+            style={{
+              margin: 'var(--ds-size-4) 0'
+            }}
+          />
+          <Heading 
+            level={2}
+            style={{
+              marginBottom: 'var(--ds-size-2)'
+            }}
+          >
+            Se også
+          </Heading>
+          <List.Unordered
+            style={{
+              listStyle: 'none',
+              padding: 0
+            }}
+          >
+          <List.Item>
+            <Link href=''>
+              Slik følger du saken din i grunnboken
+            </Link>
+          </List.Item>
+          <List.Item>
+            <Link href=''>
+              Slik retter du feil i et tinglyst dokument
+            </Link>
+          </List.Item>
+          <List.Item>
+            <Link href=''>
+              Veiledning for eiendomsmegler og profesjonelle aktører
+            </Link>
+          </List.Item>
+          </List.Unordered>
+        </div>
+      </main>
+      
+    </>
+  ),
 };
 
 export const ComplexHeader: Story = {
   args: {
-    applicationName: 'Tjenestetittel',
+    applicationName: 'Tjeneste\u00ADtittel',
     applicationHref: 'https://eiendomsregisteret.kartverket.no/',
   },
   parameters: {
@@ -432,60 +483,61 @@ export const ComplexHeader: Story = {
       <>
         <style>
           {`
-          .complexHeader-header-sub-menu .ds-heading {
-            margin-bottom: var(--ds-size-3);
-          }
-          .complexHeader-header-sub-menu ul {
-            margin-bottom: var(--ds-size-3);
-          }
+            /* Styles defined in application-specific css */
+            .complexHeader-header-sub-menu .ds-heading {
+              margin-bottom: var(--ds-size-3);
+            }
+
+            .complexHeader-header-sub-menu ul {
+              margin-bottom: var(--ds-size-3);
+            }
+
+            [popovertarget='language-picker'] {
+                @container header-container (width <= 768px) {
+                  padding-inline: var(--ds-size-1);
+                }
+            }
           `}
         </style>
         <Header {...args}>
           <Header.Nav data-show-from='lg'>
-            <Header.NavItem
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-            >
+            <Header.NavItem href='#'>
               Hjelp og støtte
             </Header.NavItem>
           </Header.Nav>
-          <Header.ActionsList data-show-from='md'>
+          <Header.ActionsList>
             <Button
-            variant='tertiary'
-            popoverTarget='language-picker'
-            lang='en'
-            ref={buttonRef}
-          >
-            <LanguageIcon aria-hidden />
-            Language
-          </Button>
-          <Dropdown id='language-picker'>
-            <Dropdown.List>
-              {languages.map((lang) => (
-                <Dropdown.Item
-                  {...(currentLang === lang && { 'aria-current': true })}
-                >
-                  <Dropdown.Button
-                    lang={lang}
-                    onClick={() => {
-                      setCurrentLang(lang);
-                      buttonRef.current?.click();
-                      buttonRef.current?.focus();
-                    }}
+              variant='tertiary'
+              popoverTarget='language-picker'
+              lang='en'
+              ref={buttonRef}
+            >
+              <LanguageIcon aria-hidden />
+              <span data-show-from='md'>Language</span>
+            </Button>
+            <Dropdown id='language-picker'>
+              <Dropdown.List>
+                {languages.map((lang) => (
+                  <Dropdown.Item
+                    {...(currentLang === lang && { 'aria-current': true })}
                   >
-                    {languageText[lang]}
-                  </Dropdown.Button>
-                </Dropdown.Item>
-              ))}
-            </Dropdown.List>
-          </Dropdown>
-            <Button asChild variant='secondary'>
-              <a
-                href='https://www.kartverket.no/'
-                rel='noreferrer'
-                target='_blank'
-              >
+                    <Dropdown.Button
+                      lang={lang}
+                      onClick={() => {
+                        setCurrentLang(lang);
+                        buttonRef.current?.click();
+                        buttonRef.current?.focus();
+                      }}
+                    >
+                      {languageText[lang]}
+                    </Dropdown.Button>
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.List>
+            </Dropdown>
+            <Button asChild variant='secondary' data-show-from='md'>
+              <a href='#'>
+                <EnterIcon aria-hidden />
                 Logg inn
               </a>
             </Button>
@@ -494,21 +546,9 @@ export const ComplexHeader: Story = {
           <Header.MenuButton commandFor='complex-header-menu'/>
           <Header.Menu id='complex-header-menu'>
             <Header.ActionsList data-hide-from='md'>
-              <Button asChild variant='tertiary'>
-                <a
-                  href='https://www.kartverket.no/'
-                  rel='noreferrer'
-                  target='_blank'
-                >
-                  <LanguageIcon aria-hidden />Language
-                </a>
-              </Button>
               <Button asChild variant='secondary'>
-                <a
-                  href='https://www.kartverket.no/'
-                  rel='noreferrer'
-                  target='_blank'
-                >
+                <a href='#'>
+                  <EnterIcon aria-hidden />
                   Logg inn
                 </a>
               </Button>
@@ -518,11 +558,7 @@ export const ComplexHeader: Story = {
               <li className='complexHeader-header-sub-menu' data-hide-from='lg'>
                 <Heading>Navlenker</Heading>
                 <ul>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Hjelp og støtte
                   </Header.NavItem>
                 </ul>
@@ -531,26 +567,13 @@ export const ComplexHeader: Story = {
               <li className='complexHeader-header-sub-menu'>
                 <Heading data-size='sm'>Temameny</Heading>
                 <ul>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                      aria-current='page'
-                  >
+                  <Header.NavItem href='#' aria-current='page'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
                 </ul>
@@ -558,25 +581,13 @@ export const ComplexHeader: Story = {
               <li className='complexHeader-header-sub-menu'>
                 <Heading>Temameny</Heading>
                 <ul>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
-                  <Header.NavItem
-                      href='https://www.kartverket.no/'
-                      rel='noreferrer'
-                      target='_blank'
-                  >
+                  <Header.NavItem href='#'>
                     Lenkeknapp 
                   </Header.NavItem>
                 </ul>
@@ -586,100 +597,5 @@ export const ComplexHeader: Story = {
         </Header>
       </>
     )
-  }
+  },
 };
-
-// export const WithNavigationLinksAndButtons: Story = {
-//   args: {
-//     applicationName: 'Tjenestetittel',
-//     applicationHref: 'https://eiendomsregisteret.kartverket.no/',
-//   },
-//   parameters: {
-//     docs: {
-//       story: {
-//         inline: false,
-//         iframeHeight: '350px',
-//       }
-//     },
-//   },
-//   render: (args) => (
-//     <>
-//       <style>
-//         {`
-//         .header-dialog-content:has(> .ds-search) {
-//           max-width: 708px;
-//           width: 100%;
-//         }
-//         `}
-//       </style>
-//       <Header {...args}>
-//         <Header.ActionsList>
-//           <Button variant='tertiary' command='show-modal' commandFor='search-dialog' data-show-from='md'>
-//             <MagnifyingGlassIcon />
-//             Søk
-//           </Button>
-//           <Header.SearchDialog id='search-dialog'>
-//             <Search>
-//               <Search.Input aria-label='Søk' />
-//               <Search.Clear />
-//               <Search.Button type='submit' />
-//             </Search>
-//           </Header.SearchDialog>
-//           <Button variant='tertiary' style={{ display: 'flex', padding: '0 var(--ds-size-2)', gap: 'var(--ds-size-2)' }}>
-//               <Avatar aria-label='none' data-size='xs' style={{fontSize: 'var(--ds-size-3)'}}/>
-//               <span data-show-from='lg'>Ola Nordmann</span>
-//           </Button>
-//         </Header.ActionsList>
-        
-
-//         <Header.MenuButton commandFor='with-navigation-links-and-buttons'/>
-//         <Header.Menu id='with-navigation-links-and-buttons' >
-//           <Search data-hide-from='md' >
-//             <Search.Input aria-label='Søk' name='search'/>
-//             <Search.Clear />
-//             <Search.Button type='submit' />
-//           </Search>
-
-//           <Divider data-hide-from='md' />
-
-//           <Header.ActionsList data-hide-from='md'>
-//             <Button 
-//               asChild 
-//               variant='secondary' 
-//               // @ts-expect-error We want the native 'autofocus' and Reacts onMount smartness (see https://react.dev/reference/react-dom/components/input#input)
-//               autofocus='true'
-//             >
-//               <a
-//                 href='https://www.kartverket.no/'
-//                 rel='noreferrer'
-//                 target='_blank'
-//               >
-//                 Logg inn
-//               </a>
-//             </Button>
-//           </Header.ActionsList>
-
-//           <Divider data-hide-from='md' />
-
-//           <Header.Nav>
-//             <Header.NavItem
-//                 href='https://www.kartverket.no/'
-//                 rel='noreferrer'
-//                 target='_blank'
-//             >
-//               Lenkeknapp 
-//             </Header.NavItem>
-//             <Header.NavItem
-//                 href='https://www.kartverket.no/'
-//                 rel='noreferrer'
-//                 target='_blank'
-//                 aria-current='page'
-//             >
-//               Lenkeknapp 
-//             </Header.NavItem>
-//           </Header.Nav>
-//         </Header.Menu>
-//       </Header>
-//     </>
-//   )
-// };
