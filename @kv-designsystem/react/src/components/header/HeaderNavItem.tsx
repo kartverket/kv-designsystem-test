@@ -1,17 +1,13 @@
 import cl from 'clsx/lite';
 import { 
   forwardRef, 
-  type AnchorHTMLAttributes, 
-  type RefAttributes, 
-  type ForwardRefExoticComponent 
+  type AnchorHTMLAttributes,
 } from 'react';
-import type { ButtonProps } from '../button/Button';
 import { Button } from '../button/Button';
 
-export type HeaderNavItemProps = ButtonProps & AnchorHTMLAttributes<HTMLAnchorElement>;
+export type HeaderNavItemProps = AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const HeaderNavItem: ForwardRefExoticComponent<HeaderNavItemProps & RefAttributes<HTMLAnchorElement>> = forwardRef<
-  HTMLAnchorElement, HeaderNavItemProps>(
+export const HeaderNavItem = forwardRef<HTMLAnchorElement, HeaderNavItemProps>(
   function HeaderNavItem({ children, className, ...rest }, ref) {
     return (
       <li className={cl('header-nav-item', className)} >

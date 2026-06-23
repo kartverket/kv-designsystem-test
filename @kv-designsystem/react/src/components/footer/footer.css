@@ -1,7 +1,8 @@
 /* clamp() viewport width-values are based on clamp max / 1296px * 100  */
 
 .footer {
-  --kvdsc-footer-gap: clamp(var(--ds-size-10), 9.259cqw, var(--ds-size-30)); /* Scaling gap size instead of media queries */
+  --kvdsc-footer-column-gap: clamp(var(--ds-size-10), 9.259cqw, var(--ds-size-30)); /* Scaling gap size instead of media queries */
+  --kvdsc-footer-row-gap: var(--ds-size-10);
 
   background: var(--ds-color-neutral-background-tinted);
   border-top: 8px solid var(--ds-color-accent-border-default);
@@ -9,19 +10,15 @@
   container-type: inline-size;
 }
 
-/* TODO: hva er maxWidth på resten av innholdet?? 
-KVIB har 1200, udir bruker 80rem (1280px), 
-Eiendomsregisteret har 1200px på header og 1140px? på footer, 
-Kartverket.no har 1500px og 1400px */
 .footer-container {
-  max-width: 1296px;
+  max-width: var(--kvdsc-footer-max-width);
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start; 
-  row-gap: var(--ds-size-10);
-  column-gap: var(--kvdsc-footer-gap);
+  row-gap: var(--kvdsc-footer-row-gap);
+  column-gap: var(--kvdsc-footer-column-gap);
 
   box-sizing: content-box;
   padding: var(--ds-size-10) var(--kvds-layout-padding-inline);
@@ -30,8 +27,8 @@ Kartverket.no har 1500px og 1400px */
 .footer-columns {
   display: flex;
   flex-wrap: wrap;
-  row-gap: var(--ds-size-10);
-  column-gap: var(--kvdsc-footer-gap);
+  row-gap: var(--kvdsc-footer-row-gap);
+  column-gap: var(--kvdsc-footer-column-gap);
   justify-content: flex-start;
   flex: 1 auto;
 }
@@ -40,10 +37,9 @@ Kartverket.no har 1500px og 1400px */
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: var(--ds-size-4);
-  align-items: flex-start;
+  align-content: start;
 }
 
 .footer-item {

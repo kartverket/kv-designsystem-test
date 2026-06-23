@@ -39,5 +39,5 @@ export type { HeaderDialogProps } from './HeaderDialog';
 export type { HeaderActionsListProps } from './HeaderActionsList';
 export type { HeaderMenuButtonProps } from './HeaderMenuButton';
 export type { HeaderNavProps } from './HeaderNav';
-export type { HeaderNavItemProps } from './HeaderNavItem';
+// export type { HeaderNavItemProps } from './HeaderNavItem';
 export { Header };

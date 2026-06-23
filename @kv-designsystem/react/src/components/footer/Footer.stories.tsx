@@ -11,7 +11,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: () => (
+  render: (_args) => (
     <Footer>
       <Footer.List>
         <Footer.Item>
@@ -69,7 +69,7 @@ export const Preview: Story = {
 };
 
 export const WithThreeColumns: Story = {
-  render: () => (
+  render: (_args) => (
     <Footer>
       <Footer.List>
         <Footer.Item>

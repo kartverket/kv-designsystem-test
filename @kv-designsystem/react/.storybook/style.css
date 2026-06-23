@@ -11,20 +11,23 @@ body {
   padding: 0;
 }
 
-/* Remove extra padding to display footer and header more accurate in Docs-stories */
+/* Remove extra padding to display footer and header more accurate in Docs stories */
 .sbdocs .docs-story {
   &:has(.footer) {
     padding: 0;
-    /* overflow-y: hidden; */
   }
 
-  &:has(.header) {
+  /* Some of our header stories are rendered in iframes in order to scale correctly.
+  We use the catch-all :has(iframe) selector to enforce correct padding/borders for the header stories  */
+  &:has(.header), &:has(iframe) {
     padding: 0 0 var(--ds-size-8);
 
     & .innerZoomElementWrapper > div:first-child {
+      /* Override !important Storybook border rule */
       border-block: none !important;
     }
 
+    /* Turn off Header scroll-awareness in Docs stories */
     .header {
       transform: none;
     }

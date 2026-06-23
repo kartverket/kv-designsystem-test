@@ -19,10 +19,6 @@
     }
   }
 
-  .header p {
-    margin-block: 0;
-  }
-
   .ds-alert > :first-child {
     margin-block-start: 0;
   }

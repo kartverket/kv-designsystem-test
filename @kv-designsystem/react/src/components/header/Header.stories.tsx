@@ -12,7 +12,6 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Search } from '../search/Search';
 import { EnterIcon, LanguageIcon } from '@navikt/aksel-icons';
 
-
 const meta = {
   component: Header
 } satisfies Meta<typeof Header>;
@@ -23,7 +22,7 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     applicationName: 'Tjenestetittel',
-    applicationHref: 'https://eiendomsregisteret.kartverket.no/',
+    applicationHref: '#',
   },
   render: (args) => (
     <Header {...args} />
@@ -33,48 +32,46 @@ export const Preview: Story = {
 export const WithNavigationLinks: Story = {
   args: {
     applicationName: 'Tjenestetittel',
-    applicationHref: 'https://eiendomsregisteret.kartverket.no/',
+    applicationHref: '#',
   },
   parameters: {
     docs: {
       story: {
-        inline: false,
+        inline: false, // Render story in an iframe to ensure vw units are based on the preview viewport.
         iframeHeight: '250px',
       }
     },
   },
   render: (args) => (
-    <>
-      <Header {...args}>
-        <Header.Nav data-show-from='md'>
+    <Header {...args}>
+      <Header.Nav data-show-from='md'>
+        <Header.NavItem href='#' aria-current='page'>
+          Lenkeknapp
+        </Header.NavItem>
+        <Header.NavItem href='#'>
+          Lenkeknapp
+        </Header.NavItem>
+      </Header.Nav>
+
+      <Header.MenuButton data-hide-from='md' commandFor='with-navigation-links' />
+      <Header.Menu data-hide-from='md' id='with-navigation-links'>
+        <Header.Nav>
           <Header.NavItem href='#' aria-current='page'>
-            Lenkeknapp 
+            Lenkeknapp
           </Header.NavItem>
-          <Header.NavItem href='#'>
-            Lenkeknapp 
+          <Header.NavItem href='https://www.kartverket.no/'>
+            Lenkeknapp
           </Header.NavItem>
         </Header.Nav>
-
-        <Header.MenuButton data-hide-from='md' commandFor='with-navigation-links'/>
-        <Header.Menu data-hide-from='md' id='with-navigation-links'>
-          <Header.Nav>
-            <Header.NavItem href='#' aria-current='page'>
-              Lenkeknapp 
-            </Header.NavItem>
-            <Header.NavItem href='https://www.kartverket.no/'>
-              Lenkeknapp 
-            </Header.NavItem>
-          </Header.Nav>
-        </Header.Menu>
-      </Header>
-    </>
+      </Header.Menu>
+    </Header>
   ),
 };
 
 export const WithMenu: Story = {
   args: {
     applicationName: 'Tjenestetittel',
-    applicationHref: 'https://eiendomsregisteret.kartverket.no/',
+    applicationHref: '#',
   },
   parameters: {
     docs: {
@@ -98,38 +95,38 @@ export const WithMenu: Story = {
         `}
       </style>
       <Header {...args}>
-        <Header.MenuButton commandFor='with-menu'/>
-          <Header.Menu id='with-menu'>
-            <Header.Nav>
-              <li className='withMenu-header-sub-menu'>
-                <Heading data-size='sm'>Temameny</Heading>
-                <ul>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#' aria-current='page'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                </ul>
-              </li>
-              <li className='withMenu-header-sub-menu'>
-                <Heading>Temameny</Heading>
-                <ul>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                </ul>
-              </li>
-            </Header.Nav>
+        <Header.MenuButton commandFor='with-menu' />
+        <Header.Menu id='with-menu'>
+          <Header.Nav>
+            <li className='withMenu-header-sub-menu'>
+              <Heading data-size='sm'>Temameny</Heading>
+              <ul>
+                <Header.NavItem href='#'>
+                  Lenkeknapp
+                </Header.NavItem>
+                <Header.NavItem href='#' aria-current='page'>
+                  Lenkeknapp
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Lenkeknapp
+                </Header.NavItem>
+              </ul>
+            </li>
+            <li className='withMenu-header-sub-menu'>
+              <Heading>Temameny</Heading>
+              <ul>
+                <Header.NavItem href='#'>
+                  Lenkeknapp
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Lenkeknapp
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Lenkeknapp
+                </Header.NavItem>
+              </ul>
+            </li>
+          </Header.Nav>
         </Header.Menu>
       </Header>
     </>
@@ -158,10 +155,6 @@ export const WithButtonsAndMenu: Story = {
             margin-bottom: var(--ds-size-3);
           }
 
-          .withButtonsAndMenu-header-sub-menu ul {
-            margin-bottom: var(--ds-size-3);
-          }
-
           .withButtonsAndMenu-small-initials:before {
             font-size: var(--ds-size-4);
           }
@@ -169,7 +162,7 @@ export const WithButtonsAndMenu: Story = {
       </style>
       <Header {...args}>
         <Header.ActionsList>
-          <Header.SearchButton commandFor='with-buttons-and-menu-search' data-show-from='md'/>
+          <Header.SearchButton commandFor='with-buttons-and-menu-search' data-show-from='md' />
           <Header.SearchDialog id='with-buttons-and-menu-search'>
             <Search style={{ maxWidth: '708px', justifySelf: 'center' }}>
               <Search.Input aria-label='Søk' />
@@ -178,15 +171,15 @@ export const WithButtonsAndMenu: Story = {
             </Search>
           </Header.SearchDialog>
           <Button variant='tertiary' style={{ display: 'flex', padding: '0 var(--ds-size-2)', gap: 'var(--ds-size-2)' }}>
-              <Avatar className='withButtonsAndMenu-small-initials' aria-label='none' data-size='xs' initials='ON' />
-              <span data-show-from='lg'>Ola Nordmann</span>
+            <Avatar className='withButtonsAndMenu-small-initials' aria-label='none' data-size='xs' initials='ON' />
+            <span data-show-from='lg'>Ola Nordmann</span>
           </Button>
         </Header.ActionsList>
-        
-        <Header.MenuButton commandFor='with-buttons-and-menu'/>
+
+        <Header.MenuButton commandFor='with-buttons-and-menu' />
         <Header.Menu id='with-buttons-and-menu' >
           <Search data-hide-from='md' >
-            <Search.Input aria-label='Søk' name='search'/>
+            <Search.Input aria-label='Søk' name='search' />
             <Search.Clear />
             <Search.Button type='submit' />
           </Search>
@@ -194,39 +187,54 @@ export const WithButtonsAndMenu: Story = {
           <Divider data-hide-from='md' />
 
           <Header.Nav>
-              <li className='withButtonsAndMenu-header-sub-menu'>
-                <Heading data-size='sm'>Temameny</Heading>
-                <ul>
-                  <Header.NavItem 
-                    href='#'
-                    // @ts-expect-error We want the native 'autofocus' and Reacts onMount smartness (see https://react.dev/reference/react-dom/components/input#input)
-                    autofocus='true'
-                  >
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#' aria-current='page'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                </ul>
-              </li>
-              <li className='withButtonsAndMenu-header-sub-menu'>
-                <Heading>Temameny</Heading>
-                <ul>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                </ul>
-              </li>
-            </Header.Nav>
+            <li className='withButtonsAndMenu-header-sub-menu'>
+              <Heading data-size='sm'>Eiendom</Heading>
+              <ul>
+                <Header.NavItem
+                  href='#'
+                  // @ts-expect-error We want the native 'autofocus' and Reacts onMount smartness (see https://react.dev/reference/react-dom/components/input#input)
+                  autofocus='true'
+                >
+                  Alt om eiendom
+                </Header.NavItem>
+                <Header.NavItem href='#' aria-current='page'>
+                  Tinglyse Eierskifte
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Spørsmål om tinglysning
+                </Header.NavItem>
+              </ul>
+            </li>
+            <li className='withButtonsAndMenu-header-sub-menu'>
+              <Heading>Til lands</Heading>
+              <ul>
+                <Header.NavItem href='#'>
+                  Alt om til lands
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Rett i kartet
+                  Flyfoto
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Rett i kartet
+                </Header.NavItem>
+              </ul>
+            </li>
+            <li className='withButtonsAndMenu-header-sub-menu'>
+              <Heading>Geodataarbeid</Heading>
+              <ul>
+                <Header.NavItem href='#'>
+                  Alt om geodataarbeid
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Forvaltning, drift og vedlikehold
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Planarbeid
+                </Header.NavItem>
+              </ul>
+            </li>
+          </Header.Nav>
         </Header.Menu>
       </Header>
     </>
@@ -236,13 +244,13 @@ export const WithButtonsAndMenu: Story = {
 export const WithSearch: Story = {
   args: {
     applicationName: 'Tjenestetittel',
-    applicationHref: 'https://eiendomsregisteret.kartverket.no/',
+    applicationHref: '#',
   },
   render: (args) => (
     <>
       <Header {...args}>
         <Header.ActionsList data-show-from='md'>
-          <Search style={{ width: '250px'}}>
+          <Search style={{ width: '250px' }}>
             <Search.Input aria-label='Søk' />
             <Search.Clear />
           </Search>
@@ -251,7 +259,7 @@ export const WithSearch: Story = {
         <Header.MenuButton commandFor='with-search' data-hide-from='md' />
         <Header.Menu id='with-search'>
           <Search data-hide-from='md'>
-            <Search.Input aria-label='Søk' name='search'/>
+            <Search.Input aria-label='Søk' name='search' />
             <Search.Clear />
             <Search.Button type='submit' />
           </Search>
@@ -264,26 +272,25 @@ export const WithSearch: Story = {
 export const WithLanguagePicker: Story = {
   args: {
     applicationName: 'Tjenestetittel',
-    applicationHref: 'https://eiendomsregisteret.kartverket.no/',
+    applicationHref: '#',
   },
   parameters: {
     docs: {
       story: {
         inline: false,
-        iframeHeight: '275px',
+        iframeHeight: '225px',
       }
     },
   },
   render: (args) => {
-    const languages = ['nb', 'nn', 'en'] as const;
+    const languages = ['no', 'en'] as const;
     type Language = (typeof languages)[number];
 
     const languageText: Record<Language, string> = {
-      nb: 'Bokmål',
-      nn: 'Nynorsk',
+      no: 'Norsk',
       en: 'English',
     };
-    const [currentLang, setCurrentLang] = useState<Language>('nn');
+    const [currentLang, setCurrentLang] = useState<Language>('no');
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     return (
@@ -325,7 +332,7 @@ export const WithLanguagePicker: Story = {
 export const WithScroll: Story = {
   args: {
     applicationName: 'Tjenestetittel',
-    applicationHref: 'https://eiendomsregisteret.kartverket.no/',
+    applicationHref: '#',
   },
   parameters: {
     docs: {
@@ -349,75 +356,75 @@ export const WithScroll: Story = {
         `}
       </style>
       <Header {...args}>
-        <Header.MenuButton commandFor='with-scroll'/>
-          <Header.Menu id='with-scroll'>
-            <Header.Nav>
-              <li className='withScroll-header-sub-menu'>
-                <Heading data-size='sm'>Temameny</Heading>
-                <ul>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#' aria-current='page'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                </ul>
-              </li>
-              <li className='withScroll-header-sub-menu'>
-                <Heading>Temameny</Heading>
-                <ul>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Lenkeknapp 
-                  </Header.NavItem>
-                </ul>
-              </li>
-            </Header.Nav>
+        <Header.MenuButton commandFor='with-scroll' />
+        <Header.Menu id='with-scroll'>
+          <Header.Nav>
+            <li className='withScroll-header-sub-menu'>
+              <Heading data-size='sm'>Temameny</Heading>
+              <ul>
+                <Header.NavItem href='#'>
+                  Lenkeknapp
+                </Header.NavItem>
+                <Header.NavItem href='#' aria-current='page'>
+                  Lenkeknapp
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Lenkeknapp
+                </Header.NavItem>
+              </ul>
+            </li>
+            <li className='withScroll-header-sub-menu'>
+              <Heading>Temameny</Heading>
+              <ul>
+                <Header.NavItem href='#'>
+                  Lenkeknapp
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Lenkeknapp
+                </Header.NavItem>
+                <Header.NavItem href='#'>
+                  Lenkeknapp
+                </Header.NavItem>
+              </ul>
+            </li>
+          </Header.Nav>
         </Header.Menu>
       </Header>
-      
+
       <main style={{ maxWidth: '1296px', margin: '0 auto', }}>
-        <div 
-            style={{ 
-              maxWidth: '70ch', 
-              justifyContent: 'left', 
-              padding: 'var(--ds-size-18) clamp(var(--kvds-layout-padding-inline), 10vw, calc(var(--ds-size-15) * 2))',
-            }}>
-          <Heading 
+        <div
+          style={{
+            maxWidth: '70ch',
+            justifyContent: 'left',
+            padding: 'var(--ds-size-18) clamp(var(--kvds-layout-padding-inline), 10vw, calc(var(--ds-size-15) * 2))',
+          }}>
+          <Heading
             data-size='md'
             level={1}
             style={{
-            marginBottom: 'var(--ds-size-2)'
+              marginBottom: 'var(--ds-size-2)'
             }}
           >
             Tinglysing av eiendom
           </Heading>
           <Paragraph>
-            Å tinglyse en eiendom sikrer rettighetene dine og gjør informasjonen tilgjengelig i 
-            grunnboken. Når du tinglyser, blir opplysningene offentlige og kan brukes av både 
-            myndigheter og private aktører. Dette bidrar til oversiktlige og trygge 
+            Å tinglyse en eiendom sikrer rettighetene dine og gjør informasjonen tilgjengelig i
+            grunnboken. Når du tinglyser, blir opplysningene offentlige og kan brukes av både
+            myndigheter og private aktører. Dette bidrar til oversiktlige og trygge
             eiendomstransaksjoner.
           </Paragraph>
           <br />
           <Paragraph>
-            Tinglysingen følger reglene i tinglysingsloven og tilhørende forskrifter. Disse danner 
-            rammen for hvordan vi behandler dokumentene dine, og sikrer at rettighetene blir registrert 
+            Tinglysingen følger reglene i tinglysingsloven og tilhørende forskrifter. Disse danner
+            rammen for hvordan vi behandler dokumentene dine, og sikrer at rettighetene blir registrert
             på en korrekt og pålitelig måte.
           </Paragraph>
-          <Divider 
+          <Divider
             style={{
               margin: 'var(--ds-size-4) 0'
             }}
           />
-          <Heading 
+          <Heading
             level={2}
             style={{
               marginBottom: 'var(--ds-size-2)'
@@ -431,25 +438,25 @@ export const WithScroll: Story = {
               padding: 0
             }}
           >
-          <List.Item>
-            <Link href=''>
-              Slik følger du saken din i grunnboken
-            </Link>
-          </List.Item>
-          <List.Item>
-            <Link href=''>
-              Slik retter du feil i et tinglyst dokument
-            </Link>
-          </List.Item>
-          <List.Item>
-            <Link href=''>
-              Veiledning for eiendomsmegler og profesjonelle aktører
-            </Link>
-          </List.Item>
+            <List.Item>
+              <Link href=''>
+                Slik følger du saken din i grunnboken
+              </Link>
+            </List.Item>
+            <List.Item>
+              <Link href=''>
+                Slik retter du feil i et tinglyst dokument
+              </Link>
+            </List.Item>
+            <List.Item>
+              <Link href=''>
+                Veiledning for eiendomsmegler og profesjonelle aktører
+              </Link>
+            </List.Item>
           </List.Unordered>
         </div>
       </main>
-      
+
     </>
   ),
 };
@@ -457,7 +464,7 @@ export const WithScroll: Story = {
 export const ComplexHeader: Story = {
   args: {
     applicationName: 'Tjeneste\u00ADtittel',
-    applicationHref: 'https://eiendomsregisteret.kartverket.no/',
+    applicationHref: '#',
   },
   parameters: {
     docs: {
@@ -468,18 +475,17 @@ export const ComplexHeader: Story = {
     },
   },
   render: (args) => {
-    const languages = ['nb', 'nn', 'en'] as const;
+    const languages = ['no', 'en'] as const;
     type Language = (typeof languages)[number];
 
     const languageText: Record<Language, string> = {
-      nb: 'Bokmål',
-      nn: 'Nynorsk',
+      no: 'Norsk',
       en: 'English',
     };
-    const [currentLang, setCurrentLang] = useState<Language>('nn');
+    const [currentLang, setCurrentLang] = useState<Language>('no');
     const buttonRef = useRef<HTMLButtonElement>(null);
 
-    return(
+    return (
       <>
         <style>
           {`
@@ -542,8 +548,8 @@ export const ComplexHeader: Story = {
               </a>
             </Button>
           </Header.ActionsList>
-          
-          <Header.MenuButton commandFor='complex-header-menu'/>
+
+          <Header.MenuButton commandFor='complex-header-menu' />
           <Header.Menu id='complex-header-menu'>
             <Header.ActionsList data-hide-from='md'>
               <Button asChild variant='secondary'>
@@ -568,13 +574,13 @@ export const ComplexHeader: Story = {
                 <Heading data-size='sm'>Temameny</Heading>
                 <ul>
                   <Header.NavItem href='#'>
-                    Lenkeknapp 
+                    Lenkeknapp
                   </Header.NavItem>
                   <Header.NavItem href='#' aria-current='page'>
-                    Lenkeknapp 
+                    Lenkeknapp
                   </Header.NavItem>
                   <Header.NavItem href='#'>
-                    Lenkeknapp 
+                    Lenkeknapp
                   </Header.NavItem>
                 </ul>
               </li>
@@ -582,13 +588,13 @@ export const ComplexHeader: Story = {
                 <Heading>Temameny</Heading>
                 <ul>
                   <Header.NavItem href='#'>
-                    Lenkeknapp 
+                    Lenkeknapp
                   </Header.NavItem>
                   <Header.NavItem href='#'>
-                    Lenkeknapp 
+                    Lenkeknapp
                   </Header.NavItem>
                   <Header.NavItem href='#'>
-                    Lenkeknapp 
+                    Lenkeknapp
                   </Header.NavItem>
                 </ul>
               </li>

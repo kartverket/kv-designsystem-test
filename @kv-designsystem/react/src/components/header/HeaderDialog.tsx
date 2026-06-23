@@ -9,8 +9,9 @@ import { Dialog } from '../dialog/Dialog';
 
 export type HeaderDialogProps = DialogProps;
 
-export const HeaderDialog: ForwardRefExoticComponent<HeaderDialogProps & RefAttributes<HTMLDialogElement>> 
-  = forwardRef<HTMLDialogElement, HeaderDialogProps>(
+export const HeaderDialog: ForwardRefExoticComponent<
+HeaderDialogProps & RefAttributes<HTMLDialogElement>
+> = forwardRef<HTMLDialogElement, HeaderDialogProps>(
   function HeaderDialog({ children, className, id='header-dialog',  ...rest }, ref) {
     return (
       <Dialog

@@ -1,3 +1,4 @@
+/* Adds a checkmark and extra left padding to highlight the currently selected dropdown item.*/
 .ds-dropdown {
   [aria-current='true'] button {
     position: relative;

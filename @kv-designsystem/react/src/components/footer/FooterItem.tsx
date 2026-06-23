@@ -1,11 +1,9 @@
 import cl from 'clsx/lite';
-import { forwardRef } from 'react';
+import { forwardRef, type HTMLAttributes } from 'react';
 
-export type FooterItemProps = React.HTMLAttributes<HTMLLIElement>;
+export type FooterItemProps = HTMLAttributes<HTMLLIElement>;
 
-// Listeelementene kan være av valgfri type, eks. ren tekst, lenker, heading.
 export const FooterItem = forwardRef<HTMLLIElement, FooterItemProps>(
-  // children: alt innholdet som ligger i <Footer.Item>...</Footer.Item>
   function FooterItem({ children, className, ...rest }, ref) {
     return (
       <li 

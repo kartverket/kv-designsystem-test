@@ -1,7 +1,8 @@
 import cl from 'clsx/lite';
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { Size } from '@digdir/designsystemet-types';
+import { CSSProperties, forwardRef, type HTMLAttributes } from 'react';
 import { useState, useEffect, useRef } from 'react';
-import './Header.css';
+import './header.css';
 import { HeaderBrand } from './HeaderBrand';
 
 export type HeaderProps = HTMLAttributes<HTMLElement> & {
@@ -13,10 +14,21 @@ export type HeaderProps = HTMLAttributes<HTMLElement> & {
    * The URL applicationName links to. Set to `null` to disable the link.
    */
   applicationHref?: string | null;
+  /**
+   * The maximum width of the header content.
+   * Can be any valid CSS width value, e.g. `80rem`, `100%`, etc.
+   * Should be the same as for footer content.
+   * @default '1296px'
+   */
+  maxWidth?: string;
+  /**
+   * Changes size for descendant Designsystemet components. Select from predefined sizes.
+   */
+  'data-size'?: Size;
 };
 
 export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
-  { applicationHref, applicationName, children, className,  ...rest},
+  { applicationHref, applicationName, children, className, maxWidth = '1296px',  ...rest},
   ref
 ) {
   const [showHeader, setShowHeader] = useState(true);
@@ -35,12 +47,17 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
       lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header className={cl('header', (showHeader ? "visible" : "hidden"), className)} ref={ref} {...rest}>
+    <header 
+      className={cl('header', (showHeader ? 'visible' : 'hidden'), className)} 
+      style={{ '--kvdsc-header-max-width': maxWidth } as CSSProperties}
+      ref={ref} 
+      {...rest}
+    >
       <div className='header-container'>
 
         <HeaderBrand

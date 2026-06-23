@@ -3,11 +3,10 @@ import { forwardRef, type HTMLAttributes } from 'react';
 
 export type HeaderNavProps = HTMLAttributes<HTMLUListElement>;
 
-
 export const HeaderNav = forwardRef<HTMLUListElement, HeaderNavProps>(
   function HeaderNav({ children, className, ...rest }, ref) {
     return (
-      <nav 
+      <nav
         aria-label='header-navigation'
         ref={ref}
         {...rest}

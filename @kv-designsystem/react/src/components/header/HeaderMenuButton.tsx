@@ -1,8 +1,8 @@
 import cl from 'clsx/lite';
 import {
-	forwardRef,
-	type ForwardRefExoticComponent,
-	type RefAttributes,
+  forwardRef,
+  type ForwardRefExoticComponent,
+  type RefAttributes,
 } from 'react';
 import type { ButtonProps } from '../button/Button';
 import { MenuHamburgerIcon } from "@navikt/aksel-icons";
@@ -13,15 +13,15 @@ export type HeaderMenuButtonProps = ButtonProps;
 export const HeaderMenuButton: ForwardRefExoticComponent<
   HeaderMenuButtonProps & RefAttributes<HTMLButtonElement>
 > = forwardRef<HTMLButtonElement, HeaderMenuButtonProps>(
-  function HeaderMenuButton( { className, commandFor='menu-dialog', ...rest}, ref) {
+  function HeaderMenuButton({ className, commandFor = 'menu-dialog', ...rest }, ref) {
     return (
-      <HeaderDialogTrigger 
-        {...rest}
-        ref={ref}
-        primaryIcon={MenuHamburgerIcon}
-        label="Meny"
+      <HeaderDialogTrigger
+        className={cl('header-menu-button', className)}
         commandFor={commandFor}
-		    className={cl('header-menu-button', className)}
+        label="Meny"
+        primaryIcon={MenuHamburgerIcon}
+        ref={ref}
+        {...rest}
       />
     );
   }

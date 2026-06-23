@@ -1,26 +1,29 @@
 import cl from 'clsx/lite';
-import { forwardRef, HTMLAttributes } from 'react';
-import './Footer.css';
+import type { Size } from '@digdir/designsystemet-types';
+import { CSSProperties, forwardRef, HTMLAttributes } from 'react';
+import './footer.css';
 import logo from '../../../assets/img/KV_Logo_Horisontal.svg';
 
-/*
-Hovedkomponenten, fungerer som en container for hele footeren. 
-Den kan ta inn children (alt innhold), og vi kan angi maxWidth for å holde innholdet på ønsket bredde.
-*/
+export type FooterProps = HTMLAttributes<HTMLElement> & {
+  /**
+   * The maximum width of the footer content.
+   * Can be any valid CSS width value, e.g. `80rem`, `100%`, etc.
+   * Should be the same as for header content.
+   * @default '1296px'
+   */
+  maxWidth?: string;
+  /**
+   * Changes size for descendant Designsystemet components. Select from predefined sizes.
+   */
+  'data-size'?: Size;
+};
 
-export type FooterProps = HTMLAttributes<HTMLElement>;
-
-/* 
-forwardRef: gjør at andre komponenter kan få referenase til <footer>-elementet
-children: gjør at vi kan sette FooterList og andre elementer inni footeren
-maxWidth: begrenser bredden på innholdet for å matche layouten på resten av siden
-className + Footer.css: gjør at vi kan style footeren
-*/
 export const Footer = forwardRef<HTMLElement, FooterProps>(
-  function Footer({ children, className, ...rest }, ref) {
+  function Footer({ children, className, maxWidth = '1296px', ...rest }, ref) {
   return (
     <footer
       className={cl('footer', className)}
+      style={{ '--kvdsc-footer-max-width': maxWidth } as CSSProperties}
       ref={ref}
       {...rest}
     >

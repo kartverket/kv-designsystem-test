@@ -15,12 +15,12 @@ export const HeaderSearchButton: ForwardRefExoticComponent<
   function HeaderSearchButton( { className, commandFor='search-dialog', ...rest}, ref) {
     return (
       <HeaderDialogTrigger 
-        {...rest}
-        ref={ref}
-        primaryIcon={MagnifyingGlassIcon}
-        label="Søk"
-        commandFor={commandFor}
-        className={className}
+      className={className}
+      commandFor={commandFor}
+      label="Søk"
+      primaryIcon={MagnifyingGlassIcon}
+      ref={ref}
+      {...rest}
       />
     );
   }

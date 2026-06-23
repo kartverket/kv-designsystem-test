@@ -1,5 +1,5 @@
 import cl from 'clsx/lite';
-import { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, type HTMLAttributes } from 'react';
 
 export type FooterListProps = HTMLAttributes<HTMLUListElement>;
 

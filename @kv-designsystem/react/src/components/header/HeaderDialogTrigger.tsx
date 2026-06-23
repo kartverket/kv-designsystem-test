@@ -17,7 +17,7 @@ export type HeaderDialogTriggerProps = ButtonProps & {
 export const HeaderDialogTrigger: ForwardRefExoticComponent<
 	HeaderDialogTriggerProps & RefAttributes<HTMLButtonElement>
 > = forwardRef<HTMLButtonElement, HeaderDialogTriggerProps>(
-	function HeaderDialogTrigger({ 
+	function HeaderDialogTrigger({
       className, 
       commandFor, 
       primaryIcon: Icon,
