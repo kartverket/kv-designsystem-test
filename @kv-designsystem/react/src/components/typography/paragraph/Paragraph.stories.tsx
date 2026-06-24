@@ -5,6 +5,7 @@ const meta = {
   component: Paragraph,
   title: 'Components/Typography/Paragraph',
   parameters: { layout: 'centered' },
+  tags: ['!autodocs'],
 } satisfies Meta<typeof Paragraph>;
 
 export default meta;

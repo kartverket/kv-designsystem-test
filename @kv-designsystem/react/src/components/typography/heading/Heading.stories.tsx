@@ -5,6 +5,7 @@ const meta = {
   component: Heading,
   title: 'Components/Typography/Heading',
   parameters: { layout: 'centered' },
+  tags: ['!autodocs'],
   argTypes: {
     'data-size': {
       options: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],

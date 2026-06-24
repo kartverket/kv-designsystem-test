@@ -1,0 +1,212 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as HeaderStories from './Header.stories';
+import { Button } from '../button/Button';
+import { Header } from './Header';
+import { Alert } from '../alert/Alert';
+import { Avatar } from '../avatar/Avatar';
+import { Divider } from '../divider/Divider';
+import { Heading } from '../typography/heading/Heading';
+import { LanguageIcon } from '@navikt/aksel-icons';
+
+<Meta of={HeaderStories} />
+
+<Alert data-color='info' className='sb-unstyled' style={{ marginBottom: 'var(--ds-size-4)' }}>
+    <Heading     
+        data-size='xs'
+        level={3}
+        style={{
+            marginBottom: 'var(--ds-size-2)'
+        }}
+    >
+        Hjelp oss med å gjøre Header-komponenten enda bedre!
+    </Heading>
+    Eksemplene viser brukstilfellene vi støtter i dag. Hvis tjenesten din har andre behov, ønsker vi gjerne innspill slik at vi kan videreutvikle komponenten.
+</Alert>
+
+# Header
+
+`Header` er toppfeltet i alle tjenestene våre. Den består av logo og tjenestenavn, og kan utvides med funksjoner og innhold brukeren trenger rask tilgang til. Du bygger opp `Header` ved hjelp av subkomponenter og andre komponenter fra designsystemet. Eksemplene under viser vanlige oppsett og kan brukes som utgangspunkt når du setter opp en Header for tjenesten din.
+
+<Primary />
+<Controls of={HeaderStories.Preview} />
+
+**Bruk `Header` når**
+- tjenesten trenger et fast toppfelt som gir tilgang til sentrale handlinger på tvers av alle sider, som navigasjon, søk, innlogging, profil og varsler
+- innholdet i toppfeltet skal være konsistent på tvers av tjenesten
+
+**Unngå `Header` når**
+- innholdet vil variere fra side til side i tjenesten
+- ulike sider har så forskjellige behov at et felles toppfelt ikke fungerer godt
+
+## Varianter med eksempler
+
+`Header` kan brukes med flere forskjellige kombinasjoner av subkomponenter. Vi har hovedsakelig to måter å strukturere Headeren på:
+
+1. med navigasjonslenker
+2. med meny
+
+I tillegg til navigasjonslenker kan du legge til andre handlinger ved hjelp av `Button`, for eksempel:
+- Logg inn
+- Språkendring
+- Søk
+
+
+Vurder hvilke handlinger som er viktige for brukerne av tjenesten, og om de bør være tilgjengelige i Header.
+
+Kartverkets logo og tjenestenavnet er alltid plassert til venstre, uavhengig av hvilken variant av Header du velger.
+
+### Subkomponenter:
+
+- Header.Nav med Header.NavItem
+- Header.ActionsList du kan fylle med Buttons for sentrale handlinger
+- Header.SearchButton med Header.SearchDialog
+- Header.MenuButton og Header.Menu
+
+### Navigasjonslenker
+
+Bruk navigasjonslenker til sider brukeren skal ha tilgang til fra hele tjenesten. Lenkene er utformet som knapper og skal ikke ha ikon.
+
+<Canvas of={HeaderStories.WithNavigationLinks} />
+
+### Meny
+
+Bruk meny når det ikke er plass til alle navigasjonslenker og handlinger direkte i Headeren. I menyen kan navigasjonslenker også grupperes i underkategorier.
+
+Menyen kan brukes alene eller sammen med andre viktige handlinger. Den skal alltid plasseres helt til høyre i `Header`.
+
+Under er et eksempel på `Header` med meny.
+
+<Canvas of={HeaderStories.WithMenu} />
+
+Ting å tenke på:
+- På smale skjermer kan handlinger vises som ikoner (husk aria-label). På større skjermer skal ikonene suppleres med tekst.
+- Handlinger som innlogging, søk og språkvalg plasseres over navigasjonslenkene, og skilles fra disse med en `Divider`.
+
+Under er et eksempel på en `Header` med både meny og handlinger som søk og profil.
+
+<Canvas of={HeaderStories.WithButtonsAndMenu} />
+
+Når du bruker meny, bør navigasjonen ligge i menyen. Unngå å kombinere meny og navigasjonslenker i Header, med mindre det er behov for å fremheve en særlig viktig side.
+
+### Søkefeltets funksjon
+
+Søk kan vises direkte i Header med et søkefelt, slik eksempelet under viser. Alternativt kan søkefeltet åpnes med en knapp på samme måte som hovedmenyen (se eksempelet over med søk, profil og meny).
+På smalere skjermer, der søkefeltet plasseres i hovedmenyen, bør det være det første elementet.
+
+<Canvas of={HeaderStories.WithSearch} />
+
+
+### Inn- og utlogging og profil i Header
+
+<Alert data-color='info' className='sb-unstyled' style={{ marginBlock: 'var(--ds-size-4)' }}>
+    <Heading     
+        data-size='xs'
+        level={3}
+        style={{
+            marginBottom: 'var(--ds-size-2)'
+        }}
+    >
+        Foreløpig forslag til profilmeny
+    </Heading>
+     Vi har ikke full oversikt over alle bruksbehov for profilmenyen enda, men dette er et forslag til hvordan komponenten kan se ut i praksis. Vi tar gjerne imot innspill til forbedringer eller andre behov som ikke er dekket.
+</Alert>
+
+Innlogging:
+- Bruk en sekundærknapp med ikon og tekst. Du kan bruke en primærknapp hvis du ønsker å tiltrekke brukerens oppmerksomhet til denne handlingen.
+
+Utlogging og profil:
+- Bruk Avatar kombinert med en Button. I knappen kan du skrive brukernavn og legge til et dropdown-ikon på høyre side. Ved å klikke på knappen åpnes en dropdown der du kan plassere valg som “Bytt bruker”, “Logg ut”, varsler og innstillinger.
+  - For smalere skjermer kan du bruke kun Avatar med initial-varianten.
+
+### Språkvelger
+
+Bruk Button sammen med Dropdown for å lage en språkvelger i Header.
+
+<Canvas of={HeaderStories.WithLanguagePicker} />
+
+### Retningslinjer
+
+Unngå for mye innhold i Header. Vurder hva du trenger å ha lett tilgjengelig for brukeren, og hva som kan plasseres andre steder i tjenesten. 
+
+### Valg av navigasjonstype
+
+Oversikten under gir en pekepinn på hva du bør velge til løsningen din.
+
+Navigasjonslenker:
+- 2–4 lenker
+  - Antallet vurderes ut fra tilgjengelig plass, med hensyn til spacing mellom lenkene og avstanden til logo og tjenestenavn.
+- Sidene er like viktige
+- Brukeren bytter ofte mellom dem
+
+Meny:
+- 4 eller flere hovedsider
+- Navigasjon med flere nivåer
+
+Temameny:
+- 2–3 tydelige temaer for navigasjon
+- Mange underliggende sider
+- Navigasjon med flere nivåer
+
+## Responsivitet
+
+### Header skjules og vises automatisk
+
+`Header` er scroll-aware. Når brukeren scroller nedover, skjules Headeren for å gi mer plass til innholdet. Når brukeren scroller oppover, vises den igjen. På den måten har brukeren alltid tilgang til viktig funksjonalitet, uavhengig av hvor langt ned på siden de har scrollet.
+
+<Canvas of={HeaderStories.WithScroll} />
+
+### Vise eller skjule innhold
+For å håndtere ulike skjermstørrelser og enheter har vi satt opp noen predefinerte breakpoints som styrer når innhold skal vises eller skjules. Ved å bruke `data-show-from=[size]` eller `data-hide-from=[size]` på komponenter i `Header`, kan du kontrollere hvilke elementer som vises ved ulike brekkpunkter.
+
+De tilgjengelige verdiene for `size` er:
+- 'sm': 30rem (480px)
+- 'md': 48rem (768px)
+- 'lg': 64rem (1024px)
+
+`data-show-from` viser elementet fra og med angitt skjermstørrelse, mens `data-hide-from` skjuler elementet fra og med samme størrelse.
+
+I eksempelet under "flytter" vi `Header.Nav` fra `Header` til `Header.Menu` på mindre skjermer. Dette gjør vi ved å bruke:
+- `data-show-from='md'` på `Header.Nav` i `Header` – den vises fra og med md og oppover.
+- `data-hide-from='md'` på `Header.Nav` i `Header.Menu` – den skjules fra og med md og oppover
+
+Resultatet er at navigasjonslenkene alltid er tilgjengelig for brukeren, men plassert ulikt avhengig av skjermstørrelsen. Åpne menyen og endre vindusstørrelsen for å se hvordan dette fungerer.
+
+<Canvas of={HeaderStories.WithNavigationLinks} />
+
+### Endringer ved brekkpunkter
+
+Fra brekkpunkt medium (768px) og mindre:
+- Logoen skaleres ned proporsjonalt til size-8 (32px).
+
+Fra brekkpunkt small (480px) og mindre:
+- "Kartverket"-teksten fjernes fra logoen for å ta mindre plass.
+- Teksten i menyknappen skjules visuelt for å ta mindre plass.
+
+#### Lange tjenestenavn
+
+Bruk 'soft hyphen' hvis tjenesten din har et langt navn, for å angi hvor navnet kan deles over flere linjer. Dette gjør at teksten brytes penere på smale skjermer, samtidig som det vises i sin helhet på større skjermer.
+
+Soft hyphen settes inn som HTML-entiteten `&shy;` eller Unicode-sekvensen `\u00AD`, avhengig av kontekst.
+
+```tsx
+// Når verdien settes direkte som komponent-property
+<Header applicationName='Eiendoms&shy;registeret' />
+
+// Når verdien først settes som en variabel
+const appName = 'Eiendoms\u00ADregisteret'
+// ...
+<Header applicationName={appName} />
+```
+
+Lange tjenestenavn som består av flere ord bryter automatisk ved mellomrom. 
+
+### Test på ulike skjermstørrelser
+
+Husk å teste `Header` på ulike enheter og skjermstørrelser for å sikre at det fungerer som forventet.
+
+## Kompatibilitet
+Hvis du bruker forslaget til profil-funksjonaliteten med bruk av `Dropdown`, må du sørge for at det fungerer som forventet i applikasjonen din. Se dokumentasjon om kompabilitet for Dropdown. 
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

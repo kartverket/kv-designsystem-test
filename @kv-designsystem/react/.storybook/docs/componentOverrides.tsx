@@ -9,10 +9,10 @@ import { getPath } from '.storybook/utils/getPath';
 const headingConfig = [
   { level: 1, size: 'xl', marginBlock: '0 var(--ds-size-6)' },
   { level: 2, size: 'md' },
-  { level: 3, size: 'xs' },
-  { level: 4, size: '2xs' },
-  { level: 5, size: 'xs' },
-  { level: 6, size: 'xs' },
+  { level: 3, size: 'sm' },
+  { level: 4, size: 'xs' },
+  { level: 5, size: '2xs' },
+  { level: 6, size: '2xs' },
 ] as const;
 
 const createHeadingOverrides = (): Partial<MdxComponentOverrides> => {
@@ -20,7 +20,7 @@ const createHeadingOverrides = (): Partial<MdxComponentOverrides> => {
 
   headingConfig.forEach((config) => {
     const {level, size } = config;
-    const marginBlock = 'marginBlock' in config ? config.marginBlock : 'var(--ds-size-6)';
+    const marginBlock = 'marginBlock' in config ? config.marginBlock : 'var(--ds-size-6) var(--ds-size-2)';
     const key = `h${level}` as const;
     overrides[key as keyof MdxComponentOverrides] = (props) => (
       <Heading
