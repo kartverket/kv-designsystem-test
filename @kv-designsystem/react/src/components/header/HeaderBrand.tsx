@@ -14,8 +14,8 @@ export const HeaderBrand = forwardRef<HTMLDivElement, HeaderBrandProps>(
     return (
       <div className='header-brand' ref={ref}>
         <a href='https://kartverket.no'>
-          <img src={logoFull} alt='Kartverket logo' className='header-logo header-logo--full' />
-          <img src={logoIcon} alt='Kartverket logo' className='header-logo header-logo--icon' />
+          <img src={logoFull} alt='Kartverket-logo' className='header-logo header-logo--full' />
+          <img src={logoIcon} alt='Kartverket-logo' className='header-logo header-logo--icon' />
         </a>
 
         {applicationName && (

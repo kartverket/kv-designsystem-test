@@ -27,12 +27,12 @@ const Header: HeaderProps = Object.assign(HeaderRoot, {
 });
 
 Header.ActionsList.displayName = 'Header.ActionsList';
-Header.Menu.displayName= 'Header.Menu';
-Header.MenuButton.displayName= 'Header.MenuButton';
+Header.Menu.displayName = 'Header.Menu';
+Header.MenuButton.displayName = 'Header.MenuButton';
 Header.Nav.displayName = 'Header.Nav';
 Header.NavItem.displayName = 'Header.NavItem';
 Header.SearchButton.displayName = 'Header.SearchButton';
-Header.SearchDialog.displayName= 'Header.SearchDialog';
+Header.SearchDialog.displayName = 'Header.SearchDialog';
 
 export type { HeaderProps } from './Header';
 export type { HeaderDialogProps } from './HeaderDialog';

@@ -190,11 +190,7 @@ export const WithButtonsAndMenu: Story = {
             <li className='withButtonsAndMenu-header-sub-menu'>
               <Heading data-size='sm'>Eiendom</Heading>
               <ul>
-                <Header.NavItem
-                  href='#'
-                  // @ts-expect-error We want the native 'autofocus' and Reacts onMount smartness (see https://react.dev/reference/react-dom/components/input#input)
-                  autofocus='true'
-                >
+                <Header.NavItem href='#'>
                   Alt om eiendom
                 </Header.NavItem>
                 <Header.NavItem href='#' aria-current='page'>
@@ -308,6 +304,7 @@ export const WithLanguagePicker: Story = {
           <Dropdown.List>
             {languages.map((lang) => (
               <Dropdown.Item
+                key={`lang-${lang}`}
                 {...(currentLang === lang && { 'aria-current': true })}
               >
                 <Dropdown.Button

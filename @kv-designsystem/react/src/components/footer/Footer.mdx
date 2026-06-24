@@ -6,9 +6,9 @@ import * as FooterStories from './Footer.stories';
 
 # Footer
 
-`Footer` markerer bunnen av siden og inneholder lenker til essensiell informasjon. Den henger tett sammen med `Header` som tilsammen tydeliggjør Kartverket som avsender for tjenesten.
+`Footer` markerer bunnen av siden og inneholder lenker til essensiell informasjon. Sammen med `Header` bidrar den til å tydeliggjøre Kartverket som avsender av tjenesten.
 
-Vi bruker `Footer` på alle Kartverkets tjenester, med et unntak for kartløsningene våre.
+Vi bruker `Footer` i alle Kartverkets tjenester, med unntak av kartløsningene våre.
 
 <Primary />
 <Controls of={FooterStories.Preview} />
@@ -33,7 +33,7 @@ Vi bruker `Footer` på alle Kartverkets tjenester, med et unntak for kartløsnin
 
 ### Innhold
 
-I eksempelet over viser vi standard-innholdet som skal være med:
+I eksempelet over viser vi standard-innholdet som skal inkluderes i `Footer`:
 1. Logo
 2. Kontakt oss
     - Telefon: 32 11 80 00
@@ -44,7 +44,7 @@ I eksempelet over viser vi standard-innholdet som skal være med:
     - Informasjonskapsler
     - Tilgjengelighetserklæring
 
-Andre lenker som kan være relevant å ha med:
+Andre lenker som kan være relevante:
 - Om tjenesten
 - Aktuelt
   - Nyheter
@@ -55,22 +55,21 @@ Andre lenker som kan være relevant å ha med:
 - Følg oss
   - Lenker til sosiale medier
 
-Utover disse skal `Footer` stort sett kun inneholde lenker som også finnes andre steder på siden. Dette er fordi det vil være tungvindt for en bruker å måtte scrolle helt ned for å finne innholdet de leter etter.
+Utover dette bør `Footer` i hovedsak inneholde lenker som også finnes andre steder på siden. Brukere bør ikke måtte scrolle helt ned for å finne informasjonen de leter etter.
 
 ### Kolonner
 
-For et responsivt design vil antallet kolonner endre seg basert på skjermbredden.
+Kolonneantallet tilpasses skjermbredden. Lenkeseksjonene bryter under hverandre basert på tilgjengelig plass.
 
-På skjermbredder fra brekkpunkt medium (768px) og større, bruker vi hovedsakelig tre kolonner.
-Du kan ha opptil 5 kolonner avhengig av antall temaer du skal ha med.
+Logoen vil alltid være plassert øverst til venstre i footeren.
 
-På skjermbredder mindre enn brekkpunkt medium (768 px), wrappes kolonnene under hverandre til flere rader i én kolonne, der logo kommer først.
+Vi anbefaler å begrense antallet til tre lenkeseksjoner, men ved behov kan det legges til flere.
 
 ### Lenke til ekstern side
 
-#### Unngå at lenker blir åpnet i en ny fane
+#### Unngå at lenker blir åpnet i  ny fane
 
-Det er mer forutsigbart for brukeren når lenker åpnes i samme fane. 
+Brukeropplevelsen blir mer forutsigbar når lenker åpnes i samme fane. Hvis lenken ikke fører dit brukeren trodde, kan man lett komme seg tilbake ved å trykke på tilbakeknappen.
 
 Unntak:
 - Hvis systemet må logge ut brukeren når det navigeres til en annen side, og det er hensiktsmessig å unngå utlogging.
