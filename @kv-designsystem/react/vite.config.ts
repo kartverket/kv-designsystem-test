@@ -54,7 +54,7 @@ export default defineConfig({
   build: {
     outDir: './dist',
     lib: {
-      entry: 'src/components/alpha.ts',
+      entry: 'src/alpha.ts',
       name: '@kv-designsystem/react',
       fileName: 'alpha',
       formats: ['es', 'cjs'],
