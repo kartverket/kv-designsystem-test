@@ -28,7 +28,7 @@ export const Preview: Story = {
 };
 
 export const WithRows: Story = {
-  render: () => (
+  render: (_args) => (
     <>
       <Label htmlFor='my-textarea-rows'>Beskrivelse</Label>
       <Textarea id='my-textarea-rows' rows={6} />

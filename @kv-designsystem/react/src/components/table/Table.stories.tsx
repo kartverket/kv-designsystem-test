@@ -127,7 +127,7 @@ export const WithBorder: Story = {
 };
 
 export const Sortable: Story = {
-  render: () => {
+  render: (_args) => {
     const dummyData = [
       {
         id: 1,

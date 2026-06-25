@@ -6,19 +6,21 @@ const meta = {
   title: 'Components/Typography/Paragraph',
   parameters: { layout: 'centered' },
   tags: ['!autodocs'],
+  argTypes: {
+    'data-size': {
+      options: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+      control: { type: 'select' },
+    },
+  },
 } satisfies Meta<typeof Paragraph>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Paragraph>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed sodales lacus. 
-      Nullam varius erat sit amet arcu fringilla eleifend. Aenean dictum libero leo, 
-      vitae consequat augue luctus vel.
-    </Paragraph>
-  )
+  args: {
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed sodales lacus. Nullam varius erat sit amet arcu fringilla eleifend. Aenean dictum libero leo, vitae consequat augue luctus vel.',
+  }
 };
 
 export const Sizes: Story = {
