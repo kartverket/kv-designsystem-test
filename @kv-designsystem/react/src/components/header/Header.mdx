@@ -50,7 +50,6 @@ I tillegg til navigasjonslenker kan du legge til andre handlinger ved hjelp av `
 - Språkendring
 - Søk
 
-
 Vurder hvilke handlinger som er viktige for brukerne av tjenesten, og om de bør være tilgjengelige i Header.
 
 Kartverkets logo og tjenestenavnet er alltid plassert til venstre, uavhengig av hvilken variant av Header du velger.
@@ -90,11 +89,9 @@ Når du bruker meny, bør navigasjonen ligge i menyen. Unngå å kombinere meny 
 
 ### Søkefeltets funksjon
 
-Søk kan vises direkte i Header med et søkefelt, slik eksempelet under viser. Alternativt kan søkefeltet åpnes med en knapp på samme måte som hovedmenyen (se eksempelet over med søk, profil og meny).
-På smalere skjermer, der søkefeltet plasseres i hovedmenyen, bør det være det første elementet.
+Søk kan vises direkte i Header med et søkefelt, slik eksempelet under viser. Alternativt kan søkefeltet åpnes med en knapp på samme måte som hovedmenyen (se eksempelet over med søk, profil og meny). På smalere skjermer, der søkefeltet plasseres i hovedmenyen, bør det være det første elementet.
 
 <Canvas of={HeaderStories.WithSearch} />
-
 
 ### Inn- og utlogging og profil i Header
 
@@ -133,7 +130,7 @@ Unngå for mye innhold i Header. Vurder hva du trenger å ha lett tilgjengelig f
 Oversikten under gir en pekepinn på hva du bør velge til løsningen din.
 
 Navigasjonslenker:
-- 2–4 lenker
+- 2-4 lenker
   - Antallet vurderes ut fra tilgjengelig plass, med hensyn til spacing mellom lenkene og avstanden til logo og tjenestenavn.
 - Sidene er like viktige
 - Brukeren bytter ofte mellom dem
@@ -143,7 +140,7 @@ Meny:
 - Navigasjon med flere nivåer
 
 Temameny:
-- 2–3 tydelige temaer for navigasjon
+- 2-3 tydelige temaer for navigasjon
 - Mange underliggende sider
 - Navigasjon med flere nivåer
 
@@ -156,6 +153,7 @@ Temameny:
 <Canvas of={HeaderStories.WithScroll} />
 
 ### Vise eller skjule innhold
+
 For å håndtere ulike skjermstørrelser og enheter har vi satt opp noen predefinerte breakpoints som styrer når innhold skal vises eller skjules. Ved å bruke `data-show-from=[size]` eller `data-hide-from=[size]` på komponenter i `Header`, kan du kontrollere hvilke elementer som vises ved ulike brekkpunkter.
 
 De tilgjengelige verdiene for `size` er:
@@ -163,11 +161,11 @@ De tilgjengelige verdiene for `size` er:
 - 'md': 48rem (768px)
 - 'lg': 64rem (1024px)
 
-`data-show-from` viser elementet fra og med angitt skjermstørrelse, mens `data-hide-from` skjuler elementet fra og med samme størrelse.
+`data-show-from` viser elementet fra og med angitt skjermstørrelse, mens `data-hide-from` skjuler elementet fra og med angitt skjermstørrelse.
 
 I eksempelet under "flytter" vi `Header.Nav` fra `Header` til `Header.Menu` på mindre skjermer. Dette gjør vi ved å bruke:
-- `data-show-from='md'` på `Header.Nav` i `Header` – den vises fra og med md og oppover.
-- `data-hide-from='md'` på `Header.Nav` i `Header.Menu` – den skjules fra og med md og oppover
+- `data-show-from='md'` på `Header.Nav` i `Header` - den vises fra og med md og oppover.
+- `data-hide-from='md'` på `Header.Nav` i `Header.Menu` - den skjules fra og med md og oppover
 
 Resultatet er at navigasjonslenkene alltid er tilgjengelig for brukeren, men plassert ulikt avhengig av skjermstørrelsen. Åpne menyen og endre vindusstørrelsen for å se hvordan dette fungerer.
 
@@ -205,6 +203,7 @@ Lange tjenestenavn som består av flere ord bryter automatisk ved mellomrom.
 Husk å teste `Header` på ulike enheter og skjermstørrelser for å sikre at det fungerer som forventet.
 
 ## Kompatibilitet
+
 Hvis du bruker forslaget til profil-funksjonaliteten med bruk av `Dropdown`, må du sørge for at det fungerer som forventet i applikasjonen din. Se dokumentasjon om kompabilitet for Dropdown. 
 
 ## Kilde
