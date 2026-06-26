@@ -6,6 +6,12 @@ import { EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
 const meta: Meta<typeof Badge> = {
   component: Badge,
   parameters: { layout: 'centered' },
+    argTypes: {
+    'data-color': {
+      options: ['neutral', 'danger', 'info', 'warning', 'success'],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 export default meta;
@@ -98,6 +104,9 @@ export const Status: Story = {
 };
 
 export const InTabs: Story = {
+  args: {
+    'data-color': 'neutral'
+  },
   render: (_args) => (
     <Tabs defaultValue='value1'>
       <Tabs.List>
@@ -119,9 +128,12 @@ export const InTabs: Story = {
 };
 
 export const Floating: Story = {
-  render: (_args) => (
+  args: {
+    'data-color': 'danger'
+  },
+  render: (args) => (
     <Badge.Position placement='top-right'>
-      <Badge data-color='danger' count={2}></Badge>
+      <Badge {...args} count={2}></Badge>
       <EnvelopeClosedFillIcon title='Meldinger' style={{ fontSize: '2rem' }} />
     </Badge.Position>
   ),

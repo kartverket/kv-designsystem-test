@@ -65,7 +65,7 @@ export const BackOnly: Story = {
 		'aria-label':'Du er her:',
 	},
 	render: (args) => (
-		<Breadcrumbs>
+		<Breadcrumbs {...args}>
 			<Breadcrumbs.Link
 				aria-label='Tilbake til Stadnamn'
 				href='#'

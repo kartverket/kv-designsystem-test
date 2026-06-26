@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   args: {
-    children: 'ValidationMessage',
+    children: 'Dette er en valideringsmelding.',
   }
 };
 
