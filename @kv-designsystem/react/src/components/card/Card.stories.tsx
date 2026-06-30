@@ -1,10 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Card } from './Card';
+import { Card, CardBlock } from './Card';
 import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
+import { Card as StorybookCard } from './docs/StorybookCard';
 
 const meta = {
-  component: Card,
+  component: StorybookCard,
+    subcomponents: {
+    'Card.Block': CardBlock,
+  },
   parameters: { layout: 'centered' },
   decorators: [
     (Story) => (
@@ -31,8 +35,8 @@ export const Preview: Story = {
   args: {
     children: [],
   },
-  render: (_args) => (
-    <Card style={{ maxWidth: '320px' }} data-color='accent'>
+  render: (args) => (
+    <Card style={{ maxWidth: '320px' }} data-color='accent' {...args}>
       <Heading>Tittel</Heading>
       <Paragraph>Innhold</Paragraph>
       <Paragraph data-size='sm'>Fotnote</Paragraph>
