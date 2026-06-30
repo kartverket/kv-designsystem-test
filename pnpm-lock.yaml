@@ -9,18 +9,42 @@ catalogs:
     '@chromatic-com/storybook':
       specifier: ^5.0.1
       version: 5.0.2
+    '@digdir/designsystemet':
+      specifier: 1.15.0
+      version: 1.15.0
     '@digdir/designsystemet-css':
-      specifier: ^1.14.0
-      version: 1.14.0
+      specifier: ^1.15.0
+      version: 1.18.0
     '@digdir/designsystemet-react':
-      specifier: ^1.14.0
-      version: 1.14.0
+      specifier: ^1.15.0
+      version: 1.18.0
     '@digdir/designsystemet-types':
-      specifier: ^1.14.0
-      version: 1.14.0
+      specifier: ^1.15.0
+      version: 1.18.0
+    '@eslint/compat':
+      specifier: ^2.0.1
+      version: 2.0.3
+    '@eslint/js':
+      specifier: ^9.39.2
+      version: 9.39.4
     '@navikt/aksel-icons':
       specifier: ^8.4.1
       version: 8.4.1
+    '@nx/eslint':
+      specifier: 22.5.1
+      version: 22.5.1
+    '@nx/eslint-plugin':
+      specifier: 22.5.1
+      version: 22.5.1
+    '@nx/storybook':
+      specifier: 22.5.1
+      version: 22.5.1
+    '@nx/vite':
+      specifier: 22.5.1
+      version: 22.5.1
+    '@nx/web':
+      specifier: 22.5.1
+      version: 22.5.1
     '@storybook/addon-a11y':
       specifier: ^10.2.8
       version: 10.3.0
@@ -33,6 +57,12 @@ catalogs:
     '@storybook/react-vite':
       specifier: ^10.2.8
       version: 10.3.0
+    '@types/micromatch':
+      specifier: ^4.0.10
+      version: 4.0.10
+    '@types/node':
+      specifier: ^24.10.13
+      version: 24.12.4
     '@types/ramda':
       specifier: ^0.31.1
       version: 0.31.1
@@ -42,6 +72,18 @@ catalogs:
     '@types/react-dom':
       specifier: ^19.2.3
       version: 19.2.3
+    '@types/yargs':
+      specifier: ^17.0.35
+      version: 17.0.35
+    '@typescript-eslint/eslint-plugin':
+      specifier: ^8.53.1
+      version: 8.57.1
+    '@typescript-eslint/parser':
+      specifier: ^8.53.1
+      version: 8.57.1
+    '@typescript/native-preview':
+      specifier: 7.0.0-dev.20260126.1
+      version: 7.0.0-dev.20260126.1
     '@vitejs/plugin-react':
       specifier: ^5.1.1
       version: 5.2.0
@@ -51,21 +93,72 @@ catalogs:
     '@vitest/coverage-v8':
       specifier: ^4.0.17
       version: 4.1.0
+    '@vitest/ui':
+      specifier: ^4.0.17
+      version: 4.1.0
+    autoprefixer:
+      specifier: ^10.4.23
+      version: 10.4.27
     chromatic:
       specifier: ^13.3.5
       version: 13.3.5
     clsx:
       specifier: ^2.1.1
       version: 2.1.1
+    cssnano:
+      specifier: ^7.1.2
+      version: 7.1.3
+    eslint:
+      specifier: ^9.39.2
+      version: 9.39.4
+    eslint-plugin-import:
+      specifier: ^2.32.0
+      version: 2.32.0
+    eslint-plugin-jsx-a11y:
+      specifier: ^6.10.2
+      version: 6.10.2
+    eslint-plugin-react:
+      specifier: ^7.37.5
+      version: 7.37.5
+    eslint-plugin-react-hooks:
+      specifier: ^7.0.1
+      version: 7.0.1
+    eslint-plugin-react-refresh:
+      specifier: ^0.4.24
+      version: 0.4.26
     eslint-plugin-storybook:
       specifier: ^10.2.8
       version: 10.3.0
+    jiti:
+      specifier: 2.4.2
+      version: 2.4.2
+    madge:
+      specifier: ^8.0.0
+      version: 8.0.0
+    micromatch:
+      specifier: ^4.0.8
+      version: 4.0.8
     nx:
       specifier: 22.5.1
       version: 22.5.1
     playwright:
       specifier: ^1.57.0
       version: 1.58.2
+    postcss:
+      specifier: ^8.5.6
+      version: 8.5.15
+    postcss-cli:
+      specifier: ^11.0.1
+      version: 11.0.1
+    postcss-import:
+      specifier: ^16.1.1
+      version: 16.1.1
+    postcss-load-config:
+      specifier: ^6.0.1
+      version: 6.0.1
+    postcss-nesting:
+      specifier: ^14.0.0
+      version: 14.0.0
     ramda:
       specifier: ^0.32.0
       version: 0.32.0
@@ -75,12 +168,24 @@ catalogs:
     react-dom:
       specifier: ^19.2.0
       version: 19.2.4
+    rimraf:
+      specifier: ^6.1.2
+      version: 6.1.3
     storybook:
       specifier: ^10.2.8
       version: 10.3.0
     tslib:
       specifier: ^2.8.1
       version: 2.8.1
+    tsx:
+      specifier: ^4.21.0
+      version: 4.21.0
+    typescript:
+      specifier: ^5.9.3
+      version: 5.9.3
+    typescript-eslint:
+      specifier: ^8.53.1
+      version: 8.57.1
     vite:
       specifier: ^7.3.1
       version: 7.3.1
@@ -93,6 +198,9 @@ catalogs:
     vitest:
       specifier: ^4.0.17
       version: 4.1.0
+    yargs:
+      specifier: ^18.0.0
+      version: 18.0.0
 
 packageExtensionsChecksum: sha256-LMeXZzq7zvEM75wWqXhoH5AKiX4vxXAjdihGHRrb69w=
 
@@ -117,13 +225,13 @@ importers:
         version: 22.5.1(@babel/traverse@7.29.0)(@zkochan/js-yaml@0.0.7)(eslint@9.39.4(jiti@2.4.2))(nx@22.5.1)(storybook@10.3.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(typescript@5.9.3)
       '@nx/vite':
         specifier: 'catalog:'
-        version: 22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)(typescript@5.9.3)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)
+        version: 22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)(typescript@5.9.3)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)
       '@nx/web':
         specifier: 'catalog:'
         version: 22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)
       '@types/node':
         specifier: 'catalog:'
-        version: 24.12.0
+        version: 24.12.4
       '@typescript-eslint/eslint-plugin':
         specifier: 'catalog:'
         version: 8.57.1(@typescript-eslint/parser@8.57.1(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.4(jiti@2.4.2))(typescript@5.9.3)
@@ -204,44 +312,44 @@ importers:
     dependencies:
       '@digdir/designsystemet-css':
         specifier: 'catalog:'
-        version: 1.14.0
+        version: 1.18.0
       '@kv-designsystem/theme':
         specifier: workspace:*
         version: link:../theme
     devDependencies:
       autoprefixer:
         specifier: 'catalog:'
-        version: 10.4.27(postcss@8.5.8)
+        version: 10.4.27(postcss@8.5.15)
       cssnano:
         specifier: 'catalog:'
-        version: 7.1.3(postcss@8.5.8)
+        version: 7.1.3(postcss@8.5.15)
       postcss:
         specifier: 'catalog:'
-        version: 8.5.8
+        version: 8.5.15
       postcss-cli:
         specifier: 'catalog:'
-        version: 11.0.1(jiti@2.4.2)(postcss@8.5.8)(tsx@4.21.0)
+        version: 11.0.1(jiti@2.4.2)(postcss@8.5.15)(tsx@4.21.0)
       postcss-import:
         specifier: 'catalog:'
-        version: 16.1.1(postcss@8.5.8)
+        version: 16.1.1(postcss@8.5.15)
       postcss-load-config:
         specifier: 'catalog:'
-        version: 6.0.1(jiti@2.4.2)(postcss@8.5.8)(tsx@4.21.0)(yaml@2.8.2)
+        version: 6.0.1(jiti@2.4.2)(postcss@8.5.15)(tsx@4.21.0)(yaml@2.8.2)
       postcss-nesting:
         specifier: 'catalog:'
-        version: 14.0.0(postcss@8.5.8)
+        version: 14.0.0(postcss@8.5.15)
 
   '@kv-designsystem/react':
     dependencies:
       '@digdir/designsystemet-css':
         specifier: 'catalog:'
-        version: 1.14.0
+        version: 1.18.0
       '@digdir/designsystemet-react':
         specifier: 'catalog:'
-        version: 1.14.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 1.18.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@digdir/designsystemet-types':
         specifier: 'catalog:'
-        version: 1.14.0
+        version: 1.18.0
       '@kv-designsystem/css':
         specifier: workspace:*
         version: link:../css
@@ -332,7 +440,7 @@ importers:
     dependencies:
       '@digdir/designsystemet-types':
         specifier: 'catalog:'
-        version: 1.14.0
+        version: 1.18.0
     devDependencies:
       '@internal/build-tools':
         specifier: workspace:*
@@ -348,7 +456,7 @@ importers:
     devDependencies:
       '@digdir/designsystemet':
         specifier: 'catalog:'
-        version: 1.14.0(tslib@2.8.1)
+        version: 1.15.0(tslib@2.8.1)
       rimraf:
         specifier: 'catalog:'
         version: 6.1.3
@@ -953,23 +1061,26 @@ packages:
     resolution: {integrity: sha512-Y6+WUMsTFWE5jb20IFP4YGa5IrGY/+a/FbOSjDF/wz9gepU2hwCYSXRHP/vPwBvwcY3SVMASt4yXxbXNXigmZQ==}
     engines: {node: '>=18'}
 
-  '@digdir/designsystemet-css@1.14.0':
-    resolution: {integrity: sha512-qAIpcrFgO80p5TrVWcRUC8xO1ZAEp1j39kQ+WLyBuM/BBsgLXBZVIUaju3ZI1rsQFNyY/QZ9CKQslnoOVAeCkQ==}
+  '@digdir/designsystemet-css@1.18.0':
+    resolution: {integrity: sha512-AiJAOGOJa8XKnaGhlho+/I16jYYB8gJuXgdoCreotFGhZWf9FPjRp/3IXh4CoLmSwooNXJL/5/qmiFRBhbrJ2Q==}
 
-  '@digdir/designsystemet-react@1.14.0':
-    resolution: {integrity: sha512-m4lYxbWv0bY5ayg0L+DueSrrhk2W+A0ovs443MteABwcx6pLDYPQMVl0FGZ/Wtn2gB92ZivvWuVhUxdom13dKg==}
+  '@digdir/designsystemet-react@1.18.0':
+    resolution: {integrity: sha512-rBOG0wWrHYeQFsmfjcECiEyXdt5RQ06Ec5oTT3SyvaU/+5cEpaCSCcF97S4EfA/2vsRVjIjYa6V854ibEM2FbA==}
     peerDependencies:
       react: '>=18.3.1 || ^19.0.0'
       react-dom: '>=18.3.1 || ^19.0.0'
 
-  '@digdir/designsystemet-types@1.14.0':
-    resolution: {integrity: sha512-d/JZhwebAgclFsE7ax0Z8mWotEk3GE4e9+iC8Cq8EN5BQ+bOptwFrVipSrL+NAt8/7AX9WzrnAScPuxCb4vvgQ==}
+  '@digdir/designsystemet-types@1.15.0':
+    resolution: {integrity: sha512-TBZlldpl0RBcFkrCMjRZFDwsI6A8btIbNpP2LnNElsKThoL1ZFSUutra+NwibV28lBRgSMi2gf46yY08GaoBsg==}
 
-  '@digdir/designsystemet-web@1.14.0':
-    resolution: {integrity: sha512-dmUnV/0wzTOSPnSGqQwjYyneuO+/QqfugAr2SP1N1m/VzfMal3Y5hD+AkDWWzWhJ7EJrhGtYwG5JVRM8iYuVeQ==}
+  '@digdir/designsystemet-types@1.18.0':
+    resolution: {integrity: sha512-2Qfn9Pf59AZyjc95NcWpsNyma3vcsWbiNMLmoMjHG8o0oBNYQdaln4V7wJig5avjbz7Z1BcBhs60d/DOcP+j5w==}
 
-  '@digdir/designsystemet@1.14.0':
-    resolution: {integrity: sha512-y+CWrrjzlEBbu0DmcdhwC5167rz+l5qUIb0l4dLMkxIrkQKXSC0dt/aoxATFsHhVTehbKuYUrGZdCkZTW+/bSA==}
+  '@digdir/designsystemet-web@1.18.0':
+    resolution: {integrity: sha512-CLQZWSywbk2StmD6kzTi9ZsHiZrNKbWVOTRG0/JGP0xX+QZwadDqz1Dsh11HeRDRCoz6PjMz6Yi1HV/icmwcjQ==}
+
+  '@digdir/designsystemet@1.15.0':
+    resolution: {integrity: sha512-d8FCleuO86QJLichrV/pwBJFF19A8MMGYpuGOJ8GjaM1MIpAiqp0jZev9H7CVhiZjdnLfq5Q8bpLR81+LdEwWw==}
     engines: {node: '>=20.20.2'}
     hasBin: true
 
@@ -1428,8 +1539,8 @@ packages:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
 
-  '@navikt/aksel-icons@8.11.0':
-    resolution: {integrity: sha512-enprSpDl7j4yDEAtVtp/BPby2McZKtgXIgarTVDeZ0pmiqnYbXFyCTgzl/ZMg2/EV+hd2DXpLsKzU73PDljpmw==}
+  '@navikt/aksel-icons@8.14.0':
+    resolution: {integrity: sha512-jFBjGMgA2WuAxB4nBzDcF8vf5pkT+OZiCsCZH5D84G/Fk8Os6iUuj1Is0XpMqObNTjI11s+PtQt9Lp/85qB5vw==}
     peerDependencies:
       '@types/react': ^18.3.11 || ^19.0.0
       react: ^18.3.1 || ^19.0.0
@@ -1593,8 +1704,8 @@ packages:
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
 
-  '@radix-ui/react-compose-refs@1.1.2':
-    resolution: {integrity: sha512-z4eqJvfiNnFMHIIvXP3CY57y2WJs5g2v3X0zm9mEJkrkNv4rDxu+sg9Jh8EkXyeqBkB7SOcboo9dMVqhyrACIg==}
+  '@radix-ui/react-compose-refs@1.1.3':
+    resolution: {integrity: sha512-rYOP8OMnuuPMQF1uhPVlGNcCDlkokKqGFE3JcxFViIkAXP7EvFWUliJAstrapypaBLJNHbZL6jGhbVDGTwmVhA==}
     peerDependencies:
       '@types/react': '*'
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
@@ -1602,8 +1713,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@radix-ui/react-slot@1.2.4':
-    resolution: {integrity: sha512-Jl+bCv8HxKnlTLVrcDE8zTMJ09R9/ukw4qBs/oZClOfoQk/cOTbDn+NceXfV7j09YPVQUryJPHurafcSg6EVKA==}
+  '@radix-ui/react-slot@1.3.0':
+    resolution: {integrity: sha512-MojKku4U/miO8Av4Dkb+ctMAQx7JmY96LmtDQlAarCRtd7rN52QCSzBF+XAvr5S6coSVj9HEPBgHAHKEJVk/WA==}
     peerDependencies:
       '@types/react': '*'
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
@@ -1966,14 +2077,14 @@ packages:
       typescript:
         optional: true
 
-  '@tanstack/react-virtual@3.13.26':
-    resolution: {integrity: sha512-DosdgjOxCLahkn0o+ilmZYwEjo1glfMGuRT/j3PQ18yr5XqA8N/BCaL9IJ3B5TRl+nnzyK2IOFgAILwzN3a9xQ==}
+  '@tanstack/react-virtual@3.14.4':
+    resolution: {integrity: sha512-dZzAQP2uCDAd+9sAehqmx/DcU+B91Q4Gb0aDSM7t9bJvWDyGF9sapFNW5r1gNLsHs4wTb6ScZENJeYaHxJLiOw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@tanstack/virtual-core@3.16.0':
-    resolution: {integrity: sha512-Er2N7q3WOiH6y2JLxsxNX+u2/sLqSsL0bxFgDjuiPiA7vKhZRm+IzcS17vRee3GNXr64UsesA5CAp9yTiIYw9A==}
+  '@tanstack/virtual-core@3.17.2':
+    resolution: {integrity: sha512-w43MvWvmShpb6kIC9MOoLyUkLmRTLPjt61bHWs+X29hACSpX+n8DvgZ3qM7cUfflKlRRcHR9KVJE6TmcqnQvcA==}
 
   '@testing-library/dom@10.4.1':
     resolution: {integrity: sha512-o4PXJQidqJl82ckFaXUeoAW+XysPLauYI43Abki5hABd853iMhitooc6znOnczgbTYmEP6U6/y1ZyKAIsvMKGg==}
@@ -2067,9 +2178,6 @@ packages:
 
   '@types/micromatch@4.0.10':
     resolution: {integrity: sha512-5jOhFDElqr4DKTrTEbnW8DZ4Hz5LRUEmyrGpCMrD/NphYv3nUnaF08xmSLx1rGGnyEs/kFnhiw6dCgcDqMr5PQ==}
-
-  '@types/node@24.12.0':
-    resolution: {integrity: sha512-GYDxsZi3ChgmckRT9HPU0WEhKLP08ev/Yfcq2AstjrDASOYCSXeyjDsHg4v5t4jOj7cyDX3vmprafKlWIG9MXQ==}
 
   '@types/node@24.12.4':
     resolution: {integrity: sha512-GUUEShf+PBCGW2KaXwcIt3Yk+e3pkKwWKb9GSyM9WQVE+ep2jzmHdGsHzu4wgcZy5fN9FBdVzjpBQsYlpfpgLA==}
@@ -2195,8 +2303,8 @@ packages:
     resolution: {integrity: sha512-YlWe5IrAhleaAfGE5m8DQz/KhJyp71pzwXOU/zh1/nWpDAeqMlRzRRLPRMx7AbsIqPB5sClMg20DVw1mn1YWYw==}
     hasBin: true
 
-  '@u-elements/u-combobox@2.0.4':
-    resolution: {integrity: sha512-+X4w54dgySFJWer2n5Q5wYm48vSYW2kiM0fibjFINU8hXeejf+A4qYy4s56g9StHyH3b2Ar/2ZEWgZALGE2zLA==}
+  '@u-elements/u-combobox@2.1.0':
+    resolution: {integrity: sha512-UNiHRS0qubxSSHvDVmKSrDPNavAKBJyzTJ9OyTY3hIMXy9Chiv/qvcGcXaJmB6j47QY7nGEplXE1A1vxY6BdRA==}
 
   '@u-elements/u-datalist@2.0.1':
     resolution: {integrity: sha512-xfbSiTZApvbqCt6W3LUtoyAArxOYq17Em9mYyjStiq5/XpshTVsN1JkqSqo+OjVOwDieggyAQsRwgloZgtHB7Q==}
@@ -2204,8 +2312,8 @@ packages:
   '@u-elements/u-details@1.0.0':
     resolution: {integrity: sha512-CA0w0VTH/vWWouFWEw7XIws3RUCBm2dh7ity+sbDXgpc6yz5NkoMpeDTdB/DHpI+/YInULz0XLOTrw8b7KX3Qg==}
 
-  '@u-elements/u-tabs@1.0.3':
-    resolution: {integrity: sha512-Jqd3YuwpWHZVrPx8qiLN4njsdQ/KZY6PbHsskC42mrnxkuR4LnnmWBoRPgcKrn7P74rRtm0MnPp0PMDZYbSorg==}
+  '@u-elements/u-tabs@1.0.4':
+    resolution: {integrity: sha512-F0CoSaiFnUInfTSiftufZARi6bvC0Ucb+aVaVfO65a0GWeIsTjTZupXh313POqN7SkvH4lQ+4+X33uhwBMAiww==}
 
   '@vitejs/plugin-react@5.2.0':
     resolution: {integrity: sha512-YmKkfhOAi3wsB1PhJq5Scj3GXMn3WvtQ/JC0xoopuHoXSdmtdStOpFrYaT1kie2YgFBcIe64ROzMYRjCrYOdYw==}
@@ -4097,11 +4205,6 @@ packages:
   muggle-string@0.4.1:
     resolution: {integrity: sha512-VNTrAak/KhO2i8dqqnqnAHOa3cYBwXEZe9h+D5h/1ZqFSTEFHdM65lR7RoIqq3tBBYavsOXV84NoHXZ0AkPyqQ==}
 
-  nanoid@3.3.11:
-    resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-
   nanoid@3.3.12:
     resolution: {integrity: sha512-ZB9RH/39qpq5Vu6Y+NmUaFhQR6pp+M2Xt76XBnEwDaGcVAqhlvxrl3B2bKS5D3NH3QR76v3aSrKaF/Kiy7lEtQ==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -4580,10 +4683,6 @@ packages:
 
   postcss@8.5.15:
     resolution: {integrity: sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==}
-    engines: {node: ^10 || ^12 || >=14}
-
-  postcss@8.5.8:
-    resolution: {integrity: sha512-OW/rX8O/jXnm82Ey1k44pObPtdblfiuWnrd8X7GJ7emImCOstunGbXUpp7HdBrFQX6rJzn3sPT397Wp5aCwCHg==}
     engines: {node: ^10 || ^12 || >=14}
 
   precinct@12.2.0:
@@ -5538,9 +5637,6 @@ packages:
     peerDependencies:
       zod: ^3.25.0 || ^4.0.0
 
-  zod@4.3.6:
-    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
-
   zod@4.4.3:
     resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
 
@@ -6333,39 +6429,41 @@ snapshots:
       gonzales-pe: 4.3.0
       node-source-walk: 7.0.1
 
-  '@digdir/designsystemet-css@1.14.0':
+  '@digdir/designsystemet-css@1.18.0':
     dependencies:
-      '@digdir/designsystemet-types': 1.14.0
+      '@digdir/designsystemet-types': 1.18.0
 
-  '@digdir/designsystemet-react@1.14.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@digdir/designsystemet-react@1.18.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@digdir/designsystemet-types': 1.14.0
-      '@digdir/designsystemet-web': 1.14.0
+      '@digdir/designsystemet-types': 1.18.0
+      '@digdir/designsystemet-web': 1.18.0
       '@floating-ui/dom': 1.7.6
       '@floating-ui/react': 0.26.23(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@navikt/aksel-icons': 8.11.0(@types/react@19.2.14)(react@19.2.4)
-      '@radix-ui/react-slot': 1.2.4(@types/react@19.2.14)(react@19.2.4)
-      '@tanstack/react-virtual': 3.13.26(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@navikt/aksel-icons': 8.14.0(@types/react@19.2.14)(react@19.2.4)
+      '@radix-ui/react-slot': 1.3.0(@types/react@19.2.14)(react@19.2.4)
+      '@tanstack/react-virtual': 3.14.4(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       clsx: 2.1.1
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
     transitivePeerDependencies:
       - '@types/react'
 
-  '@digdir/designsystemet-types@1.14.0': {}
+  '@digdir/designsystemet-types@1.15.0': {}
 
-  '@digdir/designsystemet-web@1.14.0':
+  '@digdir/designsystemet-types@1.18.0': {}
+
+  '@digdir/designsystemet-web@1.18.0':
     dependencies:
       '@floating-ui/dom': 1.7.6
-      '@u-elements/u-combobox': 2.0.4
+      '@u-elements/u-combobox': 2.1.0
       '@u-elements/u-datalist': 2.0.1
       '@u-elements/u-details': 1.0.0
-      '@u-elements/u-tabs': 1.0.3
+      '@u-elements/u-tabs': 1.0.4
 
-  '@digdir/designsystemet@1.14.0(tslib@2.8.1)':
+  '@digdir/designsystemet@1.15.0(tslib@2.8.1)':
     dependencies:
       '@commander-js/extra-typings': 14.0.0(commander@14.0.3)
-      '@digdir/designsystemet-types': 1.14.0
+      '@digdir/designsystemet-types': 1.15.0
       '@tokens-studio/sd-transforms': 2.0.3(style-dictionary@5.4.1(tslib@2.8.1))
       chroma-js: 3.2.0
       colorjs.io: 0.6.1
@@ -6804,7 +6902,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.2
     optional: true
 
-  '@navikt/aksel-icons@8.11.0(@types/react@19.2.14)(react@19.2.4)':
+  '@navikt/aksel-icons@8.14.0(@types/react@19.2.14)(react@19.2.4)':
     optionalDependencies:
       '@types/react': 19.2.14
       react: 19.2.4
@@ -6931,7 +7029,7 @@ snapshots:
       picomatch: 4.0.2
       semver: 7.7.4
       source-map-support: 0.5.19
-      tinyglobby: 0.2.15
+      tinyglobby: 0.2.17
       tslib: 2.8.1
     transitivePeerDependencies:
       - '@babel/traverse'
@@ -6994,11 +7092,11 @@ snapshots:
       - typescript
       - verdaccio
 
-  '@nx/vite@22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)(typescript@5.9.3)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)':
+  '@nx/vite@22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)(typescript@5.9.3)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)':
     dependencies:
       '@nx/devkit': 22.5.1(nx@22.5.1)
       '@nx/js': 22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)
-      '@nx/vitest': 22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)(typescript@5.9.3)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)
+      '@nx/vitest': 22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)(typescript@5.9.3)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)
       '@phenomnomnominal/tsquery': 6.1.4(typescript@5.9.3)
       ajv: 8.18.0
       enquirer: 2.3.6
@@ -7006,8 +7104,8 @@ snapshots:
       semver: 7.7.4
       tsconfig-paths: 4.2.0
       tslib: 2.8.1
-      vite: 8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2)
-      vitest: 4.1.0(@types/node@24.12.0)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
+      vite: 8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2)
+      vitest: 4.1.0(@types/node@24.12.4)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -7018,7 +7116,7 @@ snapshots:
       - typescript
       - verdaccio
 
-  '@nx/vitest@22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)(typescript@5.9.3)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)':
+  '@nx/vitest@22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)(typescript@5.9.3)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)':
     dependencies:
       '@nx/devkit': 22.5.1(nx@22.5.1)
       '@nx/js': 22.5.1(@babel/traverse@7.29.0)(nx@22.5.1)
@@ -7026,8 +7124,8 @@ snapshots:
       semver: 7.7.4
       tslib: 2.8.1
     optionalDependencies:
-      vite: 8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2)
-      vitest: 4.1.0(@types/node@24.12.0)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
+      vite: 8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2)
+      vitest: 4.1.0(@types/node@24.12.4)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -7081,15 +7179,15 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@radix-ui/react-compose-refs@1.1.2(@types/react@19.2.14)(react@19.2.4)':
+  '@radix-ui/react-compose-refs@1.1.3(@types/react@19.2.14)(react@19.2.4)':
     dependencies:
       react: 19.2.4
     optionalDependencies:
       '@types/react': 19.2.14
 
-  '@radix-ui/react-slot@1.2.4(@types/react@19.2.14)(react@19.2.4)':
+  '@radix-ui/react-slot@1.3.0(@types/react@19.2.14)(react@19.2.4)':
     dependencies:
-      '@radix-ui/react-compose-refs': 1.1.2(@types/react@19.2.14)(react@19.2.4)
+      '@radix-ui/react-compose-refs': 1.1.3(@types/react@19.2.14)(react@19.2.4)
       react: 19.2.4
     optionalDependencies:
       '@types/react': 19.2.14
@@ -7386,13 +7484,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tanstack/react-virtual@3.13.26(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@tanstack/react-virtual@3.14.4(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@tanstack/virtual-core': 3.16.0
+      '@tanstack/virtual-core': 3.17.2
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
 
-  '@tanstack/virtual-core@3.16.0': {}
+  '@tanstack/virtual-core@3.17.2': {}
 
   '@testing-library/dom@10.4.1':
     dependencies:
@@ -7506,14 +7604,9 @@ snapshots:
     dependencies:
       '@types/braces': 3.0.5
 
-  '@types/node@24.12.0':
-    dependencies:
-      undici-types: 7.16.0
-
   '@types/node@24.12.4':
     dependencies:
       undici-types: 7.16.0
-    optional: true
 
   '@types/parse-json@4.0.2': {}
 
@@ -7659,13 +7752,13 @@ snapshots:
       '@typescript/native-preview-win32-arm64': 7.0.0-dev.20260126.1
       '@typescript/native-preview-win32-x64': 7.0.0-dev.20260126.1
 
-  '@u-elements/u-combobox@2.0.4': {}
+  '@u-elements/u-combobox@2.1.0': {}
 
   '@u-elements/u-datalist@2.0.1': {}
 
   '@u-elements/u-details@1.0.0': {}
 
-  '@u-elements/u-tabs@1.0.3': {}
+  '@u-elements/u-tabs@1.0.4': {}
 
   '@vitejs/plugin-react@5.2.0(vite@7.3.1(@types/node@24.12.4)(jiti@2.4.2)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
@@ -7692,13 +7785,13 @@ snapshots:
       - utf-8-validate
       - vite
 
-  '@vitest/browser-playwright@4.1.0(playwright@1.58.2)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)':
+  '@vitest/browser-playwright@4.1.0(playwright@1.58.2)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)':
     dependencies:
-      '@vitest/browser': 4.1.0(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)
-      '@vitest/mocker': 4.1.0(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
+      '@vitest/browser': 4.1.0(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)
+      '@vitest/mocker': 4.1.0(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
       playwright: 1.58.2
       tinyrainbow: 3.1.0
-      vitest: 4.1.0(@types/node@24.12.0)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
+      vitest: 4.1.0(@types/node@24.12.4)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
     transitivePeerDependencies:
       - bufferutil
       - msw
@@ -7723,16 +7816,16 @@ snapshots:
       - utf-8-validate
       - vite
 
-  '@vitest/browser@4.1.0(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)':
+  '@vitest/browser@4.1.0(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)':
     dependencies:
       '@blazediff/core': 1.9.1
-      '@vitest/mocker': 4.1.0(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
+      '@vitest/mocker': 4.1.0(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
       '@vitest/utils': 4.1.0
       magic-string: 0.30.21
       pngjs: 7.0.0
       sirv: 3.0.2
       tinyrainbow: 3.1.0
-      vitest: 4.1.0(@types/node@24.12.0)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
+      vitest: 4.1.0(@types/node@24.12.4)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
       ws: 8.19.0
     transitivePeerDependencies:
       - bufferutil
@@ -7782,13 +7875,13 @@ snapshots:
     optionalDependencies:
       vite: 7.3.1(@types/node@24.12.4)(jiti@2.4.2)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.2)
 
-  '@vitest/mocker@4.1.0(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))':
+  '@vitest/mocker@4.1.0(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))':
     dependencies:
       '@vitest/spy': 4.1.0
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2)
+      vite: 8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2)
 
   '@vitest/pretty-format@3.2.4':
     dependencies:
@@ -7825,7 +7918,7 @@ snapshots:
       sirv: 3.0.2
       tinyglobby: 0.2.17
       tinyrainbow: 3.1.0
-      vitest: 4.1.0(@types/node@24.12.4)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@7.3.1(@types/node@24.12.4)(jiti@2.4.2)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.2))
+      vitest: 4.1.0(@types/node@24.12.4)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
 
   '@vitest/utils@3.2.4':
     dependencies:
@@ -7873,7 +7966,7 @@ snapshots:
       '@vue/shared': 3.5.30
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.8
+      postcss: 8.5.15
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.30':
@@ -8078,13 +8171,13 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  autoprefixer@10.4.27(postcss@8.5.8):
+  autoprefixer@10.4.27(postcss@8.5.15):
     dependencies:
       browserslist: 4.28.1
       caniuse-lite: 1.0.30001780
       fraction.js: 5.3.4
       picocolors: 1.1.1
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
   available-typed-arrays@1.0.7:
@@ -8374,9 +8467,9 @@ snapshots:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  css-declaration-sorter@7.3.1(postcss@8.5.8):
+  css-declaration-sorter@7.3.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
 
   css-select@5.2.2:
     dependencies:
@@ -8402,49 +8495,49 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  cssnano-preset-default@7.0.11(postcss@8.5.8):
+  cssnano-preset-default@7.0.11(postcss@8.5.15):
     dependencies:
       browserslist: 4.28.1
-      css-declaration-sorter: 7.3.1(postcss@8.5.8)
-      cssnano-utils: 5.0.1(postcss@8.5.8)
-      postcss: 8.5.8
-      postcss-calc: 10.1.1(postcss@8.5.8)
-      postcss-colormin: 7.0.6(postcss@8.5.8)
-      postcss-convert-values: 7.0.9(postcss@8.5.8)
-      postcss-discard-comments: 7.0.6(postcss@8.5.8)
-      postcss-discard-duplicates: 7.0.2(postcss@8.5.8)
-      postcss-discard-empty: 7.0.1(postcss@8.5.8)
-      postcss-discard-overridden: 7.0.1(postcss@8.5.8)
-      postcss-merge-longhand: 7.0.5(postcss@8.5.8)
-      postcss-merge-rules: 7.0.8(postcss@8.5.8)
-      postcss-minify-font-values: 7.0.1(postcss@8.5.8)
-      postcss-minify-gradients: 7.0.1(postcss@8.5.8)
-      postcss-minify-params: 7.0.6(postcss@8.5.8)
-      postcss-minify-selectors: 7.0.6(postcss@8.5.8)
-      postcss-normalize-charset: 7.0.1(postcss@8.5.8)
-      postcss-normalize-display-values: 7.0.1(postcss@8.5.8)
-      postcss-normalize-positions: 7.0.1(postcss@8.5.8)
-      postcss-normalize-repeat-style: 7.0.1(postcss@8.5.8)
-      postcss-normalize-string: 7.0.1(postcss@8.5.8)
-      postcss-normalize-timing-functions: 7.0.1(postcss@8.5.8)
-      postcss-normalize-unicode: 7.0.6(postcss@8.5.8)
-      postcss-normalize-url: 7.0.1(postcss@8.5.8)
-      postcss-normalize-whitespace: 7.0.1(postcss@8.5.8)
-      postcss-ordered-values: 7.0.2(postcss@8.5.8)
-      postcss-reduce-initial: 7.0.6(postcss@8.5.8)
-      postcss-reduce-transforms: 7.0.1(postcss@8.5.8)
-      postcss-svgo: 7.1.1(postcss@8.5.8)
-      postcss-unique-selectors: 7.0.5(postcss@8.5.8)
+      css-declaration-sorter: 7.3.1(postcss@8.5.15)
+      cssnano-utils: 5.0.1(postcss@8.5.15)
+      postcss: 8.5.15
+      postcss-calc: 10.1.1(postcss@8.5.15)
+      postcss-colormin: 7.0.6(postcss@8.5.15)
+      postcss-convert-values: 7.0.9(postcss@8.5.15)
+      postcss-discard-comments: 7.0.6(postcss@8.5.15)
+      postcss-discard-duplicates: 7.0.2(postcss@8.5.15)
+      postcss-discard-empty: 7.0.1(postcss@8.5.15)
+      postcss-discard-overridden: 7.0.1(postcss@8.5.15)
+      postcss-merge-longhand: 7.0.5(postcss@8.5.15)
+      postcss-merge-rules: 7.0.8(postcss@8.5.15)
+      postcss-minify-font-values: 7.0.1(postcss@8.5.15)
+      postcss-minify-gradients: 7.0.1(postcss@8.5.15)
+      postcss-minify-params: 7.0.6(postcss@8.5.15)
+      postcss-minify-selectors: 7.0.6(postcss@8.5.15)
+      postcss-normalize-charset: 7.0.1(postcss@8.5.15)
+      postcss-normalize-display-values: 7.0.1(postcss@8.5.15)
+      postcss-normalize-positions: 7.0.1(postcss@8.5.15)
+      postcss-normalize-repeat-style: 7.0.1(postcss@8.5.15)
+      postcss-normalize-string: 7.0.1(postcss@8.5.15)
+      postcss-normalize-timing-functions: 7.0.1(postcss@8.5.15)
+      postcss-normalize-unicode: 7.0.6(postcss@8.5.15)
+      postcss-normalize-url: 7.0.1(postcss@8.5.15)
+      postcss-normalize-whitespace: 7.0.1(postcss@8.5.15)
+      postcss-ordered-values: 7.0.2(postcss@8.5.15)
+      postcss-reduce-initial: 7.0.6(postcss@8.5.15)
+      postcss-reduce-transforms: 7.0.1(postcss@8.5.15)
+      postcss-svgo: 7.1.1(postcss@8.5.15)
+      postcss-unique-selectors: 7.0.5(postcss@8.5.15)
 
-  cssnano-utils@5.0.1(postcss@8.5.8):
+  cssnano-utils@5.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
 
-  cssnano@7.1.3(postcss@8.5.8):
+  cssnano@7.1.3(postcss@8.5.15):
     dependencies:
-      cssnano-preset-default: 7.0.11(postcss@8.5.8)
+      cssnano-preset-default: 7.0.11(postcss@8.5.15)
       lilconfig: 3.1.3
-      postcss: 8.5.8
+      postcss: 8.5.15
 
   csso@5.0.5:
     dependencies:
@@ -8557,11 +8650,11 @@ snapshots:
     dependencies:
       node-source-walk: 7.0.1
 
-  detective-postcss@7.0.1(postcss@8.5.8):
+  detective-postcss@7.0.1(postcss@8.5.15):
     dependencies:
       is-url: 1.2.4
-      postcss: 8.5.8
-      postcss-values-parser: 6.0.2(postcss@8.5.8)
+      postcss: 8.5.15
+      postcss-values-parser: 6.0.2(postcss@8.5.15)
 
   detective-sass@6.0.1:
     dependencies:
@@ -8895,8 +8988,8 @@ snapshots:
       '@babel/parser': 7.29.2
       eslint: 9.39.4(jiti@2.4.2)
       hermes-parser: 0.25.1
-      zod: 4.3.6
-      zod-validation-error: 4.0.2(zod@4.3.6)
+      zod: 4.4.3
+      zod-validation-error: 4.0.2(zod@4.4.3)
     transitivePeerDependencies:
       - supports-color
 
@@ -9839,8 +9932,6 @@ snapshots:
 
   muggle-string@0.4.1: {}
 
-  nanoid@3.3.11: {}
-
   nanoid@3.3.12: {}
 
   natural-compare@1.4.0: {}
@@ -10132,198 +10223,198 @@ snapshots:
     dependencies:
       postcss-value-parser: 3.3.1
 
-  postcss-calc@10.1.1(postcss@8.5.8):
+  postcss-calc@10.1.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-selector-parser: 7.1.1
       postcss-value-parser: 4.2.0
 
-  postcss-cli@11.0.1(jiti@2.4.2)(postcss@8.5.8)(tsx@4.21.0):
+  postcss-cli@11.0.1(jiti@2.4.2)(postcss@8.5.15)(tsx@4.21.0):
     dependencies:
       chokidar: 3.6.0
       dependency-graph: 1.0.0
       fs-extra: 11.3.4
       picocolors: 1.1.1
-      postcss: 8.5.8
-      postcss-load-config: 5.1.0(jiti@2.4.2)(postcss@8.5.8)(tsx@4.21.0)
-      postcss-reporter: 7.1.0(postcss@8.5.8)
+      postcss: 8.5.15
+      postcss-load-config: 5.1.0(jiti@2.4.2)(postcss@8.5.15)(tsx@4.21.0)
+      postcss-reporter: 7.1.0(postcss@8.5.15)
       pretty-hrtime: 1.0.3
       read-cache: 1.0.0
       slash: 5.1.0
-      tinyglobby: 0.2.15
+      tinyglobby: 0.2.17
       yargs: 17.7.2
     transitivePeerDependencies:
       - jiti
       - tsx
 
-  postcss-colormin@7.0.6(postcss@8.5.8):
+  postcss-colormin@7.0.6(postcss@8.5.15):
     dependencies:
       browserslist: 4.28.1
       caniuse-api: 3.0.0
       colord: 2.9.3
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-convert-values@7.0.9(postcss@8.5.8):
+  postcss-convert-values@7.0.9(postcss@8.5.15):
     dependencies:
       browserslist: 4.28.1
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-discard-comments@7.0.6(postcss@8.5.8):
+  postcss-discard-comments@7.0.6(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-selector-parser: 7.1.1
 
-  postcss-discard-duplicates@7.0.2(postcss@8.5.8):
+  postcss-discard-duplicates@7.0.2(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
 
-  postcss-discard-empty@7.0.1(postcss@8.5.8):
+  postcss-discard-empty@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
 
-  postcss-discard-overridden@7.0.1(postcss@8.5.8):
+  postcss-discard-overridden@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
 
-  postcss-import@16.1.1(postcss@8.5.8):
+  postcss-import@16.1.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.11
 
-  postcss-load-config@5.1.0(jiti@2.4.2)(postcss@8.5.8)(tsx@4.21.0):
+  postcss-load-config@5.1.0(jiti@2.4.2)(postcss@8.5.15)(tsx@4.21.0):
     dependencies:
       lilconfig: 3.1.3
       yaml: 2.8.2
     optionalDependencies:
       jiti: 2.4.2
-      postcss: 8.5.8
+      postcss: 8.5.15
       tsx: 4.21.0
 
-  postcss-load-config@6.0.1(jiti@2.4.2)(postcss@8.5.8)(tsx@4.21.0)(yaml@2.8.2):
+  postcss-load-config@6.0.1(jiti@2.4.2)(postcss@8.5.15)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       lilconfig: 3.1.3
     optionalDependencies:
       jiti: 2.4.2
-      postcss: 8.5.8
+      postcss: 8.5.15
       tsx: 4.21.0
       yaml: 2.8.2
 
-  postcss-merge-longhand@7.0.5(postcss@8.5.8):
+  postcss-merge-longhand@7.0.5(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
-      stylehacks: 7.0.8(postcss@8.5.8)
+      stylehacks: 7.0.8(postcss@8.5.15)
 
-  postcss-merge-rules@7.0.8(postcss@8.5.8):
+  postcss-merge-rules@7.0.8(postcss@8.5.15):
     dependencies:
       browserslist: 4.28.1
       caniuse-api: 3.0.0
-      cssnano-utils: 5.0.1(postcss@8.5.8)
-      postcss: 8.5.8
+      cssnano-utils: 5.0.1(postcss@8.5.15)
+      postcss: 8.5.15
       postcss-selector-parser: 7.1.1
 
-  postcss-minify-font-values@7.0.1(postcss@8.5.8):
+  postcss-minify-font-values@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-minify-gradients@7.0.1(postcss@8.5.8):
+  postcss-minify-gradients@7.0.1(postcss@8.5.15):
     dependencies:
       colord: 2.9.3
-      cssnano-utils: 5.0.1(postcss@8.5.8)
-      postcss: 8.5.8
+      cssnano-utils: 5.0.1(postcss@8.5.15)
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-minify-params@7.0.6(postcss@8.5.8):
+  postcss-minify-params@7.0.6(postcss@8.5.15):
     dependencies:
       browserslist: 4.28.1
-      cssnano-utils: 5.0.1(postcss@8.5.8)
-      postcss: 8.5.8
+      cssnano-utils: 5.0.1(postcss@8.5.15)
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-minify-selectors@7.0.6(postcss@8.5.8):
+  postcss-minify-selectors@7.0.6(postcss@8.5.15):
     dependencies:
       cssesc: 3.0.0
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-selector-parser: 7.1.1
 
-  postcss-nesting@14.0.0(postcss@8.5.8):
+  postcss-nesting@14.0.0(postcss@8.5.15):
     dependencies:
       '@csstools/selector-resolve-nested': 4.0.0(postcss-selector-parser@7.1.1)
       '@csstools/selector-specificity': 6.0.0(postcss-selector-parser@7.1.1)
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-selector-parser: 7.1.1
 
-  postcss-normalize-charset@7.0.1(postcss@8.5.8):
+  postcss-normalize-charset@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
 
-  postcss-normalize-display-values@7.0.1(postcss@8.5.8):
+  postcss-normalize-display-values@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-positions@7.0.1(postcss@8.5.8):
+  postcss-normalize-positions@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-repeat-style@7.0.1(postcss@8.5.8):
+  postcss-normalize-repeat-style@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-string@7.0.1(postcss@8.5.8):
+  postcss-normalize-string@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-timing-functions@7.0.1(postcss@8.5.8):
+  postcss-normalize-timing-functions@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-unicode@7.0.6(postcss@8.5.8):
+  postcss-normalize-unicode@7.0.6(postcss@8.5.15):
     dependencies:
       browserslist: 4.28.1
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-url@7.0.1(postcss@8.5.8):
+  postcss-normalize-url@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-normalize-whitespace@7.0.1(postcss@8.5.8):
+  postcss-normalize-whitespace@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-ordered-values@7.0.2(postcss@8.5.8):
+  postcss-ordered-values@7.0.2(postcss@8.5.15):
     dependencies:
-      cssnano-utils: 5.0.1(postcss@8.5.8)
-      postcss: 8.5.8
+      cssnano-utils: 5.0.1(postcss@8.5.15)
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-reduce-initial@7.0.6(postcss@8.5.8):
+  postcss-reduce-initial@7.0.6(postcss@8.5.15):
     dependencies:
       browserslist: 4.28.1
       caniuse-api: 3.0.0
-      postcss: 8.5.8
+      postcss: 8.5.15
 
-  postcss-reduce-transforms@7.0.1(postcss@8.5.8):
+  postcss-reduce-transforms@7.0.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
 
-  postcss-reporter@7.1.0(postcss@8.5.8):
+  postcss-reporter@7.1.0(postcss@8.5.15):
     dependencies:
       picocolors: 1.1.1
-      postcss: 8.5.8
+      postcss: 8.5.15
       thenby: 1.3.4
 
   postcss-selector-parser@7.1.1:
@@ -10331,37 +10422,31 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-svgo@7.1.1(postcss@8.5.8):
+  postcss-svgo@7.1.1(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-value-parser: 4.2.0
       svgo: 4.0.1
 
-  postcss-unique-selectors@7.0.5(postcss@8.5.8):
+  postcss-unique-selectors@7.0.5(postcss@8.5.15):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-selector-parser: 7.1.1
 
   postcss-value-parser@3.3.1: {}
 
   postcss-value-parser@4.2.0: {}
 
-  postcss-values-parser@6.0.2(postcss@8.5.8):
+  postcss-values-parser@6.0.2(postcss@8.5.15):
     dependencies:
       color-name: 1.1.4
       is-url-superb: 4.0.0
-      postcss: 8.5.8
+      postcss: 8.5.15
       quote-unquote: 1.0.0
 
   postcss@8.5.15:
     dependencies:
       nanoid: 3.3.12
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
-
-  postcss@8.5.8:
-    dependencies:
-      nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
@@ -10372,7 +10457,7 @@ snapshots:
       detective-amd: 6.0.1
       detective-cjs: 6.1.0
       detective-es6: 5.0.1
-      detective-postcss: 7.0.1(postcss@8.5.8)
+      detective-postcss: 7.0.1(postcss@8.5.15)
       detective-sass: 6.0.1
       detective-scss: 5.0.1
       detective-stylus: 5.0.1
@@ -10380,7 +10465,7 @@ snapshots:
       detective-vue2: 2.2.0(typescript@5.9.3)
       module-definition: 6.0.1
       node-source-walk: 7.0.1
-      postcss: 8.5.8
+      postcss: 8.5.15
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -10953,10 +11038,10 @@ snapshots:
     transitivePeerDependencies:
       - tslib
 
-  stylehacks@7.0.8(postcss@8.5.8):
+  stylehacks@7.0.8(postcss@8.5.15):
     dependencies:
       browserslist: 4.28.1
-      postcss: 8.5.8
+      postcss: 8.5.15
       postcss-selector-parser: 7.1.1
 
   stylus-lookup@6.1.0:
@@ -11011,8 +11096,8 @@ snapshots:
 
   tinyglobby@0.2.15:
     dependencies:
-      fdir: 6.5.0(picomatch@4.0.3)
-      picomatch: 4.0.3
+      fdir: 6.5.0(picomatch@4.0.4)
+      picomatch: 4.0.4
 
   tinyglobby@0.2.17:
     dependencies:
@@ -11244,7 +11329,7 @@ snapshots:
       esbuild: 0.27.4
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
-      postcss: 8.5.8
+      postcss: 8.5.15
       rollup: 4.59.0
       tinyglobby: 0.2.15
     optionalDependencies:
@@ -11255,7 +11340,7 @@ snapshots:
       tsx: 4.21.0
       yaml: 2.8.2
 
-  vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2):
+  vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
@@ -11263,41 +11348,12 @@ snapshots:
       rolldown: 1.0.3
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 24.12.0
+      '@types/node': 24.12.4
       esbuild: 0.27.4
       fsevents: 2.3.3
       jiti: 2.4.2
       tsx: 4.21.0
       yaml: 2.8.2
-
-  vitest@4.1.0(@types/node@24.12.0)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2)):
-    dependencies:
-      '@vitest/expect': 4.1.0
-      '@vitest/mocker': 4.1.0(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
-      '@vitest/pretty-format': 4.1.0
-      '@vitest/runner': 4.1.0
-      '@vitest/snapshot': 4.1.0
-      '@vitest/spy': 4.1.0
-      '@vitest/utils': 4.1.0
-      es-module-lexer: 2.0.0
-      expect-type: 1.3.0
-      magic-string: 0.30.21
-      obug: 2.1.1
-      pathe: 2.0.3
-      picomatch: 4.0.3
-      std-env: 4.0.0
-      tinybench: 2.9.0
-      tinyexec: 1.0.4
-      tinyglobby: 0.2.15
-      tinyrainbow: 3.1.0
-      vite: 8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2)
-      why-is-node-running: 2.3.0
-    optionalDependencies:
-      '@types/node': 24.12.0
-      '@vitest/browser-playwright': 4.1.0(playwright@1.58.2)(vite@8.0.16(@types/node@24.12.0)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)
-      '@vitest/ui': 4.1.0(vitest@4.1.0)
-    transitivePeerDependencies:
-      - msw
 
   vitest@4.1.0(@types/node@24.12.4)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@7.3.1(@types/node@24.12.4)(jiti@2.4.2)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.2)):
     dependencies:
@@ -11324,6 +11380,35 @@ snapshots:
     optionalDependencies:
       '@types/node': 24.12.4
       '@vitest/browser-playwright': 4.1.0(playwright@1.58.2)(vite@7.3.1(@types/node@24.12.4)(jiti@2.4.2)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)
+      '@vitest/ui': 4.1.0(vitest@4.1.0)
+    transitivePeerDependencies:
+      - msw
+
+  vitest@4.1.0(@types/node@24.12.4)(@vitest/browser-playwright@4.1.0)(@vitest/ui@4.1.0)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2)):
+    dependencies:
+      '@vitest/expect': 4.1.0
+      '@vitest/mocker': 4.1.0(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))
+      '@vitest/pretty-format': 4.1.0
+      '@vitest/runner': 4.1.0
+      '@vitest/snapshot': 4.1.0
+      '@vitest/spy': 4.1.0
+      '@vitest/utils': 4.1.0
+      es-module-lexer: 2.0.0
+      expect-type: 1.3.0
+      magic-string: 0.30.21
+      obug: 2.1.1
+      pathe: 2.0.3
+      picomatch: 4.0.3
+      std-env: 4.0.0
+      tinybench: 2.9.0
+      tinyexec: 1.0.4
+      tinyglobby: 0.2.15
+      tinyrainbow: 3.1.0
+      vite: 8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/node': 24.12.4
+      '@vitest/browser-playwright': 4.1.0(playwright@1.58.2)(vite@8.0.16(@types/node@24.12.4)(esbuild@0.27.4)(jiti@2.4.2)(tsx@4.21.0)(yaml@2.8.2))(vitest@4.1.0)
       '@vitest/ui': 4.1.0(vitest@4.1.0)
     transitivePeerDependencies:
       - msw
@@ -11449,14 +11534,12 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod-validation-error@4.0.2(zod@4.3.6):
+  zod-validation-error@4.0.2(zod@4.4.3):
     dependencies:
-      zod: 4.3.6
+      zod: 4.4.3
 
   zod-validation-error@5.0.0(zod@4.4.3):
     dependencies:
       zod: 4.4.3
-
-  zod@4.3.6: {}
 
   zod@4.4.3: {}
