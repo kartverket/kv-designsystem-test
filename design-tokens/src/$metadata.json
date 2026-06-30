@@ -18,10 +18,14 @@
     "primitives/modes/color-scheme/light/blue",
     "themes/green",
     "themes/blue",
-    "semantic/color",
-    "semantic/modes/main-color/accent",
-    "semantic/modes/support-color/support-1",
-    "semantic/modes/support-color/support-2",
+    "semantic/color/accent",
+    "semantic/color/support-1",
+    "semantic/color/support-2",
+    "semantic/color/neutral",
+    "semantic/color/info",
+    "semantic/color/success",
+    "semantic/color/warning",
+    "semantic/color/danger",
     "semantic/style"
   ]
 }

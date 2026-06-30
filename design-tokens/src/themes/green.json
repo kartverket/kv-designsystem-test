@@ -66,72 +66,6 @@
         "$value": "{green.accent.16}"
       }
     },
-    "neutral": {
-      "1": {
-        "$type": "color",
-        "$value": "{green.neutral.1}"
-      },
-      "2": {
-        "$type": "color",
-        "$value": "{green.neutral.2}"
-      },
-      "3": {
-        "$type": "color",
-        "$value": "{green.neutral.3}"
-      },
-      "4": {
-        "$type": "color",
-        "$value": "{green.neutral.4}"
-      },
-      "5": {
-        "$type": "color",
-        "$value": "{green.neutral.5}"
-      },
-      "6": {
-        "$type": "color",
-        "$value": "{green.neutral.6}"
-      },
-      "7": {
-        "$type": "color",
-        "$value": "{green.neutral.7}"
-      },
-      "8": {
-        "$type": "color",
-        "$value": "{green.neutral.8}"
-      },
-      "9": {
-        "$type": "color",
-        "$value": "{green.neutral.9}"
-      },
-      "10": {
-        "$type": "color",
-        "$value": "{green.neutral.10}"
-      },
-      "11": {
-        "$type": "color",
-        "$value": "{green.neutral.11}"
-      },
-      "12": {
-        "$type": "color",
-        "$value": "{green.neutral.12}"
-      },
-      "13": {
-        "$type": "color",
-        "$value": "{green.neutral.13}"
-      },
-      "14": {
-        "$type": "color",
-        "$value": "{green.neutral.14}"
-      },
-      "15": {
-        "$type": "color",
-        "$value": "{green.neutral.15}"
-      },
-      "16": {
-        "$type": "color",
-        "$value": "{green.neutral.16}"
-      }
-    },
     "support-1": {
       "1": {
         "$type": "color",
@@ -262,6 +196,72 @@
       "16": {
         "$type": "color",
         "$value": "{green.support-2.16}"
+      }
+    },
+    "neutral": {
+      "1": {
+        "$type": "color",
+        "$value": "{green.neutral.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{green.neutral.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{green.neutral.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{green.neutral.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{green.neutral.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{green.neutral.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{green.neutral.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{green.neutral.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{green.neutral.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{green.neutral.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{green.neutral.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{green.neutral.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{green.neutral.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{green.neutral.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{green.neutral.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{green.neutral.16}"
       }
     },
     "info": {
