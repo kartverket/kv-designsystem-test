@@ -17,9 +17,9 @@ export function UnderConstructionAlert() {
                     marginBottom: 'var(--ds-size-2)'
                 }}
             >
-                Denne siden er under utvikling
+                Designsystemet er under utvikling
             </Heading>
-            Vi jobber med å gå over til et nytt designsystem basert på <Link href='https://designsystemet.no/no'>Designsystemet</Link> av Digdir. I første omgang er det kun komponentene fra Digidr som er lagt til med våre farger. Tilpasninger, tillegg og andre endringer vil skje fortløpende.  
+            Vi jobber med et helt nytt designsystem med <Link href='https://designsystemet.no/no'>Digdir Designsystemet</Link> som fundament. Vi er i første fase (alpha) som vil si at tilpasninger, tillegg og andre endringer vil skje fortløpende.  
         </Alert>
     )
 }

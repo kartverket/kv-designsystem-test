@@ -38,7 +38,7 @@ export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: Hea
                         href='https://forms.office.com/pages/responsepage.aspx?id=osh0f85Dskaw6LYwbLpzo1ZKQ5cY--ZJmCXFNxxffudUMjQ2WU1IS1FNQzNQRlBaU1IwMFpYNENXQS4u&route=shorturl'
                         rel='noreferrer'
                         target='_blank'>
-                    Gå til Tilbakemeldingsskjema
+                    Tilbakemeldingsskjema
                     </Link>
                 </Button>
             </div>

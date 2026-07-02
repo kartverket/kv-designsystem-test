@@ -9,6 +9,7 @@ const translations = [
   { kvib: 'Menu', ds: 'Dropdown' },
   { kvib: 'Segmented control', ds: 'ToggleGroup' },
   { kvib: 'Separator', ds: 'Divider' },
+  { kvib: 'SkipNav', ds: 'SkipLink' },
   { kvib: 'Status', ds: 'Badge' },
   { kvib: 'Text', ds: 'Typography/Paragraph' },  
 ]
