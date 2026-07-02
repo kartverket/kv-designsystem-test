@@ -1,4 +1,9 @@
-import { Badge, type BadgeProps } from '@digdir/designsystemet-react';
+import { 
+  Badge, 
+  type BadgeProps,
+  BadgePosition,
+  type BadgePositionProps,
+} from '@digdir/designsystemet-react';
 
-export type { BadgeProps };
-export { Badge };
+export type { BadgeProps, BadgePositionProps };
+export { Badge, BadgePosition };

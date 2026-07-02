@@ -1,12 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Badge } from './Badge';
+import { Badge, BadgePosition } from './Badge';
 import { Tabs } from '../tabs/Tabs';
 import { EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
 
 const meta: Meta<typeof Badge> = {
   component: Badge,
+  subcomponents: {
+    'Badge.Position': BadgePosition,
+  },
   parameters: { layout: 'centered' },
-    argTypes: {
+  argTypes: {
     'data-color': {
       options: ['neutral', 'danger', 'info', 'warning', 'success'],
       control: { type: 'radio' },
