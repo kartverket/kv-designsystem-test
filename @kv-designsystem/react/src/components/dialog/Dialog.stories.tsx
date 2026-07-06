@@ -62,15 +62,21 @@ export const Preview: Story = {
   )
 };
 
-// TODO: Not happy with this display, make a an example more similar to Udir?
 export const DialogNonModal: Story = {
+  parameters: {
+    docs: {
+      story: {
+        inline: false, // Render story in an iframe to ensure vw and vh units are based on the preview viewport.
+        iframeHeight: '350px',
+      }
+    },
+  },
   render: (_args) => (
     <div
       style={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '400px',
         position: 'relative',
       }}
     >
@@ -154,7 +160,6 @@ export const Drawer: Story = {
           >
             <Dialog.Block>
               <Paragraph>
-                {/* TODO: the <code> doen't get the outline like all other examples in the Storybook, also wrong font? */}
                 Dette er en {modal ? 'modal' : 'non-modal'} Dialog med{' '}
                 <code>placement='{placement}'</code>
               </Paragraph>

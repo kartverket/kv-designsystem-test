@@ -131,3 +131,46 @@ export const Group: Story = {
     );
   }
 };
+
+export const WithError: Story = {
+  args: {
+    name: 'my-error',
+    error: 'Du må velge minst to kontaktalternativ',
+  },
+  render: Group.render,
+};
+
+export const Outline: Story = {
+  args: {
+    variant: 'outline',
+  },
+  render: (args, context) => {
+    const { getCheckboxProps } = useCheckboxGroup({
+      value: ['driftsmeldinger'],
+      ...args,
+    });
+
+    return (
+      <Fieldset>
+        <Fieldset.Legend>
+          Hvilke varsler vil du motta?
+        </Fieldset.Legend>
+        <Fieldset.Description>
+          Velg hvilke typer varsler som er relevante for deg.
+        </Fieldset.Description>
+        <Checkbox 
+          id={context.id + 'driftsmeldinger'} 
+          label='Driftsmeldinger'
+          description='Varsler ved planlagt vedlikehold og driftsavvik.'
+          {...getCheckboxProps({ value: 'driftsmeldinger' })} 
+        />
+        <Checkbox 
+          id={context.id + 'paaminnelser'}
+          label='Påminnelser'
+          description='Varsler om frister og oppgaver som krever handling.'
+          {...getCheckboxProps({ value: 'paaminnelser' })}
+        />
+      </Fieldset>
+    );
+  },
+};

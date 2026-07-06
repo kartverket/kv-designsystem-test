@@ -73,20 +73,14 @@ export const WithLink: Story = {
   render: (_args) => (
     <Card style={{ maxWidth: '320px' }}>
       <Card.Block>
-        <img 
-          src={houseImg} 
-          alt='Bilde av 3D printet hus' 
+        <img
+          src={houseImg}
+          alt='Bilde av 3D-printet hus'
         />
       </Card.Block>
       <Card.Block>
         <Heading>
-          <a
-            href='https://kartverket.no/eiendom/mine-eiendommer/innsyn-i-egne-eiendomsopplysninger'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Innsyn i egne eiendomsopplysninger
-          </a>
+          <a href='#'>Innsyn i egne eiendomsopplysninger</a>
         </Heading>
         <Paragraph>
           Du kan se og registrere opplysninger om dine eiendommer på Kartverkets nettsider.
@@ -124,21 +118,17 @@ export const Horizontal: Story = {
   },
   render: (_args) => (
     <Card
-      style={{ 
-        display: 'grid', 
+      style={{
+        display: 'grid',
         gridAutoFlow: 'column',
         width: '700px',
       }}
     >
       <Card.Block>
         <Heading>
-          <a
-              href='https://kartverket.no/til-lands/posisjon/brukerveiledning-posisjonstjenester'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Les Kartverkets brukerveiledning for posisjonstjenester
-            </a>
+          <a href='https://kartverket.no/til-lands/posisjon/brukerveiledning-posisjonstjenester'>
+            Les Kartverkets brukerveiledning for posisjonstjenester
+          </a>
         </Heading>
       </Card.Block>
       <Card.Block>

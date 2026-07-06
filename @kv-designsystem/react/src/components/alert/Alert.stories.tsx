@@ -118,7 +118,6 @@ export const NoHeading: Story = {
   ),
 };
 
-//TODO: fix link
 export const WithLink: Story = {
   args: {
     'data-color': 'warning',
@@ -135,7 +134,7 @@ export const WithLink: Story = {
         Du må oppdatere API-nøkkel
       </Heading>
       Fristen for å bytte til ny API-nøkkel er om 3 dager.{' '} 
-      <Link href='https://www.kartverket.no'>Oppdater nå</Link>
+      <Link href='#'>Oppdater nå</Link>
       {' '}for å sikre fortsatt tilgang.
     </Alert>
   ),

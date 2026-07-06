@@ -1,7 +1,6 @@
 import { Breadcrumbs, type BreadcrumbsProps } from '@digdir/designsystemet-react';
 
-// Set displayName so Storybook Docs and React DevTools show <Breadcrumbs>
-// instead of the default <React.ForwardRef> when using React.forwardRef.
+// Fixing Breadcrumbs being displayed as React.ForwardRef in Storybook preview code snippets.
 Breadcrumbs.displayName = 'Breadcrumbs';
 
 export type { BreadcrumbsProps };

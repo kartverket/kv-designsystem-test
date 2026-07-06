@@ -58,7 +58,6 @@ const ColorsMap: {
   },
 };
 
-// TODO: fix styling to be implemented the same across all components
 export const ColorVariants: Story = {
   decorators: [
     (Story) => (

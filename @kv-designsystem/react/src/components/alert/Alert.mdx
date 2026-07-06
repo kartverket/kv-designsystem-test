@@ -20,12 +20,11 @@ Vi bruker `Alert` til å gi brukeren informasjon som det er ekstra viktig at de 
 - det er informasjon om feil som kun påvirker én del av systemet eller en mindre funksjon
 - det oppstår tilkoblingsproblemer eller API-feil som sannsynligvis løser seg ved å laste inn siden på nytt
 
-{/* TODO: add correct link to 'feilside' anf fix link-color*/}
 **Unngå `Alert` når**
-- feilen hindrer all videre bruk av tjenesten, bruk [feilside](https://designsystemet.no/no/patterns/systemnotifications#når-bruker-vi-feilsider) i stedet 
-- du skal gjøre brukeren oppmerksom på feil i enkeltfelt, bruk heller komponentens egen feilmelding [`ValidationMessage`](/docs/components-typography--docs)
-- varslene er statiske infobokser, bruk heller [`Card`](/docs/components-card--docs)
-- flere feilmeldinger skal oppsummeres, bruk heller [`ErrorSummary`](/docs/components-errorSummary--docs)
+- feilen hindrer all videre bruk av tjenesten – bruk heller [feilside (digdir.no)](https://designsystemet.no/no/patterns/systemnotifications#når-bruker-vi-feilsider) 
+- du skal gjøre brukeren oppmerksom på feil i enkeltfelt – bruk heller komponentens egen feilmelding [`ValidationMessage`](/docs/components-typography--docs)
+- varslene er statiske infobokser – bruk heller [`Card`](/docs/components-card--docs)
+- flere feilmeldinger skal oppsummeres – bruk heller [`ErrorSummary`](/docs/components-errorSummary--docs)
 
 ## Varianter med eksempler
 
@@ -75,7 +74,7 @@ Vi bruker `Alert` for å vise viktige meldinger som krever oppmerksomhet, men ik
 - Bruk komponenten varsomt:
   - Brukere kan forveksle varsler med reklame, og dermed overse dem. 
   - Hvis vi bruker varsler for ofte, kan vi forverre dette problemet.
-- Pass på at `Alert` har samme utseende og formspråk i alle tjenester og produkter - slik at den er lett gjenkjennelig. 
+- Pass på at `Alert` har samme utseende og formspråk i alle tjenester og produkter – slik at den er lett gjenkjennelig. 
 
 ## Tekst i Alert
 
@@ -88,35 +87,25 @@ Slik skriver vi tydelige og lett forståelige varsler:
 
 Teksten i `Alert` bør følge disse prinsippene:
 
-- Fortell hva som har skjedd
+- Fortell hva som har skjedd.
+  - Vi kunne ikke koble til kontoen din.
+- Fortell hvorfor det skjedde.
+  - Vi kunne ikke koble til kontoen din på grunn av tekniske problemer fra vår side.
+- Forsikre brukeren.
+  - Endringene dine har blitt lagret.
+- Gi dem en vei ut av problemet.
+  - Hvis dette problemet oppstår igjen, kontakt Kundeservice.
+- Hjelp dem å fikse problemet selv.
+  - Vennligst prøv igjen.
 
-  > Vi kunne ikke koble til kontoen din.
-
-- Fortell hvorfor det skjedde
-
-  > Vi kunne ikke koble til kontoen din på grunn av tekniske problemer fra vår side.
-
-- Forsikre brukeren
-
-  > Endringene dine har blitt lagret.
-
-- Gi dem en vei ut av problemet
-
-  > Hvis dette problemet oppstår igjen, kontakt Kundeservice.
-
-- Hjelp dem å fikse problemet selv
-
-  > Vennligst prøv igjen.
-
-{/* TODO: add correct link to 'mønster for Systemvarsler' */}
-For mer veiledning om hvordan du skriver tydelig og effektiv tekst i varsler, se språkanbefalingene i [mønsteret for Systemvarsler](https://designsystemet.no/no/patterns/systemnotifications#språk).
+For mer veiledning om hvordan du skriver tydelig og effektiv tekst i varsler, se språkanbefalingene i [mønsteret for Systemvarsler (digdir.no)](https://designsystemet.no/no/patterns/systemnotifications#språk).
 
 ## Tilgjengelighet
 
 For dynamiske varsler må _live-regionen_ være definert før varselet vises.
 - Bruk `role='alert'` for kritiske varsler og `role='status'` for mindre kritiske.
 - Ikke kombiner `role='alert'` og `aria-live` for å unngå at varselet leses opp dobbelt i VoiceOver.
-- Kombiner `role='status'` og `aria-live='polite'` for å [maksimere kompatibilitet](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions#roles_with_implicit_live_region_attributes).
+- Kombiner `role='status'` og `aria-live='polite'` for å [maksimere kompatibilitet (MDN)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions#roles_with_implicit_live_region_attributes).
 - Ikke definer en _live-region_ direkte på `Alert`. Det vil ikke ha en effekt på statiske varsler, og på dynamiske varsler blir de ikke tolket riktig på alle skjermlesere.
 - Definer en _live region_, f.eks. med `role='alert'` eller `role='status'`, der brukerens handling fører til et varsel.
 

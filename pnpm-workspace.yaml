@@ -6,10 +6,10 @@ packages:
 
 catalog:
   '@chromatic-com/storybook': ^5.0.1
-  '@digdir/designsystemet': 1.14.0
-  '@digdir/designsystemet-css': ^1.14.0
-  '@digdir/designsystemet-react': ^1.14.0
-  '@digdir/designsystemet-types': ^1.14.0
+  '@digdir/designsystemet': 1.18.0
+  '@digdir/designsystemet-css': ^1.18.0
+  '@digdir/designsystemet-react': ^1.18.0
+  '@digdir/designsystemet-types': ^1.18.0
   '@eslint/compat': ^2.0.1
   '@eslint/js': ^9.39.2
   '@navikt/aksel-icons': ^8.4.1
