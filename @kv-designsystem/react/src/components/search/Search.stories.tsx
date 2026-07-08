@@ -32,16 +32,16 @@ export const Variants: Story = {
         <Search.Clear />
       </Search>
       <Divider style={{
-      marginTop: 'var(--ds-size-4)'
-    }} />
+        marginTop: 'var(--ds-size-4)'
+      }} />
       <Search>
         <Search.Input aria-label='Søk' />
         <Search.Clear />
         <Search.Button />
       </Search>
       <Divider style={{
-      marginTop: 'var(--ds-size-4)'
-    }} />
+        marginTop: 'var(--ds-size-4)'
+      }} />
       <Search>
         <Search.Input aria-label='Søk' />
         <Search.Clear />

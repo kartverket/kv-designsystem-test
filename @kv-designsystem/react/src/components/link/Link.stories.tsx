@@ -14,23 +14,23 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Preview: Story ={
+export const Preview: Story = {
   args: {
     href: 'https://www.kartverket.no/',
     children: 'Gå til kartverket.no',
   }
 };
 
-export const WithIcon:  Story = {
+export const WithIcon: Story = {
   render: (_args) => (
-   <Link href='https://designsystemet.no/slack'>
+    <Link href='https://designsystemet.no/slack'>
       <Chat2Icon aria-hidden fontSize={24} />
       <span>Snakk med oss på Slack</span>
     </Link>
   )
 };
 
-export const InText:  Story = {
+export const InText: Story = {
   args: {
     href: 'https://designsystemet.no/no',
   },
@@ -45,7 +45,7 @@ export const InText:  Story = {
   ),
 };
 
-export const NeutralColor:  Story = {
+export const NeutralColor: Story = {
   args: {
     href: 'https://www.kartverket.no/om-kartverket/personvern',
   },
@@ -56,7 +56,7 @@ export const NeutralColor:  Story = {
   ),
 };
 
-export const LongLink:  Story = {
+export const LongLink: Story = {
   args: {
     href: 'https://www.kartverket.no/',
   },
@@ -71,7 +71,7 @@ export const LongLink:  Story = {
   ),
 };
 
-export const File:  Story = {
+export const File: Story = {
   args: {
     href: 'https://kartverket.no/globalassets/geodataarbeid/hoydemodell/samfunnsokonomisk-analyse-nasjonal-detaljert-hoydemodell.pdf'
   },

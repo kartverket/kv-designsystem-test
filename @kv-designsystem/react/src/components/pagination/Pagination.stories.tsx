@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Pagination } from './Pagination';
 import { useArgs } from 'storybook/preview-api';
-import { 
-    type UsePaginationProps,
-    usePagination,
+import {
+  type UsePaginationProps,
+  usePagination,
 } from '../../utilities/hooks/usePagination/usePagination';
+import { useState } from 'react';
 
 
 const meta = {
@@ -69,7 +70,6 @@ export const WithAnchor: StoryObj<UsePaginationProps> = {
   },
   render: (args) => {
     const [, updateArgs] = useArgs();
-
     const { pages, nextButtonProps, prevButtonProps } = usePagination({
       ...args,
       setCurrentPage: (currentPage) => updateArgs({ currentPage }),
@@ -118,36 +118,37 @@ export const WithAnchor: StoryObj<UsePaginationProps> = {
 };
 
 export const Mobile: Story = {
-  render: (_args) => (
-    <Pagination aria-label="Sidenavigering">
-      <Pagination.List>
-        <Pagination.Item>
-          <Pagination.Button
-            aria-label='Forrige side'
-            data-variant='tertiary'
-          />
-        </Pagination.Item>
+  render: (args) => {
+    const [page, setCurrentPage] = useState(3);
+    const { pages, nextButtonProps, prevButtonProps } = usePagination({
+      currentPage: page,
+      totalPages: 10,
+      showPages: 3,
+      setCurrentPage,
+    });
 
-        <Pagination.Item>
-          <Pagination.Button aria-label='Side 2' data-variant='tertiary'>
-            2
-          </Pagination.Button>
-        </Pagination.Item>
+    return (
+      <Pagination aria-label="Sidenavigering" {...args}>
+        <Pagination.List>
+          <Pagination.Item>
+            <Pagination.Button aria-label="Forrige side" {...prevButtonProps} />
+          </Pagination.Item>
 
-        <Pagination.Item>
-          <Pagination.Button aria-label='Side 3'>3</Pagination.Button>
-        </Pagination.Item>
+          {pages.map(({ page, itemKey, buttonProps }) => (
+            <Pagination.Item key={itemKey}>
+              {typeof page === 'number' && (
+                <Pagination.Button {...buttonProps} aria-label={`Side ${page}`}>
+                  {page}
+                </Pagination.Button>
+              )}
+            </Pagination.Item>
+          ))}
 
-        <Pagination.Item>
-          <Pagination.Button aria-label='Side 4' data-variant='tertiary'>
-            4
-          </Pagination.Button>
-        </Pagination.Item>
-
-        <Pagination.Item>
-          <Pagination.Button aria-label='Neste side' data-variant='tertiary' />
-        </Pagination.Item>
-      </Pagination.List>
-    </Pagination>
-  )
+          <Pagination.Item>
+            <Pagination.Button aria-label="Neste side" {...nextButtonProps} />
+          </Pagination.Item>
+        </Pagination.List>
+      </Pagination>
+    );
+  }
 };

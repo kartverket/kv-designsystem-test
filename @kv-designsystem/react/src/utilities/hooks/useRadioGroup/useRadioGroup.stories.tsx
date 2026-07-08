@@ -82,7 +82,7 @@ export const Group: Story = {
 
     return (
       <Fieldset>
-        <Fieldset.Legend>Velg din aldersgruppe.</Fieldset.Legend>
+        <Fieldset.Legend>Velg din aldersgruppe</Fieldset.Legend>
         <Fieldset.Description>
           Informasjonen blir brukt til å tilpasse innholdet på siden.
         </Fieldset.Description>
@@ -134,4 +134,11 @@ export const WithError: Story = {
       </Fieldset>
     );
   },
+};
+
+export const Outline: Story = {
+  args: {
+    variant: 'outline',
+  },
+  render: Group.render,
 };

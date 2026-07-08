@@ -33,8 +33,8 @@ export const UsageExample: Story = {
         margin: 'var(--ds-size-12)',
       }}
     >
-      <div 
-        style={{ 
+      <div
+        style={{
           flex: '1 1 200px',
           gap: 'var(--ds-size-4)',
         }}>
@@ -84,8 +84,8 @@ export const UsageExample: Story = {
         </div>
 
         <Paragraph>
-          Geografisk midtpunkt i alle fylker og kommuner er oppdatert. Dra hit for 
-          å være i sentrum av begivnehetene, men vis hensyn til sårbart vilt. Under 
+          Geografisk midtpunkt i alle fylker og kommuner er oppdatert. Dra hit for
+          å være i sentrum av begivnehetene, men vis hensyn til sårbart vilt. Under
           Fakta om Norge finner du også høyeste punkt og mest øde sted.
         </Paragraph>
       </div>

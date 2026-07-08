@@ -15,9 +15,9 @@ Vi bruker `Switch` for å gi brukeren mulighet til å slå en funksjon av eller 
 
 
 **Unngå `Switch` når**
-- brukeren skal svare på spørsmål i skjema - bruk heller [`Radio`](/docs/components-radio--docs) eller [`Checkbox`](/docs/components-checkbox--docs)
-- innhold skal vise ulike kategorier - bruk heller [`ToggleGroup`](/docs/components-togglegroup--docs)
-- innhold skal filtreres - bruk heller [`Chip`](/docs/components-chip--docs)
+- brukeren skal svare på spørsmål i skjema – bruk heller [`Radio`](/docs/components-radio--docs) eller [`Checkbox`](/docs/components-checkbox--docs)
+- innhold skal vise ulike kategorier – bruk heller [`ToggleGroup`](/docs/components-togglegroup--docs)
+- innhold skal filtreres – bruk heller [`Chip`](/docs/components-chip--docs)
 
 ## Eksempel
 
@@ -26,6 +26,17 @@ Vi bruker `Switch` for å gi brukeren mulighet til å slå en funksjon av eller 
 Bruk [`Fieldset`](/docs/components-fieldset--docs) for å gruppere flere `Switch`-komponenter når de hører naturlig sammen.
 
 <Canvas of={SwitchStories.Group} />
+
+### Outline
+
+Med variant='outline' får valgene en større klikkflate.
+
+Dette kan være hensiktsmessig når
+- valget representerer et tydelig veivalg som bør skille seg ut i grensesnittet
+- informasjon som hører sammen med valget (beskrivelser og eventuelle tilleggsdetaljer) skal oppleves som én samlet og sammenhengende interaksjon
+- standard switch ville gitt en visuelt svak layout
+
+<Canvas of={SwitchStories.Outline} />
 
 ## Retningslinjer
 
@@ -37,11 +48,15 @@ Bruk [`Fieldset`](/docs/components-fieldset--docs) for å gruppere flere `Switch
 
 `Switch` skal som hovedregel være plassert på venstre side av label. 
 
-**Unntak**
+#### Unntak
 
-Høyrejustering av `Switch` kan være nyttig i tabeller eller faste oppsett. Pass på at avstanden ikke blir for stor slik at det blir vanskelig å se hvilken tekst som hører til hvilken `Switch`.
+Høyrejustering av `Switch` kan være nyttig i tabeller eller faste oppsett. Pass på at avstanden ikke blir for stor slik at det blir vanskelig å se hvilken tekst som hører til hvilken `Switch`.
 
 <Canvas of={SwitchStories.RightAligned} />
+
+### Unngå ReadOnly
+
+`Switch` støtter `readOnly` for å vise informasjon som ikke kan endres. Vi unngår `readOnly` så langt det lar seg gjøre, fordi slike felter kan være forvirrende for noen brukere. Ikke alle vil forstå hvorfor de ikke får til å endre innholdet i feltet.
 
 ### Unngå Disabled
 
@@ -49,13 +64,9 @@ Vi unngår deaktivert (disabled) `Switch` fordi de kan være vanskelige å oppfa
 
 Nav har en god forklaring på [hvorfor deaktiverte tilstander er problematisk](https://aksel.nav.no/god-praksis/artikler/deaktiverte-tilstander) og hvilke alternativer som finnes.
 
-### Unngå ReadOnly
+## Tekst i Switch
 
-`Radio` støtter `readOnly` for å vise informasjon som ikke kan endres. Vi unngår `readOnly` så langt det lar seg gjøre, fordi slike felter kan være forvirrende for noen brukere. Ikke alle vil forstå hvorfor de ikke får til å endre innholdet i feltet.
-
-## Tekst til Switch
-
-- Hold teksten kort og presis, helst ett til to ord.
+- Hold teksten kort og presis – helst ett til to ord.
 - Test teksten ved å si den høyt og legge til «av/på» etterpå. Det skal gi mening.
 - Når du har flere `Switch` i en gruppe, bruk samme språklige struktur for alle.
 - Beskriv funksjonen, ikke tilstanden. Unngå å skrive «Varsler på» eller «Mørk modus av». Selve bryteren viser tilstanden.

@@ -14,10 +14,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  args: {
-    children: 'Popover',
-  },
-  render: (args) => (
+  render: (_args) => (
     <Popover.TriggerContext>
       <Popover.Trigger>Åpne popover</Popover.Trigger>
       <Popover placement='top'>
@@ -36,7 +33,7 @@ export const Interactive: Story = {
       <Popover.TriggerContext>
         <Popover.Trigger
           data-color='danger'
-          aria-label='Slett rad' 
+          aria-label='Slett rad'
           onClick={() => setOpen(!open)}>
           <TrashIcon title='Slett rad' aria-hidden />
         </Popover.Trigger>

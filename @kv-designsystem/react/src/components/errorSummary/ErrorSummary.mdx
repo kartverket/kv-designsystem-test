@@ -15,7 +15,7 @@ import * as ErrorSummaryStories from './ErrorSummary.stories';
 
 **Unngå `ErrorSummary` når**
 - tilbakemeldingene ikke hindrer innsending, for eksempel advarsler eller anbefalinger
-- du skal vise systemvarsler - bruk heller [`Alert`](/docs/components-alert--docs)
+- du skal vise systemvarsler – bruk heller [`Alert`](/docs/components-alert--docs)
 
 ## Eksempler
 
@@ -39,10 +39,11 @@ Det er viktig at `ErrorSummary` får fokus når den dukker opp, slik at brukeren
 - Hvis feilen gjelder flere felt, for eksempel når to felt valideres på tvers, lenker vi til det første tilfellet av feilen.
 - Hvis valideringen skjer fortløpende (for eksempel med `onBlur`), venter vi med å vise `ErrorSummary` til brukeren forsøker å sende inn skjemaet.
 
-## Plassering
+### Plassering
 
 Vi anbefaler å plassere `ErrorSummary` rett over Neste/Send inn-knappen. Det gjør det tydelig hvorfor brukeren ikke kan gå videre.
-I noen tilfeller kan det likevel være bedre å vise `ErrorSummary` i toppen, det kan du lese mer om i [artikkelen om feilmeldinger hos Digdir](https://designsystemet.no/monstre/feilmeldinger#oppsummering-av-flere-feilmeldinger).
+
+I noen tilfeller kan det likevel være bedre å vise `ErrorSummary` i toppen, det kan du lese mer om i [artikkelen om feilmeldinger hos Digdir](https://designsystemet.no/no/patterns/errors#oppsummering-av-flere-feilmeldinger).
 
 ## Tekst i ErrorSummary
 
