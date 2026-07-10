@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--ds-size-4); /*TODO: does gap show and is it correct size? 'var(--ds-size-4)*/
+    gap: var(--ds-size-4);
 }
 
 .item {

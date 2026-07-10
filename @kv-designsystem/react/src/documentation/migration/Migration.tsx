@@ -11,11 +11,11 @@ const translations = [
   { kvib: 'Separator', ds: 'Divider' },
   { kvib: 'SkipNav', ds: 'SkipLink' },
   { kvib: 'Status', ds: 'Badge' },
-  { kvib: 'Text', ds: 'Typography/Paragraph' },  
+  { kvib: 'Text', ds: 'Typography/Paragraph' },
 ]
 
 export function TranslationTable() {
-  return(
+  return (
     <Table zebra>
       <Table.Head>
         <Table.Row>
@@ -28,9 +28,8 @@ export function TranslationTable() {
           <Table.Row key={row.kvib}>
             <Table.Cell>{row.kvib}</Table.Cell>
             <Table.Cell>{row.ds}</Table.Cell>
-        </Table.Row>
+          </Table.Row>
         ))}
-        
       </Table.Body>
     </Table>
   )
