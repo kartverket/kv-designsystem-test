@@ -14,14 +14,17 @@ import * as TagStories from './Tag.stories';
 - status skal vises, som «Pågående», «Fullført» eller «Avbrutt»
 - du vil hjelpe brukeren å skanne og tolke informasjon raskt
 
-Unngå `Tag` når
-- elementet skal lenke til en annen side - bruk heller Link
-- det er en handling - bruk heller [`Button`](/docs/components-button--docs)
-- brukeren skal filtrere innhold - bruk heller [`Chip`](/docs/components-chip--docs)
+**Unngå `Tag` når**
+- elementet skal lenke til en annen side – bruk heller [`Link`](/docs/components-link--docs)
+- det er en handling – bruk heller [`Button`](/docs/components-button--docs)
+- brukeren skal filtrere innhold – bruk heller [`Chip`](/docs/components-chip--docs)
 
 ## Varianter med eksempler
 
 `Tag` finnes i to varianter: med og uten outline. Du kan bruke alle fargene på `Tag`. Dersom taggen får for lav kontrast mot bakgrunnen, kan du bytte variant for å sikre god lesbarhet.
+
+<Canvas of={TagStories.Variants} />
+<Canvas of={TagStories.WithOutline} />
 
 ### Ikoner
 

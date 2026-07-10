@@ -5,8 +5,8 @@ import {
   type RefAttributes,
 } from 'react';
 import type { ButtonProps } from '../button/Button';
-import { MenuHamburgerIcon } from "@navikt/aksel-icons";
-import { HeaderDialogTrigger } from "./HeaderDialogTrigger";
+import { MenuHamburgerIcon } from '@navikt/aksel-icons';
+import { HeaderDialogTrigger } from './HeaderDialogTrigger';
 
 export type HeaderMenuButtonProps = ButtonProps;
 
@@ -18,7 +18,7 @@ export const HeaderMenuButton: ForwardRefExoticComponent<
       <HeaderDialogTrigger
         className={cl('header-menu-button', className)}
         commandFor={commandFor}
-        label="Meny"
+        label='Meny'
         primaryIcon={MenuHamburgerIcon}
         ref={ref}
         {...rest}

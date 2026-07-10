@@ -28,7 +28,7 @@ export function DocumentationKvib() {
                 {page.title}
               </Link>
             </Heading>
-            <Paragraph className="sb-unstyled">{page.description}</Paragraph>
+            <Paragraph className='sb-unstyled'>{page.description}</Paragraph>
           </Card.Block>
         </Card>
       ))}

@@ -6,7 +6,7 @@ export function UnderConstructionAlert() {
     return (
         <Alert 
             data-color='warning'
-            className="sb-unstyled"
+            className='sb-unstyled'
             style={{
                 marginBottom: 'var(--ds-size-10)'
             }}>

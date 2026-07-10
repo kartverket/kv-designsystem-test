@@ -33,7 +33,7 @@ function ColorItem({ hex, textColor, label }: ColorItemProps) {
                 {hex}
             </div>
             <Paragraph 
-                data-size="xs"
+                data-size='xs'
                 style={{ marginTop: 'var(--ds-size-2)' }}
             >
                 {label}

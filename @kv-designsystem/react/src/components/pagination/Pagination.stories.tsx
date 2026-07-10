@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   render: (_args) => (
-    <Pagination aria-label="Sidenavigering">
+    <Pagination aria-label='Sidenavigering'>
       <Pagination.List>
         <Pagination.Item>
           <Pagination.Button aria-label='Forrige side' data-variant='tertiary'>
@@ -128,10 +128,10 @@ export const Mobile: Story = {
     });
 
     return (
-      <Pagination aria-label="Sidenavigering" {...args}>
+      <Pagination aria-label='Sidenavigering' {...args}>
         <Pagination.List>
           <Pagination.Item>
-            <Pagination.Button aria-label="Forrige side" {...prevButtonProps} />
+            <Pagination.Button aria-label='Forrige side' {...prevButtonProps} />
           </Pagination.Item>
 
           {pages.map(({ page, itemKey, buttonProps }) => (
@@ -145,7 +145,7 @@ export const Mobile: Story = {
           ))}
 
           <Pagination.Item>
-            <Pagination.Button aria-label="Neste side" {...nextButtonProps} />
+            <Pagination.Button aria-label='Neste side' {...nextButtonProps} />
           </Pagination.Item>
         </Pagination.List>
       </Pagination>

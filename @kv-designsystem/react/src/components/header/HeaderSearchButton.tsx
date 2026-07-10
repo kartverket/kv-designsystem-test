@@ -4,8 +4,8 @@ import {
 	type RefAttributes,
 } from 'react';
 import type { ButtonProps } from '../button/Button';
-import { MagnifyingGlassIcon } from "@navikt/aksel-icons";
-import { HeaderDialogTrigger } from "./HeaderDialogTrigger";
+import { MagnifyingGlassIcon } from '@navikt/aksel-icons';
+import { HeaderDialogTrigger } from './HeaderDialogTrigger';
 
 export type HeaderSearchButtonProps = ButtonProps;
 
@@ -17,7 +17,7 @@ export const HeaderSearchButton: ForwardRefExoticComponent<
       <HeaderDialogTrigger 
       className={className}
       commandFor={commandFor}
-      label="Søk"
+      label='Søk'
       primaryIcon={MagnifyingGlassIcon}
       ref={ref}
       {...rest}

@@ -25,7 +25,7 @@ export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: Hea
             >
                 <Button asChild variant='secondary'>
                     <Link     
-                        className="sb-unstyled"
+                        className='sb-unstyled'
                         href='https://kartverketgroup.slack.com/archives/C03LL4CKMMK'
                         rel='noreferrer'
                         target='_blank'>
@@ -34,7 +34,7 @@ export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: Hea
                 </Button>
                 <Button asChild variant='secondary'>
                     <Link
-                        className="sb-unstyled"  
+                        className='sb-unstyled'  
                         href='https://forms.office.com/pages/responsepage.aspx?id=osh0f85Dskaw6LYwbLpzo1ZKQ5cY--ZJmCXFNxxffudUMjQ2WU1IS1FNQzNQRlBaU1IwMFpYNENXQS4u&route=shorturl'
                         rel='noreferrer'
                         target='_blank'>

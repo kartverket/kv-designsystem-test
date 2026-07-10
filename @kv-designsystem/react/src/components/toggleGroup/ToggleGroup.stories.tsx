@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ToggleGroup } from './ToggleGroup';
 import { Tooltip } from '../tooltip/Tooltip';
-import { 
+import {
   CheckmarkCircleIcon,
   ExclamationmarkTriangleIcon,
   XMarkOctagonIcon,
   AlignLeftIcon,
   AlignCenterIcon,
-  AlignRightIcon 
+  AlignRightIcon
 } from '@navikt/aksel-icons';
 
 const meta = {
