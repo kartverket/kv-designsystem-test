@@ -1,14 +1,14 @@
 import type { Meta, StoryObj, StoryContext } from '@storybook/react-vite';
-import { Fieldset } from '../../../components/fieldset/Fieldset'; 
+import { Fieldset } from '../../../components/fieldset/Fieldset';
 import { Radio } from '../../../components/radio/Radio';
 import { ValidationMessage } from '../../../components/typography/validationMessage/ValidationMessage';
-import { 
-    type UseRadioGroupProps,
-    useRadioGroup,
+import {
+  type UseRadioGroupProps,
+  useRadioGroup,
 } from './useRadioGroup';
 
 const meta: Meta<UseRadioGroupProps> = {
-  title: 'Utilities/useRadioGroup',
+  title: 'Hooks/useRadioGroup',
   tags: ['alpha'],
   parameters: { layout: 'centered' },
   argTypes: {

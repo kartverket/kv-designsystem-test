@@ -9,7 +9,7 @@ import {
 } from './useCheckboxGroup';
 
 const meta: Meta<UseCheckboxGroupProps> = {
-  title: 'Utilities/useCheckboxGroup',
+  title: 'Hooks/useCheckboxGroup',
   tags: ['alpha'],
   parameters: { layout: 'centered' },
   argTypes: {
@@ -66,7 +66,7 @@ export default meta;
 
 type Story = StoryObj<UseCheckboxGroupProps>;
 
-export const Default: Story = { 
+export const Default: Story = {
   render: (args, context) => {
     const { getCheckboxProps, validationMessageProps } = useCheckboxGroup({
       value: ['epost'],
@@ -96,7 +96,7 @@ export const Default: Story = {
   }
 };
 
-export const Group: Story = { 
+export const Group: Story = {
   render: (args, context) => {
     const { getCheckboxProps, validationMessageProps } = useCheckboxGroup({
       value: ['epost'],
@@ -158,13 +158,13 @@ export const Outline: Story = {
         <Fieldset.Description>
           Velg hvilke typer varsler som er relevante for deg.
         </Fieldset.Description>
-        <Checkbox 
-          id={context.id + 'driftsmeldinger'} 
+        <Checkbox
+          id={context.id + 'driftsmeldinger'}
           label='Driftsmeldinger'
           description='Varsler ved planlagt vedlikehold og driftsavvik.'
-          {...getCheckboxProps({ value: 'driftsmeldinger' })} 
+          {...getCheckboxProps({ value: 'driftsmeldinger' })}
         />
-        <Checkbox 
+        <Checkbox
           id={context.id + 'paaminnelser'}
           label='Påminnelser'
           description='Varsler om frister og oppgaver som krever handling.'

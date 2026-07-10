@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { Pagination } from '../../../components/pagination/Pagination';
-import { 
-    type UsePaginationProps,
-    usePagination,
+import {
+  type UsePaginationProps,
+  usePagination,
 } from './usePagination';
 
 const meta: Meta<UsePaginationProps> = {
-  title: 'Utilities/usePagination',
+  title: 'Hooks/usePagination',
   tags: ['alpha'],
   argTypes: {
     currentPage: {
@@ -54,8 +54,8 @@ export const Preview: Story = {
     totalPages: 10,
     showPages: 7,
   },
-	render: (args) => {
-		const [, updateArgs] = useArgs();
+  render: (args) => {
+    const [, updateArgs] = useArgs();
     const { pages, nextButtonProps, prevButtonProps } = usePagination({
       ...args,
       setCurrentPage: (currentPage) => updateArgs({ currentPage }),
@@ -86,5 +86,5 @@ export const Preview: Story = {
         </Pagination.List>
       </Pagination>
     );
-	},
+  },
 };
