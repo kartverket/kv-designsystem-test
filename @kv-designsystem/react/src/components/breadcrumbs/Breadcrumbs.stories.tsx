@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Breadcrumbs, BreadcrumbsItem, BreadcrumbsLink, BreadcrumbsList } from './Breadcrumbs';
+import { Breadcrumbs, BreadcrumbsLink, BreadcrumbsList } from './Breadcrumbs';
 import { Breadcrumbs as StorybookBreadcrumbs } from './docs/StorybookBreadcrumbs';
+import { BreadcrumbsItem } from './docs/StorybookBreadcrumbsItem';
 
 const meta = {
-	component: StorybookBreadcrumbs,
+	component: Breadcrumbs,
 	subcomponents: {
     'Breadcrumbs.Item': BreadcrumbsItem,
     'Breadcrumbs.Link': BreadcrumbsLink,
