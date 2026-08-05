@@ -45,8 +45,8 @@ export const WithForm: Story = {
         error='Fornavn må være minst 2 tegn'
       />
       <Textfield
-        label='Telefon'
-        id='telefon'
+        label='Telefonnummer'
+        id='telefonnummer'
         type='tel'
         error='Telefonnummer kan kun inneholde siffer'
       />
@@ -61,7 +61,7 @@ export const WithForm: Story = {
             </ErrorSummary.Link>
           </ErrorSummary.Item>
           <ErrorSummary.Item>
-            <ErrorSummary.Link href='#telefon'>
+            <ErrorSummary.Link href='#telefonnummer'>
               Telefonnummer kan kun inneholde siffer
             </ErrorSummary.Link>
           </ErrorSummary.Item>

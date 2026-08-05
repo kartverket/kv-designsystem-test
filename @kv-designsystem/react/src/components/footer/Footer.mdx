@@ -1,5 +1,6 @@
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import { Link } from '../link/Link';
 import * as FooterStories from './Footer.stories';
 
 <Meta of={FooterStories} />
@@ -81,8 +82,8 @@ Unntak:
 “Ekstern-lenke”-ikonet forveksles ofte med “Åpnes i ny fane”-ikonet. Hvis brukeren blir sendt til en ekstern side er det mer effektivt å kommunisere dette i lenketeksten.
 
 Eksempler:
-- “Parkering i Flekkefjord kommune”
-- “Parkering (flekkefjord.kommune.no)”
+- <Link href='#'>Parkering i Flekkefjord kommune</Link>
+- <Link href='#'>Parkering (flekkefjord.kommune.no)</Link>
 
 ## Kilde
 

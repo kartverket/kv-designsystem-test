@@ -70,7 +70,7 @@ export const IconsWithText: Story = {
         </Tabs.Tab>
         <Tabs.Tab value='innstillinger'>
           <CogIcon aria-hidden />
-          Instillinger
+          Innstillinger
         </Tabs.Tab>
       </Tabs.List>
       <Tabs.Panel value='bygninger'>Innhold for bygninger</Tabs.Panel>

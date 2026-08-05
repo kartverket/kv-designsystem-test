@@ -43,23 +43,29 @@ export const LegendAsHeading: Story = {
           data-size='sm'
           level={2}
         >
-          Hvilke foretrekket du?
+          Hvilke tjenester bruker du?
         </Heading>
       </Fieldset.Legend>
       <Fieldset.Description>
-        Fellesbeskrivelse
+        Kartløsninger hos Kartverket
       </Fieldset.Description>
       <Checkbox
-        id='components-fieldset--legend-as-heading-alternativ-1'
-        label='Alternativ 1'
-        name='components-fieldset--legend-as-heading-alternativ-1'
-        value='alternativ-1'
+        id='components-fieldset--legend-as-heading-norgeskart'
+        label='Norgeskart'
+        name='components-fieldset--legend-as-heading-norgeskart'
+        value='norgeskart'
       />
       <Checkbox
-        id='components-fieldset--legend-as-heading-alternativ-2'
-        label='Alternativ-2'
-        name='components-fieldset--legend-as-heading-alternativ-2'
-        value='alternativ-2'
+        id='components-fieldset--legend-as-heading-den-norske-los'
+        label='Den norske los'
+        name='components-fieldset--legend-as-heading-den-norske-los'
+        value='den-norske-los'
+      />
+      <Checkbox
+        id='components-fieldset--legend-as-heading-hoydedata'
+        label='Høydedata'
+        name='components-fieldset--legend-as-heading-hoydedata'
+        value='hoydedata'
       />
     </Fieldset>
   )

@@ -46,10 +46,10 @@ export const WithNavigationLinks: Story = {
     <Header {...args}>
       <Header.Nav data-show-from='md'>
         <Header.NavItem href='#' aria-current='page'>
-          Lenkeknapp
+          Tjenesteside
         </Header.NavItem>
         <Header.NavItem href='#'>
-          Lenkeknapp
+          Tjenesteside
         </Header.NavItem>
       </Header.Nav>
 
@@ -57,10 +57,10 @@ export const WithNavigationLinks: Story = {
       <Header.Menu data-hide-from='md' id='with-navigation-links'>
         <Header.Nav>
           <Header.NavItem href='#' aria-current='page'>
-            Lenkeknapp
+            Tjenesteside
           </Header.NavItem>
           <Header.NavItem href='https://www.kartverket.no/'>
-            Lenkeknapp
+            Tjenesteside
           </Header.NavItem>
         </Header.Nav>
       </Header.Menu>
@@ -99,30 +99,30 @@ export const WithMenu: Story = {
         <Header.Menu id='with-menu'>
           <Header.Nav>
             <li className='withMenu-header-sub-menu'>
-              <Heading data-size='sm'>Temameny</Heading>
+              <Heading data-size='sm'>Temanavn</Heading>
               <ul>
                 <Header.NavItem href='#'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
                 <Header.NavItem href='#' aria-current='page'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
                 <Header.NavItem href='#'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
               </ul>
             </li>
             <li className='withMenu-header-sub-menu'>
-              <Heading>Temameny</Heading>
+              <Heading>Temanavn</Heading>
               <ul>
                 <Header.NavItem href='#'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
                 <Header.NavItem href='#'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
                 <Header.NavItem href='#'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
               </ul>
             </li>
@@ -194,7 +194,7 @@ export const WithButtonsAndMenu: Story = {
                   Alt om eiendom
                 </Header.NavItem>
                 <Header.NavItem href='#' aria-current='page'>
-                  Tinglyse Eierskifte
+                  Tinglyse eierskifte
                 </Header.NavItem>
                 <Header.NavItem href='#'>
                   Spørsmål om tinglysning
@@ -357,30 +357,30 @@ export const WithScroll: Story = {
         <Header.Menu id='with-scroll'>
           <Header.Nav>
             <li className='withScroll-header-sub-menu'>
-              <Heading data-size='sm'>Temameny</Heading>
+              <Heading data-size='sm'>Temanavn</Heading>
               <ul>
                 <Header.NavItem href='#'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
                 <Header.NavItem href='#' aria-current='page'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
                 <Header.NavItem href='#'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
               </ul>
             </li>
             <li className='withScroll-header-sub-menu'>
-              <Heading>Temameny</Heading>
+              <Heading>Temanavn</Heading>
               <ul>
                 <Header.NavItem href='#'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
                 <Header.NavItem href='#'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
                 <Header.NavItem href='#'>
-                  Lenkeknapp
+                  Tjenesteside
                 </Header.NavItem>
               </ul>
             </li>
@@ -568,30 +568,30 @@ export const ComplexHeader: Story = {
               </li>
 
               <li className='complexHeader-header-sub-menu'>
-                <Heading data-size='sm'>Temameny</Heading>
+                <Heading data-size='sm'>Temanavn</Heading>
                 <ul>
                   <Header.NavItem href='#'>
-                    Lenkeknapp
+                    Tjenesteside
                   </Header.NavItem>
                   <Header.NavItem href='#' aria-current='page'>
-                    Lenkeknapp
+                    Tjenesteside
                   </Header.NavItem>
                   <Header.NavItem href='#'>
-                    Lenkeknapp
+                    Tjenesteside
                   </Header.NavItem>
                 </ul>
               </li>
               <li className='complexHeader-header-sub-menu'>
-                <Heading>Temameny</Heading>
+                <Heading>Temanavn</Heading>
                 <ul>
                   <Header.NavItem href='#'>
-                    Lenkeknapp
+                    Tjenesteside
                   </Header.NavItem>
                   <Header.NavItem href='#'>
-                    Lenkeknapp
+                    Tjenesteside
                   </Header.NavItem>
                   <Header.NavItem href='#'>
-                    Lenkeknapp
+                    Tjenesteside
                   </Header.NavItem>
                 </ul>
               </li>

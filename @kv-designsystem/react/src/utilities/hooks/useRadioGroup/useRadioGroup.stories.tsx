@@ -138,7 +138,39 @@ export const WithError: Story = {
 
 export const Outline: Story = {
   args: {
+    name: 'course-level',
+    readOnly: false,
+    disabled: false,
+    value: '',
     variant: 'outline',
   },
-  render: Group.render,
+  render: (args: UseRadioGroupProps) => {
+    const { getRadioProps } = useRadioGroup({
+      ...args,
+    });
+
+    return (
+      <Fieldset>
+        <Fieldset.Legend>Hvilket kursnivå passer deg best?</Fieldset.Legend>
+        <Fieldset.Description>
+          Velg nivået som beskriver din erfaring med temaet.
+        </Fieldset.Description>
+        <Radio
+          label='Nybegynner'
+          description='Passer for deg som er helt ny og ønsker en rolig introduksjon.'
+          {...getRadioProps('beginner')}
+        />
+        <Radio
+          label='Viderekommen'
+          description='Passer for deg som kjenner grunnleggende begreper og vil gå dypere.'
+          {...getRadioProps('intermediate')}
+        />
+        <Radio
+          label='Ekspert'
+          description='Passer for deg som ønsker avanserte temaer og praktiske case.'
+          {...getRadioProps('expert')}
+        />
+      </Fieldset>
+    );
+  },
 };

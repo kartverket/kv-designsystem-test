@@ -54,7 +54,7 @@ Vurder hvilke handlinger som er viktige for brukerne av tjenesten, og om de bør
 
 Kartverkets logo og tjenestenavnet er alltid plassert til venstre, uavhengig av hvilken variant av Header du velger.
 
-### Subkomponenter:
+### Subkomponenter
 
 - Header.Nav med Header.NavItem
 - Header.ActionsList du kan fylle med Buttons for sentrale handlinger
@@ -71,17 +71,15 @@ Bruk navigasjonslenker til sider brukeren skal ha tilgang til fra hele tjenesten
 
 Bruk meny når det ikke er plass til alle navigasjonslenker og handlinger direkte i Headeren. I menyen kan navigasjonslenker også grupperes i underkategorier.
 
-Menyen kan brukes alene eller sammen med andre viktige handlinger. Den skal alltid plasseres helt til høyre i `Header`.
+Menyen skal alltid plasseres helt til høyre i `Header`. Handlinger som innlogging, søk og språkvalg plasseres over navigasjonslenkene, og skilles fra disse med en `Divider`.
 
-Under er et eksempel på `Header` med meny.
+På smale skjermer kan handlinger vises som ikoner (husk `aria-label`). På større skjermer skal ikonene suppleres med tekst.
+
+Under er et eksempel på `Header` med kun meny.
 
 <Canvas of={HeaderStories.WithMenu} />
 
-Ting å tenke på:
-- På smale skjermer kan handlinger vises som ikoner (husk aria-label). På større skjermer skal ikonene suppleres med tekst.
-- Handlinger som innlogging, søk og språkvalg plasseres over navigasjonslenkene, og skilles fra disse med en `Divider`.
-
-Under er et eksempel på en `Header` med både meny og handlinger som søk og profil.
+Menyen kan også brukes sammen med andre viktige handlinger i `Header`. Under viser vi et eksempel med både meny og handlinger som søk og profil.
 
 <Canvas of={HeaderStories.WithButtonsAndMenu} />
 
@@ -96,15 +94,6 @@ Søk kan vises direkte i Header med et søkefelt, slik eksempelet under viser. A
 ### Inn- og utlogging og profil i Header
 
 <Alert data-color='info' className='sb-unstyled' style={{ marginBlock: 'var(--ds-size-4)' }}>
-    <Heading     
-        data-size='xs'
-        level={3}
-        style={{
-            marginBottom: 'var(--ds-size-2)'
-        }}
-    >
-        Foreløpig forslag til profilmeny
-    </Heading>
      Vi har ikke full oversikt over alle bruksbehov for profilmenyen enda, men dette er et forslag til hvordan komponenten kan se ut i praksis. Vi tar gjerne imot innspill til forbedringer eller andre behov som ikke er dekket.
 </Alert>
 
@@ -129,20 +118,34 @@ Unngå for mye innhold i Header. Vurder hva du trenger å ha lett tilgjengelig f
 
 Oversikten under gir en pekepinn på hva du bør velge til løsningen din.
 
-Navigasjonslenker:
-- 2–4 lenker
+Velg **navigasjonslenker** når
+- du har 2–4 lenker til sider
   - Antallet vurderes ut fra tilgjengelig plass, med hensyn til spacing mellom lenkene og avstanden til logo og tjenestenavn.
-- Sidene er like viktige
-- Brukeren bytter ofte mellom dem
+- sidene er like viktige
+- brukeren bytter ofte mellom dem
 
-Meny:
-- 4 eller flere hovedsider
-- Navigasjon med flere nivåer
+Velg **meny** når
+- du har 4 eller flere hovedsider
+- det er flere nivåer i navigasjonen 
 
-Temameny:
-- 2-3 tydelige temaer for navigasjon
-- Mange underliggende sider
-- Navigasjon med flere nivåer
+Velg **temameny** når
+- du har minst 2 tydelige temaer for navigasjon
+- du har mange underliggende sider
+- det er flere nivåer i navigasjonen
+
+
+{/* 
+TODO: uncommment when funtionality is implemented in Header.
+
+### Lenker til logo og tjenestenavn
+
+For publikumsløsninger skal Kartverkets logo føre til kartverket.no, og tjenestenavnet skal føre til denne tjenestens hovedside.
+
+For interne løsninger kan man velge mellom å bruke
+1. samme løsning som for publikumsløsninger
+2. kun Kartverkets logosymbol + tjenestenavnet dersom man ikke har behov for å inkludere en vei til kartverket.no i Header. Under ser du et eksempel. */}
+
+{/* Eksempel */}
 
 ## Responsivitet
 

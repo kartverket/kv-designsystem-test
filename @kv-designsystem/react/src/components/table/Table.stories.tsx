@@ -4,6 +4,8 @@ import { Table, TableHeaderCellProps } from './Table';
 import { Tag } from '../tag/Tag';
 import { Pagination } from '../pagination/Pagination';
 import { usePagination } from '../../utilities/hooks/usePagination/usePagination';
+import { PencilIcon } from '@navikt/aksel-icons';
+import { Button } from '../button/Button';
 
 const meta = {
   component: Table,
@@ -46,6 +48,14 @@ export const Preview: Story = {
   )
 };
 
+const zebraData = [
+  { month: 'Januar', y2023: '1 230', y2024: '1 450' },
+  { month: 'Februar', y2023: '980', y2024: '1 120' },
+  { month: 'Mars', y2023: '1 150', y2024: '1 300' },
+  { month: 'April', y2023: '950', y2024: '1 100' },
+  { month: 'Mai', y2023: '1 420', y2024: '1 670' },
+]
+
 export const ZebraStripes: Story = {
   render: (_args) => (
     <Table
@@ -68,21 +78,13 @@ export const ZebraStripes: Story = {
         </Table.Row>
       </Table.Head>
       <Table.Body>
-        <Table.Row>
-          <Table.HeaderCell scope='row'>Januar</Table.HeaderCell>
-          <Table.Cell style={{ textAlign: 'right' }}>1 230</Table.Cell>
-          <Table.Cell style={{ textAlign: 'right' }}>1 450</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.HeaderCell scope='row'>Februar</Table.HeaderCell>
-          <Table.Cell style={{ textAlign: 'right' }}>980</Table.Cell>
-          <Table.Cell style={{ textAlign: 'right' }}>1 120</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.HeaderCell scope='row'>Mars</Table.HeaderCell>
-          <Table.Cell style={{ textAlign: 'right' }}>1 150</Table.Cell>
-          <Table.Cell style={{ textAlign: 'right' }}>1 300</Table.Cell>
-        </Table.Row>
+        {zebraData.map(({ month, y2023, y2024 }) => (
+          <Table.Row>
+            <Table.HeaderCell scope='row'>{month}</Table.HeaderCell>
+            <Table.Cell style={{ textAlign: 'right' }}>{y2023}</Table.Cell>
+            <Table.Cell style={{ textAlign: 'right' }}>{y2024}</Table.Cell>
+          </Table.Row>
+        ))}
       </Table.Body>
     </Table>
   )
@@ -207,6 +209,7 @@ export const Sortable: Story = {
             >
               Telefon
             </Table.HeaderCell>
+            <Table.HeaderCell>Rediger</Table.HeaderCell>
           </Table.Row>
         </Table.Head>
         <Table.Body>
@@ -215,6 +218,7 @@ export const Sortable: Story = {
               <Table.Cell>{row.navn}</Table.Cell>
               <Table.Cell>{row.epost}</Table.Cell>
               <Table.Cell>{row.telefon}</Table.Cell>
+              <Table.Cell><Button variant='tertiary'><PencilIcon /></Button></Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>

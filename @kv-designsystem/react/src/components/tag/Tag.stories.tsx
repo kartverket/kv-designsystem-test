@@ -71,36 +71,6 @@ export const WithOutline: Story = {
 const propertyImage =
   'https://eiendomsregisteret.kartverket.no/egenregistrering.jpeg';
 
-export const Article: Story = {
-  render: (_args) => (
-    <div style={{ width: '350px' }}>
-      <img
-        src={propertyImage}
-        alt='Et hus ved en fjord'
-        style={{
-          width: 'inherit',
-          height: '100%',
-          borderRadius: 10,
-        }}
-      />
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-          marginTop: 'var(--ds-size-4)',
-          marginBottom: 'var(--ds-size-3)',
-        }}
-      >
-        <Heading>Egenregistrering</Heading>
-        <Tag data-color='accent' data-size='sm'>Nyhet</Tag>
-      </div>
-      <Paragraph>
-        Nå kan du som eier eller fester registrere opplysninger om din bolig eller fritidsbolig.
-      </Paragraph>
-    </div>
-  )
-};
-
 export const InCard: Story = {
   render: (_args) => (
     <Card style={{ width: '320px' }}>
@@ -108,10 +78,10 @@ export const InCard: Story = {
         <img src={propertyImage} alt='Et hus ved en fjord' />
       </Card.Block>
       <Card.Block>
+        <Tag data-color='accent' data-size='sm'>Nyhet</Tag>
         <Heading>
           <a href='#'>Egenregistrering</a>
         </Heading>
-        <Tag data-color='accent' data-size='sm'>Nyhet</Tag>
         <Paragraph>
           Nå kan du som eier eller fester registrere opplysninger om din bolig eller fritidsbolig.
         </Paragraph>

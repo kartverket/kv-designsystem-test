@@ -16,7 +16,7 @@ Vi benytter Button når brukeren skal utføre en tydelig handling.
 - handlingen setter i gang noe i løsningen, for eksempel åpner en dialog eller starter et steg-for-steg-løp
 
 **Unngå `Button` når**
-- brukeren skal navigere til andre sider – bruk heller [`Link`](/docs/components-link--docs)
+- brukeren skal navigere til andre sider eller tjenester – bruk heller [`Link`](/docs/components-link--docs)
 - brukeren skal filtrere innhold – bruk heller [`Chip`](/docs/components-chip--docs)
 - du skal vise hvilke filter som er aktive – bruk heller [`Chip`](/docs/components-chip--docs)
 
@@ -47,7 +47,8 @@ Denne knappen bruker vi til mindre viktige handlinger. Hvis den brukes alene, b�
 
 - Knapper kan ha hovedfargen i temaet ditt, neutral eller danger.
 - En gruppe knapper bør bruke samme fargevariant.
-- Unntak: bruk danger-fargen for handlinger som brukeren ikke kan angre, for eksempel “Slett”.
+    - Unntak: bruk danger-fargen for handlinger som brukeren ikke kan angre, for eksempel "Slett".
+- Unngå neutral på knapper som ligger på en farget bakgrunn, for eksempel i et tinted Card – bruk heller den samme fargevarianten.
 
 <Canvas of={ButtonStories.Colors} />
 
@@ -109,7 +110,7 @@ Sørg for at brukeren lett ser hva som er viktigst. Flere primærknapper på en 
 Når knapper står ved siden av hverandre skal Primary stå før Secondary.
 
 Unntak:
-Ved «Forrige» og «Neste» skal Forrige stå først (selv om den er sekundær).
+- Ved «Forrige» og «Neste» skal Forrige stå først (selv om den er sekundær).
 
 ## Tekst i Button
 

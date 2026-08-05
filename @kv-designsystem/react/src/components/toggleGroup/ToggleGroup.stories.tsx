@@ -50,7 +50,7 @@ export const TextAndIcons: Story = {
 
 export const OnlyIcons: Story = {
   render: (_args) => (
-    <ToggleGroup data-toggle-group='Tekstjustering' defaultValue='option-1'>
+    <ToggleGroup data-toggle-group='Tekstjustering' defaultValue='option-1' data-color='neutral'>
       <Tooltip content='Venstrestilt'>
         <ToggleGroup.Item value='option-1'>
           <AlignLeftIcon aria-hidden />

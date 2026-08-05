@@ -48,8 +48,8 @@ export const Interactive: Story = {
               marginTop: 'var(--ds-size-2)',
             }}
           >
-            <Button data-size='sm' onClick={() => setOpen(false)}>Ja, slett den</Button>
-            <Button data-size='sm' variant='tertiary' onClick={() => setOpen(false)}>
+            <Button data-size='sm' onClick={() => setOpen(false)}>Ja, slett</Button>
+            <Button data-size='sm' variant='tertiary' data-color='neutral' onClick={() => setOpen(false)}>
               Avbryt
             </Button>
           </div>

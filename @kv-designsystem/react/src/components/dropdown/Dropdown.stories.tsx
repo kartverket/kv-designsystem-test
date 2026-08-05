@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Dropdown } from './Dropdown';
+import { Divider } from '../divider/Divider';
 import {
   LinkIcon,
   ChevronDownIcon,
@@ -18,24 +19,28 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   render: (_args) => (
     <Dropdown.TriggerContext>
-      <Dropdown.Trigger>Dropdown</Dropdown.Trigger>
+      <Dropdown.Trigger>Åpne Dropdown</Dropdown.Trigger>
       <Dropdown placement='bottom-end'>
-        <Dropdown.Heading>First heading</Dropdown.Heading>
+        <Dropdown.Heading>Overskrift 1</Dropdown.Heading>
         <Dropdown.List>
           <Dropdown.Item>
-            <Dropdown.Button>Button 1.1</Dropdown.Button>
+            <Dropdown.Button>Knapp 1.1</Dropdown.Button>
           </Dropdown.Item>
           <Dropdown.Item>
-            <Dropdown.Button>Button 1.2</Dropdown.Button>
+            <Dropdown.Button>Knapp 1.2</Dropdown.Button>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <Dropdown.Button>Knapp 1.3</Dropdown.Button>
           </Dropdown.Item>
         </Dropdown.List>
-        <Dropdown.Heading>Second heading</Dropdown.Heading>
+        <Divider />
+        <Dropdown.Heading>Overskrift 2</Dropdown.Heading>
         <Dropdown.List>
           <Dropdown.Item>
-            <Dropdown.Button>Button 2.1</Dropdown.Button>
+            <Dropdown.Button>Knapp 2.1</Dropdown.Button>
           </Dropdown.Item>
           <Dropdown.Item>
-            <Dropdown.Button>Button 2.2</Dropdown.Button>
+            <Dropdown.Button>Knapp 2.2</Dropdown.Button>
           </Dropdown.Item>
         </Dropdown.List>
       </Dropdown>
@@ -54,17 +59,25 @@ export const WithIcons: Story = {
         <Dropdown.List>
           <Dropdown.Item>
             <Dropdown.Button asChild>
-              <a href='https://github.com/kartverket/kv-designsystem-test'>
+              <a href='https://kartverket.no'>
                 <LinkIcon aria-hidden />
-                Github
+                Kartverket
               </a>
             </Dropdown.Button>
           </Dropdown.Item>
           <Dropdown.Item>
             <Dropdown.Button asChild>
-              <a href='https://kartverket.no'>
+              <a href='https://www.geonorge.no/'>
                 <LinkIcon aria-hidden />
-                Kartverket.no
+                Geonorge
+              </a>
+            </Dropdown.Button>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <Dropdown.Button asChild>
+              <a href='https://www.norgeskart.no/'>
+                <LinkIcon aria-hidden />
+                Norgeskart
               </a>
             </Dropdown.Button>
           </Dropdown.Item>

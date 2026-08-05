@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Card } from './Card';
+import { Button } from '../button/Button';
 import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
+import { Tag } from '../tag/Tag';
+import { HeartIcon, HeartFillIcon, NotePencilIcon } from '@navikt/aksel-icons';
+import { Tooltip } from '@digdir/designsystemet-react';
 
 const meta = {
   component: Card,
@@ -38,6 +42,72 @@ export const Preview: Story = {
       <Paragraph data-size='sm'>Fotnote</Paragraph>
     </Card>
   ),
+};
+
+export const Variants: Story = {
+  args: {
+    ...Preview.args,
+  },
+  render: (args) => (
+    <div
+      style={{
+        display: 'flex',
+        gap: '10px',
+      }}
+    >
+      <Card {...args} style={{ width: '320px' }}>
+        <Tag data-color='accent' data-size='sm' variant='outline'>Tinglyst</Tag>
+        <Heading>
+          Furusvingen 82
+        </Heading>
+        <Paragraph>
+          Hovedeiendom
+        </Paragraph>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}
+        >
+          <Tooltip content='Legg til i favoritter'>
+            <Button variant='tertiary'>
+              <HeartIcon aria-hidden />
+            </Button>
+          </Tooltip>
+          <Button variant='tertiary'>
+            <NotePencilIcon aria-hidden />
+            Rediger
+          </Button>
+        </div>
+      </Card>
+
+      <Card {...args} variant='tinted' data-color='support-1' style={{ width: '320px' }}>
+        <Tag data-color='warning' data-size='sm' variant='outline'>Ikke tinglyst</Tag>
+        <Heading>
+          Kongleveien 23C
+        </Heading>
+        <Paragraph>
+          Eiendom til utleie
+        </Paragraph>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}
+        >
+          <Tooltip content='Fjern fra favoritter'>
+            <Button variant='tertiary'>
+              <HeartFillIcon aria-hidden />
+            </Button>
+          </Tooltip>
+          <Button variant='tertiary'>
+            <NotePencilIcon aria-hidden />
+            Rediger
+          </Button>
+        </div>
+      </Card>
+    </div>
+  )
 };
 
 const geodesyImg = 'https://images.unsplash.com/photo-1732362129903-abc909ab1067?q=80&w=1329&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
@@ -112,6 +182,7 @@ export const AsButton: Story = {
   ),
 };
 
+// TODO: Paragraph gets margin on top & bottom from customTheme
 export const Horizontal: Story = {
   args: {
     ...Preview.args,
@@ -123,11 +194,12 @@ export const Horizontal: Story = {
         gridAutoFlow: 'column',
         width: '700px',
       }}
+      variant='tinted'
     >
       <Card.Block>
         <Heading>
           <a href='https://kartverket.no/til-lands/posisjon/brukerveiledning-posisjonstjenester'>
-            Les Kartverkets brukerveiledning for posisjonstjenester
+            Kartverkets brukerveiledning for posisjonstjenester
           </a>
         </Heading>
       </Card.Block>

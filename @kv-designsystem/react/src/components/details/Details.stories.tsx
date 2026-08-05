@@ -14,13 +14,10 @@ export const Preview: Story = {
   render: (_args) => (
     <Details>
       <Details.Summary>
-        Hvorfor må Kartverket behandle bestillingen min?
+        Hvor lang tid tar det å tinglyse et dokument?
       </Details.Summary>
       <Details.Content>
-        Når du bestiller et eiendomsdokument, mottar du en attestert eller bekreftet utskrift. Ved
-        bestilling av attestert dokument må Kartverket sikre at vi ikke leverer ut innhold i
-        dokumentet som anses som taushetsbelagte opplysninger. Disse bestillingene må derfor til
-        behandling før det blir tilgjengelig for deg.
+        Vanlig saksbehandlingstid hos Kartverket er to dager, og i tillegg må du beregne tid til ordinær postgang.
       </Details.Content>
     </Details>
   )
@@ -31,7 +28,7 @@ export const InCard: Story = {
     <Card>
       <Details>
         <Details.Summary>
-          Hvorfor må Kartverket behandle bestillingen min
+          Hvorfor må Kartverket behandle bestillingen min?
         </Details.Summary>
         <Details.Content>
           Når du bestiller et eiendomsdokument mottar du en attestert eller bekreftet utskrift. Ved
