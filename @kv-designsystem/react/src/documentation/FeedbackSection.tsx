@@ -9,7 +9,6 @@ export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: Hea
         level={level}
         data-size={dataSize}
         className='sb-unstyled'
-        style={{ marginBlock: 'var(--ds-size-4) var(--ds-size-2)' }}
       >
         Hjelp oss med å forbedre designsystemet
       </Heading>
