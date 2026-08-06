@@ -1,16 +1,12 @@
 {
-	"$schema": "https://designsystemet.no/schemas/cli/1.11.0.json",
-	  "outDir": "./src",
+  "$schema": "https://designsystemet.no/schemas/cli/1.11.0.json",
+  "outDir": "./src",
   "themes": {
     "green": {
       "colors": {
-        "main": {
-          "accent": "#1a833b"
-        },
-        "support": {
-          "support-1": "#fa782d",
-          "support-2": "#8c4799"
-        },
+        "accent": "#1a833b",
+        "support-1": "#fa782d",
+        "support-2": "#8c4799",
         "neutral": "#171717"
       },
       "overrides": {
@@ -25,13 +21,9 @@
     },
     "blue": {
       "colors": {
-        "main": {
-          "accent": "#1A589F"
-        },
-        "support": {
-          "support-1": "#fa782d",
-          "support-2": "#8c4799"
-        },
+        "accent": "#1A589F",
+        "support-1": "#fa782d",
+        "support-2": "#8c4799",
         "neutral": "#171717"
       },
       "overrides": {

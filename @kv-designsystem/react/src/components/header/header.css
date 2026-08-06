@@ -41,7 +41,7 @@
   gap: clamp(var(--ds-size-4), 5.556vw, var(--ds-size-18));
 }
 
-.header-brand {
+.header-brand .header-brand--internal {
   display: flex;
   align-items: center;
   /* Scaling gap size instead of media queries */
@@ -55,7 +55,7 @@
   & a:hover {
     text-decoration: underline;
   }
-}
+}  
 
 .header-logo {
   height: var(--ds-size-10);
@@ -107,6 +107,7 @@
   display: flex;
   gap: var(--kvdsc-header-item-gap);
   justify-content: flex-end;
+  /* align-items: center; */
 }
 
 .header-dialog-trigger {
