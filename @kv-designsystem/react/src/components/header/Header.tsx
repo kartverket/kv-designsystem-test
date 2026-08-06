@@ -3,7 +3,7 @@ import type { Size } from '@digdir/designsystemet-types';
 import { CSSProperties, forwardRef, type HTMLAttributes } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import './header.css';
-import { HeaderBrand } from './HeaderBrand';
+import { PublicBrand, InternalBrand } from './HeaderBrand';
 
 export type HeaderProps = HTMLAttributes<HTMLElement> & {
   /**
@@ -36,14 +36,14 @@ export type HeaderProps = HTMLAttributes<HTMLElement> & {
 };
 
 export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
-  { 
+  {
     variant = 'public',
-    applicationHref, 
-    applicationName, 
-    children, 
-    className, 
-    maxWidth = '1296px', 
-    ...rest 
+    applicationHref,
+    applicationName,
+    children,
+    className,
+    maxWidth = '1296px',
+    ...rest
   },
   ref
 ) {
@@ -75,13 +75,21 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
       {...rest}
     >
       <div className='header-container'>
+        {variant === 'internal' && applicationName && applicationHref ? (
+          <InternalBrand
+            applicationName={applicationName}
+            applicationHref={applicationHref}
+          />
 
-        <HeaderBrand
-          variant={variant}
-          applicationName={applicationName}
-          applicationHref={applicationHref}
-        />
-
+        ) : applicationName && applicationHref ? (
+          <PublicBrand
+            applicationName={applicationName}
+            applicationHref={applicationHref}
+          />
+        ) : (
+          <PublicBrand />
+        )}
+        
         {children && <div className='header-content'>{children}</div>}
       </div>
     </header>
