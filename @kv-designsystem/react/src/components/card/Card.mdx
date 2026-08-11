@@ -36,7 +36,17 @@ Et `Card` kan deles inn i flere seksjoner ved bruk av `Card.Block`. Seksjonene f
 
 `Card` kan brukes som navigasjonskort for å føre brukeren videre til en ny side.
 
-Se kodeeksempler for anbefalt implementasjon for å sikre riktig semantikk. Legg inn lenken som en `a`-tag i `Heading`-elementet til `Card`. Hele `Card` blir da automatisk klikkbar, og skjermlesere får en [bedre brukeropplevelse enn dersom hele var en lenke](https://adrianroselli.com/2020/02/block-links-cards-clickable-regions-etc.html) fordi kun tittelen blir lest opp som lenketekst.
+Legg lenken som en `a`-tag i et `Heading`-element i `Card` eller `Card.Block`, slik:
+
+```tsx
+<Card>
+  <Heading level={3}>
+    <a href='/link-path'>Lenketittel</a>
+  </Heading>
+</Card>
+```
+
+Hele kortet blir da automatisk klikkbart, og skjermlesere får en bedre brukeropplevelse enn dersom hele var en lenke fordi kun tittelen blir lest opp som lenketekst.
 
 <Canvas of={CardStories.WithLink} />
 
