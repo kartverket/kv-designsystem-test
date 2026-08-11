@@ -4,59 +4,62 @@ import logoSymbol from '../../../assets/img/KV_Logo_Symbol.svg';
 import { Link } from '../link/Link';
 import { Heading } from '../typography/heading/Heading';
 
-// If applicationName is provided, applicationHref is required
-type PublicBrandProps =
-  | {
-    applicationName?: undefined;
-    applicationHref?: string;
-  }
-  | {
-    applicationName: string;
-    applicationHref: string;
-  }
-  ;
-
-type InternalBrandProps = {
-  applicationName: string;
-  applicationHref: string;
+type BrandProps = {
+  applicationName?: string;
+  applicationHref?: string;
 };
 
-export const PublicBrand = forwardRef<HTMLDivElement, PublicBrandProps>(
-  function PublicBrand({ applicationName, applicationHref }, ref) {
-    return (
-      <div className='header-brand' ref={ref}>
-        <a href='https://kartverket.no' aria-label='Kartverket'>
-          <img src={logoFull} className='header-logo header-logo--full' aria-hidden />
-          <img src={logoSymbol} className='header-logo header-logo--symbol' aria-hidden />
-        </a>
+// Kartverket logo linking to kartverket.no. CSS swaps the full logo for
+// the symbol on narrow viewports (header-logo--full / header-logo--symbol).
+function KartverketLogoLink() {
+  return (
+    <a href="https://kartverket.no" aria-label="Kartverket">
+      <img src={logoFull} alt="" className="header-logo header-logo--full" />
+      <img src={logoSymbol} alt="" className="header-logo header-logo--symbol" />
+    </a>
+  );
+}
 
-        {applicationName && (
-          <>
-            <span className='header-brand-divider' />
-            {applicationHref ? (
-              <Link href={applicationHref}>
-                <Heading data-size='2xs'>{applicationName}</Heading>
-              </Link>
-            ) : (
-              <Heading data-size='2xs'>{applicationName}</Heading>
-            )}
-          </>
-        )
-        }
+// Kartverket logo is its own link; the application name is a separate link,
+// separated from the logo.
+export const SeparateBrand = forwardRef<HTMLDivElement, BrandProps>(function SeparateBrand(
+  { applicationName, applicationHref },
+  ref,
+) {
+  return (
+    <div className="header-brand" ref={ref}>
+      <KartverketLogoLink />
+      {applicationName && applicationHref && (
+        <>
+          <span className="header-brand-divider" aria-hidden />
+          <Link href={applicationHref}>
+            <Heading data-size="2xs">{applicationName}</Heading>
+          </Link>
+        </>
+      )}
+    </div>
+  );
+});
+
+// Symbol + application name is merged into one link. With no application, this
+// is just the Kartverket logo link.
+export const UnifiedBrand = forwardRef<HTMLDivElement, BrandProps>(function UnifiedBrand(
+  { applicationName, applicationHref },
+  ref,
+) {
+  if (!applicationName || !applicationHref) {
+    return (
+      <div className="header-brand" ref={ref}>
+        <KartverketLogoLink />
       </div>
     );
   }
-);
-
-export const InternalBrand = forwardRef<HTMLDivElement, InternalBrandProps>(
-  function InternalBrand({ applicationName, applicationHref }, ref) {
-    return (
-      <div ref={ref}>
-        <a href={applicationHref} className='header-brand--internal' >
-          <img src={logoSymbol} className='header-logo header-logo--symbol header-logo--internal' aria-hidden />
-          <Heading data-size='2xs'>{applicationName}</Heading>
-        </a>
-      </div>
-    );
-  }
-);
+  return (
+    <div className="header-brand header-brand--unified" ref={ref}>
+      <a href={applicationHref}>
+        <img src={logoSymbol} alt="" className="header-logo header-logo--unified" />
+        <Heading data-size="2xs">{applicationName}</Heading>
+      </a>
+    </div>
+  );
+});

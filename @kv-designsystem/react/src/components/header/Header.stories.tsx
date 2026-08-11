@@ -31,7 +31,7 @@ export const Preview: Story = {
 
 export const Internal: Story = {
   args: {
-    variant: 'internal',
+    separateBrand: false,
     applicationName: 'Tjenestetittel',
     applicationHref: '#',
   },

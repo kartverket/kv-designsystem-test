@@ -1,51 +1,53 @@
 import cl from 'clsx/lite';
 import type { Size } from '@digdir/designsystemet-types';
-import { CSSProperties, forwardRef, type HTMLAttributes } from 'react';
-import { useState, useEffect, useRef } from 'react';
+import { CSSProperties, forwardRef, type HTMLAttributes, useEffect, useRef, useState } from 'react';
 import './header.css';
-import { PublicBrand, InternalBrand } from './HeaderBrand';
+import { SeparateBrand, UnifiedBrand } from './HeaderBrand';
+
+// Application name and href must be provided together, or none of them.
+type ApplicationLink =
+  | { applicationName?: undefined; applicationHref?: undefined }
+  | {
+      /** The name of the application, displayed in the header link. */
+      applicationName: string;
+      /** URL for the application. */
+      applicationHref: string;
+    };
 
 export type HeaderProps = HTMLAttributes<HTMLElement> & {
   /**
-   * Header variant.
-   * @default 'public'
+   * Whether the Kartverket logo is its own link area, pointing to
+   * kartverket.no and shown next to the application name (with a divider between).
+   * When `false`, the symbol and application name form a single link to the
+   * application. If no application name is providet, only the Kartverket logo is shown, linking to kartverket.no.
+   * @default true
    */
-  variant?: 'public' | 'internal';
-  /**
-   * The name of the application, displayed in the header.
-   */
-  applicationName?: string;
-  /**
-    * URL for the application name.
-    *
-    * Required for the internal variant, and when applicationName is provided
-    * for the public variant.
-    */
-  applicationHref?: string;
+  separateBrand?: boolean;
   /**
    * The maximum width of the header content.
    * Can be any valid CSS width value, e.g. `80rem`, `100%`, etc.
-   * Should be the same as for footer content.
+   * Should be the same as for the footer content.
    * @default '1296px'
    */
   maxWidth?: string;
   /**
-   * Changes size for descendant Designsystemet components. Select from predefined sizes.
+   * Changes size for descendant Designsystemet components.
+   * Select from predefined sizes.
    */
   'data-size'?: Size;
-};
+} & ApplicationLink;
 
 export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
   {
-    variant = 'public',
-    applicationHref,
+    separateBrand = true,
     applicationName,
+    applicationHref,
     children,
     className,
     maxWidth = '1296px',
     ...rest
   },
-  ref
+  ref,
 ) {
   const [showHeader, setShowHeader] = useState(true);
   const lastScrollY = useRef(0);
@@ -53,45 +55,29 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      // Show header when scrolling up, hide when scrolling down
-      if (currentScrollY > lastScrollY.current && currentScrollY > 75) {
-        setShowHeader(false);
-      } else {
-        setShowHeader(true);
-      }
+      // Hide on scroll down, show on scroll up (past a small threshold).
+      setShowHeader(!(currentScrollY > lastScrollY.current && currentScrollY > 75));
       lastScrollY.current = currentScrollY;
     };
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header
-      className={cl('header', (showHeader ? 'visible' : 'hidden'), className)}
+      className={cl('header', showHeader ? 'visible' : 'hidden', className)}
       style={{ '--kvdsc-header-max-width': maxWidth } as CSSProperties}
       ref={ref}
       {...rest}
     >
-      <div className='header-container'>
-        {variant === 'internal' && applicationName && applicationHref ? (
-          <InternalBrand
-            applicationName={applicationName}
-            applicationHref={applicationHref}
-          />
-
-        ) : applicationName && applicationHref ? (
-          <PublicBrand
-            applicationName={applicationName}
-            applicationHref={applicationHref}
-          />
+      <div className="header-container">
+        {separateBrand ? (
+          <SeparateBrand applicationName={applicationName} applicationHref={applicationHref} />
         ) : (
-          <PublicBrand />
+          <UnifiedBrand applicationName={applicationName} applicationHref={applicationHref} />
         )}
-        
-        {children && <div className='header-content'>{children}</div>}
+        {children && <div className="header-content">{children}</div>}
       </div>
     </header>
-  )
+  );
 });

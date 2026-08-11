@@ -41,23 +41,24 @@
   gap: clamp(var(--ds-size-4), 5.556vw, var(--ds-size-18));
 }
 
-.header-brand {
+.header-brand, .header-brand a {
   display: flex;
   align-items: center;
   /* Scaling gap size instead of media queries */
   gap: clamp(var(--ds-size-3), 1.543vw, var(--ds-size-5));
 }
 
-.header-brand a,
-.header-brand--internal {
-  display: flex;
-  align-items: center;
+.header-brand a {
   color: var(--ds-color-neutral-text-default);
   text-decoration: none;
-
+  
   &:hover {
     text-decoration: underline;
   }
+}
+
+.header-brand--unified a {
+  gap: clamp(var(--ds-size-1), .5vw, var(--ds-size-2));
 }
 
 .header-logo {
@@ -73,7 +74,7 @@
   display: none;
 }
 
-.header-logo--internal {
+.header-logo--unified {
   display: block;
 }
 
