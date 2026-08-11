@@ -1,0 +1,69 @@
+.kvds-logo {
+  width: fit-content;
+  height: fit-content;
+  padding: var(--kvds-logo-padding);
+
+  >img {
+    height: var(--kvds-logo-size);
+    width: auto;
+  }
+}
+
+.kvds-logo--horizontal,
+.kvds-logo--vertical {
+  >img:first-of-type {
+    display: block;
+  }
+
+  >img:last-of-type {
+    display: none;
+  }
+
+  /* Different color modes set on the component */
+
+  &[data-color-scheme='auto'] {
+    @media (prefers-color-scheme: dark) {
+      >img:first-of-type {
+        display: none;
+      }
+
+      >img:last-of-type {
+        display: block;
+      }
+    }
+  }
+
+  &[data-color-scheme='dark'] {
+    >img:first-of-type {
+      display: none;
+    }
+
+    >img:last-of-type {
+      display: block;
+    }
+  }
+}
+
+/* Different color modes infered from parent component */
+
+[data-color-scheme='auto'] .kvds-logo {
+  @media (prefers-color-scheme: dark) {
+    >img:first-of-type {
+      display: none;
+    }
+
+    >img:last-of-type {
+      display: block;
+    }
+  }
+}
+
+[data-color-scheme='dark'] .kvds-logo {
+  >img:first-of-type {
+    display: none;
+  }
+
+  >img:last-of-type {
+    display: block;
+  }
+}

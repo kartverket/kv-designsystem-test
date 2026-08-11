@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import logoFull from '../../../assets/img/KV_Logo_Horisontal.svg';
+import logoFull from '../../../assets/img/KV_Logo_Horizontal.svg';
 import logoSymbol from '../../../assets/img/KV_Logo_Symbol.svg';
 import { Link } from '../link/Link';
 import { Heading } from '../typography/heading/Heading';
