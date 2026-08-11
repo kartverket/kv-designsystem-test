@@ -38,7 +38,6 @@
     "tslib": "catalog:",
     "typescript": "catalog:",
     "typescript-eslint": "catalog:",
-    "tslib": "catalog:",
     "vite": "catalog:",
     "vitest": "catalog:"
   },

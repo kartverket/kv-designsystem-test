@@ -14,14 +14,13 @@ export type LogoProps = HTMLAttributes<HTMLElement> & {
    */
   variant?: 'horizontal' | 'vertical' | 'symbol';
   /**
-   * Changes height of the logo, the width
-   * scales accordingly
+   * Changes height of the logo, the width scales accordingly
+   * Can be any valid CSS length value, e.g. `40px`, `3rem`, etc.
    * @default 'var(--ds-size-10)'
    */
   size?: string;
   /**
-   * Changes padding on all sides
-   * of the logo
+   * Changes padding on all sides of the logo
    * @default 'var(--ds-size-5)'
    */
   padding?: string;
@@ -47,8 +46,8 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
         {...rest}
         style={
           {
-            '--kvds-logo-size': size,
-            '--kvds-logo-padding': padding,
+            '--kvdsc-logo-size': size,
+            '--kvdsc-logo-padding': padding,
             ...style,
           } as React.CSSProperties
         }
