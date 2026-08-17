@@ -10,7 +10,26 @@ import {
 const meta: Meta<UseRadioGroupProps> = {
   title: 'Hooks/useRadioGroup',
   tags: ['alpha'],
-  parameters: { layout: 'centered' },
+  parameters: {
+    layout: 'centered',
+    docs: {
+      source: {
+        type: 'code', // Vis koden som tilhører hver Story direkte (userialisert)
+
+        // Fjern det wrappende "render: (args, context) => {" i preview-koden, så bare selve eksempelet vises.
+        transform: (code: string) => {
+          if (!code.includes('=>')) return code;
+
+          return code
+            .replace(/^[\s\S]*?=>\s*\{/, '') // fjern "{ render: (args, context) => {"
+            .replace(/\}\s*\}\s*;?\s*$/, '') // fjern de to avsluttende }
+            .replace(/^ {4}/gm, '') // dedent 2 nivåer
+            .replace('return', '')
+            .trim();
+        },
+      }
+    }
+  },
   argTypes: {
     name: {
       table: { type: { summary: 'string' } },
@@ -69,15 +88,12 @@ const ageGroups = [
 ];
 
 export const Group: Story = {
-  args: {
-    name: 'my-group',
-    readOnly: false,
-    disabled: false,
-    value: '',
-  },
-  render: (args: UseRadioGroupProps, context: StoryContext<UseRadioGroupProps>) => {
+  render: (__args: UseRadioGroupProps, context: StoryContext<UseRadioGroupProps>) => {
     const { getRadioProps, validationMessageProps } = useRadioGroup({
-      ...args,
+      name: 'my-group',
+      readOnly: false,
+      disabled: false,
+      value: '',
     });
 
     return (
@@ -107,16 +123,13 @@ const requestOptions = [
 ];
 
 export const WithError: Story = {
-  args: {
-    readOnly: false,
-    disabled: false,
-    value: '',
-    error: 'Du må velge et alternativ før du kan fortsette.',
-    name: 'request-type',
-  },
-  render: (args: UseRadioGroupProps, context: StoryContext<UseRadioGroupProps>) => {
+  render: (__args: UseRadioGroupProps, context: StoryContext<UseRadioGroupProps>) => {
     const { getRadioProps, validationMessageProps } = useRadioGroup({
-      ...args,
+      readOnly: false,
+      disabled: false,
+      value: '',
+      error: 'Du må velge et alternativ før du kan fortsette.',
+      name: 'request-type',
     });
 
     return (
@@ -137,16 +150,13 @@ export const WithError: Story = {
 };
 
 export const Outline: Story = {
-  args: {
-    name: 'course-level',
-    readOnly: false,
-    disabled: false,
-    value: '',
-    variant: 'outline',
-  },
-  render: (args: UseRadioGroupProps) => {
+  render: (__args: UseRadioGroupProps) => {
     const { getRadioProps } = useRadioGroup({
-      ...args,
+      name: 'course-level',
+      readOnly: false,
+      disabled: false,
+      value: '',
+      variant: 'outline',
     });
 
     return (

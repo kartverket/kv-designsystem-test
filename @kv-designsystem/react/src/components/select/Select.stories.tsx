@@ -73,9 +73,6 @@ export const WithOptgroup: Story = {
 };
 
 export const ReadOnly: Story = {
-  args: {
-    readOnly: true
-  },
   render: (args) => (
     <Field>
       <Label>Fjell</Label>

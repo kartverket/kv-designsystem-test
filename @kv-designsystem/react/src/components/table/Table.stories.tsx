@@ -68,11 +68,11 @@ export const ZebraStripes: Story = {
       <caption>Antall søknader per måned</caption>
       <Table.Head>
         <Table.Row>
-          <Table.HeaderCell scope='col'>Måned</Table.HeaderCell>
-          <Table.HeaderCell scope='col' style={{ textAlign: 'right' }}>
+          <Table.HeaderCell>Måned</Table.HeaderCell>
+          <Table.HeaderCell style={{ textAlign: 'right' }}>
             2023
           </Table.HeaderCell>
-          <Table.HeaderCell scope='col' style={{ textAlign: 'right' }}>
+          <Table.HeaderCell style={{ textAlign: 'right' }}>
             2024
           </Table.HeaderCell>
         </Table.Row>
@@ -218,7 +218,11 @@ export const Sortable: Story = {
               <Table.Cell>{row.navn}</Table.Cell>
               <Table.Cell>{row.epost}</Table.Cell>
               <Table.Cell>{row.telefon}</Table.Cell>
-              <Table.Cell><Button variant='tertiary'><PencilIcon /></Button></Table.Cell>
+              <Table.Cell>
+                <Button variant='tertiary' aria-label='Rediger rad'>
+                  <PencilIcon aria-hidden />
+                </Button>
+              </Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
@@ -305,7 +309,10 @@ const dummyDataFylke = [
   },
 ];
 
+const storyParams = { docs: { source: { type: 'code' } } };
+
 export const FixedTable: Story = {
+  parameters: storyParams,
   args: {
     style: {
       tableLayout: 'fixed',

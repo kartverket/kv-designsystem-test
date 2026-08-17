@@ -11,7 +11,26 @@ import {
 const meta: Meta<UseCheckboxGroupProps> = {
   title: 'Hooks/useCheckboxGroup',
   tags: ['alpha'],
-  parameters: { layout: 'centered' },
+  parameters: {
+    layout: 'centered',
+    docs: {
+      source: {
+        type: 'code', // Vis koden som tilhører hver Story direkte (userialisert)
+
+        // Fjern det wrappende "render: (args, context) => {" i preview-koden, så bare selve eksempelet vises.
+        transform: (code: string) => {
+          if (!code.includes('=>')) return code;
+
+          return code
+            .replace(/^[\s\S]*?=>\s*\{/, '') // fjern "{ render: (args, context) => {"
+            .replace(/\}\s*\}\s*;?\s*$/, '') // fjern de to avsluttende }
+            .replace(/^ {4}/gm, '') // dedent 2 nivåer
+            .replace('return', '')
+            .trim();
+        },
+      }
+    }
+  },
   argTypes: {
     name: {
       table: { type: { summary: 'string' } },
@@ -133,21 +152,47 @@ export const Group: Story = {
 };
 
 export const WithError: Story = {
-  args: {
-    name: 'my-error',
-    error: 'Du må velge minst to kontaktalternativ',
-  },
-  render: Group.render,
+  render: (__args, context) => {
+    const { getCheckboxProps, validationMessageProps } = useCheckboxGroup({
+      value: ['epost'],
+      name: 'my-checkbox-group',
+      error: 'Du må velge minst to kontaktalternativ',
+    });
+
+    return (
+      <Fieldset>
+        <Fieldset.Legend>
+          Hvordan vil du helst at vi skal kontakte deg?
+        </Fieldset.Legend>
+        <Fieldset.Description>
+          Velg alle alternativene som er relevante for deg.
+        </Fieldset.Description>
+        <Checkbox
+          id={context.id + '-email'}
+          label='E-post'
+          {...getCheckboxProps('epost')}
+        />
+        <Checkbox
+          id={context.id + '-telefon'}
+          label='Telefon'
+          {...getCheckboxProps('telefon')}
+        />
+        <Checkbox
+          id={context.id + '-sms'}
+          label='SMS'
+          {...getCheckboxProps({ value: 'sms' })}
+        />
+        <ValidationMessage {...validationMessageProps} />
+      </Fieldset>
+    );
+  }
 };
 
 export const Outline: Story = {
-  args: {
-    variant: 'outline',
-  },
-  render: (args, context) => {
+  render: (__args, context) => {
     const { getCheckboxProps } = useCheckboxGroup({
       value: ['driftsmeldinger'],
-      ...args,
+      variant: 'outline',
     });
 
     return (
@@ -172,5 +217,5 @@ export const Outline: Story = {
         />
       </Fieldset>
     );
-  },
+  }
 };

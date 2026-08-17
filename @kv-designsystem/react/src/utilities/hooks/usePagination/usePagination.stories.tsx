@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
+import { useState } from 'react';
 import { Pagination } from '../../../components/pagination/Pagination';
 import {
   type UsePaginationProps,
@@ -9,6 +9,25 @@ import {
 const meta: Meta<UsePaginationProps> = {
   title: 'Hooks/usePagination',
   tags: ['alpha'],
+  parameters: {
+    docs: {
+      source: {
+        type: 'code', // Vis koden som tilhører hver Story direkte (userialisert)
+
+        // Fjern det wrappende "render: (args, context) => {" i preview-koden, så bare selve eksempelet vises.
+        transform: (code: string) => {
+          if (!code.includes('=>')) return code;
+
+          return code
+            .replace(/^[\s\S]*?=>\s*\{/, '') // fjern "{ render: (args, context) => {"
+            .replace(/\}\s*\}\s*;?\s*$/, '') // fjern de to avsluttende }
+            .replace(/^ {4}/gm, '') // dedent 2 nivåer
+            .replace('return', '')
+            .trim();
+        },
+      }
+    }
+  },
   argTypes: {
     currentPage: {
       control: {
@@ -49,16 +68,13 @@ export default meta;
 type Story = StoryObj<UsePaginationProps>;
 
 export const Preview: Story = {
-  args: {
-    currentPage: 2,
-    totalPages: 10,
-    showPages: 7,
-  },
-  render: (args) => {
-    const [, updateArgs] = useArgs();
+  render: (__args) => {
+    const [currentPage, setCurrentPage] = useState(4);
     const { pages, nextButtonProps, prevButtonProps } = usePagination({
-      ...args,
-      setCurrentPage: (currentPage) => updateArgs({ currentPage }),
+      currentPage: currentPage,
+      totalPages: 10,
+      showPages: 7,
+      setCurrentPage,
     });
 
     return (

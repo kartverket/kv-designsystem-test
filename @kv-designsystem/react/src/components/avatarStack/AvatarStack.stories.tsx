@@ -30,9 +30,9 @@ export const Preview: Story = {
       <Avatar aria-label='Briefcase'>
         <BriefcaseIcon />
       </Avatar>
-      <Avatar aria-label='Søren Magnussen'>sm</Avatar>
-      <Avatar aria-label='Mark Downright'>md</Avatar>
-      <Avatar aria-label='Ola Nordman'>on</Avatar>
+      <Avatar aria-label='Søren Magnussen' initials='sm' />
+      <Avatar aria-label='Mark Downright' initials='md' />
+      <Avatar aria-label='Ola Nordman' initials='on' />
     </AvatarStack>
   )
 };
@@ -202,9 +202,9 @@ export const Expandable: Story = {
           <Avatar aria-label='Briefcase'>
             <BriefcaseIcon />
           </Avatar>
-          <Avatar aria-label='Søren Magnussen'>sm</Avatar>
-          <Avatar aria-label='Mark Downright'>md</Avatar>
-          <Avatar aria-label='Ola Nordman'>on</Avatar>
+          <Avatar aria-label='Søren Magnussen' initials='sm' />
+          <Avatar aria-label='Mark Downright' initials='md' />
+          <Avatar aria-label='Ola Nordman' initials='on' />
         </AvatarStack>
       </fieldset>
       <fieldset>
@@ -216,9 +216,9 @@ export const Expandable: Story = {
           <Avatar aria-label='Briefcase'>
             <BriefcaseIcon />
           </Avatar>
-          <Avatar aria-label='Søren Magnussen'>sm</Avatar>
-          <Avatar aria-label='Mark Downright'>md</Avatar>
-          <Avatar aria-label='Ola Nordman'>on</Avatar>
+          <Avatar aria-label='Søren Magnussen' initials='sm' />
+          <Avatar aria-label='Mark Downright' initials='md' />
+          <Avatar aria-label='Ola Nordman' initials='on' />
         </AvatarStack>
       </fieldset>
     </div>
@@ -238,9 +238,9 @@ export const Square: Story = {
       <Avatar variant='square' aria-label='Briefcase'>
         <BriefcaseIcon />
       </Avatar>
-      <Avatar variant='square' aria-label='Søren Magnussen'>sm</Avatar>
-      <Avatar variant='square' aria-label='Mark Downright'>md</Avatar>
-      <Avatar variant='square' aria-label='Ola Nordman'>on</Avatar>
+      <Avatar variant='square' aria-label='Søren Magnussen' initials='sm' />
+      <Avatar variant='square' aria-label='Mark Downright' initials='md' />
+      <Avatar variant='square' aria-label='Ola Nordman' initials='on' />
     </AvatarStack>
   ),
 };

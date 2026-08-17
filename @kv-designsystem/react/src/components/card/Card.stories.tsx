@@ -81,7 +81,7 @@ export const Variants: Story = {
         </div>
       </Card>
 
-      <Card {...args} variant='tinted' data-color='support-1' style={{ width: '320px' }}>
+      <Card {...args} variant='tinted' data-color='support-2' style={{ width: '320px' }}>
         <Tag data-color='warning' data-size='sm' variant='outline'>Ikke tinglyst</Tag>
         <Heading>
           Kongleveien 23C

@@ -8,7 +8,7 @@
     "./*": "./dist/*"
   },
   "scripts": {
-    "create": "designsystemet tokens create",
+    "create": "designsystemet tokens create --clean",
     "build": "pnpm clean && designsystemet tokens build -t ./src -o ./dist",
     "clean": "rimraf dist"
   },

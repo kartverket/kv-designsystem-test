@@ -2,14 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
 import { Tooltip } from '../tooltip/Tooltip';
 import { fn } from 'storybook/test';
-import { 
+import {
   ArrowRightIcon,
   ArrowUndoIcon,
-  BellIcon, 
+  BellIcon,
   CogIcon,
   NotePencilIcon,
-  PlusCircleIcon, 
+  PlusCircleIcon,
 } from '@navikt/aksel-icons';
+import { useState } from 'react';
 
 const meta = {
   component: Button,
@@ -140,24 +141,34 @@ export const AsLink: Story = {
   },
 };
 
+const storyParams = { docs: { source: { type: 'code' }}}
+
 export const Loading: Story = {
-  args: {
-    loading: true,
-    onClick: fn(),
+  parameters: storyParams,
+  args: { 
+    loading: true, 
   },
-  render: (args) => (
-    <>
-      <Button variant='primary' {...args}>
-        Laster...
-      </Button>
-      <Button variant='secondary' {...args}>
-        Laster...
-      </Button>
-      <Button variant='tertiary' {...args}>
-        Laster...
-      </Button>
-    </>
-  ),
+  render: (args) => {
+    const [loading, setLoading] = useState(true);
+    const handleClick = () => {
+      if (!loading) {
+        // Legg onClick-funksjonalitet her
+      }
+    }
+    return (
+      <>
+        <Button variant='primary' {...args} onClick={handleClick}>
+          Laster...
+        </Button>
+        <Button variant='secondary' {...args} onClick={handleClick}>
+          Laster...
+        </Button>
+        <Button variant='tertiary' {...args} onClick={handleClick}>
+          Laster...
+        </Button>
+      </>
+    )
+  }
 };
 
 // TODO: add do-dont to Retningslinjer, see Udir for inspiration

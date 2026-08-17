@@ -46,6 +46,18 @@ Legg lenken som en `a`-tag i et `Heading`-element i `Card` eller `Card.Block`, s
 </Card>
 ```
 
+eller slik:
+
+```tsx
+<Card>
+  <Card.Block>
+    <Heading level={3}>
+      <a href='/link-path'>Lenketittel</a>
+    </Heading>
+  </Card.Block>
+</Card>
+```
+
 Hele kortet blir da automatisk klikkbart, og skjermlesere får en bedre brukeropplevelse enn dersom hele var en lenke fordi kun tittelen blir lest opp som lenketekst.
 
 <Canvas of={CardStories.WithLink} />

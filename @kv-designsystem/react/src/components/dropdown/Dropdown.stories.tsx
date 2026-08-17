@@ -98,7 +98,7 @@ export const Controlled: Story = {
       <Dropdown.TriggerContext>
         <Dropdown.Trigger>
           Dropdown
-          {open ? <ChevronDownIcon aria-hidden /> : <ChevronUpIcon aria-hidden />}
+          {open ? <ChevronUpIcon aria-hidden /> : <ChevronDownIcon aria-hidden />}
         </Dropdown.Trigger>
         <Dropdown
           open={open}
@@ -109,7 +109,7 @@ export const Controlled: Story = {
           <Dropdown.List>
             <Dropdown.Item>
               <Dropdown.Button onClick={() => setOpen(false)}>
-                Trykk på meg lukker
+                Trykk på meg for å lukke
               </Dropdown.Button>
             </Dropdown.Item>
             <Dropdown.Item>
@@ -122,9 +122,10 @@ export const Controlled: Story = {
       </Dropdown.TriggerContext>
     );
   },
-}
-  ;
-export const Selected: Story = {
+};
+
+// TODO: when selecting another element the "selected mark" doesn't move
+export const Selected: Story = { 
   args: {
     placement: 'bottom-end',
   },

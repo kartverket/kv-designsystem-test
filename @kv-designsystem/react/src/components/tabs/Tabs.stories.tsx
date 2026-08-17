@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tabs } from './Tabs';
 import { Tooltip } from '../tooltip/Tooltip';
-import { Buildings2Icon, FilesIcon, CogIcon } from '@navikt/aksel-icons';
+import { Buildings2Icon, FilesIcon, CogIcon, BellIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Tabs,
@@ -43,6 +43,11 @@ export const IconsOnly: Story = {
             <FilesIcon aria-hidden />
           </Tabs.Tab>
         </Tooltip>
+        <Tooltip content='Varslinger'>
+          <Tabs.Tab value='varslinger'>
+            <BellIcon aria-hidden />
+          </Tabs.Tab>
+        </Tooltip>
         <Tooltip content='Innstillinger'>
           <Tabs.Tab value='innstillinger'>
             <CogIcon aria-hidden />
@@ -51,6 +56,7 @@ export const IconsOnly: Story = {
       </Tabs.List>
       <Tabs.Panel value='bygninger'>Innhold for bygninger</Tabs.Panel>
       <Tabs.Panel value='dokumenter'>Innhold for dokumenter</Tabs.Panel>
+      <Tabs.Panel value='varslinger'>Innhold for varslinger</Tabs.Panel>
       <Tabs.Panel value='innstillinger'>Innhold for innstillinger</Tabs.Panel>
     </Tabs>
   )

@@ -68,11 +68,14 @@ export const Filter: Story = {
 	render: Preview.render,
 };
 
+const storyParams = { docs: { source: { type: 'code' } } };
+
 export const AsyncData: Story = {
+	parameters: storyParams,
 	render: (args) => {
 		const [loading, setLoading] = useState(false);
 
-		const handleInput = (event: React.FormEvent<HTMLInputElement>) => {
+		const handleInput = (event: React.InputEvent<HTMLInputElement>) => {
 			const value = event.currentTarget.value.trim();
 
 			if (!value) {

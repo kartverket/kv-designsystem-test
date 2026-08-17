@@ -33,13 +33,15 @@ import { Alert } from '../alert/Alert';
 
 ### Størrelser
 
-Størrelse på avatarer i en `Avatar stack` styres via `avatarSize` og kan oppgis i hvilken som helst gyldig CSS-størrelsesenhet for maksimum fleksibilitet.
+Størrelse på avatarer i en `Avatar stack` styres via `avatarSize` og kan oppgis i en hvilken som helst gyldig CSS-enhet for maksimal fleksibilitet.
 
 <Canvas of={AvatarStackStories.DataSize} />
 
 ### Gap
 
 Det synlige mellomrommet mellom avatarene kan tilpasses med `gap`.
+
+`Gap` bør brukes i kombinasjon med `overlap`. Hvis du øker eller reduserer `gap` uten å justere `overlap` tilsvarende, vil mellomrommet kunne spise seg inn i de underliggende avatarene i stacken. Juster derfor `overlap` når du endrer `gap` for å opprettholde ønsket visuelle overlapp mellom avatarene.
 
 <Canvas of={AvatarStackStories.Gap} />
 

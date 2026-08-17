@@ -17,19 +17,19 @@ import * as DropdownStories from './Dropdown.stories';
 - handlingen er primær eller utføres ofte – bruk heller en synlig [`Button`](/docs/components-button--docs)
 - det finnes kun ett valg – en `Dropdown` skaper da unødvendig kompleksitet
 
-## Eksempler 
+## Eksempler
 
-### Med ikoner 
+### Med ikoner
 
 Du kan kombinere ikoner og tekst i elementene for å gjøre valgene tydeligere. Som hovedregel skal ikoner stå til venstre for teksten.
 
 <Canvas of={DropdownStories.WithIcons}/>
 
-### Kontrollert tilstand 
+### Kontrollert tilstand
 
 Dersom du sender inn `open`, så bruker du `Dropdown` kontrollert. Du kan bruke `onOpen` og `onClose` for å få beskjed når `Dropdown` vil åpnes og lukkes.
 
-Merk at vi ikke bruker `onClick` på triggeren, `Dropdown` håndterer dette internt on sender til `onOpen` og `onClose`.
+Merk at vi ikke bruker `onClick` på triggeren, `Dropdown` håndterer dette internt og sender til `onOpen` og `onClose`.
 
 <Canvas of={DropdownStories.Controlled}/>
 
