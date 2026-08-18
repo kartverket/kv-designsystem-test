@@ -1,0 +1,237 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import * as FormStories from './FormComponents.stories';
+import { Table } from '../../components/table/Table';
+import { Heading } from '../../components/typography/heading/Heading';
+import { Paragraph } from '../../components/typography/paragraph/Paragraph';
+import { List } from '../../components/list/List';
+
+<Meta of={FormStories} />
+
+export const hurtigvalg = [
+  { scenario: 'Ett tekst-/tall-/e-postfelt med label', component: 'Textfield' },
+  { scenario: 'Samme, men flerlinjet', component: 'Textfield med multiline' },
+  { scenario: 'Et Select (eller annen kontroll Textfield ikke dekker) med label + validering', component: 'Field + kontrollen' },
+  { scenario: 'Én enkelt checkbox / switch / radio med egen beskrivelse', component: 'Field' },
+  { scenario: 'Flere relaterte felt under én overskrift (radiogruppe, adresse, dato)', component: 'Fieldset' },
+  { scenario: 'Rå kontroll der konteksten allerede gir feltet en ledetekst', component: 'Input / Textarea' },
+];
+
+{/* TODO: Gå igjennom dokumentasjon og stories ordentlig */}
+
+# Input, Textfield, Textarea, Field og Fieldset
+
+En gjennomgang av når du bruker hver av de fem skjemakomponentene i det nye
+designsystemet, hvordan de henger sammen, og hvordan du bruker dem i React — både i skjemaer som sendes
+inn og i felt som oppdaterer valideringsmeldingen live på <code>onChange</code>.
+
+Hvert eksempel under er en kjørbar story. Trykk «Show code» for full kildekode,
+eller åpne <code>Skjemakomponenter.stories.tsx</code>. Storiene importerer fra{' '}
+<code></code> er
+komponentene identiske.
+
+## Mental modell: fra rå kontroll til gruppe
+
+De fem komponentene ligger på tre nivåer:
+
+<List.Ordered>
+  <List.Item>
+    <strong>Rå kontroll</strong> — <code>Input</code> og <code>Textarea</code>.
+    Bare det stylede feltet. Ingen label, ingen kobling til beskrivelse eller
+    feilmelding.
+  </List.Item>
+  <List.Item>
+    <strong>Sammensatt felt</strong> — <code>Textfield</code> (alt-i-ett) og{' '}
+    <code>Field</code> (limet du bygger selv). Kobler label, beskrivelse,
+    valideringsmelding og tegnteller til kontrollen.
+  </List.Item>
+  <List.Item>
+    <strong>Gruppe av felt</strong> — <code>Fieldset</code>. Samler flere
+    relaterte felt under én felles ledetekst (<code>{'<legend>'}</code>).
+  </List.Item>
+</List.Ordered>
+
+
+Nøkkelforholdet: <strong><code>Textfield</code> = <code>Field</code> +{' '}
+<code>Label</code> + <code>Input</code></strong> (eller <code>Textarea</code>).
+Og <strong><code>Fieldset</code> er et sett med fields</strong>. Derfor kan du{' '}
+*ikke* legge en <code>Textfield</code> inni en <code>Field</code> — den
+har allerede en <code>Field</code> inni seg.
+
+## Hurtigvalg
+
+<Table zebra>
+  <caption>Hvilken komponent du velger i ulike situasjoner</caption>
+  <Table.Head>
+    <Table.Row>
+      <Table.HeaderCell scope="col">Situasjon</Table.HeaderCell>
+      <Table.HeaderCell scope="col">Bruk</Table.HeaderCell>
+    </Table.Row>
+  </Table.Head>
+  <Table.Body>
+    {hurtigvalg.map((row) => (
+      <Table.Row key={row.scenario}>
+        <Table.Cell>{row.scenario}</Table.Cell>
+        <Table.Cell>{row.component}</Table.Cell>
+      </Table.Row>
+    ))}
+  </Table.Body>
+</Table>
+
+## Komponent for komponent
+
+### Input
+
+Det rå, stylede <code>{'<input>'}</code>-elementet. Ingen label eller kobling.
+
+Bruk <code>Input</code> når konteksten allerede gir feltet en ledetekst, slik at
+en synlig label per felt ville vært overflødig — typisk inline-redigering i en
+tabell der kolonneoverskriften er label, eller kompakte, repeterte rader. Da
+kobler du det tilgjengelige navnet selv med <code>aria-labelledby</code>. Trenger
+du derimot et søkefelt, bruk designsystemets <code>Search</code>-komponent
+framfor en <code>Input</code> — ikke bygg søk med en rå <code>Input</code>.
+
+<Canvas of={FormStories.InputITabellcelle} />
+
+### Textarea
+
+Samme rolle som <code>Input</code>, men flerlinjet — den rå{' '}
+<code>{'<textarea>'}</code> uten label. Vil du ha label, bruker du heller{' '}
+<code>Textfield</code> med <code>multiline</code>, eller legger{' '}
+<code>Textarea</code> inni en <code>Field</code>.
+
+<Canvas of={FormStories.TextareaEnkel} />
+
+### Textfield
+
+Den sammensatte komponenten du bør nå etter i ~90 % av tilfellene med ett felt.
+Den bygger <code>Field</code> + <code>Label</code> + <code>Input</code>/
+<code>Textarea</code> under panseret og kobler alt sammen for deg.
+
+Nyttige props: <code>label</code>, <code>description</code>, <code>error</code>{' '}
+(valideringsmelding), <code>counter</code> (tegnteller), <code>prefix</code>/
+<code>suffix</code>, <code>type</code>, <code>multiline</code> (gir{' '}
+<code>Textarea</code>) og <code>size</code>. Standard input-props som{' '}
+<code>name</code>, <code>id</code>, <code>value</code>, <code>onChange</code> og{' '}
+<code>onBlur</code> går videre til selve inputen.
+
+<Canvas of={FormStories.TextfeltVarianter} />
+
+### Field
+
+«Limet». Bruk <code>Field</code> når du trenger en rå kontroll koblet til label,
+beskrivelse og validering, men <code>Textfield</code> ikke passer.{' '}
+<code>Field</code> kobler automatisk sammen <code>Label</code>,{' '}
+<code>Field.Description</code>, kontrollen og <code>ValidationMessage</code> (og
+eventuelt <code>Field.Counter</code>) via riktige <code>id</code>- og{' '}
+<code>aria</code>-attributter.
+
+Typiske grunner til å velge Field framfor Textfield:
+
+<List.Unordered>
+  <List.Item>
+    Du trenger et <strong>Select</strong> med label + validering (Select kan ikke
+    være en Textfield).
+  </List.Item>
+  <List.Item>
+    Du vil ha finere kontroll enn Textfield-propsene gir (egen markup i
+    beskrivelsen, egen konfig på telleren, plassering av toggle).
+  </List.Item>
+  <List.Item>
+    Én enkelt <strong>checkbox</strong>, <strong>switch</strong> eller{' '}
+    <strong>radio</strong> med egen beskrivelse.
+  </List.Item>
+</List.Unordered>
+
+Field rundt en rå <code>Input</code> (tilsvarer en Textfield, men eksplisitt).
+Feilmeldingen kommer fra <code>value</code> via <code>useState</code> og
+oppdateres mens du skriver:
+
+<Canvas of={FormStories.FieldMedInput} />
+
+Field rundt et <code>Select</code> — her <em>må</em> du bruke Field, siden Select
+ikke kan være en Textfield:
+
+<Canvas of={FormStories.FieldMedSelect} />
+
+<code>Field</code> kobler <code>ValidationMessage</code> til kontrollen
+automatisk. Sett i tillegg <code>aria-invalid</code> på kontrollen når feltet er
+ugyldig, for å få den røde ugyldig-stylingen.
+
+### Fieldset
+
+Grupperer flere relaterte felt under én felles ledetekst. Bruk den til
+radiogrupper, checkbox-grupper, og felt som semantisk hører sammen — adresse
+(gate / postnr / poststed), dato splittet i felt, navn (fornavn / etternavn).{' '}
+<code>Fieldset</code> gir gruppa en <code>Legend</code>, en valgfri{' '}
+<code>Description</code>, og kan bære en felles valideringsmelding for hele
+gruppa. Eksempelet under holder valgt verdi i <code>useState</code> og viser feil
+ved submit:
+
+<Canvas of={FormStories.FieldsetRadiogruppe} />
+
+Et <code>Fieldset</code> kan også inneholde flere <code>Textfield</code>/
+<code>Field</code>, for eksempel en adresse:
+
+<Canvas of={FormStories.FieldsetAdresse} />
+
+## React-mønster 1: Skjema som sendes inn (validering ved submit)
+
+Vanligst når feltene ikke trenger å reagere før brukeren trykker «Send». Her
+holder vi feilene i state, regner dem ut i <code>onSubmit</code>, og sender bare
+skjemaet hvis det ikke er feil. Uncontrolled med <code>FormData</code> gir minst
+kode. <code>error</code>-propen på <code>Textfield</code> rendrer en{' '}
+<code>ValidationMessage</code> koblet til feltet, og <code>ErrorSummary</code>{' '}
+øverst lenker til hvert felt via <code>id</code> (<code>href='#navn'</code> osv.)
+og flytter fokus til seg selv når den vises:
+
+<Canvas of={FormStories.SkjemaMedSubmitvalidering} />
+
+## React-mønster 2: Live-validering på onChange (uten submit)
+
+Når feltet skal gi tilbakemelding mens brukeren skriver, holder du både verdi og
+feil i state, validerer i <code>onChange</code>, og oppdaterer feilen. Da endrer
+valideringsmeldingen seg live — helt uten at skjemaet sendes inn:
+
+<Canvas of={FormStories.LiveValidering} />
+
+### God praksis: ikke mas mens brukeren skriver
+
+Ren <code>onChange</code>-validering kan gi feilmelding før brukeren er ferdig
+med å skrive. Et vanlig kompromiss er å vente med å vise feil til feltet har
+mistet fokus første gang (<code>onBlur</code>), og deretter validere live på{' '}
+<code>onChange</code>:
+
+<Canvas of={FormStories.LiveValideringEtterBlur} />
+
+## Oppsummert
+
+<List.Unordered>
+  <List.Item>
+    <strong>Input / Textarea</strong> — rå kontroller. Bruk når konteksten
+    allerede gir ledeteksten (tabellceller, kompakte rader), og du kobler navnet
+    med <code>aria-labelledby</code>.
+  </List.Item>
+  <List.Item>
+    <strong>Textfield</strong> — standardvalget for ett labelet felt.{' '}
+    <code>multiline</code> for textarea, <code>error</code> for validering,{' '}
+    <code>counter</code> for tegnteller.
+  </List.Item>
+  <List.Item>
+    <strong>Field</strong> — når du trenger label + validering rundt et{' '}
+    <strong>Select</strong> eller en enkelt toggle, eller mer kontroll enn
+    Textfield gir.
+  </List.Item>
+  <List.Item>
+    <strong>Fieldset</strong> — flere relaterte felt under én{' '}
+    <code>Legend</code> (radiogrupper, checkbox-grupper, adresse, dato).
+  </List.Item>
+  <List.Item>
+    <strong>Validering ved submit</strong> — regn ut feil i <code>onSubmit</code>,
+    sett <code>error</code>, og vurder <code>ErrorSummary</code> øverst.
+  </List.Item>
+  <List.Item>
+    <strong>Live-validering</strong> — hold verdi + feil i state, valider i{' '}
+    <code>onChange</code> (helst etter første <code>onBlur</code>), oppdater{' '}
+    <code>error</code>.
+  </List.Item>
+</List.Unordered>
