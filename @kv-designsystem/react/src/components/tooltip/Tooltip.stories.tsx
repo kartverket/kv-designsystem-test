@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tooltip } from './Tooltip';
 import { Button } from '../button/Button';
-import { 
+import {
   FilesIcon,
   FloppydiskIcon,
   PrinterSmallIcon,
@@ -22,7 +22,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   args: {
-    content:'Kopier',
+    content: 'Kopier',
   },
   render: (args) => (
     <Tooltip {...args} placement='top'>
@@ -35,7 +35,7 @@ export const Preview: Story = {
 
 export const WithText: Story = {
   args: {
-    content:'Organisasjonsnummer',
+    content: 'Organisasjonsnummer',
   },
   render: (args) => (
     <Tooltip {...args}>Org.nr.</Tooltip>

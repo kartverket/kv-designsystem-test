@@ -4,7 +4,6 @@ import {
   ArgTypes,
   Controls,
 } from '@storybook/addon-docs/blocks';
-
 import { Alert } from '../../../components/alert/Alert'
 import * as Stories from './useCheckboxGroup.stories';
 import { useCheckboxGroup } from './useCheckboxGroup';
@@ -19,7 +18,6 @@ En React-hook for å lettere håndtere en gruppe av `Checkbox`-komponenter.
 
 I respons får du objektet:
 
-{/* TODO: What do we actually get as a respons? Udir has a different value for getCheckboxProps */}
 ```ts
 {  
   getCheckboxProps: (value: string | { allowIndeterminate: true }) => CheckboxProps, // Returnerer props du kan spre på <Checkbox /> eller <input type='checkbox' />
@@ -37,9 +35,9 @@ Du kan også hente ut `validationMessageProps`, `value` og `setValue`.
 I `getCheckboxProps`-funksjonen er første parameter enten `value` — en unik identifikator for avmerkingsboksen — eller et objekt med props som kan legges på en `Checkbox`. Dersom du sender inn et objekt, må du passe på at det inneholder `value`.
 
 ```tsx
-<Checkbox label='Barnehage' {...getCheckboxProps('barnehage')} />;
+<Checkbox label='Stedsnavn' {...getCheckboxProps('stedsnavn')} />;
 // eller
-<Checkbox label='Barnehage' {...getCheckboxProps({ value: 'barnehage' /* ...and other props... */ })} />;
+<Checkbox label='Stedsnavn' {...getCheckboxProps({ value: 'stedsnavn' /* ...and other props... */ })} />;
 ```
 
 <Alert type='info' heading='Tips'>
@@ -67,9 +65,10 @@ return (
       label='Alle'
       {...getCheckboxProps({ allowIndeterminate: true })}
     />
-    <Checkbox label='Barnehage' {...getCheckboxProps('barnehage')} />
-    <Checkbox label='Grunnskole' {...getCheckboxProps('grunnskole')} />
-    <Checkbox label='Videregående' {...getCheckboxProps('videregaende')} />
+    <Checkbox label='Eiendom' {...getCheckboxProps('eiendom')} />
+    <Checkbox label='Kart og stedsnavn' {...getCheckboxProps('kart')} />
+    <Checkbox label='Matrikkel' {...getCheckboxProps('matrikkel')} />
+    <Checkbox label='Geodata' {...getCheckboxProps('geodata')} />
     <ValidationMessage {...validationMessageProps} />
   </Fieldset>
 );

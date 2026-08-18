@@ -22,7 +22,7 @@ Vi bruker `Breadcrumbs` til å hjelpe brukerne å forstå hvor de befinner seg i
 
 ### Sti eller tilbake-knapp avhengig av skjermstørrelse
 
-Hvis komponenten settes opp med både `Breadcrumbs.Link` og `Breadcrumbs.List`, vises:
+Hvis komponenten settes opp med både `Breadcrumbs.Link` og `Breadcrumbs.List` direkte i `Breadcrumbs`, vises:
 - en tilbake-knapp på skjermer smalere enn 650 px
 - en full sti på bredere skjermer
 
@@ -32,7 +32,7 @@ Dette gir god plassutnyttelse og gjør navigasjonen enkel på både mobil og st�
 
 ### Kun sti
 
-Hvis du kun legger inn `Breadcrumbs.List`, vises komponenten som en tradisjonell sti.
+Hvis du kun legger inn `Breadcrumbs.List`, vises komponenten som en tradisjonell sti uansett skjermbredde.
 
 <Canvas of={BreadcrumbsStories.ListOnly} />
 
@@ -57,7 +57,7 @@ Bruk korte og tydelige navn som samsvarer med overskriftene og navigasjonen på 
 ## Tilgjengelighet
 
 For å sikre god tilgjengelighet:
-- Den siste lenken skal tilsvare den nåværende siden. Den vises som tekst, men kodes som lenke med aria-current='page'.
+- Den siste lenken skal tilsvare den nåværende siden. Den vises som tekst, men kodes som lenke med `aria-current='page'`.
 - Sørg for at det ikke ligger interaktive elementer for tett på komponenten.
 - Pass på at det ikke finnes skjulte elementer som kan forstyrre navigasjonen.
 - `SkipLink` skal hoppe over `Breadcrumbs`, slik at tastaturnavigasjon ikke krever unødige tastetrykk.

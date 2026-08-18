@@ -2,9 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Suggestion } from './Suggestion';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
-// import { Spinner } from '../spinner/Spinner';
-// import { type ChangeEvent, useState } from 'react';
-// import { useDebounceCallback } from '@digdir/designsystemet-react';
+import { useState } from 'react';
+import { Spinner } from '../spinner/Spinner';
 
 const meta = {
 	component: Suggestion,
@@ -16,100 +15,102 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const DATA_PLACES = [
-	'Sogndal',
+	'Agder',
+	'Akershus',
+	'Buskerud',
+	'Innlandet',
+	'Møre og Romsdal',
+	'Nordland',
 	'Oslo',
-	'Brønnøysund',
-	'Stavanger',
-	'Trondheim',
-	'Bergen',
-	'Lillestrøm',
+	'Rogaland',
+	'Troms',
+	'Finnmark',
+	'Trøndelag',
+	'Vestfold',
+	'Telemark',
+	'Vestland',
+	'Østfold',
 ];
 
 export const Preview: Story = {
- 	render: (args) => (
-    <Field>
-			<Label>Velg en destinasjon</Label>
+	render: (args) => (
+		<Field>
+			<Label>Velg et fylke</Label>
 			<Suggestion {...args}>
 				<Suggestion.Input />
 				<Suggestion.Clear />
 				<Suggestion.List id='123'>
 					<Suggestion.Empty>Tomt</Suggestion.Empty>
 					{DATA_PLACES.map((place) => (
-						<Suggestion.Option key={place} label={place} value={place}>
+						<Suggestion.Option key={place} label={place} value={place.toLowerCase()}>
 							{place}
-							<div>Kommune</div>
 						</Suggestion.Option>
 					))}
 				</Suggestion.List>
 			</Suggestion>
 		</Field>
- 	)
+	)
 };
 
-// TODO: understand and fix this Story
+// TODO: add padding between chips and input-field when chips are visible. 
+export const Multiple: Story = {
+	args: {
+		multiple: true,
+		style: { width: '300px' },
+	},
+	render: Preview.render,
+}
 
-// export const FetchExternal: Story = {
-//   render: (args, { id }) => {
-//     const [value, setValue] = useState('');
-//     const [options, setOptions] = useState<string[] | null>(null);
+export const Filter: Story = {
+	args: {
+		filter: true,
+	},
+	render: Preview.render,
+};
 
-//     const apiCall = async (value: string) => {
-//       const api = `https://restcountries.com/v2/name/${value}?fields=name`;
-//       const countries = await (await fetch(api)).json();
+const storyParams = { docs: { source: { type: 'code' } } };
 
-//       setOptions(
-//         Array.isArray(countries)
-//           ? countries.map(({ name }) => name)
-//           : [],
-//       );
-//     };
+export const AsyncData: Story = {
+	parameters: storyParams,
+	render: (args) => {
+		const [loading, setLoading] = useState(false);
 
-//     const debounced = useDebounceCallback(apiCall, 500);
+		const handleInput = (event: React.InputEvent<HTMLInputElement>) => {
+			const value = event.currentTarget.value.trim();
 
-//     const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-//       const encoded = encodeURIComponent(event.target.value.trim());
+			if (!value) {
+				setLoading(false);
+				return;
+			}
 
-//       setValue(event.target.value);
-//       setOptions(null); // Clear options
+			setLoading(true);
 
-//       if (!encoded) return;
+			// Simulate an API call
+			setTimeout(() => {
+				setLoading(false);
+			}, 1500);
+		};
 
-//       debounced(encoded);
-//     };
-
-//     return (
-//       <Field lang='en'>
-//         <Label>Search for countries (in english)</Label>
-//         <Suggestion {...args} filter={false}>
-//           <Suggestion.Input id={id} onInput={handleInput} />
-//           <Suggestion.Clear />
-//           <Suggestion.List singular='%d country' plural='%d countries'>
-//             {value ? (
-//               <Suggestion.Empty>
-//                 {options ? (
-//                   'Ingen treff'
-//                 ) : (
-//                   <span
-//                     style={{
-//                       display: 'flex',
-//                       alignItems: 'center',
-//                       gap: 8,
-//                     }}
-//                   >
-//                     <Spinner aria-hidden='true' data-size='sm' /> Laster...
-//                   </span>
-//                 )}
-//               </Suggestion.Empty>
-//             ) : null}
-
-//             {options?.map((option) => (
-//               <Suggestion.Option key={option}>
-//                 {option}
-//               </Suggestion.Option>
-//             ))}
-//           </Suggestion.List>
-//         </Suggestion>
-//       </Field>
-//     );
-//   },
-// };
+		return (
+			<Field>
+				<Label>Velg et fylke</Label>
+				<Suggestion {...args}>
+					<Suggestion.Input onInput={handleInput} />
+					<Suggestion.Clear />
+					<Suggestion.List>
+						<Suggestion.Empty>
+							{loading ? (
+								<span style={{ display: 'flex', alignItems: 'center', gap: 'var(--ds-size-2)' }}>
+									<Spinner aria-hidden='true' data-size='sm' />
+									Laster...
+								</span>
+							) : (
+								'Ingen treff'
+							)}
+						</Suggestion.Empty>
+					</Suggestion.List>
+				</Suggestion>
+			</Field>
+		)
+	}
+};

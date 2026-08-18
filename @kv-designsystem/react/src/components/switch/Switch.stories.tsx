@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Switch } from './Switch';
 import { Fieldset } from '../fieldset/Fieldset';
 import { Heading } from '../typography/heading/Heading';
+import { Field } from '@digdir/designsystemet-react';
 
 const meta = {
   component: Switch,
@@ -31,6 +32,24 @@ export const Group: Story = {
     </Fieldset>
   ),
 };
+
+export const Outline: Story = {
+  args: {
+    label: 'Switch',
+    defaultChecked: true,
+  },
+  render: (args) => (
+    <Fieldset>
+      <Fieldset.Legend>Aktiver varslinger</Fieldset.Legend>
+      <Switch variant='outline' label='Driftsmeldinger' defaultChecked />
+      <Switch variant='outline' label='Påminnelser' />
+      <Switch 
+        variant='outline' 
+        label='SMS-varsler' 
+        description='Mangler gyldig telefonnummer i profilen' />
+    </Fieldset>
+  )
+}
 
 export const RightAligned: Story = {
   args: {

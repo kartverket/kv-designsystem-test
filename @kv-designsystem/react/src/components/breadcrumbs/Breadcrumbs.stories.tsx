@@ -11,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
 	args: {
-		'aria-label':'Du er her:',
+		'aria-label': 'Du er her:',
 	},
 	render: (args) => (
 		<Breadcrumbs {...args}>
@@ -20,16 +20,16 @@ export const Preview: Story = {
 			</Breadcrumbs.Link>
 			<Breadcrumbs.List>
 				<Breadcrumbs.Item>
-				<Breadcrumbs.Link href='#'>Nivå 1</Breadcrumbs.Link>
+					<Breadcrumbs.Link href='#'>Nivå 1</Breadcrumbs.Link>
 				</Breadcrumbs.Item>
 				<Breadcrumbs.Item>
-				<Breadcrumbs.Link href='#'>Nivå 2</Breadcrumbs.Link>
+					<Breadcrumbs.Link href='#'>Nivå 2</Breadcrumbs.Link>
 				</Breadcrumbs.Item>
 				<Breadcrumbs.Item>
-				<Breadcrumbs.Link href='#'>Nivå 3</Breadcrumbs.Link>
+					<Breadcrumbs.Link href='#'>Nivå 3</Breadcrumbs.Link>
 				</Breadcrumbs.Item>
 				<Breadcrumbs.Item>
-				<Breadcrumbs.Link href='#'>Nivå 4</Breadcrumbs.Link>
+					<Breadcrumbs.Link href='#'>Nivå 4</Breadcrumbs.Link>
 				</Breadcrumbs.Item>
 			</Breadcrumbs.List>
 		</Breadcrumbs>
@@ -38,31 +38,31 @@ export const Preview: Story = {
 
 export const ListOnly: Story = {
 	args: {
-		'aria-label':'Du er her:',
+		'aria-label': 'Du er her:',
 	},
 	render: (args) => (
-	<Breadcrumbs {...args}>
-		<Breadcrumbs.List>
-			<Breadcrumbs.Item>
-				<Breadcrumbs.Link href='#'>Kartverket</Breadcrumbs.Link>
-			</Breadcrumbs.Item>
-			<Breadcrumbs.Item>
-				<Breadcrumbs.Link href='#'>Til lands</Breadcrumbs.Link>
-			</Breadcrumbs.Item>
-			<Breadcrumbs.Item>
-				<Breadcrumbs.Link href='#'>Stadnamn</Breadcrumbs.Link>
-			</Breadcrumbs.Item>
-			<Breadcrumbs.Item>
-				<Breadcrumbs.Link href='#'>Søk stadnamn i kart</Breadcrumbs.Link>
-			</Breadcrumbs.Item>
-		</Breadcrumbs.List>
-	</Breadcrumbs>
+		<Breadcrumbs {...args}>
+			<Breadcrumbs.List>
+				<Breadcrumbs.Item>
+					<Breadcrumbs.Link href='#'>Kartverket</Breadcrumbs.Link>
+				</Breadcrumbs.Item>
+				<Breadcrumbs.Item>
+					<Breadcrumbs.Link href='#'>Til lands</Breadcrumbs.Link>
+				</Breadcrumbs.Item>
+				<Breadcrumbs.Item>
+					<Breadcrumbs.Link href='#'>Stadnamn</Breadcrumbs.Link>
+				</Breadcrumbs.Item>
+				<Breadcrumbs.Item>
+					<Breadcrumbs.Link href='#'>Søk stadnamn i kart</Breadcrumbs.Link>
+				</Breadcrumbs.Item>
+			</Breadcrumbs.List>
+		</Breadcrumbs>
 	),
 };
 
 export const BackOnly: Story = {
 	args: {
-		'aria-label':'Du er her:',
+		'aria-label': 'Du er her:',
 	},
 	render: (args) => (
 		<Breadcrumbs>

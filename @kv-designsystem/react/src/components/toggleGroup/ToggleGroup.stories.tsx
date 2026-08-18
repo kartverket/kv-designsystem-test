@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ToggleGroup } from './ToggleGroup';
 import { Tooltip } from '../tooltip/Tooltip';
-import { 
+import {
   CheckmarkCircleIcon,
   ExclamationmarkTriangleIcon,
   XMarkOctagonIcon,
   AlignLeftIcon,
   AlignCenterIcon,
-  AlignRightIcon 
+  AlignRightIcon
 } from '@navikt/aksel-icons';
 
 const meta = {
@@ -50,7 +50,7 @@ export const TextAndIcons: Story = {
 
 export const OnlyIcons: Story = {
   render: (_args) => (
-    <ToggleGroup data-toggle-group='Tekstjustering' defaultValue='option-1'>
+    <ToggleGroup data-toggle-group='Tekstjustering' defaultValue='option-1' data-color='neutral'>
       <Tooltip content='Venstrestilt'>
         <ToggleGroup.Item value='option-1'>
           <AlignLeftIcon aria-hidden />

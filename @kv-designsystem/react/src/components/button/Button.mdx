@@ -1,5 +1,7 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
 import * as ButtonStories from './Button.stories';
+import { Alert } from '../alert/Alert';
+import { Heading } from '../typography/heading/Heading';
 
 <Meta of={ButtonStories} />
 
@@ -14,9 +16,9 @@ Vi benytter Button når brukeren skal utføre en tydelig handling.
 - handlingen setter i gang noe i løsningen, for eksempel åpner en dialog eller starter et steg-for-steg-løp
 
 **Unngå `Button` når**
-- brukeren skal navigere til andre sider - bruk heller [`Link`](/docs/components-link--docs)
-- brukeren skal filtrere innhold - bruk heller [`Chip`](/docs/components-chip--docs)
-- du skal vise hvilke filter som er aktive - bruk heller [`Chip`](/docs/components-chip--docs)
+- brukeren skal navigere til andre sider eller tjenester – bruk heller [`Link`](/docs/components-link--docs)
+- brukeren skal filtrere innhold – bruk heller [`Chip`](/docs/components-chip--docs)
+- du skal vise brukeren hvilke filtre som er aktive – bruk heller [`Chip`](/docs/components-chip--docs)
 
 ## Varianter med eksempler
 
@@ -43,9 +45,10 @@ Denne knappen bruker vi til mindre viktige handlinger. Hvis den brukes alene, b�
 
 ### Farger
 
-- Knapper kan ha hovedfargen i temaet ditt, neutral eller danger.
+- Knapper kan bruke alle designsystemets farger. Vurder hvilken farge som passer best i den aktuelle konteksten..
 - En gruppe knapper bør bruke samme fargevariant.
-- Unntak: bruk danger-fargen for handlinger som brukeren ikke kan angre, for eksempel “Slett”.
+    - Unntak: bruk danger-fargen for handlinger som brukeren ikke kan angre, for eksempel "Slett".
+- Unngå neutral på knapper som ligger på en farget bakgrunn, for eksempel i et tinted Card – bruk heller den samme fargevarianten.
 
 <Canvas of={ButtonStories.Colors} />
 
@@ -74,6 +77,7 @@ Unntak:
 <Canvas of={ButtonStories.TextAndIcon} />
 
 ### Lenkeknapper
+
 En lenke kan styles som knapp dersom utseendet er viktig for strukturen, men vurder alltid først om det er bedre å bruke `Link`-komponenten.
 
 <Canvas of={ButtonStories.AsLink} />
@@ -83,6 +87,13 @@ En lenke kan styles som knapp dersom utseendet er viktig for strukturen, men vur
 Når en handling pågår, kan knappen vise en spinner for å signalisere at prosessen kjører. Dette hindrer at brukeren klikker flere ganger.
 
 <Canvas of={ButtonStories.Loading} />
+
+I eksempelet over blir `aria-disabled` satt av `loading='true'`. Skjermlesere og andre hjelpemidler vil bli informert om at knappen finnes, men ikke er aktiv. I motsetning til `disabled`, kan knappen fortsatt få fokus når noen navigerer med tastaturet.
+
+<Alert data-color='info'>
+    <Heading>Vær oppmerksom på</Heading>
+    `loading='true'` eller `aria-disabled` stopper ikke automatisk knappen fra å utløse `onClick`. Du må selv passe på at callback-funksjonen ikke kjører når knappen er deaktivert.
+</Alert>
 
 ## Retningslinjer
 
@@ -99,11 +110,11 @@ Sørg for at brukeren lett ser hva som er viktigst. Flere primærknapper på en 
 Når knapper står ved siden av hverandre skal Primary stå før Secondary.
 
 Unntak:
-Ved «Forrige» og «Neste» skal Forrige stå først (selv om den er sekundær).
+- Ved «Forrige» og «Neste» skal Forrige stå først (selv om den er sekundær).
 
 ## Tekst i Button
 
-- Korte tekster - helst maks tre ord.
+- Korte tekster – helst maks tre ord.
 - Bruk verb i imperativ («Send», «Lagre», «Endre»).
 - Unngå blanding av skrivestil.
     - Første ord med stor forbokstav.

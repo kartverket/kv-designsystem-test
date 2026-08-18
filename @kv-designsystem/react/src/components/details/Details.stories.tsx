@@ -14,13 +14,10 @@ export const Preview: Story = {
   render: (_args) => (
     <Details>
       <Details.Summary>
-        Hvorfor må Kartverket behandle bestillingen min?
+        Hvor lang tid tar det å tinglyse et dokument?
       </Details.Summary>
       <Details.Content>
-        Når du bestiller et eiendomsdokument, mottar du en attestert eller bekreftet utskrift. Ved 
-        bestilling av attestert dokument må Kartverket sikre at vi ikke leverer ut innhold i 
-        dokumentet som anses som taushetsbelagte opplysninger. Disse bestillingene må derfor til 
-        behandling før det blir tilgjengelig for deg.
+        Vanlig saksbehandlingstid hos Kartverket er to dager, og i tillegg må du beregne tid til ordinær postgang.
       </Details.Content>
     </Details>
   )
@@ -31,12 +28,12 @@ export const InCard: Story = {
     <Card>
       <Details>
         <Details.Summary>
-          Hvorfor må Kartverket behandle bestillingen min
+          Hvorfor må Kartverket behandle bestillingen min?
         </Details.Summary>
         <Details.Content>
           Når du bestiller et eiendomsdokument mottar du en attestert eller bekreftet utskrift. Ved
-          bestilling av attestert dokument må Kartverket sikre at vi ikke leverer ut innhold i 
-          dokumentet som anses som taushetsbelagte opplysninger. Disse bestillingene må derfor til 
+          bestilling av attestert dokument må Kartverket sikre at vi ikke leverer ut innhold i
+          dokumentet som anses som taushetsbelagte opplysninger. Disse bestillingene må derfor til
           behandling før det blir tilgjengelig for deg.
         </Details.Content>
       </Details>
@@ -47,9 +44,9 @@ export const InCard: Story = {
 export const InCardWithColor: Story = {
   render: (_args) => (
     <div>
-      <Heading 
-        style={{marginBottom: 'var(--ds-size-4)'}}
-        data-size='xs' 
+      <Heading
+        style={{ marginBottom: 'var(--ds-size-4)' }}
+        data-size='xs'
       >Når bør jeg bruke hvilken karttjeneste?</Heading>
       <Card data-color='accent' variant='tinted'>
         <Details>
@@ -57,8 +54,8 @@ export const InCardWithColor: Story = {
             Topografisk kart
           </Details.Summary>
           <Details.Content>
-            Topografisk kart gir oversikt over terreng, bygninger, vann og infrastruktur. 
-            Når du åpner kartet, får du et helhetlig bilde av landskapet, noe som er nyttig 
+            Topografisk kart gir oversikt over terreng, bygninger, vann og infrastruktur.
+            Når du åpner kartet, får du et helhetlig bilde av landskapet, noe som er nyttig
             i planlegging av turer, beredskap, orientering i felt eller som bakgrunn i analyser.
           </Details.Content>
         </Details>
@@ -67,9 +64,9 @@ export const InCardWithColor: Story = {
             Eiendomskart
           </Details.Summary>
           <Details.Content>
-            Eiendomskart gir detaljert informasjon om eiendomsgrenser, adresser og bygninger. 
-            Når du åpner dette valget, kan du se hvilke grenser som er registrert i matrikkelen, 
-            kontrollere eiendomsforhold og bruke dataene i forbindelse med saksbehandling, planlegging 
+            Eiendomskart gir detaljert informasjon om eiendomsgrenser, adresser og bygninger.
+            Når du åpner dette valget, kan du se hvilke grenser som er registrert i matrikkelen,
+            kontrollere eiendomsforhold og bruke dataene i forbindelse med saksbehandling, planlegging
             eller dialog med brukere.
           </Details.Content>
         </Details>
@@ -78,9 +75,9 @@ export const InCardWithColor: Story = {
             Høydedata
           </Details.Summary>
           <Details.Content>
-            Høydedata gir tilgang til detaljerte terreng- og høydemodeller. Når du åpner innholdet, 
-            får du innsikt i hvordan terrenget faktisk ser ut. Dette er særlig nyttig for analyser av 
-            flomsoner, skredfare, vannveier, landskapsendringer eller andre oppgaver som krever høy 
+            Høydedata gir tilgang til detaljerte terreng- og høydemodeller. Når du åpner innholdet,
+            får du innsikt i hvordan terrenget faktisk ser ut. Dette er særlig nyttig for analyser av
+            flomsoner, skredfare, vannveier, landskapsendringer eller andre oppgaver som krever høy
             nøyaktighet.
           </Details.Content>
         </Details>

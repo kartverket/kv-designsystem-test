@@ -32,7 +32,7 @@ const fylker = [
 export const Preview: Story = {
   render: (_args) => (
     <Field>
-      <Label>Velg et fylke</Label>
+      <Label>Fylke</Label>
       <Select defaultValue=''>
         <Select.Option value='' disabled>
           Velg et fylke &hellip;
@@ -50,7 +50,7 @@ export const Preview: Story = {
 export const WithOptgroup: Story = {
   render: (_args) => (
     <Field>
-      <Label>Velg en park</Label>
+      <Label>Park</Label>
       <Select>
         <Select.Optgroup label='Grünerløkka'>
           <Select.Option value='sofienbergparken'>
@@ -72,26 +72,23 @@ export const WithOptgroup: Story = {
   )
 };
 
-export const Disabled: Story = {
-  render: (_args) => (
+export const ReadOnly: Story = {
+  render: (args) => (
     <Field>
-      <Label>Velg et fjell</Label>
-      <Select disabled>
-        <Select.Option value='blank'>Velg &hellip;</Select.Option>
+      <Label>Fjell</Label>
+      <Select aria-readonly value='everest' {...args}>
         <Select.Option value='everest'>Mount Everest</Select.Option>
       </Select>
     </Field>
   )
 };
 
-export const ReadOnly: Story = {
-  args: {
-    readOnly: true
-  },
-  render: (args) => (
+export const Disabled: Story = {
+  render: (_args) => (
     <Field>
-      <Label>Velg et fjell</Label>
-      <Select aria-readonly value='everest' {...args}>
+      <Label>Fjell</Label>
+      <Select disabled>
+        <Select.Option value='blank'>Velg &hellip;</Select.Option>
         <Select.Option value='everest'>Mount Everest</Select.Option>
       </Select>
     </Field>

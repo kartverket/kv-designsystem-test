@@ -1,0 +1,84 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as AvatarStackStories from './AvatarStack.stories';
+import { Alert } from '../alert/Alert';
+
+<Meta of={AvatarStackStories} />
+
+<Alert data-color='warning'>
+    Avatar stack er under utvikling. Finner du feil eller mangler, meld fra i [Slack](https://kartverketgroup.slack.com/archives/C03LL4CKMMK).
+</Alert>
+
+# Avatar stack
+
+`Avatar stack` stabler en samling `Avatar`-elementer.
+
+<Canvas of={AvatarStackStories.Preview} />
+<Controls/>
+
+**Bruk `Avatar stack` når**
+- en gruppe personer eller enheter skal vises sammen, men det er begrenset plass
+- du skal signalisere at flere er involvert, uten å vise alle i full størrelse
+
+**Unngå `Avatar stack` når**
+- det alltid er bare én avatar som skal vises - bruk heller [`Avatar`](/docs/components-avatar--docs)
+- hver person eller enhet må være tydelig identifiserbar med navn eller rolle samtidig
+
+## Varianter med eksempler
+
+### Tilpassbarhet
+
+`Avatar stack` er laget for å være fleksibel nok til å dekke mange ulike behov og brukstilfeller.
+
+<Canvas of={AvatarStackStories.Playground} />
+
+### Størrelser
+
+Størrelse på avatarer i en `Avatar stack` styres via `avatarSize` og kan oppgis i en hvilken som helst gyldig CSS-enhet for maksimal fleksibilitet.
+
+<Canvas of={AvatarStackStories.DataSize} />
+
+### Gap
+
+Det synlige mellomrommet mellom avatarene kan tilpasses med `gap`.
+
+`Gap` bør brukes i kombinasjon med `overlap`. Hvis du øker eller reduserer `gap` uten å justere `overlap` tilsvarende, vil mellomrommet kunne spise seg inn i de underliggende avatarene i stacken. Juster derfor `overlap` når du endrer `gap` for å opprettholde ønsket visuelle overlapp mellom avatarene.
+
+<Canvas of={AvatarStackStories.Gap} />
+
+### Ekspanderbar
+
+I noen tilfeller kan det være ønskelig å utvide stabelen ved hover og fokus. Denne funksjonaliteten er av som standard.
+
+<Canvas of={AvatarStackStories.Expandable} />
+
+### Varianter
+
+`Avatar stack` støtter både rund og kvadratisk variant, men bare en variant per stack.
+
+<Canvas of={AvatarStackStories.Square} />
+
+### Indikere avatarer som ikke vises
+
+Når det er flere avatarer enn det er plass til å vise i stacken, er det to ulike måter å indikere dette på.
+
+<Canvas of={AvatarStackStories.AdditionalAvatars} />
+
+### Tooltip og lenker
+
+Avatarer i `Avatar stack` kan ha `tooltip` og være lenker, men vær obs på tilgjengelighetshensyn.
+
+<Canvas of={AvatarStackStories.WithTooltipAndLink} />
+
+## Retningslinjer
+
+`Avatar stack` bør brukes med forsiktighet, da det kan være utfordrende for brukere å identifisere individuelle avatarer i en tettpakket stabel. Sørg for at bruken av `Avatar stack` gir mening i konteksten av brukeropplevelsen og at det ikke går på bekostning av tilgjengelighet eller brukervennlighet.
+
+`Avatar stack` støtter ikke "wrapping" over flere linjer. Dersom det er flere avatarer enn det er plass til i stacken, kan man bruke `suffix` eller en ekstra `Avatar` med `+xx` for å indikere antall skjulte avatarer.
+
+## Tekst i Avatar stack
+
+`aria-label` eller `aria-description` kan brukes på `Avatar stack` for å gi kontekst til skjermlesere om hva stabelen representerer, for eksempel "Deltakere i møtet" eller "Medlemmer av teamet".
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdirs Designsystemet. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

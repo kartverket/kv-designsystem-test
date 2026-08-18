@@ -20,21 +20,19 @@ export type FooterProps = HTMLAttributes<HTMLElement> & {
 
 export const Footer = forwardRef<HTMLElement, FooterProps>(
   function Footer({ children, className, maxWidth = '1296px', ...rest }, ref) {
-  return (
-    <footer
-      className={cl('footer', className)}
-      style={{ '--kvdsc-footer-max-width': maxWidth } as CSSProperties}
-      ref={ref}
-      {...rest}
-    >
-      <div className='footer-container'>
-        <a href='https://kartverket.no'>
+    return (
+      <footer
+        className={cl('footer', className)}
+        style={{ '--kvdsc-footer-max-width': maxWidth } as CSSProperties}
+        ref={ref}
+        {...rest}
+      >
+        <div className='footer-container'>
           <img src={logo} alt='Kartverket logo' className='footer-logo' />
-        </a>
-        <div className='footer-columns'>
-          {children}
+          <div className='footer-columns'>
+            {children}
+          </div>
         </div>
-      </div>
-    </footer>
-  );
-});
+      </footer>
+    );
+  });

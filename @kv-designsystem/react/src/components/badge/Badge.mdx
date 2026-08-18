@@ -14,16 +14,14 @@ import * as BadgeStories from './Badge.stories';
 - du skal formulere statusindikatorer i form av en sirkel, som for eksempel viser om en person er opptatt, borte eller aktiv
 
 **Unngå `Badge` når**
-- du trenger tekst, bruk [`Tag`](/docs/components-tag--docs) i stedet
-- den skal utføre interaktive handlinger, bruk [`Chip`](/docs/components-chip--docs) eller [`Button`](/docs/components-button--docs) i stedet
+- du trenger tekst – bruk [`Tag`](/docs/components-tag--docs) i stedet
+- den skal utføre interaktive handlinger –bruk [`Chip`](/docs/components-chip--docs) eller [`Button`](/docs/components-button--docs) i stedet
 
 ## Varianter med eksempler
 
 ### Farger
 
-`Badge` kan brukes med neutral og varselfargene. Bruk `danger` til notifikasjoner på f.eks. `ikon` og `avatar`, siden rød er en allerede godt etablert indikasjon for dette. For inline notifikasjoner kan du også velge mellom de andre fargene.
-
-Du kan velge mellom variantene `base` og `tinted`.
+Badge er tilgjengelig i alle farger med variantene `base` og `tinted`. Bruk `danger` til notifikasjoner på f.eks. `ikon` og `avatar`, siden rød er en allerede godt etablert indikasjon for dette. For inline notifikasjoner kan du også velge mellom de andre fargene.
 
 <Canvas of={BadgeStories.ColorVariants} />
 
@@ -57,8 +55,8 @@ Denne komponenten er ikke ment for tekst. Om du trenger å vise ord eller korte 
 
 ## Tilgjengeligheit
 
-[Badge gir ingen informasjon til skjermlesere](https://github.com/digdir/designsystemet/issues/3560).
-Sørg derfor for at elementet som `Badge` er plassert over, inneholder den samme informasjonen ved å bruke `aria-label`.
+[Badge gir ingen informasjon til skjermlesere (GitHub – Digdir)](https://github.com/digdir/designsystemet/issues/3560).
+Sørg derfor for at elementet som `Badge`-en tilhører (f.eks. knappen eller ikonet den vises på), formidler den samme informasjonen via `aria-label`.
 
 ## Kilde
 

@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Tag } from './Tag';
+import { Tag, type TagProps } from './Tag';
 import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { RobotIcon } from '@navikt/aksel-icons';
+import { Card } from '../card/Card';
 
 const meta = {
   component: Tag,
@@ -33,36 +34,58 @@ export const Icons: Story = {
   )
 };
 
+const colorVariants = [
+  'neutral',
+  'accent',
+  'support-1',
+  'support-2',
+  'success',
+  'warning',
+  'danger',
+  'info'
+];
+
+export const Variants: Story = {
+  render: (args) => (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, max-content)',
+        gap: 'var(--ds-size-2)',
+      }}
+    >
+      {colorVariants.map((color) => (
+        <Tag key={color} data-color={color as TagProps['data-color']} {...args}>{color}</Tag>
+      ))}
+    </ div>
+  )
+};
+
+export const WithOutline: Story = {
+  args: {
+    variant: 'outline',
+  },
+  render: Variants.render,
+};
+
 const propertyImage =
   'https://eiendomsregisteret.kartverket.no/egenregistrering.jpeg';
 
-export const Article: Story = {
+export const InCard: Story = {
   render: (_args) => (
-    <div>
-      <img
-        src={propertyImage}
-        alt='Et hus ved en fjord'
-        style={{
-          width: '100%',
-          height: '200px',
-          objectFit: 'cover',
-          borderRadius: 10,
-        }}
-      />
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-          marginTop: 'var(--ds-size-4)',
-          marginBottom: 'var(--ds-size-3)',
-        }}
-      >
-        <Heading>Egenregistrering</Heading>
+    <Card style={{ width: '320px' }}>
+      <Card.Block>
+        <img src={propertyImage} alt='Et hus ved en fjord' />
+      </Card.Block>
+      <Card.Block>
         <Tag data-color='accent' data-size='sm'>Nyhet</Tag>
-      </div>
-      <Paragraph>
-        Nå kan du som eier eller fester registrere opplysninger om din bolig eller fritidsbolig.
-      </Paragraph>
-    </div>
+        <Heading>
+          <a href='#'>Egenregistrering</a>
+        </Heading>
+        <Paragraph>
+          Nå kan du som eier eller fester registrere opplysninger om din bolig eller fritidsbolig.
+        </Paragraph>
+      </Card.Block>
+    </Card>
   )
 };

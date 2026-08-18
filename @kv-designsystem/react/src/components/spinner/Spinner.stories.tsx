@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Spinner } from './Spinner';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 
-// TODO: had to change to <typeof Spinner> to avoid decorators: [] to cast error on args
-const meta:Meta<typeof Spinner> = {
+// Meta<typeof Spinner> to avoid decorators: [] to cast error on args
+const meta: Meta<typeof Spinner> = {
   component: Spinner,
   decorators: [
     (Story) => (
@@ -23,7 +23,7 @@ const meta:Meta<typeof Spinner> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>; 
+type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   args: {

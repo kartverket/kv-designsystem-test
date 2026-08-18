@@ -14,20 +14,24 @@ import * as DropdownStories from './Dropdown.stories';
 - alternativene er sekundære, men fortsatt bør være lett tilgjengelige
 
 **Unngå `Dropdown` når**
-- handlingen er primær eller utføres ofte - bruk heller en synlig [`Button`](/docs/components-button--docs)
-- det finnes kun ett valg - en `Dropdown` skaper da unødvendig kompleksitet
+- handlingen er primær eller utføres ofte – bruk heller en synlig [`Button`](/docs/components-button--docs)
+- det finnes kun ett valg – en `Dropdown` skaper da unødvendig kompleksitet
 
-## Eksempler 
+## Eksempler
 
-### Med ikoner 
+### Med ikoner
 
 Du kan kombinere ikoner og tekst i elementene for å gjøre valgene tydeligere. Som hovedregel skal ikoner stå til venstre for teksten.
 
 <Canvas of={DropdownStories.WithIcons}/>
 
-### Kontrollert tilstand 
+### Kontrollert tilstand
 
-Tilstanden til `Dropdown`kan kontrolleres ved å bruke `open`og `onClose`.
+Dersom du sender inn `open`, så bruker du `Dropdown` kontrollert. Du kan bruke `onOpen` og `onClose` for å få beskjed når `Dropdown` vil åpnes og lukkes.
+
+Merk at vi ikke bruker `onClick` på triggeren, `Dropdown` håndterer dette internt og sender til `onOpen` og `onClose`.
+
+<Canvas of={DropdownStories.Controlled}/>
 
 ### Trigger
 
@@ -43,11 +47,15 @@ Du kan bruke `aria-current='true'`på et `Dropdown.Item` for å indikere hvilket
 
 ## Retningslinjer
 
-- En `Dropdown` er ikke en semantisk meny, men gir grunnlaget for å bygge en. Se ['Menu and Menubar Pattern' hos w3c](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/) for mer informasjon om tilgjengelige menyer.
+- En `Dropdown` er ikke en semantisk meny, men gir grunnlaget for å bygge en. [Se Menu and Menubar Pattern hos w3.org](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/) for mer informasjon om tilgjengelige menyer.
 - Bruk dropdowns til handlinger eller navigasjon som ikke må være synlige hele tiden.
 - Begrens antallet elementer slik at listen er enkel å navigere.
 - Bruk overskrifter for å gruppere relaterte valg.
 - Unngå flere nivåer med dropdowns (nøstede menyer), da dette gjør navigasjonen mer krevende.
+
+## Tilgjengelighet
+
+Det er innebygd tilgjengelighet i `Dropdown.Trigger` med `aria-expanded={true/false}` i henhold til åpnet/lukket tilstand, og `aria-haspopup='menu'`. Du kan lese mer om [Popover API-et i MDN-dokumentasjonen](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API).
 
 ## Kilde
 

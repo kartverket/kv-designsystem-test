@@ -5,36 +5,36 @@ import classes from '../styles/layout.module.css';
 import { getPath } from '../../../.storybook/utils/getPath';
 
 function getComponentNames() {
-    const modules = import.meta.glob('../../components/**/*.stories.tsx', {
-    });
+	const modules = import.meta.glob('../../components/**/*.stories.tsx', {
+	});
 
-    return Object.keys(modules).map((path) => {
-        const parts = path.split('/');
-        const file = parts[parts.length -1];
-        return file.replace('.stories.tsx', '');
-    });
+	return Object.keys(modules).map((path) => {
+		const parts = path.split('/');
+		const file = parts[parts.length - 1];
+		return file.replace('.stories.tsx', '');
+	});
 }
 
 function toCamelCase(str: string) {
-    return str[0].toLowerCase() + str.slice(1);
+	return str[0].toLowerCase() + str.slice(1);
 }
 
 export function ComponentIndex() {
-    const componentNames = getComponentNames();
+	const componentNames = getComponentNames();
 
-    return (
-        <div className={`${classes.grid} sb-unstyled`} >
-            {componentNames.map((name) => (
-                <Card className='sb-unstyled' >
-                    <Card.Block>
-                        <Heading>
-                            <Link href={getPath(`/docs/components-${toCamelCase(name)}--docs`)}>
-                            {name}
-                            </Link>
-                        </Heading>
-                    </Card.Block>
-                </Card>
-            ))}
-        </ div>
-    )
+	return (
+		<div className={`${classes.grid} sb-unstyled`} >
+			{componentNames.map((name) => (
+				<Card className='sb-unstyled' >
+					<Card.Block>
+						<Heading>
+							<Link href={getPath(`/docs/components-${toCamelCase(name)}--docs`)}>
+								{name}
+							</Link>
+						</Heading>
+					</Card.Block>
+				</Card>
+			))}
+		</ div>
+	)
 }

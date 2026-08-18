@@ -17,7 +17,7 @@ import * as ListStories from './List.stories';
 
 **Unngå `List` når**
 - brukerne skal lese lengre innhold
-- flere grupper av informasjon skal kunne sammenlignes - bruk heller en [`Table`](/docs/components-table--docs)
+- flere grupper av informasjon skal kunne sammenlignes – bruk heller en [`Table`](/docs/components-table--docs)
 
 ## Varianter med eksempler
 
@@ -41,7 +41,7 @@ Vi kan legge en liste under et enkelt listepunkt når punktet inneholder tillegg
 
 ### Liste med lenker
 
-Vi kan bruke `List` til å lage en liste med lenker, og i eksempelet under har vi skrudd av list-stylingen på `List.Unordered`
+Vi kan bruke `List` til å lage en liste med lenker, og i eksempelet under har vi skrudd av list-stylingen på `List.Unordered`.
 
 <Canvas of={ListStories.WithLinks} />
 
@@ -59,7 +59,7 @@ Riktig valg av format gir en bedre opplevelse for alle brukere, spesielt for de 
 
 ## Tekst i List
 
-- Hvert punkt bør være kort - helst en setning eller noen få ord.
+- Hvert punkt bør være kort – helst en setning eller noen få ord.
 - Punktene skal ha lik form og struktur for forutsigbarhet.
 - List kan brukes sammen med en `Heading` for å gi brukeren en rask oversikt over innholdet, spesielt for lengre lister.
 
@@ -83,7 +83,7 @@ Riktig valg av format gir en bedre opplevelse for alle brukere, spesielt for de 
 
 ### List som navigasjon
 
-Dersom liste brukes som navigasjonselement (for eksempel i bunnen eller ved siden av hovedinnholdet), kan du legge et `<nav>` element rundt med en `aria-label` for å gi skjermlesere en bedre brukeropplevelse. [W3C anbefaler](https://www.w3.org/TR/using-aria/#label-support) å unngå `aria-label`/`aria-labelledby` rett på `ul`/`ol`.
+Dersom en liste brukes som navigasjonselement (for eksempel i bunnen eller ved siden av hovedinnholdet), kan du legge et `<nav>`-element rundt med en `aria-label` for å gi skjermlesere en bedre brukeropplevelse. [W3C anbefaler å unngå aria-label/aria-labelledby rett på ul/ol](https://www.w3.org/TR/using-aria/#label-support).
 
 ## Kilde
 

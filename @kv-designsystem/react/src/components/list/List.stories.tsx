@@ -33,11 +33,11 @@ export const Unordered: Story = {
       </Heading>
       <List.Unordered>
         <List.Item>
-          Eiendomsregisteret samler opplysninger fra flere kilder, inkludert data som kommunen har 
+          Eiendomsregisteret samler opplysninger fra flere kilder, inkludert data som kommunen har
           registrert.
         </List.Item>
         <List.Item>
-          Opplysningene du registrerer, erstatter ikke kommunens eksisterende data, men kan brukes 
+          Opplysningene du registrerer, erstatter ikke kommunens eksisterende data, men kan brukes
           som grunnlag for oppdatering.
         </List.Item>
         <List.Item>
@@ -82,28 +82,27 @@ export const Indented: StoryObj<React.ComponentProps<typeof List.Ordered>> = {
       </Heading>
       <List.Ordered>
         <List.Item>
-          Barnehagens verdigrunnlag
+          Om kartdata
           <List.Unordered>
-            <List.Item>Barn og barndom</List.Item>
-            <List.Item>Demokrati</List.Item>
-            <List.Item>Mangfold og gjensidig respekt</List.Item>
+            <List.Item>Hva er geodata?</List.Item>
+            <List.Item>Kartgrunnlag</List.Item>
+            <List.Item>Koordinatsystemer</List.Item>
           </List.Unordered>
         </List.Item>
         <List.Item>
-          Ansvar og roller
+          Eiendom
           <List.Unordered>
-            <List.Item>Barnehageeier</List.Item>
-            <List.Item>Styrer</List.Item>
-            <List.Item>Pedagogisk leder</List.Item>
+            <List.Item>Matrikkelen</List.Item>
+            <List.Item>Eiendomsgrenser</List.Item>
+            <List.Item>Tinglyste rettigheter</List.Item>
           </List.Unordered>
         </List.Item>
         <List.Item>
-          Barnehagens formål og innhold
+          Veiledning
           <List.Unordered>
-            <List.Item>
-              Barnehagen skal ivareta barnas behov for omsorg
-            </List.Item>
-            <List.Item>Barnehagen skal ivareta barnas behov for lek</List.Item>
+            <List.Item>Bestille kartdata</List.Item>
+            <List.Item>Rapportere feil i kart</List.Item>
+            <List.Item>Kontakt oss</List.Item>
           </List.Unordered>
         </List.Item>
       </List.Ordered>

@@ -5,7 +5,6 @@ import { Badge } from '../badge/Badge';
 import { Link } from '../link/Link';
 import { BriefcaseIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 
-// TODO: fix styling to be implemented the same across all components
 const meta = {
   component: Avatar,
   parameters: { layout: 'centered' },
@@ -90,6 +89,14 @@ export const Shapes: Story = {
 };
 
 export const InDropdown: Story = {
+  parameters: {
+    layout: 'padded',
+    docs: {
+      story: {
+        height: '200px',
+      }
+    },
+  },
   render: (_args: AvatarProps) => (
     <Dropdown.TriggerContext>
       <Dropdown.Trigger variant='tertiary'>
@@ -97,7 +104,7 @@ export const InDropdown: Story = {
         Ola Nordmann
         <ChevronUpIcon aria-hidden='true' />
       </Dropdown.Trigger>
-      <Dropdown placement='bottom-end' autoPlacement={false} data-size='md'>
+      <Dropdown placement='bottom-end' autoPlacement={false} data-size='md' open>
         <Dropdown.List>
           <Dropdown.Item>
             <Dropdown.Button>
@@ -119,7 +126,7 @@ export const InDropdown: Story = {
         </Dropdown.List>
       </Dropdown>
     </Dropdown.TriggerContext>
-  )
+  ),
 };
 
 export const AsLink: Story = {
@@ -128,7 +135,7 @@ export const AsLink: Story = {
   },
   render: (args: AvatarProps) => (
     <Link
-      href='https://www.kartverket.no/'
+      href='#'
       style={{ display: 'flex', gap: 'var(--ds-size-2)', alignItems: 'center' }}
     >
       <Avatar {...args} />

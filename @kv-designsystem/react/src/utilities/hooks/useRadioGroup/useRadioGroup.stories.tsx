@@ -1,16 +1,35 @@
 import type { Meta, StoryObj, StoryContext } from '@storybook/react-vite';
-import { Fieldset } from '../../../components/fieldset/Fieldset'; 
+import { Fieldset } from '../../../components/fieldset/Fieldset';
 import { Radio } from '../../../components/radio/Radio';
 import { ValidationMessage } from '../../../components/typography/validationMessage/ValidationMessage';
-import { 
-    type UseRadioGroupProps,
-    useRadioGroup,
+import {
+  type UseRadioGroupProps,
+  useRadioGroup,
 } from './useRadioGroup';
 
 const meta: Meta<UseRadioGroupProps> = {
-  title: 'Utilities/useRadioGroup',
+  title: 'Hooks/useRadioGroup',
   tags: ['alpha'],
-  parameters: { layout: 'centered' },
+  parameters: {
+    layout: 'centered',
+    docs: {
+      source: {
+        type: 'code', // Vis koden som tilhører hver Story direkte (userialisert)
+
+        // Fjern det wrappende "render: (args, context) => {" i preview-koden, så bare selve eksempelet vises.
+        transform: (code: string) => {
+          if (!code.includes('=>')) return code;
+
+          return code
+            .replace(/^[\s\S]*?=>\s*\{/, '') // fjern "{ render: (args, context) => {"
+            .replace(/\}\s*\}\s*;?\s*$/, '') // fjern de to avsluttende }
+            .replace(/^ {4}/gm, '') // dedent 2 nivåer
+            .replace('return', '')
+            .trim();
+        },
+      }
+    }
+  },
   argTypes: {
     name: {
       table: { type: { summary: 'string' } },
@@ -69,20 +88,17 @@ const ageGroups = [
 ];
 
 export const Group: Story = {
-  args: {
-    name: 'my-group',
-    readOnly: false,
-    disabled: false,
-    value: '',
-  },
-  render: (args: UseRadioGroupProps, context: StoryContext<UseRadioGroupProps>) => {
+  render: (__args: UseRadioGroupProps, context: StoryContext<UseRadioGroupProps>) => {
     const { getRadioProps, validationMessageProps } = useRadioGroup({
-      ...args,
+      name: 'my-group',
+      readOnly: false,
+      disabled: false,
+      value: '',
     });
 
     return (
       <Fieldset>
-        <Fieldset.Legend>Velg din aldersgruppe.</Fieldset.Legend>
+        <Fieldset.Legend>Velg din aldersgruppe</Fieldset.Legend>
         <Fieldset.Description>
           Informasjonen blir brukt til å tilpasse innholdet på siden.
         </Fieldset.Description>
@@ -107,16 +123,13 @@ const requestOptions = [
 ];
 
 export const WithError: Story = {
-  args: {
-    readOnly: false,
-    disabled: false,
-    value: '',
-    error: 'Du må velge et alternativ før du kan fortsette.',
-    name: 'request-type',
-  },
-  render: (args: UseRadioGroupProps, context: StoryContext<UseRadioGroupProps>) => {
+  render: (__args: UseRadioGroupProps, context: StoryContext<UseRadioGroupProps>) => {
     const { getRadioProps, validationMessageProps } = useRadioGroup({
-      ...args,
+      readOnly: false,
+      disabled: false,
+      value: '',
+      error: 'Du må velge et alternativ før du kan fortsette.',
+      name: 'request-type',
     });
 
     return (
@@ -131,6 +144,42 @@ export const WithError: Story = {
           />
         ))}
         <ValidationMessage {...validationMessageProps} />
+      </Fieldset>
+    );
+  },
+};
+
+export const Outline: Story = {
+  render: (__args: UseRadioGroupProps) => {
+    const { getRadioProps } = useRadioGroup({
+      name: 'course-level',
+      readOnly: false,
+      disabled: false,
+      value: '',
+      variant: 'outline',
+    });
+
+    return (
+      <Fieldset>
+        <Fieldset.Legend>Hvilket kursnivå passer deg best?</Fieldset.Legend>
+        <Fieldset.Description>
+          Velg nivået som beskriver din erfaring med temaet.
+        </Fieldset.Description>
+        <Radio
+          label='Nybegynner'
+          description='Passer for deg som er helt ny og ønsker en rolig introduksjon.'
+          {...getRadioProps('beginner')}
+        />
+        <Radio
+          label='Viderekommen'
+          description='Passer for deg som kjenner grunnleggende begreper og vil gå dypere.'
+          {...getRadioProps('intermediate')}
+        />
+        <Radio
+          label='Ekspert'
+          description='Passer for deg som ønsker avanserte temaer og praktiske case.'
+          {...getRadioProps('expert')}
+        />
       </Fieldset>
     );
   },

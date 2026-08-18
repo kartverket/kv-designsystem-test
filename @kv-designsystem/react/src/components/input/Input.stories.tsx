@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Input } from './Input';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
+import { ValidationMessage } from '@digdir/designsystemet-react';
 
 const meta = {
   component: Input,
@@ -31,15 +32,7 @@ export const WithError: Story = {
     <Field>
       <Label>Fødselsnummer</Label>
       <Input aria-invalid />
-    </Field>
-  )
-};
-
-export const Disabled: Story = {
-  render: (_args) => (
-    <Field>
-      <Label>Fødselsnummer</Label>
-      <Input disabled value='12345678901' />
+      <ValidationMessage>Fødselsnummeret skal ha 11 siffer</ValidationMessage>
     </Field>
   )
 };
@@ -49,6 +42,15 @@ export const ReadOnly: Story = {
     <Field>
       <Label>Fødselsnummer</Label>
       <Input readOnly value='12345678901' />
+    </Field>
+  )
+};
+
+export const Disabled: Story = {
+  render: (_args) => (
+    <Field>
+      <Label>Fødselsnummer</Label>
+      <Input disabled value='12345678901' />
     </Field>
   )
 };

@@ -16,7 +16,7 @@ Vi bruker `Card` for å samle og tydelig presentere informasjon eller oppgaver s
 
 **Unngå `Card` når**
 - innholdet består av lange tekstblokker eller detaljerte forklaringer
-- budskapet er kritisk eller krever høy oppmerksomhet - bruk heller [`Alert`](/docs/components-alert--docs)
+- budskapet er kritisk eller krever høy oppmerksomhet – bruk heller [`Alert`](/docs/components-alert--docs)
 
 ## Varianter med eksempler
 
@@ -24,9 +24,11 @@ Vi bruker `Card` for å samle og tydelig presentere informasjon eller oppgaver s
 
 `Card` støtter alle temafarger og finnes i variantene `default` og `tinted`. Fargevalg bør understøtte innholdets betydning og helheten i grensesnittet.
 
+<Canvas of={CardStories.Variants} />
+
 ### Med inndeling
 
-Et `Card` kan deles inn i flere seksjoner ved bruk av `Card.Block`. Seksjonene får skillelinjer, og kan inneholde media som bilder eller video som går helt ut i kanten. Merk at når du bruker `Card.Block` må alt innholdet ligge inni `Card.Block`, og ikke plasseres direkte i `Card`.
+Et `Card` kan deles inn i flere seksjoner ved bruk av `Card.Block`. Seksjonene får skillelinjer, og kan inneholde media som bilder eller video som går helt ut i kanten. Om du bruker video, unngå å sette autoplay. Merk at når du bruker `Card.Block` må alt innholdet ligge inni `Card.Block`, og ikke plasseres direkte i `Card`.
 
 <Canvas of={CardStories.Media} />
 
@@ -34,7 +36,29 @@ Et `Card` kan deles inn i flere seksjoner ved bruk av `Card.Block`. Seksjonene f
 
 `Card` kan brukes som navigasjonskort for å føre brukeren videre til en ny side.
 
-Se kodeeksempler for anbefalt implementasjon for å sikre riktig semantikk. Legg inn lenken som en `a`-tag i `Heading`-elementet til `Card`. Hele `Card` blir da automatisk klikkbar, og skjermlesere får en [bedre brukeropplevelse enn dersom hele var en lenke](https://adrianroselli.com/2020/02/block-links-cards-clickable-regions-etc.html) fordi kun tittelen blir lest opp som lenketekst.
+Legg lenken som en `a`-tag i et `Heading`-element i `Card` eller `Card.Block`, slik:
+
+```tsx
+<Card>
+  <Heading level={3}>
+    <a href='/link-path'>Lenketittel</a>
+  </Heading>
+</Card>
+```
+
+eller slik:
+
+```tsx
+<Card>
+  <Card.Block>
+    <Heading level={3}>
+      <a href='/link-path'>Lenketittel</a>
+    </Heading>
+  </Card.Block>
+</Card>
+```
+
+Hele kortet blir da automatisk klikkbart, og skjermlesere får en bedre brukeropplevelse enn dersom hele var en lenke fordi kun tittelen blir lest opp som lenketekst.
 
 <Canvas of={CardStories.WithLink} />
 
@@ -64,7 +88,7 @@ Følg disse retningslinjene for å sikre at et `Card` er enkelt å bruke og fors
 ## Tekst i Card
 
 - Teksten i et `Card` skal være presis, relevant og støtte brukerens forståelse av hva kortet handler om.
-- Formuleringen må tilpasses konteksten - om kortet fungerer som navigasjon, et valg i en prosess eller en del av en informasjonsoversikt.
+- Formuleringen må tilpasses konteksten – om kortet fungerer som navigasjon, et valg i en prosess eller en del av en informasjonsoversikt.
 - Bruk korte, men tydelige titler.
 - Sørg for at tittel og beskrivelse henger godt sammen og gir mening med resten av innholdet.
 - Unngå unødvendige detaljer. `Card` skal hjelpe brukeren å orientere seg raskt.

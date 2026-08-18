@@ -26,10 +26,10 @@ Den er tilgjengelig i Altinn CDN.
 
 ```html
 <link
-  rel="stylesheet"
-  href="https://altinncdn.no/fonts/inter/v4.1/inter.css"
-  integrity="sha384-OcHzc/By/OPw9uJREawUCjP2inbOGKtKb4A/I2iXxmknUfog2H8Adx71tWVZRscD"
-  crossorigin="anonymous"
+  rel='stylesheet'
+  href='https://altinncdn.no/fonts/inter/v4.1/inter.css'
+  integrity='sha384-OcHzc/By/OPw9uJREawUCjP2inbOGKtKb4A/I2iXxmknUfog2H8Adx71tWVZRscD'
+  crossorigin='anonymous'
 />
 ```
 
@@ -39,13 +39,13 @@ For å få en konsistent typografi på nettsiden må du sette en standard typogr
 body {
   font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
-  font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
+  font-feature-settings: 'cv05' 1; /* Enable lowercase l with tail */
 }
 ```
 
 ## 3. Last inn stilsett
 
-Du kan velge mellom to temaer, grønt eller blått.
+Du kan velge mellom to temaer, grønt eller blått. Du må sette fargemodus til enten green eller blue globalt i koden.
 
 Importer stilsettet enten i JavaScript-/TypeScript-entrypointet:
 
@@ -53,7 +53,7 @@ Importer stilsettet enten i JavaScript-/TypeScript-entrypointet:
 // Grønt tema
 import '@kv-designsystem/react/green';
 
-// Blått tema
+// eller blått tema
 import '@kv-designsystem/react/blue';
 ```
 
@@ -63,7 +63,7 @@ Eller i din primære css-fil:
 // Grønt tema
 @import '@kv-designsystem/react/green';
 
-// Blått tema
+// eller blått tema
 @import '@kv-designsystem/react/blue';
 ```
 
