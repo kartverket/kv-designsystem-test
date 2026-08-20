@@ -18,6 +18,7 @@ export * from './dropdown/Dropdown';
 export * from './errorSummary/ErrorSummary';
 export * from './field/Field';
 export * from './fieldset/Fieldset';
+export * from './fileUpload/FileUpload';
 export * from './footer';
 export * from './header';
 export * from './input/Input';
