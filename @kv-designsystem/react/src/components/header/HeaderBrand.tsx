@@ -4,17 +4,15 @@ import logoSymbol from '../../../assets/img/KV_Logo_Symbol.svg';
 import { Link } from '../link/Link';
 import { Heading } from '../typography/heading/Heading';
 
-// If applicationName is provided, applicationHref is required
 type PublicBrandProps =
   | {
-    applicationName?: undefined;
-    applicationHref?: string;
-  }
+      applicationName?: undefined;
+      applicationHref?: undefined;
+    }
   | {
-    applicationName: string;
-    applicationHref: string;
-  }
-  ;
+      applicationName: string;
+      applicationHref: string;
+    };
 
 type InternalBrandProps = {
   applicationName: string;
@@ -29,7 +27,6 @@ export const PublicBrand = forwardRef<HTMLDivElement, PublicBrandProps>(
           <img src={logoFull} className='header-logo header-logo--full' aria-hidden />
           <img src={logoSymbol} className='header-logo header-logo--symbol' aria-hidden />
         </a>
-
         {applicationName && (
           <>
             <span className='header-brand-divider' />
@@ -37,8 +34,7 @@ export const PublicBrand = forwardRef<HTMLDivElement, PublicBrandProps>(
               <Heading data-size='2xs'>{applicationName}</Heading>
             </Link>
           </>
-        ) 
-        }
+        )}
       </div>
     );
   }
