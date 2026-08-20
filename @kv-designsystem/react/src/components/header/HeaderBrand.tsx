@@ -47,8 +47,8 @@ export const PublicBrand = forwardRef<HTMLDivElement, PublicBrandProps>(
 export const InternalBrand = forwardRef<HTMLDivElement, InternalBrandProps>(
   function InternalBrand({ applicationName, applicationHref }, ref) {
     return (
-      <div ref={ref}>
-        <a href={applicationHref} className='header-brand--internal' >
+      <div ref={ref} className='header-brand header-brand--internal'>
+        <a href={applicationHref}>
           <img src={logoSymbol} className='header-logo header-logo--symbol header-logo--internal' aria-hidden />
           <Heading data-size='sm'>{applicationName}</Heading>
         </a>

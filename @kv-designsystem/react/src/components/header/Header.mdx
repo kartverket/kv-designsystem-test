@@ -40,6 +40,17 @@ import { LanguageIcon } from '@navikt/aksel-icons';
 
 ## Varianter med eksempler
 
+### Logovarianter
+
+Header-logoen finnes i to varianter, offentlig og intern. For offentlige løsninger fører Kartverkets logo til kartverket.no, og lenken i tjenestenavnet skal føre til tjenestens hovedside.
+
+For interne løsninger kan man velge mellom å bruke offentlig variant eller intern variant. Den interne varianten fjerner lenken til kartverket.no, og logosymbol + tjenestenavn blir én lenke som leder til tjenestens hovedside. Du setter dette med `variant='internal'`.
+
+<Canvas of={HeaderStories.Internal} />
+
+{/* TODO: legge til underoverskrift */}
+### Ny overskrift?
+
 `Header` kan brukes med flere forskjellige kombinasjoner av subkomponenter. Vi har hovedsakelig to måter å strukturere Headeren på:
 
 1. med navigasjonslenker
@@ -132,16 +143,6 @@ Velg **temameny** når
 - du har minst 2 tydelige temaer for navigasjon
 - du har mange underliggende sider
 - det er flere nivåer i navigasjonen
-
-### Lenker til logo og tjenestenavn
-
-For publikumsløsninger skal Kartverkets logo føre til kartverket.no, og tjenestenavnet skal føre til denne tjenestens hovedside.
-
-For interne løsninger kan man velge mellom å bruke
-1. samme løsning som for publikumsløsninger
-2. kun Kartverkets logosymbol + tjenestenavnet dersom man ikke har behov for å inkludere en vei til kartverket.no i Header. Under ser du et eksempel. 
-
-<Canvas of={HeaderStories.Internal} />
 
 ## Responsivitet
 

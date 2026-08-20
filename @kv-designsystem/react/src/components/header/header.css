@@ -48,16 +48,15 @@
   gap: clamp(var(--ds-size-3), 1.543vw, var(--ds-size-5));
 }
 
-.header-brand a,
-.header-brand--internal {
+.header-brand a {
   display: flex;
   align-items: center;
   color: var(--ds-color-neutral-text-default);
   text-decoration: none;
+}
 
-  &:hover {
+.header-brand:not(.header-brand--internal) a:hover {
     text-decoration: underline;
-  }
 }
 
 .header-logo {
