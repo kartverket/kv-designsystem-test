@@ -11,16 +11,16 @@ import { LanguageIcon } from '@navikt/aksel-icons';
 <Meta of={HeaderStories} />
 
 <Alert data-color='info' className='sb-unstyled' style={{ marginBottom: 'var(--ds-size-4)' }}>
-    <Heading     
-        data-size='xs'
-        level={3}
-        style={{
-            marginBottom: 'var(--ds-size-2)'
-        }}
-    >
-        Hjelp oss med å gjøre Header-komponenten enda bedre!
-    </Heading>
-    Eksemplene viser brukstilfellene vi støtter i dag. Hvis tjenesten din har andre behov, ønsker vi gjerne innspill slik at vi kan videreutvikle komponenten.
+  <Heading     
+    data-size='xs'
+    level={3}
+    style={{
+      marginBottom: 'var(--ds-size-2)'
+    }}
+  >
+    Hjelp oss med å gjøre Header-komponenten enda bedre!
+  </Heading>
+  Eksemplene viser brukstilfellene vi støtter i dag. Hvis tjenesten din har andre behov, ønsker vi gjerne innspill slik at vi kan videreutvikle komponenten.
 </Alert>
 
 # Header
@@ -40,6 +40,18 @@ import { LanguageIcon } from '@navikt/aksel-icons';
 
 ## Varianter med eksempler
 
+### Logovarianter
+
+Header-logoen finnes i to varianter: offentlig og intern. 
+
+For offentlige løsninger fører Kartverkets logo til kartverket.no. Hvis du viser et tjenestenavn, må du også oppgi `applicationHref`. Denne lenken brukes som lenke på tjenestenavnet, og bør peke til tjenestens forside.
+
+For interne løsninger kan du velge mellom å bruke offentlig variant og intern variant. Den interne varianten fjerner lenken til kartverket.no. I stedet lenkes logosymbolet og tjenestenavnet samlet til adressen du oppgir i `applicationHref`. For interne løsninger bør `applicationHref` peke til tjenestens forisde. Du velger intern variant med `variant='internal'`.
+
+<Canvas of={HeaderStories.Internal} />
+
+### Strukturer og komponering
+
 `Header` kan brukes med flere forskjellige kombinasjoner av subkomponenter. Vi har hovedsakelig to måter å strukturere Headeren på:
 
 1. med navigasjonslenker
@@ -54,20 +66,20 @@ Vurder hvilke handlinger som er viktige for brukerne av tjenesten, og om de bør
 
 Kartverkets logo og tjenestenavnet er alltid plassert til venstre, uavhengig av hvilken variant av Header du velger.
 
-### Subkomponenter
+#### Subkomponenter
 
 - Header.Nav med Header.NavItem
 - Header.ActionsList du kan fylle med Buttons for sentrale handlinger
 - Header.SearchButton med Header.SearchDialog
 - Header.MenuButton og Header.Menu
 
-### Navigasjonslenker
+#### Navigasjonslenker
 
 Bruk navigasjonslenker til sider brukeren skal ha tilgang til fra hele tjenesten. Lenkene er utformet som knapper og skal ikke ha ikon.
 
 <Canvas of={HeaderStories.WithNavigationLinks} />
 
-### Meny
+#### Meny
 
 Bruk meny når det ikke er plass til alle navigasjonslenker og handlinger direkte i Headeren. I menyen kan navigasjonslenker også grupperes i underkategorier.
 
@@ -94,7 +106,7 @@ Søk kan vises direkte i Header med et søkefelt, slik eksempelet under viser. A
 ### Inn- og utlogging og profil i Header
 
 <Alert data-color='info' className='sb-unstyled' style={{ marginBlock: 'var(--ds-size-4)' }}>
-     Vi har ikke full oversikt over alle bruksbehov for profilmenyen enda, men dette er et forslag til hvordan komponenten kan se ut i praksis. Vi tar gjerne imot innspill til forbedringer eller andre behov som ikke er dekket.
+  Vi har ikke full oversikt over alle bruksbehov for profilmenyen enda, men dette er et forslag til hvordan komponenten kan se ut i praksis. Vi tar gjerne imot innspill til forbedringer eller andre behov som ikke er dekket.
 </Alert>
 
 Innlogging:
@@ -132,20 +144,6 @@ Velg **temameny** når
 - du har minst 2 tydelige temaer for navigasjon
 - du har mange underliggende sider
 - det er flere nivåer i navigasjonen
-
-
-{/* 
-TODO: uncommment when funtionality is implemented in Header.
-
-### Lenker til logo og tjenestenavn
-
-For publikumsløsninger skal Kartverkets logo føre til kartverket.no, og tjenestenavnet skal føre til denne tjenestens hovedside.
-
-For interne løsninger kan man velge mellom å bruke
-1. samme løsning som for publikumsløsninger
-2. kun Kartverkets logosymbol + tjenestenavnet dersom man ikke har behov for å inkludere en vei til kartverket.no i Header. Under ser du et eksempel. */}
-
-{/* Eksempel */}
 
 ## Responsivitet
 
