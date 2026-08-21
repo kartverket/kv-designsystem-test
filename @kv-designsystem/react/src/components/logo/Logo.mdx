@@ -1,0 +1,43 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as LogoStories from './Logo.stories';
+
+<Meta of={LogoStories} />
+
+# Logo
+
+Vi bruker Kartverkets logo for å tydeliggjøre at vi står som avsender på tjenestene våre. Komponenten `Logo` viser Kartverkets logo i henholdsvis horisontal, vertikal og symbolversjon.  I de fleste tilfeller trenger du ikke denne komponenten, fordi den er inkludert i `Header` og `Footer`. Hvis du likevel har behov for å bruke den, må du følge retningslinjene under.
+
+<Canvas of={LogoStories.Preview} />
+<Controls />
+
+## Varianter med eksempler
+
+### Symbol og navn
+
+Som hovedregel bør du bruke en logovariant som inneholder både symbol og navn. Denne finnes i horisontal og vertikal versjon.
+
+<Canvas of={LogoStories.Variants} />
+
+### Kun symbol
+
+I noen tilfeller kan du bruke logoen med kun symbolet. Dette gjelder på smale skjermer og for interne løsninger. [`Header`](/docs/components-header--docs) har eksempler for begge disse.
+
+<Canvas of={LogoStories.Symbol} />
+
+### Hvit tekst
+
+Logoen kommer også i hvit tekst for situasjoner der den havner på en mørk bakgrunn, for eksempel i dark mode.
+
+<Canvas of={LogoStories.Negative} />
+
+### Størrelse
+
+Du kan endre logoens størrerelse med `size`-parameteret. Dette setter høyden på logoen, mens bredden skalerer automatisk.
+
+## Retningslinjer
+
+Retningslinjene for bruk av logo står beskrevet i [den visuelle profilen på kartverket.no](https://www.kartverket.no/om-kartverket/kartverkets-identitet/logo).
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

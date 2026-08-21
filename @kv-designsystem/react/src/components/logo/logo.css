@@ -1,0 +1,45 @@
+.kvds-logo {
+  width: fit-content;
+  height: fit-content;
+  padding: var(--kvdsc-logo-padding);
+
+  > img {
+    height: var(--kvdsc-logo-size);
+    width: auto;
+  }
+}
+
+/* Default: show the light logo, hide the negative one */
+.kvds-logo--horizontal,
+.kvds-logo--vertical {
+  > img:first-of-type {
+    display: block;
+  }
+  > img:last-of-type {
+    display: none;
+  }
+}
+
+/* Switch to negative logo when dark mode is set explicitly on the component or on a parent */
+.kvds-logo[data-color-scheme='dark'] > img,
+[data-color-scheme='dark'] .kvds-logo > img {
+  &:first-of-type {
+    display: none;
+  }
+  &:last-of-type {
+    display: block;
+  }
+}
+
+/* Switch to negative logo when system preferences is set to dark and color scheme is auto */
+@media (prefers-color-scheme: dark) {
+  .kvds-logo[data-color-scheme='auto'] > img,
+  [data-color-scheme='auto'] .kvds-logo > img {
+    &:first-of-type {
+      display: none;
+    }
+    &:last-of-type {
+      display: block;
+    }
+  }
+}

@@ -2,7 +2,7 @@ import cl from 'clsx/lite';
 import type { Size } from '@digdir/designsystemet-types';
 import { CSSProperties, forwardRef, HTMLAttributes } from 'react';
 import './footer.css';
-import logo from '../../../assets/img/KV_Logo_Horisontal.svg';
+import logo from '../../../assets/img/KV_Logo_Horizontal.svg';
 
 export type FooterProps = HTMLAttributes<HTMLElement> & {
   /**
