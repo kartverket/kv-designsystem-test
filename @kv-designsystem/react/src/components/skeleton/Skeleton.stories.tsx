@@ -40,7 +40,7 @@ export const UsageExample: Story = {
         }}>
         <Skeleton height='200px' {...args} />
         <Heading>
-          <Skeleton variant='text' width='15' />
+          <Skeleton variant='text' width='15' >Tittel</Skeleton>
         </Heading>
 
         <div
