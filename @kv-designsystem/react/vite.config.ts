@@ -92,6 +92,15 @@ export default defineConfig({
                 browser: 'chromium',
               },
             ],
+            expect: {
+              toMatchScreenshot: {
+                comparatorName: 'pixelmatch',
+                comparatorOptions: {
+                  threshold: 0.2,
+                  allowedMismatchedPixelRatio: 0.01,
+                },
+              },
+            },
           },
           setupFiles: ['.storybook/vitest.setup.ts'],
         },
