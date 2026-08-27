@@ -30,3 +30,13 @@ HeaderDialogProps & RefAttributes<HTMLDialogElement>
     );
   },
 );
+
+export const HeaderMenu = forwardRef<HTMLDialogElement, HeaderDialogProps>(
+  function HeaderMenu(props, ref) {
+    return <HeaderDialog {...props} ref={ref} />;
+});
+
+export const HeaderSearchDialog = forwardRef<HTMLDialogElement, HeaderDialogProps>(
+  function HeaderSearchDialog(props, ref) {
+    return <HeaderDialog {...props} ref={ref} />
+});
