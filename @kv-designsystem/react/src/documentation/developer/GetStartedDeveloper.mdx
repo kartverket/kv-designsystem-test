@@ -12,10 +12,10 @@ Her får du en guide med steg for steg for å starte å bruke Kartverkets design
 
 ## 1. Installer
 
-For å ta i bruk komponentbiblioteket må du installere `@kv-designsystem/react@alpha`.
+For å ta i bruk komponentbiblioteket, må du installere `@kv-designsystem/react`.
 
 ```jsx
-$ npm install @kv-designsystem/react@alpha
+$ npm install @kv-designsystem/react
 ```
 
 ## 2. Sett riktig font
@@ -73,9 +73,9 @@ Du kan legge til typedefinisjoner fra `@kv-designsystem/theme` og `@kv-designsys
 
 ```jsonc
 {
-  'compilerOptions': {
-    'types': ['@kv-designsystem/theme', '@kv-designsystem/react/html'],
-  },
+  "compilerOptions": {
+    "types": ["@kv-designsystem/theme/types", "@kv-designsystem/react/html"]
+  }
 }
 ```
 
