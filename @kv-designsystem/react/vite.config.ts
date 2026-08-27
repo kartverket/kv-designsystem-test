@@ -97,7 +97,7 @@ export default defineConfig({
                 comparatorName: 'pixelmatch',
                 comparatorOptions: {
                   threshold: 0.2,
-                  allowedMismatchedPixelRatio: 0.01,
+                  allowedMismatchedPixelRatio: 0.0005,
                 },
               },
             },
