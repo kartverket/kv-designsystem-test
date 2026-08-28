@@ -8,6 +8,12 @@ import '@digdir/designsystemet-css'; /* imported only once */
 // import '../.storybook/style.css';
 import customTheme from './docs/customTheme';
 
+declare global {
+  interface Window {
+    __visualTestCanvasElement?: HTMLElement;
+  }
+}
+
 // Fix icons being displayed as React.ForwardRef in Storybook code examples
 Object.entries(icons).forEach(([name, component]) => {
   if (typeof component === 'object' && component !== null) {
@@ -65,6 +71,14 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       // const stylesheet = `/style/${context.globals.theme}.css`; // Serve as static file from the public directory.
+
+      // Expose the story's real mount element for visual regression screenshots
+      // (see .storybook/vitest.setup.ts). addon-vitest mounts each story into an
+      // anonymous <div> appended to document.body with no stable id/class, and its
+      // position among body's other children isn't consistent between stories, so
+      // there's no CSS selector that reliably targets it. `context.canvasElement`
+      // is the same, officially exposed reference used by Storybook's `play()` API.
+      window.__visualTestCanvasElement = context.canvasElement;
 
       return (
         <ThemeWrapper theme={context.globals.theme}>
