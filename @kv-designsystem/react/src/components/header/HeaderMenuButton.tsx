@@ -4,21 +4,24 @@ import {
   type ForwardRefExoticComponent,
   type RefAttributes,
 } from 'react';
-import type { ButtonProps } from '../button/Button';
 import { MenuHamburgerIcon } from '@navikt/aksel-icons';
-import { HeaderDialogTrigger } from './HeaderDialogTrigger';
+import { HeaderDialogTrigger, type HeaderDialogTriggerProps } from './HeaderDialogTrigger';
 
-export type HeaderMenuButtonProps = ButtonProps;
+// Omit `primaryIcon` because this component always uses `MenuHamburgerIcon`.
+// Omit `label` to redfine as optional. 
+export type HeaderMenuButtonProps = Omit<HeaderDialogTriggerProps, 'primaryIcon' | 'label'> & {
+  label?: string;
+};
 
 export const HeaderMenuButton: ForwardRefExoticComponent<
   HeaderMenuButtonProps & RefAttributes<HTMLButtonElement>
 > = forwardRef<HTMLButtonElement, HeaderMenuButtonProps>(
-  function HeaderMenuButton({ className, commandFor = 'menu-dialog', ...rest }, ref) {
+  function HeaderMenuButton({ className, commandFor = 'menu-dialog', label = 'Meny', ...rest }, ref) {
     return (
       <HeaderDialogTrigger
         className={cl('header-menu-button', className)}
         commandFor={commandFor}
-        label='Meny'
+        label={label}
         primaryIcon={MenuHamburgerIcon}
         ref={ref}
         {...rest}
