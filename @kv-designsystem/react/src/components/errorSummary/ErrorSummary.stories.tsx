@@ -35,9 +35,13 @@ export const Preview: Story = {
   )
 };
 
-// TODO: when clicking the .Link-items it changes the path, we want to stay on the same path
 export const WithForm: Story = {
-  render: (_args) => (
+  render: (_args) => {
+    const handleOnClick = (id: string) => (e: React.MouseEvent) => {
+      e.preventDefault();
+      document.getElementById(id)?.focus();
+    };
+    return (
     <div style={{ display: 'grid', gap: 'var(--ds-size-4)' }}>
       <Textfield
         label='Fornavn'
@@ -56,17 +60,17 @@ export const WithForm: Story = {
         </ErrorSummary.Heading>
         <ErrorSummary.List>
           <ErrorSummary.Item>
-            <ErrorSummary.Link href='#fornavn'>
+            <ErrorSummary.Link href='#fornavn' onClick={handleOnClick('fornavn')}>
               Fornavn må være minst 2 tegn
             </ErrorSummary.Link>
           </ErrorSummary.Item>
           <ErrorSummary.Item>
-            <ErrorSummary.Link href='#telefonnummer'>
+            <ErrorSummary.Link href='#telefonnummer' onClick={handleOnClick('telefonnummer')}>
               Telefonnummer kan kun inneholde siffer
             </ErrorSummary.Link>
           </ErrorSummary.Item>
         </ErrorSummary.List>
       </ErrorSummary>
     </div>
-  ),
+  )},
 };
