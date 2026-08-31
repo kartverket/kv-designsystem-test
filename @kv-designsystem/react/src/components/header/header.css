@@ -56,7 +56,7 @@
 }
 
 .header-brand:not(.header-brand--internal) a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .header-logo {
@@ -143,6 +143,61 @@
     }
   }
 }
+
+.header-popover {
+  all: unset;
+  display: none;
+  position: fixed;
+  width: 100%;
+  border: 1px solid red; /*TODO: remove*/
+  inset-block-start: var(--kvdsc-header-height);
+  max-height: 0;
+  overflow: hidden;
+  background-color: var(--ds-color-neutral-background-default);
+  /* inset-inline-start: 0; */
+
+  padding: var(--ds-size-6) var(--kvds-layout-padding-inline);
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  /* Remove popover arrow */
+  &::before {
+    display: none;
+  }
+
+  &:popover-open {
+    max-height: calc(95% - (var(--kvdsc-header-height)));
+    overflow: auto;
+    display: block;
+
+    @starting-style {
+      & {
+        max-height: 0;
+        display: block;
+      }
+    }
+  }
+}
+
+/* Overlay on background when menu is open */
+/* :has(> .header .header-popover)::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 300ms ease-in-out,
+    visibility 0s linear 300ms;
+  z-index: 9;
+} */
+
+/* Prevent body from scrolling when menu is open */
+/* body:has(.header .header-popover:popover-open) {
+  overflow: hidden;
+} */
 
 .header-dialog {
   max-height: calc(100vh - var(--kvdsc-header-height));

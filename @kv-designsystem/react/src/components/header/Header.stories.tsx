@@ -40,6 +40,28 @@ export const Internal: Story = {
   ),
 };
 
+export const Popover: Story = {
+  args: {
+    applicationName: 'Tjenestetittel',
+    applicationHref: '#',
+  },
+  render: (args) => (
+    <Header {...args} >
+      <Header.MenuButton popovertarget='with-popover' />
+      <Header.Popover id='with-popover'>
+        <Header.Nav>
+          <Header.NavItem href='#' aria-current='page'>
+            Tjenesteside
+          </Header.NavItem>
+          <Header.NavItem href='https://www.kartverket.no/'>
+            Tjenesteside
+          </Header.NavItem>
+        </Header.Nav>
+      </Header.Popover>
+    </Header>
+  ),
+};
+
 export const WithNavigationLinks: Story = {
   args: {
     applicationName: 'Tjenestetittel',
