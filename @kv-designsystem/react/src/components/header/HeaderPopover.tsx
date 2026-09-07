@@ -21,10 +21,20 @@ export const HeaderPopover: ForwardRefExoticComponent<
         ref={ref}
         {...rest}
       >
-        <div className='header-dialog-content'>
+        <div className='header-popover-content'>
           {children}
         </div>
       </Popover>
     );
   },
 );
+
+export const HeaderMenu = forwardRef<HTMLDivElement, HeaderPopoverProps>(
+  function HeaderMenu(props, ref) {
+    return <HeaderPopover {...props} ref={ref} />;
+});
+
+export const HeaderSearchPopover = forwardRef<HTMLDivElement, HeaderPopoverProps>(
+  function HeaderSearchPopover(props, ref) {
+    return <HeaderPopover {...props} ref={ref} />
+});

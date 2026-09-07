@@ -8,17 +8,17 @@ import type { ButtonProps } from '../button/Button';
 import { Button } from '../button/Button';
 import { XMarkIcon } from '@navikt/aksel-icons';
 
-export type HeaderDialogTriggerProps = ButtonProps & {
+export type HeaderPopoverTriggerProps = ButtonProps & {
 	primaryIcon: typeof XMarkIcon;
 	label: string;
 };
 
-export const HeaderDialogTrigger: ForwardRefExoticComponent<
-	HeaderDialogTriggerProps & RefAttributes<HTMLButtonElement>
-> = forwardRef<HTMLButtonElement, HeaderDialogTriggerProps>(
-	function HeaderDialogTrigger({
+export const HeaderPopoverTrigger: ForwardRefExoticComponent<
+	HeaderPopoverTriggerProps & RefAttributes<HTMLButtonElement>
+> = forwardRef<HTMLButtonElement, HeaderPopoverTriggerProps>(
+	function HeaderPopoverTrigger({
 		className,
-		commandFor,
+		popovertarget,
 		primaryIcon: Icon,
 		label,
 		...rest
@@ -27,14 +27,13 @@ export const HeaderDialogTrigger: ForwardRefExoticComponent<
 	) {
 		return (
 			<Button
-				className={cl('header-dialog-trigger', className)}
+				className={cl('header-popover-trigger', className)}
 				variant='tertiary'
-				commandFor={commandFor}
-				command='show-modal'
+				popovertarget={popovertarget}
 				ref={ref}
 				{...rest}
 			>
-				<span className='dialog-trigger-icon'>
+				<span className='popover-trigger-icon'>
 					<Icon className='primary-icon' aria-hidden />
 					<XMarkIcon className='close-icon' aria-hidden />
 				</span>

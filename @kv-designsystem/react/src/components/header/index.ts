@@ -2,7 +2,7 @@ import { Header as HeaderRoot } from './Header';
 import { HeaderNavItem } from './HeaderNavItem';
 import { HeaderNav } from './HeaderNav';
 import { HeaderMenuButton } from './HeaderMenuButton';
-import { HeaderMenu, HeaderSearchDialog } from './HeaderDialog';
+import { HeaderMenu, HeaderSearchPopover } from './HeaderPopover';
 import { HeaderActionsList } from './HeaderActionsList';
 import { HeaderSearchButton } from './HeaderSearchButton';
 import { HeaderPopover } from './HeaderPopover';
@@ -14,7 +14,7 @@ type HeaderProps = typeof HeaderRoot & {
   Nav: typeof HeaderNav;
   NavItem: typeof HeaderNavItem;
   SearchButton: typeof HeaderSearchButton;
-  SearchDialog: typeof HeaderSearchDialog;
+  SearchPopover: typeof HeaderSearchPopover;
   Popover: typeof HeaderPopover;
 };
 
@@ -25,7 +25,7 @@ const Header: HeaderProps = Object.assign(HeaderRoot, {
   Nav: HeaderNav,
   NavItem: HeaderNavItem,
   SearchButton: HeaderSearchButton,
-  SearchDialog: HeaderSearchDialog,
+  SearchPopover: HeaderSearchPopover,
   Popover: HeaderPopover,
 });
 
@@ -35,11 +35,10 @@ Header.MenuButton.displayName = 'Header.MenuButton';
 Header.Nav.displayName = 'Header.Nav';
 Header.NavItem.displayName = 'Header.NavItem';
 Header.SearchButton.displayName = 'Header.SearchButton';
-Header.SearchDialog.displayName = 'Header.SearchDialog';
+Header.SearchPopover.displayName = 'Header.SearchPopover';
 Header.Popover.displayName = 'Header.Popover';
 
 export type { HeaderProps } from './Header';
-export type { HeaderDialogProps } from './HeaderDialog';
 export type { HeaderActionsListProps } from './HeaderActionsList';
 export type { HeaderMenuButtonProps } from './HeaderMenuButton';
 export type { HeaderNavProps } from './HeaderNav';

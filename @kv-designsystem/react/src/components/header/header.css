@@ -4,6 +4,7 @@
   --kvdsc-header-height: var(--ds-size-26);
   /* Scaling gap size instead of media queries */
   --kvdsc-header-item-gap: var(--ds-size-5) clamp(0px, 1.543vw, var(--ds-size-5));
+  --kvdsc-header-transition-duration: 300ms;
 
   background: var(--ds-color-neutral-background-default);
   height: var(--kvdsc-header-height);
@@ -116,8 +117,8 @@
   align-items: center;
 }
 
-.header-dialog-trigger {
-  & .dialog-trigger-icon {
+.header-popover-trigger {
+  & .popover-trigger-icon {
     transition: transform 0.4s ease;
   }
 
@@ -129,8 +130,8 @@
     display: none;
   }
 
-  &:has(+ .header-dialog:open) {
-    & .dialog-trigger-icon {
+  &:has(+ .header-popover:popover-open) {
+    & .popover-trigger-icon {
       transform: rotate(90deg);
     }
 
@@ -149,80 +150,84 @@
   display: none;
   position: fixed;
   width: 100%;
-  border: 1px solid red; /*TODO: remove*/
-  inset-block-start: var(--kvdsc-header-height);
   max-height: 0;
   overflow: hidden;
-  background-color: var(--ds-color-neutral-background-default);
-  /* inset-inline-start: 0; */
+  inset-block-start: var(--kvdsc-header-height);
+  inset-inline-start: 0;
 
-  padding: var(--ds-size-6) var(--kvds-layout-padding-inline);
+  background-color: var(--ds-color-background-default);
   box-sizing: border-box;
-  overflow-y: auto;
 
   /* Remove popover arrow */
   &::before {
     display: none;
   }
 
+  /* Popover slides down/up */
+  transition: 
+    max-height var(--kvdsc-header-transition-duration) ease,
+    overlay var(--kvdsc-header-transition-duration),
+    display var(--kvdsc-header-transition-duration);
+  transition-behavior: allow-discrete;
+  animation: 1.3s delay-overflow;
+
   &:popover-open {
-    max-height: calc(95% - (var(--kvdsc-header-height)));
-    overflow: auto;
     display: block;
+    max-height: calc(95% - (var(--kvdsc-header-height)));
+    overflow-y: auto;
 
     @starting-style {
       & {
         max-height: 0;
-        display: block;
+      }
+    }
+  }
+
+  /* Backdrop */
+  &::backdrop {
+    background: rgb(0 0 0 / 0.5);
+    inset-block-start: var(--kvdsc-header-height);
+    opacity: 0;
+
+    transition:
+      opacity var(--kvdsc-header-transition-duration) ease-in-out,
+      display var(--kvdsc-header-transition-duration),
+      overlay var(--kvdsc-header-transition-duration);
+    transition-behavior: allow-discrete;
+  }
+
+  /* Fade in/out*/
+  &:popover-open::backdrop {
+    opacity: 1;
+
+    @starting-style {
+      & {
+        opacity: 0;
       }
     }
   }
 }
 
-/* Overlay on background when menu is open */
-/* :has(> .header .header-popover)::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgb(0 0 0 / 0.5);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    opacity 300ms ease-in-out,
-    visibility 0s linear 300ms;
-  z-index: 9;
-} */
-
-/* Prevent body from scrolling when menu is open */
-/* body:has(.header .header-popover:popover-open) {
-  overflow: hidden;
-} */
-
-.header-dialog {
-  max-height: calc(100vh - var(--kvdsc-header-height));
-  padding: var(--ds-size-6) var(--kvds-layout-padding-inline);
-  border: none;
-  box-shadow: none;
-  position: fixed;
-  box-sizing: border-box;
-  overflow-y: auto;
-  inset-block-start: var(--kvdsc-header-height);
-
-  &::backdrop {
-    margin-block-start: var(--kvdsc-header-height);
+@keyframes delay-overflow {
+  from {
+    overflow: hidden;
   }
 }
 
-.header-dialog-content {
+/* Prevent body from scrolling when popover is open */
+body:has(.header .header-popover:popover-open) {
+  overflow: hidden;
+}
+
+.header-popover-content {
   max-width: var(--kvdsc-header-max-width);
   display: grid;
   row-gap: var(--ds-size-4);
   margin: 0 auto;
-  padding: 0;
+  padding: var(--ds-size-6) var(--kvds-layout-padding-inline);
   box-sizing: border-box;
   container-type: inline-size;
-  container-name: header-dialog-content;
+  container-name: header-popover-content;
 
   & ul {
     list-style: none;
@@ -279,7 +284,7 @@
   }
 }
 
-@container header-dialog-content (width < 480px) {
+@container header-popover-content (width < 480px) {
   .header-actions-list {
     justify-content: flex-start;
   }
