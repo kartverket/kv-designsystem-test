@@ -39,8 +39,8 @@ export const Preview: Story = {
 			<Suggestion {...args}>
 				<Suggestion.Input />
 				<Suggestion.Clear />
-				<Suggestion.List id='123'>
-					<Suggestion.Empty>Tomt</Suggestion.Empty>
+				<Suggestion.List>
+					<Suggestion.Empty>Ingen treff</Suggestion.Empty>
 					{DATA_PLACES.map((place) => (
 						<Suggestion.Option key={place} label={place} value={place.toLowerCase()}>
 							{place}
@@ -58,14 +58,46 @@ export const Multiple: Story = {
 		multiple: true,
 		style: { width: '300px' },
 	},
-	render: Preview.render,
+	render: (args) => (
+		<Field>
+			<Label>Velg ett eller flere fylker</Label>
+			<Suggestion {...args}>
+				<Suggestion.Input />
+				<Suggestion.Clear />
+				<Suggestion.List>
+					<Suggestion.Empty>Ingen treff</Suggestion.Empty>
+					{DATA_PLACES.map((place) => (
+						<Suggestion.Option key={place} label={place} value={place.toLowerCase()}>
+							{place}
+						</Suggestion.Option>
+					))}
+				</Suggestion.List>
+			</Suggestion>
+		</Field>
+	)
 }
 
 export const Filter: Story = {
 	args: {
 		filter: true,
 	},
-	render: Preview.render,
+	render: (args) => (
+		<Field>
+			<Label>Hvilket fylke bor du i?</Label>
+			<Suggestion {...args}>
+				<Suggestion.Input />
+				<Suggestion.Clear />
+				<Suggestion.List>
+					<Suggestion.Empty>Ingen treff</Suggestion.Empty>
+					{DATA_PLACES.map((place) => (
+						<Suggestion.Option key={place} label={place} value={place.toLowerCase()}>
+							{place}
+						</Suggestion.Option>
+					))}
+				</Suggestion.List>
+			</Suggestion>
+		</Field>
+	)
 };
 
 const storyParams = { docs: { source: { type: 'code' } } };
@@ -93,7 +125,7 @@ export const AsyncData: Story = {
 
 		return (
 			<Field>
-				<Label>Velg et fylke</Label>
+				<Label>Hvilket fylke bor du i?</Label>
 				<Suggestion {...args}>
 					<Suggestion.Input onInput={handleInput} />
 					<Suggestion.Clear />
