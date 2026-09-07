@@ -28,6 +28,11 @@ dist-ssr
 storybook-static
 .env*
 
+# Local visual test baselines (vitest --project storybook). Visual regression
+# is handled by Chromatic in CI; these screenshots are machine-specific.
+**/__screenshots__/
+**/.vitest-attachments/
+
 .nx/cache
 .nx/workspace-data
 vite.config.*.timestamp*

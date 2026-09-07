@@ -20,17 +20,13 @@
     "build": {
       "outputs": ["{projectRoot}/dist"],
       "inputs": ["default", "^default"],
-      "dependsOn": [
-        "lint-circular-dependencies",
-        "^build",
-        "^install-dependencies"
-      ],
+      "dependsOn": ["lint-circular-dependencies", "^build", "^install-dependencies"],
       "cache": true
     },
     "lint": {
       "cache": true,
-        "options": {
-          "max-warnings": 0
+      "options": {
+        "max-warnings": 0
       }
     },
     "typecheck": {
@@ -60,5 +56,6 @@
   "namedInputs": {
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"],
     "default": ["sharedGlobals"]
-  }
+  },
+  "analytics": false
 }

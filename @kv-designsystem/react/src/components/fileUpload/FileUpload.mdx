@@ -1,0 +1,57 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as FileUploadStories from './FileUpload.stories';
+import { Alert } from '../alert/Alert';
+
+<Meta of={FileUploadStories} />
+
+<Alert data-color='warning'>
+  FileUpload er under utvikling. Finner du feil eller mangler, meld fra i [Slack](https://kartverketgroup.slack.com/archives/C03LL4CKMMK).
+</Alert>
+
+# FileUpload
+
+`FileUpload` er et skjemaelement for å laste opp filer. Komponenten kombinerer et område for å dra og slippe filer med en vanlig filvelger, slik at brukeren kan velge filer enten ved å klikke eller ved å slippe dem i området.
+
+<Canvas of={FileUploadStories.Preview} />
+<Controls of={FileUploadStories.Preview} />
+
+**Bruk `FileUpload` når**
+- brukeren skal laste opp én eller flere filer som en del av et skjema
+- du ønsker å støtte både dra-og-slipp og klikk for å velge fil
+
+
+**Unngå `FileUpload` når**
+- brukeren kun skal velge fra et forhåndsdefinert sett med alternativer
+- du kan hente inn informasjonen på en enklere måte uten at filopplasting er nødvendig
+
+Hvis du trenger avansert filhåndtering med opplastingsstatus per fil, må du selv bygge dette rundt komponenten.
+
+## Eksempel
+
+### Med beskrivelse
+
+Du kan gi en mer utfyllende beskrivelse inni opplastingsområdet.
+
+<Canvas of={FileUploadStories.WithDescription} />
+
+## Retningslinjer
+
+Be bare om filopplasting når det er nødvendig. Hvis du kan hente inn informasjonen på en enklere måte, bør du gjøre det i stedet.
+
+Pass på at det alltid finnes en synlig `label` som beskriver hva som skal lastes opp. Fortell også hvilke krav som gjelder for filene.
+
+Alltid oppgi
+- hvilke filtyper som er tillatt
+- eventuelle begrensninger på filstørrelse
+- hvor mange filer som kan lastes opp
+- hva filene skal brukes til
+
+## Tekst i FileUpload
+
+Knappeteksten bør være kort og handlingsorientert, f.eks "Velg filer" eller "Velg fil".
+
+Sørg for at feilmeldinger følger [retningslinjene for feilmeldinger (designsystemet.no)](https://designsystemet.no/no/patterns/errors), og bruk spesifikke feilmeldinger for ulike feilsituasjoner.
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdir Designsystemet.

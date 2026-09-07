@@ -11,7 +11,7 @@
     color: var(--ds-color-neutral-text-default);
   }
   
-  p:not(.ds-heading + p) {
+  p:not(.ds-heading + p)&:not(.docs-story p) {
     margin-block: var(--ds-size-4) var(--ds-size-2);
 
     &:has(+ .ds-list) {

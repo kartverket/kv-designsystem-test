@@ -19,7 +19,7 @@ export function UnderConstructionAlert() {
       >
         Designsystemet er under utvikling
       </Heading>
-      Vi jobber med et helt nytt designsystem med <Link href='https://designsystemet.no/no'>Digdir Designsystemet</Link> som fundament. Vi er i første fase (alfa) som vil si at tilpasninger, tillegg og andre endringer vil skje fortløpende.
+      Vi jobber med et helt nytt designsystem med <Link href='https://designsystemet.no/no'>Digdir Designsystemet</Link> som fundament. Vi er i første fase (alpha), som vil si at tilpasninger, tillegg og andre endringer vil skje fortløpende.
     </Alert>
   )
 }

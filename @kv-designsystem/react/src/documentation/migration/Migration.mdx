@@ -1,48 +1,107 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { TranslationTable } from './Migration';
-import { Button } from '../../components/button/Button';
-import { Link } from '../../components/link/Link';
+import { MigrationGuide } from './Migration';
+import { Table } from '../../components/table/Table';
 import { FeedbackSection } from '../FeedbackSection';
 import { UnderConstructionAlert } from '../UnderConstructionAlert';
 
-<Meta title='Migreringsguide' />
+<Meta title="Migreringsguide" />
 
 # Migreringsguide
 
 <UnderConstructionAlert />
 
-Når du skal gå fra det gamle designsystemet (KVIB) til det nye basert på Digdir Designsystemet, er det noen ekstra ting du må tenke på. Vi har testet litt med migrering og lister opp mulige problemer som kan oppstå og løsninger til dem. Guiden skal hjelpe deg med å gjøre overgangen til det nye designsystemet mer sømløs.
-
-Denne migreringsguiden hjelper deg å gå fra det gamle designsystemet til det nye. Her finner du anbefalte prosesser, vanlige fallgruver og konkrete eksempler som gjør overgangen mer sømløs.
+Når du skal gå fra det gamle designsystemet (KVIB) til det nye (basert på Digdir Designsystemet), er det noen ekstra ting du må tenke på.
+Denne guiden tar deg gjennom forberedelsene, hvordan du bytter ut komponenter og props, og hva du gjør når du trenger noe designsystemet ikke dekker ennå.
 
 <FeedbackSection />
 
-## 1. Skru av KvibProvider
+## 1. Forberedelser
 
-For å unngå at stilene våre overskrives av det gamle designsystemet (KVIB), må du skru av KvibProvider. 
+Før du begynner å bytte ut komponenter, må du sette opp litt infrastruktur slik at KVIB og det nye designsystemet kan leve side om side under migreringen.
 
-## 2. Anbefalinger
+### CSS layer-rekkefølge
 
-{/* TODO: complete this! */}
-Hva skal bruker gjøre dersom gamle kvib tilbyr import mot andre biblioteker, skal vi skrive at bruker importerer rett fra kilden etc??
-Importer rett fra Recharts i stedet for å gå via Chakra
+Både KVIB og det nye designsystemet legger stilene sine i CSS-lag (`@layer`). Hvis de skal leve side om side under migreringen,
+må du deklarere rekkefølgen på lagene, så det er forutsigbart hvilken styling som vinner ved konflikt.
+Ved lik spesifisitet vinner regelen i laget som står *sist* i `@layer`-erklæringen.
 
-Gi anbefaling om kodestruktur? Gi en mal?
+`kv`-laget er våre egne justeringer oppå det nye designsystemet, så det skal stå sist for å kunne finjustere `ds`.
+Legg linjen øverst i rot-stylesheetet ditt, *før* du importerer stilsettene:
 
-Override Chakra CSS globalt?
+```css
+@layer reset, base, recipes, tokens, ds, kv;
+```
 
-## 3. Bytt fra gamle til nye komponent-navn
+### TypeScript: moduleResolution
 
-Etter dette må du bytte komponent-navnene som brukes i KVIB til navnene som brukes i det nye, f.eks. heter komponenten for brødtekst “text” i KVIB og “paragraph” i det nye. Den enkleste og sikreste måten å gjøre dette på er med manuelle søk.
+Hvis du bruker TypeScript, må `moduleResolution` settes til `"bundler"` i `tsconfig.json`. Chakra (som KVIB bygger på) distribueres som ES Modules,
+og uten denne endringen kan du få feilmeldinger om at moduler ikke kan importeres, eller at komponentprops ikke er definert:
 
-I tabellen under kan du se hvilke gamle komponenter som tilsvarer de nye. De komponentene fra KVIB som ikke er listet opp har ikke en tilsvarende komponent i det nye designsystemet.
+```json
+  "compilerOptions": {
+    "moduleResolution": "bundler"
+  }
+```
 
-<TranslationTable />
+## 2. Bytt fra gamle til nye komponentnavn
 
-*Vi har også en ny Input-komponent, men du må sjekke om du har brukt det som en [`Textfield`](/docs/components-textfield--docs) i dokumentasjonen.
+Nå er du klar til å migrere. Det er opp til deg hvordan du går frem, men vi anbefaler å migrere side for side.
+Det gir oversiktlige commits og lar deg teste visuell regresjon systematisk, del for del, så du er sikker på at alt blir gått gjennom.
 
-## 4. Bytt til riktig fargevariabler
+### Komponentoversikt
 
-Du må også huske å endre til riktig fargevariabel manuelt på ikoner fra andre biblioteker enn NAV Aksel Icons (disse byttes automatisk).
- 
-Dette er en gylden mulighet for å se om alle like komponenter har de samme fargene, f.eks. all brødtekst.
+Tabellene under viser hver KVIB-komponent og hva den kan erstattes med i det nye designsystemet.
+Den første tabellen gjelder KVIB v4 og eldre, den andre KVIB v5 og nyere, og den siste viser helt nye komponenter som ikke finnes i KVIB.
+
+<MigrationGuide />
+
+## 3. Størrelser og farger
+
+Ut over komponentnavnene har noen sentrale styling-props byttet navn. De to viktigste er `colorPalette` og `size`, som nå settes som HTML-attributter: `data-color` og `data-size`.
+
+En viktig forskjell fra KVIB er at `data-color` og `data-size` arves nedover: setter du dem på en forelder, gjelder de også for alle etterkommere,
+helt til en av dem overstyrer verdien selv. Det gjør det enkelt å style en hel seksjon under ett.
+Men det er verdt å være obs på hvis en verdi «smitter» lenger ned enn du hadde tenkt.
+
+Tabellen under viser de mest relevante propsene.
+
+<Table zebra>
+  <caption>Farge- og størrelses-props</caption>
+  <Table.Head>
+    <Table.Row>
+      <Table.HeaderCell scope="col">Prop-navn i KVIB</Table.HeaderCell>
+      <Table.HeaderCell scope="col">Nytt prop-navn</Table.HeaderCell>
+      <Table.HeaderCell scope="col">Kommentar</Table.HeaderCell>
+    </Table.Row>
+  </Table.Head>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>colorPalette</Table.Cell>
+      <Table.Cell>data-color</Table.Cell>
+      <Table.Cell>Finnes nå i palettene accent, support-1, support-2 og neutral.</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>size</Table.Cell>
+      <Table.Cell>data-size</Table.Cell>
+      <Table.Cell>
+        Setter size-mode på komponenten og alle etterkommere. Finnes nå i størrelsene sm, md og lg.
+        NB! Avatar, Heading, Paragraph og Spinner endrer ikke size-mode med denne propen — der setter
+        den bare komponentens egen størrelse, og du kan velge mellom flere verdier:
+        '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'.
+      </Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+### Ikonbiblioteker
+
+Vi anbefaler å bruke `@navikt/aksel-icons`. Aksel-ikoner følger tekstfargen automatisk. Bruker du et annet bibliotek, må du kanskje sette ikonfargen eksplisitt.
+Gjør det da med en css-variabel som finnes i designsystemet (`--ds-color-*`), så ikonet holder seg i tråd med paletten.
+
+## 4. Anbefalinger
+
+Det nye designsystemet er fortsatt under utvikling, og det er mye vi ennå ikke støtter direkte.
+Grafer og kartvisning er for eksempel noe mange trenger, men som vi vil bruke litt tid på å skaffe behovsinnsikt om først.
+
+Trenger dere komponenter utenfor det nye designsystemet, enten egenutviklede eller fra tredjepartsbiblioteker, ber vi dere om å legge dere så tett opp til designsystemets visuelle uttrykk og fargepalett som mulig, 
+og følge [norske tilgjengelighetskrav (uutilsynet.no)](https://www.uutilsynet.no/regelverk/sjekk-nettstedet-ditt-selv/708). Se også [kodestandarder og validering](https://www.uutilsynet.no/veiledning/kodestandarder-og-validering/212).
