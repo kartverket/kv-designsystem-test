@@ -239,6 +239,10 @@ body:has(.header .header-popover:popover-open) {
   & .header-nav-list {
     grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
     gap: var(--ds-size-5) var(--ds-size-15);
+
+    & .header-nav-item a {
+      width: auto;
+    }
   }
 
   & .header-actions-list {
