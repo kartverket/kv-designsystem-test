@@ -54,8 +54,12 @@
     }
   ],
   "namedInputs": {
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"],
-    "default": ["sharedGlobals"]
-  },
-  "analytics": false
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/build.yml",
+      "{workspaceRoot}/.github/actions/setup/action.yml",
+      "{workspaceRoot}/pnpm-lock.yaml",
+      "{workspaceRoot}/pnpm-workspace.yaml"
+    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"]
+  }
 }
