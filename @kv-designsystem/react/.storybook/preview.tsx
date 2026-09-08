@@ -6,6 +6,7 @@ import './docs/customTheme.css';
 import '@digdir/designsystemet-css'; /* imported only once */
 // import "@digdir/designsystemet-css/theme"; /* and this */
 // import '../.storybook/style.css';
+import '../src/components/variables.css';
 import customTheme from './docs/customTheme';
 
 declare global {
