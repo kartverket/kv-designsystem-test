@@ -39,27 +39,27 @@ så mye om hva som skiller dem.
 
 Denne siden er ment å rydde opp i nettopp dette. Det er en gjennomgang av hvordan
 komponentene henger sammen, når du bør bruke hver av dem, og hvordan du
-bygger dem opp — både i skjemaer som sendes inn med submit-knapp og i felt som oppdaterer
+bygger dem opp – både i skjemaer som sendes inn med submit-knapp og i felt som oppdaterer
 valideringsmeldingen live gjennom `onChange`.
 
 ## Fra byggekloss til gruppe
 
 De fem komponentene nevnt over kan deles inn i tre nivåer:
 
-1. <strong>Byggeklosser</strong> — `Input` og `Textarea`. Disse er bare stylede felter uten noe
+1. <strong>Byggeklosser</strong> – `Input` og `Textarea`. Disse er bare stylede felter uten noe
    ekstra: ingen automatisk kobling til label, beskrivelse eller feilmelding. De eksisterer
    hovedsakelig fordi de brukes som byggeklosser i de andre komponentene. Men det finnes også
    situasjoner hvor du kan ha behov for å bruke dem direkte. Mer om det lenger ned.
 
-2. <strong>Sammensatte felter</strong> — `Textfield` (alt-i-ett) og `Field` (mer fleksibel
-   oppbygning). Kobler label, beskrivelse, valideringsmelding og skjemaelement sammen. * `Textfield`
-   = `Field` + `Label` + `ValidationMessage` + `Input` (eller `Textarea`). * `Textfield` er ikke
-   begrenset til vanlig, enlinjes tekst. Du kan bruke `type`-propen til å rendre ulike inputtyper,
-   som `color`, `date`, `file`, `email` og flere andre.
+2. <strong>Sammensatte felter</strong> – `Textfield` (alt-i-ett) og `Field` (mer fleksibel
+   oppbygning). Kobler label, beskrivelse, valideringsmelding og skjemaelement sammen. 
+  - `Textfield` = `Field` + `Label` + `ValidationMessage` + `Input` (eller `Textarea`).
+  - `Textfield` er ikke begrenset til vanlig enlinjes tekst. Du kan bruke `type`-propen til å
+  rendre ulike inputtyper, som `color`, `date`, `file`, `email` og flere andre.
 
-3. <strong>Gruppe av felter</strong> — `Fieldset`. Samler flere relaterte felter under én felles
+3. <strong>Gruppe av felter</strong> – `Fieldset`. Samler flere relaterte felter under én felles
    ledetekst (`{'<legend>'}`). Typisk innhold: radiogrupper, checkboxgrupper, en gruppe med
-   `Select`-er som hører sammen (f.eks. måned og år) eller en blanding av `Textfield`/`Field` — som
+   `Select`-er som hører sammen (f.eks. måned og år) eller en blanding av `Textfield`/`Field` – som
    en adresse (gate, postnummer, poststed) eller et navn (fornavn, etternavn).
 
 ## Rask tabelloversikt
@@ -85,7 +85,7 @@ oversikt over noen vanlige situasjoner:
   </Table.Body>
 </Table>
 
-## Eksempler — komponent for komponent
+## Eksempler – komponent for komponent
 
 ### Input
 
@@ -105,7 +105,7 @@ som gir konteksten) med `aria-labelledby`. Trenger du derimot et søkefelt, velg
 
 ### Textarea
 
-Samme rolle som `Input`, men flerlinjet. Hvis du trenger label, bruk du heller
+Samme rolle som `Input`, men flerlinjet. Hvis du trenger label, bruker du heller
 `Textfield` med `multiline`-propen, eller legg et `Textarea` inni et `Field`.
 
 <Canvas of={FormStories.SimpleTextarea} />
@@ -118,15 +118,15 @@ Den bygger `Field` + `Label` + `Input`/`Textarea` under panseret og kobler alt s
 Navnet kan gi inntrykk av at dette bare er "et tekstfelt", i motsetning til `Textarea` sin
 flerlinjede variant — men `type`-propen gjør at `Textfield` dekker langt mer enn ren tekst:
 
-- `text`,
-- `color`,
-- `date`,
-- `email`,
-- `file`,
-- `number`,
-- `password`,
+- `text`
+- `color`
+- `date`
+- `email`
+- `file`
+- `number`
+- `password`
 - `tel`
-- `url`,
+- `url`
 
 Nyttige props: `label`, `description`, `error` (valideringsmelding),
 `counter` (tegnteller), `prefix`/`suffix`, `type` og `size`.
@@ -169,7 +169,7 @@ direkte (`Checkbox` og `Radio` tar også `error`).
 ### Fieldset
 
 Grupperer flere relaterte felt under én felles ledetekst. Bruk den til
-radiogrupper, checkbox-grupper, og felt som semantisk hører sammen — adresse
+radiogrupper, checkbox-grupper, og felt som semantisk hører sammen – adresse
 (gate/postnr./poststed), dato splittet over flere felt, navn (fornavn/etternavn) e.l.
 `Fieldset` gir gruppen en `Legend` (en valgfri `Description`) og en felles valideringsmelding.
 Eksempelet under holder valgt verdi i `useState` og viser feil ved submit:
@@ -185,7 +185,7 @@ Et `Fieldset` kan også inneholde flere `Textfield`/`Field`:
 Bruk når feltene ikke trenger å validere før brukeren trykker «Send». I dette eksempelet
 holder vi feilene i state og validerer i `onSubmit`. Hvis valideringen
 går igjennom, viser vi en bekreftelsesmelding. Feltene er uncontrolled
-— vi leser verdiene med `FormData` når skjemaet sendes inn,
+– vi leser verdiene med `FormData` når skjemaet sendes inn,
 i stedet for å holde hver feltverdi i egen state.
 Det gir mindre kode enn kontrollerte felt. `error`-propen på `Textfield` rendrer en
 `ValidationMessage` koblet til feltet, og `ErrorSummary`
