@@ -21,8 +21,14 @@
     "./html": {
       "types": "./dist/html.d.ts"
     },
-    "./green": "./dist/style/green.css",
-    "./blue": "./dist/style/blue.css"
+    "./green": {
+      "types": "./dist/style/css-import.d.ts",
+      "default": "./dist/style/green.css"
+    },
+    "./blue": {
+      "types": "./dist/style/css-import.d.ts",
+      "default": "./dist/style/blue.css"
+    }
   },
   "files": [
     "./dist"
@@ -33,6 +39,7 @@
     "typecheck": "tsgo --build",
     "install-dependencies": "pnpm i",
     "build": "vite build",
+    "postbuild": "cp ../../@internal/build-tools/css-import.d.ts dist/style/css-import.d.ts",
     "dev": "storybook dev --port 6006 --ci",
     "preview": "vite preview",
     "build-storybook": "pnpm nx build @kv-designsystem/css && storybook build --stats-json",
@@ -44,6 +51,7 @@
     "@digdir/designsystemet-react": "catalog:",
     "@digdir/designsystemet-types": "catalog:",
     "@kv-designsystem/css": "workspace:*",
+    "@kv-designsystem/theme": "workspace:*",
     "@navikt/aksel-icons": "catalog:",
     "tslib": "catalog:"
   },

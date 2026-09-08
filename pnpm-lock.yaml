@@ -326,6 +326,9 @@ importers:
         specifier: workspace:*
         version: link:../theme
     devDependencies:
+      '@internal/build-tools':
+        specifier: workspace:*
+        version: link:../../@internal/build-tools
       autoprefixer:
         specifier: 'catalog:'
         version: 10.5.4(postcss@8.5.26)
@@ -362,6 +365,9 @@ importers:
       '@kv-designsystem/css':
         specifier: workspace:*
         version: link:../css
+      '@kv-designsystem/theme':
+        specifier: workspace:*
+        version: link:../theme
       '@navikt/aksel-icons':
         specifier: 'catalog:'
         version: 8.16.1(@types/react@19.2.18)(react@19.2.8)

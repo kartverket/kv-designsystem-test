@@ -9,7 +9,8 @@
   },
   "scripts": {
     "create": "designsystemet tokens create --clean",
-    "build": "pnpm clean && designsystemet tokens build -t ./src -o ./dist",
+    "prebuild": "pnpm run create",
+    "build": "pnpm clean && designsystemet tokens build -t ./src -o ./dist --experimental-tailwind",
     "clean": "rimraf dist"
   },
   "devDependencies": {

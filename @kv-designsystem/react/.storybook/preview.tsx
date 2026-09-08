@@ -92,8 +92,8 @@ const preview: Preview = {
 type Theme = 'green' | 'blue';
 
 const themes: Record<Theme, () => Promise<unknown>> = {
-  green: () => import('@kv-designsystem/css/green'),
-  blue: () => import('@kv-designsystem/css/blue'),
+  green: () => import('@kv-designsystem/theme/green'),
+  blue: () => import('@kv-designsystem/theme/blue'),
 }
 
 const ThemeWrapper = ({
