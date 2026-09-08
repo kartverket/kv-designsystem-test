@@ -33,7 +33,7 @@ pnpm --filter @kv-designsystem/react exec playwright install chromium
 pnpm --filter @kv-designsystem/react exec vitest run --project storybook
 ```
 
-Første gang du kjører en story finnes det ingen referanse-screenshot ennå. Vitest oppretter da et nytt bilde under `src/**/__screenshots__/` og lar testen feile, slik at du får sjekket bildet før det brukes som fasit. Se over det genererte bildet, og kjør testen på nytt — da sammenlignes rendringen mot referansen (pikseldiff).
+Første gang du kjører en story finnes det ingen referanse-screenshot ennå. Vitest oppretter da et nytt bilde under `src/**/__screenshots__/` og lar testen feile, slik at du får sjekket bildet før det brukes som fasit. Se over det genererte bildet, og kjør testen på nytt — da sammenlignes et nytt bilde mot referansen (pikseldiff).
 
 **Med interaktivt UI:** legg til `--ui`-flagget (og drop `run`, siden `--ui` alltid kjører i watch-modus). Åpner en nettleserfane (typisk `http://localhost:51204/__vitest__/`) hvor du ser testresultater fortløpende, og — ved en feilet skjermbilde-test — får en egen "Attachments"-fane med actual- og diff-bildet side om side:
 
