@@ -20,7 +20,7 @@ import { Tag } from '../../components/tag/Tag';
 const meta = {
   title: 'Skjemakomponenter',
   parameters: { layout: 'centered' },
-  tags: ['!autodocs'],
+  tags: ['!autodocs', '!dev'], // !dev hides this story from the sidebar. The .mdx-file now controls where it's shown.
 } satisfies Meta;
 
 export default meta;
