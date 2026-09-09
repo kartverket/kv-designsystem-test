@@ -4,7 +4,7 @@ import {
   type RefAttributes,
 } from 'react';
 import { MagnifyingGlassIcon } from '@navikt/aksel-icons';
-import { HeaderPopoverTrigger, HeaderPopoverTriggerProps } from './HeaderPopoverTrigger';
+import { HeaderPopoverTrigger, type HeaderPopoverTriggerProps } from './HeaderPopoverTrigger';
 
 // Omit `primaryIcon` because this component always uses `MagnifingGlassIcon`.
 // Omit `label` to redfine as optional. 

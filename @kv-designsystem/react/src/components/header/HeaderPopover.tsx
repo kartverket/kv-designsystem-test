@@ -6,7 +6,10 @@ import {
 } from 'react';
 import { Popover, type PopoverProps } from '@digdir/designsystemet-react';
 
-export type HeaderPopoverProps = Omit<PopoverProps, 'placement' | 'variant' | 'autoPlacement'>;
+export type HeaderPopoverProps = Omit<
+  PopoverProps,
+  'placement' | 'variant' | 'autoPlacement'| 'popover'
+>;
 
 export const HeaderPopover: ForwardRefExoticComponent<
   HeaderPopoverProps & RefAttributes<HTMLDivElement>
@@ -16,7 +19,7 @@ export const HeaderPopover: ForwardRefExoticComponent<
       <Popover
         id={id}
         className={cl('header-popover', className)}
-        placement='none' // sets the position of a popover element relative to its trigger element
+        placement='none'
         popover='auto'
         ref={ref}
         {...rest}
@@ -29,6 +32,8 @@ export const HeaderPopover: ForwardRefExoticComponent<
   },
 );
 
+// These aliases provide semantic names for the different header use cases
+// while sharing the same underlying popover implementation.
 export const HeaderMenu = forwardRef<HTMLDivElement, HeaderPopoverProps>(
   function HeaderMenu(props, ref) {
     return <HeaderPopover {...props} ref={ref} />;

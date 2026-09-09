@@ -40,80 +40,6 @@ export const Internal: Story = {
   ),
 };
 
-// TODO: remove this example
-export const Popover: Story = {
-  args: {
-    applicationName: 'Tjenestetittel',
-    applicationHref: '#',
-  },
-  render: (args) => {
-    const languages = ['no', 'en'] as const;
-    type Language = (typeof languages)[number];
-
-    const languageText: Record<Language, string> = {
-      no: 'Norsk',
-      en: 'English',
-    };
-    const [currentLang, setCurrentLang] = useState<Language>('no');
-    const buttonRef = useRef<HTMLButtonElement>(null);
-
-    return (
-      <Header {...args} >
-        <Header.ActionsList>
-          <Button
-            variant='tertiary'
-            popoverTarget='language-picker'
-            lang='en'
-            ref={buttonRef}
-          >
-            <LanguageIcon aria-hidden />
-            <span data-show-from='sm'>Language</span>
-          </Button>
-          <Dropdown id='language-picker'>
-            <Dropdown.List>
-              {languages.map((lang) => (
-                <Dropdown.Item
-                  key={`lang-${lang}`}
-                  {...(currentLang === lang && { 'aria-current': true })}
-                >
-                  <Dropdown.Button
-                    lang={lang}
-                    onClick={() => {
-                      setCurrentLang(lang);
-                      buttonRef.current?.click();
-                      buttonRef.current?.focus();
-                    }}
-                  >
-                    {languageText[lang]}
-                  </Dropdown.Button>
-                </Dropdown.Item>
-              ))}
-            </Dropdown.List>
-          </Dropdown>
-
-        </Header.ActionsList>
-        <Header.MenuButton popovertarget='with-popover' />
-        <Header.Menu id='with-popover'>
-          <Header.Nav>
-            <Header.NavItem href='#'>
-              Landingsside
-            </Header.NavItem>
-            <Header.NavItem href='#'>
-              Kart
-            </Header.NavItem>
-            <Header.NavItem href='#'>
-              Kontakt oss
-            </Header.NavItem>
-            <Header.NavItem href='#'>
-              Om tjenesten
-            </Header.NavItem>
-          </Header.Nav>
-        </Header.Menu>
-      </Header>
-    )
-  },
-};
-
 export const WithNavigationLinks: Story = {
   args: {
     applicationName: 'Tjenestetittel',
@@ -382,7 +308,7 @@ export const WithLanguagePicker: Story = {
       <Header {...args}>
         <Button
           variant='tertiary'
-          popoverTarget='language-picker'
+          popovertarget='language-picker'
           lang='en'
           ref={buttonRef}
         >
@@ -600,7 +526,7 @@ export const ComplexHeader: Story = {
           <Header.ActionsList>
             <Button
               variant='tertiary'
-              popoverTarget='language-picker'
+              popovertarget='language-picker'
               lang='en'
               ref={buttonRef}
             >

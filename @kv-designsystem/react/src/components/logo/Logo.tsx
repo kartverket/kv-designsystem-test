@@ -1,3 +1,4 @@
+import cl from 'clsx/lite';
 import { forwardRef } from 'react';
 import type { HTMLAttributes } from 'react';
 import logoHorizontal from '../../../assets/img/KV_Logo_Horizontal.svg';
@@ -30,18 +31,19 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
   function Logo(
     {
       variant = 'horizontal',
-      size = 'var(--ds-size-10)',
-      padding = 'var(--ds-size-5)',
+      size,
+      padding,
+      className,
       style,
       ...rest
     },
     ref,
   ) {
-    const logoAlt = 'Kartverket';
+    const logoAlt = 'Kartverkets logo';
 
     return (
       <div
-        className={`kvds-logo kvds-logo--${variant}`}
+        className={cl(`kvds-logo kvds-logo--${variant}`, className)}
         ref={ref}
         {...rest}
         style={

@@ -1,8 +1,7 @@
 import { forwardRef } from 'react';
-import logoFull from '../../../assets/img/KV_Logo_Horizontal.svg';
-import logoSymbol from '../../../assets/img/KV_Logo_Symbol.svg';
 import { Link } from '../link/Link';
 import { Heading } from '../typography/heading/Heading';
+import { Logo } from '../logo/Logo';
 
 type PublicBrandProps =
   | {
@@ -24,8 +23,8 @@ export const PublicBrand = forwardRef<HTMLDivElement, PublicBrandProps>(
     return (
       <div className='header-brand' ref={ref}>
         <a href='https://kartverket.no' aria-label='Kartverket'>
-          <img src={logoFull} className='header-logo header-logo--full' aria-hidden />
-          <img src={logoSymbol} className='header-logo header-logo--symbol' aria-hidden />
+          <Logo padding='0' className='header-logo--full'/>
+          <Logo variant='symbol' padding='0'className='header-logo--symbol' />
         </a>
         {applicationName && (
           <>
@@ -45,7 +44,7 @@ export const InternalBrand = forwardRef<HTMLDivElement, InternalBrandProps>(
     return (
       <div ref={ref} className='header-brand header-brand--internal'>
         <a href={applicationHref}>
-          <img src={logoSymbol} className='header-logo header-logo--symbol header-logo--internal' aria-hidden />
+          <Logo variant='symbol' padding='0' className='header-logo--symbol header-logo--internal' />
           <Heading data-size='sm'>{applicationName}</Heading>
         </a>
       </div>
