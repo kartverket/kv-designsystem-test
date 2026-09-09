@@ -61,6 +61,16 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [...dependencies, ...dependenciesSubmodules],
+      output: {
+        // Mainly for Next.js: React Server Components load a build of React
+        // without client hooks, so any hook used there crashes at import.
+        // Everything bundles into one shared module, so if a single export
+        // needs a hook (our Header, or something from
+        // @digdir/designsystemet-react), it takes the whole bundle down.
+        // Since Rollup strips per-module directives when bundling,
+        // we add 'use client' as a banner, not in each component.
+        banner: "'use client';",
+      },
     },
   },
   resolve: {
