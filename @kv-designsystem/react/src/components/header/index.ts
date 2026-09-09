@@ -2,28 +2,28 @@ import { Header as HeaderRoot } from './Header';
 import { HeaderNavItem } from './HeaderNavItem';
 import { HeaderNav } from './HeaderNav';
 import { HeaderMenuButton } from './HeaderMenuButton';
-import { HeaderDialog } from './HeaderDialog';
+import { HeaderMenu, HeaderSearchDialog } from './HeaderDialog';
 import { HeaderActionsList } from './HeaderActionsList';
 import { HeaderSearchButton } from './HeaderSearchButton';
 
 type HeaderProps = typeof HeaderRoot & {
   ActionsList: typeof HeaderActionsList;
-  Menu: typeof HeaderDialog;
+  Menu: typeof HeaderMenu;
   MenuButton: typeof HeaderMenuButton;
   Nav: typeof HeaderNav;
   NavItem: typeof HeaderNavItem;
   SearchButton: typeof HeaderSearchButton;
-  SearchDialog: typeof HeaderDialog;
+  SearchDialog: typeof HeaderSearchDialog;
 };
 
 const Header: HeaderProps = Object.assign(HeaderRoot, {
   ActionsList: HeaderActionsList,
-  Menu: HeaderDialog,
+  Menu: HeaderMenu,
   MenuButton: HeaderMenuButton,
   Nav: HeaderNav,
   NavItem: HeaderNavItem,
   SearchButton: HeaderSearchButton,
-  SearchDialog: HeaderDialog,
+  SearchDialog: HeaderSearchDialog,
 });
 
 Header.ActionsList.displayName = 'Header.ActionsList';
@@ -39,5 +39,5 @@ export type { HeaderDialogProps } from './HeaderDialog';
 export type { HeaderActionsListProps } from './HeaderActionsList';
 export type { HeaderMenuButtonProps } from './HeaderMenuButton';
 export type { HeaderNavProps } from './HeaderNav';
-// export type { HeaderNavItemProps } from './HeaderNavItem';
+export type { HeaderNavItemProps } from './HeaderNavItem';
 export { Header };

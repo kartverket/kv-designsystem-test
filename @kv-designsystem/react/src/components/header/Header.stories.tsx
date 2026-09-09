@@ -29,6 +29,17 @@ export const Preview: Story = {
   ),
 };
 
+export const Internal: Story = {
+  args: {
+    variant: 'internal',
+    applicationName: 'Tjenestetittel',
+    applicationHref: '#',
+  },
+  render: (args) => (
+    <Header {...args} />
+  ),
+};
+
 export const WithNavigationLinks: Story = {
   args: {
     applicationName: 'Tjenestetittel',
