@@ -1,4 +1,3 @@
-
 name: Publish to Chromatic
 
 on:
@@ -6,7 +5,13 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+    # No "synchronize" — we don't want a new Chromatic build (and snapshot spend)
+    # on every commit pushed to an open PR. Use workflow_dispatch below to re-run
+    # manually against the PR branch when you actually want a fresh diff.
     types: [opened, reopened]
+  # Lets anyone manually re-run Chromatic against a specific branch/PR from the
+  # Actions tab, without waiting for a new commit to trigger the pull_request event.
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -32,7 +37,12 @@ jobs:
           fi
 
       - name: Publish Storybook to Chromatic
-        if: github.event_name == 'push' || steps.affected.outputs.run == 'true'
+        # Always run for a main-branch push or manual dispatches.
+        # For pull_request events, only run when @kv-designsystem/react is actually affected.
+        if: >
+          github.event_name == 'push' ||
+          github.event_name == 'workflow_dispatch' ||
+          steps.affected.outputs.run == 'true'
         uses: chromaui/action@v13
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
@@ -42,3 +52,7 @@ jobs:
           exitOnceUploaded: true
           onlyChanged: true
           externals: 'design-tokens/src/**'
+          # Merges to main already went through PR review, so treat that build as
+          # the new approved baseline automatically instead of requiring someone
+          # to re-accept changes in the Chromatic UI.
+          autoAcceptChanges: ${{ github.event_name == 'push' }}
