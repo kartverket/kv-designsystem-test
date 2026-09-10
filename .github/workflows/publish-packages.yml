@@ -30,7 +30,7 @@ jobs:
 
  # Publish @kv-designsystem/react
       - name: Publish @kv-designsystem/react
-        working-directory: packages/react
+        working-directory: '@kv-designsystem/react'
         run: |
           echo "Setting version to 0.0.0-test for publishing"
           pnpm pkg set version 0.0.0-test
@@ -38,15 +38,15 @@ jobs:
 
       # Publish @kv-designsystem/css
       - name: Publish @kv-designsystem/css
-        working-directory: packages/css
+        working-directory: '@kv-designsystem/css'
         run: |
           echo "Setting version to 0.0.0-test for publishing"
           pnpm pkg set version 0.0.0-test
           pnpm publish --access public --tag test
 
-      # Publish @kv-designsystem/css
+      # Publish @kv-designsystem/theme
       - name: Publish @kv-designsystem/theme
-        working-directory: packages/theme
+        working-directory: '@kv-designsystem/theme'
         run: |
           echo "Setting version to 0.0.0-test for publishing"
           pnpm pkg set version 0.0.0-test
