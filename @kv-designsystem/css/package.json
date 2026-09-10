@@ -13,8 +13,18 @@
   "version": "1.0.0-alpha.3",
   "type": "module",
   "exports": {
-    "./green": "./dist/green.css",
-    "./blue": "./dist/blue.css",
+    "./green": {
+      "types": "./dist/css-import.d.ts",
+      "default": "./dist/green.css"
+    },
+    "./blue": {
+      "types": "./dist/css-import.d.ts",
+      "default": "./dist/blue.css"
+    },
+    "./tailwind": {
+      "types": "./dist/css-import.d.ts",
+      "default": "./dist/tailwind.css"
+    },
     "./components.css": "./dist/components.css"
   },
   "files": [
@@ -25,6 +35,7 @@
     "@kv-designsystem/theme": "workspace:*"
   },
   "devDependencies": {
+    "@internal/build-tools": "workspace:*",
     "autoprefixer": "catalog:",
     "cssnano": "catalog:",
     "postcss": "catalog:",
@@ -35,7 +46,7 @@
   },
   "scripts": {
     "prebuild": "node scripts/generate-components-css.js",
-    "build": "postcss \"src/*.css\" --base src --dir dist",
+    "build": "postcss \"src/*.css\" --base src --dir dist && cp ../../@internal/build-tools/css-import.d.ts dist/css-import.d.ts",
     "watch": "pnpm build --watch"
   }
 }
