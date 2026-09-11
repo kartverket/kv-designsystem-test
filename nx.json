@@ -61,5 +61,6 @@
       "{workspaceRoot}/pnpm-workspace.yaml"
     ],
     "default": ["{projectRoot}/**/*", "sharedGlobals"]
-  }
+  },
+  "analytics": false
 }

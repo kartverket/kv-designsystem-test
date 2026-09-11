@@ -197,15 +197,15 @@
   visibility: hidden;
   pointer-events: none;
   transition: 
-    opacity var(--kvdsc-header-transition-duration) ease-in-out,
-    visibility 0s linear var(--kvdsc-header-transition-duration);
+    opacity 300ms ease-in-out,
+    visibility 0s linear 300ms;
 }
 
 :has(> .header .header-popover:popover-open)::before {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: opacity var(--kvdsc-header-transition-duration) ease-in-out;
+  transition: opacity 300ms ease-in-out;
 }
 
 /* Prevent body from scrolling when popover is open */
