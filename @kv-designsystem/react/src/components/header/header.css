@@ -4,6 +4,7 @@
   --kvdsc-header-height: var(--ds-size-26);
   /* Scaling gap size instead of media queries */
   --kvdsc-header-item-gap: var(--ds-size-5) clamp(0px, 1.543vw, var(--ds-size-5));
+  --kvdsc-header-transition-duration: 300ms;
 
   background: var(--ds-color-neutral-background-default);
   height: var(--kvdsc-header-height);
@@ -56,11 +57,7 @@
 }
 
 .header-brand:not(.header-brand--internal) a:hover {
-    text-decoration: underline;
-}
-
-.header-logo {
-  height: var(--ds-size-10);
+  text-decoration: underline;
 }
 
 /* Default */
@@ -116,8 +113,8 @@
   align-items: center;
 }
 
-.header-dialog-trigger {
-  & .dialog-trigger-icon {
+.header-popover-trigger {
+  & .popover-trigger-icon {
     transition: transform 0.4s ease;
   }
 
@@ -129,8 +126,8 @@
     display: none;
   }
 
-  &:has(+ .header-dialog:open) {
-    & .dialog-trigger-icon {
+  &:has(+ .header-popover:popover-open) {
+    & .popover-trigger-icon {
       transform: rotate(90deg);
     }
 
@@ -144,30 +141,87 @@
   }
 }
 
-.header-dialog {
-  max-height: calc(100vh - var(--kvdsc-header-height));
-  padding: var(--ds-size-6) var(--kvds-layout-padding-inline);
-  border: none;
-  box-shadow: none;
+.header-popover {
+  all: unset;
+  display: none;
   position: fixed;
-  box-sizing: border-box;
-  overflow-y: auto;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
   inset-block-start: var(--kvdsc-header-height);
+  inset-inline-start: 0;
 
-  &::backdrop {
-    margin-block-start: var(--kvdsc-header-height);
+  background-color: var(--ds-color-background-default);
+  box-sizing: border-box;
+
+  /* Remove popover arrow */
+  &::before {
+    display: none;
+  }
+
+  /* Popover slides down/up */
+  transition: 
+    max-height var(--kvdsc-header-transition-duration) ease,
+    overlay var(--kvdsc-header-transition-duration),
+    display var(--kvdsc-header-transition-duration);
+  transition-behavior: allow-discrete;
+  animation: 1.3s delay-overflow;
+
+  &:popover-open {
+    display: block;
+    max-height: calc(95% - (var(--kvdsc-header-height)));
+    overflow-y: auto;
+
+    @starting-style {
+      & {
+        max-height: 0;
+      }
+    }
   }
 }
 
-.header-dialog-content {
+@keyframes delay-overflow {
+  from {
+    overflow: hidden;
+  }
+}
+
+/* Overlay on background when menu is open */
+:has(> .header .header-popover)::before { 
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  background: rgb(0 0 0 / 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 
+    opacity var(--kvdsc-header-transition-duration) ease-in-out,
+    visibility 0s linear var(--kvdsc-header-transition-duration);
+}
+
+:has(> .header .header-popover:popover-open)::before {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity var(--kvdsc-header-transition-duration) ease-in-out;
+}
+
+/* Prevent body from scrolling when popover is open */
+body:has(.header .header-popover:popover-open) {
+  overflow: hidden;
+}
+
+.header-popover-content {
   max-width: var(--kvdsc-header-max-width);
   display: grid;
   row-gap: var(--ds-size-4);
   margin: 0 auto;
-  padding: 0;
+  padding: var(--ds-size-6) var(--kvds-layout-padding-inline);
   box-sizing: border-box;
   container-type: inline-size;
-  container-name: header-dialog-content;
+  container-name: header-popover-content;
 
   & ul {
     list-style: none;
@@ -177,8 +231,18 @@
   }
 
   & .header-nav-list {
-    grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+    grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
     gap: var(--ds-size-5) var(--ds-size-15);
+
+    /* If there is no sub menu */
+    &:not(:has(ul)) {
+      display: grid;
+      grid-template-columns: minmax(200px, max-content);
+    }
+
+    & .header-nav-item a {
+      width: auto;
+    }
   }
 
   & .header-actions-list {
@@ -188,13 +252,17 @@
   }
 }
 
+/* 
+TODO: swap to media-query so that height gets set correct. 
+.header is not accessible from within header-container, since .header is, in fact, the header-container. 
+*/
 @container header-container (width <=768px) {
   .header {
     --kvdsc-header-height: var(--ds-size-22);
-  }
-
-  .header-logo {
-    height: var(--ds-size-8);
+    
+    .kvds-logo {
+      --kvds-logo-size: var(--ds-size-8);
+    }
   }
 
   .header-menu-button {
@@ -202,6 +270,10 @@
   }
 }
 
+/* 
+TODO: swap to media-query so that height gets set correct. 
+.header is not accessible from within header-container, since .header is, in fact, the header-container. 
+*/
 @container header-container (width <=480px) {
   .header {
     --kvdsc-header-height: var(--ds-size-18);
@@ -224,7 +296,7 @@
   }
 }
 
-@container header-dialog-content (width < 480px) {
+@container header-popover-content (width < 480px) {
   .header-actions-list {
     justify-content: flex-start;
   }

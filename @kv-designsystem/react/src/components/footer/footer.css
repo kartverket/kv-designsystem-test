@@ -47,9 +47,3 @@
   flex-wrap: wrap;
   gap: var(--ds-size-1);
 }
-
-.footer-logo {
-  height: var(--ds-size-10);
-  width: auto;
-  display: block;
-}

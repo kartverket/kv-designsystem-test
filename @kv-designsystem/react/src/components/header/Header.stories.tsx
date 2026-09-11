@@ -64,7 +64,7 @@ export const WithNavigationLinks: Story = {
         </Header.NavItem>
       </Header.Nav>
 
-      <Header.MenuButton data-hide-from='md' commandFor='with-navigation-links' />
+      <Header.MenuButton data-hide-from='md' popovertarget='with-navigation-links' />
       <Header.Menu data-hide-from='md' id='with-navigation-links'>
         <Header.Nav>
           <Header.NavItem href='#' aria-current='page'>
@@ -106,7 +106,7 @@ export const WithMenu: Story = {
         `}
       </style>
       <Header {...args}>
-        <Header.MenuButton commandFor='with-menu' />
+        <Header.MenuButton popovertarget='with-menu' />
         <Header.Menu id='with-menu'>
           <Header.Nav>
             <li className='withMenu-header-sub-menu'>
@@ -173,21 +173,21 @@ export const WithButtonsAndMenu: Story = {
       </style>
       <Header {...args}>
         <Header.ActionsList>
-          <Header.SearchButton commandFor='with-buttons-and-menu-search' data-show-from='md' />
-          <Header.SearchDialog id='with-buttons-and-menu-search'>
+          <Header.SearchButton popovertarget='with-buttons-and-menu-search' data-show-from='md' />
+          <Header.SearchPopover id='with-buttons-and-menu-search'>
             <Search style={{ maxWidth: '708px', justifySelf: 'center' }}>
               <Search.Input aria-label='Søk' />
               <Search.Clear />
               <Search.Button type='submit' />
             </Search>
-          </Header.SearchDialog>
+          </Header.SearchPopover>
           <Button variant='tertiary' style={{ display: 'flex', padding: '0 var(--ds-size-2)', gap: 'var(--ds-size-2)' }}>
             <Avatar className='withButtonsAndMenu-small-initials' aria-label='none' data-size='xs' initials='ON' />
             <span data-show-from='lg'>Ola Nordmann</span>
           </Button>
         </Header.ActionsList>
 
-        <Header.MenuButton commandFor='with-buttons-and-menu' />
+        <Header.MenuButton popovertarget='with-buttons-and-menu' />
         <Header.Menu id='with-buttons-and-menu' >
           <Search data-hide-from='md' >
             <Search.Input aria-label='Søk' name='search' />
@@ -263,7 +263,7 @@ export const WithSearch: Story = {
           </Search>
         </Header.ActionsList>
 
-        <Header.MenuButton commandFor='with-search' data-hide-from='md' />
+        <Header.MenuButton popovertarget='with-search' data-hide-from='md' />
         <Header.Menu id='with-search'>
           <Search data-hide-from='md'>
             <Search.Input aria-label='Søk' name='search' />
@@ -286,9 +286,13 @@ export const WithLanguagePicker: Story = {
       story: {
         inline: false,
         iframeHeight: '225px',
-      }
+      },
+      source: {
+        type: 'code'
+      },
     },
   },
+
   render: (args) => {
     const languages = ['no', 'en'] as const;
     type Language = (typeof languages)[number];
@@ -304,7 +308,7 @@ export const WithLanguagePicker: Story = {
       <Header {...args}>
         <Button
           variant='tertiary'
-          popoverTarget='language-picker'
+          popovertarget='language-picker'
           lang='en'
           ref={buttonRef}
         >
@@ -364,34 +368,34 @@ export const WithScroll: Story = {
         `}
       </style>
       <Header {...args}>
-        <Header.MenuButton commandFor='with-scroll' />
+        <Header.MenuButton popovertarget='with-scroll' />
         <Header.Menu id='with-scroll'>
           <Header.Nav>
             <li className='withScroll-header-sub-menu'>
-              <Heading data-size='sm'>Temanavn</Heading>
+              <Heading data-size='sm'>Eiendom</Heading>
               <ul>
                 <Header.NavItem href='#'>
-                  Tjenesteside
+                  Alt om eiendom
                 </Header.NavItem>
                 <Header.NavItem href='#' aria-current='page'>
-                  Tjenesteside
+                  Tinglysing av eiendom
                 </Header.NavItem>
                 <Header.NavItem href='#'>
-                  Tjenesteside
+                  Bestille fra grunnboken
                 </Header.NavItem>
               </ul>
             </li>
             <li className='withScroll-header-sub-menu'>
-              <Heading>Temanavn</Heading>
+              <Heading>Skjema</Heading>
               <ul>
                 <Header.NavItem href='#'>
-                  Tjenesteside
+                  Alle skjema
                 </Header.NavItem>
                 <Header.NavItem href='#'>
-                  Tjenesteside
+                  Skjøte
                 </Header.NavItem>
                 <Header.NavItem href='#'>
-                  Tjenesteside
+                  Pantedokument
                 </Header.NavItem>
               </ul>
             </li>
@@ -522,7 +526,7 @@ export const ComplexHeader: Story = {
           <Header.ActionsList>
             <Button
               variant='tertiary'
-              popoverTarget='language-picker'
+              popovertarget='language-picker'
               lang='en'
               ref={buttonRef}
             >
@@ -557,7 +561,7 @@ export const ComplexHeader: Story = {
             </Button>
           </Header.ActionsList>
 
-          <Header.MenuButton commandFor='complex-header-menu' />
+          <Header.MenuButton popovertarget='complex-header-menu' />
           <Header.Menu id='complex-header-menu'>
             <Header.ActionsList data-hide-from='md'>
               <Button asChild variant='secondary'>

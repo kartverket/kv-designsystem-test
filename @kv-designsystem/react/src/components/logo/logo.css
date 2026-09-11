@@ -1,4 +1,7 @@
 .kvds-logo {
+  --kvdsc-logo-size: var(--kvds-logo-size, var(--ds-size-10));
+  --kvdsc-logo-padding: var(--kvds-logo-padding, var(--ds-size-5));
+
   width: fit-content;
   height: fit-content;
   padding: var(--kvdsc-logo-padding);
@@ -6,6 +9,7 @@
   > img {
     height: var(--kvdsc-logo-size);
     width: auto;
+    display: block;
   }
 }
 

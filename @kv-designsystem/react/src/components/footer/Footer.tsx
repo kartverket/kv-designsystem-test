@@ -2,7 +2,7 @@ import cl from 'clsx/lite';
 import type { Size } from '@digdir/designsystemet-types';
 import { CSSProperties, forwardRef, HTMLAttributes } from 'react';
 import './footer.css';
-import logo from '../../../assets/img/KV_Logo_Horizontal.svg';
+import { Logo } from '../logo/Logo';
 
 export type FooterProps = HTMLAttributes<HTMLElement> & {
   /**
@@ -28,7 +28,7 @@ export const Footer = forwardRef<HTMLElement, FooterProps>(
         {...rest}
       >
         <div className='footer-container'>
-          <img src={logo} alt='Kartverket logo' className='footer-logo' />
+          <Logo padding='0' />
           <div className='footer-columns'>
             {children}
           </div>
