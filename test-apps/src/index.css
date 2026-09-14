@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  /* min-height: 100vh; */
+  /* background-color: var(--ds-color-background-default); */
+  /* color: var(--ds-color-text-default); */
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-feature-settings: 'cv05' 1; /* Enable lowercase l with tail */
+}
+
+#root {
+  /* max-width: 800px; */
+  /* margin: 0 auto; */
+  /* padding: var(--ds-size-8, 2rem); */
+}
+
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+
+.content {
+  padding: var(--ds-size-8);
+  min-width: 280px;
+  margin: auto;
+}
+
