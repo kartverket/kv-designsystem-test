@@ -1,4 +1,5 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as ConsentBannerStories from './ConsentBanner.stories';
 
 <Meta of={ConsentBannerStories} />
 
@@ -6,7 +7,7 @@ import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
 
 Når vi ønsker å samle inn data om brukeren med for eksempel informasjonskapsler (cookies), må vi be om samtykke først. Dette er juridisk pålagt etter personvernforordningen. Samtykkebanneret skal passe på at brukeren kan ta et frivillig, spesifikt, informert og utvetydig valg som kan trekkes tilbake. Med komponenten kan vi sikre at samtykket håndteres likt på tvers.
 
-{/* <Canvas of={ConsentBannerStories.Preview} /> */}
+<Canvas of={ConsentBannerStories.Preview} />
 
 ## Forberedelser
 
@@ -33,7 +34,7 @@ Hvis du skal dele samtykket på tvers av virksomhetens tjenester, bør brukerne 
 
 ### Skriv en erklæring
 
-For å dokumentere og tilgjengeligjøre hva, hvorfor og hvordan, må vi skrive det i en erklæring. Vi har laget et format med utgangspunkt i informasjonskapser, som vi anbefaler at du fyller ut. Erklæringen må du legge til som en side på tjenesten, lenket via Samtykkebanner og i Footer.
+For å dokumentere og tilgjengeligjøre hva, hvorfor og hvordan, må vi skrive det i en erklæring. Vi har laget et format med utgangspunkt i informasjonskapser, som vi anbefaler at du fyller ut. Erklæringen må du legge til som en side på tjenesten, lenket via `ConsentBanner` og i `Footer`.
 
 ## Varianter med eksempler
 
@@ -41,19 +42,19 @@ For å dokumentere og tilgjengeligjøre hva, hvorfor og hvordan, må vi skrive d
 
 Når teknologiene brukes til kun ett formål, er det enklest for brukeren å ta stilling til ett enkelt spørsmål. Da holder det med to knapper: én for å godta og én for å avslå. I tillegg må du fortelle brukeren hva som skjer om hen svarer ja.
 
-{/* <Canvas of={ConsentBannerStories.Preview} /> */}
+<Canvas of={ConsentBannerStories.Preview} />
 
 ### Flere valg
 
 Hvis du bruker teknologier som har flere ulike formål, må du gi brukeren muligheten til å velge hva hen vil samtykke til. Ingen av avkrysningsboksene skal være forhåndsmarkert. Siden det skal være like enkelt å avslå som å godta, må begge disse knappene være til stede.
 
-{/* <Canvas of={ConsentBannerStories.MultipleOptions} /> */}
+<Canvas of={ConsentBannerStories.MultipleOptions} />
 
 ### Kun strengt nødvendige teknologier
 
-Om nettstedet ditt kun bruker strengt nødvendige teknologier – for eksempel lagrer språkvalg eller innloggingsstatus – trenger du ikke vise et samtykkebanner. Vi skal likevel informere om det. Denne kan plasseres på bunnen av siden over Footer.
+Om nettstedet ditt kun bruker strengt nødvendige teknologier – for eksempel lagrer språkvalg eller innloggingsstatus – trenger du ikke vise et samtykkebanner. Vi skal likevel informere om det. Denne kan plasseres på bunnen av siden over `Footer`.
 
-{/* <Canvas of={ConsentBannerStories.OnlyStrictlyNecessary} /> */}
+<Canvas of={ConsentBannerStories.OnlyNecessary} />
 
 ### Hvis du kan vente med å be om samtykke
 
@@ -81,13 +82,13 @@ Valgalternativene må være likeverdige for at samtykket skal være frivillig og
 
 ### Gi mulighet til å endre samtykket
 
-I Footer har vi lagt til en lenke “Endre valg for informasjon vi kan lagre”, som skal åpne samtykkebanneret igjen og gi brukeren mulighet til å endre samtykket. 
+I `Footer` har vi lagt til en lenke “Endre valg for informasjon vi kan lagre”, som skal åpne samtykkebanneret igjen og gi brukeren mulighet til å endre samtykket. 
 
 ### Løsninger uten Footer
 
 {/* En Alert, se figma */}
 
-I kartløsningene våre har vi ikke nødvendigvis Footer som kan inneholde lenker til erklæring om informasjonskapsler og endre samtykke. I slike tilfeller må de tilgjengeliggjøres på andre vis. 
+I kartløsningene våre har vi ikke nødvendigvis `Footer` som kan inneholde lenker til erklæring om informasjonskapsler og endre samtykke. I slike tilfeller må de tilgjengeliggjøres på andre vis. 
 
 Alternativer:
 - Lenkeknapp i Header: for eksempel “Om tjenesten”, “Personvern” eller “Informasjonskapsler”
@@ -114,15 +115,15 @@ Knappetekstene må være så tydelige at brukerne umiddelbart forstår hvilket v
 For at skjermlesere skal oppdage banneret som et landemerke (eng. landmark), må seksjonen ha et tilgjengelig navn. Bruk aria-labelledby koblet mot bannerets overskrift fremfor aria-label, for å unngå at teksten leses opp to ganger:
 
 ```html
-<section aria-labelledby="samtykkebanner-tittel">
-  <h2 id="samtykkebanner-tittel">TITTEL</h2>
+<section aria-labelledby='samtykkebanner-tittel'>
+  <h2 id='samtykkebanner-tittel'>TITTEL</h2>
   ...
 </section>
 ```
 
 ### Skjermleser
 
-Sørg for at alle valg og tilbakemeldinger fungerer med skjermleser. Ikke bruk role="alert" eller lignende, med mindre det er særlig viktig for brukerne å få med seg banneret, eller endringer i det, for å kunne bruke siden.
+Sørg for at alle valg og tilbakemeldinger fungerer med skjermleser. Ikke bruk `role='alert'` eller lignende, med mindre det er særlig viktig for brukerne å få med seg banneret, eller endringer i det, for å kunne bruke siden.
 
 ## Fokusrekkefølge og tastaturnavigasjon
 

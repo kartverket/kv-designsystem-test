@@ -1,0 +1,37 @@
+/* Alt som er en knapp skal ha en mistebredde på 5 rem? */
+.consentBanner {
+  background-color: var(--ds-color-info-surface-tinted);
+  border: 1px solid var(--ds-color-info-border-default);
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.consentBanner-container {
+  max-width: 81rem;
+  padding: var(--ds-size-6) var(--kvds-layout-padding-inline);
+  margin: 0 auto;
+
+  .ds-button {
+    min-width: 5rem;
+    background-color: var(--ds-color-info-base-default);
+    color: var(--ds-color-info-base-contrast-default);
+  }
+
+  .ds-heading {
+    margin-bottom: var(--ds-size-2);
+    color: var(--ds-color-info-text-default);
+  }
+
+  .ds-paragraph {
+    color: var(--ds-color-info-text-subtle);
+  }
+
+  .ds-label {
+    color: var(--ds-color-info-text-default);
+  }
+
+  .ds-input {
+    border-color: var(--ds-color-info-border-default);
+  } 
+ 
+}
