@@ -7,13 +7,6 @@ import { PublicBrand, InternalBrand } from './HeaderBrand';
 
 type BaseHeaderProps = HTMLAttributes<HTMLElement> & {
   /**
-   * The maximum width of the header content.
-   * Can be any valid CSS width value, e.g. `1296px`, `100%`, etc.
-   * Should be the same as for the footer content.
-   * @default '81rem'
-   */
-  maxWidth?: string;
-  /**
    * Changes size for descendant Designsystemet components.
    * Select from predefined sizes.
    */
@@ -72,7 +65,6 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
     applicationHref,
     children,
     className,
-    maxWidth = '81rem',
     ...rest
   },
   ref,
@@ -115,7 +107,6 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
   return (
     <header
       className={cl('header', showHeader ? 'visible' : 'hidden', className)}
-      style={{ '--kvdsc-header-max-width': maxWidth } as CSSProperties}
       ref={ref}
       {...rest}
     >

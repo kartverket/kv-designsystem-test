@@ -6,24 +6,16 @@ import { Logo } from '../logo/Logo';
 
 export type FooterProps = HTMLAttributes<HTMLElement> & {
   /**
-   * The maximum width of the footer content.
-   * Can be any valid CSS width value, e.g. `1296px`, `100%`, etc.
-   * Should be the same as for header content.
-   * @default '81rem'
-   */
-  maxWidth?: string;
-  /**
    * Changes size for descendant Designsystemet components. Select from predefined sizes.
    */
   'data-size'?: Size;
 };
 
 export const Footer = forwardRef<HTMLElement, FooterProps>(
-  function Footer({ children, className, maxWidth = '1296px', ...rest }, ref) {
+  function Footer({ children, className, ...rest }, ref) {
     return (
       <footer
         className={cl('footer', className)}
-        style={{ '--kvdsc-footer-max-width': maxWidth } as CSSProperties}
         ref={ref}
         {...rest}
       >
