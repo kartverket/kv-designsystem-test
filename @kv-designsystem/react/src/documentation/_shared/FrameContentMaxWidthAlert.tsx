@@ -1,7 +1,7 @@
-import { Alert } from '../components/alert/Alert';
-import { Heading } from '../components/typography/heading/Heading';
+import { Alert } from '../../components/alert/Alert';
+import { Heading } from '../../components/typography/heading/Heading';
 
-export function GlobalFrameMaxWidthAlert() {
+export function FrameContentMaxWidthAlert() {
   return (
     <Alert data-color='info' className='sb-unstyled' style={{ marginBottom: 'var(--ds-size-4)' }}>
       <Heading

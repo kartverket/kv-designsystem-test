@@ -29,7 +29,7 @@
 }
 
 .header-container {
-  max-width: var(--kvds-layout-max-width);
+  max-width: var(--kvds-frame-content-max-width);
   height: 100%;
   margin: 0 auto;
   box-sizing: content-box;
@@ -214,7 +214,7 @@ body:has(.header .header-popover:popover-open) {
 }
 
 .header-popover-content {
-  max-width: var(--kvds-layout-max-width);
+  max-width: var(--kvds-frame-content-max-width);
   display: grid;
   row-gap: var(--ds-size-4);
   margin: 0 auto;
