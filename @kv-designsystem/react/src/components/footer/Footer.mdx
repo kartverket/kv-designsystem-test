@@ -2,6 +2,7 @@ import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
 import { Link } from '../link/Link';
 import * as FooterStories from './Footer.stories';
+import { GlobalFrameMaxWidthAlert } from '../GlobalFrameMaxWidthAlert';
 
 <Meta of={FooterStories} />
 
@@ -13,6 +14,8 @@ Vi bruker `Footer` i alle Kartverkets tjenester, med unntak av kartløsningene v
 
 <Primary />
 <Controls of={FooterStories.Preview} />
+
+<GlobalFrameMaxWidthAlert />
 
 <div
   style={{
