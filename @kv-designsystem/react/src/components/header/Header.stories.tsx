@@ -94,22 +94,11 @@ export const WithMenu: Story = {
   },
   render: (args) => (
     <>
-      <style>
-        {`
-          /* Styles defined in application-specific css */
-          .withMenu-header-sub-menu .ds-heading {
-            margin-bottom: var(--ds-size-3);
-          }
-          .withMenu-header-sub-menu ul {
-            margin-bottom: var(--ds-size-3);
-          }
-        `}
-      </style>
       <Header {...args}>
         <Header.MenuButton popovertarget='with-menu' />
         <Header.Menu id='with-menu'>
           <Header.Nav>
-            <li className='withMenu-header-sub-menu'>
+            <li>
               <Heading data-size='sm'>Temanavn</Heading>
               <ul>
                 <Header.NavItem href='#'>
@@ -123,7 +112,7 @@ export const WithMenu: Story = {
                 </Header.NavItem>
               </ul>
             </li>
-            <li className='withMenu-header-sub-menu'>
+            <li>
               <Heading>Temanavn</Heading>
               <ul>
                 <Header.NavItem href='#'>
@@ -162,10 +151,6 @@ export const WithButtonsAndMenu: Story = {
       <style>
         {`
           /* Styles defined in application-specific css */
-          .withButtonsAndMenu-header-sub-menu .ds-heading {
-            margin-bottom: var(--ds-size-3);
-          }
-
           .withButtonsAndMenu-small-initials:before {
             font-size: var(--ds-size-4);
           }
@@ -198,7 +183,7 @@ export const WithButtonsAndMenu: Story = {
           <Divider data-hide-from='md' />
 
           <Header.Nav>
-            <li className='withButtonsAndMenu-header-sub-menu'>
+            <li>
               <Heading data-size='sm'>Eiendom</Heading>
               <ul>
                 <Header.NavItem href='#'>
@@ -212,7 +197,7 @@ export const WithButtonsAndMenu: Story = {
                 </Header.NavItem>
               </ul>
             </li>
-            <li className='withButtonsAndMenu-header-sub-menu'>
+            <li>
               <Heading>Til lands</Heading>
               <ul>
                 <Header.NavItem href='#'>
@@ -227,7 +212,7 @@ export const WithButtonsAndMenu: Story = {
                 </Header.NavItem>
               </ul>
             </li>
-            <li className='withButtonsAndMenu-header-sub-menu'>
+            <li>
               <Heading>Geodataarbeid</Heading>
               <ul>
                 <Header.NavItem href='#'>
@@ -305,38 +290,50 @@ export const WithLanguagePicker: Story = {
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     return (
-      <Header {...args}>
-        <Button
-          variant='tertiary'
-          popovertarget='language-picker'
-          lang='en'
-          ref={buttonRef}
-        >
-          <LanguageIcon aria-hidden />
-          <span data-show-from='sm'>Language</span>
-        </Button>
-        <Dropdown id='language-picker'>
-          <Dropdown.List>
-            {languages.map((lang) => (
-              <Dropdown.Item
-                key={`lang-${lang}`}
-                {...(currentLang === lang && { 'aria-current': true })}
-              >
-                <Dropdown.Button
-                  lang={lang}
-                  onClick={() => {
-                    setCurrentLang(lang);
-                    buttonRef.current?.click();
-                    buttonRef.current?.focus();
-                  }}
+      <>
+        <style>
+          {`
+            /* Styles defined in application-specific css */
+            [popovertarget='language-picker'] {
+                @container header-container (width <= 768px) {
+                  padding-inline: var(--ds-size-1);
+                }
+            }
+          `}
+        </style>
+        <Header {...args}>
+          <Button
+            variant='tertiary'
+            popovertarget='language-picker'
+            lang='en'
+            ref={buttonRef}
+          >
+            <LanguageIcon aria-hidden />
+            <span data-show-from='sm'>Language</span>
+          </Button>
+          <Dropdown id='language-picker'>
+            <Dropdown.List>
+              {languages.map((lang) => (
+                <Dropdown.Item
+                  key={`lang-${lang}`}
+                  {...(currentLang === lang && { 'aria-current': true })}
                 >
-                  {languageText[lang]}
-                </Dropdown.Button>
-              </Dropdown.Item>
-            ))}
-          </Dropdown.List>
-        </Dropdown>
-      </Header>
+                  <Dropdown.Button
+                    lang={lang}
+                    onClick={() => {
+                      setCurrentLang(lang);
+                      buttonRef.current?.click();
+                      buttonRef.current?.focus();
+                    }}
+                  >
+                    {languageText[lang]}
+                  </Dropdown.Button>
+                </Dropdown.Item>
+              ))}
+            </Dropdown.List>
+          </Dropdown>
+        </Header>
+      </>
     );
   },
 };
@@ -356,22 +353,11 @@ export const WithScroll: Story = {
   },
   render: (args) => (
     <>
-      <style>
-        {`
-        /* Styles defined in application-specific css */
-          .withScroll-header-sub-menu .ds-heading {
-            margin-bottom: var(--ds-size-3);
-          }
-          .withScroll-header-sub-menu ul {
-            margin-bottom: var(--ds-size-3);
-          }
-        `}
-      </style>
       <Header {...args}>
         <Header.MenuButton popovertarget='with-scroll' />
         <Header.Menu id='with-scroll'>
           <Header.Nav>
-            <li className='withScroll-header-sub-menu'>
+            <li>
               <Heading data-size='sm'>Eiendom</Heading>
               <ul>
                 <Header.NavItem href='#'>
@@ -385,7 +371,7 @@ export const WithScroll: Story = {
                 </Header.NavItem>
               </ul>
             </li>
-            <li className='withScroll-header-sub-menu'>
+            <li>
               <Heading>Skjema</Heading>
               <ul>
                 <Header.NavItem href='#'>
@@ -502,14 +488,6 @@ export const ComplexHeader: Story = {
         <style>
           {`
             /* Styles defined in application-specific css */
-            .complexHeader-header-sub-menu .ds-heading {
-              margin-bottom: var(--ds-size-3);
-            }
-
-            .complexHeader-header-sub-menu ul {
-              margin-bottom: var(--ds-size-3);
-            }
-
             [popovertarget='language-picker'] {
                 @container header-container (width <= 768px) {
                   padding-inline: var(--ds-size-1);
@@ -573,7 +551,7 @@ export const ComplexHeader: Story = {
             </Header.ActionsList>
             <Divider data-hide-from='md' />
             <Header.Nav>
-              <li className='complexHeader-header-sub-menu' data-hide-from='lg'>
+              <li data-hide-from='lg'>
                 <Heading>Navlenker</Heading>
                 <ul>
                   <Header.NavItem href='#'>
@@ -582,7 +560,7 @@ export const ComplexHeader: Story = {
                 </ul>
               </li>
 
-              <li className='complexHeader-header-sub-menu'>
+              <li>
                 <Heading data-size='sm'>Temanavn</Heading>
                 <ul>
                   <Header.NavItem href='#'>
@@ -596,7 +574,7 @@ export const ComplexHeader: Story = {
                   </Header.NavItem>
                 </ul>
               </li>
-              <li className='complexHeader-header-sub-menu'>
+              <li>
                 <Heading>Temanavn</Heading>
                 <ul>
                   <Header.NavItem href='#'>
