@@ -6,13 +6,13 @@ import './consentBanner.css';
 export type ConsentBannerProps = HTMLAttributes<HTMLElement> & {
   /**
    * The text displayed for the link that allows users to skip the consent banner.
-   * @default 'Hopp over innhold'
+   * @default 'Hopp til hovedinnhold'
    */
   skipLinkText?: string;
 };
 
 export const ConsentBanner = forwardRef<HTMLElement, ConsentBannerProps>(
-  function ConsentBanner({ children, className, skipLinkText = 'Hopp over innhold', ...rest }, ref) {
+  function ConsentBanner({ children, className, skipLinkText = 'Hopp til hovedinnhold', ...rest }, ref) {
     return (
       <> 
       {/*TODO:  Info-ikon må inn her et sted */}

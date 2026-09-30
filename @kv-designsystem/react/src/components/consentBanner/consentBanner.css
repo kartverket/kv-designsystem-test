@@ -1,4 +1,3 @@
-/* Alt som er en knapp skal ha en mistebredde på 5 rem? */
 .consentBanner {
   background-color: var(--ds-color-info-surface-tinted);
   border: 1px solid var(--ds-color-info-border-default);
@@ -7,7 +6,7 @@
 }
 
 .consentBanner-container {
-  max-width: 81rem;
+  max-width: var(--kvds-frame-content-max-width);
   padding: var(--ds-size-6) var(--kvds-layout-padding-inline);
   margin: 0 auto;
 
