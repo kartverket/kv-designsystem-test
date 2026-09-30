@@ -1,6 +1,6 @@
-import { Button } from '../components/button/Button';
-import { Link } from '../components/link/Link';
-import { Heading, type HeadingProps } from '../components/typography/heading/Heading';
+import { Button } from '../../components/button/Button';
+import { Link } from '../../components/link/Link';
+import { Heading, type HeadingProps } from '../../components/typography/heading/Heading';
 
 export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: HeadingProps) {
   return (

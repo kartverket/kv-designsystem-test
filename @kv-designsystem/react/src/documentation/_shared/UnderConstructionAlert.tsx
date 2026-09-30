@@ -1,6 +1,6 @@
-import { Alert } from '../components/alert/Alert';
-import { Heading } from '../components/typography/heading/Heading';
-import { Link } from '../components/link/Link';
+import { Alert } from '../../components/alert/Alert';
+import { Heading } from '../../components/typography/heading/Heading';
+import { Link } from '../../components/link/Link';
 
 export function UnderConstructionAlert() {
   return (
