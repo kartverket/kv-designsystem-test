@@ -43,7 +43,7 @@ jobs:
           github.event_name == 'push' ||
           github.event_name == 'workflow_dispatch' ||
           steps.affected.outputs.run == 'true'
-        uses: chromaui/action@v13
+        uses: chromaui/action@v18
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: '@kv-designsystem/react'
