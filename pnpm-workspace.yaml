@@ -2,7 +2,6 @@ packages:
   - '@internal/*'
   - '@kv-designsystem/*'
   - design-tokens
-  - test-app
 
 catalog:
   '@chromatic-com/storybook': ^5.3.0
