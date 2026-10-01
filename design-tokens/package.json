@@ -5,6 +5,7 @@
   "type": "module",
   "exports": {
     ".": "./dist/green.css",
+    "./designsystemet.config.json": "./designsystemet.config.json",
     "./*": "./dist/*"
   },
   "scripts": {

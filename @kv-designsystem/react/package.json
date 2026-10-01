@@ -58,6 +58,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "catalog:",
     "@internal/build-tools": "workspace:*",
+    "@kv-designsystem/tokens": "workspace:*",
     "@storybook/addon-a11y": "catalog:",
     "@storybook/addon-docs": "catalog:",
     "@storybook/addon-vitest": "catalog:",
