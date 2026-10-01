@@ -99,9 +99,6 @@ catalogs:
     autoprefixer:
       specifier: ^10.5.4
       version: 10.5.4
-    chromatic:
-      specifier: ^13.3.5
-      version: 13.3.5
     clsx:
       specifier: ^2.1.1
       version: 2.1.1
@@ -411,9 +408,6 @@ importers:
       '@vitest/coverage-v8':
         specifier: 'catalog:'
         version: 4.1.11(@vitest/browser@4.1.11)(vitest@4.1.11)
-      chromatic:
-        specifier: 'catalog:'
-        version: 13.3.5
       clsx:
         specifier: 'catalog:'
         version: 2.1.1
@@ -3004,18 +2998,6 @@ packages:
 
   chroma-js@3.2.0:
     resolution: {integrity: sha512-os/OippSlX1RlWWr+QDPcGUZs0uoqr32urfxESG9U93lhUfbnlyckte84Q8P1UQY/qth983AS1JONKmLS4T0nw==}
-
-  chromatic@13.3.5:
-    resolution: {integrity: sha512-MzPhxpl838qJUo0A55osCF2ifwPbjcIPeElr1d4SHcjnHoIcg7l1syJDrAYK/a+PcCBrOGi06jPNpQAln5hWgw==}
-    hasBin: true
-    peerDependencies:
-      '@chromatic-com/cypress': ^0.*.* || ^1.0.0
-      '@chromatic-com/playwright': ^0.*.* || ^1.0.0
-    peerDependenciesMeta:
-      '@chromatic-com/cypress':
-        optional: true
-      '@chromatic-com/playwright':
-        optional: true
 
   chromatic@18.5.0:
     resolution: {integrity: sha512-3oBcGP4V+6SV0qu2NJnutnPYsrxnPpOHhtQAbzxEtIQrDJNzn1wfXtzwkEiJGQm5eANTW0AvL4WxHtz+BTJbYg==}
@@ -8700,8 +8682,6 @@ snapshots:
       fsevents: 2.3.3
 
   chroma-js@3.2.0: {}
-
-  chromatic@13.3.5: {}
 
   chromatic@18.5.0:
     dependencies:
