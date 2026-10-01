@@ -20,7 +20,12 @@
     "build": {
       "outputs": ["{projectRoot}/dist"],
       "inputs": ["default", "^default"],
-      "dependsOn": ["lint-circular-dependencies", "^build", "^install-dependencies"],
+      "dependsOn": [
+        "lint-circular-dependencies",
+        "lint-mdx-controls",
+        "^build",
+        "^install-dependencies"
+      ],
       "cache": true
     },
     "lint": {
@@ -34,6 +39,9 @@
       "dependsOn": ["build"]
     },
     "lint-circular-dependencies": {
+      "cache": true
+    },
+    "lint-mdx-controls": {
       "cache": true
     },
     "install-dependencies": {
