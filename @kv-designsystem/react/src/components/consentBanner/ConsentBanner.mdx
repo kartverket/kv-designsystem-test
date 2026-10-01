@@ -2,6 +2,9 @@ import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
 import * as ConsentBannerStories from './ConsentBanner.stories';
 import { Alert } from '../alert/Alert';
 import { Link } from '../link/Link';
+import { FrameContentMaxWidthAlert } from '../../documentation/_shared/FrameContentMaxWidthAlert';
+import ConsentBannerFooter from '../../../assets/img/Consent-Banner-Footer.png';
+import ConsentBannerVideo from '../../../assets/img/Consent-Banner-Video.webp';
 
 <Meta of={ConsentBannerStories} />
 
@@ -12,7 +15,7 @@ Når vi ønsker å samle inn data om brukeren med for eksempel informasjonskapsl
 <Canvas of={ConsentBannerStories.Preview} />
 <Controls />
 
-{/* <FrameContentMaxWidthAlert /> */}
+<FrameContentMaxWidthAlert />
 
 ## Forberedelser
 
@@ -59,13 +62,30 @@ Hvis du bruker teknologier som har flere ulike formål, må du gi brukeren mulig
 
 Om nettstedet ditt kun bruker strengt nødvendige teknologier – for eksempel lagrer språkvalg eller innloggingsstatus – trenger du ikke vise et samtykkebanner. Vi skal likevel informere om det. Denne kan plasseres på bunnen av siden over `Footer`.
 
-<Canvas of={ConsentBannerStories.OnlyNecessary} />
+{/* <Canvas of={ConsentBannerStories.OnlyNecessary} /> */}
+<figure style={{ margin: 'var(--ds-size-6) 0' }} >
+  <img 
+    src={ConsentBannerFooter} 
+    alt='En nettside der en blå informasjonslinje ligger rett over bunnteksten. Linjen har et informasjonsikon, lenketeksten «Vi lagrer nødvendige informasjonskapsler» og teksten «som gjør at nettsiden fungerer og er trygg.» Til høyre ligger en lukkeknapp. Footeren under viser lenkegrupper som «Avsender», «Kontakt» og «Om nettsiden».' 
+  />
+  <figcaption className='ds-paragraph' data-size='sm'>
+    Eksempel på informasjonsbanner plassert over Footer. (Digdir m.fl., 2026).
+  </figcaption>
+</figure>
 
 ### Hvis du kan vente med å be om samtykke
 
 Be om samtykke først når det er nødvendig, for eksempel når brukeren velger å spille av en video fra en tredjepart. Vis en plassholder frem til da, slik at samtykket gis i riktig kontekst.
 
-{/* Bilde fra Designsystemet.no */}
+<figure style={{ margin: 'var(--ds-size-6) 0' }} >
+  <img 
+    src={ConsentBannerVideo} 
+    alt='En artikkelside med overskriften «Forstå synsnedsettelse» og tekst om at mellom 7 og 10 prosent av befolkningen lever med en synshemming. Midt på siden ligger en blå videoplassholder med et play-ikon, overskriften «For å se denne videoen må du gi samtykke», beskrivelsen «Videoen leveres av [videoleverandør], en ekstern tjeneste. Når du spiller av videoen, kan leverandøren samle inn informasjon om [...] og [...].» og knappen «Godta og vis video».' 
+  />
+  <figcaption className='ds-paragraph' data-size='sm'>
+    Eksempel på plassholder til en video fra en tredjepart (Digdir m.fl., 2026). [Be brukerne om samtykke til å lagre informasjon (Designsystemet.no).](https://designsystemet.no/no/patterns/consent-banner)
+  </figcaption>
+</figure>
 
 Du er ansvarlig for å innhente et gyldig samtykke og må vite hvilke opplysninger tredjeparten samler inn. Vurder personverninnstillinger som begrenser sporing, eller lenk til innholdet i stedet for å bygge det inn. Opplys da om hvilken ekstern tjeneste lenken går til.
 
@@ -91,13 +111,11 @@ I `Footer` har vi lagt til en lenke “Endre valg for informasjon vi kan lagre�
 
 ### Løsninger uten Footer
 
-{/* En Alert, se figma */}
-{/* Rar spacing over og under denne i storybook */}
 <Alert
   data-color='info'
   className='sb-unstyled'
   style={{
-    marginBottom: 'var(--ds-size-10)'
+    margin: 'var(--ds-size-6) 0'
   }}>
   Vi har ikke begynt å utarbeide kartspesifikke komponenter enda. Hvis du har innspill til løsninger kan du kontakte oss på <Link href='https://kartverketgroup.slack.com/archives/C03LL4CKMMK'>Slack</Link>.
 </Alert>
