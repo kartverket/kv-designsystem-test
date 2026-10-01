@@ -6,6 +6,8 @@ import { Button } from '../button/Button';
 import { Fieldset } from '../fieldset/Fieldset';
 import { Checkbox } from '../checkbox/Checkbox';
 import { ConsentBanner } from './ConsentBanner';
+// import { InformationSquareFillIcon, XMarkIcon } from '@navikt/aksel-icons';
+// import { Alert } from '@digdir/designsystemet-react';
 
 const meta = {
   component: ConsentBanner,
@@ -17,10 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   render: (_args) => (
     <ConsentBanner>
-      <Heading
-        id='samtykkebanner-tittel'
-        data-size='xs'
-      >
+      <Heading id='samtykkebanner-tittel' data-size='sm'>
         Får vi samle informasjon om hvordan nettsiden brukes?
       </Heading>
       <Paragraph>
@@ -37,8 +36,7 @@ export const Preview: Story = {
         action='/api/consent'
         style={{
           display: 'flex',
-          gap: 'var(--ds-size-5)',
-          marginTop: 'var(--ds-size-5)',
+          gap: 'var(--ds-size-4)',
         }}
       >
         <Button name='action' type='submit'>
@@ -48,12 +46,7 @@ export const Preview: Story = {
           Nei
         </Button>
       </form>
-      <Paragraph
-        data-size='sm'
-        style={{
-          marginTop: 'var(--ds-size-5)',
-        }}
-      >
+      <Paragraph data-size='sm'>
         Vi lagrer også nødvendig informasjon som ikke kan velges bort. Dette gjør at nettsiden
         fungerer og er trygg.
       </Paragraph>
@@ -61,7 +54,6 @@ export const Preview: Story = {
   )
 };
 
-// Fikse denne til å matche Figma
 export const MultipleOptions: Story = {
   render: (_args) => (
     <ConsentBanner>
@@ -70,20 +62,21 @@ export const MultipleOptions: Story = {
           <Fieldset.Legend>
             <Heading
               id='samtykkebanner-tittel'
-              data-size='xs'
+              data-size='sm'
+              style={{ marginBottom: 'var(--ds-size-2)' }}
             >
               Hva får vi samle informasjon om?
             </Heading>
           </Fieldset.Legend>
-          <Paragraph>
+          <Fieldset.Description>
             Informasjonen hjelper oss å forbedre nettsiden og løse problemer raskere. Du kan når som
             helst endre valget ditt nederst på siden. På{' '}
-            <Link href='#' style={{ color: 'inherit' }}>
+            <Link href='#' >
               Erklæring om informasjonskapsler
             </Link>
             {' '}kan du endre valg og lese mer om hva vi lagrer og hvorfor. Denne finner du alltid
             nederst på siden
-          </Paragraph>
+          </Fieldset.Description>
           <Checkbox
             label='Hvordan du bruker nettsiden'
             name='consent'
@@ -114,12 +107,7 @@ export const MultipleOptions: Story = {
           </Button>
         </div>
       </form>
-      <Paragraph
-        data-size='sm'
-        style={{
-          marginTop: 'var(--ds-size-5)',
-        }}
-      >
+      <Paragraph data-size='sm'>
         Vi lagrer også nødvendig informasjon som ikke kan velges bort. Dette gjør at nettsiden
         fungerer og er trygg.
       </Paragraph>
@@ -128,16 +116,52 @@ export const MultipleOptions: Story = {
 };
 
 // Skal dette bare være en alert? Skal det være et ConsentBanner? Hvor skal id plasseres? Ikke tydelig fra digdir. :(
-// Den må ha en boks til å krysse ut banneret
-export const OnlyNecessary: Story = {
-  render: (_args) => (
-    <ConsentBanner>
-      <Paragraph id='samtykkebanner-tittel'>
-        <Link href='#' style={{ color: 'inherit' }}>
-          Vi lagrer nødvendige informasjonskapsler
-        </Link>
-        {' '} som gjør at nettsiden fungerer og er trygg.
-      </Paragraph>
-    </ConsentBanner>
-  )
-};
+// export const OnlyNecessary: Story = {
+//   render: (_args) => (
+// <Alert data-color='info' style={{ '--dsc-alert-icon-size': '0px' } as React.CSSProperties} >
+//   <div
+//     style={{
+//       maxWidth: 'var(--kvds-frame-content-max-width',
+//       paddingInline: 'var(--kvds-layout-padding-inline)',
+//       marginInline: 'auto',
+//       display: 'flex',
+//       alignItems: 'center',
+//     }}
+//   >
+//     <InformationSquareFillIcon
+//       style={{
+//         flexShrink: '0',
+//         fontSize: '24px',
+//         marginRight: 'var(--ds-size-4)'
+//       }}
+//     />
+//     <Paragraph>
+
+//     <Link href='#'>
+//       Vi lagrer nødvendige informasjonskapsler
+//     </Link>
+//     {' '} som gjør at nettsiden fungerer og er trygg.
+//     </Paragraph>
+//     <Button icon variant='tertiary' style={{ marginLeft: 'auto' }}>
+//       <XMarkIcon style={{ fontSize: 'var(--ds-size-6)' }} />
+//     </Button>
+
+//   </div>
+// </Alert >
+// <ConsentBanner>
+//   <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--ds-size-4)' }}>
+//     <InformationSquareFillIcon style={{ fontSize: 'var(--ds-size-6)'}} />
+//     <Paragraph id='samtykkebanner-tittel'>
+//       <Link href='#' style={{ color: 'inherit' }}>
+//         Vi lagrer nødvendige informasjonskapsler
+//       </Link>
+//       {' '} som gjør at nettsiden fungerer og er trygg.
+//     </Paragraph>
+//   <Button icon variant='tertiary' style={{ justifySelf: 'end', minWidth: 'fit-content' }}>
+//     <XMarkIcon style={{ fontSize: 'var(--ds-size-6)'}} />
+//   </Button>
+//   </span>
+
+// </ConsentBanner>
+//   )
+// };

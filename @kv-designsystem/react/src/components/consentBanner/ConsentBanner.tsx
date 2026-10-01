@@ -2,6 +2,7 @@ import cl from 'clsx/lite';
 import { forwardRef, HTMLAttributes } from 'react';
 import { SkipLink } from '../skipLink/SkipLink';
 import './consentBanner.css';
+import { Card } from '../card/Card';
 
 export type ConsentBannerProps = HTMLAttributes<HTMLElement> & {
   /**
@@ -14,19 +15,21 @@ export type ConsentBannerProps = HTMLAttributes<HTMLElement> & {
 export const ConsentBanner = forwardRef<HTMLElement, ConsentBannerProps>(
   function ConsentBanner({ children, className, skipLinkText = 'Hopp til hovedinnhold', ...rest }, ref) {
     return (
-      <> 
-      {/*TODO:  Info-ikon må inn her et sted */}
-        <section 
-          className={cl('consentBanner', className)}
-          aria-labelledby='samtykkebanner-tittel' // TODO: burde dette være en valgfri prop med defaultverdi??
-          ref={ref}
-          {...rest}
-        >
-          <div className='consentBanner-container'>
-          {children}
-          </div>
-        </section>
+      <>
+        <Card asChild data-color='info' variant='tinted' >
+          <section
+            className={cl('consentBanner', className)}
+            aria-labelledby='samtykkebanner-tittel'
+            ref={ref}
+            {...rest}
+          >
+            <div className='consentBanner-container'>
+              {children}
+            </div>
+          </section>
+        </Card>
         <SkipLink href='#main'>{skipLinkText}</SkipLink>
       </>
     );
-});
+  }
+);
