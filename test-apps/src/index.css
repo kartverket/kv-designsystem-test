@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-feature-settings: 'cv05' 1; /* Enable lowercase l with tail */
+}
+
+.layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.content {
+  padding: var(--ds-size-8);
+  min-width: 280px;
+  margin: auto;
+}
