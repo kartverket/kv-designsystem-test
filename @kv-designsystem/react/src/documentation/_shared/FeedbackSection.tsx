@@ -4,7 +4,7 @@ import { Heading, type HeadingProps } from '../../components/typography/heading/
 
 export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: HeadingProps) {
   return (
-    <section style={{ marginBlock: 'var(--ds-size-6) var(--ds-size-14)' }}>
+    <section style={{ marginBlock: 'var(--ds-size-6)' }}>
       <Heading
         level={level}
         data-size={dataSize}
