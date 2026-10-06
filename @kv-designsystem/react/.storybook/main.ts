@@ -25,6 +25,16 @@ const compoundComponents = [
   'ToggleGroup',
 ];
 
+// Docgen names these components after Digdir's internal name (e.g. 'CardComponent' or
+// 'EXPERIMENTAL_AvatarStack'), so the props info isn't attached to our export.
+// Use the wrapper file name instead (Card.tsx -> 'Card').
+const componentsNamedAfterFile = [...compoundComponents, 'AvatarStack', 'FileUpload'];
+
+// These files export an object with several components (e.g. Chip.Radio, List.Unordered)
+// instead of one component. Docgen finds each of them as 'Radio', 'Unordered' etc., which
+// don't exist in our file, so we prefix them with the file name ('Radio' -> 'Chip.Radio').
+const componentGroups = ['Chip', 'List'];
+
 const config: StorybookConfig = {
   stories: [
     '../src/documentation/introduction/Introduction.mdx',
@@ -68,11 +78,12 @@ const config: StorybookConfig = {
         return !prop.parent?.fileName.includes('node_modules');
       },
       customComponentTypes: compoundComponents,
-      // Docgen names compound components after Digdir's internal const (e.g. 'CardComponent'),
-      // so the info isn't attached to our export. Use the wrapper file name instead.
-      componentNameResolver: (_exp, source) => {
+      // Decides the name docgen attaches the props info to. undefined = use docgen's own name.
+      componentNameResolver: (exp, source) => {
         const fileName = path.basename(source.fileName, path.extname(source.fileName));
-        return compoundComponents.includes(fileName) ? fileName : undefined;
+        if (componentsNamedAfterFile.includes(fileName)) return fileName;
+        if (componentGroups.includes(fileName)) return `${fileName}.${exp.getName()}`;
+        return undefined;
       },
     },
   },

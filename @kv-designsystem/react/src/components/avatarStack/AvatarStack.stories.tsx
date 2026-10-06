@@ -6,10 +6,9 @@ import { useState } from 'react';
 import { Checkbox } from '../checkbox/Checkbox';
 import { Label } from '../typography/label/Label';
 import { Tooltip } from '@digdir/designsystemet-react';
-import { AvatarStack as StorybookAvatarStack } from './docs/StorybookAvatarStack';
 
 const meta = {
-  component: StorybookAvatarStack,
+  component: AvatarStack,
   parameters: { layout: 'centered' },
 } satisfies Meta<AvatarStackProps>;
 
