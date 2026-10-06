@@ -4,7 +4,11 @@ import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 
 const meta = {
-  component: Footer
+  component: Footer,
+  subcomponents: {
+    'Footer.List': Footer.List,
+    'Footer.Item': Footer.Item,
+  },
 } satisfies Meta<typeof Footer>;
 
 export default meta;

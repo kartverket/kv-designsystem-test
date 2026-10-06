@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Suggestion } from './Suggestion';
+import { subcomponents } from './docs/subcomponents';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
 import { useState } from 'react';
@@ -7,6 +8,7 @@ import { Spinner } from '../spinner/Spinner';
 
 const meta = {
 	component: Suggestion,
+	subcomponents,
 	parameters: { layout: 'centered' },
 } satisfies Meta<typeof Suggestion>;
 

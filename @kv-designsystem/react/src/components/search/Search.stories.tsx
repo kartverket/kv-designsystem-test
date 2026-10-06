@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Search } from './Search';
+import { subcomponents } from './docs/subcomponents';
 import { Divider } from '../divider/Divider';
 import { Spinner } from '../spinner/Spinner';
 import { useState, useEffect } from 'react';
@@ -8,6 +9,7 @@ import { Label } from '../typography/label/Label';
 
 const meta = {
   component: Search,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Search>;
 

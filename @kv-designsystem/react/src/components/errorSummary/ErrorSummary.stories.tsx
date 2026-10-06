@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ErrorSummary } from './ErrorSummary';
+import { subcomponents } from './docs/subcomponents';
 import { Textfield } from '../textfield/Textfield';
 
 const meta = {
   component: ErrorSummary,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof ErrorSummary>;
 

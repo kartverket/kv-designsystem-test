@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Select } from './Select';
+import { subcomponents } from './docs/subcomponents';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
 
 const meta = {
   component: Select,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Select>;
 

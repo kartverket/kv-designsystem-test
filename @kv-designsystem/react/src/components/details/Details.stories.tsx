@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Details } from './Details';
+import { subcomponents } from './docs/subcomponents';
 import { Card } from '../card/Card';
 import { Heading } from '../typography/heading/Heading';
 
 const meta = {
   component: Details,
+  subcomponents,
 } satisfies Meta<typeof Details>;
 
 export default meta;

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Card } from './Card';
+import { subcomponents } from './docs/subcomponents';
 import { Button } from '../button/Button';
 import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
@@ -9,6 +10,7 @@ import { Tooltip } from '@digdir/designsystemet-react';
 
 const meta = {
   component: Card,
+  subcomponents,
   parameters: { layout: 'centered' },
   decorators: [
     (Story) => (

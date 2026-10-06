@@ -2,9 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 import { List } from './List';
+import { subcomponents } from './docs/subcomponents';
 
 const meta = {
   component: List.Unordered,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof List.Unordered>;
 

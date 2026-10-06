@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Pagination } from './Pagination';
+import { subcomponents } from './docs/subcomponents';
 import { useArgs } from 'storybook/preview-api';
 import {
   type UsePaginationProps,
@@ -10,6 +11,7 @@ import { useState } from 'react';
 
 const meta = {
   component: Pagination,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Pagination>;
 

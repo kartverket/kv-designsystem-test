@@ -58,7 +58,8 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      tsconfigPath: 'tsconfig.lib.json',
+      // Like tsconfig.lib.json, but also reads docs/ folders (e.g. card/docs/subcomponents.tsx)
+      tsconfigPath: 'tsconfig.docgen.json',
       // limit docgen to actual component source
       include: ['**/src/**/*.tsx'],
       // Turns unions of fixed values (e.g. variant: 'circle' | 'square') into options in Controls

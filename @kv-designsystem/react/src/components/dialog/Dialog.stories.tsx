@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Dialog } from './Dialog';
+import { subcomponents } from './docs/subcomponents';
 import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Button } from '../button/Button';
@@ -15,6 +16,7 @@ import styles from './Dialog.stories.module.css';
 
 const meta = {
   component: Dialog,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Dialog>;
 
