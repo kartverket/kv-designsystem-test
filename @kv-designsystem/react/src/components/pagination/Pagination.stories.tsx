@@ -17,8 +17,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Pagination aria-label='Sidenavigering'>
+  render: (args) => (
+    <Pagination aria-label='Sidenavigering' {...args}>
       <Pagination.List>
         <Pagination.Item>
           <Pagination.Button aria-label='Forrige side' data-variant='tertiary'>

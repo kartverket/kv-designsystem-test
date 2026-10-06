@@ -15,8 +15,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Table>
+  render: (args) => (
+    <Table {...args}>
       <caption>Table caption</caption>
       <Table.Head>
         <Table.Row>

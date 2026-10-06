@@ -11,8 +11,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <ErrorSummary>
+  render: (args) => (
+    <ErrorSummary {...args}>
       <ErrorSummary.Heading>
         For å gå videre må du rette opp følgende feil:
       </ErrorSummary.Heading>

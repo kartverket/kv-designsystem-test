@@ -16,7 +16,7 @@ export const Preview: Story = {
     children: 'Tabs',
   },
   render: (args) => (
-    <Tabs defaultValue='value1'>
+    <Tabs defaultValue='value1' {...args}>
       <Tabs.List>
         <Tabs.Tab value='value1'>Tab 1</Tabs.Tab>
         <Tabs.Tab value='value2'>Tab 2</Tabs.Tab>

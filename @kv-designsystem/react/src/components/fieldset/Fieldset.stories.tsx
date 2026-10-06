@@ -13,8 +13,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Fieldset>
+  render: (args) => (
+    <Fieldset {...args}>
       <Fieldset.Legend>Hvilken fjordarm bor du ved?</Fieldset.Legend>
       <Fieldset.Description>
         Valget vil hjelpe oss å forbedre innholdet vi viser deg.

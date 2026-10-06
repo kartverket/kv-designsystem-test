@@ -11,8 +11,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Details>
+  render: (args) => (
+    <Details {...args}>
       <Details.Summary>
         Hvor lang tid tar det å tinglyse et dokument?
       </Details.Summary>

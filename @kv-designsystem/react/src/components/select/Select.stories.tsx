@@ -30,10 +30,10 @@ const fylker = [
 ];
 
 export const Preview: Story = {
-  render: (_args) => (
+  render: (args) => (
     <Field>
       <Label>Fylke</Label>
-      <Select defaultValue=''>
+      <Select {...args} defaultValue=''>
         <Select.Option value='' disabled>
           Velg et fylke &hellip;
         </Select.Option>

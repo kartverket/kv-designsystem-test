@@ -14,10 +14,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
+  render: (args) => (
     <Popover.TriggerContext>
       <Popover.Trigger>Åpne popover</Popover.Trigger>
-      <Popover placement='top'>
+      <Popover placement='top' {...args}>
         Popoveren gir en rask beskjed. Her kan du vise brukeren informasjon som
         er relevant for konteksten.
       </Popover>

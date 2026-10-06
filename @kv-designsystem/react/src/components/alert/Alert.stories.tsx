@@ -11,8 +11,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Alert>
+  render: (args) => (
+    <Alert {...args}>
       <Heading 
         level={2}
         data-size='xs'

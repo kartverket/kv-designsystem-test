@@ -22,10 +22,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
+  render: (args) => (
     <Dialog.TriggerContext>
       <Dialog.Trigger>Åpne modal Dialog</Dialog.Trigger>
-      <Dialog>
+      <Dialog {...args}>
         <Dialog.Block>
           <Heading>Lagre før du går videre</Heading>
         </Dialog.Block>

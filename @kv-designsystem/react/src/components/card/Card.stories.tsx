@@ -34,9 +34,10 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     children: [],
+    'data-color': 'accent',
   },
-  render: (_args) => (
-    <Card style={{ maxWidth: '320px' }} data-color='accent'>
+  render: (args) => (
+    <Card style={{ maxWidth: '320px' }} {...args}>
       <Heading>Tittel</Heading>
       <Paragraph>Innhold</Paragraph>
       <Paragraph data-size='sm'>Fotnote</Paragraph>

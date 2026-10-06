@@ -12,8 +12,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <List.Unordered>
+  render: (args) => (
+    <List.Unordered {...args}>
       <List.Item>Den norske los</List.Item>
       <List.Item>Historiske stedsnavn</List.Item>
       <List.Item>Norgeskart</List.Item>

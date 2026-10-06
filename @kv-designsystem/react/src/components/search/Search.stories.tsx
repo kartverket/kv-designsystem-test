@@ -15,8 +15,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Search>
+  render: (args) => (
+    <Search {...args}>
       <Search.Input aria-label='Søk' />
       <Search.Clear />
       <Search.Button />
