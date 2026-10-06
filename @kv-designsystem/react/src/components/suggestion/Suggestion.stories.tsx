@@ -52,7 +52,6 @@ export const Preview: Story = {
 	)
 };
 
-// TODO: add padding between chips and input-field when chips are visible. 
 export const Multiple: Story = {
 	args: {
 		multiple: true,

@@ -24,15 +24,19 @@ const profileImage4 = 'https://images.unsplash.com/vector-1769285072660-14d79a88
 export const Preview: Story = {
   render: (args) => (
     <AvatarStack {...args}>
-      <Avatar aria-label='Person'>
-        <img src={profileImage1} alt='' />
-      </Avatar>
-      <Avatar aria-label='Briefcase'>
-        <BriefcaseIcon />
-      </Avatar>
-      <Avatar aria-label='Søren Magnussen' initials='sm' />
-      <Avatar aria-label='Mark Downright' initials='md' />
-      <Avatar aria-label='Ola Nordman' initials='on' />
+      <li>
+        <Avatar aria-label='Person'>
+          <img src={profileImage1} alt='' />
+        </Avatar>
+      </li>
+      <li>
+        <Avatar aria-label='Briefcase'>
+          <BriefcaseIcon />
+        </Avatar>
+      </li>
+      <li><Avatar aria-label='Søren Magnussen' initials='sm' /></li>
+      <li><Avatar aria-label='Mark Downright' initials='md' /></li>
+      <li><Avatar aria-label='Ola Nordman' initials='on' /></li>
     </AvatarStack>
   )
 };
@@ -136,21 +140,31 @@ export const Playground: Story = {
           avatarSize={`${size}px`}
           expandable={expandable}
         >
-          <Avatar aria-label='profile a' variant={square ? 'square' : 'circle'}>
-            <img src={profileImage1} alt='' />
-          </Avatar>
-          <Avatar aria-label='profile b' variant={square ? 'square' : 'circle'}>
-            <img src={profileImage2} alt='' />
-          </Avatar>
-          <Avatar aria-label='profile c' variant={square ? 'square' : 'circle'}>
-            md
-          </Avatar>
-          <Avatar aria-label='profile d' variant={square ? 'square' : 'circle'}>
-            <img src={profileImage3} alt='' />
-          </Avatar>
-          <Avatar aria-label='profile e' variant={square ? 'square' : 'circle'}>
-            <img src={profileImage4} alt='' />
-          </Avatar>
+          <li>
+            <Avatar aria-label='profile a' variant={square ? 'square' : 'circle'}>
+              <img src={profileImage1} alt='' />
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='profile b' variant={square ? 'square' : 'circle'}>
+              <img src={profileImage2} alt='' />
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='profile c' variant={square ? 'square' : 'circle'}>
+              md
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='profile d' variant={square ? 'square' : 'circle'}>
+              <img src={profileImage3} alt='' />
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='profile e' variant={square ? 'square' : 'circle'}>
+              <img src={profileImage4} alt='' />
+            </Avatar>
+          </li>
         </AvatarStack>
       </div>
     );
@@ -160,18 +174,26 @@ export const Playground: Story = {
 export const DataSize: Story = {
   render: (_args) => (
     <AvatarStack avatarSize='clamp(5rem, 1.5rem + 2vw, 10rem)'>
-      <Avatar aria-label=''>
-        <img src={profileImage1} alt='' />
-      </Avatar>
-      <Avatar aria-label=''>
-        <img src={profileImage2} alt='' />
-      </Avatar>
-      <Avatar aria-label=''>
-        <img src={profileImage3} alt='' />
-      </Avatar>
-      <Avatar aria-label=''>
-        <img src={profileImage4} alt='' />
-      </Avatar>
+      <li>
+        <Avatar aria-label=''>
+          <img src={profileImage1} alt='' />
+        </Avatar>
+      </li>
+      <li>
+        <Avatar aria-label=''>
+          <img src={profileImage2} alt='' />
+        </Avatar>
+      </li>
+      <li>
+        <Avatar aria-label=''>
+          <img src={profileImage3} alt='' />
+        </Avatar>
+      </li>
+      <li>
+        <Avatar aria-label=''>
+          <img src={profileImage4} alt='' />
+        </Avatar>
+      </li>
     </AvatarStack>
   )
 };
@@ -196,29 +218,37 @@ export const Expandable: Story = {
       <fieldset>
         <legend>expandable</legend>
         <AvatarStack expandable>
-          <Avatar aria-label='Person'>
-            <img src={profileImage1} alt='' />
-          </Avatar>
-          <Avatar aria-label='Briefcase'>
-            <BriefcaseIcon />
-          </Avatar>
-          <Avatar aria-label='Søren Magnussen' initials='sm' />
-          <Avatar aria-label='Mark Downright' initials='md' />
-          <Avatar aria-label='Ola Nordman' initials='on' />
+          <li>
+            <Avatar aria-label='Person'>
+              <img src={profileImage1} alt='' />
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='Briefcase'>
+              <BriefcaseIcon />
+            </Avatar>
+          </li>
+          <li><Avatar aria-label='Søren Magnussen' initials='sm' /></li>
+          <li><Avatar aria-label='Mark Downright' initials='md' /></li>
+          <li><Avatar aria-label='Ola Nordman' initials='on' /></li>
         </AvatarStack>
       </fieldset>
       <fieldset>
         <legend>expandable='fixed'</legend>
         <AvatarStack expandable='fixed'>
-          <Avatar aria-label='Person'>
-            <img src={profileImage1} alt='' />
-          </Avatar>
-          <Avatar aria-label='Briefcase'>
-            <BriefcaseIcon />
-          </Avatar>
-          <Avatar aria-label='Søren Magnussen' initials='sm' />
-          <Avatar aria-label='Mark Downright' initials='md' />
-          <Avatar aria-label='Ola Nordman' initials='on' />
+          <li>
+            <Avatar aria-label='Person'>
+              <img src={profileImage1} alt='' />
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='Briefcase'>
+              <BriefcaseIcon />
+            </Avatar>
+          </li>
+          <li><Avatar aria-label='Søren Magnussen' initials='sm' /></li>
+          <li><Avatar aria-label='Mark Downright' initials='md' /></li>
+          <li><Avatar aria-label='Ola Nordman' initials='on' /></li>
         </AvatarStack>
       </fieldset>
     </div>
@@ -232,15 +262,19 @@ export const Square: Story = {
   },
   render: (args) => (
     <AvatarStack {...args}>
-      <Avatar variant='square' aria-label='Person'>
-        <img src={profileImage1} alt='' />
-      </Avatar>
-      <Avatar variant='square' aria-label='Briefcase'>
-        <BriefcaseIcon />
-      </Avatar>
-      <Avatar variant='square' aria-label='Søren Magnussen' initials='sm' />
-      <Avatar variant='square' aria-label='Mark Downright' initials='md' />
-      <Avatar variant='square' aria-label='Ola Nordman' initials='on' />
+      <li>
+        <Avatar variant='square' aria-label='Person'>
+          <img src={profileImage1} alt='' />
+        </Avatar>
+      </li>
+      <li>
+        <Avatar variant='square' aria-label='Briefcase'>
+          <BriefcaseIcon />
+        </Avatar>
+      </li>
+      <li><Avatar variant='square' aria-label='Søren Magnussen' initials='sm' /></li>
+      <li><Avatar variant='square' aria-label='Mark Downright' initials='md' /></li>
+      <li><Avatar variant='square' aria-label='Ola Nordman' initials='on' /></li>
     </AvatarStack>
   ),
 };
@@ -252,30 +286,41 @@ export const AdditionalAvatars: Story = {
   render: (args) => (
     <>
       <AvatarStack {...args}>
-        <Avatar aria-label=''>
-          <img src={profileImage1} alt='' />
-        </Avatar>
-        <Avatar aria-label=''>
-          <BriefcaseIcon />
-        </Avatar>
-        <Avatar aria-label='' initials='sm' />
-        <Avatar
-          data-color='neutral'
-          aria-label=''
-          style={{ '--dsc-avatar-font-size': '1.1rem' } as React.CSSProperties}
-        >
-          +14
-        </Avatar>
+        <li>
+          <Avatar aria-label=''>
+            <img src={profileImage1} alt='' />
+          </Avatar>
+        </li>
+        <li>
+          <Avatar aria-label=''>
+            <BriefcaseIcon />
+          </Avatar>
+        </li>
+        <li><Avatar aria-label='' initials='sm' /></li>
+        <li>
+          <Avatar
+            data-color='neutral'
+            aria-label=''
+            style={{ '--dsc-avatar-font-size': '1.1rem' } as React.CSSProperties}
+          >
+            +14
+          </Avatar>
+        </li>
       </AvatarStack>
-      <AvatarStack suffix={'+14'}>
-        <Avatar aria-label=''>
-          <img src={profileImage1} alt='' />
-        </Avatar>
-        <Avatar aria-label=''>
-          <BriefcaseIcon />
-        </Avatar>
-        <Avatar aria-label='' initials='sm' />
-        <Avatar aria-label='' initials='on' />
+      <AvatarStack {...args}>
+        <li>
+          <Avatar aria-label=''>
+            <img src={profileImage1} alt='' />
+          </Avatar>
+        </li>
+        <li>
+          <Avatar aria-label=''>
+            <BriefcaseIcon />
+          </Avatar>
+        </li>
+        <li><Avatar aria-label='' initials='sm' /></li>
+        <li><Avatar aria-label='' initials='on' /></li>
+        <li>+14</li>
       </AvatarStack>
     </>
   ),
@@ -287,6 +332,7 @@ export const WithTooltipAndLink: Story = {
       <fieldset>
         <legend>Link + Tooltip</legend>
         <AvatarStack overlap={30} aria-label='bidragsytere'>
+          <li>
           <Tooltip content='Snille Simen'>
             <Avatar aria-label='' asChild>
               <a href='#'>
@@ -294,6 +340,8 @@ export const WithTooltipAndLink: Story = {
               </a>
             </Avatar>
           </Tooltip>
+          </li>
+          <li>
           <Tooltip content='Rånete Randi'>
             <Avatar aria-label='' asChild>
               <a href='#'>
@@ -301,6 +349,8 @@ export const WithTooltipAndLink: Story = {
               </a>
             </Avatar>
           </Tooltip>
+          </li>
+          <li>
           <Tooltip content='Tøffe Tommy'>
             <Avatar aria-label='' asChild>
               <a href=''>
@@ -308,11 +358,14 @@ export const WithTooltipAndLink: Story = {
               </a>
             </Avatar>
           </Tooltip>
+          </li>
+          <li>
           <Tooltip content='Artige Astrid'>
             <Avatar aria-label='' asChild>
               <a href=''>AA</a>
             </Avatar>
           </Tooltip>
+          </li>
         </AvatarStack>
       </fieldset>
       <fieldset>
@@ -322,6 +375,7 @@ export const WithTooltipAndLink: Story = {
           expandable='fixed'
           aria-label='bidragsytere'
         >
+          <li>
           <Tooltip content='Snille Simen'>
             <Avatar aria-label='' asChild>
               <a href='#'>
@@ -329,6 +383,8 @@ export const WithTooltipAndLink: Story = {
               </a>
             </Avatar>
           </Tooltip>
+          </li>
+          <li>
           <Tooltip content='Rånete Randi'>
             <Avatar aria-label='' asChild>
               <a href='#'>
@@ -336,6 +392,8 @@ export const WithTooltipAndLink: Story = {
               </a>
             </Avatar>
           </Tooltip>
+          </li>
+          <li>
           <Tooltip content='Tøffe Tommy'>
             <Avatar aria-label='' asChild>
               <a href=''>
@@ -343,11 +401,14 @@ export const WithTooltipAndLink: Story = {
               </a>
             </Avatar>
           </Tooltip>
+          </li>
+          <li>
           <Tooltip content='Artige Astrid'>
             <Avatar aria-label='' asChild>
               <a href=''>AA</a>
             </Avatar>
           </Tooltip>
+          </li>
         </AvatarStack>
       </fieldset>
     </div>
