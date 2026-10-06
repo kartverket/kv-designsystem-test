@@ -8,7 +8,7 @@ import '@digdir/designsystemet-css'; /* imported only once */
 // import '../.storybook/style.css';
 import '../src/components/variables.css';
 import customTheme from './docs/customTheme';
-import { designsystemetArgTypes } from './utils/designsystemetArgTypes';
+import { extractDesignsystemetArgTypes } from './utils/designsystemetArgTypes';
 
 declare global {
   interface Window {
@@ -31,7 +31,6 @@ Object.entries(icons).forEach(([name, component]) => {
 
 const preview: Preview = {
   tags: ['autodocs'], // Every component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  argTypesEnhancers: [designsystemetArgTypes],
   parameters: {
     // docs: { disable: true }, // Disable docs for all stories. Workaround for .stories Vite HMR bug. Add and remove in order to force refresh page.
     a11y: {
@@ -43,6 +42,7 @@ const preview: Preview = {
     docs: {
       theme: customTheme,
       components: componentOverrides,
+      extractArgTypes: extractDesignsystemetArgTypes,
     }
   },
   globalTypes: {

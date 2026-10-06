@@ -1,14 +1,12 @@
 import type { Size } from '@digdir/designsystemet-types';
-import type { Preview } from '@storybook/react-vite';
+import { INTERNAL_DEFAULT_PROJECT_ANNOTATIONS } from '@storybook/react-vite';
+import type { StrictArgTypes as ArgTypes } from 'storybook/internal/types';
 import tokensConfig from '@kv-designsystem/tokens/designsystemet.config.json';
 
 // Fixes props that Storybook can't show well on its own:
 // 1. data-color and data-size get a select with the available values.
 // 2. Component-specific sizes (e.g. Avatar's) are sorted from small to large.
 // 3. aria-* flags typed as `Booleanish` (e.g. aria-hidden) get a boolean switch.
-
-type ArgTypesEnhancer = NonNullable<Preview['argTypesEnhancers']>[number];
-type ArgTypes = Parameters<ArgTypesEnhancer>[0]['argTypes'];
 
 const theme = tokensConfig.themes.green;
 const colors = [...Object.keys(theme.colors), ...Object.keys(theme.overrides.severity)];
@@ -91,7 +89,17 @@ const showBooleanishAsBoolean = (argTypes: ArgTypes) => {
   }
 };
 
-export const designsystemetArgTypes: ArgTypesEnhancer = ({ argTypes }) => {
+// Storybook's own function for reading a component's props from docgen. It's only available
+// through this export, which Storybook names INTERNAL but exports publicly with types.
+const extractReactArgTypes = INTERNAL_DEFAULT_PROJECT_ANNOTATIONS.parameters?.docs?.extractArgTypes;
+
+// Used as parameters.docs.extractArgTypes in preview.tsx. Storybook calls it both for the
+// component's own props and for the subcomponent tabs in Controls (e.g. Badge.Position).
+// An argTypesEnhancer would only reach the component's own props.
+export const extractDesignsystemetArgTypes = (component: unknown): ArgTypes | null => {
+  const argTypes = extractReactArgTypes(component);
+  if (!argTypes) return null;
+
   addColorAndSizeOptions(argTypes);
   sortSizes(argTypes);
   showBooleanishAsBoolean(argTypes);
