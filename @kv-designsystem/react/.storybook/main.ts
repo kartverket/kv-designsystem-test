@@ -35,6 +35,21 @@ const componentsNamedAfterFile = [...compoundComponents, 'AvatarStack', 'FileUpl
 // don't exist in our file, so we prefix them with the file name ('Radio' -> 'Chip.Radio').
 const componentGroups = ['Chip', 'List'];
 
+// Some Digdir props are declared more than once, in different parts of a union type. E.g.
+// Dropdown.Trigger's `inline` is declared both for the inline variant and for the button variant,
+// each with `@default false`. Docgen joins the defaults with a line break, so the props table
+// shows "false false". If all the defaults are the same, keep just one. If they differ, keep
+// them all, so we don't hide what Digdir actually documents.
+const mergeDuplicateDefaults = (prop: { defaultValue: { value: unknown } | null }) => {
+  const value = prop.defaultValue?.value;
+  if (typeof value !== 'string' || !value.includes('\n')) return;
+
+  const defaults = new Set(value.split('\n'));
+  if (defaults.size === 1) {
+    prop.defaultValue = { value: [...defaults][0] };
+  }
+};
+
 const config: StorybookConfig = {
   stories: [
     '../src/documentation/introduction/Introduction.mdx',
@@ -68,6 +83,9 @@ const config: StorybookConfig = {
       shouldRemoveUndefinedFromOptional: true,
       // Decides which props are shown in the props table and Controls
       propFilter: (prop) => {
+        // propFilter is the only place docgen lets us change a prop before it's used
+        mergeDuplicateDefaults(prop);
+
         // src/html.ts adds data-color/data-size to every HTML element. If the component itself
         // doesn't declare them (e.g. Paragraph's data-color), they have no effect, so hide them.
         const declaredIn = prop.declarations?.map((declaration) => declaration.fileName) ?? [];
