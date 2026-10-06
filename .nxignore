@@ -1,0 +1,3 @@
+# test-apps is a standalone npm app that consumes the published packages,
+# not part of the pnpm/Nx workspace.
+test-apps
