@@ -4,6 +4,7 @@ import { Avatar } from '../avatar/Avatar';
 import { BriefcaseIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import { Checkbox } from '../checkbox/Checkbox';
+import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
 import { Tooltip } from '@digdir/designsystemet-react';
 import { AvatarStack as StorybookAvatarStack } from './docs/StorybookAvatarStack';
@@ -24,15 +25,19 @@ const profileImage4 = 'https://images.unsplash.com/vector-1769285072660-14d79a88
 export const Preview: Story = {
   render: (args) => (
     <AvatarStack {...args}>
-      <Avatar aria-label='Person'>
-        <img src={profileImage1} alt='' />
-      </Avatar>
-      <Avatar aria-label='Briefcase'>
-        <BriefcaseIcon />
-      </Avatar>
-      <Avatar aria-label='Søren Magnussen' initials='sm' />
-      <Avatar aria-label='Mark Downright' initials='md' />
-      <Avatar aria-label='Ola Nordman' initials='on' />
+      <li>
+        <Avatar aria-label='Snille Simen'>
+          <img src={profileImage1} aria-hidden />
+        </Avatar>
+      </li>
+      <li>
+        <Avatar aria-label='Ole Nordmann'>
+          <BriefcaseIcon aria-hidden />
+        </Avatar>
+      </li>
+      <li><Avatar aria-label='Søren Magnussen'>sm</Avatar></li>
+      <li><Avatar aria-label='Mark Downright'>md</Avatar></li>
+      <li><Avatar aria-label='Ola Nordman'>on</Avatar></li>
     </AvatarStack>
   )
 };
@@ -40,17 +45,15 @@ export const Preview: Story = {
 export const Playground: Story = {
   parameters: { layout: 'padded' },
   render: (_args) => {
-    const [expandable, setExpandable] = useState<undefined | true>(undefined);
-    const [square, setSquare] = useState(false);
+    const [expandable, setExpandable] = useState(false);
+    const [overlap, setOverlap] = useState(32);
+    const [radius, setRadius] = useState(32);
     const [size, setSize] = useState(64);
-    const [overlap, setOverlap] = useState(50);
     const [gap, setGap] = useState(2);
-    const labelStyle = {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 'var(--ds-size-2)',
+    const inputStyle = {
+      width: '100%',
       accentColor: 'var(--ds-color-base-default)',
-    } as const;
+    };
 
     return (
       <div
@@ -61,8 +64,7 @@ export const Playground: Story = {
           minHeight: '395px',
           width: 'min(100%, 500px)',
           justifySelf: 'center',
-        }}
-      >
+        }}>
         <fieldset
           style={{
             display: 'grid',
@@ -79,78 +81,94 @@ export const Playground: Story = {
           >
             <Checkbox
               label='Expandable'
-              checked={expandable !== undefined}
-              onChange={() => setExpandable((prev) => (prev ? undefined : true))}
-            />
-            <Checkbox
-              label='square'
-              checked={square}
-              onChange={() => setSquare((prev) => !prev)}
+              checked={expandable}
+              onChange={() => setExpandable(!expandable)}
             />
           </div>
-          <Label style={labelStyle}>
-            Size {`${size}px`}
+          <Field>
+            <Label>Size {`${size}px`}</Label>
             <input
+              style={inputStyle}
               min='24'
               max='150'
               step='0.1'
               type='range'
               value={size}
-              onChange={(e) =>
-                setSize(Number((e.target as HTMLInputElement).value))
-              }
+              onChange={(e) => setSize(e.target.valueAsNumber)}
             />
-          </Label>
-          <Label style={labelStyle}>
-            Overlap {`${overlap}%`}
+          </Field>
+          <Field>
+            <Label>Overlap {`${overlap}px`}</Label>
             <input
-              min='-10'
+              style={inputStyle}
+              min='0'
               max='100'
               step='1'
               type='range'
               value={overlap}
-              onChange={(e) =>
-                setOverlap(Number((e.target as HTMLInputElement).value))
-              }
+              onChange={(e) => setOverlap(e.target.valueAsNumber)}
             />
-          </Label>
-          <Label style={labelStyle}>
-            Gap {`${gap}px`}
+          </Field>
+          <Field>
+            <Label>Gap {`${gap}px`}</Label>
             <input
+              style={inputStyle}
               min='0'
               max='15'
               step='1'
               type='range'
               value={gap}
-              onChange={(e) =>
-                setGap(Number((e.target as HTMLInputElement).value))
-              }
+              onChange={(e) => setGap(e.target.valueAsNumber)}
             />
-          </Label>
+          </Field>
+          <Field>
+            <Label>Radius {`${radius}px`}</Label>
+            <input
+              style={inputStyle}
+              min='0'
+              max='75'
+              step='1'
+              type='range'
+              value={radius}
+              onChange={(e) => setRadius(e.target.valueAsNumber)}
+            />
+          </Field>
         </fieldset>
-
         <AvatarStack
-          overlap={overlap}
-          data-suffix={`+10`}
-          gap={`${gap}px`}
-          avatarSize={`${size}px`}
-          expandable={expandable}
+          expandable={expandable || undefined}
+          style={
+            {
+              '--dsc-avatar-stack-size': `${size}px`,
+              '--dsc-avatar-stack-gap': `${gap}px`,
+              '--dsc-avatar-stack-overlap': `${overlap}px`,
+              '--dsc-avatar-stack-radius': `${radius}px`,
+            } as React.CSSProperties
+          }
         >
-          <Avatar aria-label='profile a' variant={square ? 'square' : 'circle'}>
-            <img src={profileImage1} alt='' />
-          </Avatar>
-          <Avatar aria-label='profile b' variant={square ? 'square' : 'circle'}>
-            <img src={profileImage2} alt='' />
-          </Avatar>
-          <Avatar aria-label='profile c' variant={square ? 'square' : 'circle'}>
-            md
-          </Avatar>
-          <Avatar aria-label='profile d' variant={square ? 'square' : 'circle'}>
-            <img src={profileImage3} alt='' />
-          </Avatar>
-          <Avatar aria-label='profile e' variant={square ? 'square' : 'circle'}>
-            <img src={profileImage4} alt='' />
-          </Avatar>
+          <li>
+            <Avatar aria-label='Snille Simen'>
+              <img src={profileImage1} aria-hidden />
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='Rånete Randi'>
+              <img src={profileImage2} aria-hidden />
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='Mark Downright'>md</Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='Tøffe Tommy'>
+              <img src={profileImage3} aria-hidden />
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='Artige Astrid'>
+              <img src={profileImage4} aria-hidden />
+            </Avatar>
+          </li>
+          <li>+10</li>
         </AvatarStack>
       </div>
     );
@@ -159,26 +177,40 @@ export const Playground: Story = {
 
 export const DataSize: Story = {
   render: (_args) => (
-    <AvatarStack avatarSize='clamp(5rem, 1.5rem + 2vw, 10rem)'>
-      <Avatar aria-label=''>
-        <img src={profileImage1} alt='' />
-      </Avatar>
-      <Avatar aria-label=''>
-        <img src={profileImage2} alt='' />
-      </Avatar>
-      <Avatar aria-label=''>
-        <img src={profileImage3} alt='' />
-      </Avatar>
-      <Avatar aria-label=''>
-        <img src={profileImage4} alt='' />
-      </Avatar>
+    <AvatarStack
+      style={
+        {
+          '--dsc-avatar-stack-size': 'clamp(5rem, 1.5rem + 2vw, 10rem)',
+        } as React.CSSProperties
+      }
+    >
+      <li>
+        <Avatar aria-label='Snille Simen'>
+          <img src={profileImage1} aria-hidden />
+        </Avatar>
+      </li>
+      <li>
+        <Avatar aria-label='Rånete Randi'>
+          <img src={profileImage2} aria-hidden />
+        </Avatar>
+      </li>
+      <li>
+        <Avatar aria-label='Tøffe Tommy'>
+          <img src={profileImage3} aria-hidden />
+        </Avatar>
+      </li>
+      <li>
+        <Avatar aria-label='Artige Astrid'>
+          <img src={profileImage4} aria-hidden />
+        </Avatar>
+      </li>
     </AvatarStack>
   )
 };
 
 export const Gap: Story = {
   args: {
-    gap: 'var(--ds-size-1)',
+    style: { '--dsc-avatar-stack-gap': 'var(--ds-size-1)' } as React.CSSProperties,
   },
   render: Preview.render,
 };
@@ -196,29 +228,37 @@ export const Expandable: Story = {
       <fieldset>
         <legend>expandable</legend>
         <AvatarStack expandable>
-          <Avatar aria-label='Person'>
-            <img src={profileImage1} alt='' />
-          </Avatar>
-          <Avatar aria-label='Briefcase'>
-            <BriefcaseIcon />
-          </Avatar>
-          <Avatar aria-label='Søren Magnussen' initials='sm' />
-          <Avatar aria-label='Mark Downright' initials='md' />
-          <Avatar aria-label='Ola Nordman' initials='on' />
+          <li>
+            <Avatar aria-label='Snille Simen'>
+              <img src={profileImage1} aria-hidden />
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='Ola Nordmann'>
+              <BriefcaseIcon aria-hidden />
+            </Avatar>
+          </li>
+          <li><Avatar aria-label='Søren Magnussen'>sm</Avatar></li>
+          <li><Avatar aria-label='Mark Downright'>md</Avatar></li>
+          <li><Avatar aria-label='Ola Nordman'>on</Avatar></li>
         </AvatarStack>
       </fieldset>
       <fieldset>
         <legend>expandable='fixed'</legend>
         <AvatarStack expandable='fixed'>
-          <Avatar aria-label='Person'>
-            <img src={profileImage1} alt='' />
-          </Avatar>
-          <Avatar aria-label='Briefcase'>
-            <BriefcaseIcon />
-          </Avatar>
-          <Avatar aria-label='Søren Magnussen' initials='sm' />
-          <Avatar aria-label='Mark Downright' initials='md' />
-          <Avatar aria-label='Ola Nordman' initials='on' />
+          <li>
+            <Avatar aria-label='Snille Simen'>
+              <img src={profileImage1} aria-hidden />
+            </Avatar>
+          </li>
+          <li>
+            <Avatar aria-label='Ola Nordmann'>
+              <BriefcaseIcon aria-hidden />
+            </Avatar>
+          </li>
+          <li><Avatar aria-label='Søren Magnussen'>sm</Avatar></li>
+          <li><Avatar aria-label='Mark Downright'>md</Avatar></li>
+          <li><Avatar aria-label='Ola Nordman'>on</Avatar></li>
         </AvatarStack>
       </fieldset>
     </div>
@@ -228,54 +268,66 @@ export const Expandable: Story = {
 export const Square: Story = {
   args: {
     expandable: true,
-    overlap: 40,
+    style: { '--dsc-avatar-stack-radius': 'var(--ds-border-radius-md)' } as React.CSSProperties,
   },
   render: (args) => (
     <AvatarStack {...args}>
-      <Avatar variant='square' aria-label='Person'>
-        <img src={profileImage1} alt='' />
-      </Avatar>
-      <Avatar variant='square' aria-label='Briefcase'>
-        <BriefcaseIcon />
-      </Avatar>
-      <Avatar variant='square' aria-label='Søren Magnussen' initials='sm' />
-      <Avatar variant='square' aria-label='Mark Downright' initials='md' />
-      <Avatar variant='square' aria-label='Ola Nordman' initials='on' />
+      <li>
+        <Avatar aria-label='Snille Simen'>
+          <img src={profileImage1} aria-hidden />
+        </Avatar>
+      </li>
+      <li>
+        <Avatar aria-label='Ola Nordmann'>
+          <BriefcaseIcon aria-hidden />
+        </Avatar>
+      </li>
+      <li><Avatar aria-label='Søren Magnussen'>sm</Avatar></li>
+      <li><Avatar aria-label='Mark Downright'>md</Avatar></li>
+      <li><Avatar aria-label='Ola Nordman'>on</Avatar></li>
     </AvatarStack>
   ),
 };
 
 export const AdditionalAvatars: Story = {
-  args: {
-    overlap: 30,
-  },
-  render: (args) => (
+  render: (_args) => (
     <>
-      <AvatarStack {...args}>
-        <Avatar aria-label=''>
-          <img src={profileImage1} alt='' />
-        </Avatar>
-        <Avatar aria-label=''>
-          <BriefcaseIcon />
-        </Avatar>
-        <Avatar aria-label='' initials='sm' />
-        <Avatar
-          data-color='neutral'
-          aria-label=''
-          style={{ '--dsc-avatar-font-size': '1.1rem' } as React.CSSProperties}
-        >
-          +14
-        </Avatar>
+      <AvatarStack>
+        <li>
+          <Avatar aria-label='Snille Simen'>
+            <img src={profileImage1} aria-hidden />
+          </Avatar>
+        </li>
+        <li>
+          <Avatar aria-label='Ola Nordmann'>
+            <BriefcaseIcon aria-hidden />
+          </Avatar>
+        </li>
+        <li><Avatar aria-label='Søren Magnussen'>sm</Avatar></li>
+        <li>
+          <Avatar
+            data-color='neutral'
+            aria-label='14 flere personer'
+            style={{ '--dsc-avatar-font-size': '1.1rem' } as React.CSSProperties}
+          >
+            +14
+          </Avatar>
+        </li>
       </AvatarStack>
-      <AvatarStack suffix={'+14'}>
-        <Avatar aria-label=''>
-          <img src={profileImage1} alt='' />
-        </Avatar>
-        <Avatar aria-label=''>
-          <BriefcaseIcon />
-        </Avatar>
-        <Avatar aria-label='' initials='sm' />
-        <Avatar aria-label='' initials='on' />
+      <AvatarStack>
+        <li>
+          <Avatar aria-label='Snille Simen'>
+            <img src={profileImage1} aria-hidden />
+          </Avatar>
+        </li>
+        <li>
+          <Avatar aria-label='Ola Nordmann'>
+            <BriefcaseIcon aria-hidden />
+          </Avatar>
+        </li>
+        <li><Avatar aria-label='Søren Magnussen'>sm</Avatar></li>
+        <li><Avatar aria-label='Ola Nordmann'>on</Avatar></li>
+        <li aria-label='14 flere personer'>+14</li>
       </AvatarStack>
     </>
   ),
@@ -286,68 +338,83 @@ export const WithTooltipAndLink: Story = {
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ds-size-4)' }}>
       <fieldset>
         <legend>Link + Tooltip</legend>
-        <AvatarStack overlap={30} aria-label='bidragsytere'>
-          <Tooltip content='Snille Simen'>
-            <Avatar aria-label='' asChild>
-              <a href='#'>
-                <img src={profileImage1} alt='' />
-              </a>
-            </Avatar>
-          </Tooltip>
-          <Tooltip content='Rånete Randi'>
-            <Avatar aria-label='' asChild>
-              <a href='#'>
-                <img src={profileImage2} alt='' />
-              </a>
-            </Avatar>
-          </Tooltip>
-          <Tooltip content='Tøffe Tommy'>
-            <Avatar aria-label='' asChild>
-              <a href=''>
-                <img src={profileImage3} alt='' />
-              </a>
-            </Avatar>
-          </Tooltip>
-          <Tooltip content='Artige Astrid'>
-            <Avatar aria-label='' asChild>
-              <a href=''>AA</a>
-            </Avatar>
-          </Tooltip>
+        <AvatarStack aria-label='bidragsytere'>
+          <li>
+            <Tooltip content='Snille Simen'>
+              <Avatar aria-label='Snille Simen' asChild>
+                <a href='#'>
+                  <img src={profileImage1} aria-hidden/>
+                </a>
+              </Avatar>
+            </Tooltip>
+          </li>
+          <li>
+            <Tooltip content='Rånete Randi'>
+              <Avatar aria-label='Rånete Randi' asChild>
+                <a href='#'>
+                  <img src={profileImage2} aria-hidden />
+                </a>
+              </Avatar>
+            </Tooltip>
+          </li>
+          <li>
+            <Tooltip content='Tøffe Tommy'>
+              <Avatar aria-label='Tøffe Tommy' asChild>
+                <a href=''>
+                  <img src={profileImage3} aria-hidden />
+                </a>
+              </Avatar>
+            </Tooltip>
+          </li>
+          <li>
+            <Tooltip content='Artige Astrid'>
+              <Avatar aria-label='Artige Astrid' asChild>
+                <a href=''>AA</a>
+              </Avatar>
+            </Tooltip>
+          </li>
         </AvatarStack>
       </fieldset>
       <fieldset>
         <legend>Link + Tooltip expandable</legend>
         <AvatarStack
-          overlap={50}
           expandable='fixed'
           aria-label='bidragsytere'
         >
-          <Tooltip content='Snille Simen'>
-            <Avatar aria-label='' asChild>
-              <a href='#'>
-                <img src={profileImage1} alt='' />
-              </a>
-            </Avatar>
-          </Tooltip>
-          <Tooltip content='Rånete Randi'>
-            <Avatar aria-label='' asChild>
-              <a href='#'>
-                <img src={profileImage2} alt='' />
-              </a>
-            </Avatar>
-          </Tooltip>
-          <Tooltip content='Tøffe Tommy'>
-            <Avatar aria-label='' asChild>
-              <a href=''>
-                <img src={profileImage3} alt='' />
-              </a>
-            </Avatar>
-          </Tooltip>
-          <Tooltip content='Artige Astrid'>
-            <Avatar aria-label='' asChild>
-              <a href=''>AA</a>
-            </Avatar>
-          </Tooltip>
+          <li>
+            <Tooltip content='Snille Simen'>
+              <Avatar aria-label='Snille Simen' asChild>
+                <a href='#'>
+                  <img src={profileImage1} aria-hidden />
+                </a>
+              </Avatar>
+            </Tooltip>
+          </li>
+          <li>
+            <Tooltip content='Rånete Randi'>
+              <Avatar aria-label='Rånete Randi' asChild>
+                <a href='#'>
+                  <img src={profileImage2} aria-hidden />
+                </a>
+              </Avatar>
+            </Tooltip>
+          </li>
+          <li>
+            <Tooltip content='Tøffe Tommy'>
+              <Avatar aria-label='Tøffe Tommy' asChild>
+                <a href=''>
+                  <img src={profileImage3} aria-hidden />
+                </a>
+              </Avatar>
+            </Tooltip>
+          </li>
+          <li>
+            <Tooltip content='Artige Astrid'>
+              <Avatar aria-label='Artige Astrid' asChild>
+                <a href=''>AA</a>
+              </Avatar>
+            </Tooltip>
+          </li>
         </AvatarStack>
       </fieldset>
     </div>

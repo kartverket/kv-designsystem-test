@@ -1,0 +1,169 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as ConsentBannerStories from './ConsentBanner.stories';
+import { Alert } from '../alert/Alert';
+import { Link } from '../link/Link';
+import { FrameContentMaxWidthAlert } from '../../documentation/_shared/FrameContentMaxWidthAlert';
+import ConsentBannerFooter from '../../../assets/img/Consent-Banner-Footer.png';
+import ConsentBannerVideo from '../../../assets/img/Consent-Banner-Video.webp';
+
+<Meta of={ConsentBannerStories} />
+
+# ConsentBanner
+
+Når vi ønsker å samle inn data om brukeren med for eksempel informasjonskapsler (cookies), må vi be om samtykke først. Dette er juridisk pålagt etter personvernforordningen. Samtykkebanneret skal passe på at brukeren kan ta et frivillig, spesifikt, informert og utvetydig valg som kan trekkes tilbake. Med komponenten kan vi sikre at samtykket håndteres likt på tvers.
+
+<Canvas of={ConsentBannerStories.Preview} />
+<Controls />
+
+<FrameContentMaxWidthAlert />
+
+## Forberedelser
+
+Før du kan be om samtykke, må du ha oversikt over hvilke opplysninger du skal samle inn og hvilke teknologier du bruker. Dette kan være informasjonskapsler (cookies), men også andre metoder for å lagre eller lese data på brukerens enhet.
+
+### Forstå hva og hvorfor du samler inn
+
+Lag en oversikt over hvilke teknologier nettstedet ditt bruker, inkludert førsteparts- og tredjepartsteknologi. Det kan være informasjonskapsler, analyseverktøy og integrasjoner. Kartlegg hvilke opplysninger du samler inn, hvorfor du samler dem inn og hvordan du samler dem inn. Tenk over hvilke konsekvenser det har for brukerne dersom de ikke gir samtykke.
+
+Vurder også hvilke teknologier som er strengt nødvendige og hvilke som er valgfrie.
+- De valgfrie teknologiene må du be om samtykke til.
+- Hvis teknologiene er strengt nødvendige, trenger du ikke samtykke. Dette gjelder for eksempel lagring av selve samtykkesvaret. Vi anbefaler likevel at du informerer brukerne om hvilke teknologier som brukes og hvorfor.
+
+Bruk av informasjonskapsler og lignende teknologier vil ofte innebære behandling av personopplysninger. Hvis opplysningene kan knyttes til en person, må du også følge [personvernregelverket](https://www.datatilsynet.no/regelverk-og-verktoy/lover-og-regler/).
+
+#### Lagre minst mulig
+
+- Lagre minst mulig data, og i kortest mulig tid. For eksempel: data fra en A/B-test trenger ikke lagres etter at testen er avsluttet og retningen er valgt.
+- Ikke lagre standardverdier. Hvis norsk er standardspråket på nettstedet, trenger du ikke lagre dette på brukernes enhet – lagre kun når brukerne avviker fra standarden.
+
+#### Deling av et samtykke på tvers av tjenester
+
+Hvis du skal dele samtykket på tvers av virksomhetens tjenester, bør brukerne oppleve de aktuelle sidene som en del av det samme nettstedet. Samtykkebanneret må i tillegg inneholde informasjon om alt brukeren gir tillatelse til å lese eller lagre i alle tjenestene som deler banneret.
+
+### Skriv en erklæring
+
+For å dokumentere og tilgjengeligjøre hva, hvorfor og hvordan, må vi skrive det i en erklæring. Vi har laget et format med utgangspunkt i informasjonskapser, som vi anbefaler at du fyller ut. Erklæringen må du legge til som en side på tjenesten, lenket via `ConsentBanner` og i `Footer`.
+
+## Varianter med eksempler
+
+### Kun ett valg
+
+Når teknologiene brukes til kun ett formål, er det enklest for brukeren å ta stilling til ett enkelt spørsmål. Da holder det med to knapper: én for å godta og én for å avslå. I tillegg må du fortelle brukeren hva som skjer om hen svarer ja.
+
+<Canvas of={ConsentBannerStories.Preview} />
+
+### Flere valg
+
+Hvis du bruker teknologier som har flere ulike formål, må du gi brukeren muligheten til å velge hva hen vil samtykke til. Ingen av avkrysningsboksene skal være forhåndsmarkert. Siden det skal være like enkelt å avslå som å godta, må begge disse knappene være til stede.
+
+<Canvas of={ConsentBannerStories.MultipleOptions} />
+
+### Kun strengt nødvendige teknologier
+
+Om nettstedet ditt kun bruker strengt nødvendige teknologier – for eksempel lagrer språkvalg eller innloggingsstatus – trenger du ikke vise et samtykkebanner. Vi skal likevel informere om det. Denne kan plasseres på bunnen av siden over `Footer`.
+
+{/* <Canvas of={ConsentBannerStories.OnlyNecessary} /> */}
+<figure style={{ margin: 'var(--ds-size-6) 0' }} >
+  <img 
+    src={ConsentBannerFooter} 
+    alt='En nettside der en blå informasjonslinje ligger rett over bunnteksten. Linjen har et informasjonsikon, lenketeksten «Vi lagrer nødvendige informasjonskapsler» og teksten «som gjør at nettsiden fungerer og er trygg.» Til høyre ligger en lukkeknapp. Footeren under viser lenkegrupper som «Avsender», «Kontakt» og «Om nettsiden».' 
+  />
+  <figcaption className='ds-paragraph' data-size='sm'>
+    Eksempel på informasjonsbanner plassert over Footer. (Digdir m.fl., 2026).
+  </figcaption>
+</figure>
+
+### Hvis du kan vente med å be om samtykke
+
+Be om samtykke først når det er nødvendig, for eksempel når brukeren velger å spille av en video fra en tredjepart. Vis en plassholder frem til da, slik at samtykket gis i riktig kontekst.
+
+<figure style={{ margin: 'var(--ds-size-6) 0' }} >
+  <img 
+    src={ConsentBannerVideo} 
+    alt='En artikkelside med overskriften «Forstå synsnedsettelse» og tekst om at mellom 7 og 10 prosent av befolkningen lever med en synshemming. Midt på siden ligger en blå videoplassholder med et play-ikon, overskriften «For å se denne videoen må du gi samtykke», beskrivelsen «Videoen leveres av [videoleverandør], en ekstern tjeneste. Når du spiller av videoen, kan leverandøren samle inn informasjon om [...] og [...].» og knappen «Godta og vis video».' 
+  />
+  <figcaption className='ds-paragraph' data-size='sm'>
+    Eksempel på plassholder til en video fra en tredjepart (Digdir m.fl., 2026). [Be brukerne om samtykke til å lagre informasjon (Designsystemet.no).](https://designsystemet.no/no/patterns/consent-banner)
+  </figcaption>
+</figure>
+
+Du er ansvarlig for å innhente et gyldig samtykke og må vite hvilke opplysninger tredjeparten samler inn. Vurder personverninnstillinger som begrenser sporing, eller lenk til innholdet i stedet for å bygge det inn. Opplys da om hvilken ekstern tjeneste lenken går til.
+
+## Retningslinjer
+
+### Plassering
+
+Vis samtykkebanneret inline i toppen av siden. Da legger det seg ikke over annet innhold, og tvinger ikke brukerne til å ta et valg. Hvis brukerne går videre uten å ha tatt et valg, følger banneret med videre på andre sider. Ingen valgfrie teknologier trer i kraft før brukerne har gjort et aktivt samtykke.
+
+#### Unngå Dialog
+
+Unngå modal Dialog for å ikke tvinge brukeren til å ta et valg før de har sett innholdet på siden. Det kan være vanskelig å forstå forskjellen på å lukke dialogen og å avslå. 
+
+Ikke-modal dialog bør unngås fordi den legger seg over annet interaktivt innhold på siden. Dette bryter [WCAG 2.4.11 Fokus ikke skjult (minimum)](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html).
+
+### Likestilte valg
+
+Valgalternativene må være likeverdige for at samtykket skal være frivillig og gyldig. Dermed skal knappene for godta og avslå ha samme farge, størrelse og synlighet.
+
+### Gi mulighet til å endre samtykket
+
+I `Footer` har vi lagt til en lenke “Endre valg for informasjon vi kan lagre”, som skal åpne samtykkebanneret igjen og gi brukeren mulighet til å endre samtykket. 
+
+### Løsninger uten Footer
+
+<Alert
+  data-color='info'
+  className='sb-unstyled'
+  style={{
+    margin: 'var(--ds-size-6) 0'
+  }}>
+  Vi har ikke begynt å utarbeide kartspesifikke komponenter enda. Hvis du har innspill til løsninger kan du kontakte oss på <Link href='https://kartverketgroup.slack.com/archives/C03LL4CKMMK'>Slack</Link>.
+</Alert>
+
+I kartløsningene våre har vi ikke nødvendigvis `Footer` som kan inneholde lenker til erklæring om informasjonskapsler og endre samtykke. I slike tilfeller må de tilgjengeliggjøres på andre vis. 
+
+Alternativer:
+- Lenkeknapp i Header: for eksempel “Om tjenesten”, “Personvern” eller “Informasjonskapsler”
+- Egen knapp nederst i vinduet: for eksempel en del av et panel med innstillinger og informasjon om tjenesten
+
+## Tekst i ConsentBanner
+
+### Bruk enkelt språk
+
+Bruk hverdagslige uttrykk og korte, presise setninger. Unngå juridiske og teksniske begreper der det ikke er nødvendig. Legg heller vekt på formålet med behandlingen enn teknologien som brukes.
+
+### Still ett klart og tydelig spørsmål
+
+Samtykkebanneret bør stille ett klart og tydelig spørsmål: Hva ber du om samtykke til? Beskrivelsen under spørsmålet kan forklare mer om hvorfor du spør om dette og hva det betyr hvis brukerne svarer ja.
+
+### Tekst på knapper og valg
+
+Knappetekstene må være så tydelige at brukerne umiddelbart forstår hvilket valg de tar, og hva det er de samtykker til.
+
+## Tilgjengelighet
+
+### Landemerker og tilgjengelige navn
+
+For at skjermlesere skal oppdage banneret som et landemerke (eng. landmark), må seksjonen ha et tilgjengelig navn. Bruk aria-labelledby koblet mot bannerets overskrift fremfor aria-label, for å unngå at teksten leses opp to ganger:
+
+```html
+<section aria-labelledby='samtykkebanner-tittel'>
+  <h2 id='samtykkebanner-tittel'>TITTEL</h2>
+  ...
+</section>
+```
+
+### Skjermleser
+
+Sørg for at alle valg og tilbakemeldinger fungerer med skjermleser. Ikke bruk `role='alert'` eller lignende, med mindre det er særlig viktig for brukerne å få med seg banneret, eller endringer i det, for å kunne bruke siden.
+
+## Fokusrekkefølge og tastaturnavigasjon
+
+Samtykkebanneret skal følge vanlig fokusrekkefølge i DOM-en. La brukerne navigere til banneret selv, i stedet for å flytte fokus dit automatisk.
+- Banneret skal ligge tidlig i DOM-en, slik at det er noe av det første brukerne møter.
+- Banneret bør ligge før «hopp til hovedinnhold»-lenken. Da blir banneret lettere å oppdage for tastaturbrukere, samtidig som brukerne fortsatt kan hoppe videre til hovedinnholdet etter banneret.
+- Pass på at fokus ikke blir fanget inne i banneret. Siden må fungere uten at man interagerer med samtykkebanneret.
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra [Digdir Designsystemets mønster om samtykke til å lagre informasjon](https://designsystemet.no/no/patterns/consent-banner). 

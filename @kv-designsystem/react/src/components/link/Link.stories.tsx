@@ -23,7 +23,7 @@ export const Preview: Story = {
 
 export const WithIcon: Story = {
   render: (_args) => (
-    <Link href='https://designsystemet.no/slack'>
+    <Link href='https://kartverketgroup.slack.com/archives/C03LL4CKMMK'>
       <Chat2Icon aria-hidden fontSize={24} />
       <span>Snakk med oss på Slack</span>
     </Link>

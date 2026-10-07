@@ -11,6 +11,7 @@ export * from './button/Button';
 export * from './card/Card';
 export * from './chip/Chip';
 export * from './checkbox/Checkbox';
+export * from './consentBanner/ConsentBanner';
 export * from './details/Details';
 export * from './dialog/Dialog';
 export * from './divider/Divider';
