@@ -87,3 +87,4 @@ packageExtensions:
         optional: true
 
 useNodeVersion: 24.13.0
+minimumReleaseAge: 1440
