@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { TokensSizesTable, HeadingSpacingTable, ParapgraphSpacingTable, ComponentSpacingTable } from './Spacing';
+import { SizeTabs } from './SizeTabs';
+import ComponentSizeBalance from '../../../assets/img/Component-Size-Balance.png';
+import ComponentSizeButton from '../../../assets/img/Component-Size-Buttons.png';
+import ComponentSizeExample from '../../../assets/img/Component-Size-Example.png';
+
+<Meta title='Størrelser og avstander' />
+
+# Størrelser og avstander
+
+Vi bruker størrelsesvariabler (design tokens) for å definere spacing (avstander), sizing (bredder og høyder) og fontstørrelser på en konsistent måte. Verdien til størrelsesvariablene avhenger av hvilken størrelsesmodus som er aktiv. 
+
+## Tokens i ulike størrelsesmodus
+
+Vi baserer oss på [Digdir Designsystemet sine størrelser](https://designsystemet.no/no/fundamentals/theme/sizes-and-spacing). Det er tre størrelsesmoduser: small, medium og large. Navnene til størrelsesvariablene er de samme, mens selve verdiene endrer seg i hver modus. På denne måten kan vi tilpasse grensesnittet til ulike skjermstørrelser og bruksområder. 
+
+<TokensSizesTable />
+
+### Harmonering
+
+Komponenter i samme modus er designet for å fungere sammen, for eksempel har mange medium-komponenter en høyde på 48px og en basefont på 18px.
+
+<figure style={{ margin: 'var(--ds-size-6) 0' }} >
+  <img 
+    src={ComponentSizeBalance} 
+    alt='Viser et inputfelt, et søkefelt og en knapp i medium-størrelse, med en høydemarkering på 48 px.'
+    />
+</figure>
+
+### Typiske bruksområder
+
+<strong>Small</strong> er ideell for kompakte grensesnitt som på mobil. Vi anbefaler denne størrelsesmodusen på nettsider med en basefont på 16px.
+
+<strong>Medium</strong> fungerer som standard for de fleste vanlige bruksområder. Den egner seg godt til desktop og større flater fordi den gir god lesbarhet og plassutnyttelse. Vi anbefaler denne størrelsesmodusen på nettsider med en basefont på 18px.
+
+<strong>Large</strong> gir økt lesbarhet og tydelighet. Den brukes typisk for desktop eller når synlighet og tilgjengelighet er viktig. Vi anbefaler denne størrelsesmodusen på nettsider med en basefont på 21px.
+
+<figure style={{ margin: 'var(--ds-size-6) 0' }} >
+  <img 
+    src={ComponentSizeButton} 
+    alt='Viser tre knapper i ulik størrelse med høydemarkering og fontstørrelse. Small har en høyde på 42px og fontstørrelse på 16px, Medium har en høyde på 48px og fontstørrelse på 18px og Large har en høyde 55px og fontstørrelse på 21px.'
+    />
+</figure>
+
+Vi anbefaler å bruke en fast størrelsesmodus innenfor en gitt nettside eller kontekst for å opprettholde helhetlig og oversiktlig design. I noen tilfeller kan man kombinere størrelsesmoduser på en nettside. For eksempel på en side der søk er en hovedfunksjon, kan man benytte large.
+
+<figure style={{ margin: 'var(--ds-size-6) 0' }} >
+  <img 
+    src={ComponentSizeExample} 
+    alt='Skjelett av en enkel nettside med medium-størrelse på headerens "Ny bruker"- og "Logg inn"-knapper, og large-størrelse på søkefeltet og "Søk"-knappen i hovedinnholdet.'
+    />
+</figure>
+
+## Hvordan bytter jeg variabler og modus?
+
+Du kan endre størrelsesmodus for et element og alle dets etterkommere ved å sette `data-size`-attributtet i kode eller `size mode` i Figma.
+
+<SizeTabs />
+
+## Anbefalte avstander
+
+Du kan endre størrelsesmodus for et element og alle dets etterkommere ved å sette data-size-attributtet i kode eller size mode i Figma.
+
+### Avstander rundt Heading
+
+<HeadingSpacingTable />
+
+Du kan også bruke samme avstander som “Ned til Paragraph md” fra Heading til andre komponenter i medium størrelsesmodus. Dette kan for eksempel være til en `Button`, `Table` eller et bilde.
+
+### Avstander rundt Paragraph
+
+<ParapgraphSpacingTable />
+
+### Avstander mellom andre komponenter
+
+<ComponentSpacingTable />
+
+## Kilde
+
+Løsningen bygger på etablerte prinsipper fra Digdir Designsystemet. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.
