@@ -37,6 +37,12 @@ Du kan bruke `Popover` inline i tekst med stiplet understrek, for eksempel når 
 
 <Canvas of={PopoverStories.DottedUnderline} />
 
+### Uten TriggerContext
+
+Du kan også bruke `Popover` uten `TriggerContext` ved å bruke attributtet `popovertarget`.
+
+<Canvas of={PopoverStories.WithPopovertarget} />
+
 ## Retningslinjer
 
 `Popover` brukes for å vise mer detaljert eller interaktiv tilleggsinformasjon uten å ta brukeren bort fra konteksten. Den åpnes ved et bevisst klikk og kan inneholde tekst, lenker eller enkle skjemakomponenter. Innholdet skal være relevant og ikke kritisk for å gjennomføre oppgaven.
@@ -59,10 +65,6 @@ Unngå lange tekstblokker eller kompliserte forklaringer. Dersom innholdet kreve
 
 `Popover` bruker [Popover API-et (MDN)](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API). API-et ble klassifisert som [Baseline: Newly available (MDN)](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility) i april 2024, da Firefox som siste nettleser fikk støtte. Enkelte brukere kan fortsatt være låst til eldre nettleserversjoner av ulike årsaker. I slike tilfeller kan det være aktuelt å legge til en polyfill for å sikre at `Popover` fungerer for alle.
 - [Popover-Polyfill (github.com)](https://github.com/oddbird/popover-polyfill)
-
-### React og popovertarget
-
-Når du bruker `Popover` uten `Popover.TriggerContext`, må du selv koble sammen utløseren og `Popover`. Da brukes `popovertarget`, slik at attributtet gjengis korrekt i alle React-versjoner.
 
 ## Kilde
 
