@@ -381,9 +381,6 @@ importers:
       '@internal/build-tools':
         specifier: workspace:*
         version: link:../../@internal/build-tools
-      '@kv-designsystem/tokens':
-        specifier: workspace:*
-        version: link:../../design-tokens
       '@storybook/addon-a11y':
         specifier: 'catalog:'
         version: 10.5.10(storybook@10.5.10(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))
