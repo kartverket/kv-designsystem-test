@@ -1,11 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Select } from './Select';
+import { subcomponents } from './docs/subcomponents';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
 
 const meta = {
   component: Select,
+  subcomponents,
   parameters: { layout: 'centered' },
+  argTypes: {
+    // A standard HTML attribute, so docgen hides it (see propFilter in main.ts). Added so
+    // Controls shows the replacement for the deprecated prop `readOnly`.
+    'aria-readonly': {
+      description: 'Makes the select read-only. Replaces `readOnly`.',
+      control: { type: 'boolean' },
+      table: { type: { summary: 'boolean' } },
+    },
+  },
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -30,10 +41,10 @@ const fylker = [
 ];
 
 export const Preview: Story = {
-  render: (_args) => (
+  render: (args) => (
     <Field>
       <Label>Fylke</Label>
-      <Select defaultValue=''>
+      <Select {...args} defaultValue=''>
         <Select.Option value='' disabled>
           Velg et fylke &hellip;
         </Select.Option>

@@ -14,12 +14,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
+  render: (args) => (
     <div style={{ textAlign: 'center' }}>
       <Paragraph >
         Divider er brukt for å dele opp innhold i mindre deler.
       </Paragraph>
-      <Divider />
+      <Divider {...args} />
       <Paragraph>
         Den kan også brukes for å skille innhold som er relatert til hverandre.
       </Paragraph>

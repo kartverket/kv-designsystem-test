@@ -4,10 +4,23 @@ import { Dropdown } from '../dropdown/Dropdown';
 import { Badge } from '../badge/Badge';
 import { Link } from '../link/Link';
 import { BriefcaseIcon, ChevronUpIcon } from '@navikt/aksel-icons';
+import {
+  cssVariableArgType,
+  moveCssVariablesToStyle,
+} from '../../../.storybook/utils/cssVariableArgTypes';
+
+// Not a prop, but a CSS variable. Added so Controls shows the replacement for the deprecated
+// prop `variant`.
+type AvatarStoryArgs = AvatarProps & { '--dsc-avatar-radius'?: string };
 
 const meta = {
   component: Avatar,
   parameters: { layout: 'centered' },
+  argTypes: {
+    // Text in children shows initials. A text field instead of the default JSON editor for
+    // ReactNode, since it replaces the deprecated props initials and data-initials.
+    children: { control: 'text' },
+  },
   decorators: [
     (Story) => (
       <div
@@ -24,14 +37,25 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<AvatarProps>;
+} satisfies Meta<AvatarStoryArgs>;
 
 export default meta;
-type Story = StoryObj<AvatarProps>;
+type Story = StoryObj<AvatarStoryArgs>;
 
 export const Preview: Story = {
   args: {
     'aria-label': 'Ola Nordmann',
+  },
+  // Only here, since only this render function moves CSS variables into `style`
+  argTypes: {
+    '--dsc-avatar-radius': cssVariableArgType({
+      description: 'Changes the rounding of the avatar. Replaces `variant`.',
+      defaultValue: 'var(--ds-border-radius-full)',
+    }),
+  },
+  render: (storyArgs: AvatarStoryArgs) => {
+    const args = moveCssVariablesToStyle(storyArgs);
+    return <Avatar {...args} />;
   },
 };
 

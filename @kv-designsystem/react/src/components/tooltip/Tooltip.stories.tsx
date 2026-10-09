@@ -25,7 +25,7 @@ export const Preview: Story = {
     content: 'Kopier',
   },
   render: (args) => (
-    <Tooltip {...args} placement='top'>
+    <Tooltip placement='top' {...args}>
       <Button icon aria-label='Kopier'>
         <FilesIcon aria-hidden />
       </Button>

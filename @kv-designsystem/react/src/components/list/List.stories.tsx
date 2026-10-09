@@ -2,9 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 import { List } from './List';
+import { subcomponents } from './docs/subcomponents';
 
 const meta = {
   component: List.Unordered,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof List.Unordered>;
 
@@ -12,8 +14,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <List.Unordered>
+  render: (args) => (
+    <List.Unordered {...args}>
       <List.Item>Den norske los</List.Item>
       <List.Item>Historiske stedsnavn</List.Item>
       <List.Item>Norgeskart</List.Item>

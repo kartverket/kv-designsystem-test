@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ToggleGroup } from './ToggleGroup';
+import { subcomponents } from './docs/subcomponents';
 import { Tooltip } from '../tooltip/Tooltip';
 import {
   CheckmarkCircleIcon,
@@ -12,6 +13,7 @@ import {
 
 const meta = {
   component: ToggleGroup,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof ToggleGroup>;
 
@@ -19,8 +21,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <ToggleGroup defaultValue='innboks'>
+  render: (args) => (
+    <ToggleGroup {...args} defaultValue='innboks'>
       <ToggleGroup.Item value='innboks'>Innboks</ToggleGroup.Item>
       <ToggleGroup.Item value='utkast'>Utkast</ToggleGroup.Item>
       <ToggleGroup.Item value='arkiv'>Arkiv</ToggleGroup.Item>

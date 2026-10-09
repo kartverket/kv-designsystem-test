@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Fieldset } from './Fieldset';
+import { subcomponents } from './docs/subcomponents';
 import { Radio } from '../radio/Radio';
 import { Checkbox } from '../checkbox/Checkbox';
 import { Heading } from '../typography/heading/Heading';
 
 const meta = {
   component: Fieldset,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Fieldset>;
 
@@ -13,8 +15,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Fieldset>
+  render: (args) => (
+    <Fieldset {...args}>
       <Fieldset.Legend>Hvilken fjordarm bor du ved?</Fieldset.Legend>
       <Fieldset.Description>
         Valget vil hjelpe oss å forbedre innholdet vi viser deg.

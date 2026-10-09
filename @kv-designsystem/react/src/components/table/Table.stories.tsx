@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { Table, TableHeaderCellProps } from './Table';
+import { subcomponents } from './docs/subcomponents';
 import { Tag } from '../tag/Tag';
 import { Pagination } from '../pagination/Pagination';
 import { usePagination } from '../../utilities/hooks/usePagination/usePagination';
@@ -9,14 +10,15 @@ import { Button } from '../button/Button';
 
 const meta = {
   component: Table,
+  subcomponents,
 } satisfies Meta<typeof Table>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Table>
+  render: (args) => (
+    <Table {...args}>
       <caption>Table caption</caption>
       <Table.Head>
         <Table.Row>

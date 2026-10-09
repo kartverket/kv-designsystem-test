@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Dropdown } from './Dropdown';
+import { subcomponents } from './docs/subcomponents';
 import { Divider } from '../divider/Divider';
 import {
   LinkIcon,
@@ -10,6 +11,7 @@ import { useState } from 'react';
 
 const meta = {
   component: Dropdown,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Dropdown>;
 
@@ -17,10 +19,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
+  render: (args) => (
     <Dropdown.TriggerContext>
       <Dropdown.Trigger>Åpne Dropdown</Dropdown.Trigger>
-      <Dropdown placement='bottom-end'>
+      <Dropdown placement='bottom-end' {...args}>
         <Dropdown.Heading>Overskrift 1</Dropdown.Heading>
         <Dropdown.List>
           <Dropdown.Item>
