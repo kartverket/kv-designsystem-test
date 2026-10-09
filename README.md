@@ -9,9 +9,9 @@ Designtokens, CSS og React-komponenter for Kartverkets produkter, bygget på [Di
 
 Dokumentasjon, eksempler og komponentoversikt finner du i Storybook på [design.kartverket.no](https://design.kartverket.no).
 
-## Hurtigstart
+## TL;DR aka bare la meg starte
 
-Du trenger [Node.js 24](https://nodejs.org/)
+Krever at du har [Node.js 24](https://nodejs.org/)
 
 ```sh
 git clone https://github.com/kartverket/kv-designsystem-test.git
@@ -21,22 +21,22 @@ pnpm install
 pnpm nx dev @kv-designsystem/react
 ```
 
-Se Storybook på [http://localhost:6006](http://localhost:6006)
+Se lokal instans av Storybook på [http://localhost:6006](http://localhost:6006)
 
-## Erstatter Kvib
+## Nytt designsystem
 
 Dette repoet erstatter Kartverkets gamle designsystem, [Kvib](https://github.com/kartverket/kvib) (`@kvib/react`), som var bygget på Chakra UI. Nye prosjekter bør bruke `@kv-designsystem/*`-pakkene, og eksisterende prosjekter bør migrere.
 
-- [Migreringsguide](https://design.kartverket.no/?path=/docs/migreringsguide--docs): hvordan du går fra Kvib til det nye designsystemet, med oversikt over hvilke komponenter som erstatter de eksisterende.
+- [Migreringsguide](https://design.kartverket.no/?path=/docs/migreringsguide--docs): hvordan du går fra Kvib til det nye designsystemet.
 - [Dokumentasjon for Kvib](https://design.kartverket.no/?path=/docs/kvib-kartverkets-gamle-designsystem--docs): lenker til den gamle dokumentasjonen, som ikke lenger vedlikeholdes.
 
 ## Pakker
 
-| Pakke                                                                            | Lenke                                                | Beskrivelse                                                         | Versjon         |
+| Pakke                                                                            | Lenke                                                | Beskrivelse                                                         |
 | -------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------- | --------------- |
-| [`@kv-designsystem/react`](https://www.npmjs.com/package/@kv-designsystem/react) | [`@kv-designsystem/react`](./@kv-designsystem/react) | React-komponenter og Storybook                                      | `1.0.0-alpha.5` |
-| [`@kv-designsystem/css`](https://www.npmjs.com/package/@kv-designsystem/css)     | [`@kv-designsystem/css`](./@kv-designsystem/css)     | Rent CSS-bygg (PostCSS) med stilsett per tema og et Tailwind-preset | `1.0.0-alpha.4` |
-| [`@kv-designsystem/theme`](https://www.npmjs.com/package/@kv-designsystem/theme) | [`@kv-designsystem/theme`](./@kv-designsystem/theme) | Designtokens som CSS per tema, pluss TypeScript-typer               | `1.0.0-alpha.3` |
+| [`@kv-designsystem/react`](https://www.npmjs.com/package/@kv-designsystem/react) | [`@kv-designsystem/react`](./@kv-designsystem/react) | React-komponenter og Storybook                                      |
+| [`@kv-designsystem/css`](https://www.npmjs.com/package/@kv-designsystem/css)     | [`@kv-designsystem/css`](./@kv-designsystem/css)     | Rent CSS-bygg (PostCSS) med stilsett per tema og et Tailwind-preset |
+| [`@kv-designsystem/theme`](https://www.npmjs.com/package/@kv-designsystem/theme) | [`@kv-designsystem/theme`](./@kv-designsystem/theme) | Designtokens som CSS per tema, pluss TypeScript-typer               |
 
 
 > [!NOTE]
@@ -53,8 +53,8 @@ Dette er et pnpm-workspace som styres med [Nx](https://nx.dev/). Alle kommandoer
 ### Forutsetninger
 
 - **Git**
-- **Node.js `>=24.6.0 <25`
-- **pnpm** via [Corepack](https://nodejs.org/api/corepack.html), som følger med Node. Kjør dette én gang, så bruker `pnpm` automatisk versjonen repoet er låst til.
+- **Node.js** `>=24.6.0 <25`
+- **pnpm** via [Corepack](https://nodejs.org/api/corepack.html). Kjør kommandoen under én gang, så bruker `pnpm` automatisk versjonen repoet er låst til.
 
   ```sh
   corepack enable
@@ -70,10 +70,10 @@ Prosjektene er `@kv-designsystem/react`, `@kv-designsystem/css`, `@kv-designsyst
 
 | Oppgave                       | Kommando                                         |
 | ----------------------------- | ------------------------------------------------ |
-| Installer avhengigheter       | `pnpm install`                                   |
-| Kjør Storybook (port 6006)    | `pnpm nx dev @kv-designsystem/react`             |
-| Bygg CSS-pakken ved endringer | `pnpm nx watch @kv-designsystem/css`             |
-| Bygg statisk Storybook        | `pnpm nx build-storybook @kv-designsystem/react` |
+| Installere avhengigheter       | `pnpm install`                                   |
+| Kjøre Storybook (port 6006)    | `pnpm nx dev @kv-designsystem/react`             |
+| Bygge CSS-pakken ved endringer | `pnpm nx watch @kv-designsystem/css`             |
+| Bygge statisk Storybook        | `pnpm nx build-storybook @kv-designsystem/react` |
 
 **Bygg og kvalitetssjekk**
 
@@ -93,13 +93,11 @@ Prosjektene er `@kv-designsystem/react`, `@kv-designsystem/css`, `@kv-designsyst
 
 | Oppgave                                  | Kommando                                |
 | ---------------------------------------- | --------------------------------------- |
-| List alle prosjekter                     | `pnpm nx show projects`                 |
+| Se alle prosjekter                     | `pnpm nx show projects`                 |
 | Se targets og avhengigheter for prosjekt | `pnpm nx show project <prosjekt> --web` |
 | Avhengighetsgraf i nettleseren           | `pnpm nx graph`                         |
 | Tøm Nx-cachen (hvis noe virker utdatert) | `pnpm nx reset`                         |
 
-> [!IMPORTANT]
-> CI feiler hvis bygget endrer filer som er sjekket inn (`git diff --exit-code`). Endrer du designtokens, må du committe de oppdaterte filene i `@kv-designsystem/theme/dist`.
 
 ## Testing
 
@@ -124,8 +122,6 @@ pnpm --filter @kv-designsystem/react exec vitest run --project storybook
 | Filtrer på én komponent  | `pnpm --filter @kv-designsystem/react exec vitest --project storybook --ui Button` |
 | Oppdater referansebilder | `pnpm --filter @kv-designsystem/react exec vitest run --project storybook -u`      |
 
-> [!TIP]
-> Lokale skjermbilder er gitignored og bare til din egen iterasjon. [Chromatic](https://www.chromatic.com/) er fasiten for visuell regresjonstesting på tvers av maskiner, og kjører i CI ved hver push og PR mot `main`. Se [`@kv-designsystem/react/README.md`](./@kv-designsystem/react/README.md) for mer om lokal visuell testing.
 
 ## Testapp
 
@@ -155,9 +151,4 @@ design-tokens (kilde, privat)
 - Skriv commit-meldinger etter [Conventional Commits](https://www.conventionalcommits.org/), siden de styrer versjoneringen.
 - Fyll ut sjekklisten i PR-malen.
 - Kjør `pnpm build` før du åpner en PR. Det er det samme som CI kjører.
-
-## Lisens
-
-MIT. Se [`LICENSE`](./LICENSE).
-
-Designsystemet bygger på andre åpen kildekode-designsystemer. Lisensene deres ligger i [`LICENSES/`](./LICENSES).
+  
