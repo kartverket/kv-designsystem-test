@@ -124,7 +124,7 @@ export default defineConfig({
       files: ['**/*.js', '**/*.jsx', '**/*.cjs', '**/*.mjs'],
       plugins: ['typescript'],
       env: { es2020: true, browser: true, node: true },
-      rules: recommendedRules,
+      rules: { ...recommendedRules, 'typescript/no-var-requires': 'off' },
     },
     {
       files: ['**/*.{ts,tsx,js,jsx}'],
