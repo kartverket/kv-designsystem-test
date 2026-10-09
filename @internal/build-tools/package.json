@@ -1,6 +1,9 @@
 {
   "name": "@internal/build-tools",
   "version": "0.0.0",
+  "scripts": {
+    "lint": "oxlint --max-warnings 0"
+  },
   "type": "module",
   "private": true,
   "bin": {
