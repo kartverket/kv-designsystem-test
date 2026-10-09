@@ -7,14 +7,27 @@ import { Checkbox } from '../checkbox/Checkbox';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
 import { Tooltip } from '@digdir/designsystemet-react';
+import {
+  cssVariableArgType,
+  moveCssVariablesToStyle,
+} from '../../../.storybook/utils/cssVariableArgTypes';
+
+// Not props, but CSS variables. Added so Controls shows the replacements for the deprecated
+// props `gap`, `avatarSize` and `overlap`.
+type AvatarStackStoryArgs = AvatarStackProps & {
+  '--dsc-avatar-stack-size'?: string;
+  '--dsc-avatar-stack-gap'?: string;
+  '--dsc-avatar-stack-overlap'?: string;
+  '--dsc-avatar-stack-radius'?: string;
+};
 
 const meta = {
   component: AvatarStack,
   parameters: { layout: 'centered' },
-} satisfies Meta<AvatarStackProps>;
+} satisfies Meta<AvatarStackStoryArgs>;
 
 export default meta;
-type Story = StoryObj<AvatarStackProps>;
+type Story = StoryObj<AvatarStackStoryArgs>;
 
 const profileImage1 = 'https://plus.unsplash.com/premium_vector-1742287110563-6d581a1d05a5?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 const profileImage2 = 'https://plus.unsplash.com/premium_vector-1711987772726-64785d1bade8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
@@ -22,23 +35,45 @@ const profileImage3 = 'https://plus.unsplash.com/premium_vector-1742745355047-19
 const profileImage4 = 'https://images.unsplash.com/vector-1769285072660-14d79a887aad?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 export const Preview: Story = {
-  render: (args) => (
-    <AvatarStack {...args}>
-      <li>
-        <Avatar aria-label='Snille Simen'>
-          <img src={profileImage1} aria-hidden />
-        </Avatar>
-      </li>
-      <li>
-        <Avatar aria-label='Ole Nordmann'>
-          <BriefcaseIcon aria-hidden />
-        </Avatar>
-      </li>
-      <li><Avatar aria-label='Søren Magnussen'>sm</Avatar></li>
-      <li><Avatar aria-label='Mark Downright'>md</Avatar></li>
-      <li><Avatar aria-label='Ola Nordman'>on</Avatar></li>
-    </AvatarStack>
-  )
+  // Only on stories using this render function, since it moves the CSS variables into `style`
+  argTypes: {
+    '--dsc-avatar-stack-size': cssVariableArgType({
+      description: 'Changes the size of the avatars. Replaces `avatarSize`.',
+      defaultValue: 'var(--ds-size-12)',
+    }),
+    '--dsc-avatar-stack-gap': cssVariableArgType({
+      description: 'Changes the gap between the avatars. Replaces `gap`.',
+      defaultValue: '2px',
+    }),
+    '--dsc-avatar-stack-overlap': cssVariableArgType({
+      description: 'Changes how much the avatars overlap. Replaces `overlap`.',
+      defaultValue: 'var(--ds-size-3)',
+    }),
+    '--dsc-avatar-stack-radius': cssVariableArgType({
+      description: 'Changes the rounding of all avatars in the stack.',
+      defaultValue: 'var(--ds-border-radius-full)',
+    }),
+  },
+  render: (storyArgs) => {
+    const args = moveCssVariablesToStyle(storyArgs);
+    return (
+      <AvatarStack {...args}>
+        <li>
+          <Avatar aria-label='Snille Simen'>
+            <img src={profileImage1} aria-hidden />
+          </Avatar>
+        </li>
+        <li>
+          <Avatar aria-label='Ole Nordmann'>
+            <BriefcaseIcon aria-hidden />
+          </Avatar>
+        </li>
+        <li><Avatar aria-label='Søren Magnussen'>sm</Avatar></li>
+        <li><Avatar aria-label='Mark Downright'>md</Avatar></li>
+        <li><Avatar aria-label='Ola Nordman'>on</Avatar></li>
+      </AvatarStack>
+    );
+  },
 };
 
 export const Playground: Story = {
@@ -211,6 +246,7 @@ export const Gap: Story = {
   args: {
     style: { '--dsc-avatar-stack-gap': 'var(--ds-size-1)' } as React.CSSProperties,
   },
+  argTypes: Preview.argTypes,
   render: Preview.render,
 };
 

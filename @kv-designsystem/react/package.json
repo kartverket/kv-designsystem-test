@@ -36,7 +36,7 @@
   "scripts": {
     "format-check": "pretty-format-check",
     "lint-circular-dependencies": "pnpm madge --circular ./src/alpha.ts",
-    "lint-mdx-controls": "node ./scripts/check-mdx-controls.js",
+    "lint-mdx-controls": "node ./scripts/check-mdx-controls.ts",
     "typecheck": "tsgo --build",
     "install-dependencies": "pnpm i",
     "build": "vite build",

@@ -15,8 +15,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <ConsentBanner>
+  render: (args) => (
+    <ConsentBanner {...args}>
       <Heading id='samtykkebanner-tittel' data-size='sm'>
         Får vi samle informasjon om hvordan nettsiden brukes?
       </Heading>

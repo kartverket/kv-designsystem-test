@@ -23,7 +23,7 @@ if (mdxWithoutControls.length > 0) {
 
 // Returns the source code of the Preview story: from `export const Preview: Story = {`
 // to the first line that is just `};`. Returns undefined if the file has no such story.
-const getPreviewStory = (file) =>
+const getPreviewStory = (file: string) =>
   readFileSync(file, 'utf8').match(/export const Preview: Story = \{[\s\S]*?\n\};/)?.[0];
 
 // __screenshots__ has folders named after the story files (e.g. Alert.stories.tsx/),

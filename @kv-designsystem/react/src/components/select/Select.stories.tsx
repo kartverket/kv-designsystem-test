@@ -8,6 +8,15 @@ const meta = {
   component: Select,
   subcomponents,
   parameters: { layout: 'centered' },
+  argTypes: {
+    // A standard HTML attribute, so docgen hides it (see propFilter in main.ts). Added so
+    // Controls shows the replacement for the deprecated prop `readOnly`.
+    'aria-readonly': {
+      description: 'Makes the select read-only. Replaces `readOnly`.',
+      control: { type: 'boolean' },
+      table: { type: { summary: 'boolean' } },
+    },
+  },
 } satisfies Meta<typeof Select>;
 
 export default meta;

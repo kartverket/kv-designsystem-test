@@ -81,6 +81,10 @@ const config: StorybookConfig = {
       shouldExtractLiteralValuesFromEnum: true,
       // Removes "undefined" as an option in Storybook controls for optional properties
       shouldRemoveUndefinedFromOptional: true,
+      // Keeps JSDoc tags like `@deprecated` in the description, where Storybook reads them.
+      // extractKvdsArgTypes needs it to hide deprecated props. Storybook's docgen plugin turns
+      // this on by default, which moves the tags out of the description.
+      shouldIncludePropTagMap: false,
       // Decides which props are shown in the props table and Controls
       propFilter: (prop) => {
         // propFilter is the only place docgen lets us change a prop before it's used

@@ -1,7 +1,7 @@
 import type { Color, SeverityColors, Size } from '@digdir/designsystemet-types';
 import { INTERNAL_DEFAULT_PROJECT_ANNOTATIONS } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
-import type { ArgTypesExtractor } from 'storybook/internal/docs-tools';
+import type { ArgTypesExtractor, ExtractedJsDoc } from 'storybook/internal/docs-tools';
 import type { StrictArgTypes } from 'storybook/internal/types';
 
 // Fixes props that Storybook can't show well on its own:
@@ -10,6 +10,9 @@ import type { StrictArgTypes } from 'storybook/internal/types';
 // 2. data-size with its own options (e.g. Avatar's `'xs' | Size`) gets them sorted from
 //    small to large. Fix 1 skips these, since they already have options.
 // 3. aria-* flags typed as `Booleanish` (e.g. aria-hidden) get a boolean switch.
+// 4. Deprecated props (e.g. Avatar's `variant`) are hidden from the props table and Controls.
+// 5. data-color and data-size are hidden on subcomponents (e.g. Search.Clear), where they
+//    usually do nothing.
 //
 // Used as parameters.docs.extractArgTypes in preview.tsx (see extractKvdsArgTypes
 // at the bottom). That way it also reaches the subcomponent tabs in Controls.
@@ -133,6 +136,56 @@ const showBooleanishAsBoolean = (argTypes: StrictArgTypes): void => {
   }
 };
 
+// Fix 4. Hide props Digdir has marked `@deprecated` from the props table and Controls, so we
+// only document what consumers should use. Where Digdir points to a replacement, the story
+// adds it to Controls instead (e.g. --dsc-avatar-radius for Avatar's variant, see
+// .storybook/utils/cssVariableArgTypes.ts).
+const hideDeprecatedProps = (argTypes: StrictArgTypes): void => {
+  for (const [name, argType] of Object.entries(argTypes)) {
+    // Storybook types extra table fields as `unknown`. jsDocTags is set by extractReactArgTypes.
+    const jsDocTags = argType.table?.jsDocTags as ExtractedJsDoc | undefined;
+    if (jsDocTags?.deprecated == null) continue;
+
+    argTypes[name] = { ...argType, table: { ...argType.table, disable: true } };
+  }
+};
+
+// Fix 5. Digdir's CSS sets the sizes and colors of a subcomponent (e.g. Search.Clear) on the
+// root (e.g. Search), so data-color and data-size on the subcomponent itself usually do nothing.
+// We only show them on the root, where they work.
+//
+// To know which components are subcomponents, we collect them from all docs/subcomponents.tsx
+// files. Storybook can't tell us, since it calls extractKvdsArgTypes with just the component.
+const subcomponentFiles = import.meta.glob<{ subcomponents: Record<string, unknown> }>(
+  '../../src/components/*/docs/subcomponents.tsx',
+  { eager: true },
+);
+
+// Chip and List list their other variants as subcomponents (e.g. Chip.Checkbox next to
+// Chip.Radio). They're standalone components, not parts of the root, so data-color and
+// data-size work on them.
+const standaloneVariants = ['Chip.Button', 'Chip.Checkbox', 'Chip.Removable', 'List.Ordered'];
+
+const subcomponents = new Set(
+  Object.values(subcomponentFiles).flatMap((file) =>
+    Object.entries(file.subcomponents)
+      .filter(([name]) => !standaloneVariants.includes(name))
+      .map(([, subcomponent]) => subcomponent),
+  ),
+);
+
+const hideColorAndSizeOnSubcomponents = (
+  component: ComponentType,
+  argTypes: StrictArgTypes,
+): void => {
+  if (!subcomponents.has(component)) return;
+
+  for (const name of ['data-color', 'data-size']) {
+    const argType = argTypes[name];
+    if (argType) argTypes[name] = { ...argType, table: { ...argType.table, disable: true } };
+  }
+};
+
 // Storybook's own function for reading a component's props from docgen. It's only available
 // through this export, which Storybook names INTERNAL but exports publicly. Storybook types
 // parameters as `any`, so the type is set here.
@@ -148,5 +201,7 @@ export const extractKvdsArgTypes = (component: ComponentType): StrictArgTypes | 
   addColorAndSizeOptions(argTypes);
   sortSizes(argTypes);
   showBooleanishAsBoolean(argTypes);
+  hideDeprecatedProps(argTypes);
+  hideColorAndSizeOnSubcomponents(component, argTypes);
   return argTypes;
 };
