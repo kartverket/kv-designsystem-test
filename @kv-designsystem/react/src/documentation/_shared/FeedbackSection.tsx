@@ -2,20 +2,31 @@ import { Button } from '../../components/button/Button';
 import { Link } from '../../components/link/Link';
 import { Heading, type HeadingProps } from '../../components/typography/heading/Heading';
 
+const marginByLevel = {
+  1: 'var(--ds-size-12) var(--ds-size-6)',
+  2: 'var(--ds-size-10) var(--ds-size-4)',
+  3: 'var(--ds-size-8) var(--ds-size-3)',
+  4: 'var(--ds-size-6) var(--ds-size-2)',
+  5: 'var(--ds-size-4) var(--ds-size-1)',
+  6: 'var(--ds-size-4) var(--ds-size-1)',
+};
+
 export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: HeadingProps) {
   return (
-    <section style={{ marginBlock: 'var(--ds-size-6)' }}>
+    <section>
       <Heading
         level={level}
         data-size={dataSize}
         className='sb-unstyled'
+        style={{
+          marginBlock: marginByLevel[level as keyof typeof marginByLevel] ?? 'var(--ds-size-8) var(--ds-size-3)',
+        }}
       >
         Hjelp oss med å forbedre designsystemet
       </Heading>
       <div
         className='sb-unstyled'
         style={{
-          marginTop: 'var(--ds-size-6)',
           display: 'flex',
           flexDirection: 'row',
           flexWrap: 'wrap',

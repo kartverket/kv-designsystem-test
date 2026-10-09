@@ -3,7 +3,7 @@ import { Heading } from '../../components/typography/heading/Heading';
 
 export function FrameContentMaxWidthAlert() {
   return (
-    <Alert data-color='info' className='sb-unstyled' style={{ marginBottom: 'var(--ds-size-4)' }}>
+    <Alert data-color='info' className='sb-unstyled'>
       <Heading
         data-size='xs'
         level={3}

@@ -4,10 +4,11 @@ import { List } from 'src/components/list/List';
 import { Link } from 'src/components/link/Link';
 import { Table } from 'src/components/table/Table';
 import type { MdxComponentOverrides } from '../types/storybook';
+import componentStyles from './componentOverrides.module.css';
 import { getPath } from '.storybook/utils/getPath';
 
 const headingConfig = [
-  { level: 1, size: 'xl', marginBlock: '0 var(--ds-size-6)' },
+  { level: 1, size: 'xl' },
   { level: 2, size: 'md' },
   { level: 3, size: 'sm' },
   { level: 4, size: 'xs' },
@@ -20,15 +21,13 @@ const createHeadingOverrides = (): Partial<MdxComponentOverrides> => {
 
   headingConfig.forEach((config) => {
     const {level, size } = config;
-    const marginBlock = 'marginBlock' in config ? config.marginBlock : 'var(--ds-size-6) var(--ds-size-2)';
     const key = `h${level}` as const;
     overrides[key as keyof MdxComponentOverrides] = (props) => (
       <Heading
         data-size={size}
-        className="sb-unstyled"
+        className={`sb-unstyled ${componentStyles.heading}`}
         {...props}
         level={level}
-        style={{ marginBlock: marginBlock }}
       />
     );
   });
@@ -40,17 +39,13 @@ export const componentOverrides: MdxComponentOverrides = {
   p: (props) => (
     <Paragraph
       {...props}
-      className={`sb-unstyled`}
+      className={`sb-unstyled ${componentStyles.paragraph}`}
     />
   ),
-  ol: (props) => <List.Ordered {...props} className={`sb-unstyled`} />,
-  ul: (props) => <List.Unordered {...props} className={`sb-unstyled`} />,
+  ol: (props) => <List.Ordered {...props} className={`sb-unstyled ${componentStyles.list}`} />,
+  ul: (props) => <List.Unordered {...props} className={`sb-unstyled ${componentStyles.list}`} />,
   li: (props) => (
-    <List.Item
-      {...props}
-      className="sb-unstyled"
-      style={{ marginBlockStart: 'var(--ds-size-0)' }}
-    />
+    <List.Item {...props} className="sb-unstyled" />
   ),
   a: (props) => (
     <Link {...props} href={getPath(props.href)}>

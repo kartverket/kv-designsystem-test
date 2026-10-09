@@ -1,7 +1,7 @@
 .grid {
-  margin-block: var(--ds-size-10);
+  margin-top: var(--ds-size-14);
   display: grid;
-  grid-gap: var(--ds-size-6);
+  grid-gap: var(--ds-size-8);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
 
   /* &[data-index='0'] {

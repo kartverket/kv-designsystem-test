@@ -6,7 +6,7 @@ import { List } from '../../components/list/List';
 
 export function SizeTabs() {
   return (
-    <Card className='sb-unstyled' style={{ marginBlock: 'var(--ds-size-6)' }}>
+    <Card className='sb-unstyled'>
       <Tabs defaultValue='kode'>
         <Tabs.List>
           <Tabs.Tab value='kode'>
