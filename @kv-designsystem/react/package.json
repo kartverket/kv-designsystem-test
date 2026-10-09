@@ -9,7 +9,7 @@
     "access": "public"
   },
   "license": "MIT",
-  "version": "1.0.0-alpha.5",
+  "version": "1.0.0-alpha.6",
   "type": "module",
   "types": "./dist/alpha.d.ts",
   "main": "./dist/alpha.js",
@@ -69,7 +69,6 @@
     "@vitejs/plugin-react": "catalog:",
     "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",
-    "chromatic": "catalog:",
     "clsx": "catalog:",
     "eslint-plugin-storybook": "catalog:",
     "nx": "catalog:",

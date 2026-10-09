@@ -1,0 +1,25 @@
+.consentBanner {
+  padding: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.consentBanner-container {
+  max-width: var(--kvds-frame-content-max-width);
+  padding: var(--ds-size-6) var(--kvds-layout-padding-inline);
+  margin: 0 auto;
+
+  & * {
+    max-width: 56rem;
+    color: inherit;
+  }
+
+  &>*+* {
+    margin-block: var(--dsc-card-content-margin-block);
+  }
+
+  .ds-button {
+    min-width: 5rem;
+  }
+}

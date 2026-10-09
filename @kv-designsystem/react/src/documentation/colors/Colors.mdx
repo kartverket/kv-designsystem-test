@@ -1,5 +1,7 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { Button } from '../../components/button/Button';
+import { Card } from '../../components/card/Card';
+import { Details } from '../../components/details/Details';
 import { Link } from '../../components/link/Link';
 import { Paragraph } from '../../components/typography/paragraph/Paragraph';
 import { ColorBox } from './ColorBox';
@@ -9,26 +11,15 @@ import Theming_Blue_Light_Mode from '../../../assets/img/Theming_Blue_Light_Mode
 import Theming_Green_Dark_Mode from '../../../assets/img/Theming_Green_Dark_Mode.png';
 import Theming_Green_Light_Mode from '../../../assets/img/Theming_Green_Light_Mode.png';
 
-<Meta title='Design tokens og variabler' />
+<Meta title='Farger' />
 
-# Design tokens og variabler
+# Farger
 
-Design tokens er fleksible variabler som kan benyttes uavhengig av teknologi eller designverktøy.
+Her får du en oversikt over fargene vi bruker på nettløsningene våre. Vi bruker fargevariabler (design tokens) for å sikre at fargene blir brukt på en konsistent måte. Fargene kommer i to tema og i lys og mørk modus.
 
 <FeedbackSection />
 
-## Design tokens
-
-Design tokens er små, navngitte verdier som representerer de grunnleggende byggeklossene i designsystemet – som farger, spacing, typografi, radius og skygger.
-De fungerer som en felles “kilde til sannhet” som både designere og utviklere bruker for å sikre at utseende og stil er konsekvent på tvers av alle produkter og plattformer.
-
-Vi bruker samme Design tokens som Digdir Designsystemet. Les om variablene for farger, størrelser, border-radius, skygger, opasitet og typografi i [Designsystemets dokumentasjon](https://designsystemet.no/no/fundamentals/theme/variables).
-
-## Variabler i Figma
-
-På Digdir Designsystemet sin side kan du lese om [hvordan man bruker variablene i Figma](https://designsystemet.no/no/fundamentals/figma/variables-in-figma).
-
-## Farger
+## Fargepaletten
 
 Dette er standardfargene vi bruker på brukergrensesnittene våre:
 
@@ -59,3 +50,18 @@ Under kan du se fargeskalaene i hvert tema i både lys og mørk modus. Standardf
 ## Mangler du farger?
 
 Vi vet at vi har løsninger som gjerne skulle hatt flere farger å velge mellom. Dette gjelder løsninger som bruker farger til **kategorisering**, f.eks. i kart og medaljongarkitektur for dataprodukter. I disse tilfellene kan dere fortsette å bruke de fargene dere har i dag, frem til vi får jobbet med å utvide fargepaletten vår.
+
+## Design tokens og variabler
+
+Vi bruker samme Design tokens som Digdir Designsystemet. På Digdir Designsystemet sin side kan du lese om [hvordan man bruker variablene i Figma](https://designsystemet.no/no/fundamentals/figma/variables-in-figma). Les om variablene for farger, størrelser, border-radius, skygger, opasitet og typografi i [Designsystemets dokumentasjon](https://designsystemet.no/no/fundamentals/theme/variables).
+
+<Card className='sb-unstyled' data-color='neutral' style={{ marginBlock: 'var(--ds-size-6)' }}>
+  <Details>
+    <Details.Summary>
+      Hva er design tokens?
+    </Details.Summary>
+    <Details.Content>
+      Design tokens er små, navngitte verdier som representerer de grunnleggende byggeklossene i designsystemet – som farger, spacing, typografi, radius og skygger. De fungerer som en felles “kilde til sannhet” som både designere og utviklere bruker for å sikre at utseende og stil er konsekvent på tvers av alle produkter og plattformer.
+    </Details.Content>
+  </Details>
+</Card>

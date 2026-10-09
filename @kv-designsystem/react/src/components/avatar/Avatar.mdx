@@ -19,8 +19,8 @@ import * as AvatarStories from './Avatar.stories';
 
 ## Varianter med eksempler
 
-`Avatar` kan inneholde et ikon, et bilde, eller initialer. Ikon og bilde legger du inn som `children` i komponenten. Innholdet får automatisk `aria-hidden='true'` for å unngå dobbel informasjon.
-Initialer sendes inn i `initials`-propen. Det vil fungere som en fallback dersom bildet ikke lastes. Et standard ikon vises dersom det ikke sendes inn `children` eller `initials`.
+`Avatar` kan inneholde et ikon, et bilde, eller initialer. Ikon, bilde og tekst legger du inn som `children` i komponenten. Du må selv sørge for å sette `aria-hidden='true'` for å unngå dobbel informasjon.
+Initialer vil fungere som en fallback dersom bildet ikke lastes. Et standard ikon vises dersom det ikke sendes inn `children`.
 
 <Canvas of={AvatarStories.Content} />
 
@@ -38,7 +38,7 @@ Du kan bruke alle temafargene på `Avatar`.
 
 ### Varianter
 
-`Avatar` kan være rund eller kvadratisk. Bruk dem konsekvent i hele løsningen.
+`Avatar` kan endre radius, men velg én konsekvent versjon i hele løsningen.
 
 <Canvas of={AvatarStories.Shapes} />
 
@@ -71,7 +71,7 @@ Du må selv sette styling dersom du skal ha en interaktiv `Avatar`.
 
 `Avatar` må enten ha en `aria-label` som forklarer hvem eller hva avataren representerer, eller ha `aria-hidden` og synlig tekst som formidler den samme informasjonen. Ikke spesifiser i `aria-label` at det er et bilde, skjermleseren formidler dette automatisk. Det holder å bruke navnet, som for eksempel `aria-label='Ola Nordmann'`.
 
-Bilder, og andre `children`, får automatisk `aria-hidden='true'` for å unngå dobbel informasjon.
+Du må selv sørge for å sette `aria-hidden='true'` for å unngå dobbel informasjon.
 
 ## Kilde
 
