@@ -8,7 +8,9 @@
     "node": ">= 24.6.0 < 25"
   },
   "scripts": {
-    "build": "pnpm nx format-check && pnpm nx affected -t typecheck lint build"
+    "build": "pnpm format:check && pnpm nx affected -t typecheck lint build",
+    "format": "oxfmt",
+    "format:check": "./@internal/build-tools/bin/format-check.sh"
   },
   "devDependencies": {
     "@nx/eslint-plugin": "catalog:",
@@ -22,6 +24,7 @@
     "eslint-plugin-storybook": "catalog:",
     "madge": "catalog:",
     "nx": "catalog:",
+    "oxfmt": "catalog:",
     "oxlint": "catalog:",
     "oxlint-tsgolint": "catalog:",
     "playwright": "catalog:",
