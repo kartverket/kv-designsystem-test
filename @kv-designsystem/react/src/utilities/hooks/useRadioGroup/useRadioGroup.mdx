@@ -35,7 +35,7 @@ I `getRadioProps`-funksjonen er første parameter enten `value` — en unik iden
 <Radio label='Barnehage' {...getRadioProps({ value: 'barnehage' /* ...and other props... */ })} />;
 ```
 
-<Alert type='info' heading='Tips'>
+<Alert type='info' heading='Tips' className='sb-unstyled' style={{ marginBottom: 'var(--ds-size-5)' }}>
   Dersom du skal sende props til en `Radio`, er det viktig at du sender disse
   som objekt til `getRadioProps` og **ikke** direkte på `Radio`. Ellers kan du
   risikere å overstyre funksjonaliteten fra `useRadioGroup`.

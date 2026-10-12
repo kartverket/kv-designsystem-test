@@ -40,7 +40,7 @@ I `getCheckboxProps`-funksjonen er første parameter enten `value` — en unik i
 <Checkbox label='Stedsnavn' {...getCheckboxProps({ value: 'stedsnavn' /* ...and other props... */ })} />;
 ```
 
-<Alert type='info' heading='Tips'>
+<Alert type='info' heading='Tips' className='sb-unstyled' style={{ marginBottom: 'var(--ds-size-5)' }}>
   Dersom du skal sende props til en `Checkbox`, er det viktig at du sender disse
   som objekt til `getCheckboxProps` og **ikke** direkte på `Checkbox`. Ellers
   kan du risikere å overstyre funksjonaliteten fra `useCheckboxGroup`.
