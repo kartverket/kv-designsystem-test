@@ -60,41 +60,16 @@ Dette er et pnpm-workspace som styres med [Nx](https://nx.dev/). Alle kommandoer
 
 ### Vanlige kommandoer
 
-Nesten alt kjøres gjennom Nx: `pnpm nx <target> <prosjekt>` for ett prosjekt, eller `pnpm nx affected -t <target>` for alt som er endret sammenlignet med `main`. Nx bygger avhengigheter i riktig rekkefølge og cacher resultatet.
+| Oppgave                                            | Kommando                             |
+| -------------------------------------------------- | ------------------------------------ |
+| Installere avhengigheter                           | `pnpm install`                       |
+| Kjøre Storybook (port 6006)                        | `pnpm nx dev @kv-designsystem/react` |
+| Samme sjekk som CI (format, lint, typesjekk, bygg) | `pnpm build`                         |
+| Linte ett prosjekt                                 | `pnpm nx lint <prosjekt>`            |
+| Sjekke formatering                                 | `pnpm nx format:check`               |
+| Fikse formatering                                  | `pnpm nx format:write`               |
 
-Prosjektene er `@kv-designsystem/react`, `@kv-designsystem/css`, `@kv-designsystem/theme` og `design-tokens`.
-
-**Utvikling**
-
-| Oppgave                        | Kommando                                         |
-| ------------------------------ | ------------------------------------------------ |
-| Installere avhengigheter       | `pnpm install`                                   |
-| Kjøre Storybook (port 6006)    | `pnpm nx dev @kv-designsystem/react`             |
-| Bygge CSS-pakken ved endringer | `pnpm nx watch @kv-designsystem/css`             |
-| Bygge statisk Storybook        | `pnpm nx build-storybook @kv-designsystem/react` |
-
-**Bygg og kvalitetssjekk**
-
-| Oppgave                            | Kommando                                                    |
-| ---------------------------------- | ----------------------------------------------------------- |
-| Samme sjekk som CI                 | `pnpm build`                                                |
-| Bygg alle pakker                   | `pnpm nx run-many -t build`                                 |
-| Bygg én pakke (med avhengigheter)  | `pnpm nx build <prosjekt>`                                  |
-| Typesjekk, lint og bygg alt endret | `pnpm nx affected -t typecheck lint build`                  |
-| Lint ett prosjekt                  | `pnpm nx lint <prosjekt>`                                   |
-| Typesjekk ett prosjekt             | `pnpm nx typecheck <prosjekt>`                              |
-| Sjekk for sirkulære avhengigheter  | `pnpm nx lint-circular-dependencies @kv-designsystem/react` |
-| Sjekk formatering                  | `pnpm nx format:check`                                      |
-| Fiks formatering                   | `pnpm nx format:write`                                      |
-
-**Nx-verktøy**
-
-| Oppgave                                  | Kommando                                |
-| ---------------------------------------- | --------------------------------------- |
-| Se alle prosjekter                       | `pnpm nx show projects`                 |
-| Se targets og avhengigheter for prosjekt | `pnpm nx show project <prosjekt> --web` |
-| Avhengighetsgraf i nettleseren           | `pnpm nx graph`                         |
-| Tøm Nx-cachen (hvis noe virker utdatert) | `pnpm nx reset`                         |
+Prosjektene er `@kv-designsystem/react`, `@kv-designsystem/css`, `@kv-designsystem/theme` og `design-tokens`. Nx bygger avhengigheter i riktig rekkefølge og cacher resultatet, så `pnpm nx <target> <prosjekt>` fungerer for alle targets. `pnpm nx show project <prosjekt> --web` viser hvilke targets et prosjekt har, og `pnpm nx reset` tømmer cachen hvis noe virker utdatert.
 
 ## Testing
 
