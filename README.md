@@ -2,7 +2,6 @@
 
 Designtokens, CSS og React-komponenter for Kartverkets produkter, bygget på [Digdirs Designsystemet](https://www.designsystemet.no/).
 
-
 [![@kv-designsystem/theme](https://img.shields.io/npm/v/@kv-designsystem/theme?label=%40kv-designsystem%2Ftheme&logo=npm)](https://www.npmjs.com/package/@kv-designsystem/theme)
 [![@kv-designsystem/css](https://img.shields.io/npm/v/@kv-designsystem/css?label=%40kv-designsystem%2Fcss&logo=npm)](https://www.npmjs.com/package/@kv-designsystem/css)
 [![@kv-designsystem/react](https://img.shields.io/npm/v/@kv-designsystem/react?label=%40kv-designsystem%2Freact&logo=npm)](https://www.npmjs.com/package/@kv-designsystem/react)
@@ -33,11 +32,10 @@ Dette repoet erstatter Kartverkets gamle designsystem, [Kvib](https://github.com
 ## Pakker
 
 | Pakke                                                                            | Lenke                                                | Beskrivelse                                                         |
-| -------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------- | --------------- |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------- |
 | [`@kv-designsystem/react`](https://www.npmjs.com/package/@kv-designsystem/react) | [`@kv-designsystem/react`](./@kv-designsystem/react) | React-komponenter og Storybook                                      |
 | [`@kv-designsystem/css`](https://www.npmjs.com/package/@kv-designsystem/css)     | [`@kv-designsystem/css`](./@kv-designsystem/css)     | Rent CSS-bygg (PostCSS) med stilsett per tema og et Tailwind-preset |
 | [`@kv-designsystem/theme`](https://www.npmjs.com/package/@kv-designsystem/theme) | [`@kv-designsystem/theme`](./@kv-designsystem/theme) | Designtokens som CSS per tema, pluss TypeScript-typer               |
-
 
 > [!NOTE]
 > Pakkene er publisert på npm under `alpha`-taggen. `latest` kan ligge en versjon bak, så installer med `@alpha` for å få nyeste versjon.
@@ -68,8 +66,8 @@ Prosjektene er `@kv-designsystem/react`, `@kv-designsystem/css`, `@kv-designsyst
 
 **Utvikling**
 
-| Oppgave                       | Kommando                                         |
-| ----------------------------- | ------------------------------------------------ |
+| Oppgave                        | Kommando                                         |
+| ------------------------------ | ------------------------------------------------ |
 | Installere avhengigheter       | `pnpm install`                                   |
 | Kjøre Storybook (port 6006)    | `pnpm nx dev @kv-designsystem/react`             |
 | Bygge CSS-pakken ved endringer | `pnpm nx watch @kv-designsystem/css`             |
@@ -93,11 +91,10 @@ Prosjektene er `@kv-designsystem/react`, `@kv-designsystem/css`, `@kv-designsyst
 
 | Oppgave                                  | Kommando                                |
 | ---------------------------------------- | --------------------------------------- |
-| Se alle prosjekter                     | `pnpm nx show projects`                 |
+| Se alle prosjekter                       | `pnpm nx show projects`                 |
 | Se targets og avhengigheter for prosjekt | `pnpm nx show project <prosjekt> --web` |
 | Avhengighetsgraf i nettleseren           | `pnpm nx graph`                         |
 | Tøm Nx-cachen (hvis noe virker utdatert) | `pnpm nx reset`                         |
-
 
 ## Testing
 
@@ -121,7 +118,6 @@ pnpm --filter @kv-designsystem/react exec vitest run --project storybook
 | Interaktivt UI           | `pnpm --filter @kv-designsystem/react exec vitest --project storybook --ui`        |
 | Filtrer på én komponent  | `pnpm --filter @kv-designsystem/react exec vitest --project storybook --ui Button` |
 | Oppdater referansebilder | `pnpm --filter @kv-designsystem/react exec vitest run --project storybook -u`      |
-
 
 ## Testapp
 
@@ -151,4 +147,3 @@ design-tokens (kilde, privat)
 - Skriv commit-meldinger etter [Conventional Commits](https://www.conventionalcommits.org/), siden de styrer versjoneringen.
 - Fyll ut sjekklisten i PR-malen.
 - Kjør `pnpm build` før du åpner en PR. Det er det samme som CI kjører.
-  
