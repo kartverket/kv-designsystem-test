@@ -4,8 +4,6 @@ Sammendrag av hva du har gjort.
 
 ## Hvilken type endring?
 
-<!--  Slett det som ikke er relevant  -->
-
 - [ ] Feilretting (`fix`): retter en feil uten å endre eksisterende funksjonalitet
 - [ ] Ny funksjonalitet (`feat`): legger til funksjonalitet uten å endre eksisterende funksjonalitet
 - [ ] Brytende endring (`feat!` / `fix!`): retting eller ny funksjonalitet som gjør at eksisterende funksjonalitet ikke lenger fungerer som før
@@ -14,7 +12,6 @@ Sammendrag av hva du har gjort.
 
 ## Sjekkliste
 
-<!--  Slett det som ikke er relevant  -->
 
 - [ ] Dokumentasjonen er oppdatert (om nødvendig)
 - [ ] Commit-meldingene gir mening og følger retningslinjene for Conventional Commits
