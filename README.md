@@ -17,7 +17,7 @@ git clone https://github.com/kartverket/kv-designsystem-test.git
 cd kv-designsystem-test
 corepack enable
 pnpm install
-pnpm nx dev @kv-designsystem/react
+pnpm nx dev
 ```
 
 Se lokal instans av Storybook på [http://localhost:6006](http://localhost:6006)
@@ -60,39 +60,50 @@ Dette er et pnpm-workspace som styres med [Nx](https://nx.dev/). Alle kommandoer
 
 ### Vanlige kommandoer
 
-| Oppgave                                            | Kommando                             |
-| -------------------------------------------------- | ------------------------------------ |
-| Installere avhengigheter                           | `pnpm install`                       |
-| Kjøre Storybook (port 6006)                        | `pnpm nx dev @kv-designsystem/react` |
-| Samme sjekk som CI (format, lint, typesjekk, bygg) | `pnpm build`                         |
-| Linte ett prosjekt                                 | `pnpm nx lint <prosjekt>`            |
-| Sjekke formatering                                 | `pnpm nx format:check`               |
-| Fikse formatering                                  | `pnpm nx format:write`               |
+| Oppgave                                            | Kommando                  |
+| -------------------------------------------------- | ------------------------- |
+| Installere avhengigheter                           | `pnpm install`            |
+| Samme sjekk som CI (format, lint, typesjekk, bygg) | `pnpm build`              |
+| Kjøre Storybook (port 6006)                        | `pnpm nx dev`             |
+| Linte ett prosjekt                                 | `pnpm nx lint <prosjekt>` |
+| Sjekke formatering                                 | `pnpm nx format:check`    |
+| Fikse formatering                                  | `pnpm nx format:write`    |
+
+> [!NOTE]
+> `pnpm build` kjører linting, formattering og deretter `pnpm nx build`. Den er altså mer omfattende uten å kjøre nx varianten, vi anbefaler den.
 
 Prosjektene er `@kv-designsystem/react`, `@kv-designsystem/css`, `@kv-designsystem/theme` og `design-tokens`. Nx bygger avhengigheter i riktig rekkefølge og cacher resultatet, så `pnpm nx <target> <prosjekt>` fungerer for alle targets. `pnpm nx show project <prosjekt> --web` viser hvilke targets et prosjekt har, og `pnpm nx reset` tømmer cachen hvis noe virker utdatert.
 
 ## Testing
 
-Komponenttester og visuelle regresjonstester kjøres med Vitest i browser mode, direkte fra Storybook-stories, med Playwright/Chromium som nettleser.
+> [!NOTE]
+> Om du vil lese mer utfyllende om testing kan du det i [readme.md til react-pakken](./@kv-designsystem/react)
 
-Engangsoppsett:
+Storybook-stories kjøres som tester, inkludert screenshot-sammenligning, med Vitest i browser mode og Playwright/Chromium. Kommandoene kjøres fra roten av repoet. Står du i `@kv-designsystem/react`, kan du droppe `--filter @kv-designsystem/react exec`.
+
+Førstegangsoppsett (gjøres kun første gangen):
 
 ```sh
 pnpm --filter @kv-designsystem/react exec playwright install chromium
 ```
 
-Kjør testene:
-
 ```sh
+# Kjør alle tester
 pnpm --filter @kv-designsystem/react exec vitest run --project storybook
+
+# Interaktivt UI med diff av feilede screenshots (watch-modus)
+pnpm --filter @kv-designsystem/react exec vitest --project storybook --ui
+
+# Kun én komponent (filtrerer på filnavn)
+pnpm --filter @kv-designsystem/react exec vitest --project storybook Button
+
+# Oppdater referansebilder etter en tilsiktet visuell endring
+pnpm --filter @kv-designsystem/react exec vitest run --project storybook -u
 ```
 
-| Oppgave                  | Kommando                                                                           |
-| ------------------------ | ---------------------------------------------------------------------------------- |
-| Kjør alle tester         | `pnpm --filter @kv-designsystem/react exec vitest run --project storybook`         |
-| Interaktivt UI           | `pnpm --filter @kv-designsystem/react exec vitest --project storybook --ui`        |
-| Filtrer på én komponent  | `pnpm --filter @kv-designsystem/react exec vitest --project storybook --ui Button` |
-| Oppdater referansebilder | `pnpm --filter @kv-designsystem/react exec vitest run --project storybook -u`      |
+Første gang en story kjøres finnes det ikke noe referansebilde. Vitest lager det da under `__screenshots__/` og lar testen feile, slik at du kan se over bildet før det brukes som fasit.
+
+Referansebildene er maskinavhengige og gitignored, så de skal ikke committes. Visuell regresjonstesting i CI gjøres med Chromatic ([`publish-chromatic.yml`](./.github/workflows/publish-chromatic.yml)). Bruk de lokale testene som en rask sjekk før du pusher.
 
 ## Testapp
 
