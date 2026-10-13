@@ -1,11 +1,11 @@
 {
   "name": "@internal/build-tools",
   "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
     "lint": "oxlint --max-warnings 0"
   },
-  "type": "module",
-  "private": true,
   "devDependencies": {
     "@types/micromatch": "catalog:",
     "@types/yargs": "catalog:",
