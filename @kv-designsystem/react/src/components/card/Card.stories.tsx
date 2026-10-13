@@ -182,7 +182,6 @@ export const AsButton: Story = {
   ),
 };
 
-// TODO: Paragraph gets margin on top & bottom from customTheme
 export const Horizontal: Story = {
   args: {
     ...Preview.args,

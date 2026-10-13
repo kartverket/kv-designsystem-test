@@ -22,7 +22,7 @@ type ColorItemProps = {
 
 function ColorItem({ hex, textColor, label }: ColorItemProps) {
   return (
-    <div className={`sb-unstyled ${styles.item}`}>
+    <div className={`sb-unstyled ${styles.item}`} style={{ marginBottom: 'var(--ds-size-5)'}}>
       <div
         className={`sb-unstyled ${styles.box}`}
         style={{

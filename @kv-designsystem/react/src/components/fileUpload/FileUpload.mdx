@@ -1,12 +1,12 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
 import * as FileUploadStories from './FileUpload.stories';
 import { Alert } from '../alert/Alert';
+import ExperimentalComponent from '../../documentation/_shared/ExperimentalComponent';
+
 
 <Meta of={FileUploadStories} />
 
-<Alert data-color='warning'>
-  FileUpload er under utvikling. Finner du feil eller mangler, meld fra i [Slack](https://kartverketgroup.slack.com/archives/C03LL4CKMMK).
-</Alert>
+<ExperimentalComponent component='FileUpload' />
 
 # FileUpload
 

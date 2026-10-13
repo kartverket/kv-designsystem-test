@@ -13,13 +13,7 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   render: (_args) => (
     <Alert>
-      <Heading 
-        level={2}
-        data-size='xs'
-        style={{
-          marginBottom: 'var(--ds-size-2)',
-        }}
-      >
+      <Heading level={2} data-size='xs'>
         Overskrift
       </Heading>
       En beskjed det er viktig at brukeren ser
@@ -33,13 +27,7 @@ export const VariantInfo: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Heading 
-        level={2}
-        data-size='xs'
-        style={{
-          marginBottom: 'var(--ds-size-2)',
-        }}
-      >
+      <Heading level={2} data-size='xs'>
         Nye høydedata er tilgjengelige
       </Heading>
       Vi har oppdatert datasettet for ditt område. Last inn kartet på nytt for å se endringene.
@@ -53,13 +41,7 @@ export const VariantSuccess: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Heading 
-        level={2}
-        data-size='xs'
-        style={{
-          marginBottom: 'var(--ds-size-2)',
-        }}
-      >
+      <Heading level={2} data-size='xs'>
         Endringen din ble lagret
       </Heading>
       Vi har oppdatert innstillingene dine, og kartvisningen bruker nå de nye valgene.
@@ -73,13 +55,7 @@ export const VariantWarning: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Heading 
-        level={2}
-        data-size='xs'
-        style={{
-          marginBottom: 'var(--ds-size-2)',
-        }}
-      >
+      <Heading level={2} data-size='xs'>
         Eiendommen mangler tilknytning til kommunen
       </Heading>
       Vi finner ikke kommuneinformasjon for eiendommen. Sjekk matrikkelnummeret og prøv igjen.
@@ -93,13 +69,7 @@ export const VariantDanger: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Heading 
-        level={2}
-        data-size='xs'
-        style={{
-          marginBottom: 'var(--ds-size-2)',
-        }}
-      >
+      <Heading level={2} data-size='xs'>
         Vi kan ikke hente kartlag
       </Heading>
       Vi klarte ikke å laste kartlaget. Prøv å laste inn siden på nytt.{' '}
@@ -124,13 +94,7 @@ export const WithLink: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Heading 
-        level={2}
-        data-size='xs'
-        style={{
-          marginBottom: 'var(--ds-size-2)',
-        }}
-      >
+      <Heading level={2} data-size='xs'>
         Du må oppdatere API-nøkkel
       </Heading>
       Fristen for å bytte til ny API-nøkkel er om 3 dager.{' '} 
