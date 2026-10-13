@@ -10,15 +10,14 @@ catalog:
   '@digdir/designsystemet-react': ^1.23
   '@digdir/designsystemet-types': ^1.23
   '@navikt/aksel-icons': ^8.16.1
-  '@nx/eslint-plugin': 22.7.8
-  '@nx/storybook': 22.7.8
-  '@nx/vite': 22.7.8
-  '@nx/web': 22.7.8
+  '@nx/eslint-plugin': 22.7.12
+  '@nx/storybook': 22.7.12
+  '@nx/vite': 22.7.12
+  '@nx/web': 22.7.12
   '@storybook/addon-a11y': ^10.5.10
   '@storybook/addon-docs': ^10.5.10
   '@storybook/addon-vitest': ^10.5.10
   '@storybook/react-vite': ^10.5.10
-  '@types/micromatch': ^4.0.10
   '@types/node': ^24.13.3
   '@types/ramda': ^0.31.1
   '@types/react': ^19.2.18
@@ -35,14 +34,13 @@ catalog:
   eslint-plugin-import: ^2.32.0
   eslint-plugin-storybook: ^10.5.10
   madge: ^8.0.0
-  micromatch: ^4.0.8
-  nx: 22.7.10
+  nx: 22.7.12
   oxfmt: ^0.72.0
   oxlint: ^1.87.0
   oxlint-tsgolint: ^7.0.2003
   playwright: ^1.62.1
   postcss: ^8.5.26
-  postcss-cli: ^11.0.1
+  postcss-cli: ^12.0.0
   postcss-import: ^16.2.0
   postcss-load-config: ^6.0.1
   postcss-nesting: ^14.0.1
@@ -61,7 +59,11 @@ catalog:
   yargs: ^18.1.0
 
 overrides:
-  brace-expansion@>=4.0.0 <5.0.9: '>=5.0.9'
+  brace-expansion@<1.1.21: ^1.1.21
+  brace-expansion@>=2.0.0 <2.1.7: ^2.1.7
+  brace-expansion@>=4.0.0 <5.0.12: ^5.0.12
+  nx>axios: ^1.20.0
+  nx>smol-toml: ^1.9.0
 
 onlyBuiltDependencies:
   - esbuild
