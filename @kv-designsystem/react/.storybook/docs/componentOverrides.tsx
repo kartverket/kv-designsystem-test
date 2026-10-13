@@ -20,7 +20,7 @@ const createHeadingOverrides = (): Partial<MdxComponentOverrides> => {
   const overrides: Partial<MdxComponentOverrides> = {};
 
   headingConfig.forEach((config) => {
-    const {level, size } = config;
+    const { level, size } = config;
     const key = `h${level}` as const;
     overrides[key as keyof MdxComponentOverrides] = (props) => (
       <Heading
@@ -36,17 +36,10 @@ const createHeadingOverrides = (): Partial<MdxComponentOverrides> => {
 
 export const componentOverrides: MdxComponentOverrides = {
   ...createHeadingOverrides(),
-  p: (props) => (
-    <Paragraph
-      {...props}
-      className={`sb-unstyled ${componentStyles.paragraph}`}
-    />
-  ),
+  p: (props) => <Paragraph {...props} className={`sb-unstyled ${componentStyles.paragraph}`} />,
   ol: (props) => <List.Ordered {...props} className={`sb-unstyled ${componentStyles.list}`} />,
   ul: (props) => <List.Unordered {...props} className={`sb-unstyled ${componentStyles.list}`} />,
-  li: (props) => (
-    <List.Item {...props} className="sb-unstyled" />
-  ),
+  li: (props) => <List.Item {...props} className="sb-unstyled" />,
   a: (props) => (
     <Link {...props} href={getPath(props.href)}>
       {props.children}

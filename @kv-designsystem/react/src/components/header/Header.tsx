@@ -23,50 +23,43 @@ type BaseHeaderProps = HTMLAttributes<HTMLElement> & {
 export type HeaderProps = BaseHeaderProps &
   (
     | {
-      /**
-       * Header variant.
-       * @default 'public'
-       */
-      variant?: 'public';
-      applicationName?: undefined;
-      applicationHref?: undefined;
-    }
+        /**
+         * Header variant.
+         * @default 'public'
+         */
+        variant?: 'public';
+        applicationName?: undefined;
+        applicationHref?: undefined;
+      }
     | {
-      /**
-       * Header variant.
-       * @default 'public'
-       */
-      variant?: 'public';
-      /** The name of the application, displayed in the header. */
-      applicationName: string;
-      /** The URL applicationName links to. */
-      applicationHref: string;
-    }
+        /**
+         * Header variant.
+         * @default 'public'
+         */
+        variant?: 'public';
+        /** The name of the application, displayed in the header. */
+        applicationName: string;
+        /** The URL applicationName links to. */
+        applicationHref: string;
+      }
     | {
-      /** Header variant. */
-      variant: 'internal';
-      /**
-       * The name of the application, displayed in the header.
-       * Required for the internal variant.
-       */
-      applicationName: string;
-      /**
-       * The URL applicationName links to.
-       * Required for the internal variant.
-       */
-      applicationHref: string;
-    }
+        /** Header variant. */
+        variant: 'internal';
+        /**
+         * The name of the application, displayed in the header.
+         * Required for the internal variant.
+         */
+        applicationName: string;
+        /**
+         * The URL applicationName links to.
+         * Required for the internal variant.
+         */
+        applicationHref: string;
+      }
   );
 
 export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
-  {
-    variant = 'public',
-    applicationName,
-    applicationHref,
-    children,
-    className,
-    ...rest
-  },
+  { variant = 'public', applicationName, applicationHref, children, className, ...rest },
   ref,
 ) {
   const [showHeader, setShowHeader] = useState(true);
@@ -94,7 +87,7 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(function Header(
     } else {
       console.error(
         'Header: variant="internal" krever både applicationName og applicationHref. ' +
-        'Faller tilbake til public-visning til begge er satt.',
+          'Faller tilbake til public-visning til begge er satt.',
       );
       brand = <PublicBrand />;
     }

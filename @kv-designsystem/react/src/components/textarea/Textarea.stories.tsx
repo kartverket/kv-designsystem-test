@@ -30,8 +30,8 @@ export const Preview: Story = {
 export const WithRows: Story = {
   render: () => (
     <>
-      <Label htmlFor='my-textarea-rows'>Beskrivelse</Label>
-      <Textarea id='my-textarea-rows' rows={6} />
+      <Label htmlFor="my-textarea-rows">Beskrivelse</Label>
+      <Textarea id="my-textarea-rows" rows={6} />
     </>
-  )
+  ),
 };

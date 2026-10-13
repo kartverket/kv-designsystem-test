@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     children: 'Chip',
-  }
+  },
 };
 
 export const Button: Story = {
@@ -45,28 +45,22 @@ export const Button: Story = {
       >
         <Search>
           <Search.Input
-            aria-label='søk'
+            aria-label="søk"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
           <Search.Clear />
-          <Search.Button type='submit' />
+          <Search.Button type="submit" />
         </Search>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--ds-size-2)' }}>
           <Paragraph>Hurtigsøk: </Paragraph>
-          <Chip.Button onClick={() => setInputValue('Høydedata')}>
-            Høydedata
-          </Chip.Button>
-          <Chip.Button onClick={() => setInputValue('Terrengmodell')}>
-            Terrengmodell
-          </Chip.Button>
-          <Chip.Button onClick={() => setInputValue('Laserdata')}>
-            Laserdata
-          </Chip.Button>
+          <Chip.Button onClick={() => setInputValue('Høydedata')}>Høydedata</Chip.Button>
+          <Chip.Button onClick={() => setInputValue('Terrengmodell')}>Terrengmodell</Chip.Button>
+          <Chip.Button onClick={() => setInputValue('Laserdata')}>Laserdata</Chip.Button>
         </div>
       </div>
     );
-  }
+  },
 };
 
 export const Checkbox: Story = {
@@ -91,7 +85,7 @@ export const Checkbox: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 
 export const Radio: Story = {
@@ -99,7 +93,7 @@ export const Radio: Story = {
     const options = ['Sjøkart', 'Dybder', 'Sjømerker'];
 
     return (
-       <div
+      <div
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -109,14 +103,14 @@ export const Radio: Story = {
         <Paragraph>Vis data for</Paragraph>
         <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
           {options.map((grade) => (
-            <Chip.Radio name='my-radio' aria-label={grade}>
+            <Chip.Radio name="my-radio" aria-label={grade}>
               {grade}
             </Chip.Radio>
           ))}
         </div>
       </div>
     );
-  }
+  },
 };
 
 export const Removable: Story = {
@@ -131,9 +125,7 @@ export const Removable: Story = {
             key={item}
             aria-label={`Slett ${item}`}
             onClick={() => {
-              setFilter((x) =>
-                x.length === 1 ? mapOptions : x.filter((y) => y !== item),
-              );
+              setFilter((x) => (x.length === 1 ? mapOptions : x.filter((y) => y !== item)));
             }}
           >
             {item}
@@ -141,5 +133,5 @@ export const Removable: Story = {
         ))}
       </div>
     );
-  }
+  },
 };

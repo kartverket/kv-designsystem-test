@@ -6,8 +6,8 @@ import { useState } from 'react';
 import { Spinner } from '../spinner/Spinner';
 
 const meta = {
-	component: Suggestion,
-	parameters: { layout: 'centered' },
+  component: Suggestion,
+  parameters: { layout: 'centered' },
 } satisfies Meta<typeof Suggestion>;
 
 export default meta;
@@ -15,133 +15,133 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const DATA_PLACES = [
-	'Agder',
-	'Akershus',
-	'Buskerud',
-	'Innlandet',
-	'Møre og Romsdal',
-	'Nordland',
-	'Oslo',
-	'Rogaland',
-	'Troms',
-	'Finnmark',
-	'Trøndelag',
-	'Vestfold',
-	'Telemark',
-	'Vestland',
-	'Østfold',
+  'Agder',
+  'Akershus',
+  'Buskerud',
+  'Innlandet',
+  'Møre og Romsdal',
+  'Nordland',
+  'Oslo',
+  'Rogaland',
+  'Troms',
+  'Finnmark',
+  'Trøndelag',
+  'Vestfold',
+  'Telemark',
+  'Vestland',
+  'Østfold',
 ];
 
 export const Preview: Story = {
-	render: (args) => (
-		<Field>
-			<Label>Velg et fylke</Label>
-			<Suggestion {...args}>
-				<Suggestion.Input />
-				<Suggestion.Clear />
-				<Suggestion.List>
-					<Suggestion.Empty>Ingen treff</Suggestion.Empty>
-					{DATA_PLACES.map((place) => (
-						<Suggestion.Option key={place} label={place} value={place.toLowerCase()}>
-							{place}
-						</Suggestion.Option>
-					))}
-				</Suggestion.List>
-			</Suggestion>
-		</Field>
-	)
+  render: (args) => (
+    <Field>
+      <Label>Velg et fylke</Label>
+      <Suggestion {...args}>
+        <Suggestion.Input />
+        <Suggestion.Clear />
+        <Suggestion.List>
+          <Suggestion.Empty>Ingen treff</Suggestion.Empty>
+          {DATA_PLACES.map((place) => (
+            <Suggestion.Option key={place} label={place} value={place.toLowerCase()}>
+              {place}
+            </Suggestion.Option>
+          ))}
+        </Suggestion.List>
+      </Suggestion>
+    </Field>
+  ),
 };
 
 export const Multiple: Story = {
-	args: {
-		multiple: true,
-		style: { width: '300px' },
-	},
-	render: (args) => (
-		<Field>
-			<Label>Velg ett eller flere fylker</Label>
-			<Suggestion {...args}>
-				<Suggestion.Input />
-				<Suggestion.Clear />
-				<Suggestion.List>
-					<Suggestion.Empty>Ingen treff</Suggestion.Empty>
-					{DATA_PLACES.map((place) => (
-						<Suggestion.Option key={place} label={place} value={place.toLowerCase()}>
-							{place}
-						</Suggestion.Option>
-					))}
-				</Suggestion.List>
-			</Suggestion>
-		</Field>
-	)
-}
+  args: {
+    multiple: true,
+    style: { width: '300px' },
+  },
+  render: (args) => (
+    <Field>
+      <Label>Velg ett eller flere fylker</Label>
+      <Suggestion {...args}>
+        <Suggestion.Input />
+        <Suggestion.Clear />
+        <Suggestion.List>
+          <Suggestion.Empty>Ingen treff</Suggestion.Empty>
+          {DATA_PLACES.map((place) => (
+            <Suggestion.Option key={place} label={place} value={place.toLowerCase()}>
+              {place}
+            </Suggestion.Option>
+          ))}
+        </Suggestion.List>
+      </Suggestion>
+    </Field>
+  ),
+};
 
 export const Filter: Story = {
-	args: {
-		filter: true,
-	},
-	render: (args) => (
-		<Field>
-			<Label>Hvilket fylke bor du i?</Label>
-			<Suggestion {...args}>
-				<Suggestion.Input />
-				<Suggestion.Clear />
-				<Suggestion.List>
-					<Suggestion.Empty>Ingen treff</Suggestion.Empty>
-					{DATA_PLACES.map((place) => (
-						<Suggestion.Option key={place} label={place} value={place.toLowerCase()}>
-							{place}
-						</Suggestion.Option>
-					))}
-				</Suggestion.List>
-			</Suggestion>
-		</Field>
-	)
+  args: {
+    filter: true,
+  },
+  render: (args) => (
+    <Field>
+      <Label>Hvilket fylke bor du i?</Label>
+      <Suggestion {...args}>
+        <Suggestion.Input />
+        <Suggestion.Clear />
+        <Suggestion.List>
+          <Suggestion.Empty>Ingen treff</Suggestion.Empty>
+          {DATA_PLACES.map((place) => (
+            <Suggestion.Option key={place} label={place} value={place.toLowerCase()}>
+              {place}
+            </Suggestion.Option>
+          ))}
+        </Suggestion.List>
+      </Suggestion>
+    </Field>
+  ),
 };
 
 const storyParams = { docs: { source: { type: 'code' } } };
 
 export const AsyncData: Story = {
-	parameters: storyParams,
-	render: (args) => {
-		const [loading, setLoading] = useState(false);
+  parameters: storyParams,
+  render: (args) => {
+    const [loading, setLoading] = useState(false);
 
-		const handleInput = (event: React.InputEvent<HTMLInputElement>) => {
-			const value = event.currentTarget.value.trim();
+    const handleInput = (event: React.InputEvent<HTMLInputElement>) => {
+      const value = event.currentTarget.value.trim();
 
-			if (!value) {
-				setLoading(false);
-				return;
-			}
+      if (!value) {
+        setLoading(false);
+        return;
+      }
 
-			setLoading(true);
+      setLoading(true);
 
-			// Simulate an API call
-			setTimeout(() => {
-				setLoading(false);
-			}, 1500);
-		};
+      // Simulate an API call
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500);
+    };
 
-		return (
-			<Field>
-				<Label>Hvilket fylke bor du i?</Label>
-				<Suggestion {...args}>
-					<Suggestion.Input onInput={handleInput} />
-					<Suggestion.Clear />
-					<Suggestion.List>
-						<Suggestion.Empty>
-							{loading ? (
-								<span style={{ display: 'flex', alignItems: 'center', gap: 'var(--ds-size-2)' }}>
-									<Spinner aria-hidden='true' data-size='sm' />
-									Laster...
-								</span>
-							) : (
-								'Ingen treff'
-							)}
-						</Suggestion.Empty>
-					</Suggestion.List>
-				</Suggestion>
-			</Field>
-		)
-	}
+    return (
+      <Field>
+        <Label>Hvilket fylke bor du i?</Label>
+        <Suggestion {...args}>
+          <Suggestion.Input onInput={handleInput} />
+          <Suggestion.Clear />
+          <Suggestion.List>
+            <Suggestion.Empty>
+              {loading ? (
+                <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--ds-size-2)' }}>
+                  <Spinner aria-hidden="true" data-size="sm" />
+                  Laster...
+                </span>
+              ) : (
+                'Ingen treff'
+              )}
+            </Suggestion.Empty>
+          </Suggestion.List>
+        </Suggestion>
+      </Field>
+    );
+  },
 };

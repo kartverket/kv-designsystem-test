@@ -56,19 +56,13 @@ function postcssComposes() {
           }
         }
         if (!resolvedFrom) {
-          resolvedFrom = path.resolve(
-            path.dirname(rule.source.input.file),
-            from,
-          );
+          resolvedFrom = path.resolve(path.dirname(rule.source.input.file), from);
         }
 
         if (!cache[resolvedFrom])
-          cache[resolvedFrom] = await postcss([]).process(
-            fs.readFileSync(resolvedFrom),
-            {
-              from: resolvedFrom,
-            },
-          );
+          cache[resolvedFrom] = await postcss([]).process(fs.readFileSync(resolvedFrom), {
+            from: resolvedFrom,
+          });
 
         cache[resolvedFrom].root.walkRules((fromRule) => {
           if (fromRule.selector.split(/:|\s/)[0] === `.${selector}`) {

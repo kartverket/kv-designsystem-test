@@ -17,18 +17,16 @@ export const Preview: Story = {
   render: (__args) => (
     <Field>
       <Label>Last opp profilbilde</Label>
-      <Field.Description>
-        Filen må være i JPG- eller PNG-format og mindre enn 2MB
-      </Field.Description>
+      <Field.Description>Filen må være i JPG- eller PNG-format og mindre enn 2MB</Field.Description>
       <FileUpload>
         <Field.Description>Slipp fil her</Field.Description>
-        <Button asChild data-variant='secondary'>
+        <Button asChild data-variant="secondary">
           <span>Velg fil</span>
         </Button>
-        <input type='file' accept='image/png, image/jpeg' />
+        <input type="file" accept="image/png, image/jpeg" />
       </FileUpload>
     </Field>
-  )
+  ),
 };
 
 export const WithDescription: Story = {
@@ -41,11 +39,11 @@ export const WithDescription: Story = {
         <Field.Description>
           Filen må være i JPG- eller PNG-format og mindre enn 2MB
         </Field.Description>
-        <Button asChild data-variant='secondary'>
+        <Button asChild data-variant="secondary">
           <span>Velg fil</span>
         </Button>
-        <input type='file' accept='image/png, image/jpeg' />
+        <input type="file" accept="image/png, image/jpeg" />
       </FileUpload>
     </Field>
-  )
+  ),
 };
