@@ -28,21 +28,21 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     'aria-label': 'Laster...',
-  }
+  },
 };
 
 export const Sizes: Story = {
   args: {
-    'aria-label': 'Laster...'
+    'aria-label': 'Laster...',
   },
   render: (args) => (
     <>
-      <Spinner {...args} data-size='2xs' />
-      <Spinner {...args} data-size='xs' />
-      <Spinner {...args} data-size='sm' />
-      <Spinner {...args} data-size='md' />
-      <Spinner {...args} data-size='lg' />
-      <Spinner {...args} data-size='xl' />
+      <Spinner {...args} data-size="2xs" />
+      <Spinner {...args} data-size="xs" />
+      <Spinner {...args} data-size="sm" />
+      <Spinner {...args} data-size="md" />
+      <Spinner {...args} data-size="lg" />
+      <Spinner {...args} data-size="xl" />
     </>
   ),
 };
@@ -54,10 +54,10 @@ export const Colors: Story = {
   },
   render: (args) => (
     <>
-      <Spinner {...args} data-color='neutral' />
-      <Spinner {...args} data-color='accent' />
-      <Spinner {...args} data-color='support-1' />
-      <Spinner {...args} data-color='support-2' />
+      <Spinner {...args} data-color="neutral" />
+      <Spinner {...args} data-color="accent" />
+      <Spinner {...args} data-color="support-1" />
+      <Spinner {...args} data-color="support-2" />
     </>
   ),
 };
@@ -65,8 +65,8 @@ export const Colors: Story = {
 export const WithText: Story = {
   render: (_args) => (
     <>
-      <Spinner aria-label='Laster...' data-size='sm' />
+      <Spinner aria-label="Laster..." data-size="sm" />
       <Paragraph>Forbereder filen din</Paragraph>
     </>
-  )
+  ),
 };

@@ -14,17 +14,17 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     children: undefined,
-    href: '#'
+    href: '#',
   },
   render: (args) => (
     <>
       <Paragraph>
         Tab til, eller klikk inni dette eksempelet og trykk <kbd>Tab</kbd>.
-        <SkipLink {...args} href='#main-content'>
+        <SkipLink {...args} href="#main-content">
           Hopp til hovedinnholdet
         </SkipLink>
       </Paragraph>
-      <main id='main-content' tabIndex={-1}>
+      <main id="main-content" tabIndex={-1}>
         Region som kan motta fokus fra SkipLink.
       </main>
     </>

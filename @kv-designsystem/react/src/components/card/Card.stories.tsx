@@ -36,10 +36,10 @@ export const Preview: Story = {
     children: [],
   },
   render: (_args) => (
-    <Card style={{ maxWidth: '320px' }} data-color='accent'>
+    <Card style={{ maxWidth: '320px' }} data-color="accent">
       <Heading>Tittel</Heading>
       <Paragraph>Innhold</Paragraph>
-      <Paragraph data-size='sm'>Fotnote</Paragraph>
+      <Paragraph data-size="sm">Fotnote</Paragraph>
     </Card>
   ),
 };
@@ -56,85 +56,81 @@ export const Variants: Story = {
       }}
     >
       <Card {...args} style={{ width: '320px' }}>
-        <Tag data-color='accent' data-size='sm' variant='outline'>Tinglyst</Tag>
-        <Heading>
-          Furusvingen 82
-        </Heading>
-        <Paragraph>
-          Hovedeiendom
-        </Paragraph>
+        <Tag data-color="accent" data-size="sm" variant="outline">
+          Tinglyst
+        </Tag>
+        <Heading>Furusvingen 82</Heading>
+        <Paragraph>Hovedeiendom</Paragraph>
         <div
           style={{
             display: 'flex',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
           }}
         >
-          <Tooltip content='Legg til i favoritter'>
-            <Button variant='tertiary'>
+          <Tooltip content="Legg til i favoritter">
+            <Button variant="tertiary">
               <HeartIcon aria-hidden />
             </Button>
           </Tooltip>
-          <Button variant='tertiary'>
+          <Button variant="tertiary">
             <NotePencilIcon aria-hidden />
             Rediger
           </Button>
         </div>
       </Card>
 
-      <Card {...args} variant='tinted' data-color='support-2' style={{ width: '320px' }}>
-        <Tag data-color='warning' data-size='sm' variant='outline'>Ikke tinglyst</Tag>
-        <Heading>
-          Kongleveien 23C
-        </Heading>
-        <Paragraph>
-          Eiendom til utleie
-        </Paragraph>
+      <Card {...args} variant="tinted" data-color="support-2" style={{ width: '320px' }}>
+        <Tag data-color="warning" data-size="sm" variant="outline">
+          Ikke tinglyst
+        </Tag>
+        <Heading>Kongleveien 23C</Heading>
+        <Paragraph>Eiendom til utleie</Paragraph>
         <div
           style={{
             display: 'flex',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
           }}
         >
-          <Tooltip content='Fjern fra favoritter'>
-            <Button variant='tertiary'>
+          <Tooltip content="Fjern fra favoritter">
+            <Button variant="tertiary">
               <HeartFillIcon aria-hidden />
             </Button>
           </Tooltip>
-          <Button variant='tertiary'>
+          <Button variant="tertiary">
             <NotePencilIcon aria-hidden />
             Rediger
           </Button>
         </div>
       </Card>
     </div>
-  )
+  ),
 };
 
-const geodesyImg = 'https://images.unsplash.com/photo-1732362129903-abc909ab1067?q=80&w=1329&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+const geodesyImg =
+  'https://images.unsplash.com/photo-1732362129903-abc909ab1067?q=80&w=1329&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 export const Media: Story = {
   args: {
     ...Preview.args,
   },
   render: (args) => (
-    <Card {...args} style={{ maxWidth: '320px' }} >
+    <Card {...args} style={{ maxWidth: '320px' }}>
       <Card.Block>
-        <img
-          src={geodesyImg}
-          alt='Historisk fotografi av landmåling'
-        />
+        <img src={geodesyImg} alt="Historisk fotografi av landmåling" />
       </Card.Block>
       <Card.Block>
         <Heading>Geodesi</Heading>
         <Paragraph>
-          Geodesi er faget som måler og beskriver jordens form, bevegelse og tyngdefelt. Kunnskapen brukes for å plassere alt annet riktig på kart.
+          Geodesi er faget som måler og beskriver jordens form, bevegelse og tyngdefelt. Kunnskapen
+          brukes for å plassere alt annet riktig på kart.
         </Paragraph>
       </Card.Block>
     </Card>
   ),
 };
 
-const houseImg = 'https://images.unsplash.com/photo-1730184474747-f0b85ebc5f94?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+const houseImg =
+  'https://images.unsplash.com/photo-1730184474747-f0b85ebc5f94?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 export const WithLink: Story = {
   args: {
@@ -143,14 +139,11 @@ export const WithLink: Story = {
   render: (_args) => (
     <Card style={{ maxWidth: '320px' }}>
       <Card.Block>
-        <img
-          src={houseImg}
-          alt='Bilde av 3D-printet hus'
-        />
+        <img src={houseImg} alt="Bilde av 3D-printet hus" />
       </Card.Block>
       <Card.Block>
         <Heading>
-          <a href='#'>Innsyn i egne eiendomsopplysninger</a>
+          <a href="#">Innsyn i egne eiendomsopplysninger</a>
         </Heading>
         <Paragraph>
           Du kan se og registrere opplysninger om dine eiendommer på Kartverkets nettsider.
@@ -166,15 +159,15 @@ export const AsButton: Story = {
   },
   render: (_args) => (
     <Card asChild style={{ maxWidth: '320px' }}>
-      <button type='button'>
+      <button type="button">
         <Card.Block>
           <Heading>Innstillinger og personvern</Heading>
         </Card.Block>
         <Card.Block>
           <Paragraph>
-            Dette åpner en dialog der du kan oppdatere personvernvalg, justere
-            innstillinger og tilpasse hvordan tjenesten behandler informasjonen
-            din. Du kan se gjennom endringene før du lagrer.
+            Dette åpner en dialog der du kan oppdatere personvernvalg, justere innstillinger og
+            tilpasse hvordan tjenesten behandler informasjonen din. Du kan se gjennom endringene før
+            du lagrer.
           </Paragraph>
         </Card.Block>
       </button>
@@ -193,19 +186,19 @@ export const Horizontal: Story = {
         gridAutoFlow: 'column',
         width: '700px',
       }}
-      variant='tinted'
+      variant="tinted"
     >
       <Card.Block>
         <Heading>
-          <a href='https://kartverket.no/til-lands/posisjon/brukerveiledning-posisjonstjenester'>
+          <a href="https://kartverket.no/til-lands/posisjon/brukerveiledning-posisjonstjenester">
             Kartverkets brukerveiledning for posisjonstjenester
           </a>
         </Heading>
       </Card.Block>
       <Card.Block>
         <Paragraph>
-          Få en oversikt over oppsett av utstyr og spesielle forhold som gjelder
-          ved måling av CPOS og DPOS i denne brukerveiledningen for Kartverkets posisjonstjenester.
+          Få en oversikt over oppsett av utstyr og spesielle forhold som gjelder ved måling av CPOS
+          og DPOS i denne brukerveiledningen for Kartverkets posisjonstjenester.
         </Paragraph>
       </Card.Block>
     </Card>

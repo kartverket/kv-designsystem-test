@@ -12,7 +12,6 @@ Sammendrag av hva du har gjort.
 
 ## Sjekkliste
 
-
 - [ ] Dokumentasjonen er oppdatert (om nødvendig)
 - [ ] Commit-meldingene gir mening og følger retningslinjene for Conventional Commits
 - [ ] Komponenten er eksportert fra riktig fil

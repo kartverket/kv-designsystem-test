@@ -27,47 +27,38 @@ export type LogoProps = HTMLAttributes<HTMLElement> & {
   padding?: string;
 };
 
-export const Logo = forwardRef<HTMLDivElement, LogoProps>(
-  function Logo(
-    {
-      variant = 'horizontal',
-      size,
-      padding,
-      className,
-      style,
-      ...rest
-    },
-    ref,
-  ) {
-    const logoAlt = 'Kartverkets logo';
+export const Logo = forwardRef<HTMLDivElement, LogoProps>(function Logo(
+  { variant = 'horizontal', size, padding, className, style, ...rest },
+  ref,
+) {
+  const logoAlt = 'Kartverkets logo';
 
-    return (
-      <div
-        className={cl(`kvds-logo kvds-logo--${variant}`, className)}
-        ref={ref}
-        {...rest}
-        style={
-          {
-            '--kvdsc-logo-size': size,
-            '--kvdsc-logo-padding': padding,
-            ...style,
-          } as React.CSSProperties
-        }
-      >
-        {variant === 'horizontal' ? (
-          <>
-            <img src={logoHorizontal} alt={logoAlt} />
-            <img src={logoHorizontalNegative} alt={logoAlt} />
-          </>
-        ) : variant === 'vertical' ? (
-          <>
-            <img src={logoVertical} alt={logoAlt} />
-            <img src={logoVerticalNegative} alt={logoAlt} />
-          </>
-        ) : (
-          <img src={logoSymbol} alt={logoAlt} />
-        )}
-      </div>
-    );
-  }
-);
+  return (
+    <div
+      className={cl(`kvds-logo kvds-logo--${variant}`, className)}
+      ref={ref}
+      {...rest}
+      style={
+        {
+          '--kvdsc-logo-size': size,
+          '--kvdsc-logo-padding': padding,
+          ...style,
+        } as React.CSSProperties
+      }
+    >
+      {variant === 'horizontal' ? (
+        <>
+          <img src={logoHorizontal} alt={logoAlt} />
+          <img src={logoHorizontalNegative} alt={logoAlt} />
+        </>
+      ) : variant === 'vertical' ? (
+        <>
+          <img src={logoVertical} alt={logoAlt} />
+          <img src={logoVerticalNegative} alt={logoAlt} />
+        </>
+      ) : (
+        <img src={logoSymbol} alt={logoAlt} />
+      )}
+    </div>
+  );
+});

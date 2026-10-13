@@ -19,9 +19,7 @@
       "@kv-designsystem/icons": ["./@kv-designsystem/icons/src/index.ts"],
       "@kv-designsystem/icons/metadata": ["./@kv-designsystem/icons/src/metadata.ts"],
       "@kv-designsystem/symbols": ["./@kv-designsystem/symbols/generated-src/index.ts"],
-      "@kv-designsystem/symbols/metadata": [
-        "./@kv-designsystem/symbols/generated-src/metadata.ts"
-      ]
+      "@kv-designsystem/symbols/metadata": ["./@kv-designsystem/symbols/generated-src/metadata.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

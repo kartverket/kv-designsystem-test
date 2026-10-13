@@ -33,8 +33,8 @@ export const Preview: Story = {
   render: (_args) => (
     <Field>
       <Label>Fylke</Label>
-      <Select defaultValue=''>
-        <Select.Option value='' disabled>
+      <Select defaultValue="">
+        <Select.Option value="" disabled>
           Velg et fylke &hellip;
         </Select.Option>
         {fylker.map((fylke) => (
@@ -52,35 +52,33 @@ export const WithOptgroup: Story = {
     <Field>
       <Label>Park</Label>
       <Select>
-        <Select.Optgroup label='Grünerløkka'>
-          <Select.Option value='sofienbergparken'>
-            Sofienbergparken
-          </Select.Option>
-          <Select.Option value='birkelunden'>Birkelunden</Select.Option>
-          <Select.Option value='olafryesplass'>Olaf Ryes plass</Select.Option>
+        <Select.Optgroup label="Grünerløkka">
+          <Select.Option value="sofienbergparken">Sofienbergparken</Select.Option>
+          <Select.Option value="birkelunden">Birkelunden</Select.Option>
+          <Select.Option value="olafryesplass">Olaf Ryes plass</Select.Option>
         </Select.Optgroup>
-        <Select.Optgroup label='Sentrum'>
-          <Select.Option value='slottsparken'>Slottsparken</Select.Option>
-          <Select.Option value='studenterlunden'>Studenterlunden</Select.Option>
+        <Select.Optgroup label="Sentrum">
+          <Select.Option value="slottsparken">Slottsparken</Select.Option>
+          <Select.Option value="studenterlunden">Studenterlunden</Select.Option>
         </Select.Optgroup>
-        <Select.Optgroup label='Gamle Oslo'>
-          <Select.Option value='botsparken'>Botsparken</Select.Option>
-          <Select.Option value='klosterenga'>Klosterenga park</Select.Option>
+        <Select.Optgroup label="Gamle Oslo">
+          <Select.Option value="botsparken">Botsparken</Select.Option>
+          <Select.Option value="klosterenga">Klosterenga park</Select.Option>
         </Select.Optgroup>
       </Select>
     </Field>
-  )
+  ),
 };
 
 export const ReadOnly: Story = {
   render: (args) => (
     <Field>
       <Label>Fjell</Label>
-      <Select aria-readonly value='everest' {...args}>
-        <Select.Option value='everest'>Mount Everest</Select.Option>
+      <Select aria-readonly value="everest" {...args}>
+        <Select.Option value="everest">Mount Everest</Select.Option>
       </Select>
     </Field>
-  )
+  ),
 };
 
 export const Disabled: Story = {
@@ -88,9 +86,9 @@ export const Disabled: Story = {
     <Field>
       <Label>Fjell</Label>
       <Select disabled>
-        <Select.Option value='blank'>Velg &hellip;</Select.Option>
-        <Select.Option value='everest'>Mount Everest</Select.Option>
+        <Select.Option value="blank">Velg &hellip;</Select.Option>
+        <Select.Option value="everest">Mount Everest</Select.Option>
       </Select>
     </Field>
-  )
+  ),
 };

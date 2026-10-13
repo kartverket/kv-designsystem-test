@@ -31,12 +31,10 @@ const files = getCssFiles(ROOT)
   .sort() // important for deterministic builds
   .map((file) => {
     // make path relative to the css package
-    const relativePath = path.relative(
-      path.resolve('src'),
-      file
-    );
+    const relativePath = path.relative(path.resolve('src'), file);
     return `@import "${relativePath}" layer(kv.components);`;
-  }).join('\n');
+  })
+  .join('\n');
 
 fs.writeFileSync(OUTPUT, files);
 

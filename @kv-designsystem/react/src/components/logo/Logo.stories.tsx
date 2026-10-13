@@ -15,33 +15,31 @@ export const Preview: Story = {
   args: {
     variant: 'horizontal',
   },
-  render: (args) => (
-    <Logo {...args} />
-  ),
+  render: (args) => <Logo {...args} />,
 };
 
 export const Variants: Story = {
   render: (_args) => (
     <div>
       <Logo />
-      <Logo variant='vertical' size='var(--ds-size-18)' />
+      <Logo variant="vertical" size="var(--ds-size-18)" />
     </div>
-  )
+  ),
 };
 
 export const Symbol: Story = {
   render: (_args) => (
     <div>
-      <Logo variant='symbol' size='var(--ds-size-18)' />
+      <Logo variant="symbol" size="var(--ds-size-18)" />
     </div>
-  )
+  ),
 };
 
 export const Negative: Story = {
   render: (_args) => (
-    <div data-color-scheme='dark'>
-      <Logo variant='horizontal' />
-      <Logo variant='vertical' size='var(--ds-size-18)' />
+    <div data-color-scheme="dark">
+      <Logo variant="horizontal" />
+      <Logo variant="vertical" size="var(--ds-size-18)" />
     </div>
-  )
+  ),
 };

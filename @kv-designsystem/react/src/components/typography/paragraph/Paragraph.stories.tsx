@@ -14,21 +14,21 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   render: (_args) => (
     <Paragraph>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed sodales lacus.
-      Nullam varius erat sit amet arcu fringilla eleifend. Aenean dictum libero leo,
-      vitae consequat augue luctus vel.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed sodales lacus. Nullam varius
+      erat sit amet arcu fringilla eleifend. Aenean dictum libero leo, vitae consequat augue luctus
+      vel.
     </Paragraph>
-  )
+  ),
 };
 
 export const Sizes: Story = {
   render: (_args) => (
     <>
-      <Paragraph data-size='xl'>Dette er et xl avsnitt</Paragraph>
-      <Paragraph data-size='lg'>Dette er et lg avsnitt</Paragraph>
-      <Paragraph data-size='md'>Dette er et md avsnitt</Paragraph>
-      <Paragraph data-size='sm'>Dette er et sm avsnitt</Paragraph>
-      <Paragraph data-size='xs'>Dette er et xs avsnitt</Paragraph>
+      <Paragraph data-size="xl">Dette er et xl avsnitt</Paragraph>
+      <Paragraph data-size="lg">Dette er et lg avsnitt</Paragraph>
+      <Paragraph data-size="md">Dette er et md avsnitt</Paragraph>
+      <Paragraph data-size="sm">Dette er et sm avsnitt</Paragraph>
+      <Paragraph data-size="xs">Dette er et xs avsnitt</Paragraph>
     </>
-  )
+  ),
 };

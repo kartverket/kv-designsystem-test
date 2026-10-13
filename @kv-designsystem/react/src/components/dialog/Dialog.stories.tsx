@@ -42,24 +42,17 @@ export const Preview: Story = {
               marginTop: 'var(--ds-size-4)',
             }}
           >
-            <Button
-              variant='primary'
-              data-command='close'
-            >
+            <Button variant="primary" data-command="close">
               Lagre
             </Button>
-            <Button
-              variant='secondary'
-              data-color='danger'
-              data-command='close'
-            >
+            <Button variant="secondary" data-color="danger" data-command="close">
               Avbryt
             </Button>
           </div>
         </Dialog.Block>
       </Dialog>
     </Dialog.TriggerContext>
-  )
+  ),
 };
 
 export const DialogNonModal: Story = {
@@ -68,7 +61,7 @@ export const DialogNonModal: Story = {
       story: {
         inline: false, // Render story in an iframe to ensure vw and vh units are based on the preview viewport.
         iframeHeight: '350px',
-      }
+      },
     },
   },
   render: (_args) => (
@@ -92,12 +85,10 @@ export const DialogNonModal: Story = {
             maxWidth: '350px',
           }}
         >
-          <Heading style={{ marginBottom: 'var(--ds-size-4)' }}>
-            Vi ønsker din mening
-          </Heading>
-          <Label htmlFor='my-textarea'>Hvordan var din opplevelse?</Label>
+          <Heading style={{ marginBottom: 'var(--ds-size-4)' }}>Vi ønsker din mening</Heading>
+          <Label htmlFor="my-textarea">Hvordan var din opplevelse?</Label>
           <Textarea
-            id='my-textarea'
+            id="my-textarea"
             style={{
               marginBottom: 'var(--ds-size-6)',
             }}
@@ -106,16 +97,16 @@ export const DialogNonModal: Story = {
         </Dialog>
       </Dialog.TriggerContext>
     </div>
-  )
+  ),
 };
 
 export const WithCommand: Story = {
   render: (_args) => (
     <>
-      <Button command='show-modal' commandfor='dialog-with-command'>
+      <Button command="show-modal" commandfor="dialog-with-command">
         Åpne Dialog med command
       </Button>
-      <Dialog id='dialog-with-command'>
+      <Dialog id="dialog-with-command">
         <Dialog.Block>
           <Heading>
             Dialog med <code>command</code>
@@ -123,22 +114,18 @@ export const WithCommand: Story = {
         </Dialog.Block>
         <Dialog.Block>
           <Paragraph>
-            Her bruker vi <code>command</code> og <code>commandfor</code> for
-            å åpne og lukke dialogen
+            Her bruker vi <code>command</code> og <code>commandfor</code> for å åpne og lukke
+            dialogen
           </Paragraph>
         </Dialog.Block>
         <Dialog.Block>
-          <Button
-            variant='secondary'
-            command='close'
-            commandfor='dialog-with-command'
-          >
+          <Button variant="secondary" command="close" commandfor="dialog-with-command">
             Lukk dialog
           </Button>
         </Dialog.Block>
       </Dialog>
     </>
-  )
+  ),
 };
 
 export const Drawer: Story = {
@@ -156,7 +143,7 @@ export const Drawer: Story = {
         }}
       >
         <Checkbox
-          label='Modal'
+          label="Modal"
           checked={modal}
           style={{ marginBottom: 'var(--ds-size-4)' }}
           onChange={(e) => setModal(e.target.checked)}
@@ -175,21 +162,16 @@ export const Drawer: Story = {
               marginBottom: 'var(--ds-size-8)',
             }}
           >
-            <Radio name='drawer' label='Midten' value='middle' />
-            <Radio name='drawer' label='Topp' value='top' />
-            <Radio name='drawer' label='Bunn' value='bottom' />
-            <Radio name='drawer' label='Venstre' value='left' />
-            <Radio name='drawer' label='Høyre' value='right' />
+            <Radio name="drawer" label="Midten" value="middle" />
+            <Radio name="drawer" label="Topp" value="top" />
+            <Radio name="drawer" label="Bunn" value="bottom" />
+            <Radio name="drawer" label="Venstre" value="left" />
+            <Radio name="drawer" label="Høyre" value="right" />
           </div>
         </Fieldset>
         <Dialog.TriggerContext>
           <Dialog.Trigger>Åpne Dialog</Dialog.Trigger>
-          <Dialog
-            modal={modal}
-            closedby='any'
-            placement={placement}
-            style={{ zIndex: '10' }}
-          >
+          <Dialog modal={modal} closedby="any" placement={placement} style={{ zIndex: '10' }}>
             <Dialog.Block>
               <Paragraph>
                 Dette er en {modal ? 'modal' : 'non-modal'} Dialog med{' '}
@@ -200,5 +182,5 @@ export const Drawer: Story = {
         </Dialog.TriggerContext>
       </div>
     );
-  }
+  },
 };

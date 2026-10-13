@@ -1,6 +1,6 @@
 import {
   EXPERIMENTAL_AvatarStack as AvatarStack,
-  type AvatarStackProps
+  type AvatarStackProps,
 } from '@digdir/designsystemet-react';
 
 // Fixing AvatarStacl being displayed as React.ForwardRef in Storybook preview code snippets.
