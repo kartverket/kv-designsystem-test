@@ -14,13 +14,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (__args) => (
+  render: (args) => (
     <Field>
       <Label>Last opp profilbilde</Label>
       <Field.Description>
         Filen må være i JPG- eller PNG-format og mindre enn 2MB
       </Field.Description>
-      <FileUpload>
+      <FileUpload {...args}>
         <Field.Description>Slipp fil her</Field.Description>
         <Button asChild data-variant='secondary'>
           <span>Velg fil</span>

@@ -1,22 +1,35 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Search } from './Search';
+import { subcomponents } from './docs/subcomponents';
 import { Divider } from '../divider/Divider';
 import { Spinner } from '../spinner/Spinner';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ComponentProps } from 'react';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
+import { screenReaderTextArgType } from '../../../.storybook/utils/screenReaderTextArgType';
+
+// Not a prop, but a data attribute Search reads its screen reader text from. Added so Controls
+// shows the replacement for the deprecated prop `aria-label` on Search.Clear.
+type SearchStoryArgs = ComponentProps<typeof Search> & { 'data-sr-clear'?: string };
 
 const meta = {
   component: Search,
+  subcomponents,
   parameters: { layout: 'centered' },
-} satisfies Meta<typeof Search>;
+  argTypes: {
+    'data-sr-clear': screenReaderTextArgType({
+      description: 'Screen reader label of the clear button. Replaces `aria-label` on `Search.Clear`.',
+      defaultValue: 'Clear input',
+    }),
+  },
+} satisfies Meta<SearchStoryArgs>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<SearchStoryArgs>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Search>
+  render: (args) => (
+    <Search {...args}>
       <Search.Input aria-label='Søk' />
       <Search.Clear />
       <Search.Button />

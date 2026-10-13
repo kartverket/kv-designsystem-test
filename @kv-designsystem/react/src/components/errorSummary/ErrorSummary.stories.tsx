@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ErrorSummary } from './ErrorSummary';
+import { subcomponents } from './docs/subcomponents';
 import { Textfield } from '../textfield/Textfield';
 
 const meta = {
   component: ErrorSummary,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof ErrorSummary>;
 
@@ -11,8 +13,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <ErrorSummary>
+  render: (args) => (
+    <ErrorSummary {...args}>
       <ErrorSummary.Heading>
         For å gå videre må du rette opp følgende feil:
       </ErrorSummary.Heading>

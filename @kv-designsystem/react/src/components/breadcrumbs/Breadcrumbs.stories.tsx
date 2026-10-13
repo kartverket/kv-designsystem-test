@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Breadcrumbs } from './Breadcrumbs';
+import { subcomponents } from './docs/subcomponents';
 
 const meta = {
 	component: Breadcrumbs,
+	subcomponents,
 	parameters: { layout: 'centered' },
 } satisfies Meta<typeof Breadcrumbs>;
 

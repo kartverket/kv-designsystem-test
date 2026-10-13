@@ -4,15 +4,19 @@ import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 
 const meta = {
-  component: Footer
+  component: Footer,
+  subcomponents: {
+    'Footer.List': Footer.List,
+    'Footer.Item': Footer.Item,
+  },
 } satisfies Meta<typeof Footer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Footer>
+  render: (args) => (
+    <Footer {...args}>
       <Footer.List>
         <Footer.Item>
           <Heading data-size='2xs'>

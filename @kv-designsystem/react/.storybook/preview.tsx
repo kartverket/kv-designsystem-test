@@ -8,6 +8,7 @@ import '@digdir/designsystemet-css'; /* imported only once */
 // import '../.storybook/style.css';
 import '../src/components/variables.css';
 import customTheme from './docs/customTheme';
+import { extractKvdsArgTypes } from './utils/extractKvdsArgTypes';
 
 declare global {
   interface Window {
@@ -41,6 +42,7 @@ const preview: Preview = {
     docs: {
       theme: customTheme,
       components: componentOverrides,
+      extractArgTypes: extractKvdsArgTypes,
     }
   },
   globalTypes: {

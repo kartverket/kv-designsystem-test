@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Popover } from './Popover';
+import { subcomponents } from './docs/subcomponents';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Button } from '../button/Button';
 import { TrashIcon } from '@navikt/aksel-icons';
@@ -7,6 +8,7 @@ import { useState } from 'react';
 
 const meta = {
   component: Popover,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Popover>;
 
@@ -14,10 +16,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
+  render: (args) => (
     <Popover.TriggerContext>
       <Popover.Trigger>Åpne popover</Popover.Trigger>
-      <Popover placement='top'>
+      <Popover placement='top' {...args}>
         Popoveren gir en rask beskjed. Her kan du vise brukeren informasjon som
         er relevant for konteksten.
       </Popover>

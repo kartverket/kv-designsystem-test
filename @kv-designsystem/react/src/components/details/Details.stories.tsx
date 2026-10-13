@@ -1,18 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Details } from './Details';
+import { subcomponents } from './docs/subcomponents';
 import { Card } from '../card/Card';
 import { Heading } from '../typography/heading/Heading';
 
 const meta = {
   component: Details,
+  subcomponents,
 } satisfies Meta<typeof Details>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Details>
+  render: (args) => (
+    <Details {...args}>
       <Details.Summary>
         Hvor lang tid tar det å tinglyse et dokument?
       </Details.Summary>

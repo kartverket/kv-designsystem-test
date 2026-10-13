@@ -1,7 +1,10 @@
 import cl from 'clsx/lite';
-import { forwardRef, type HTMLAttributes } from 'react';
+import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 
-export type HeaderNavProps = HTMLAttributes<HTMLUListElement>;
+export type HeaderNavProps = Omit<HTMLAttributes<HTMLUListElement>, 'children'> & {
+  /** Should be one or more Header.NavItem elements */
+  children?: ReactNode;
+};
 
 export const HeaderNav = forwardRef<HTMLUListElement, HeaderNavProps>(
   function HeaderNav({ children, className, ...rest }, ref) {

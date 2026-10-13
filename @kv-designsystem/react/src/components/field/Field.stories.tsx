@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Field } from './Field';
+import { subcomponents } from './docs/subcomponents';
 import { Label } from '../typography/label/Label';
 import { Input } from '../input/Input';
 import { ValidationMessage } from '../typography/validationMessage/ValidationMessage';
 import { Textarea } from '../textarea/Textarea';
 const meta = {
   component: Field,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Field>;
 
@@ -13,8 +15,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Field>
+  render: (args) => (
+    <Field {...args}>
       <Label>Etternavn</Label>
       <Field.Description>Etternavn kan ikke inneholde mellomrom</Field.Description>
       <Input defaultValue='Nordmann Svenske' />
