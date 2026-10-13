@@ -80,32 +80,64 @@ export const DialogNonModal: Story = {
         position: 'relative',
       }}
     >
-    <Dialog.TriggerContext>
-      <Dialog.Trigger>Åpne ikke-modal Dialog</Dialog.Trigger>
-      <Dialog
-        modal={false}
-        style={{
-          zIndex: '10',
-          top: 'calc(100vh - 290px)',
-          left: 'calc(100vw - 385px)',
-          margin: 0,
-          maxWidth: '350px',
-        }}
-      >
-        <Heading style={{ marginBottom: 'var(--ds-size-4)' }}>
-          Vi ønsker din mening
-        </Heading>
-        <Label htmlFor='my-textarea'>Hvordan var din opplevelse?</Label>
-        <Textarea
-          id='my-textarea'
+      <Dialog.TriggerContext>
+        <Dialog.Trigger>Åpne ikke-modal Dialog</Dialog.Trigger>
+        <Dialog
+          modal={false}
           style={{
-            marginBottom: 'var(--ds-size-6)',
+            zIndex: '10',
+            top: 'calc(100vh - 290px)',
+            left: 'calc(100vw - 385px)',
+            margin: 0,
+            maxWidth: '350px',
           }}
-        />
-        <Button>Send inn</Button>
+        >
+          <Heading style={{ marginBottom: 'var(--ds-size-4)' }}>
+            Vi ønsker din mening
+          </Heading>
+          <Label htmlFor='my-textarea'>Hvordan var din opplevelse?</Label>
+          <Textarea
+            id='my-textarea'
+            style={{
+              marginBottom: 'var(--ds-size-6)',
+            }}
+          />
+          <Button>Send inn</Button>
+        </Dialog>
+      </Dialog.TriggerContext>
+    </div>
+  )
+};
+
+export const WithCommand: Story = {
+  render: (_args) => (
+    <>
+      <Button command='show-modal' commandfor='dialog-with-command'>
+        Åpne Dialog med command
+      </Button>
+      <Dialog id='dialog-with-command'>
+        <Dialog.Block>
+          <Heading>
+            Dialog med <code>command</code>
+          </Heading>
+        </Dialog.Block>
+        <Dialog.Block>
+          <Paragraph>
+            Her bruker vi <code>command</code> og <code>commandfor</code> for
+            å åpne og lukke dialogen
+          </Paragraph>
+        </Dialog.Block>
+        <Dialog.Block>
+          <Button
+            variant='secondary'
+            command='close'
+            commandfor='dialog-with-command'
+          >
+            Lukk dialog
+          </Button>
+        </Dialog.Block>
       </Dialog>
-    </Dialog.TriggerContext>
-  </div>
+    </>
   )
 };
 

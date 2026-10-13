@@ -73,3 +73,36 @@ export const DottedUnderline: Story = {
     </Popover.TriggerContext>
   )
 };
+
+export const WithPopovertarget: Story = {
+  render: (_args) => {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <>
+        <Button
+          data-color='danger'
+          popovertarget='popover'
+          onClick={() => setOpen(!open)}
+        >
+          Slett
+        </Button>
+        <Popover
+          id='popover'
+          open={open}
+          onClose={() => setOpen(false)}
+          data-color='danger'
+        >
+          <Paragraph>Er du sikker på at du vil slette?</Paragraph>
+          <Button
+            onClick={() => setOpen(false)}
+            data-size='sm'
+            style={{ marginTop: 'var(--ds-size-2)' }}
+          >
+            Slett
+          </Button>
+        </Popover>
+      </>
+    );
+  },
+};

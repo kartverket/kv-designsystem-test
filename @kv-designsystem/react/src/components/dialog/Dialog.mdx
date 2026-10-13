@@ -1,4 +1,5 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import { Alert } from '../alert/Alert';
 import * as DialogStories from './Dialog.stories';
 
 <Meta of={DialogStories} />
@@ -33,6 +34,18 @@ Vi har to typer dialoger: modale og ikke-modale. En modal dialog stopper arbeids
 - du gir brukeren kritiske valg, bekreftelser eller varsler som de må ta stilling til før de kan fortsette – bruk heller modal `Dialog`
 
 På mobil kan en ikke-modal `Dialog` være problematisk på grunn av begrenset skjermplass. Den kan dekke viktig innhold og forstyrre brukeropplevelsen. I slike tilfeller kan det være bedre å bruke modal `Dialog` eller andre løsninger.
+
+## Eksempler
+
+### Åpne og lukke med command og commandFor
+
+<Alert className='sb-unstyled' style={{ marginBottom: 'var(--ds-size-4)' }}>
+  Attributtene [`command` og `commandfor` (Mozilla Developer Network)](https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement/command) er en relativt ny del av web-standarden som lar knapper utføre handlinger på andre elementer direkte i HTML. Vi legger derfor automatisk til [invokers-polyfill (npmjs.com)](https://www.npmjs.com/package/invokers-polyfill/v/0.5.2) for å støtte eldre nettlesere.
+</Alert>
+
+Bruk `command` til å angi handlingen, og `commandfor` for å peke på dialogen knappen skal styre. For å åpne en dialog bruker du `command='show-modal'` for modal `Dialog` eller `command='--show-non-modal'` for ikke-modal `Dialog`. For å lukke dialogen bruker du `command='close'`. Alle knappene må ha `commandfor='DIALOG-ID'` for å knyttes til riktig `Dialog`.
+
+<Canvas of={DialogStories.WithCommand} />
 
 ## Retningslinjer
 
