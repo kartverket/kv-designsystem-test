@@ -3,7 +3,6 @@
   "singleQuote": true,
   "printWidth": 100,
   "trailingComma": "all",
-  "sortPackageJson": false,
   "ignorePatterns": [
     "/pnpm-lock.yaml",
     "/design-tokens",
