@@ -34,7 +34,6 @@
     "./dist"
   ],
   "scripts": {
-    "format-check": "pretty-format-check",
     "lint": "oxlint --type-aware --max-warnings 0",
     "lint-circular-dependencies": "pnpm madge --circular ./src/alpha.ts",
     "typecheck": "tsgo --build",
