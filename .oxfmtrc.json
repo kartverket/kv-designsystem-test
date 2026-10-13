@@ -13,6 +13,7 @@
     "/.nx/workspace-data",
     "*.generated.ts",
     "*.generated.tsx",
+    "*.mdx",
     "/@kv-designsystem/css/src/components.css",
     "/@kv-designsystem/theme/dist"
   ]
