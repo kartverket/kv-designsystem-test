@@ -66,11 +66,14 @@ Dette er et pnpm-workspace som styres med [Nx](https://nx.dev/). Alle kommandoer
 | Samme sjekk som CI (format, lint, typesjekk, bygg) | `pnpm build`              |
 | Kjøre Storybook (port 6006)                        | `pnpm nx dev`             |
 | Linte ett prosjekt                                 | `pnpm nx lint <prosjekt>` |
-| Sjekke formatering                                 | `pnpm nx format:check`    |
-| Fikse formatering                                  | `pnpm nx format:write`    |
+| Sjekke formatering (kun endrede filer)             | `pnpm format:check`       |
+| Fikse formatering                                  | `pnpm format <filer>`     |
 
 > [!NOTE]
-> `pnpm build` kjører linting, formattering og deretter `pnpm nx build`. Den er altså mer omfattende uten å kjøre nx varianten, vi anbefaler den.
+> `pnpm build` sjekker formatering og kjører deretter typesjekk, linting og bygg for alle prosjekter som er endret siden `main`. Det er det samme som CI kjører, så vi anbefaler den før du pusher.
+
+> [!WARNING]
+> Ikke bruk `pnpm nx format`, `pnpm nx format:check` eller `pnpm nx format:write`. Dette er Nx sine innebygde kommandoer, og de bruker fortsatt Prettier, ikke oxfmt. De vil derfor formatere filene annerledes enn det CI forventer. Bruk `pnpm format` og `pnpm format:check` i stedet.
 
 Prosjektene er `@kv-designsystem/react`, `@kv-designsystem/css`, `@kv-designsystem/theme` og `design-tokens`. Nx bygger avhengigheter i riktig rekkefølge og cacher resultatet, så `pnpm nx <target> <prosjekt>` fungerer for alle targets. `pnpm nx show project <prosjekt> --web` viser hvilke targets et prosjekt har, og `pnpm nx reset` tømmer cachen hvis noe virker utdatert.
 
