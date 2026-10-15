@@ -6,19 +6,15 @@ import { Heading } from 'src/components/typography/heading/Heading';
 export const CheckboxEx1 = () => {
   return (
     <DoDontGroup>
-      <Do description="Formuler spørsmål og svar som en samtale mellom to parter">
-        <Fieldset
-          style={{
-            flexDirection: 'column',
-          }}
-        >
+      <Do description="Formuler spørsmål og svar som en samtale mellom to parter.">
+        <Fieldset>
           <Fieldset.Legend>Hva vil du melde inn om eiendommen?</Fieldset.Legend>
           <Checkbox label="Feil i eiendomsgrenser" value="eiendomsgrenser" />
           <Checkbox label="Feil eller manglende adresse" value="adresse" />
           <Checkbox label="Endring i bygningsinformasjon" value="bygningsinformasjon" />
         </Fieldset>
       </Do>
-      <Dont description="Ikke bruk passivt språk">
+      <Dont description="Ikke bruk passivt språk.">
         <Fieldset>
           <Fieldset.Legend>Meldes inn om eiendommen</Fieldset.Legend>
           <Checkbox label="Feil i eiendomsgrenser" value="eiendomsgrenser" />
@@ -35,7 +31,6 @@ export const CheckboxEx2 = () => {
     <DoDontGroup>
       <Do description="Bruk enkeltord eller korte setninger for forklaring og alternativer">
         <div
-          data-size="sm"
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -60,7 +55,6 @@ export const CheckboxEx2 = () => {
       </Do>
       <Dont description="Ikke bruk unødvendig lange setninger">
         <div
-          data-size="sm"
           style={{
             display: 'flex',
             flexDirection: 'column',
