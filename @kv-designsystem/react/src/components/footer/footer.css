@@ -21,7 +21,7 @@
   column-gap: var(--kvdsc-footer-column-gap);
 
   box-sizing: content-box;
-  padding: var(--ds-size-10) var(--kvds-layout-padding-inline);
+  padding: var(--ds-size-10) var(--kvds-frame-padding-inline);
 }
 
 .footer-columns {

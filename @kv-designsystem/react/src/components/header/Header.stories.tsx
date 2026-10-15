@@ -398,7 +398,7 @@ export const WithScroll: Story = {
           style={{
             maxWidth: '70ch',
             justifyContent: 'left',
-            padding: 'var(--ds-size-18) clamp(var(--kvds-layout-padding-inline), 10vw, calc(var(--ds-size-15) * 2))',
+            padding: 'var(--ds-size-18) clamp(var(--kvds-frame-padding-inline), 10vw, calc(var(--ds-size-15) * 2))',
           }}>
           <Heading
             data-size='md'
