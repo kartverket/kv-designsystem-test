@@ -53,6 +53,7 @@
     "@kv-designsystem/css": "workspace:*",
     "@kv-designsystem/theme": "workspace:*",
     "@navikt/aksel-icons": "catalog:",
+    "clsx": "catalog:",
     "tslib": "catalog:"
   },
   "devDependencies": {
@@ -68,7 +69,6 @@
     "@vitejs/plugin-react": "catalog:",
     "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",
-    "clsx": "catalog:",
     "eslint-plugin-storybook": "catalog:",
     "nx": "catalog:",
     "playwright": "catalog:",
