@@ -1,6 +1,7 @@
 import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
 import * as CheckboxStories from './Checkbox.stories';
 import * as useCheckboxGroupStories from '../../utilities/hooks/useCheckboxGroup/useCheckboxGroup.stories';
+import { CheckboxEx1, CheckboxEx2 } from './docs/doAndDont';
 
 <Meta of={CheckboxStories} />
 
@@ -90,45 +91,13 @@ Nav har en god forklaring på [hvorfor deaktiverte tilstander er problematiske, 
 
 Formuler forklaringen og alternativene som spørsmål og svar. Tenk på skjemaet som en samtale med den som svarer. Brukerne leser gjerne innholdet i den rekkefølgen det opptrer i skjemaet.
 
-{/* *Do/Don't Story – funksjonalitet må lages* 
-
-Eksempel – Gjør:
-Hva vil du melde inn om eiendommen?
-☐ Feil i eiendomsgrenser 
-☐ Feil eller manglende adresse  
-☐ Endring i bygningsinformasjon
-
-Eksempel – Ikke gjør:
-Meldes inn om eiendommen
-☐ Feil i eiendomsgrenser 
-☐ Feil eller manglende adresse 
-☐ Endring i bygningsinformasjon */}
+<CheckboxEx1 />
 
 ### I andre grensesnitt
 
 Når `Checkbox` er brukt som del av andre typer interaktive elementer, er det ofte som del av filtre eller andre handlinger. Her forventer vi at brukeren skanner raskt etter mulige handlinger ved behov, og at det ikke nødvendigvis leses i rekkefølge. Unngå derfor overflødig tekst.
 
-{/* *Do/Don't Story – funksjonalitet må lages* 
-
-Eksempel – Gjør:
-Område
-☐ Alna 
-☐ Bjerke 
-☐ Frogner
-
-Kartlag
-☐ Gåstier 
-☐ Skiløyper
-
-Eksempel – Ikke gjør:
-Hvilke områder er du interessert i?
-☐ Alna 
-☐ Bjerke 
-☐ Frogner
-
-Hvilke kartlag ønsker du å se?
-☐ Gåstier
-☐ Skiløyper */}
+<CheckboxEx2 />
 
 ## Tilgjengelighet
 

@@ -2,6 +2,7 @@ import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
 import * as ButtonStories from './Button.stories';
 import { Alert } from '../alert/Alert';
 import { Heading } from '../typography/heading/Heading';
+import { ButtonEx1, ButtonEx2 } from './docs/doAndDont';
 
 <Meta of={ButtonStories} />
 
@@ -101,9 +102,13 @@ I eksempelet over blir `aria-disabled` satt av `loading='true'`. Skjermlesere og
 
 Knappen skal beskrive én tydelig handling. Kombiner aldri flere handlinger i samme knapp.
 
+<ButtonEx1 />
+
 ### Én hovedhandling per side
 
 Sørg for at brukeren lett ser hva som er viktigst. Flere primærknapper på en side skaper usikkerhet.
+
+<ButtonEx2 />
 
 ### Plassering
 
