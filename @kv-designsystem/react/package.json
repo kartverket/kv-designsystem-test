@@ -53,6 +53,7 @@
     "@kv-designsystem/css": "workspace:*",
     "@kv-designsystem/theme": "workspace:*",
     "@navikt/aksel-icons": "catalog:",
+    "@radix-ui/react-slot": "catalog:",
     "clsx": "catalog:",
     "tslib": "catalog:"
   },

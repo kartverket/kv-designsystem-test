@@ -1,0 +1,180 @@
+/* Resets with zero specificity, so all other rules win, including consumers' own */
+:where(.kvds-flex:not([hidden])) {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+:where(.kvds-grid:not([hidden])) {
+  display: grid;
+}
+
+:where(.kvds-flex, .kvds-grid) {
+  box-sizing: border-box;
+  gap: var(--ds-size-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:where(.kvds-flex > *, .kvds-grid > *) {
+  margin-block: 0; /* The gap controls the spacing, so margins on headings, paragraphs and lists would add to it */
+  min-width: 0; /* Lets children shrink below their content width instead of overflowing. https://css-tricks.com/preventing-a-grid-blowout/ */
+}
+
+.kvds-flex > svg {
+  flex-shrink: 0; /* Never squeeze icons */
+}
+
+.kvds-flex,
+.kvds-grid {
+  &[data-max-width] {
+    /* Declared on each container, so an override never leaks into nested containers.
+       Defaults to the padding of Header and Footer, so the content lines up with them. */
+    --kvdsc-layout-padding-inline: var(--kvds-layout-padding-inline);
+
+    /* Adds the padding on top of the max width, so the content itself gets the full max width */
+    max-width: calc(var(--kvdsc-layout-max-width) + 2 * var(--kvdsc-layout-padding-inline));
+    width: 100%; /* Auto margins stop grid and flex items from stretching, so fill the width explicitly */
+    margin-inline: auto;
+    padding-inline: var(--kvdsc-layout-padding-inline);
+  }
+
+  &[data-gap="0"] { gap: 0px; }
+  &[data-gap="1"] { gap: var(--ds-size-1); }
+  &[data-gap="2"] { gap: var(--ds-size-2); }
+  &[data-gap="3"] { gap: var(--ds-size-3); }
+  &[data-gap="4"] { gap: var(--ds-size-4); }
+  &[data-gap="5"] { gap: var(--ds-size-5); }
+  &[data-gap="6"] { gap: var(--ds-size-6); }
+  &[data-gap="7"] { gap: var(--ds-size-7); }
+  &[data-gap="8"] { gap: var(--ds-size-8); }
+  &[data-gap="9"] { gap: var(--ds-size-9); }
+  &[data-gap="10"] { gap: var(--ds-size-10); }
+  &[data-gap="11"] { gap: var(--ds-size-11); }
+  &[data-gap="12"] { gap: var(--ds-size-12); }
+  &[data-gap="13"] { gap: var(--ds-size-13); }
+  &[data-gap="14"] { gap: var(--ds-size-14); }
+  &[data-gap="15"] { gap: var(--ds-size-15); }
+  &[data-gap="18"] { gap: var(--ds-size-18); }
+  &[data-gap="22"] { gap: var(--ds-size-22); }
+  &[data-gap="26"] { gap: var(--ds-size-26); }
+  &[data-gap="30"] { gap: var(--ds-size-30); }
+
+  &[data-row-gap="0"] { row-gap: 0px; }
+  &[data-row-gap="1"] { row-gap: var(--ds-size-1); }
+  &[data-row-gap="2"] { row-gap: var(--ds-size-2); }
+  &[data-row-gap="3"] { row-gap: var(--ds-size-3); }
+  &[data-row-gap="4"] { row-gap: var(--ds-size-4); }
+  &[data-row-gap="5"] { row-gap: var(--ds-size-5); }
+  &[data-row-gap="6"] { row-gap: var(--ds-size-6); }
+  &[data-row-gap="7"] { row-gap: var(--ds-size-7); }
+  &[data-row-gap="8"] { row-gap: var(--ds-size-8); }
+  &[data-row-gap="9"] { row-gap: var(--ds-size-9); }
+  &[data-row-gap="10"] { row-gap: var(--ds-size-10); }
+  &[data-row-gap="11"] { row-gap: var(--ds-size-11); }
+  &[data-row-gap="12"] { row-gap: var(--ds-size-12); }
+  &[data-row-gap="13"] { row-gap: var(--ds-size-13); }
+  &[data-row-gap="14"] { row-gap: var(--ds-size-14); }
+  &[data-row-gap="15"] { row-gap: var(--ds-size-15); }
+  &[data-row-gap="18"] { row-gap: var(--ds-size-18); }
+  &[data-row-gap="22"] { row-gap: var(--ds-size-22); }
+  &[data-row-gap="26"] { row-gap: var(--ds-size-26); }
+  &[data-row-gap="30"] { row-gap: var(--ds-size-30); }
+
+  &[data-column-gap="0"] { column-gap: 0px; }
+  &[data-column-gap="1"] { column-gap: var(--ds-size-1); }
+  &[data-column-gap="2"] { column-gap: var(--ds-size-2); }
+  &[data-column-gap="3"] { column-gap: var(--ds-size-3); }
+  &[data-column-gap="4"] { column-gap: var(--ds-size-4); }
+  &[data-column-gap="5"] { column-gap: var(--ds-size-5); }
+  &[data-column-gap="6"] { column-gap: var(--ds-size-6); }
+  &[data-column-gap="7"] { column-gap: var(--ds-size-7); }
+  &[data-column-gap="8"] { column-gap: var(--ds-size-8); }
+  &[data-column-gap="9"] { column-gap: var(--ds-size-9); }
+  &[data-column-gap="10"] { column-gap: var(--ds-size-10); }
+  &[data-column-gap="11"] { column-gap: var(--ds-size-11); }
+  &[data-column-gap="12"] { column-gap: var(--ds-size-12); }
+  &[data-column-gap="13"] { column-gap: var(--ds-size-13); }
+  &[data-column-gap="14"] { column-gap: var(--ds-size-14); }
+  &[data-column-gap="15"] { column-gap: var(--ds-size-15); }
+  &[data-column-gap="18"] { column-gap: var(--ds-size-18); }
+  &[data-column-gap="22"] { column-gap: var(--ds-size-22); }
+  &[data-column-gap="26"] { column-gap: var(--ds-size-26); }
+  &[data-column-gap="30"] { column-gap: var(--ds-size-30); }
+
+  &[data-align-items="stretch"] { align-items: stretch; }
+  &[data-align-items="start"] { align-items: start; }
+  &[data-align-items="center"] { align-items: center; }
+  &[data-align-items="end"] { align-items: end; }
+  &[data-align-items="baseline"] { align-items: baseline; }
+
+  &[data-align-content="start"] { align-content: start; }
+  &[data-align-content="center"] { align-content: center; }
+  &[data-align-content="end"] { align-content: end; }
+  &[data-align-content="stretch"] { align-content: stretch; }
+  &[data-align-content="space-between"] { align-content: space-between; }
+  &[data-align-content="space-around"] { align-content: space-around; }
+  &[data-align-content="space-evenly"] { align-content: space-evenly; }
+}
+
+/**
+ * Flex
+ */
+.kvds-flex[data-flex-wrap="nowrap"] {
+  flex-wrap: nowrap;
+}
+
+/* justify-items has no effect in flexbox, so the attribute is an alias for justify-content to match Grid */
+.kvds-flex[data-justify-items="start"] { justify-content: start; }
+.kvds-flex[data-justify-items="center"] { justify-content: center; }
+.kvds-flex[data-justify-items="end"] { justify-content: end; }
+.kvds-flex[data-justify-items="space-between"] { justify-content: space-between; }
+.kvds-flex[data-justify-items="space-around"] { justify-content: space-around; }
+.kvds-flex[data-justify-items="space-evenly"] { justify-content: space-evenly; }
+
+/* The children grow to fill the row, but never get narrower than itemsMinWidth before wrapping.
+   Set directly on the children (not through a CSS variable), so a nested Flex with its own itemsMinWidth
+   still gets its size from the parent. */
+.kvds-flex[data-items-min-width] > * {
+  flex: 1 1 auto;
+}
+
+.kvds-flex[data-items-min-width="50"] > * { flex-basis: calc(50rem / 16); }
+.kvds-flex[data-items-min-width="100"] > * { flex-basis: calc(100rem / 16); }
+.kvds-flex[data-items-min-width="150"] > * { flex-basis: calc(150rem / 16); }
+.kvds-flex[data-items-min-width="200"] > * { flex-basis: calc(200rem / 16); }
+.kvds-flex[data-items-min-width="250"] > * { flex-basis: calc(250rem / 16); }
+.kvds-flex[data-items-min-width="300"] > * { flex-basis: calc(300rem / 16); }
+.kvds-flex[data-items-min-width="350"] > * { flex-basis: calc(350rem / 16); }
+.kvds-flex[data-items-min-width="400"] > * { flex-basis: calc(400rem / 16); }
+.kvds-flex[data-items-min-width="450"] > * { flex-basis: calc(450rem / 16); }
+.kvds-flex[data-items-min-width="500"] > * { flex-basis: calc(500rem / 16); }
+.kvds-flex[data-items-min-width="550"] > * { flex-basis: calc(550rem / 16); }
+.kvds-flex[data-items-min-width="600"] > * { flex-basis: calc(600rem / 16); }
+
+/**
+ * Grid
+ */
+.kvds-grid[data-items-min-width] {
+  /* As many columns as there is room for, each at least itemsMinWidth wide, but never wider than the container.
+     https://moderncss.dev/solutions-to-replace-the-12-column-grid/ */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--kvdsc-grid-items-min-width)), 1fr));
+}
+
+.kvds-grid[data-items-min-width="50"] { --kvdsc-grid-items-min-width: calc(50rem / 16); }
+.kvds-grid[data-items-min-width="100"] { --kvdsc-grid-items-min-width: calc(100rem / 16); }
+.kvds-grid[data-items-min-width="150"] { --kvdsc-grid-items-min-width: calc(150rem / 16); }
+.kvds-grid[data-items-min-width="200"] { --kvdsc-grid-items-min-width: calc(200rem / 16); }
+.kvds-grid[data-items-min-width="250"] { --kvdsc-grid-items-min-width: calc(250rem / 16); }
+.kvds-grid[data-items-min-width="300"] { --kvdsc-grid-items-min-width: calc(300rem / 16); }
+.kvds-grid[data-items-min-width="350"] { --kvdsc-grid-items-min-width: calc(350rem / 16); }
+.kvds-grid[data-items-min-width="400"] { --kvdsc-grid-items-min-width: calc(400rem / 16); }
+.kvds-grid[data-items-min-width="450"] { --kvdsc-grid-items-min-width: calc(450rem / 16); }
+.kvds-grid[data-items-min-width="500"] { --kvdsc-grid-items-min-width: calc(500rem / 16); }
+.kvds-grid[data-items-min-width="550"] { --kvdsc-grid-items-min-width: calc(550rem / 16); }
+.kvds-grid[data-items-min-width="600"] { --kvdsc-grid-items-min-width: calc(600rem / 16); }
+
+.kvds-grid[data-justify-items="stretch"] { justify-items: stretch; }
+.kvds-grid[data-justify-items="start"] { justify-items: start; }
+.kvds-grid[data-justify-items="center"] { justify-items: center; }
+.kvds-grid[data-justify-items="end"] { justify-items: end; }

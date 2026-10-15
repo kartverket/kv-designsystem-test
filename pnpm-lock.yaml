@@ -36,6 +36,9 @@ catalogs:
     '@nx/web':
       specifier: 22.7.12
       version: 22.7.12
+    '@radix-ui/react-slot':
+      specifier: ^1.3.3
+      version: 1.3.3
     '@storybook/addon-a11y':
       specifier: ^10.5.10
       version: 10.5.10
@@ -306,6 +309,9 @@ importers:
       '@navikt/aksel-icons':
         specifier: 'catalog:'
         version: 8.16.1(@types/react@19.2.18)(react@19.2.8)
+      '@radix-ui/react-slot':
+        specifier: 'catalog:'
+        version: 1.3.3(@types/react@19.2.18)(react@19.2.8)
       clsx:
         specifier: 'catalog:'
         version: 2.1.1
