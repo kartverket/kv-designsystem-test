@@ -1,11 +1,8 @@
 /* clamp() viewport width-values are based on clamp max / 1296px * 100  */
 
+/* Scaling gap size instead of media queries */
 .footer {
-  --kvdsc-footer-column-gap: clamp(
-    var(--ds-size-10),
-    9.259cqw,
-    var(--ds-size-30)
-  ); /* Scaling gap size instead of media queries */
+  --kvdsc-footer-column-gap: clamp(var(--ds-size-10), 9.259cqw, var(--ds-size-30));
   --kvdsc-footer-row-gap: var(--ds-size-10);
 
   background: var(--ds-color-neutral-background-tinted);
