@@ -38,3 +38,5 @@ storybook-static
 vite.config.*.timestamp*
 
 .npmrc
+
+.nx/migrate-runs
