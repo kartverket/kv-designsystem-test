@@ -11,9 +11,7 @@ catalog:
   '@digdir/designsystemet-types': ^1.23
   '@navikt/aksel-icons': ^8.16.1
   '@nx/eslint-plugin': 22.7.12
-  '@nx/storybook': 22.7.12
-  '@nx/vite': 22.7.12
-  '@nx/web': 22.7.12
+  '@nx/js': 22.7.12
   '@storybook/addon-a11y': ^10.6.2
   '@storybook/addon-docs': ^10.6.2
   '@storybook/addon-vitest': ^10.6.2
