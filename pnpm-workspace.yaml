@@ -10,8 +10,8 @@ catalog:
   '@digdir/designsystemet-react': ^1.23
   '@digdir/designsystemet-types': ^1.23
   '@navikt/aksel-icons': ^8.16.1
-  '@nx/eslint-plugin': 22.7.12
-  '@nx/js': 22.7.12
+  '@nx/eslint-plugin': 23.3.0
+  '@nx/js': 23.3.0
   '@storybook/addon-a11y': ^10.6.2
   '@storybook/addon-docs': ^10.6.2
   '@storybook/addon-vitest': ^10.6.2
@@ -32,7 +32,7 @@ catalog:
   eslint-plugin-import: ^2.32.0
   eslint-plugin-storybook: ^10.6.2
   madge: ^8.0.0
-  nx: 22.7.12
+  nx: 23.3.0
   oxfmt: ^0.72.0
   oxlint: ^1.87.0
   oxlint-tsgolint: ^7.0.2003
@@ -60,8 +60,7 @@ overrides:
   brace-expansion@<1.1.21: ^1.1.21
   brace-expansion@>=2.0.0 <2.1.7: ^2.1.7
   brace-expansion@>=4.0.0 <5.0.12: ^5.0.12
-  nx>axios: ^1.20.0
-  nx>smol-toml: ^1.9.0
+  nx>undici: ^7.29.1
 
 onlyBuiltDependencies:
   - esbuild
