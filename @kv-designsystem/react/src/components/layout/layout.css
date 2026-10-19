@@ -1,4 +1,5 @@
-/* Resets with zero specificity, so all other rules win, including consumers' own */
+/* Base rules with zero specificity. Note that this layer comes after Designsystemet's, so these rules
+   still beat Designsystemet's components, also when combined with asChild. Only reset what Flex and Grid need. */
 :where(.kvds-flex:not([hidden])) {
   display: flex;
   flex-wrap: wrap;
@@ -11,9 +12,13 @@
 :where(.kvds-flex, .kvds-grid) {
   box-sizing: border-box;
   gap: var(--ds-size-4);
+}
+
+/* Removes the bullets and indent from lists rendered with asChild. The margin is left alone,
+   so spacing from the parent (e.g. between the children of a Card) still applies. */
+:where(ul, ol, menu):where(.kvds-flex, .kvds-grid) {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  padding-inline-start: 0;
 }
 
 :where(.kvds-flex > *, .kvds-grid > *) {
