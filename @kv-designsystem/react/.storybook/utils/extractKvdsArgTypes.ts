@@ -13,6 +13,7 @@ import type { StrictArgTypes } from 'storybook/internal/types';
 // 4. Deprecated props (e.g. Avatar's `variant`) are hidden from the props table and Controls.
 // 5. data-color and data-size are hidden on subcomponents (e.g. Search.Clear), where they
 //    usually do nothing.
+// 6. Flags typed as `boolean | ReactNode` (e.g. Button's loading) get a boolean switch.
 //
 // Used as parameters.docs.extractArgTypes in preview.tsx (see extractKvdsArgTypes
 // at the bottom). That way it also reaches the subcomponent tabs in Controls.
@@ -186,6 +187,27 @@ const hideColorAndSizeOnSubcomponents = (
   }
 };
 
+// Fix 6. Digdir types some flags as `boolean | ReactNode`, where an element replaces the default
+// content (e.g. a custom loader for Button's loading). ReactNode already includes boolean, so
+// TypeScript shortens the type to `ReactNode` and Storybook shows a JSON editor. Docgen can't tell
+// these flags apart from other ReactNode props (e.g. children), and not all of them have
+// `@default false` (Search.Button has no JSDoc), so they're listed by name.
+const reactNodeFlags = ['loading'];
+
+const showReactNodeFlagsAsBoolean = (argTypes: StrictArgTypes): void => {
+  for (const [name, argType] of Object.entries(argTypes)) {
+    if (!reactNodeFlags.includes(name)) continue;
+    if (argType.type?.name !== 'other' || argType.type.value !== 'ReactNode') continue;
+
+    argTypes[name] = {
+      ...argType,
+      type: { name: 'boolean', required: argType.type.required },
+      control: { type: 'boolean' },
+      table: { ...argType.table, type: { summary: 'boolean | ReactNode' } },
+    };
+  }
+};
+
 // Storybook's own function for reading a component's props from docgen. It's only available
 // through this export, which Storybook names INTERNAL but exports publicly. Storybook types
 // parameters as `any`, so the type is set here.
@@ -203,5 +225,6 @@ export const extractKvdsArgTypes = (component: ComponentType): StrictArgTypes | 
   showBooleanishAsBoolean(argTypes);
   hideDeprecatedProps(argTypes);
   hideColorAndSizeOnSubcomponents(component, argTypes);
+  showReactNodeFlagsAsBoolean(argTypes);
   return argTypes;
 };
