@@ -12,7 +12,7 @@ export type LayoutItemsMinWidth = 50 | 100 | 150 | 200 | 250 | 300 | 350 | 400 |
 
 export type LayoutProps = HTMLAttributes<HTMLDivElement> & {
   /**
-   * Space between rows and columns. The number refers to the corresponding css variable `--ds-size-N`.
+   * Space between rows and columns. The number refers to the number in the css variable `--ds-size-N`.
    * @default 4
    */
   gap?: LayoutSize;

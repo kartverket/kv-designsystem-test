@@ -13,20 +13,20 @@ Hovedregelen er enkel:
 
 ## Grid
 
-Uten flere innstillinger er `Grid` én kolonne med lik avstand mellom elementene.
+`Grid` stabler elementene i én kolonne. Med `itemsMinWidth` får du så mange like brede kolonner som det er plass til. Prøv innstillingene under eksempelet.
 
 <Canvas of={GridStories.Preview} />
 <Controls of={GridStories.Preview} />
 
 ## Flex
 
-`Flex` legger elementene på en rad. Blir det for trangt, brekker de til en ny linje.
+`Flex` legger elementene på en rad. Blir det for trangt, brekker de til en ny linje. Prøv innstillingene under eksempelet.
 
 <Canvas of={FlexStories.Preview} />
 <Controls of={FlexStories.Preview} />
 
 **Bruk `Grid` når**
-- innhold skal stå under hverandre, for eksempel overskrift, tekst og skjemafelt
+- innhold skal stå under hverandre, for eksempel skjemafelt, kort eller seksjoner på en side
 - elementene skal være like brede, for eksempel en liste med kort
 
 **Bruk `Flex` når**
@@ -34,9 +34,16 @@ Uten flere innstillinger er `Grid` én kolonne med lik avstand mellom elementene
 - elementene skal være så brede som innholdet sitt
 
 **Unngå `Flex` og `Grid` når**
-- innholdet er løpende tekst som bare trenger vanlig avstand mellom avsnitt
+- innholdet er løpende tekst. Overskrifter og avsnitt skal flyte nedover siden med sine egne marginer.
 
 ## Varianter med eksempler
+
+### Elementer ved siden av hverandre
+
+Det vanligste med `Flex` er en rad med knapper eller tagger.
+
+<Canvas of={FlexStories.Buttons} />
+<Canvas of={FlexStories.Tags} />
 
 ### Grid med flere kolonner
 
@@ -70,9 +77,15 @@ I `Grid` fyller elementene hele bredden. Med `justifyItems='start'` tar de bare 
 
 ### Kombinere Grid og Flex
 
-Bruk `Grid` til å stable innholdet på siden, og `Flex` til radene inni.
+Bruk `Grid` til å stable innholdet, og `Flex` til radene inni. Her stabler `Grid` skjemafeltene, mens `Flex` legger postnummer, poststed og knappene ved siden av hverandre.
 
 <Canvas of={GridStories.Combined} />
+
+### En hel side
+
+`Grid` og `Flex` kan nøstes så dypt du trenger. På denne siden stabler en `Grid` seksjonene. En `Flex` deler innholdet i en hovedkolonne og en sidekolonne. Inni dem ligger nye `Grid`-er og `Flex`-er for kortene, taggene og skjemaet.
+
+<Canvas of={GridStories.ComplexPage} />
 
 ## Retningslinjer
 

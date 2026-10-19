@@ -6,6 +6,9 @@ import { Card } from '../card/Card';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 import { Paragraph } from '../typography/paragraph/Paragraph';
+import { Tag } from '../tag/Tag';
+import { Textfield } from '../textfield/Textfield';
+import { DemoBox, demoContainerStyle } from './docs/DemoBox';
 
 const meta = {
   component: Grid,
@@ -22,19 +25,19 @@ type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   args: {
-    gap: 4,
+    itemsMinWidth: 150,
+    alignContent: 'start',
   },
   render: (args) => (
-    <Grid {...args}>
-      <Heading level={2} data-size='md'>
-        Tinglysing av eiendom
-      </Heading>
-      <Paragraph>
-        Når du tinglyser en eiendom, blir rettighetene dine registrert i grunnboken.
-      </Paragraph>
-      <Paragraph>
-        Opplysningene blir offentlige og kan brukes av både myndigheter og private aktører.
-      </Paragraph>
+    <Grid {...args} style={demoContainerStyle}>
+      <DemoBox>Oslo</DemoBox>
+      <DemoBox>Bergen</DemoBox>
+      <DemoBox isTall>Trondheim</DemoBox>
+      <DemoBox>Stavanger</DemoBox>
+      <DemoBox>Kristiansand</DemoBox>
+      <DemoBox isTall>Tromsø</DemoBox>
+      <DemoBox>Drammen</DemoBox>
+      <DemoBox>Fredrikstad</DemoBox>
     </Grid>
   ),
 };
@@ -87,9 +90,10 @@ export const SpanAllColumns: Story = {
 
 export const JustifyStart: Story = {
   render: (_args) => (
-    <Grid justifyItems='start'>
-      <Paragraph>Med justifyItems=&apos;start&apos; tar elementene bare den bredden de trenger.</Paragraph>
-      <Button>Send inn</Button>
+    <Grid justifyItems='start' style={{ outline: demoContainerStyle.outline }}>
+      <DemoBox>Oslo</DemoBox>
+      <DemoBox>Kristiansand</DemoBox>
+      <DemoBox>Bø</DemoBox>
     </Grid>
   ),
 };
@@ -97,14 +101,10 @@ export const JustifyStart: Story = {
 export const MaxWidth: Story = {
   parameters: { layout: 'fullscreen' },
   render: (_args) => (
-    <Grid maxWidth='40rem' style={{ paddingBlock: 'var(--ds-size-6)' }}>
-      <Heading level={2} data-size='md'>
-        Smalt innhold på siden
-      </Heading>
-      <Paragraph>
-        Innholdet er aldri bredere enn 40rem og blir sentrert på siden. På små skjermer får det
-        samme luft på sidene som Header og Footer.
-      </Paragraph>
+    <Grid maxWidth='30rem' style={{ paddingBlock: 'var(--ds-size-6)' }}>
+      <Textfield label='Fornavn' />
+      <Textfield label='Etternavn' />
+      <Textfield label='E-post' type='email' />
     </Grid>
   ),
 };
@@ -130,17 +130,71 @@ export const AsChild: Story = {
 export const Combined: Story = {
   render: (_args) => (
     <Grid gap={6}>
-      <Grid gap={2}>
-        <Heading level={2} data-size='md'>
-          Endre adresse
-        </Heading>
-        <Paragraph>
-          Grid stabler innholdet på siden. Flex legger knappene ved siden av hverandre.
-        </Paragraph>
-      </Grid>
+      <Textfield label='Adresse' />
+      <Flex itemsMinWidth={150}>
+        <Textfield label='Postnummer' />
+        <Textfield label='Poststed' style={{ flexGrow: 3 }} />
+      </Flex>
       <Flex>
         <Button>Lagre</Button>
         <Button variant='secondary'>Avbryt</Button>
+      </Flex>
+    </Grid>
+  ),
+};
+
+const properties = [
+  { id: '3301-1-12', address: 'Storgata 12, Drammen', tags: ['Bolig', 'Tinglyst'] },
+  { id: '5001-401-7', address: 'Kjøpmannsgata 7, Trondheim', tags: ['Næring'] },
+  { id: '1103-25-3', address: 'Breigata 3, Stavanger', tags: ['Bolig', 'Under behandling'] },
+  { id: '5501-118-40', address: 'Strandvegen 40, Tromsø', tags: ['Fritid'] },
+];
+
+export const ComplexPage: Story = {
+  parameters: { layout: 'fullscreen' },
+  render: (_args) => (
+    <Grid maxWidth='var(--kvds-frame-content-max-width)' gap={10} style={{ paddingBlock: 'var(--ds-size-8)' }}>
+      <Flex justifyItems='space-between' alignItems='center'>
+        <Heading level={1} data-size='lg'>
+          Mine eiendommer
+        </Heading>
+        <Flex gap={2}>
+          <Button>Legg til eiendom</Button>
+          <Button variant='secondary'>Last ned oversikt</Button>
+        </Flex>
+      </Flex>
+
+      <Flex itemsMinWidth={300} gap={8} alignItems='start'>
+        <Grid itemsMinWidth={250} style={{ flexGrow: 3 }}>
+          {properties.map((property) => (
+            <Card key={property.id} data-color='neutral'>
+              <Heading level={2} data-size='xs'>
+                {property.address}
+              </Heading>
+              <Paragraph data-size='sm'>Matrikkelnummer {property.id}</Paragraph>
+              <Flex gap={2}>
+                {property.tags.map((tag) => (
+                  <Tag key={tag} data-color='info'>
+                    {tag}
+                  </Tag>
+                ))}
+              </Flex>
+            </Card>
+          ))}
+        </Grid>
+
+        <Card data-color='accent'>
+          <Heading level={2} data-size='xs'>
+            Finn en eiendom
+          </Heading>
+          <Grid asChild justifyItems='start'>
+            <form onSubmit={(event) => event.preventDefault()}>
+              <Textfield label='Adresse' style={{ justifySelf: 'stretch' }} />
+              <Textfield label='Kommune' style={{ justifySelf: 'stretch' }} />
+              <Button type='submit'>Søk</Button>
+            </form>
+          </Grid>
+        </Card>
       </Flex>
     </Grid>
   ),

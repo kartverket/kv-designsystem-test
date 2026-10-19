@@ -6,6 +6,7 @@ import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Tag } from '../tag/Tag';
 import { Textfield } from '../textfield/Textfield';
+import { DemoBox, demoContainerStyle } from './docs/DemoBox';
 
 const meta = {
   component: Flex,
@@ -22,10 +23,29 @@ type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   args: {
-    gap: 4,
+    alignContent: 'start',
   },
   render: (args) => (
-    <Flex {...args}>
+    <Flex {...args} style={demoContainerStyle}>
+      <DemoBox>Oslo</DemoBox>
+      <DemoBox>Bergen</DemoBox>
+      <DemoBox isTall>Trondheim</DemoBox>
+      <DemoBox>Stavanger</DemoBox>
+      <DemoBox>Kristiansand</DemoBox>
+      <DemoBox isTall>Tromsø</DemoBox>
+      <DemoBox>Drammen</DemoBox>
+      <DemoBox>Fredrikstad</DemoBox>
+      <DemoBox>Hammerfest</DemoBox>
+      <DemoBox isTall>Lillehammer</DemoBox>
+      <DemoBox>Bodø</DemoBox>
+      <DemoBox>Ålesund</DemoBox>
+    </Flex>
+  ),
+};
+
+export const Buttons: Story = {
+  render: (_args) => (
+    <Flex>
       <Button>Lagre</Button>
       <Button variant='secondary'>Avbryt</Button>
     </Flex>
