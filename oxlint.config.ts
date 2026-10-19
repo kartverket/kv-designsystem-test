@@ -109,6 +109,7 @@ const recommendedRules = {
 } as const;
 
 export default defineConfig({
+  ignorePatterns: ['.security/risc/risc-404nL.risc.yaml'],
   plugins: [],
   categories: { correctness: 'off' },
   options: { typeAware: true },

@@ -22,7 +22,7 @@ import type { StrictArgTypes } from 'storybook/internal/types';
 type ThemeColor = Color | SeverityColors;
 
 // A value Storybook can show as an option in a select (see SBEnumType in storybook/internal/types)
-type OptionValue = string | number;
+type OptionValue = string | number | null;
 
 // What fix 1 sets on data-color and data-size
 interface KvdsArgType {
