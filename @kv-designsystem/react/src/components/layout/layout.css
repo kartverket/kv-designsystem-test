@@ -33,15 +33,15 @@
 .kvds-flex,
 .kvds-grid {
   &[data-max-width] {
-    /* Declared on each container, so an override never leaks into nested containers.
-       Defaults to the padding of Header and Footer, so the content lines up with them. */
-    --kvdsc-layout-padding-inline: var(--kvds-frame-padding-inline);
+    /* The space kept free on each side. Declared on each container, so an override never leaks into
+       nested containers. Defaults to the padding of Header and Footer, so the content lines up with them. */
+    --kvdsc-layout-gutter: var(--kvds-frame-padding-inline);
 
-    /* Adds the padding on top of the max width, so the content itself gets the full max width */
-    max-width: calc(var(--kvdsc-layout-max-width) + 2 * var(--kvdsc-layout-padding-inline));
-    width: 100%; /* Auto margins stop grid and flex items from stretching, so fill the width explicitly */
+    /* At most maxWidth wide, but always leaves the gutter free on each side. The space comes from the
+       auto margins, not from padding, so padding set by consumers works as usual inside the box.
+       An explicit width also keeps the container from shrinking to its content inside a Grid or Flex. */
+    width: min(100% - 2 * var(--kvdsc-layout-gutter), var(--kvdsc-layout-max-width));
     margin-inline: auto;
-    padding-inline: var(--kvdsc-layout-padding-inline);
   }
 
   &[data-gap="0"] { gap: 0px; }

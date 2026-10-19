@@ -64,7 +64,7 @@ I `Grid` fyller elementene hele bredden. Med `justifyItems='start'` tar de bare 
 
 ### Maksbredde
 
-`maxWidth` tar alle gyldige CSS-lengder, for eksempel `40rem`, `70ch` eller `var(--kvds-frame-content-max-width)`. Innholdet blir sentrert og får samme luft på sidene som `Header` og `Footer`.
+`maxWidth` tar alle gyldige CSS-lengder, for eksempel `40rem`, `70ch` eller `var(--kvds-frame-content-max-width)`. Containeren blir sentrert, og det er alltid like mye luft på sidene som i `Header` og `Footer`.
 
 <Canvas of={GridStories.MaxWidth} />
 
@@ -113,9 +113,11 @@ Nyttige egenskaper:
 
 `Flex` og `Grid` har ingen maksbredde som standard. De fyller hele bredden, slik kartløsninger trenger.
 
-Når du setter `maxWidth`, får containeren også luft på sidene, like mye som i `Header` og `Footer`. Skal innholdet stå på linje med dem, bruker du `maxWidth='var(--kvds-frame-content-max-width)'`.
+Når du setter `maxWidth`, holder containeren alltid like mye luft fri på sidene som `Header` og `Footer`. Skal innholdet stå på linje med dem, bruker du `maxWidth='var(--kvds-frame-content-max-width)'`.
 
-Luften styres av CSS-variabelen `--kvdsc-layout-padding-inline`. Står containeren inne i noe som allerede har luft på sidene, kan du fjerne den ved å sette variabelen til `0px` med `style` eller `className`. Det gjelder bare denne containeren, ikke containere lenger inne.
+Luften ligger utenfor containeren og styres av CSS-variabelen `--kvdsc-layout-gutter`. Står containeren inne i noe som allerede har luft på sidene, kan du fjerne den ved å sette variabelen til `0px` med `style` eller `className`. Det gjelder bare denne containeren, ikke containere lenger inne.
+
+Padding du setter selv, for eksempel med `style={{ paddingInline: '20px' }}`, legger seg inni containeren som vanlig.
 
 ### Riktig HTML-element med asChild
 

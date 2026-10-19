@@ -34,8 +34,8 @@ export type LayoutProps = HTMLAttributes<HTMLDivElement> & {
   alignContent?: 'start' | 'center' | 'end' | 'stretch' | 'space-between' | 'space-around' | 'space-evenly';
   /**
    * Maximum width of the container. Takes any CSS length, e.g. `40rem`, `80ch` or `var(--kvds-frame-content-max-width)`.
-   * Also centers the container and adds the same padding on each side as `Header` and `Footer`.
-   * Change the padding with the CSS variable `--kvdsc-layout-padding-inline`.
+   * Also centers the container and keeps the same space free on each side as `Header` and `Footer`.
+   * Change that space with the CSS variable `--kvdsc-layout-gutter`.
    */
   maxWidth?: string;
   /**
