@@ -36,6 +36,7 @@
   "scripts": {
     "lint": "oxlint --type-aware --max-warnings 0",
     "lint-circular-dependencies": "pnpm madge --circular ./src/alpha.ts",
+    "lint-mdx-controls": "node ./scripts/check-mdx-controls.ts",
     "typecheck": "tsgo --build",
     "install-dependencies": "pnpm i",
     "build": "vite build",

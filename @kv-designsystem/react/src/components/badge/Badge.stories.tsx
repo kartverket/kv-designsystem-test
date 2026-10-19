@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge } from './Badge';
+import { subcomponents } from './docs/subcomponents';
 import { Tabs } from '../tabs/Tabs';
 import { EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
 
 const meta: Meta<typeof Badge> = {
   component: Badge,
+  subcomponents,
   parameters: { layout: 'centered' },
 };
 

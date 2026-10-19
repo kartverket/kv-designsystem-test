@@ -22,6 +22,15 @@ const meta = {
       },
     },
   },
+  subcomponents: {
+    'Header.Nav': Header.Nav,
+    'Header.NavItem': Header.NavItem,
+    'Header.ActionsList': Header.ActionsList,
+    'Header.SearchButton': Header.SearchButton,
+    'Header.SearchPopover': Header.SearchPopover,
+    'Header.MenuButton': Header.MenuButton,
+    'Header.Menu': Header.Menu,
+  },
 } satisfies Meta<typeof Header>;
 
 export default meta;

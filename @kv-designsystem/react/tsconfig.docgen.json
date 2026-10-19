@@ -1,0 +1,23 @@
+// Used by Storybook's docgen (see .storybook/main.ts). Same as tsconfig.lib.json, except that it
+// also includes docs/ folders. They hold Storybook-only files that docgen needs to read, but that
+// shouldn't be in the library build. E.g. card/docs/subcomponents.tsx lists Card.Block, so
+// Controls can show its props: docgen doesn't find subcomponents of Digdir's compound components.
+{
+  "extends": "./tsconfig.lib.json",
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.spec.tsx",
+    "**/*.test.tsx",
+    "**/*.spec.js",
+    "**/*.test.js",
+    "**/*.spec.jsx",
+    "**/*.test.jsx",
+    "**/*.stories.ts",
+    "**/*.stories.js",
+    "**/*.stories.jsx",
+    "**/*.stories.tsx",
+    "src/**/demo/**/*.ts",
+    "src/**/demo/**/*.tsx"
+  ]
+}

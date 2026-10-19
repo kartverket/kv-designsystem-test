@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Chip } from './Chip';
+import { subcomponents } from './docs/subcomponents';
 import { useState } from 'react';
 import { Search } from '../search/Search';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 
 const meta = {
   component: Chip.Radio,
+  subcomponents,
   parameters: { layout: 'centered' },
   decorators: [
     (Story) => (

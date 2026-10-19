@@ -7,8 +7,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../../react/src/components');
 const OUTPUT = path.resolve(__dirname, '../src/components.css');
 
-function getCssFiles(dir) {
-  let results = [];
+function getCssFiles(dir: string): string[] {
+  let results: string[] = [];
   const entries = fs.readdirSync(dir, { withFileTypes: true });
 
   for (const entry of entries) {
