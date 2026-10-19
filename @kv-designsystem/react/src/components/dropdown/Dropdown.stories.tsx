@@ -8,6 +8,7 @@ import {
   ChevronUpIcon,
 } from '@navikt/aksel-icons';
 import { useState } from 'react';
+import { Button } from '../button/Button';
 
 const meta = {
   component: Dropdown,
@@ -126,8 +127,29 @@ export const Controlled: Story = {
   },
 };
 
+export const WithPopovertarget: Story = {
+  args: {
+    placement: 'bottom-end',
+  },
+  render: (args) => (
+    <>
+      <Button popovertarget='dropdown'>Trigger</Button>
+      <Dropdown id='dropdown' {...args}>
+        <Dropdown.List>
+          <Dropdown.Item>
+            <Dropdown.Button>Knapp 1</Dropdown.Button>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <Dropdown.Button>Knapp 2</Dropdown.Button>
+          </Dropdown.Item>
+        </Dropdown.List>
+      </Dropdown>
+    </>
+  ),
+};
+
 // TODO: when selecting another element the "selected mark" doesn't move
-export const Selected: Story = { 
+export const Selected: Story = {
   args: {
     placement: 'bottom-end',
   },

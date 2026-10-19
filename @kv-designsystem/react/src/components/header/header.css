@@ -1,7 +1,6 @@
 /* clamp() viewport width-values are based on clamp max / 1296px * 100  */
 
 .header {
-  --kvdsc-header-height: var(--ds-size-26);
   /* Scaling gap size instead of media queries */
   --kvdsc-header-item-gap: var(--ds-size-5) clamp(0px, 1.543vw, var(--ds-size-5));
   --kvdsc-header-transition-duration: 300ms;
@@ -257,14 +256,8 @@ body:has(.header .header-popover:popover-open) {
   }
 }
 
-/* 
-TODO: swap to media-query so that height gets set correct. 
-.header is not accessible from within header-container, since .header is, in fact, the header-container. 
-*/
 @container header-container (width <=768px) {
   .header {
-    --kvdsc-header-height: var(--ds-size-22);
-
     .kvds-logo {
       --kvds-logo-size: var(--ds-size-8);
     }
@@ -275,15 +268,7 @@ TODO: swap to media-query so that height gets set correct.
   }
 }
 
-/* 
-TODO: swap to media-query so that height gets set correct. 
-.header is not accessible from within header-container, since .header is, in fact, the header-container. 
-*/
 @container header-container (width <=480px) {
-  .header {
-    --kvdsc-header-height: var(--ds-size-18);
-  }
-
   .header-logo--full {
     display: none;
   }

@@ -14,6 +14,14 @@ import { EnterIcon, LanguageIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Header,
+  parameters: {
+    docs: {
+      story: {
+        inline: false, // Render story in an iframe to ensure vw units are based on the preview viewport.
+        iframeHeight: '105px',
+      }
+    },
+  },
   subcomponents: {
     'Header.Nav': Header.Nav,
     'Header.NavItem': Header.NavItem,
@@ -33,6 +41,7 @@ export const Preview: Story = {
     applicationName: 'Tjenestetittel',
     applicationHref: '#',
   },
+
   render: (args) => (
     <Header {...args} />
   ),
@@ -57,7 +66,6 @@ export const WithNavigationLinks: Story = {
   parameters: {
     docs: {
       story: {
-        inline: false, // Render story in an iframe to ensure vw units are based on the preview viewport.
         iframeHeight: '250px',
       }
     },
@@ -96,7 +104,6 @@ export const WithMenu: Story = {
   parameters: {
     docs: {
       story: {
-        inline: false,
         iframeHeight: '420px',
       }
     },
@@ -150,7 +157,6 @@ export const WithButtonsAndMenu: Story = {
   parameters: {
     docs: {
       story: {
-        inline: false,
         iframeHeight: '400px',
       }
     },
@@ -278,7 +284,6 @@ export const WithLanguagePicker: Story = {
   parameters: {
     docs: {
       story: {
-        inline: false,
         iframeHeight: '225px',
       },
       source: {
@@ -355,7 +360,6 @@ export const WithScroll: Story = {
   parameters: {
     docs: {
       story: {
-        inline: false,
         iframeHeight: '420px',
       }
     },
@@ -476,7 +480,6 @@ export const ComplexHeader: Story = {
   parameters: {
     docs: {
       story: {
-        inline: false,
         iframeHeight: '420px',
       }
     },

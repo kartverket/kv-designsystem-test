@@ -91,8 +91,8 @@ Når en handling pågår, kan knappen vise en spinner for å signalisere at pros
 
 I eksempelet over blir `aria-disabled` satt av `loading='true'`. Skjermlesere og andre hjelpemidler vil bli informert om at knappen finnes, men ikke er aktiv. I motsetning til `disabled`, kan knappen fortsatt få fokus når noen navigerer med tastaturet.
 
-<Alert data-color='info'>
-    <Heading>Vær oppmerksom på</Heading>
+<Alert data-color='info' className='sb-unstyled'>
+    <Heading data-size='xs'>Vær oppmerksom på</Heading>
     `loading='true'` eller `aria-disabled` stopper ikke automatisk knappen fra å utløse `onClick`. Du må selv passe på at callback-funksjonen ikke kjører når knappen er deaktivert.
 </Alert>
 

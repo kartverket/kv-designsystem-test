@@ -47,7 +47,8 @@
   "scripts": {
     "prebuild": "node scripts/generate-components-css.ts",
     "build": "postcss \"src/*.css\" --base src --dir dist && cp ../../@internal/build-tools/css-import.d.ts dist/css-import.d.ts",
-    "watch": "pnpm build --watch",
-    "typecheck": "tsgo --build"
+    "lint": "oxlint --max-warnings 0",
+    "typecheck": "tsgo --build",
+    "watch": "pnpm build --watch"
   }
 }

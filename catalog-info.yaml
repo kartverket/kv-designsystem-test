@@ -7,6 +7,6 @@ metadata:
   tags:
     - public
 spec:
-  type: documentation
+  type: library
   owner: group:default/designsystem
-  lifecycle: experimental
+  lifecycle: production

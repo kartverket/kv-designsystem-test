@@ -30,9 +30,12 @@
     },
     "lint": {
       "cache": true,
-      "options": {
-        "max-warnings": 0
-      }
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/oxlint.config.ts",
+        { "externalDependencies": ["oxlint", "oxlint-tsgolint"] }
+      ]
     },
     "typecheck": {
       "cache": true,
@@ -53,14 +56,6 @@
       "dependsOn": ["build"]
     }
   },
-  "plugins": [
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    }
-  ],
   "namedInputs": {
     "sharedGlobals": [
       "{workspaceRoot}/.github/workflows/build.yml",
