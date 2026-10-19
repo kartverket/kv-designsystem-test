@@ -6,16 +6,13 @@ export type FooterItemProps = Omit<HTMLAttributes<HTMLLIElement>, 'children'> & 
   children?: ReactNode;
 };
 
-export const FooterItem = forwardRef<HTMLLIElement, FooterItemProps>(
-  function FooterItem({ children, className, ...rest }, ref) {
-    return (
-      <li 
-        className={cl('footer-item', className)}
-        ref={ref} 
-        {...rest}
-      >
-        {children}
-      </li>
-    );
-  }
-);
+export const FooterItem = forwardRef<HTMLLIElement, FooterItemProps>(function FooterItem(
+  { children, className, ...rest },
+  ref,
+) {
+  return (
+    <li className={cl('footer-item', className)} ref={ref} {...rest}>
+      {children}
+    </li>
+  );
+});

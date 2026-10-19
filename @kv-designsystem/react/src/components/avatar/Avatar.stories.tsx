@@ -59,7 +59,8 @@ export const Preview: Story = {
   },
 };
 
-const profileImage = 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+const profileImage =
+  'https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 export const Content: Story = {
   args: {
@@ -73,7 +74,7 @@ export const Content: Story = {
         <BriefcaseIcon aria-hidden />
       </Avatar>
       <Avatar {...args}>
-        <img src={profileImage} aria-hidden/>
+        <img src={profileImage} aria-hidden />
       </Avatar>
     </>
   ),
@@ -82,31 +83,39 @@ export const Content: Story = {
 export const Sizes: Story = {
   render: (_args: AvatarProps) => (
     <>
-      <Avatar data-size='xs' aria-label='extra small'>xs</Avatar>
-      <Avatar data-size='sm' aria-label='small'>sm</Avatar>
-      <Avatar data-size='md' aria-label='medium'>md</Avatar>
-      <Avatar data-size='lg' aria-label='large'>lg</Avatar>
+      <Avatar data-size="xs" aria-label="extra small">
+        xs
+      </Avatar>
+      <Avatar data-size="sm" aria-label="small">
+        sm
+      </Avatar>
+      <Avatar data-size="md" aria-label="medium">
+        md
+      </Avatar>
+      <Avatar data-size="lg" aria-label="large">
+        lg
+      </Avatar>
     </>
-  )
+  ),
 };
 
 export const ColorVariants: Story = {
   render: (_args: AvatarProps) => (
     <>
-      <Avatar data-color='neutral' aria-label='color neutral' />
-      <Avatar data-color='accent' aria-label='color accent' />
-      <Avatar data-color='support-1' aria-label='color support-1' />
-      <Avatar data-color='support-2' aria-label='color support-2' />
+      <Avatar data-color="neutral" aria-label="color neutral" />
+      <Avatar data-color="accent" aria-label="color accent" />
+      <Avatar data-color="support-1" aria-label="color support-1" />
+      <Avatar data-color="support-2" aria-label="color support-2" />
     </>
-  )
+  ),
 };
 
 export const Shapes: Story = {
   render: (_args: AvatarProps) => (
     <>
-      <Avatar aria-label='radius default' />
+      <Avatar aria-label="radius default" />
       <Avatar
-        aria-label='radius 1rem'
+        aria-label="radius 1rem"
         style={
           {
             '--dsc-avatar-radius': '1rem',
@@ -114,7 +123,7 @@ export const Shapes: Story = {
         }
       />
       <Avatar
-        aria-label='radius lg'
+        aria-label="radius lg"
         style={
           {
             '--dsc-avatar-radius': 'var(--ds-border-radius-lg)',
@@ -124,7 +133,7 @@ export const Shapes: Story = {
         ON
       </Avatar>
       <Avatar
-        aria-label='radius none'
+        aria-label="radius none"
         style={
           {
             '--dsc-avatar-radius': '0',
@@ -134,7 +143,7 @@ export const Shapes: Story = {
         ON
       </Avatar>
     </>
-  )
+  ),
 };
 
 export const InDropdown: Story = {
@@ -143,31 +152,35 @@ export const InDropdown: Story = {
     docs: {
       story: {
         height: '200px',
-      }
+      },
     },
   },
   render: (_args: AvatarProps) => (
     <Dropdown.TriggerContext>
-      <Dropdown.Trigger variant='tertiary'>
-        <Avatar aria-hidden='true' data-size='sm'>on</Avatar>
+      <Dropdown.Trigger variant="tertiary">
+        <Avatar aria-hidden="true" data-size="sm">
+          on
+        </Avatar>
         Ola Nordmann
-        <ChevronUpIcon aria-hidden='true' />
+        <ChevronUpIcon aria-hidden="true" />
       </Dropdown.Trigger>
-      <Dropdown placement='bottom-end' autoPlacement={false} data-size='md' open>
+      <Dropdown placement="bottom-end" autoPlacement={false} data-size="md" open>
         <Dropdown.List>
           <Dropdown.Item>
             <Dropdown.Button>
-              <Badge.Position overlap='circle'>
-                <Badge data-color='danger' data-size='sm' />
-                <Avatar aria-hidden='true' data-size='xs'>on</Avatar>
+              <Badge.Position overlap="circle">
+                <Badge data-color="danger" data-size="sm" />
+                <Avatar aria-hidden="true" data-size="xs">
+                  on
+                </Avatar>
               </Badge.Position>
               Ola Nordmann
             </Dropdown.Button>
           </Dropdown.Item>
           <Dropdown.Item>
             <Dropdown.Button>
-              <Avatar aria-hidden='true' data-size='xs' aria-label='Ola Nordmann'>
-                <BriefcaseIcon aria-hidden/>
+              <Avatar aria-hidden="true" data-size="xs" aria-label="Ola Nordmann">
+                <BriefcaseIcon aria-hidden />
               </Avatar>
               Sogndal kommune
             </Dropdown.Button>
@@ -183,10 +196,7 @@ export const AsLink: Story = {
     'aria-hidden': true,
   },
   render: (args: AvatarProps) => (
-    <Link
-      href='#'
-      style={{ display: 'flex', gap: 'var(--ds-size-2)', alignItems: 'center' }}
-    >
+    <Link href="#" style={{ display: 'flex', gap: 'var(--ds-size-2)', alignItems: 'center' }}>
       <Avatar {...args} />
       <span>Ola Nordmann</span>
     </Link>

@@ -20,11 +20,9 @@ export const Preview: Story = {
     <>
       <Paragraph>
         Tab til, eller klikk inni dette eksempelet og trykk <kbd>Tab</kbd>.
-        <SkipLink {...args}>
-          Hopp til hovedinnholdet
-        </SkipLink>
+        <SkipLink {...args}>Hopp til hovedinnholdet</SkipLink>
       </Paragraph>
-      <main id='main-content' tabIndex={-1}>
+      <main id="main-content" tabIndex={-1}>
         Region som kan motta fokus fra SkipLink.
       </main>
     </>

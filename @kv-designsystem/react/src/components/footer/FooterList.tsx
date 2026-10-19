@@ -6,14 +6,9 @@ export type FooterListProps = Omit<HTMLAttributes<HTMLUListElement>, 'children'>
   children?: ReactNode;
 };
 
-export const FooterList = forwardRef<HTMLUListElement, FooterListProps>(
-  function FooterList({ className, ...rest }, ref) {
-    return (
-      <ul
-        className={cl('footer-list', className)}
-        ref={ref}
-        {...rest}
-      />
-    );
-  }
-);
+export const FooterList = forwardRef<HTMLUListElement, FooterListProps>(function FooterList(
+  { className, ...rest },
+  ref,
+) {
+  return <ul className={cl('footer-list', className)} ref={ref} {...rest} />;
+});

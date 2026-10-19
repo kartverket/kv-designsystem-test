@@ -47,7 +47,7 @@ export const Preview: Story = {
         </Table.Row>
       </Table.Foot>
     </Table>
-  )
+  ),
 };
 
 const zebraData = [
@@ -56,7 +56,7 @@ const zebraData = [
   { month: 'Mars', y2023: '1 150', y2024: '1 300' },
   { month: 'April', y2023: '950', y2024: '1 100' },
   { month: 'Mai', y2023: '1 420', y2024: '1 670' },
-]
+];
 
 export const ZebraStripes: Story = {
   render: (_args) => (
@@ -71,25 +71,21 @@ export const ZebraStripes: Story = {
       <Table.Head>
         <Table.Row>
           <Table.HeaderCell>Måned</Table.HeaderCell>
-          <Table.HeaderCell style={{ textAlign: 'right' }}>
-            2023
-          </Table.HeaderCell>
-          <Table.HeaderCell style={{ textAlign: 'right' }}>
-            2024
-          </Table.HeaderCell>
+          <Table.HeaderCell style={{ textAlign: 'right' }}>2023</Table.HeaderCell>
+          <Table.HeaderCell style={{ textAlign: 'right' }}>2024</Table.HeaderCell>
         </Table.Row>
       </Table.Head>
       <Table.Body>
         {zebraData.map(({ month, y2023, y2024 }) => (
           <Table.Row>
-            <Table.HeaderCell scope='row'>{month}</Table.HeaderCell>
+            <Table.HeaderCell scope="row">{month}</Table.HeaderCell>
             <Table.Cell style={{ textAlign: 'right' }}>{y2023}</Table.Cell>
             <Table.Cell style={{ textAlign: 'right' }}>{y2024}</Table.Cell>
           </Table.Row>
         ))}
       </Table.Body>
     </Table>
-  )
+  ),
 };
 
 const dummyData = [
@@ -134,7 +130,7 @@ function tagColor(status: string) {
     default:
       return 'info';
   }
-};
+}
 
 export const WithBorder: Story = {
   render: (_args) => (
@@ -159,17 +155,14 @@ export const WithBorder: Story = {
         ))}
       </Table.Body>
     </Table>
-  )
+  ),
 };
 
 export const Sortable: Story = {
   render: () => {
-    const [sortField, setSortField] = useState<
-      keyof (typeof dummyData)[0] | null
-    >(null);
+    const [sortField, setSortField] = useState<keyof (typeof dummyData)[0] | null>(null);
 
-    const [sortDirection, setSortDirection] =
-      useState<TableHeaderCellProps['sort']>(undefined);
+    const [sortDirection, setSortDirection] = useState<TableHeaderCellProps['sort']>(undefined);
 
     const handleSort = (field: keyof (typeof dummyData)[0]) => {
       if (sortField === field && sortDirection === 'descending') {
@@ -178,19 +171,15 @@ export const Sortable: Story = {
       } else {
         setSortField(field);
         setSortDirection(
-          sortField === field && sortDirection === 'ascending'
-            ? 'descending'
-            : 'ascending',
+          sortField === field && sortDirection === 'ascending' ? 'descending' : 'ascending',
         );
       }
     };
 
     const sortedData = [...dummyData].sort((a, b) => {
       if (sortField === null) return 0;
-      if (a[sortField] < b[sortField])
-        return sortDirection === 'ascending' ? -1 : 1;
-      if (a[sortField] > b[sortField])
-        return sortDirection === 'ascending' ? 1 : -1;
+      if (a[sortField] < b[sortField]) return sortDirection === 'ascending' ? -1 : 1;
+      if (a[sortField] > b[sortField]) return sortDirection === 'ascending' ? 1 : -1;
       return 0;
     });
 
@@ -221,7 +210,7 @@ export const Sortable: Story = {
               <Table.Cell>{row.epost}</Table.Cell>
               <Table.Cell>{row.telefon}</Table.Cell>
               <Table.Cell>
-                <Button variant='tertiary' aria-label='Rediger rad'>
+                <Button variant="tertiary" aria-label="Rediger rad">
                   <PencilIcon aria-hidden />
                 </Button>
               </Table.Cell>
@@ -230,7 +219,7 @@ export const Sortable: Story = {
         </Table.Body>
       </Table>
     );
-  }
+  },
 };
 
 const dummyDataFylke = [
@@ -320,7 +309,7 @@ export const FixedTable: Story = {
       tableLayout: 'fixed',
       fontVariantNumeric: 'tabular-nums',
       marginBottom: 'var(--ds-size-3)',
-    }
+    },
   },
   render: (args) => {
     const [page, setCurrentPage] = useState(1);
@@ -337,10 +326,7 @@ export const FixedTable: Story = {
     // Calculate the start and end index for slicing the data
     const indexOfLastItem = page * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = dummyDataFylke.slice(
-      indexOfFirstItem,
-      indexOfLastItem,
-    );
+    const currentItems = dummyDataFylke.slice(indexOfFirstItem, indexOfLastItem);
 
     return (
       <>
@@ -364,24 +350,21 @@ export const FixedTable: Story = {
         <Pagination>
           <Pagination.List>
             <Pagination.Item>
-              <Pagination.Button aria-label='Forrige side' {...prevButtonProps}>
+              <Pagination.Button aria-label="Forrige side" {...prevButtonProps}>
                 Forrige
               </Pagination.Button>
             </Pagination.Item>
             {pages.map(({ page, itemKey, buttonProps }) => (
               <Pagination.Item key={itemKey}>
                 {typeof page === 'number' && (
-                  <Pagination.Button
-                    aria-label={`Side ${page}`}
-                    {...buttonProps}
-                  >
+                  <Pagination.Button aria-label={`Side ${page}`} {...buttonProps}>
                     {page}
                   </Pagination.Button>
                 )}
               </Pagination.Item>
             ))}
             <Pagination.Item>
-              <Pagination.Button aria-label='Neste side' {...nextButtonProps}>
+              <Pagination.Button aria-label="Neste side" {...nextButtonProps}>
                 Neste
               </Pagination.Button>
             </Pagination.Item>
@@ -389,7 +372,7 @@ export const FixedTable: Story = {
         </Pagination>
       </>
     );
-  }
+  },
 };
 
 export const Numbers: Story = {
@@ -403,32 +386,32 @@ export const Numbers: Story = {
       <caption>Antall søknader per måned</caption>
       <Table.Head>
         <Table.Row>
-          <Table.HeaderCell scope='col'>Måned</Table.HeaderCell>
-          <Table.HeaderCell scope='col' style={{ textAlign: 'right' }}>
+          <Table.HeaderCell scope="col">Måned</Table.HeaderCell>
+          <Table.HeaderCell scope="col" style={{ textAlign: 'right' }}>
             2023
           </Table.HeaderCell>
-          <Table.HeaderCell scope='col' style={{ textAlign: 'right' }}>
+          <Table.HeaderCell scope="col" style={{ textAlign: 'right' }}>
             2024
           </Table.HeaderCell>
         </Table.Row>
       </Table.Head>
       <Table.Body>
         <Table.Row>
-          <Table.HeaderCell scope='row'>Januar</Table.HeaderCell>
+          <Table.HeaderCell scope="row">Januar</Table.HeaderCell>
           <Table.Cell style={{ textAlign: 'right' }}>1 230</Table.Cell>
           <Table.Cell style={{ textAlign: 'right' }}>1 450</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.HeaderCell scope='row'>Februar</Table.HeaderCell>
+          <Table.HeaderCell scope="row">Februar</Table.HeaderCell>
           <Table.Cell style={{ textAlign: 'right' }}>980</Table.Cell>
           <Table.Cell style={{ textAlign: 'right' }}>1 120</Table.Cell>
         </Table.Row>
         <Table.Row>
-          <Table.HeaderCell scope='row'>Mars</Table.HeaderCell>
+          <Table.HeaderCell scope="row">Mars</Table.HeaderCell>
           <Table.Cell style={{ textAlign: 'right' }}>1 150</Table.Cell>
           <Table.Cell style={{ textAlign: 'right' }}>1 300</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
-  )
+  ),
 };

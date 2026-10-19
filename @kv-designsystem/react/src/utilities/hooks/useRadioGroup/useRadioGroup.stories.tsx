@@ -2,10 +2,7 @@ import type { Meta, StoryObj, StoryContext } from '@storybook/react-vite';
 import { Fieldset } from '../../../components/fieldset/Fieldset';
 import { Radio } from '../../../components/radio/Radio';
 import { ValidationMessage } from '../../../components/typography/validationMessage/ValidationMessage';
-import {
-  type UseRadioGroupProps,
-  useRadioGroup,
-} from './useRadioGroup';
+import { type UseRadioGroupProps, useRadioGroup } from './useRadioGroup';
 
 const meta: Meta<UseRadioGroupProps> = {
   title: 'Hooks/useRadioGroup',
@@ -27,8 +24,8 @@ const meta: Meta<UseRadioGroupProps> = {
             .replace('return', '')
             .trim();
         },
-      }
-    }
+      },
+    },
   },
   argTypes: {
     name: {
@@ -44,8 +41,7 @@ const meta: Meta<UseRadioGroupProps> = {
       description: 'Callback when selected radio changes',
       table: {
         type: {
-          summary:
-            '(nextValue: string, prevValue: string, event: Event) => void;',
+          summary: '(nextValue: string, prevValue: string, event: Event) => void;',
         },
       },
     },
@@ -166,18 +162,18 @@ export const Outline: Story = {
           Velg nivået som beskriver din erfaring med temaet.
         </Fieldset.Description>
         <Radio
-          label='Nybegynner'
-          description='Passer for deg som er helt ny og ønsker en rolig introduksjon.'
+          label="Nybegynner"
+          description="Passer for deg som er helt ny og ønsker en rolig introduksjon."
           {...getRadioProps('beginner')}
         />
         <Radio
-          label='Viderekommen'
-          description='Passer for deg som kjenner grunnleggende begreper og vil gå dypere.'
+          label="Viderekommen"
+          description="Passer for deg som kjenner grunnleggende begreper og vil gå dypere."
           {...getRadioProps('intermediate')}
         />
         <Radio
-          label='Ekspert'
-          description='Passer for deg som ønsker avanserte temaer og praktiske case.'
+          label="Ekspert"
+          description="Passer for deg som ønsker avanserte temaer og praktiske case."
           {...getRadioProps('expert')}
         />
       </Fieldset>

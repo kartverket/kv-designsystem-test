@@ -19,19 +19,17 @@ const pages = [
 
 export function DocumentationKvib() {
   return (
-    <div className={`${classes.grid} sb-unstyled`} >
+    <div className={`${classes.grid} sb-unstyled`}>
       {pages.map((page) => (
         <Card key={page.title}>
           <Card.Block>
-            <Heading level={3} data-size='sm'>
-              <Link href={page.href}>
-                {page.title}
-              </Link>
+            <Heading level={3} data-size="sm">
+              <Link href={page.href}>{page.title}</Link>
             </Heading>
-            <Paragraph className='sb-unstyled'>{page.description}</Paragraph>
+            <Paragraph className="sb-unstyled">{page.description}</Paragraph>
           </Card.Block>
         </Card>
       ))}
-    </ div>
-  )
-};
+    </div>
+  );
+}

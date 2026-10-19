@@ -16,8 +16,8 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     count: 15,
-    maxCount: 9,  
-  }
+    maxCount: 9,
+  },
 };
 
 const ColorsMap: {
@@ -88,7 +88,7 @@ export const ColorVariants: Story = {
 
 export const Status: Story = {
   args: {
-    'data-color': 'success'
+    'data-color': 'success',
   },
   render: (args) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -100,30 +100,30 @@ export const Status: Story = {
 
 export const InTabs: Story = {
   render: (_args) => (
-    <Tabs defaultValue='value1'>
+    <Tabs defaultValue="value1">
       <Tabs.List>
-        <Tabs.Tab value='value1'>
+        <Tabs.Tab value="value1">
           Favoritter
-          <Badge count={64} maxCount={10} data-color='accent' />
+          <Badge count={64} maxCount={10} data-color="accent" />
         </Tabs.Tab>
-        <Tabs.Tab value='value2'>Arkiv</Tabs.Tab>
-        <Tabs.Tab value='value3'>
+        <Tabs.Tab value="value2">Arkiv</Tabs.Tab>
+        <Tabs.Tab value="value3">
           Nylige
-          <Badge count={2} data-color='accent' />
+          <Badge count={2} data-color="accent" />
         </Tabs.Tab>
       </Tabs.List>
-      <Tabs.Panel value='value1'>content 1</Tabs.Panel>
-      <Tabs.Panel value='value2'>content 2</Tabs.Panel>
-      <Tabs.Panel value='value3'>content 3</Tabs.Panel>
+      <Tabs.Panel value="value1">content 1</Tabs.Panel>
+      <Tabs.Panel value="value2">content 2</Tabs.Panel>
+      <Tabs.Panel value="value3">content 3</Tabs.Panel>
     </Tabs>
-  )
+  ),
 };
 
 export const Floating: Story = {
   render: (_args) => (
-    <Badge.Position placement='top-right'>
-      <Badge data-color='danger' count={2}></Badge>
-      <EnvelopeClosedFillIcon title='Meldinger' style={{ fontSize: '2rem' }} />
+    <Badge.Position placement="top-right">
+      <Badge data-color="danger" count={2}></Badge>
+      <EnvelopeClosedFillIcon title="Meldinger" style={{ fontSize: '2rem' }} />
     </Badge.Position>
   ),
 };

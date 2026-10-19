@@ -19,10 +19,10 @@ export const Preview: Story = {
     <Field {...args}>
       <Label>Etternavn</Label>
       <Field.Description>Etternavn kan ikke inneholde mellomrom</Field.Description>
-      <Input defaultValue='Nordmann Svenske' />
+      <Input defaultValue="Nordmann Svenske" />
       <ValidationMessage>Du kan ikke ha mellomrom i etternavnet ditt</ValidationMessage>
     </Field>
-  )
+  ),
 };
 
 export const Affix: Story = {
@@ -35,7 +35,7 @@ export const Affix: Story = {
         <Field.Affix>pr. mnd.</Field.Affix>
       </Field.Affixes>
     </Field>
-  )
+  ),
 };
 
 export const Counter: Story = {
@@ -45,14 +45,14 @@ export const Counter: Story = {
       <Textarea rows={2} />
       <Field.Counter limit={10} />
     </Field>
-  )
+  ),
 };
 
 export const Position: Story = {
   render: (_args) => (
-    <Field position='end'>
+    <Field position="end">
       <Label>Flymodus</Label>
-      <Input type='checkbox' role='switch' />
+      <Input type="checkbox" role="switch" />
     </Field>
-  )
+  ),
 };

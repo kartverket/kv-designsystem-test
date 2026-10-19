@@ -3,10 +3,7 @@ import { Checkbox } from '../../../components/checkbox/Checkbox';
 import { Fieldset } from '../../../components/fieldset/Fieldset';
 import { ValidationMessage } from '../../../components/typography/validationMessage/ValidationMessage';
 
-import {
-  type UseCheckboxGroupProps,
-  useCheckboxGroup,
-} from './useCheckboxGroup';
+import { type UseCheckboxGroupProps, useCheckboxGroup } from './useCheckboxGroup';
 
 const meta: Meta<UseCheckboxGroupProps> = {
   title: 'Hooks/useCheckboxGroup',
@@ -28,8 +25,8 @@ const meta: Meta<UseCheckboxGroupProps> = {
             .replace('return', '')
             .trim();
         },
-      }
-    }
+      },
+    },
   },
   argTypes: {
     name: {
@@ -94,25 +91,13 @@ export const Default: Story = {
 
     return (
       <Fieldset>
-        <Checkbox
-          id={context.id + '-email'}
-          label='E-post'
-          {...getCheckboxProps('epost')}
-        />
-        <Checkbox
-          id={context.id + '-telefon'}
-          label='Telefon'
-          {...getCheckboxProps('telefon')}
-        />
-        <Checkbox
-          id={context.id + '-sms'}
-          label='SMS'
-          {...getCheckboxProps({ value: 'sms' })}
-        />
+        <Checkbox id={context.id + '-email'} label="E-post" {...getCheckboxProps('epost')} />
+        <Checkbox id={context.id + '-telefon'} label="Telefon" {...getCheckboxProps('telefon')} />
+        <Checkbox id={context.id + '-sms'} label="SMS" {...getCheckboxProps({ value: 'sms' })} />
         <ValidationMessage {...validationMessageProps} />
       </Fieldset>
     );
-  }
+  },
 };
 
 export const Group: Story = {
@@ -124,31 +109,17 @@ export const Group: Story = {
 
     return (
       <Fieldset>
-        <Fieldset.Legend>
-          Hvordan vil du helst at vi skal kontakte deg?
-        </Fieldset.Legend>
+        <Fieldset.Legend>Hvordan vil du helst at vi skal kontakte deg?</Fieldset.Legend>
         <Fieldset.Description>
           Velg alle alternativene som er relevante for deg.
         </Fieldset.Description>
-        <Checkbox
-          id={context.id + '-email'}
-          label='E-post'
-          {...getCheckboxProps('epost')}
-        />
-        <Checkbox
-          id={context.id + '-telefon'}
-          label='Telefon'
-          {...getCheckboxProps('telefon')}
-        />
-        <Checkbox
-          id={context.id + '-sms'}
-          label='SMS'
-          {...getCheckboxProps({ value: 'sms' })}
-        />
+        <Checkbox id={context.id + '-email'} label="E-post" {...getCheckboxProps('epost')} />
+        <Checkbox id={context.id + '-telefon'} label="Telefon" {...getCheckboxProps('telefon')} />
+        <Checkbox id={context.id + '-sms'} label="SMS" {...getCheckboxProps({ value: 'sms' })} />
         <ValidationMessage {...validationMessageProps} />
       </Fieldset>
     );
-  }
+  },
 };
 
 export const WithError: Story = {
@@ -161,31 +132,17 @@ export const WithError: Story = {
 
     return (
       <Fieldset>
-        <Fieldset.Legend>
-          Hvordan vil du helst at vi skal kontakte deg?
-        </Fieldset.Legend>
+        <Fieldset.Legend>Hvordan vil du helst at vi skal kontakte deg?</Fieldset.Legend>
         <Fieldset.Description>
           Velg alle alternativene som er relevante for deg.
         </Fieldset.Description>
-        <Checkbox
-          id={context.id + '-email'}
-          label='E-post'
-          {...getCheckboxProps('epost')}
-        />
-        <Checkbox
-          id={context.id + '-telefon'}
-          label='Telefon'
-          {...getCheckboxProps('telefon')}
-        />
-        <Checkbox
-          id={context.id + '-sms'}
-          label='SMS'
-          {...getCheckboxProps({ value: 'sms' })}
-        />
+        <Checkbox id={context.id + '-email'} label="E-post" {...getCheckboxProps('epost')} />
+        <Checkbox id={context.id + '-telefon'} label="Telefon" {...getCheckboxProps('telefon')} />
+        <Checkbox id={context.id + '-sms'} label="SMS" {...getCheckboxProps({ value: 'sms' })} />
         <ValidationMessage {...validationMessageProps} />
       </Fieldset>
     );
-  }
+  },
 };
 
 export const Outline: Story = {
@@ -197,25 +154,23 @@ export const Outline: Story = {
 
     return (
       <Fieldset>
-        <Fieldset.Legend>
-          Hvilke varsler vil du motta?
-        </Fieldset.Legend>
+        <Fieldset.Legend>Hvilke varsler vil du motta?</Fieldset.Legend>
         <Fieldset.Description>
           Velg hvilke typer varsler som er relevante for deg.
         </Fieldset.Description>
         <Checkbox
           id={context.id + 'driftsmeldinger'}
-          label='Driftsmeldinger'
-          description='Varsler ved planlagt vedlikehold og driftsavvik.'
+          label="Driftsmeldinger"
+          description="Varsler ved planlagt vedlikehold og driftsavvik."
           {...getCheckboxProps({ value: 'driftsmeldinger' })}
         />
         <Checkbox
           id={context.id + 'paaminnelser'}
-          label='Påminnelser'
-          description='Varsler om frister og oppgaver som krever handling.'
+          label="Påminnelser"
+          description="Varsler om frister og oppgaver som krever handling."
           {...getCheckboxProps({ value: 'paaminnelser' })}
         />
       </Fieldset>
     );
-  }
+  },
 };

@@ -2,7 +2,7 @@ name: Build and Publish Storybook to GitHub Pages
 
 on:
   workflow_run:
-    workflows: ["Build"]
+    workflows: ['Build']
     types: [completed]
     branches: [main]
 
@@ -44,7 +44,7 @@ jobs:
         if: steps.affected.outputs.run == 'true'
         working-directory: '@kv-designsystem/react'
         run: pnpm build-storybook
-        env: 
+        env:
           STORYBOOK_BASE_PATH: /
 
       - name: Upload Pages artifact

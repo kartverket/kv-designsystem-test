@@ -38,8 +38,8 @@ export const InputInTableCell: Story = {
       <caption>Stedsnavn til godkjenning</caption>
       <Table.Head>
         <Table.Row>
-          <Table.HeaderCell scope='col'>Stedsnavn</Table.HeaderCell>
-          <Table.HeaderCell scope='col' id='table-note-header'>
+          <Table.HeaderCell scope="col">Stedsnavn</Table.HeaderCell>
+          <Table.HeaderCell scope="col" id="table-note-header">
             Merknad
           </Table.HeaderCell>
         </Table.Row>
@@ -51,10 +51,7 @@ export const InputInTableCell: Story = {
               {row.name} (gnr. {row.propertyNumber}, bnr. {row.unitNumber})
             </Table.Cell>
             <Table.Cell>
-              <Input
-                aria-labelledby='table-note-header'
-                placeholder='Legg til merknad'
-              />
+              <Input aria-labelledby="table-note-header" placeholder="Legg til merknad" />
             </Table.Cell>
           </Table.Row>
         ))}
@@ -66,13 +63,13 @@ export const InputInTableCell: Story = {
 export const SimpleTextarea: Story = {
   render: () => (
     <div style={{ display: 'grid', gap: 'var(--ds-size-2)', width: '20rem' }}>
-      <Heading level={2} data-size='xs' id='remark-heading'>
+      <Heading level={2} data-size="xs" id="remark-heading">
         Merknad til grensepåvisning
       </Heading>
-      <Paragraph data-size='sm'>
+      <Paragraph data-size="sm">
         Beskriv eventuelle avvik du observerte ved oppmøtemerket.
       </Paragraph>
-      <Textarea aria-labelledby='remark-heading' rows={4} />
+      <Textarea aria-labelledby="remark-heading" rows={4} />
     </div>
   ),
 };
@@ -80,16 +77,16 @@ export const SimpleTextarea: Story = {
 export const TextfieldVariants: Story = {
   render: () => (
     <div style={{ display: 'grid', gap: 'var(--ds-size-4)', width: '20rem' }}>
-      <Textfield label='Stedsnavn' placeholder='F.eks. Kråkeberget' />
-      <Textfield label='Beskrivelse av lokaliteten' multiline rows={3} />
-      <Textfield label='Areal' type='number' suffix='m²' />
-      <Textfield label='Kort beskrivelse til kartet' counter={60} />
+      <Textfield label="Stedsnavn" placeholder="F.eks. Kråkeberget" />
+      <Textfield label="Beskrivelse av lokaliteten" multiline rows={3} />
+      <Textfield label="Areal" type="number" suffix="m²" />
+      <Textfield label="Kort beskrivelse til kartet" counter={60} />
       <Textfield
         label={[
           'Kommune',
           <Tag
-            key='required-tag'
-            data-color='warning'
+            key="required-tag"
+            data-color="warning"
             style={{ marginInlineStart: 'var(--ds-size-2)' }}
           >
             Må fylles ut
@@ -110,11 +107,9 @@ export const FieldWithInput: Story = {
         : undefined;
 
     return (
-      <Field aria-live='polite'>
+      <Field aria-live="polite">
         <Label>Bruksnummer (bnr)</Label>
-        <Field.Description>
-          Finner du på eiendomsdokumentene dine, f.eks. 42/7
-        </Field.Description>
+        <Field.Description>Finner du på eiendomsdokumentene dine, f.eks. 42/7</Field.Description>
         <Input
           value={unitNumber}
           onChange={(e) => setUnitNumber(e.target.value)}
@@ -130,15 +125,15 @@ export const FieldWithSelect: Story = {
   render: () => (
     <Field>
       <Label>Type eiendom</Label>
-      <Select defaultValue=''>
-        <Select.Option value='' disabled>
+      <Select defaultValue="">
+        <Select.Option value="" disabled>
           Velg eiendomstype &hellip;
         </Select.Option>
-        <Select.Option value='residential'>Boligeiendom</Select.Option>
-        <Select.Option value='holiday-home'>Fritidseiendom</Select.Option>
-        <Select.Option value='agricultural'>Landbrukseiendom</Select.Option>
-        <Select.Option value='commercial'>Næringseiendom</Select.Option>
-        <Select.Option value='undeveloped-plot'>Ubebygd tomt</Select.Option>
+        <Select.Option value="residential">Boligeiendom</Select.Option>
+        <Select.Option value="holiday-home">Fritidseiendom</Select.Option>
+        <Select.Option value="agricultural">Landbrukseiendom</Select.Option>
+        <Select.Option value="commercial">Næringseiendom</Select.Option>
+        <Select.Option value="undeveloped-plot">Ubebygd tomt</Select.Option>
       </Select>
     </Field>
   ),
@@ -160,39 +155,33 @@ export const FieldsetRadioGroup: Story = {
           setSubmitted(true);
         }}
       >
-        <Fieldset aria-live='polite'>
+        <Fieldset aria-live="polite">
           <Fieldset.Legend>Hva gjelder henvendelsen?</Fieldset.Legend>
-          <Fieldset.Description>
-            Velg det alternativet som passer best.
-          </Fieldset.Description>
+          <Fieldset.Description>Velg det alternativet som passer best.</Fieldset.Description>
           <Radio
-            label='Eierskifte'
-            name='requestType'
-            value='change-of-ownership'
+            label="Eierskifte"
+            name="requestType"
+            value="change-of-ownership"
             checked={selectedValue === 'change-of-ownership'}
             onChange={() => setSelectedValue('change-of-ownership')}
           />
           <Radio
-            label='Grensejustering'
-            name='requestType'
-            value='boundary-adjustment'
+            label="Grensejustering"
+            name="requestType"
+            value="boundary-adjustment"
             checked={selectedValue === 'boundary-adjustment'}
             onChange={() => setSelectedValue('boundary-adjustment')}
           />
           <Radio
-            label='Sammenslåing av eiendommer'
-            name='requestType'
-            value='property-merger'
+            label="Sammenslåing av eiendommer"
+            name="requestType"
+            value="property-merger"
             checked={selectedValue === 'property-merger'}
             onChange={() => setSelectedValue('property-merger')}
           />
-          {showError && (
-            <ValidationMessage>
-              Du må velge hva henvendelsen gjelder
-            </ValidationMessage>
-          )}
+          {showError && <ValidationMessage>Du må velge hva henvendelsen gjelder</ValidationMessage>}
         </Fieldset>
-        <Button type='submit'>Send inn</Button>
+        <Button type="submit">Send inn</Button>
       </form>
     );
   },
@@ -202,10 +191,10 @@ export const FieldsetAddress: Story = {
   render: () => (
     <Fieldset>
       <Fieldset.Legend>Adresse til eiendommen</Fieldset.Legend>
-      <Textfield label='Gate-/veiadresse' />
+      <Textfield label="Gate-/veiadresse" />
       <div style={{ display: 'flex', gap: 'var(--ds-size-4)' }}>
-        <Textfield label='Postnummer' style={{ width: '8rem' }} />
-        <Textfield label='Poststed' />
+        <Textfield label="Postnummer" style={{ width: '8rem' }} />
+        <Textfield label="Poststed" />
       </div>
     </Fieldset>
   ),
@@ -218,12 +207,9 @@ const validateOrderForm = (form: HTMLFormElement) => {
   const email = String(data.get('email') ?? '');
 
   const errors: Record<string, string> = {};
-  if (!/^\d+$/.test(propertyNumber))
-    errors.propertyNumber = 'Gårdsnummer må være et tall';
-  if (!/^\d+$/.test(unitNumber))
-    errors.unitNumber = 'Bruksnummer må være et tall';
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-    errors.email = 'E-postadressen er ikke gyldig';
+  if (!/^\d+$/.test(propertyNumber)) errors.propertyNumber = 'Gårdsnummer må være et tall';
+  if (!/^\d+$/.test(unitNumber)) errors.unitNumber = 'Bruksnummer må være et tall';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'E-postadressen er ikke gyldig';
   return errors;
 };
 
@@ -255,36 +241,36 @@ export const FormWithSubmitValidation: Story = {
         style={{ display: 'grid', gap: 'var(--ds-size-4)', width: '30rem' }}
       >
         <Paragraph
-          data-size='sm'
+          data-size="sm"
           style={{ display: 'flex', alignItems: 'center', gap: 'var(--ds-size-2)' }}
         >
-          <Tag data-color='warning' data-size='sm'>
+          <Tag data-color="warning" data-size="sm">
             Må fylles ut
           </Tag>
           Alle feltene i skjemaet må fylles ut.
         </Paragraph>
-        <div aria-live='polite'>
+        <div aria-live="polite">
           <Textfield
-            label='Gårdsnummer (gnr)'
-            id='propertyNumber'
-            name='propertyNumber'
+            label="Gårdsnummer (gnr)"
+            id="propertyNumber"
+            name="propertyNumber"
             error={errors.propertyNumber}
           />
         </div>
-        <div aria-live='polite'>
+        <div aria-live="polite">
           <Textfield
-            label='Bruksnummer (bnr)'
-            id='unitNumber'
-            name='unitNumber'
+            label="Bruksnummer (bnr)"
+            id="unitNumber"
+            name="unitNumber"
             error={errors.unitNumber}
           />
         </div>
-        <div aria-live='polite'>
+        <div aria-live="polite">
           <Textfield
-            label='E-post for tilbakemelding'
-            id='email'
-            name='email'
-            type='email'
+            label="E-post for tilbakemelding"
+            id="email"
+            name="email"
+            type="email"
             error={errors.email}
           />
         </div>
@@ -313,15 +299,14 @@ export const FormWithSubmitValidation: Story = {
             </ErrorSummary.List>
           </ErrorSummary>
         )}
-        <div aria-live='polite'>
+        <div aria-live="polite">
           {succeeded && (
-            <Alert data-color='success'>
-              Bestillingen er sendt inn. Du får en bekreftelse på e-post når vi
-              har mottatt den.
+            <Alert data-color="success">
+              Bestillingen er sendt inn. Du får en bekreftelse på e-post når vi har mottatt den.
             </Alert>
           )}
         </div>
-        <Button type='submit'>Bestill eiendomsinformasjon</Button>
+        <Button type="submit">Bestill eiendomsinformasjon</Button>
       </form>
     );
   },
@@ -336,9 +321,9 @@ export const LiveValidation: Story = {
         : undefined;
 
     return (
-      <div aria-live='polite'>
+      <div aria-live="polite">
         <Textfield
-          label='Postnummer'
+          label="Postnummer"
           value={postalCode}
           onChange={(e) => setPostalCode(e.target.value)}
           error={error}
@@ -356,10 +341,10 @@ export const LiveValidationAfterBlur: Story = {
     const error = hasBlurred && !isValid ? 'E-postadressen er ikke gyldig' : undefined;
 
     return (
-      <div aria-live='polite'>
+      <div aria-live="polite">
         <Textfield
-          label='E-postadresse'
-          type='email'
+          label="E-postadresse"
+          type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onBlur={() => setHasBlurred(true)}

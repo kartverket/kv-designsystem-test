@@ -3,11 +3,7 @@ import {
   type DefaultProps,
   type SpinnerProps as DigdirSpinnerProps,
 } from '@digdir/designsystemet-react';
-import type {
-  ComponentRef,
-  ForwardRefExoticComponent,
-  RefAttributes,
-} from 'react';
+import type { ComponentRef, ForwardRefExoticComponent, RefAttributes } from 'react';
 
 // Digdir types Spinner with SVG attributes, which don't include data-color, even though
 // the spinner supports it. Declared here so it's typed and shows up in Storybook Controls.

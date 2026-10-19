@@ -13,12 +13,12 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   render: (args) => (
     <Alert {...args}>
-      <Heading level={2} data-size='xs'>
+      <Heading level={2} data-size="xs">
         Overskrift
       </Heading>
       En beskjed det er viktig at brukeren ser
     </Alert>
-  )
+  ),
 };
 
 export const VariantInfo: Story = {
@@ -27,7 +27,7 @@ export const VariantInfo: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Heading level={2} data-size='xs'>
+      <Heading level={2} data-size="xs">
         Nye høydedata er tilgjengelige
       </Heading>
       Vi har oppdatert datasettet for ditt område. Last inn kartet på nytt for å se endringene.
@@ -41,7 +41,7 @@ export const VariantSuccess: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Heading level={2} data-size='xs'>
+      <Heading level={2} data-size="xs">
         Endringen din ble lagret
       </Heading>
       Vi har oppdatert innstillingene dine, og kartvisningen bruker nå de nye valgene.
@@ -55,7 +55,7 @@ export const VariantWarning: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Heading level={2} data-size='xs'>
+      <Heading level={2} data-size="xs">
         Eiendommen mangler tilknytning til kommunen
       </Heading>
       Vi finner ikke kommuneinformasjon for eiendommen. Sjekk matrikkelnummeret og prøv igjen.
@@ -69,12 +69,12 @@ export const VariantDanger: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Heading level={2} data-size='xs'>
+      <Heading level={2} data-size="xs">
         Vi kan ikke hente kartlag
       </Heading>
       Vi klarte ikke å laste kartlaget. Prøv å laste inn siden på nytt.{' '}
-      <Link href='https://www.kartverket.no/om-kartverket/kontakt-oss'>Kontakt oss</Link>
-      {' '}hvis problemet fortsetter.
+      <Link href="https://www.kartverket.no/om-kartverket/kontakt-oss">Kontakt oss</Link> hvis
+      problemet fortsetter.
     </Alert>
   ),
 };
@@ -83,9 +83,7 @@ export const NoHeading: Story = {
   args: {
     'data-color': 'warning',
   },
-  render: (args) => (
-    <Alert {...args}>Du har 7 dager igjen på å fullføre søknaden.</Alert>
-  ),
+  render: (args) => <Alert {...args}>Du har 7 dager igjen på å fullføre søknaden.</Alert>,
 };
 
 export const WithLink: Story = {
@@ -94,12 +92,11 @@ export const WithLink: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <Heading level={2} data-size='xs'>
+      <Heading level={2} data-size="xs">
         Du må oppdatere API-nøkkel
       </Heading>
-      Fristen for å bytte til ny API-nøkkel er om 3 dager.{' '} 
-      <Link href='#'>Oppdater nå</Link>
-      {' '}for å sikre fortsatt tilgang.
+      Fristen for å bytte til ny API-nøkkel er om 3 dager. <Link href="#">Oppdater nå</Link> for å
+      sikre fortsatt tilgang.
     </Alert>
   ),
 };
