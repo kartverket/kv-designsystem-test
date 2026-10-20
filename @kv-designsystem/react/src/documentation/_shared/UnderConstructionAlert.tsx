@@ -4,11 +4,18 @@ import { Link } from '../../components/link/Link';
 
 export function UnderConstructionAlert() {
   return (
-    <Alert mdata-color='warning' className='sb-unstyled' style={{ marginBottom: 'var(--ds-size-5)' }}>
-      <Heading data-size='xs' level={2}>
+    <Alert
+      mdata-color="warning"
+      className="sb-unstyled"
+      style={{ marginBottom: 'var(--ds-size-5)' }}
+    >
+      <Heading data-size="xs" level={2}>
         Designsystemet er under utvikling
       </Heading>
-      Vi jobber med et helt nytt designsystem med <Link href='https://designsystemet.no/no'>Digdir Designsystemet</Link> som fundament. Vi er i første fase (alpha), som vil si at tilpasninger, tillegg og andre endringer vil skje fortløpende.
+      Vi jobber med et helt nytt designsystem med{' '}
+      <Link href="https://designsystemet.no/no">Digdir Designsystemet</Link> som fundament. Vi er i
+      første fase (alpha), som vil si at tilpasninger, tillegg og andre endringer vil skje
+      fortløpende.
     </Alert>
-  )
+  );
 }

@@ -159,11 +159,11 @@
   }
 
   /* Popover slides down/up */
-  transition: 
+  transition:
     max-height var(--kvdsc-header-transition-duration) ease,
     overlay var(--kvdsc-header-transition-duration),
     display var(--kvdsc-header-transition-duration);
-    transition-behavior: allow-discrete;
+  transition-behavior: allow-discrete;
   animation: 1.3s delay-overflow;
 
   &:popover-open {

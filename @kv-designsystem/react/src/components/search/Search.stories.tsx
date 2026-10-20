@@ -1,54 +1,72 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Search } from './Search';
+import { subcomponents } from './docs/subcomponents';
 import { Divider } from '../divider/Divider';
 import { Spinner } from '../spinner/Spinner';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ComponentProps } from 'react';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
+import { screenReaderTextArgType } from '../../../.storybook/utils/screenReaderTextArgType';
+
+// Not a prop, but a data attribute Search reads its screen reader text from. Added so Controls
+// shows the replacement for the deprecated prop `aria-label` on Search.Clear.
+type SearchStoryArgs = ComponentProps<typeof Search> & { 'data-sr-clear'?: string };
 
 const meta = {
   component: Search,
+  subcomponents,
   parameters: { layout: 'centered' },
-} satisfies Meta<typeof Search>;
+  argTypes: {
+    'data-sr-clear': screenReaderTextArgType({
+      description:
+        'Screen reader label of the clear button. Replaces `aria-label` on `Search.Clear`.',
+      defaultValue: 'Clear input',
+    }),
+  },
+} satisfies Meta<SearchStoryArgs>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<SearchStoryArgs>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Search>
-      <Search.Input aria-label='Søk' />
+  render: (args) => (
+    <Search {...args}>
+      <Search.Input aria-label="Søk" />
       <Search.Clear />
       <Search.Button />
     </Search>
-  )
+  ),
 };
 
 export const Variants: Story = {
   render: (_args) => (
     <div>
       <Search>
-        <Search.Input aria-label='Søk' />
+        <Search.Input aria-label="Søk" />
         <Search.Clear />
       </Search>
-      <Divider style={{
-        marginTop: 'var(--ds-size-4)'
-      }} />
+      <Divider
+        style={{
+          marginTop: 'var(--ds-size-4)',
+        }}
+      />
       <Search>
-        <Search.Input aria-label='Søk' />
+        <Search.Input aria-label="Søk" />
         <Search.Clear />
         <Search.Button />
       </Search>
-      <Divider style={{
-        marginTop: 'var(--ds-size-4)'
-      }} />
+      <Divider
+        style={{
+          marginTop: 'var(--ds-size-4)',
+        }}
+      />
       <Search>
-        <Search.Input aria-label='Søk' />
+        <Search.Input aria-label="Søk" />
         <Search.Clear />
-        <Search.Button variant='secondary' />
+        <Search.Button variant="secondary" />
       </Search>
     </div>
-  )
+  ),
 };
 
 export const LiveSearch: Story = {
@@ -89,7 +107,7 @@ export const LiveSearch: Story = {
       <>
         <Search {...args}>
           <Search.Input
-            aria-label='Søk'
+            aria-label="Søk"
             value={value}
             onChange={(e) => {
               setValue(e.target.value);
@@ -105,7 +123,7 @@ export const LiveSearch: Story = {
               alignItems: 'center',
             }}
           >
-            <Spinner aria-hidden data-size='xs' />
+            <Spinner aria-hidden data-size="xs" />
             <span>Søker etter: {searchValue}</span>
           </div>
         )}
@@ -119,10 +137,10 @@ export const WithLabel: Story = {
     <Field>
       <Label>Søk etter datasett</Label>
       <Search>
-        <Search.Input name='dataset-search' />
+        <Search.Input name="dataset-search" />
         <Search.Clear />
         <Search.Button />
       </Search>
     </Field>
-  )
+  ),
 };

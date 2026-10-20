@@ -1,10 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { Pagination } from '../../../components/pagination/Pagination';
-import {
-  type UsePaginationProps,
-  usePagination,
-} from './usePagination';
+import { type UsePaginationProps, usePagination } from './usePagination';
 
 const meta: Meta<UsePaginationProps> = {
   title: 'Hooks/usePagination',
@@ -25,8 +22,8 @@ const meta: Meta<UsePaginationProps> = {
             .replace('return', '')
             .trim();
         },
-      }
-    }
+      },
+    },
   },
   argTypes: {
     currentPage: {
@@ -78,10 +75,10 @@ export const Preview: Story = {
     });
 
     return (
-      <Pagination aria-label='Sidenavigering'>
+      <Pagination aria-label="Sidenavigering">
         <Pagination.List>
           <Pagination.Item>
-            <Pagination.Button aria-label='Forrige side' {...prevButtonProps}>
+            <Pagination.Button aria-label="Forrige side" {...prevButtonProps}>
               Forrige
             </Pagination.Button>
           </Pagination.Item>
@@ -95,7 +92,7 @@ export const Preview: Story = {
             </Pagination.Item>
           ))}
           <Pagination.Item>
-            <Pagination.Button aria-label='Neste side' {...nextButtonProps}>
+            <Pagination.Button aria-label="Neste side" {...nextButtonProps}>
               Neste
             </Pagination.Button>
           </Pagination.Item>
