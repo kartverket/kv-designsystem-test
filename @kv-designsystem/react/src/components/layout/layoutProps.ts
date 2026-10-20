@@ -1,46 +1,41 @@
 import type { CSSProperties, HTMLAttributes } from 'react';
+import { layoutItemMinWidths, layoutSizes } from './layoutTokens';
 
 /**
  * Size tokens from Designsystemet. `4` means `var(--ds-size-4)`.
  */
-export type LayoutSize =
-  | 0
-  | 1
-  | 2
-  | 3
-  | 4
-  | 5
-  | 6
-  | 7
-  | 8
-  | 9
-  | 10
-  | 11
-  | 12
-  | 13
-  | 14
-  | 15
-  | 18
-  | 22
-  | 26
-  | 30;
+export type LayoutSize = (typeof layoutSizes)[number];
 
 /**
- * Minimum width of the children, in px (converted to rem, so it follows the user's font size).
+ * Preferred width of each child before items wrap, in px. It is converted to rem, so it follows
+ * the user's font size.
  */
-export type LayoutItemsMinWidth =
-  | 50
-  | 100
-  | 150
-  | 200
-  | 250
-  | 300
-  | 350
-  | 400
-  | 450
-  | 500
-  | 550
-  | 600;
+export type LayoutItemMinWidth = (typeof layoutItemMinWidths)[number];
+
+type LayoutStyle = CSSProperties & {
+  '--kvdsc-layout-max-width'?: string;
+};
+
+type LayoutAttributes<P extends LayoutProps> = Omit<
+  P,
+  | 'gap'
+  | 'rowGap'
+  | 'columnGap'
+  | 'itemMinWidth'
+  | 'alignItems'
+  | 'alignContent'
+  | 'maxWidth'
+  | 'style'
+> & {
+  'data-align-content': LayoutProps['alignContent'];
+  'data-align-items': LayoutProps['alignItems'];
+  'data-column-gap': LayoutProps['columnGap'];
+  'data-gap': LayoutProps['gap'];
+  'data-item-min-width': LayoutProps['itemMinWidth'];
+  'data-max-width': '' | undefined;
+  'data-row-gap': LayoutProps['rowGap'];
+  style: LayoutStyle | undefined;
+};
 
 export type LayoutProps = HTMLAttributes<HTMLDivElement> & {
   /**
@@ -56,6 +51,10 @@ export type LayoutProps = HTMLAttributes<HTMLDivElement> & {
    * Space between columns. Overrides `gap` horizontally.
    */
   columnGap?: LayoutSize;
+  /**
+   * Preferred width of each child before items wrap, in px.
+   */
+  itemMinWidth?: LayoutItemMinWidth;
   /**
    * Aligns the children vertically within their row.
    */
@@ -92,23 +91,25 @@ export function toLayoutAttributes<P extends LayoutProps>({
   gap,
   rowGap,
   columnGap,
+  itemMinWidth,
   alignItems,
   alignContent,
   maxWidth,
   style,
   ...rest
-}: P) {
+}: P): LayoutAttributes<P> {
   return {
     ...rest,
     'data-gap': gap,
     'data-row-gap': rowGap,
     'data-column-gap': columnGap,
+    'data-item-min-width': itemMinWidth,
     'data-align-items': alignItems,
     'data-align-content': alignContent,
     'data-max-width': maxWidth === undefined ? undefined : '',
     style:
       maxWidth === undefined
         ? style
-        : ({ '--kvdsc-layout-max-width': maxWidth, ...style } as CSSProperties),
+        : ({ '--kvdsc-layout-max-width': maxWidth, ...style } satisfies LayoutStyle),
   };
 }
