@@ -11,9 +11,7 @@
   "dependencies": {},
   "devDependencies": {
     "@nx/eslint-plugin": "catalog:",
-    "@nx/storybook": "catalog:",
-    "@nx/vite": "catalog:",
-    "@nx/web": "catalog:",
+    "@nx/js": "catalog:",
     "@types/node": "catalog:",
     "@typescript/native-preview": "catalog:",
     "@vitest/ui": "catalog:",
