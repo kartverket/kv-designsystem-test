@@ -7,8 +7,6 @@
 # commit, mirroring how `nx format:check` used to behave. In CI the range comes from
 # NX_BASE/NX_HEAD (set by nrwl/nx-set-shas); locally it defaults to the merge base
 # with origin/main.
-#
-# TODO: replace with a plain `oxfmt --check` once the whole repo has been reformatted.
 
 set -eu
 

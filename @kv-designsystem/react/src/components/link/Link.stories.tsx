@@ -18,16 +18,16 @@ export const Preview: Story = {
   args: {
     href: 'https://www.kartverket.no/',
     children: 'Gå til kartverket.no',
-  }
+  },
 };
 
 export const WithIcon: Story = {
   render: (_args) => (
-    <Link href='https://kartverketgroup.slack.com/archives/C03LL4CKMMK'>
+    <Link href="https://kartverketgroup.slack.com/archives/C03LL4CKMMK">
       <Chat2Icon aria-hidden fontSize={24} />
       <span>Snakk med oss på Slack</span>
     </Link>
-  )
+  ),
 };
 
 export const InText: Story = {
@@ -36,11 +36,7 @@ export const InText: Story = {
   },
   render: (args) => (
     <Paragraph>
-      Vi bruker komponenter fra{' '}
-      <Link {...args}>
-        designsystemet.no
-      </Link>
-      .
+      Vi bruker komponenter fra <Link {...args}>designsystemet.no</Link>.
     </Paragraph>
   ),
 };
@@ -50,7 +46,7 @@ export const NeutralColor: Story = {
     href: 'https://www.kartverket.no/om-kartverket/personvern',
   },
   render: (args) => (
-    <Link {...args} data-color='neutral'>
+    <Link {...args} data-color="neutral">
       Kartverkets personvernerklæring
     </Link>
   ),
@@ -73,7 +69,7 @@ export const LongLink: Story = {
 
 export const File: Story = {
   args: {
-    href: 'https://kartverket.no/globalassets/geodataarbeid/hoydemodell/samfunnsokonomisk-analyse-nasjonal-detaljert-hoydemodell.pdf'
+    href: 'https://kartverket.no/globalassets/geodataarbeid/hoydemodell/samfunnsokonomisk-analyse-nasjonal-detaljert-hoydemodell.pdf',
   },
   render: (args) => (
     <Link {...args}>

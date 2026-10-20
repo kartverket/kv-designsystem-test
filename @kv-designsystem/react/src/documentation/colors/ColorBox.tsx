@@ -1,7 +1,6 @@
 import { Paragraph } from '../../components/typography/paragraph/Paragraph';
 import styles from './ColorBox.module.css';
 
-
 const colors = [
   { hex: '#1A833B', textColor: '#ffffff', label: 'accent' },
   { hex: '#1A589F', textColor: '#ffffff', label: 'accent' },
@@ -18,11 +17,11 @@ type ColorItemProps = {
   hex: string;
   textColor: string;
   label: string;
-}
+};
 
 function ColorItem({ hex, textColor, label }: ColorItemProps) {
   return (
-    <div className={`sb-unstyled ${styles.item}`} style={{ marginBottom: 'var(--ds-size-5)'}}>
+    <div className={`sb-unstyled ${styles.item}`} style={{ marginBottom: 'var(--ds-size-5)' }}>
       <div
         className={`sb-unstyled ${styles.box}`}
         style={{
@@ -32,14 +31,11 @@ function ColorItem({ hex, textColor, label }: ColorItemProps) {
       >
         {hex}
       </div>
-      <Paragraph
-        data-size='xs'
-        style={{ marginTop: 'var(--ds-size-2)' }}
-      >
+      <Paragraph data-size="xs" style={{ marginTop: 'var(--ds-size-2)' }}>
         {label}
       </Paragraph>
     </div>
-  )
+  );
 }
 
 export function ColorBox() {
@@ -54,5 +50,5 @@ export function ColorBox() {
         />
       ))}
     </div>
-  )
+  );
 }

@@ -11,20 +11,16 @@ export type FooterProps = HTMLAttributes<HTMLElement> & {
   'data-size'?: Size;
 };
 
-export const Footer = forwardRef<HTMLElement, FooterProps>(
-  function Footer({ children, className, ...rest }, ref) {
-    return (
-      <footer
-        className={cl('footer', className)}
-        ref={ref}
-        {...rest}
-      >
-        <div className='footer-container'>
-          <Logo padding='0' />
-          <div className='footer-columns'>
-            {children}
-          </div>
-        </div>
-      </footer>
-    );
-  });
+export const Footer = forwardRef<HTMLElement, FooterProps>(function Footer(
+  { children, className, ...rest },
+  ref,
+) {
+  return (
+    <footer className={cl('footer', className)} ref={ref} {...rest}>
+      <div className="footer-container">
+        <Logo padding="0" />
+        <div className="footer-columns">{children}</div>
+      </div>
+    </footer>
+  );
+});

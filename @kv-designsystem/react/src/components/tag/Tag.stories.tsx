@@ -16,14 +16,14 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     children: 'Tag',
-  }
+  },
 };
 
 export const Icons: Story = {
   render: (_args) => (
     <Tag
-      data-color='neutral'
-      data-size='md'
+      data-color="neutral"
+      data-size="md"
       style={{
         paddingInlineStart: 'var(--ds-size-1)',
       }}
@@ -31,7 +31,7 @@ export const Icons: Story = {
       <RobotIcon aria-hidden style={{ marginInlineEnd: 'var(--ds-size-1)' }} />
       Teksten er KI-generert
     </Tag>
-  )
+  ),
 };
 
 const colorVariants = [
@@ -42,7 +42,7 @@ const colorVariants = [
   'success',
   'warning',
   'danger',
-  'info'
+  'info',
 ];
 
 export const Variants: Story = {
@@ -55,10 +55,12 @@ export const Variants: Story = {
       }}
     >
       {colorVariants.map((color) => (
-        <Tag key={color} data-color={color as TagProps['data-color']} {...args}>{color}</Tag>
+        <Tag key={color} data-color={color as TagProps['data-color']} {...args}>
+          {color}
+        </Tag>
       ))}
-    </ div>
-  )
+    </div>
+  ),
 };
 
 export const WithOutline: Story = {
@@ -68,24 +70,25 @@ export const WithOutline: Story = {
   render: Variants.render,
 };
 
-const propertyImage =
-  'https://eiendomsregisteret.kartverket.no/egenregistrering.jpeg';
+const propertyImage = 'https://eiendomsregisteret.kartverket.no/egenregistrering.jpeg';
 
 export const InCard: Story = {
   render: (_args) => (
     <Card style={{ width: '320px' }}>
       <Card.Block>
-        <img src={propertyImage} alt='Et hus ved en fjord' />
+        <img src={propertyImage} alt="Et hus ved en fjord" />
       </Card.Block>
       <Card.Block>
-        <Tag data-color='accent' data-size='sm'>Nyhet</Tag>
+        <Tag data-color="accent" data-size="sm">
+          Nyhet
+        </Tag>
         <Heading>
-          <a href='#'>Egenregistrering</a>
+          <a href="#">Egenregistrering</a>
         </Heading>
         <Paragraph>
           Nå kan du som eier eller fester registrere opplysninger om din bolig eller fritidsbolig.
         </Paragraph>
       </Card.Block>
     </Card>
-  )
+  ),
 };

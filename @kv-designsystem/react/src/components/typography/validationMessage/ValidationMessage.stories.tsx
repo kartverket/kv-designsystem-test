@@ -14,27 +14,19 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     children: 'ValidationMessage',
-  }
+  },
 };
 
 export const AllColors: Story = {
   render: (_args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      <ValidationMessage data-color='danger'>
-        Dette er en feilmelding.
-      </ValidationMessage>
+      <ValidationMessage data-color="danger">Dette er en feilmelding.</ValidationMessage>
 
-      <ValidationMessage data-color='success'>
-        Dette er en suksessmelding.
-      </ValidationMessage>
+      <ValidationMessage data-color="success">Dette er en suksessmelding.</ValidationMessage>
 
-      <ValidationMessage data-color='info'>
-        Dette er en informasjonsmelding.
-      </ValidationMessage>
+      <ValidationMessage data-color="info">Dette er en informasjonsmelding.</ValidationMessage>
 
-      <ValidationMessage data-color='warning'>
-        Dette er en advarsel.
-      </ValidationMessage>
+      <ValidationMessage data-color="warning">Dette er en advarsel.</ValidationMessage>
     </div>
-  )
+  ),
 };

@@ -1,16 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Dropdown } from './Dropdown';
+import { subcomponents } from './docs/subcomponents';
 import { Divider } from '../divider/Divider';
-import {
-  LinkIcon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-} from '@navikt/aksel-icons';
+import { LinkIcon, ChevronDownIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import { Button } from '../button/Button';
 
 const meta = {
   component: Dropdown,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Dropdown>;
 
@@ -18,10 +16,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
+  render: (args) => (
     <Dropdown.TriggerContext>
       <Dropdown.Trigger>Åpne Dropdown</Dropdown.Trigger>
-      <Dropdown placement='bottom-end'>
+      <Dropdown placement="bottom-end" {...args}>
         <Dropdown.Heading>Overskrift 1</Dropdown.Heading>
         <Dropdown.List>
           <Dropdown.Item>
@@ -46,7 +44,7 @@ export const Preview: Story = {
         </Dropdown.List>
       </Dropdown>
     </Dropdown.TriggerContext>
-  )
+  ),
 };
 
 export const WithIcons: Story = {
@@ -60,7 +58,7 @@ export const WithIcons: Story = {
         <Dropdown.List>
           <Dropdown.Item>
             <Dropdown.Button asChild>
-              <a href='https://kartverket.no'>
+              <a href="https://kartverket.no">
                 <LinkIcon aria-hidden />
                 Kartverket
               </a>
@@ -68,7 +66,7 @@ export const WithIcons: Story = {
           </Dropdown.Item>
           <Dropdown.Item>
             <Dropdown.Button asChild>
-              <a href='https://www.geonorge.no/'>
+              <a href="https://www.geonorge.no/">
                 <LinkIcon aria-hidden />
                 Geonorge
               </a>
@@ -76,7 +74,7 @@ export const WithIcons: Story = {
           </Dropdown.Item>
           <Dropdown.Item>
             <Dropdown.Button asChild>
-              <a href='https://www.norgeskart.no/'>
+              <a href="https://www.norgeskart.no/">
                 <LinkIcon aria-hidden />
                 Norgeskart
               </a>
@@ -90,7 +88,7 @@ export const WithIcons: Story = {
 
 export const Controlled: Story = {
   args: {
-    placement: 'bottom-end'
+    placement: 'bottom-end',
   },
   render: (args) => {
     const [open, setOpen] = useState(false);
@@ -101,12 +99,7 @@ export const Controlled: Story = {
           Dropdown
           {open ? <ChevronUpIcon aria-hidden /> : <ChevronDownIcon aria-hidden />}
         </Dropdown.Trigger>
-        <Dropdown
-          open={open}
-          onClose={() => setOpen(false)}
-          onOpen={() => setOpen(true)}
-          {...args}
-        >
+        <Dropdown open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} {...args}>
           <Dropdown.List>
             <Dropdown.Item>
               <Dropdown.Button onClick={() => setOpen(false)}>
@@ -114,9 +107,7 @@ export const Controlled: Story = {
               </Dropdown.Button>
             </Dropdown.Item>
             <Dropdown.Item>
-              <Dropdown.Button onClick={() => setOpen(false)}>
-                Jeg lukker også
-              </Dropdown.Button>
+              <Dropdown.Button onClick={() => setOpen(false)}>Jeg lukker også</Dropdown.Button>
             </Dropdown.Item>
           </Dropdown.List>
         </Dropdown>
@@ -131,8 +122,8 @@ export const WithPopovertarget: Story = {
   },
   render: (args) => (
     <>
-      <Button popovertarget='dropdown'>Trigger</Button>
-      <Dropdown id='dropdown' {...args}>
+      <Button popovertarget="dropdown">Trigger</Button>
+      <Dropdown id="dropdown" {...args}>
         <Dropdown.List>
           <Dropdown.Item>
             <Dropdown.Button>Knapp 1</Dropdown.Button>
@@ -153,25 +144,17 @@ export const Selected: Story = {
   },
   render: (args) => (
     <Dropdown.TriggerContext>
-      <Dropdown.Trigger variant='secondary'>
-        Velg kartlag
-      </Dropdown.Trigger>
+      <Dropdown.Trigger variant="secondary">Velg kartlag</Dropdown.Trigger>
       <Dropdown {...args}>
         <Dropdown.List>
           <Dropdown.Item>
-            <Dropdown.Button>
-              Eiendom
-            </Dropdown.Button>
+            <Dropdown.Button>Eiendom</Dropdown.Button>
           </Dropdown.Item>
-          <Dropdown.Item aria-current='true'>
-            <Dropdown.Button>
-              Tur og friluftsruter
-            </Dropdown.Button>
+          <Dropdown.Item aria-current="true">
+            <Dropdown.Button>Tur og friluftsruter</Dropdown.Button>
           </Dropdown.Item>
           <Dropdown.Item>
-            <Dropdown.Button>
-              Dybdedata
-            </Dropdown.Button>
+            <Dropdown.Button>Dybdedata</Dropdown.Button>
           </Dropdown.Item>
         </Dropdown.List>
       </Dropdown>

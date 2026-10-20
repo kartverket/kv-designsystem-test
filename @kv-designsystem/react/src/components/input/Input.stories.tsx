@@ -15,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 export const Preview: Story = {
   args: {
     'aria-label': 'input',
-  }
+  },
 };
 
 export const WithLabel: Story = {
@@ -24,7 +24,7 @@ export const WithLabel: Story = {
       <Label>Fødselsnummer</Label>
       <Input />
     </Field>
-  )
+  ),
 };
 
 export const WithError: Story = {
@@ -34,23 +34,23 @@ export const WithError: Story = {
       <Input aria-invalid />
       <ValidationMessage>Fødselsnummeret skal ha 11 siffer</ValidationMessage>
     </Field>
-  )
+  ),
 };
 
 export const ReadOnly: Story = {
   render: (_args) => (
     <Field>
       <Label>Fødselsnummer</Label>
-      <Input readOnly value='12345678901' />
+      <Input readOnly value="12345678901" />
     </Field>
-  )
+  ),
 };
 
 export const Disabled: Story = {
   render: (_args) => (
     <Field>
       <Label>Fødselsnummer</Label>
-      <Input disabled value='12345678901' />
+      <Input disabled value="12345678901" />
     </Field>
-  )
+  ),
 };

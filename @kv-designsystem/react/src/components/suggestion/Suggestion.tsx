@@ -1,4 +1,7 @@
-import { EXPERIMENTAL_Suggestion as Suggestion, type SuggestionProps } from '@digdir/designsystemet-react';
+import {
+  EXPERIMENTAL_Suggestion as Suggestion,
+  type SuggestionProps,
+} from '@digdir/designsystemet-react';
 
 // Fixing Suggestion being displayed as EXPERIMENTAL_Suggestion in Storybook preview code snippets.
 Suggestion.displayName = 'Suggestion';

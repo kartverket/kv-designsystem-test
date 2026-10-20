@@ -6,16 +6,15 @@ const cookies = [
     purpose: 'Adminstrasjon av samtykke',
     optionality: 'Valgfri',
     storageTime: '90 dager',
-    recipient: 'Kartverket'
+    recipient: 'Kartverket',
   },
   {
     name: 'Datacelle',
     purpose: 'Datacelle',
     optionality: 'Datacelle',
     storageTime: 'Datacelle',
-    recipient: 'Datacelle'
+    recipient: 'Datacelle',
   },
-
 ];
 
 export function CookiesTable() {
@@ -23,11 +22,11 @@ export function CookiesTable() {
     <Table>
       <Table.Head>
         <Table.Row>
-          <Table.HeaderCell scope='col'>Navn</Table.HeaderCell>
-          <Table.HeaderCell scope='col'>Formål</Table.HeaderCell>
-          <Table.HeaderCell scope='col'>Valgfrihet</Table.HeaderCell>
-          <Table.HeaderCell scope='col'>Lagringstid*</Table.HeaderCell>
-          <Table.HeaderCell scope='col'>Mottaker</Table.HeaderCell>
+          <Table.HeaderCell scope="col">Navn</Table.HeaderCell>
+          <Table.HeaderCell scope="col">Formål</Table.HeaderCell>
+          <Table.HeaderCell scope="col">Valgfrihet</Table.HeaderCell>
+          <Table.HeaderCell scope="col">Lagringstid*</Table.HeaderCell>
+          <Table.HeaderCell scope="col">Mottaker</Table.HeaderCell>
         </Table.Row>
       </Table.Head>
       <Table.Body>
@@ -42,5 +41,5 @@ export function CookiesTable() {
         ))}
       </Table.Body>
     </Table>
-  )
-};
+  );
+}

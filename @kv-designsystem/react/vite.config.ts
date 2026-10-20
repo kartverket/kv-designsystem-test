@@ -23,9 +23,7 @@ const dependencies = Object.keys({
 /*
 Mark submodules from dependencies as being external
 */
-const dependenciesSubmodules = dependencies.map(
-  (dep) => new RegExp(`^${dep}/`),
-);
+const dependenciesSubmodules = dependencies.map((dep) => new RegExp(`^${dep}/`));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
@@ -37,13 +35,9 @@ export default defineConfig({
       entryRoot: 'src',
       tsconfigPath: join(__dirname, 'tsconfig.lib.json'),
       afterDiagnostic: (diagnostics) => {
-        const errors = diagnostics.filter(
-          (x) => x.category === ts.DiagnosticCategory.Error,
-        );
+        const errors = diagnostics.filter((x) => x.category === ts.DiagnosticCategory.Error);
         if (errors.length > 0) {
-          throw new Error(
-            'Type error during .d.ts generation! See errors above.',
-          );
+          throw new Error('Type error during .d.ts generation! See errors above.');
         }
       },
     }),

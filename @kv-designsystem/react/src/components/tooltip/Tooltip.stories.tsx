@@ -1,12 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tooltip } from './Tooltip';
 import { Button } from '../button/Button';
-import {
-  FilesIcon,
-  FloppydiskIcon,
-  PrinterSmallIcon,
-  TrashIcon,
-} from '@navikt/aksel-icons';
+import { FilesIcon, FloppydiskIcon, PrinterSmallIcon, TrashIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Tooltip,
@@ -25,8 +20,8 @@ export const Preview: Story = {
     content: 'Kopier',
   },
   render: (args) => (
-    <Tooltip {...args} placement='top'>
-      <Button icon aria-label='Kopier'>
+    <Tooltip placement="top" {...args}>
+      <Button icon aria-label="Kopier">
         <FilesIcon aria-hidden />
       </Button>
     </Tooltip>
@@ -37,34 +32,32 @@ export const WithText: Story = {
   args: {
     content: 'Organisasjonsnummer',
   },
-  render: (args) => (
-    <Tooltip {...args}>Org.nr.</Tooltip>
-  ),
+  render: (args) => <Tooltip {...args}>Org.nr.</Tooltip>,
 };
 
 export const Placement: Story = {
   args: {
-    content: ''
+    content: '',
   },
   render: (_args) => (
     <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
-      <Tooltip placement='left' content='Slett'>
-        <Button icon variant='secondary'>
+      <Tooltip placement="left" content="Slett">
+        <Button icon variant="secondary">
           <TrashIcon aria-hidden />
         </Button>
       </Tooltip>
-      <Tooltip placement='top' content='Lagre'>
-        <Button icon variant='secondary'>
+      <Tooltip placement="top" content="Lagre">
+        <Button icon variant="secondary">
           <FloppydiskIcon aria-hidden />
         </Button>
       </Tooltip>
-      <Tooltip placement='bottom' content='Skriv ut'>
-        <Button icon variant='secondary'>
+      <Tooltip placement="bottom" content="Skriv ut">
+        <Button icon variant="secondary">
           <PrinterSmallIcon aria-hidden />
         </Button>
       </Tooltip>
-      <Tooltip placement='right' content='Kopier'>
-        <Button icon variant='secondary'>
+      <Tooltip placement="right" content="Kopier">
+        <Button icon variant="secondary">
           <FilesIcon aria-hidden />
         </Button>
       </Tooltip>
