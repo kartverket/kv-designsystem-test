@@ -1,67 +1,26 @@
 import { Canvas, Controls } from '@storybook/addon-docs/blocks';
+import ExperimentalComponent from '../../documentation/_shared/ExperimentalComponent';
 import * as FlexStories from './Flex.stories';
 import * as GridStories from './Grid.stories';
 
+
+<ExperimentalComponent component='Grid og Flex' />
 # Layout
 
-`Flex` og `Grid` plasserer innhold og styrer avstanden mellom elementene. Avstandene kommer fra størrelsestokenene våre, så layouten følger størrelsesmodusen (`data-size`) på siden.
-
-Hovedregelen er enkel:
-
-- **`Flex`** legger elementer **ved siden av hverandre**.
-- **`Grid`** stabler elementer **under hverandre**, i én eller flere kolonner.
+`Grid` og `Flex` plasserer innhold og styrer avstanden mellom elementene. Avstandene kommer fra størrelsestokenene våre, så layouten følger størrelsesmodusen (`data-size`) på siden.
 
 ## Grid
 
-`Grid` stabler elementene i én kolonne. Med `itemsMinWidth` får du så mange like brede kolonner som det er plass til. Prøv innstillingene under eksempelet.
+Bruk `Grid` når innhold skal stå under hverandre, for eksempel skjemafelt, kort eller seksjoner på en side. Med `itemMinWidth` får du så mange like brede kolonner som det er plass til.
 
 <Canvas of={GridStories.Preview} />
 <Controls of={GridStories.Preview} />
 
-## Flex
-
-`Flex` legger elementene på en rad. Blir det for trangt, brekker de til en ny linje. Prøv innstillingene under eksempelet.
-
-<Canvas of={FlexStories.Preview} />
-<Controls of={FlexStories.Preview} />
-
-**Bruk `Grid` når**
-- innhold skal stå under hverandre, for eksempel skjemafelt, kort eller seksjoner på en side
-- elementene skal være like brede, for eksempel en liste med kort
-
-**Bruk `Flex` når**
-- elementer skal stå ved siden av hverandre, for eksempel knapper, tagger eller et søkefelt med knapp
-- elementene skal være så brede som innholdet sitt
-
-**Unngå `Flex` og `Grid` når**
-- innholdet er løpende tekst. Overskrifter og avsnitt skal flyte nedover siden med sine egne marginer.
-
-## Varianter med eksempler
-
-### Elementer ved siden av hverandre
-
-Det vanligste med `Flex` er en rad med knapper eller tagger.
-
-<Canvas of={FlexStories.Buttons} />
-<Canvas of={FlexStories.Tags} />
-
 ### Grid med flere kolonner
 
-Med `itemsMinWidth` får `Grid` så mange like brede kolonner som det er plass til. Ingen kolonne blir smalere enn verdien. På små skjermer blir det én kolonne, uten media queries.
+Med `itemMinWidth` får du så mange like brede kolonner som det er plass til. Ingen kolonne blir smalere enn verdien. På små skjermer blir det én kolonne, uten media queries.
 
-<Canvas of={GridStories.ItemsMinWidth} />
-
-### Flex med minimumsbredde
-
-`itemsMinWidth` på `Flex` gir elementene en minimumsbredde før de brekker til ny linje. I motsetning til `Grid` vokser elementene på siste linje og fyller hele raden.
-
-<Canvas of={FlexStories.ItemsMinWidth} />
-
-### Fordele plassen på en rad
-
-`justifyItems` fordeler elementene horisontalt, og `alignItems` plasserer dem vertikalt på raden.
-
-<Canvas of={FlexStories.SpaceBetween} />
+<Canvas of={GridStories.ItemMinWidth} />
 
 ### Elementer som ikke skal strekkes
 
@@ -75,89 +34,107 @@ I `Grid` fyller elementene hele bredden. Med `justifyItems='start'` tar de bare 
 
 <Canvas of={GridStories.MaxWidth} />
 
-### Kombinere Grid og Flex
-
-Bruk `Grid` til å stable innholdet, og `Flex` til radene inni. Her stabler `Grid` skjemafeltene, mens `Flex` legger postnummer, poststed og knappene ved siden av hverandre.
-
-<Canvas of={GridStories.Combined} />
-
-### En hel side
-
-`Grid` og `Flex` kan nøstes så dypt du trenger. På denne siden stabler en `Grid` seksjonene. En `Flex` deler innholdet i en hovedkolonne og en sidekolonne. Inni dem ligger nye `Grid`-er og `Flex`-er for kortene, taggene og skjemaet.
-
-<Canvas of={GridStories.ComplexPage} />
-
-## Retningslinjer
-
-### Flex for horisontal layout, Grid for vertikal
-
-Bruk en `Grid` med én kolonne når innhold skal stå under hverandre, ikke `Flex` med `flex-direction: column`. `Flex` har derfor ingen prop for retning. Vi anbefaler dette av fem grunner:
-
-1. **Retningen står i navnet.** Du ser med en gang hvilken vei innholdet går, uten å lete etter en `flex-direction`.
-2. **Aksene beholder betydningen.** `justifyItems` betyr alltid horisontalt og `alignItems` alltid vertikalt, både i `Flex` og `Grid`. I en flex-kolonne bytter de plass, så `justify-content` blir vertikal og `align-items` horisontal.
-3. **Elementene blir ikke klemt.** I en flex-kolonne med begrenset høyde krymper elementene for å få plass. Bilder og kort kan da bli klemt eller flyte over hverandre. Rader i `Grid` krymper ikke under innholdet sitt.
-4. **Stabelen kan bli et rutenett.** Legg til `itemsMinWidth`, så blir en stabel med én kolonne et responsivt rutenett når det er plass. Du trenger verken bytte komponent eller retning.
-5. **Ingen overraskende bryting.** `Flex` bryter linjer som standard. I en kolonne med fast høyde ville elementene brutt ut i en ny kolonne ved siden av.
-
-### Justering i Flex og Grid
-
-`justifyItems` justerer barna horisontalt i begge komponentene, men med ulik CSS under panseret:
-
-- I `Flex` styrer den `justify-content`, som fordeler elementene på raden. CSS-egenskapen `justify-items` virker ikke i flexbox, så navnet er gjenbrukt for å matche `Grid` og `alignItems`.
-- I `Grid` styrer den `justify-items`, som plasserer hvert element i kolonnen sin.
-
-Trenger du `justify-content` i `Grid`, for eksempel for å flytte selve kolonnene, setter du den med `style` eller `className`.
-
-### Style enkeltelementer med vanlig CSS
-
-`Flex` og `Grid` styrer bare containeren. Vil du endre ett enkelt element, setter du vanlig CSS direkte på det med `style` eller `className`. Det fungerer på alle elementer og komponenter. Stilene våre ligger i et CSS-lag, så dine regler vinner alltid.
-
-Nyttige egenskaper:
-
-- `gridColumn: '1 / -1'` lar et element i `Grid` gå over alle kolonnene.
-- `flexGrow: 1` lar et element i `Flex` ta den ledige plassen.
-- `flexGrow: 0` hindrer et element i å vokse når `itemsMinWidth` er satt.
-- `alignSelf` og `justifySelf` plasserer ett element annerledes enn resten.
-
-<Canvas of={GridStories.SpanAllColumns} />
-<Canvas of={FlexStories.StyleSingleItem} />
-
-### Maksbredde og luft på sidene
-
-`Flex` og `Grid` har ingen maksbredde som standard. De fyller hele bredden, slik kartløsninger trenger.
-
-Når du setter `maxWidth`, holder containeren alltid like mye luft fri på sidene som `Header` og `Footer`. Skal innholdet stå på linje med dem, bruker du `maxWidth='var(--kvds-frame-content-max-width)'`.
-
-Luften ligger utenfor containeren og styres av CSS-variabelen `--kvdsc-layout-gutter`. Står containeren inne i noe som allerede har luft på sidene, kan du fjerne den ved å sette variabelen til `0px` med `style` eller `className`. Det gjelder bare denne containeren, ikke containere lenger inne.
-
-Padding du setter selv, for eksempel med `style={{ paddingInline: '20px' }}`, legger seg inni containeren som vanlig.
-
 ### Riktig HTML-element med asChild
 
-`Flex` og `Grid` lager en `div`. Trenger du et annet element, bruker du `asChild` og legger elementet inni. Da får elementet klassen og innstillingene, uten en ekstra `div` rundt.
+`Grid` lager en `div`. Trenger du et annet element, bruker du `asChild` og legger elementet inni. Da får elementet klassen og innstillingene, uten en ekstra `div` rundt. Maksbredde-eksemplet over bruker dette med et semantisk `form`.
 
-<Canvas of={GridStories.AsChild} />
+### Ett element over alle kolonnene
 
-### Faste steg for itemsMinWidth
+Sett `gridColumn: '1 / -1'` på et element for at det skal gå over alle kolonnene.
 
-`itemsMinWidth` tar verdier fra 50 til 600 i steg på 50. Tallet er piksler, men blir regnet om til rem. Bredden følger derfor skriftstørrelsen brukeren har valgt i nettleseren. Trenger du en annen verdi i `Grid`, setter du `itemsMinWidth` og overstyrer `--kvdsc-grid-items-min-width` med `style`.
+<Canvas of={GridStories.SpanAllColumns} />
 
-### Uten React
+### Retningslinjer for Grid
+
+- Bruk `Grid` til vertikal layout. En `Grid` med én kolonne holder oversiktlig innhold samlet og kan bli responsivt med `itemMinWidth`.
+- `justifyItems` plasserer hvert element horisontalt i kolonnen sin. Trenger du `justify-content` for å flytte selve kolonnene, setter du den med `style` eller `className`.
+- Direkte barns vertikale marginer nullstilles. Bruk `gap`, `rowGap` eller `columnGap` for avstand mellom elementene.
+
+### Faste steg for itemMinWidth
+
+`itemMinWidth` tar verdier fra 50 til 600 i steg på 50. Tallet er piksler, men blir regnet om til rem. Bredden følger derfor skriftstørrelsen brukeren har valgt i nettleseren.
+
+### Grid uten React
 
 Har du ikke React, bruker du klassene og data-attributtene direkte. CSS-en ligger i `@kv-designsystem/css`.
 
 ```html
-<div class="kvds-grid" data-gap="6" data-items-min-width="250">…</div>
-<div class="kvds-flex" data-justify-items="space-between">…</div>
+<div
+  class="kvds-grid"
+  data-gap="6"
+  data-item-min-width="250"
+>
+  …
+</div>
 <div class="kvds-grid" data-max-width style="--kvdsc-layout-max-width: 40rem">…</div>
 ```
 
+## Flex
+
+Bruk `Flex` når elementer skal stå ved siden av hverandre, for eksempel knapper, tagger eller et søkefelt med knapp. Blir det for trangt, brekker elementene til en ny linje.
+
+<Canvas of={FlexStories.Preview} />
+<Controls of={FlexStories.Preview} />
+
+### Elementer ved siden av hverandre
+
+Det vanligste med `Flex` er en rad med knapper eller tagger.
+
+<Canvas of={FlexStories.Buttons} />
+<Canvas of={FlexStories.Tags} />
+
+### Elementer med foretrukket bredde
+
+`itemMinWidth` angir ønsket bredde før elementene brekker til ny linje. Elementene på siste linje vokser og fyller raden. Når `flexWrap='nowrap'` er satt, kan elementene krympe i stedet for å brekke.
+
+<Canvas of={FlexStories.ItemMinWidth} />
+
+### Fordele plassen på en rad
+
+`justifyItems` plasserer eller fordeler elementene horisontalt på raden. `alignItems` plasserer dem vertikalt.
+
+<Canvas of={FlexStories.SpaceBetween} />
+
+### Style enkeltelementer
+
+`Flex` styrer bare containeren. Vil du endre ett enkelt element, setter du vanlig CSS direkte på det med `style` eller `className`.
+
+- `flexGrow: 1` lar et element ta den ledige plassen.
+- `flexGrow: 0` hindrer et element i å vokse når `itemMinWidth` er satt.
+- `alignSelf` plasserer ett element annerledes enn resten.
+
+<Canvas of={FlexStories.StyleSingleItem} />
+
+### Retningslinjer for Flex
+
+- `Flex` brukes bare til horisontal layout. Komponenten har derfor ingen prop for retning.
+- `justifyItems` bruker `justify-content` under panseret, slik at API-et har samme horisontale, visuelle hensikt som i `Grid`.
+- Direkte barns vertikale marginer nullstilles. Bruk `gap`, `rowGap` eller `columnGap` for avstand mellom elementene.
+
+### Faste steg for itemMinWidth
+
+`itemMinWidth` tar verdier fra 50 til 600 i steg på 50. Tallet er piksler, men blir regnet om til rem. Bredden følger derfor skriftstørrelsen brukeren har valgt i nettleseren.
+
+### Flex uten React
+
+Har du ikke React, bruker du klassene og data-attributtene direkte. CSS-en ligger i `@kv-designsystem/css`.
+
+```html
+<div class="kvds-flex" data-justify-items="space-between">…</div>
+```
+
+## En hel side
+
+Dette eksemplet bruker `Grid` til å stable sidens seksjoner og `Flex` til horisontale rader inni dem. Eiendomskortene ligger i et responsivt Grid, mens søket bruker den ferdige `Search`-komponenten.
+
+<Canvas of={GridStories.ComplexPage} />
+
 ## Tilgjengelighet
 
-- `Flex` og `Grid` endrer bare utseendet, ikke betydningen. Bruk `asChild` for å få semantiske elementer som `ul`, `nav` eller `section`.
+- `Grid` og `Flex` endrer bare utseendet, ikke betydningen. Bruk `asChild` for å få semantiske elementer som `form`, `nav` eller `section`.
 - Hold den visuelle rekkefølgen lik rekkefølgen i koden. Ikke bytt rekkefølge med `order` eller `row-reverse`. Skjermlesere og tastaturnavigasjon følger koden, ikke det som vises på skjermen.
-- `Flex` og `Grid` fjerner punktene i lister. Safari slutter da å lese opp listen som en liste. Legg til `role='list'` på `ul` og `ol` for å beholde det.
+- Bruk `List.Unordered` eller `List.Ordered` for lister.
 
 ## Kilde
 
-Komponentene bygger på layout-komponentene i [Mattilsynets designsystem](https://github.com/Mattilsynet/design). Teknikken bak `itemsMinWidth` i `Grid` er beskrevet i [Solutions to replace the 12-column grid](https://moderncss.dev/solutions-to-replace-the-12-column-grid/).
+Komponentene bygger på layout-komponentene i [Mattilsynets designsystem](https://github.com/Mattilsynet/design). Teknikken bak `itemMinWidth` i `Grid` er beskrevet i [Solutions to replace the 12-column grid](https://moderncss.dev/solutions-to-replace-the-12-column-grid/).

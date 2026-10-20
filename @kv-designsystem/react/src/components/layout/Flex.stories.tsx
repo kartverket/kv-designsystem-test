@@ -6,7 +6,6 @@ import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Tag } from '../tag/Tag';
 import { Textfield } from '../textfield/Textfield';
-import { DemoBox, demoContainerStyle } from './docs/DemoBox';
 
 const meta = {
   component: Flex,
@@ -21,24 +20,36 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const propertyServices = [
+  { name: 'Eiendomsgrenser', description: 'Se registrerte grenser for en eiendom.' },
+  { name: 'Matrikkelopplysninger', description: 'Finn opplysninger som er registrert om eiendommen.' },
+  { name: 'Grunnboksutskrift', description: 'Bestill en bekreftet utskrift fra grunnboken.' },
+  { name: 'Tinglyst dokument', description: 'Bestill kopi av et dokument som er tinglyst.' },
+  { name: 'Skjøte', description: 'Overfør eierskap til fast eiendom.' },
+  { name: 'Tinglyse rettigheter', description: 'Registrer en rettighet eller avtale i grunnboken.' },
+];
+
 export const Preview: Story = {
   args: {
     alignContent: 'start',
   },
   render: (args) => (
-    <Flex {...args} style={demoContainerStyle}>
-      <DemoBox>Oslo</DemoBox>
-      <DemoBox>Bergen</DemoBox>
-      <DemoBox isTall>Trondheim</DemoBox>
-      <DemoBox>Stavanger</DemoBox>
-      <DemoBox>Kristiansand</DemoBox>
-      <DemoBox isTall>Tromsø</DemoBox>
-      <DemoBox>Drammen</DemoBox>
-      <DemoBox>Fredrikstad</DemoBox>
-      <DemoBox>Hammerfest</DemoBox>
-      <DemoBox isTall>Lillehammer</DemoBox>
-      <DemoBox>Bodø</DemoBox>
-      <DemoBox>Ålesund</DemoBox>
+    <Flex
+      {...args}
+      data-color="neutral"
+      style={{
+        minHeight: '16rem',
+        outline: '1px dashed var(--ds-color-neutral-border-default)',
+      }}
+    >
+      {propertyServices.map((service) => (
+        <Card key={service.name}>
+          <Heading data-size="xs">
+            {service.name}
+          </Heading>
+          <Paragraph>{service.description}</Paragraph>
+        </Card>
+      ))}
     </Flex>
   ),
 };
@@ -54,13 +65,13 @@ export const Buttons: Story = {
 
 export const Tags: Story = {
   render: (_args) => (
-    <Flex gap={2}>
-      <Tag data-color="info">Matrikkel</Tag>
-      <Tag data-color="info">Grunnbok</Tag>
-      <Tag data-color="info">Eiendomsgrenser</Tag>
-      <Tag data-color="info">Adresser</Tag>
-      <Tag data-color="info">Høydedata</Tag>
-      <Tag data-color="info">Sjøkart</Tag>
+    <Flex gap={2} data-color="info">
+      <Tag>Matrikkel</Tag>
+      <Tag>Grunnbok</Tag>
+      <Tag>Eiendomsgrenser</Tag>
+      <Tag>Adresser</Tag>
+      <Tag>Høydedata</Tag>
+      <Tag>Sjøkart</Tag>
     </Flex>
   ),
 };
@@ -68,7 +79,7 @@ export const Tags: Story = {
 export const SpaceBetween: Story = {
   render: (_args) => (
     <Flex justifyItems="space-between" alignItems="center">
-      <Heading level={2} data-size="sm">
+      <Heading data-size="sm">
         Mine eiendommer
       </Heading>
       <Button variant="secondary">Legg til eiendom</Button>
@@ -76,25 +87,25 @@ export const SpaceBetween: Story = {
   ),
 };
 
-export const ItemsMinWidth: Story = {
+export const ItemMinWidth: Story = {
   render: (_args) => (
-    <Flex itemsMinWidth={200}>
-      <Card data-color="neutral">
+    <Flex itemMinWidth={200} data-color="neutral">
+      <Card>
         <Heading level={3} data-size="xs">
           Kort tekst
         </Heading>
       </Card>
-      <Card data-color="neutral">
+      <Card>
         <Heading level={3} data-size="xs">
           Et kort med litt lengre tekst
         </Heading>
       </Card>
-      <Card data-color="neutral">
+      <Card>
         <Heading level={3} data-size="xs">
           Mellomlang tekst
         </Heading>
       </Card>
-      <Card data-color="neutral">
+      <Card>
         <Paragraph>
           Elementene vokser og fyller raden. Blir det for trangt, brekker de til en ny linje.
         </Paragraph>
@@ -107,7 +118,7 @@ export const StyleSingleItem: Story = {
   render: (_args) => (
     <Flex flexWrap="nowrap" alignItems="end" gap={2}>
       <Textfield label="Adresse" style={{ flexGrow: 1 }} />
-      <Button>Søk</Button>
+      <Button>Lagre</Button>
     </Flex>
   ),
 };
