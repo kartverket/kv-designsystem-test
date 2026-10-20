@@ -3,7 +3,7 @@
 body {
   font-family: var(--ds-font-family), sans-serif;
   font-optical-sizing: auto;
-  font-feature-settings: "cv05" 1; /* Enable lowercase l with tail */
+  font-feature-settings: 'cv05' 1; /* Enable lowercase l with tail */
 }
 
 /* Remove extra padding to display footer and header more accurate in Preview mode */
@@ -19,7 +19,8 @@ body {
 
   /* Some of our header stories are rendered in iframes in order to scale correctly.
   We use the catch-all :has(iframe) selector to enforce correct padding/borders for the header stories  */
-  &:has(.header), &:has(iframe) {
+  &:has(.header),
+  &:has(iframe) {
     padding: 0 0 var(--ds-size-8);
 
     & .innerZoomElementWrapper > div:first-child {

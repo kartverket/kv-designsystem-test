@@ -3,12 +3,44 @@ import type { CSSProperties, HTMLAttributes } from 'react';
 /**
  * Size tokens from Designsystemet. `4` means `var(--ds-size-4)`.
  */
-export type LayoutSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 18 | 22 | 26 | 30;
+export type LayoutSize =
+  | 0
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 18
+  | 22
+  | 26
+  | 30;
 
 /**
  * Minimum width of the children, in px (converted to rem, so it follows the user's font size).
  */
-export type LayoutItemsMinWidth = 50 | 100 | 150 | 200 | 250 | 300 | 350 | 400 | 450 | 500 | 550 | 600;
+export type LayoutItemsMinWidth =
+  | 50
+  | 100
+  | 150
+  | 200
+  | 250
+  | 300
+  | 350
+  | 400
+  | 450
+  | 500
+  | 550
+  | 600;
 
 export type LayoutProps = HTMLAttributes<HTMLDivElement> & {
   /**
@@ -31,7 +63,14 @@ export type LayoutProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * Distributes the rows vertically when the container is taller than its content.
    */
-  alignContent?: 'start' | 'center' | 'end' | 'stretch' | 'space-between' | 'space-around' | 'space-evenly';
+  alignContent?:
+    | 'start'
+    | 'center'
+    | 'end'
+    | 'stretch'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly';
   /**
    * Maximum width of the container. Takes any CSS length, e.g. `40rem`, `80ch` or `var(--kvds-frame-content-max-width)`.
    * Also centers the container and keeps the same space free on each side as `Header` and `Footer`.

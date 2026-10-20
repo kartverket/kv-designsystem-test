@@ -18,7 +18,7 @@ export const Preview: Story = {
     children: 'Skeleton',
     width: 200,
     height: 100,
-  }
+  },
 };
 
 const schoolImage =
@@ -37,10 +37,13 @@ export const UsageExample: Story = {
         style={{
           flex: '1 1 200px',
           gap: 'var(--ds-size-4)',
-        }}>
-        <Skeleton height='200px' {...args} />
+        }}
+      >
+        <Skeleton height="200px" {...args} />
         <Heading>
-          <Skeleton variant='text' width='15' >Tittel</Skeleton>
+          <Skeleton variant="text" width="15">
+            Tittel
+          </Skeleton>
         </Heading>
 
         <div
@@ -51,19 +54,19 @@ export const UsageExample: Story = {
             padding: '5px 0 5px 0',
           }}
         >
-          <Skeleton variant='circle' width='40px' height='40px' {...args} />
-          <Skeleton variant='text' {...args}>
+          <Skeleton variant="circle" width="40px" height="40px" {...args} />
+          <Skeleton variant="text" {...args}>
             Forfatter | sist endret
           </Skeleton>
         </div>
 
-        <Skeleton variant='text' width='200' />
+        <Skeleton variant="text" width="200" />
       </div>
 
       <div style={{ flex: '1 1 200px' }}>
         <img
           src={schoolImage}
-          alt='Kart'
+          alt="Kart"
           style={{
             width: '100%',
             height: '200px',
@@ -75,36 +78,26 @@ export const UsageExample: Story = {
         <Heading>Søk midtpunktfølelsen</Heading>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Avatar
-            data-size='xs'
-            initials='KV'
-            aria-label='Kartverket'
-          />
+          <Avatar data-size="xs" initials="KV" aria-label="Kartverket" />
           <Paragraph>Kartverket | 03.02.2026</Paragraph>
         </div>
 
         <Paragraph>
-          Geografisk midtpunkt i alle fylker og kommuner er oppdatert. Dra hit for
-          å være i sentrum av begivnehetene, men vis hensyn til sårbart vilt. Under
-          Fakta om Norge finner du også høyeste punkt og mest øde sted.
+          Geografisk midtpunkt i alle fylker og kommuner er oppdatert. Dra hit for å være i sentrum
+          av begivnehetene, men vis hensyn til sårbart vilt. Under Fakta om Norge finner du også
+          høyeste punkt og mest øde sted.
         </Paragraph>
       </div>
     </div>
-  )
+  ),
 };
 
 export const Children: Story = {
   render: (_args) => (
-    <Skeleton variant='rectangle'>
-      <Paragraph>
-        Her er en tekst som blir sendt inn som barn av en Skeleton.
-      </Paragraph>
-      <Paragraph>
-        Se hvordan Skeleton da dekker den samlede bredden og høyden til barna.
-      </Paragraph>
-      <Button>
-        Knapp
-      </Button>
+    <Skeleton variant="rectangle">
+      <Paragraph>Her er en tekst som blir sendt inn som barn av en Skeleton.</Paragraph>
+      <Paragraph>Se hvordan Skeleton da dekker den samlede bredden og høyden til barna.</Paragraph>
+      <Button>Knapp</Button>
     </Skeleton>
-  )
+  ),
 };

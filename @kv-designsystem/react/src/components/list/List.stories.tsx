@@ -2,9 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 import { List } from './List';
+import { subcomponents } from './docs/subcomponents';
 
 const meta = {
   component: List.Unordered,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof List.Unordered>;
 
@@ -12,23 +14,19 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <List.Unordered>
+  render: (args) => (
+    <List.Unordered {...args}>
       <List.Item>Den norske los</List.Item>
       <List.Item>Historiske stedsnavn</List.Item>
       <List.Item>Norgeskart</List.Item>
     </List.Unordered>
-  )
+  ),
 };
 
 export const Unordered: Story = {
   render: (_args) => (
     <>
-      <Heading
-        level={2}
-        data-size='xs'
-        style={{ marginBottom: 'var(--ds-size-2)' }}
-      >
+      <Heading level={2} data-size="xs" style={{ marginBottom: 'var(--ds-size-2)' }}>
         Kort fortalt om Eiendomsregisteret:
       </Heading>
       <List.Unordered>
@@ -41,43 +39,34 @@ export const Unordered: Story = {
           som grunnlag for oppdatering.
         </List.Item>
         <List.Item>
-          Tjenesten er frivillig, og bare én eier per bolig eller fritidsbolig trenger å gjennomføre registreringen.
+          Tjenesten er frivillig, og bare én eier per bolig eller fritidsbolig trenger å gjennomføre
+          registreringen.
         </List.Item>
       </List.Unordered>
     </>
-  )
+  ),
 };
 
 export const Ordered: Story = {
   render: (_args) => (
     <>
-      <Heading
-        level={2}
-        data-size='xs'
-        style={{ marginBottom: 'var(--ds-size-2)' }}
-      >
+      <Heading level={2} data-size="xs" style={{ marginBottom: 'var(--ds-size-2)' }}>
         Hva skal du gjøre?
       </Heading>
       <List.Ordered>
-        <List.Item>
-          Logg inn og sjekk opplysningene
-        </List.Item>
-        <List.Item>
-          Registrer det du mener er riktig
-        </List.Item>
-        <List.Item>
-          Kom tilbake om noe endrer seg
-        </List.Item>
+        <List.Item>Logg inn og sjekk opplysningene</List.Item>
+        <List.Item>Registrer det du mener er riktig</List.Item>
+        <List.Item>Kom tilbake om noe endrer seg</List.Item>
       </List.Ordered>
     </>
-  )
+  ),
 };
 
 // Since we need to pass args to List.Ordered but the component type of the meta object is List.Unordered, we need to explicitly set the component type of the Story to List.Ordered
 export const Indented: StoryObj<React.ComponentProps<typeof List.Ordered>> = {
   render: (_args) => (
     <>
-      <Heading level={2} data-size='xs' style={{ marginBottom: 'var(--ds-size-2)' }}>
+      <Heading level={2} data-size="xs" style={{ marginBottom: 'var(--ds-size-2)' }}>
         Innhold
       </Heading>
       <List.Ordered>
@@ -133,7 +122,7 @@ export const WithLinks: Story = {
     <List.Unordered {...args}>
       {designLinks.map((link) => (
         <List.Item key={link.href}>
-          <Link href={link.href} target='_blank'>
+          <Link href={link.href} target="_blank">
             {link.text}
           </Link>
         </List.Item>
@@ -145,11 +134,7 @@ export const WithLinks: Story = {
 export const ContinueSentence: Story = {
   render: (_args) => (
     <>
-      <Heading
-        level={2}
-        data-size='xs'
-        style={{ marginBottom: 'var(--ds-size-2)' }}
-      >
+      <Heading level={2} data-size="xs" style={{ marginBottom: 'var(--ds-size-2)' }}>
         Filene skal leveres
       </Heading>
       <List.Unordered>
@@ -158,17 +143,13 @@ export const ContinueSentence: Story = {
         <List.Item>med oppdatert metadata</List.Item>
       </List.Unordered>
     </>
-  )
+  ),
 };
 
 export const NewSentence: Story = {
   render: (_args) => (
     <>
-      <Heading
-        level={2}
-        data-size='xs'
-        style={{ marginBottom: 'var(--ds-size-2)' }}
-      >
+      <Heading level={2} data-size="xs" style={{ marginBottom: 'var(--ds-size-2)' }}>
         For å få tilgang til datasettet, må du gjøre følgende:
       </Heading>
       <List.Ordered>
@@ -177,5 +158,5 @@ export const NewSentence: Story = {
         <List.Item>Last ned datasettet i ønsket format.</List.Item>
       </List.Ordered>
     </>
-  )
+  ),
 };

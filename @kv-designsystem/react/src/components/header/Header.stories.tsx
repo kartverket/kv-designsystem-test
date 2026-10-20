@@ -19,8 +19,17 @@ const meta = {
       story: {
         inline: false, // Render story in an iframe to ensure vw units are based on the preview viewport.
         iframeHeight: '105px',
-      }
+      },
     },
+  },
+  subcomponents: {
+    'Header.Nav': Header.Nav,
+    'Header.NavItem': Header.NavItem,
+    'Header.ActionsList': Header.ActionsList,
+    'Header.SearchButton': Header.SearchButton,
+    'Header.SearchPopover': Header.SearchPopover,
+    'Header.MenuButton': Header.MenuButton,
+    'Header.Menu': Header.Menu,
   },
 } satisfies Meta<typeof Header>;
 
@@ -33,9 +42,7 @@ export const Preview: Story = {
     applicationHref: '#',
   },
 
-  render: (args) => (
-    <Header {...args} />
-  ),
+  render: (args) => <Header {...args} />,
 };
 
 export const Internal: Story = {
@@ -44,9 +51,7 @@ export const Internal: Story = {
     applicationName: 'Tjenestetittel',
     applicationHref: '#',
   },
-  render: (args) => (
-    <Header {...args} />
-  ),
+  render: (args) => <Header {...args} />,
 };
 
 export const WithNavigationLinks: Story = {
@@ -58,29 +63,25 @@ export const WithNavigationLinks: Story = {
     docs: {
       story: {
         iframeHeight: '250px',
-      }
+      },
     },
   },
   render: (args) => (
     <Header {...args}>
-      <Header.Nav data-show-from='md'>
-        <Header.NavItem href='#' aria-current='page'>
+      <Header.Nav data-show-from="md">
+        <Header.NavItem href="#" aria-current="page">
           Tjenesteside
         </Header.NavItem>
-        <Header.NavItem href='#'>
-          Tjenesteside
-        </Header.NavItem>
+        <Header.NavItem href="#">Tjenesteside</Header.NavItem>
       </Header.Nav>
 
-      <Header.MenuButton data-hide-from='md' popovertarget='with-navigation-links' />
-      <Header.Menu data-hide-from='md' id='with-navigation-links'>
+      <Header.MenuButton data-hide-from="md" popovertarget="with-navigation-links" />
+      <Header.Menu data-hide-from="md" id="with-navigation-links">
         <Header.Nav>
-          <Header.NavItem href='#' aria-current='page'>
+          <Header.NavItem href="#" aria-current="page">
             Tjenesteside
           </Header.NavItem>
-          <Header.NavItem href='https://www.kartverket.no/'>
-            Tjenesteside
-          </Header.NavItem>
+          <Header.NavItem href="https://www.kartverket.no/">Tjenesteside</Header.NavItem>
         </Header.Nav>
       </Header.Menu>
     </Header>
@@ -96,41 +97,31 @@ export const WithMenu: Story = {
     docs: {
       story: {
         iframeHeight: '420px',
-      }
+      },
     },
   },
   render: (args) => (
     <>
       <Header {...args}>
-        <Header.MenuButton popovertarget='with-menu' />
-        <Header.Menu id='with-menu'>
+        <Header.MenuButton popovertarget="with-menu" />
+        <Header.Menu id="with-menu">
           <Header.Nav>
             <li>
-              <Heading data-size='sm'>Temanavn</Heading>
+              <Heading data-size="sm">Temanavn</Heading>
               <ul>
-                <Header.NavItem href='#'>
+                <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+                <Header.NavItem href="#" aria-current="page">
                   Tjenesteside
                 </Header.NavItem>
-                <Header.NavItem href='#' aria-current='page'>
-                  Tjenesteside
-                </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Tjenesteside
-                </Header.NavItem>
+                <Header.NavItem href="#">Tjenesteside</Header.NavItem>
               </ul>
             </li>
             <li>
               <Heading>Temanavn</Heading>
               <ul>
-                <Header.NavItem href='#'>
-                  Tjenesteside
-                </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Tjenesteside
-                </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Tjenesteside
-                </Header.NavItem>
+                <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+                <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+                <Header.NavItem href="#">Tjenesteside</Header.NavItem>
               </ul>
             </li>
           </Header.Nav>
@@ -149,7 +140,7 @@ export const WithButtonsAndMenu: Story = {
     docs: {
       story: {
         iframeHeight: '400px',
-      }
+      },
     },
   },
   render: (args) => (
@@ -164,72 +155,63 @@ export const WithButtonsAndMenu: Story = {
       </style>
       <Header {...args}>
         <Header.ActionsList>
-          <Header.SearchButton popovertarget='with-buttons-and-menu-search' data-show-from='md' />
-          <Header.SearchPopover id='with-buttons-and-menu-search'>
+          <Header.SearchButton popovertarget="with-buttons-and-menu-search" data-show-from="md" />
+          <Header.SearchPopover id="with-buttons-and-menu-search">
             <Search style={{ maxWidth: '708px', justifySelf: 'center' }}>
-              <Search.Input aria-label='Søk' />
+              <Search.Input aria-label="Søk" />
               <Search.Clear />
-              <Search.Button type='submit' />
+              <Search.Button type="submit" />
             </Search>
           </Header.SearchPopover>
-          <Button variant='tertiary' style={{ display: 'flex', padding: '0 var(--ds-size-2)', gap: 'var(--ds-size-2)' }}>
-            <Avatar className='withButtonsAndMenu-small-initials' aria-label='none' data-size='xs' initials='ON' />
-            <span data-show-from='lg'>Ola Nordmann</span>
+          <Button
+            variant="tertiary"
+            style={{ display: 'flex', padding: '0 var(--ds-size-2)', gap: 'var(--ds-size-2)' }}
+          >
+            <Avatar
+              className="withButtonsAndMenu-small-initials"
+              aria-label="none"
+              data-size="xs"
+              initials="ON"
+            />
+            <span data-show-from="lg">Ola Nordmann</span>
           </Button>
         </Header.ActionsList>
 
-        <Header.MenuButton popovertarget='with-buttons-and-menu' />
-        <Header.Menu id='with-buttons-and-menu' >
-          <Search data-hide-from='md' >
-            <Search.Input aria-label='Søk' name='search' />
+        <Header.MenuButton popovertarget="with-buttons-and-menu" />
+        <Header.Menu id="with-buttons-and-menu">
+          <Search data-hide-from="md">
+            <Search.Input aria-label="Søk" name="search" />
             <Search.Clear />
-            <Search.Button type='submit' />
+            <Search.Button type="submit" />
           </Search>
 
-          <Divider data-hide-from='md' />
+          <Divider data-hide-from="md" />
 
           <Header.Nav>
             <li>
-              <Heading data-size='sm'>Eiendom</Heading>
+              <Heading data-size="sm">Eiendom</Heading>
               <ul>
-                <Header.NavItem href='#'>
-                  Alt om eiendom
-                </Header.NavItem>
-                <Header.NavItem href='#' aria-current='page'>
+                <Header.NavItem href="#">Alt om eiendom</Header.NavItem>
+                <Header.NavItem href="#" aria-current="page">
                   Tinglyse eierskifte
                 </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Spørsmål om tinglysning
-                </Header.NavItem>
+                <Header.NavItem href="#">Spørsmål om tinglysning</Header.NavItem>
               </ul>
             </li>
             <li>
               <Heading>Til lands</Heading>
               <ul>
-                <Header.NavItem href='#'>
-                  Alt om til lands
-                </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Rett i kartet
-                  Flyfoto
-                </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Rett i kartet
-                </Header.NavItem>
+                <Header.NavItem href="#">Alt om til lands</Header.NavItem>
+                <Header.NavItem href="#">Rett i kartet Flyfoto</Header.NavItem>
+                <Header.NavItem href="#">Rett i kartet</Header.NavItem>
               </ul>
             </li>
             <li>
               <Heading>Geodataarbeid</Heading>
               <ul>
-                <Header.NavItem href='#'>
-                  Alt om geodataarbeid
-                </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Forvaltning, drift og vedlikehold
-                </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Planarbeid
-                </Header.NavItem>
+                <Header.NavItem href="#">Alt om geodataarbeid</Header.NavItem>
+                <Header.NavItem href="#">Forvaltning, drift og vedlikehold</Header.NavItem>
+                <Header.NavItem href="#">Planarbeid</Header.NavItem>
               </ul>
             </li>
           </Header.Nav>
@@ -247,19 +229,19 @@ export const WithSearch: Story = {
   render: (args) => (
     <>
       <Header {...args}>
-        <Header.ActionsList data-show-from='md'>
+        <Header.ActionsList data-show-from="md">
           <Search style={{ width: '250px' }}>
-            <Search.Input aria-label='Søk' />
+            <Search.Input aria-label="Søk" />
             <Search.Clear />
           </Search>
         </Header.ActionsList>
 
-        <Header.MenuButton popovertarget='with-search' data-hide-from='md' />
-        <Header.Menu id='with-search'>
-          <Search data-hide-from='md'>
-            <Search.Input aria-label='Søk' name='search' />
+        <Header.MenuButton popovertarget="with-search" data-hide-from="md" />
+        <Header.Menu id="with-search">
+          <Search data-hide-from="md">
+            <Search.Input aria-label="Søk" name="search" />
             <Search.Clear />
-            <Search.Button type='submit' />
+            <Search.Button type="submit" />
           </Search>
         </Header.Menu>
       </Header>
@@ -278,7 +260,7 @@ export const WithLanguagePicker: Story = {
         iframeHeight: '225px',
       },
       source: {
-        type: 'code'
+        type: 'code',
       },
     },
   },
@@ -307,16 +289,11 @@ export const WithLanguagePicker: Story = {
           `}
         </style>
         <Header {...args}>
-          <Button
-            variant='tertiary'
-            popovertarget='language-picker'
-            lang='en'
-            ref={buttonRef}
-          >
+          <Button variant="tertiary" popovertarget="language-picker" lang="en" ref={buttonRef}>
             <LanguageIcon aria-hidden />
-            <span data-show-from='sm'>Language</span>
+            <span data-show-from="sm">Language</span>
           </Button>
-          <Dropdown id='language-picker'>
+          <Dropdown id="language-picker">
             <Dropdown.List>
               {languages.map((lang) => (
                 <Dropdown.Item
@@ -352,59 +329,51 @@ export const WithScroll: Story = {
     docs: {
       story: {
         iframeHeight: '420px',
-      }
+      },
     },
   },
   render: (args) => (
     <>
       <Header {...args}>
-        <Header.MenuButton popovertarget='with-scroll' />
-        <Header.Menu id='with-scroll'>
+        <Header.MenuButton popovertarget="with-scroll" />
+        <Header.Menu id="with-scroll">
           <Header.Nav>
             <li>
-              <Heading data-size='sm'>Eiendom</Heading>
+              <Heading data-size="sm">Eiendom</Heading>
               <ul>
-                <Header.NavItem href='#'>
-                  Alt om eiendom
-                </Header.NavItem>
-                <Header.NavItem href='#' aria-current='page'>
+                <Header.NavItem href="#">Alt om eiendom</Header.NavItem>
+                <Header.NavItem href="#" aria-current="page">
                   Tinglysing av eiendom
                 </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Bestille fra grunnboken
-                </Header.NavItem>
+                <Header.NavItem href="#">Bestille fra grunnboken</Header.NavItem>
               </ul>
             </li>
             <li>
               <Heading>Skjema</Heading>
               <ul>
-                <Header.NavItem href='#'>
-                  Alle skjema
-                </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Skjøte
-                </Header.NavItem>
-                <Header.NavItem href='#'>
-                  Pantedokument
-                </Header.NavItem>
+                <Header.NavItem href="#">Alle skjema</Header.NavItem>
+                <Header.NavItem href="#">Skjøte</Header.NavItem>
+                <Header.NavItem href="#">Pantedokument</Header.NavItem>
               </ul>
             </li>
           </Header.Nav>
         </Header.Menu>
       </Header>
 
-      <main style={{ maxWidth: '1296px', margin: '0 auto', }}>
+      <main style={{ maxWidth: '1296px', margin: '0 auto' }}>
         <div
           style={{
             maxWidth: '70ch',
             justifyContent: 'left',
-            padding: 'var(--ds-size-18) clamp(var(--kvds-frame-padding-inline), 10vw, calc(var(--ds-size-15) * 2))',
-          }}>
+            padding:
+              'var(--ds-size-18) clamp(var(--kvds-frame-padding-inline), 10vw, calc(var(--ds-size-15) * 2))',
+          }}
+        >
           <Heading
-            data-size='md'
+            data-size="md"
             level={1}
             style={{
-              marginBottom: 'var(--ds-size-2)'
+              marginBottom: 'var(--ds-size-2)',
             }}
           >
             Tinglysing av eiendom
@@ -418,18 +387,18 @@ export const WithScroll: Story = {
           <br />
           <Paragraph>
             Tinglysingen følger reglene i tinglysingsloven og tilhørende forskrifter. Disse danner
-            rammen for hvordan vi behandler dokumentene dine, og sikrer at rettighetene blir registrert
-            på en korrekt og pålitelig måte.
+            rammen for hvordan vi behandler dokumentene dine, og sikrer at rettighetene blir
+            registrert på en korrekt og pålitelig måte.
           </Paragraph>
           <Divider
             style={{
-              margin: 'var(--ds-size-4) 0'
+              margin: 'var(--ds-size-4) 0',
             }}
           />
           <Heading
             level={2}
             style={{
-              marginBottom: 'var(--ds-size-2)'
+              marginBottom: 'var(--ds-size-2)',
             }}
           >
             Se også
@@ -437,28 +406,21 @@ export const WithScroll: Story = {
           <List.Unordered
             style={{
               listStyle: 'none',
-              padding: 0
+              padding: 0,
             }}
           >
             <List.Item>
-              <Link href=''>
-                Slik følger du saken din i grunnboken
-              </Link>
+              <Link href="">Slik følger du saken din i grunnboken</Link>
             </List.Item>
             <List.Item>
-              <Link href=''>
-                Slik retter du feil i et tinglyst dokument
-              </Link>
+              <Link href="">Slik retter du feil i et tinglyst dokument</Link>
             </List.Item>
             <List.Item>
-              <Link href=''>
-                Veiledning for eiendomsmegler og profesjonelle aktører
-              </Link>
+              <Link href="">Veiledning for eiendomsmegler og profesjonelle aktører</Link>
             </List.Item>
           </List.Unordered>
         </div>
       </main>
-
     </>
   ),
 };
@@ -472,7 +434,7 @@ export const ComplexHeader: Story = {
     docs: {
       story: {
         iframeHeight: '420px',
-      }
+      },
     },
   },
   render: (args) => {
@@ -499,27 +461,18 @@ export const ComplexHeader: Story = {
           `}
         </style>
         <Header {...args}>
-          <Header.Nav data-show-from='lg'>
-            <Header.NavItem href='#'>
-              Hjelp og støtte
-            </Header.NavItem>
+          <Header.Nav data-show-from="lg">
+            <Header.NavItem href="#">Hjelp og støtte</Header.NavItem>
           </Header.Nav>
           <Header.ActionsList>
-            <Button
-              variant='tertiary'
-              popovertarget='language-picker'
-              lang='en'
-              ref={buttonRef}
-            >
+            <Button variant="tertiary" popovertarget="language-picker" lang="en" ref={buttonRef}>
               <LanguageIcon aria-hidden />
-              <span data-show-from='md'>Language</span>
+              <span data-show-from="md">Language</span>
             </Button>
-            <Dropdown id='language-picker'>
+            <Dropdown id="language-picker">
               <Dropdown.List>
                 {languages.map((lang) => (
-                  <Dropdown.Item
-                    {...(currentLang === lang && { 'aria-current': true })}
-                  >
+                  <Dropdown.Item {...(currentLang === lang && { 'aria-current': true })}>
                     <Dropdown.Button
                       lang={lang}
                       onClick={() => {
@@ -534,67 +487,55 @@ export const ComplexHeader: Story = {
                 ))}
               </Dropdown.List>
             </Dropdown>
-            <Button asChild variant='secondary' data-show-from='md'>
-              <a href='#'>
+            <Button asChild variant="secondary" data-show-from="md">
+              <a href="#">
                 <EnterIcon aria-hidden />
                 Logg inn
               </a>
             </Button>
           </Header.ActionsList>
 
-          <Header.MenuButton popovertarget='complex-header-menu' />
-          <Header.Menu id='complex-header-menu'>
-            <Header.ActionsList data-hide-from='md'>
-              <Button asChild variant='secondary'>
-                <a href='#'>
+          <Header.MenuButton popovertarget="complex-header-menu" />
+          <Header.Menu id="complex-header-menu">
+            <Header.ActionsList data-hide-from="md">
+              <Button asChild variant="secondary">
+                <a href="#">
                   <EnterIcon aria-hidden />
                   Logg inn
                 </a>
               </Button>
             </Header.ActionsList>
-            <Divider data-hide-from='md' />
+            <Divider data-hide-from="md" />
             <Header.Nav>
-              <li data-hide-from='lg'>
+              <li data-hide-from="lg">
                 <Heading>Navlenker</Heading>
                 <ul>
-                  <Header.NavItem href='#'>
-                    Hjelp og støtte
-                  </Header.NavItem>
+                  <Header.NavItem href="#">Hjelp og støtte</Header.NavItem>
                 </ul>
               </li>
 
               <li>
-                <Heading data-size='sm'>Temanavn</Heading>
+                <Heading data-size="sm">Temanavn</Heading>
                 <ul>
-                  <Header.NavItem href='#'>
+                  <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+                  <Header.NavItem href="#" aria-current="page">
                     Tjenesteside
                   </Header.NavItem>
-                  <Header.NavItem href='#' aria-current='page'>
-                    Tjenesteside
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Tjenesteside
-                  </Header.NavItem>
+                  <Header.NavItem href="#">Tjenesteside</Header.NavItem>
                 </ul>
               </li>
               <li>
                 <Heading>Temanavn</Heading>
                 <ul>
-                  <Header.NavItem href='#'>
-                    Tjenesteside
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Tjenesteside
-                  </Header.NavItem>
-                  <Header.NavItem href='#'>
-                    Tjenesteside
-                  </Header.NavItem>
+                  <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+                  <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+                  <Header.NavItem href="#">Tjenesteside</Header.NavItem>
                 </ul>
               </li>
             </Header.Nav>
           </Header.Menu>
         </Header>
       </>
-    )
+    );
   },
 };

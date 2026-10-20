@@ -3,7 +3,6 @@
   "singleQuote": true,
   "printWidth": 100,
   "trailingComma": "all",
-  "sortPackageJson": false,
   "ignorePatterns": [
     "/pnpm-lock.yaml",
     "/design-tokens",
@@ -13,7 +12,9 @@
     "/.nx/workspace-data",
     "*.generated.ts",
     "*.generated.tsx",
+    "*.mdx",
     "/@kv-designsystem/css/src/components.css",
-    "/@kv-designsystem/theme/dist"
+    "/@kv-designsystem/theme/dist",
+    "/.security/risc/risc-404nL.risc.yaml"
   ]
 }

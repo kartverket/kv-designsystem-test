@@ -17,15 +17,17 @@ export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: Hea
       <Heading
         level={level}
         data-size={dataSize}
-        className='sb-unstyled'
+        className="sb-unstyled"
         style={{
-          marginBlock: marginByLevel[level as keyof typeof marginByLevel] ?? 'var(--ds-size-8) var(--ds-size-3)',
+          marginBlock:
+            marginByLevel[level as keyof typeof marginByLevel] ??
+            'var(--ds-size-8) var(--ds-size-3)',
         }}
       >
         Hjelp oss med å forbedre designsystemet
       </Heading>
       <div
-        className='sb-unstyled'
+        className="sb-unstyled"
         style={{
           display: 'flex',
           flexDirection: 'row',
@@ -33,23 +35,23 @@ export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: Hea
           gap: 'var(--ds-size-4)',
         }}
       >
-        <Button asChild variant='secondary'>
+        <Button asChild variant="secondary">
           <Link
-            className='sb-unstyled'
-            href='https://kartverketgroup.slack.com/archives/C03LL4CKMMK'
+            className="sb-unstyled"
+            href="https://kartverketgroup.slack.com/archives/C03LL4CKMMK"
           >
             Kontakt oss på Slack
           </Link>
         </Button>
-        <Button asChild variant='secondary'>
+        <Button asChild variant="secondary">
           <Link
-            className='sb-unstyled'
-            href='https://forms.office.com/pages/responsepage.aspx?id=osh0f85Dskaw6LYwbLpzo1ZKQ5cY--ZJmCXFNxxffudUMjQ2WU1IS1FNQzNQRlBaU1IwMFpYNENXQS4u&route=shorturl'
+            className="sb-unstyled"
+            href="https://forms.office.com/pages/responsepage.aspx?id=osh0f85Dskaw6LYwbLpzo1ZKQ5cY--ZJmCXFNxxffudUMjQ2WU1IS1FNQzNQRlBaU1IwMFpYNENXQS4u&route=shorturl"
           >
             Tilbakemeldingsskjema
           </Link>
         </Button>
       </div>
     </section>
-  )
-};
+  );
+}

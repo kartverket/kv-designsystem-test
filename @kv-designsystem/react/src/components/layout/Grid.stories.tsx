@@ -45,20 +45,28 @@ export const Preview: Story = {
 export const ItemsMinWidth: Story = {
   render: (_args) => (
     <Grid itemsMinWidth={250}>
-      <Card data-color='neutral'>
-        <Heading level={3} data-size='xs'>Eiendom</Heading>
+      <Card data-color="neutral">
+        <Heading level={3} data-size="xs">
+          Eiendom
+        </Heading>
         <Paragraph>Se hvem som eier en eiendom.</Paragraph>
       </Card>
-      <Card data-color='neutral'>
-        <Heading level={3} data-size='xs'>Adresse</Heading>
+      <Card data-color="neutral">
+        <Heading level={3} data-size="xs">
+          Adresse
+        </Heading>
         <Paragraph>Søk opp en adresse i Norge.</Paragraph>
       </Card>
-      <Card data-color='neutral'>
-        <Heading level={3} data-size='xs'>Kart</Heading>
+      <Card data-color="neutral">
+        <Heading level={3} data-size="xs">
+          Kart
+        </Heading>
         <Paragraph>Finn kart over hele landet.</Paragraph>
       </Card>
-      <Card data-color='neutral'>
-        <Heading level={3} data-size='xs'>Høydedata</Heading>
+      <Card data-color="neutral">
+        <Heading level={3} data-size="xs">
+          Høydedata
+        </Heading>
         <Paragraph>Last ned terrengmodeller.</Paragraph>
       </Card>
     </Grid>
@@ -68,21 +76,31 @@ export const ItemsMinWidth: Story = {
 export const SpanAllColumns: Story = {
   render: (_args) => (
     <Grid itemsMinWidth={250}>
-      <Card data-color='accent' style={{ gridColumn: '1 / -1' }}>
-        <Heading level={3} data-size='xs'>Kartverket</Heading>
+      <Card data-color="accent" style={{ gridColumn: '1 / -1' }}>
+        <Heading level={3} data-size="xs">
+          Kartverket
+        </Heading>
         <Paragraph>Dette kortet går over alle kolonnene.</Paragraph>
       </Card>
-      <Card data-color='neutral'>
-        <Heading level={3} data-size='xs'>Eiendom</Heading>
+      <Card data-color="neutral">
+        <Heading level={3} data-size="xs">
+          Eiendom
+        </Heading>
       </Card>
-      <Card data-color='neutral'>
-        <Heading level={3} data-size='xs'>Adresse</Heading>
+      <Card data-color="neutral">
+        <Heading level={3} data-size="xs">
+          Adresse
+        </Heading>
       </Card>
-      <Card data-color='neutral'>
-        <Heading level={3} data-size='xs'>Kart</Heading>
+      <Card data-color="neutral">
+        <Heading level={3} data-size="xs">
+          Kart
+        </Heading>
       </Card>
-      <Card data-color='neutral'>
-        <Heading level={3} data-size='xs'>Høydedata</Heading>
+      <Card data-color="neutral">
+        <Heading level={3} data-size="xs">
+          Høydedata
+        </Heading>
       </Card>
     </Grid>
   ),
@@ -90,7 +108,7 @@ export const SpanAllColumns: Story = {
 
 export const JustifyStart: Story = {
   render: (_args) => (
-    <Grid justifyItems='start' style={{ outline: demoContainerStyle.outline }}>
+    <Grid justifyItems="start" style={{ outline: demoContainerStyle.outline }}>
       <DemoBox>Oslo</DemoBox>
       <DemoBox>Kristiansand</DemoBox>
       <DemoBox>Bø</DemoBox>
@@ -101,10 +119,10 @@ export const JustifyStart: Story = {
 export const MaxWidth: Story = {
   parameters: { layout: 'fullscreen' },
   render: (_args) => (
-    <Grid maxWidth='30rem' style={{ paddingBlock: 'var(--ds-size-6)' }}>
-      <Textfield label='Fornavn' />
-      <Textfield label='Etternavn' />
-      <Textfield label='E-post' type='email' />
+    <Grid maxWidth="30rem" style={{ paddingBlock: 'var(--ds-size-6)' }}>
+      <Textfield label="Fornavn" />
+      <Textfield label="Etternavn" />
+      <Textfield label="E-post" type="email" />
     </Grid>
   ),
 };
@@ -112,15 +130,15 @@ export const MaxWidth: Story = {
 export const AsChild: Story = {
   render: (_args) => (
     <Grid asChild gap={2}>
-      <ul role='list'>
+      <ul role="list">
         <li>
-          <Link href='#'>Slik følger du saken din i grunnboken</Link>
+          <Link href="#">Slik følger du saken din i grunnboken</Link>
         </li>
         <li>
-          <Link href='#'>Slik retter du feil i et tinglyst dokument</Link>
+          <Link href="#">Slik retter du feil i et tinglyst dokument</Link>
         </li>
         <li>
-          <Link href='#'>Veiledning for eiendomsmeglere</Link>
+          <Link href="#">Veiledning for eiendomsmeglere</Link>
         </li>
       </ul>
     </Grid>
@@ -130,14 +148,14 @@ export const AsChild: Story = {
 export const Combined: Story = {
   render: (_args) => (
     <Grid gap={6}>
-      <Textfield label='Adresse' />
+      <Textfield label="Adresse" />
       <Flex itemsMinWidth={150}>
-        <Textfield label='Postnummer' />
-        <Textfield label='Poststed' style={{ flexGrow: 3 }} />
+        <Textfield label="Postnummer" />
+        <Textfield label="Poststed" style={{ flexGrow: 3 }} />
       </Flex>
       <Flex>
         <Button>Lagre</Button>
-        <Button variant='secondary'>Avbryt</Button>
+        <Button variant="secondary">Avbryt</Button>
       </Flex>
     </Grid>
   ),
@@ -153,28 +171,32 @@ const properties = [
 export const ComplexPage: Story = {
   parameters: { layout: 'fullscreen' },
   render: (_args) => (
-    <Grid maxWidth='var(--kvds-frame-content-max-width)' gap={10} style={{ paddingBlock: 'var(--ds-size-8)' }}>
-      <Flex justifyItems='space-between' alignItems='center'>
-        <Heading level={1} data-size='lg'>
+    <Grid
+      maxWidth="var(--kvds-frame-content-max-width)"
+      gap={10}
+      style={{ paddingBlock: 'var(--ds-size-8)' }}
+    >
+      <Flex justifyItems="space-between" alignItems="center">
+        <Heading level={1} data-size="lg">
           Mine eiendommer
         </Heading>
         <Flex gap={2}>
           <Button>Legg til eiendom</Button>
-          <Button variant='secondary'>Last ned oversikt</Button>
+          <Button variant="secondary">Last ned oversikt</Button>
         </Flex>
       </Flex>
 
-      <Flex itemsMinWidth={300} gap={8} alignItems='start'>
+      <Flex itemsMinWidth={300} gap={8} alignItems="start">
         <Grid itemsMinWidth={250} style={{ flexGrow: 3 }}>
           {properties.map((property) => (
-            <Card key={property.id} data-color='neutral'>
-              <Heading level={2} data-size='xs'>
+            <Card key={property.id} data-color="neutral">
+              <Heading level={2} data-size="xs">
                 {property.address}
               </Heading>
-              <Paragraph data-size='sm'>Matrikkelnummer {property.id}</Paragraph>
+              <Paragraph data-size="sm">Matrikkelnummer {property.id}</Paragraph>
               <Flex gap={2}>
                 {property.tags.map((tag) => (
-                  <Tag key={tag} data-color='info'>
+                  <Tag key={tag} data-color="info">
                     {tag}
                   </Tag>
                 ))}
@@ -183,15 +205,15 @@ export const ComplexPage: Story = {
           ))}
         </Grid>
 
-        <Card data-color='accent'>
-          <Heading level={2} data-size='xs'>
+        <Card data-color="accent">
+          <Heading level={2} data-size="xs">
             Finn en eiendom
           </Heading>
-          <Grid asChild justifyItems='start'>
+          <Grid asChild justifyItems="start">
             <form onSubmit={(event) => event.preventDefault()}>
-              <Textfield label='Adresse' style={{ justifySelf: 'stretch' }} />
-              <Textfield label='Kommune' style={{ justifySelf: 'stretch' }} />
-              <Button type='submit'>Søk</Button>
+              <Textfield label="Adresse" style={{ justifySelf: 'stretch' }} />
+              <Textfield label="Kommune" style={{ justifySelf: 'stretch' }} />
+              <Button type="submit">Søk</Button>
             </form>
           </Grid>
         </Card>

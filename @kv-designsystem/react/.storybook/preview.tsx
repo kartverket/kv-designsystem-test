@@ -8,6 +8,7 @@ import '@digdir/designsystemet-css'; /* imported only once */
 // import '../.storybook/style.css';
 import '../src/components/variables.css';
 import customTheme from './docs/customTheme';
+import { extractKvdsArgTypes } from './utils/extractKvdsArgTypes';
 
 declare global {
   interface Window {
@@ -20,7 +21,7 @@ Object.entries(icons).forEach(([name, component]) => {
   if (typeof component === 'object' && component !== null) {
     const comp = component as {
       displayName?: string;
-      render?: { displayName?: string }; 
+      render?: { displayName?: string };
     };
 
     comp.displayName = name;
@@ -41,7 +42,8 @@ const preview: Preview = {
     docs: {
       theme: customTheme,
       components: componentOverrides,
-    }
+      extractArgTypes: extractKvdsArgTypes,
+    },
   },
   globalTypes: {
     theme: {
@@ -95,15 +97,9 @@ type Theme = 'green' | 'blue';
 const themes: Record<Theme, () => Promise<unknown>> = {
   green: () => import('@kv-designsystem/theme/green'),
   blue: () => import('@kv-designsystem/theme/blue'),
-}
+};
 
-const ThemeWrapper = ({
-  theme,
-  children,
-}: {
-  theme: Theme;
-  children: React.ReactNode;
-}) => {
+const ThemeWrapper = ({ theme, children }: { theme: Theme; children: React.ReactNode }) => {
   useEffect(() => {
     themes[theme]();
   }, [theme]);

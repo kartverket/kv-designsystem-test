@@ -18,36 +18,38 @@ type InternalBrandProps = {
   applicationHref: string;
 };
 
-export const PublicBrand = forwardRef<HTMLDivElement, PublicBrandProps>(
-  function PublicBrand({ applicationName, applicationHref }, ref) {
-    return (
-      <div className='header-brand' ref={ref}>
-        <a href='https://kartverket.no' aria-label='Kartverket'>
-          <Logo padding='0' className='header-logo--full'/>
-          <Logo variant='symbol' padding='0'className='header-logo--symbol' />
-        </a>
-        {applicationName && (
-          <>
-            <span className='header-brand-divider' />
-            <Link href={applicationHref}>
-              <Heading data-size='2xs'>{applicationName}</Heading>
-            </Link>
-          </>
-        )}
-      </div>
-    );
-  }
-);
+export const PublicBrand = forwardRef<HTMLDivElement, PublicBrandProps>(function PublicBrand(
+  { applicationName, applicationHref },
+  ref,
+) {
+  return (
+    <div className="header-brand" ref={ref}>
+      <a href="https://kartverket.no" aria-label="Kartverket">
+        <Logo padding="0" className="header-logo--full" />
+        <Logo variant="symbol" padding="0" className="header-logo--symbol" />
+      </a>
+      {applicationName && (
+        <>
+          <span className="header-brand-divider" />
+          <Link href={applicationHref}>
+            <Heading data-size="2xs">{applicationName}</Heading>
+          </Link>
+        </>
+      )}
+    </div>
+  );
+});
 
-export const InternalBrand = forwardRef<HTMLDivElement, InternalBrandProps>(
-  function InternalBrand({ applicationName, applicationHref }, ref) {
-    return (
-      <div ref={ref} className='header-brand header-brand--internal'>
-        <a href={applicationHref}>
-          <Logo variant='symbol' padding='0' className='header-logo--symbol header-logo--internal' />
-          <Heading data-size='sm'>{applicationName}</Heading>
-        </a>
-      </div>
-    );
-  }
-);
+export const InternalBrand = forwardRef<HTMLDivElement, InternalBrandProps>(function InternalBrand(
+  { applicationName, applicationHref },
+  ref,
+) {
+  return (
+    <div ref={ref} className="header-brand header-brand--internal">
+      <a href={applicationHref}>
+        <Logo variant="symbol" padding="0" className="header-logo--symbol header-logo--internal" />
+        <Heading data-size="sm">{applicationName}</Heading>
+      </a>
+    </div>
+  );
+});

@@ -1,18 +1,18 @@
 {
   "name": "@kv-designsystem/react",
+  "version": "1.0.0-alpha.6",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "github:kartverket/kv-designsystem-test",
     "directory": "@kv-designsystem/react"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "license": "MIT",
-  "version": "1.0.0-alpha.6",
+  "files": [
+    "./dist"
+  ],
   "type": "module",
-  "types": "./dist/alpha.d.ts",
   "main": "./dist/alpha.js",
+  "types": "./dist/alpha.d.ts",
   "exports": {
     ".": {
       "import": "./dist/alpha.js",
@@ -30,12 +30,13 @@
       "default": "./dist/style/blue.css"
     }
   },
-  "files": [
-    "./dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint": "oxlint --type-aware --max-warnings 0",
     "lint-circular-dependencies": "pnpm madge --circular ./src/alpha.ts",
+    "lint-mdx-controls": "node ./scripts/check-mdx-controls.ts",
     "typecheck": "tsgo --build",
     "install-dependencies": "pnpm i",
     "build": "vite build",

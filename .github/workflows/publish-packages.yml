@@ -3,14 +3,14 @@ name: Publish Packages
 # Trigger only after the Build workflow completes successfully
 on:
   workflow_run:
-    workflows: ["Build"]
+    workflows: ['Build']
     types:
       - completed
 
 permissions:
   contents: read
-  packages: write  # Needed to publish to npm
-  id-token: write  # Required if using OIDC login to npm
+  packages: write # Needed to publish to npm
+  id-token: write # Required if using OIDC login to npm
 
 jobs:
   publish:
@@ -28,7 +28,7 @@ jobs:
         run: |
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
- # Publish @kv-designsystem/react
+      # Publish @kv-designsystem/react
       - name: Publish @kv-designsystem/react
         working-directory: '@kv-designsystem/react'
         run: |
