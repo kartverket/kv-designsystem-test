@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from './Flex';
+import { Grid } from './Grid';
 import { Button } from '../button/Button';
 import { Card } from '../card/Card';
 import { Heading } from '../typography/heading/Heading';
@@ -21,12 +22,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const propertyServices = [
-  { name: 'Eiendomsgrenser', description: 'Se registrerte grenser for en eiendom.' },
-  { name: 'Matrikkelopplysninger', description: 'Finn opplysninger som er registrert om eiendommen.' },
-  { name: 'Grunnboksutskrift', description: 'Bestill en bekreftet utskrift fra grunnboken.' },
-  { name: 'Tinglyst dokument', description: 'Bestill kopi av et dokument som er tinglyst.' },
-  { name: 'Skjøte', description: 'Overfør eierskap til fast eiendom.' },
-  { name: 'Tinglyse rettigheter', description: 'Registrer en rettighet eller avtale i grunnboken.' },
+  { name: 'Eiendomsgrenser' },
+  { name: 'Matrikkelopplysninger' },
+  { name: 'Grunnboksutskrift' },
+  { name: 'Tinglyst dokument' },
+  { name: 'Skjøte' },
+  { name: 'Tinglyse rettigheter' },
 ];
 
 export const Preview: Story = {
@@ -44,35 +45,29 @@ export const Preview: Story = {
     >
       {propertyServices.map((service) => (
         <Card key={service.name}>
-          <Heading data-size="xs">
-            {service.name}
-          </Heading>
-          <Paragraph>{service.description}</Paragraph>
+          <Paragraph>{service.name}</Paragraph>
         </Card>
       ))}
     </Flex>
   ),
 };
 
-export const Buttons: Story = {
+export const ButtonsAndTags: Story = {
   render: (_args) => (
-    <Flex>
-      <Button>Lagre</Button>
-      <Button variant="secondary">Avbryt</Button>
-    </Flex>
-  ),
-};
-
-export const Tags: Story = {
-  render: (_args) => (
-    <Flex gap={2} data-color="info">
-      <Tag>Matrikkel</Tag>
-      <Tag>Grunnbok</Tag>
-      <Tag>Eiendomsgrenser</Tag>
-      <Tag>Adresser</Tag>
-      <Tag>Høydedata</Tag>
-      <Tag>Sjøkart</Tag>
-    </Flex>
+    <Grid gap={4}>
+      <Flex>
+        <Button>Lagre</Button>
+        <Button variant="secondary">Avbryt</Button>
+      </Flex>
+      <Flex gap={2} data-color="info">
+        <Tag>Matrikkel</Tag>
+        <Tag>Grunnbok</Tag>
+        <Tag>Eiendomsgrenser</Tag>
+        <Tag>Adresser</Tag>
+        <Tag>Høydedata</Tag>
+        <Tag>Sjøkart</Tag>
+      </Flex>
+    </Grid>
   ),
 };
 

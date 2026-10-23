@@ -14,7 +14,7 @@ export type FlexProps = LayoutProps & {
    */
   justifyItems?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
   /**
-   * Whether the children wrap to a new line when there is not enough room.
+   * Whether the children should wrap to a new line when there is not enough room.
    * @default 'wrap'
    */
   flexWrap?: 'wrap' | 'nowrap';
