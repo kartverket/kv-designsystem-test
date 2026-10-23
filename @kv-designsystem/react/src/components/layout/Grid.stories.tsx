@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { CSSProperties } from 'react';
 import { Grid } from './Grid';
 import { Flex } from './Flex';
 import { Button } from '../button/Button';
@@ -14,7 +15,7 @@ const meta = {
   title: 'Components/Layout/Grid',
   tags: ['!autodocs'],
   argTypes: {
-    // asChild needs exactly one child, so toggling it in the Preview would crash the story
+    // asChild needs exactly one child, so toggling it in the controls will crash the story
     asChild: { control: false },
   },
 } satisfies Meta<typeof Grid>;
@@ -30,9 +31,50 @@ const services = [
   { name: 'Havbunn', description: 'Utforsk kunnskap og data om havbunnen langs kysten.' },
 ];
 
+const narrowCardTitles = ['Sjø', 'Land'] as const;
+
+const gridOutlineStyle = {
+  outline: '1px dashed var(--ds-color-neutral-border-default)',
+} satisfies CSSProperties;
+
+const fullWidthGridItemStyle = {
+  gridColumn: '1 / -1',
+} satisfies CSSProperties;
+
+const gridTagStyle = {
+  ...fullWidthGridItemStyle,
+  maxWidth: '100%',
+  whiteSpace: 'normal',
+  wordBreak: 'normal',
+} satisfies CSSProperties;
+
 export const Preview: Story = {
   args: {
-    itemMinWidth: 150,
+    alignContent: 'start',
+  },
+  render: (args) => (
+    <Grid
+      {...args}
+      data-color="neutral"
+      style={{
+        minHeight: '28rem',
+        outline: '1px dashed var(--ds-color-neutral-border-default)',
+      }}
+    >
+      {services.slice(0, 3).map((service) => (
+        <Card key={service.name}>
+          <Heading data-size="xs">
+            {service.name}
+          </Heading>
+          <Paragraph>{service.description}</Paragraph>
+        </Card>
+      ))}
+    </Grid>
+  ),
+};
+
+export const ComplexGridLayout: Story = {
+  args: {
     alignContent: 'start',
   },
   render: (args) => (
@@ -41,17 +83,88 @@ export const Preview: Story = {
       data-color="neutral"
       style={{
         minHeight: '16rem',
-        outline: '1px dashed var(--ds-color-neutral-border-default)',
+        ...gridOutlineStyle,
       }}
     >
-      {services.map((service) => (
-        <Card key={service.name}>
-          <Heading data-size="xs">
-            {service.name}
+      <Grid
+        style={{
+          ...gridOutlineStyle,
+          gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+        }}
+      >
+        <Tag style={gridTagStyle}>
+          item<wbr />Min<wbr />Width: ikke satt
+        </Tag>
+        {services.slice(0, 2).map((service) => (
+          <Card key={service.name} data-color="accent">
+            <Heading data-size="xs">
+              {service.name}
+            </Heading>
+            <Paragraph>{service.description}</Paragraph>
+          </Card>
+        ))}
+      </Grid>
+      <Grid style={{ ...gridOutlineStyle, gridTemplateColumns: '2fr 3fr' }}>
+        <section style={fullWidthGridItemStyle}>
+          <Heading level={3} data-size="xs">
+            Tilpasset kolonnebredde
           </Heading>
-          <Paragraph>{service.description}</Paragraph>
-        </Card>
-      ))}
+          <Paragraph data-size="sm">
+            Bruker <code>{`style={{ gridTemplateColumns: '2fr 3fr' }}`}</code> for å gi den høyre
+            kolonnen mer plass enn den venstre.
+          </Paragraph>
+        </section>
+        <Grid alignContent="start" style={gridOutlineStyle}>
+          <Grid itemMinWidth={150} style={gridOutlineStyle}>
+            <Tag style={gridTagStyle}>
+              item<wbr />Min<wbr />Width: 150
+            </Tag>
+            {narrowCardTitles.map((title) => (
+              <Card key={title} data-color="accent">
+                <Heading data-size="xs">
+                  {title}
+                </Heading>
+              </Card>
+            ))}
+          </Grid>
+        </Grid>
+        <Grid itemMinWidth={250} gap={4} style={gridOutlineStyle}>
+          <Tag style={gridTagStyle}>
+            item<wbr />Min<wbr />Width: 250
+          </Tag>
+          {services.slice(4).map((service) => (
+            <Card key={service.name} data-color="accent" style={fullWidthGridItemStyle}>
+              <Heading data-size="xs">
+                {service.name}
+              </Heading>
+              <Paragraph>{service.description}</Paragraph>
+            </Card>
+          ))}
+          <Grid
+            itemMinWidth={200}
+            style={{ ...gridOutlineStyle, gridColumn: '1 / -1' }}
+          >
+            <Tag style={gridTagStyle}>
+              item<wbr />Min<wbr />Width: 200
+            </Tag>
+            {services.map((service) => (
+              <Card key={service.name} data-color="accent">
+                <Heading data-size="xs">
+                  {service.name}
+                </Heading>
+              </Card>
+            ))}
+          </Grid>
+          {services.slice(3, 4).map((service) => (
+            <Card key={service.name} data-color="accent" style={fullWidthGridItemStyle}>
+              <Heading data-size="xs">
+                {service.name}
+              </Heading>
+              <Paragraph>{service.description}</Paragraph>
+            </Card>
+          ))}
+        </Grid>
+      </Grid>
     </Grid>
   ),
 };
@@ -87,64 +200,90 @@ export const ItemMinWidth: Story = {
   ),
 };
 
-export const SpanAllColumns: Story = {
+export const ColumnSpans: Story = {
   render: (_args) => (
-    <Grid itemMinWidth={250} data-color="neutral">
-      <Card data-color="accent" style={{ gridColumn: '1 / -1' }}>
-        <Heading level={3} data-size="xs">
-          Kartverket
-        </Heading>
-        <Paragraph>Dette kortet går over alle kolonnene.</Paragraph>
+    <Grid
+      data-color="neutral"
+      style={{
+        ...gridOutlineStyle,
+        gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+      }}
+    >
+      <Card
+        data-color="accent"
+        style={{ ...gridOutlineStyle, gridColumn: '1 / -1' }}
+      >
+        <Paragraph>gridColumn: '1 / -1'</Paragraph>
       </Card>
-      <Card>
-        <Heading level={3} data-size="xs">
-          Eiendom
-        </Heading>
+      <Card
+        data-color="accent"
+        style={{ ...gridOutlineStyle, gridColumn: '1 / span 2' }}
+      >
+        <Paragraph>gridColumn: '1 / span 2'</Paragraph>
       </Card>
-      <Card>
-        <Heading level={3} data-size="xs">
-          Adresse
-        </Heading>
+      <Card style={{ ...gridOutlineStyle, gridColumn: '3 / 4' }}>
+        <Paragraph>Eiendom</Paragraph>
       </Card>
-      <Card>
-        <Heading level={3} data-size="xs">
-          Kart
-        </Heading>
+      <Card style={{ ...gridOutlineStyle, gridColumn: '4 / 5' }}>
+        <Paragraph>Adresse</Paragraph>
       </Card>
-      <Card>
-        <Heading level={3} data-size="xs">
-          Høydedata
-        </Heading>
+      <Card style={{ ...gridOutlineStyle, gridColumn: '1 / 2' }}>
+        <Paragraph>Kart</Paragraph>
+      </Card>
+      <Card
+        data-color="accent"
+        style={{ ...gridOutlineStyle, gridColumn: '2 / 5' }}
+      >
+        <Paragraph>gridColumn: '2 / 5'</Paragraph>
+      </Card>
+      <Card style={gridOutlineStyle}>
+        <Paragraph>Høydedata</Paragraph>
+      </Card>
+      <Card style={gridOutlineStyle}>
+        <Paragraph>Stedsnavn</Paragraph>
+      </Card>
+      <Card style={gridOutlineStyle}>
+        <Paragraph>Terreng</Paragraph>
+      </Card>
+      <Card style={gridOutlineStyle}>
+        <Paragraph>Sjøkart</Paragraph>
       </Card>
     </Grid>
   ),
 };
 
-export const JustifyStart: Story = {
+const justifyItemsExamples = [
+  'start',
+  'center',
+  'end',
+] as const;
+
+const placeNames = ['Oslo', 'Bergen', 'Tromsø'] as const;
+
+export const JustifyItems: Story = {
   render: (_args) => (
-    <Grid
-      justifyItems="start"
-      data-color="neutral"
-      style={{ outline: '1px dashed var(--ds-color-neutral-border-default)' }}
-    >
-      <Card>
-        <Heading data-size="xs">
-          Oslo
-        </Heading>
-        <Paragraph>Finn informasjon om eiendommer.</Paragraph>
-      </Card>
-      <Card>
-        <Heading data-size="xs">
-          Kristiansand
-        </Heading>
-        <Paragraph>Se grenser og bygninger.</Paragraph>
-      </Card>
-      <Card>
-        <Heading data-size="xs">
-          Bø
-        </Heading>
-        <Paragraph>Last ned høydedata.</Paragraph>
-      </Card>
+    <Grid gap={4}>
+      {justifyItemsExamples.map((justifyItems) => (
+        <Grid
+          key={justifyItems}
+          alignItems="center"
+          style={{ gridTemplateColumns: 'minmax(10rem, 1fr) minmax(0, 2fr)' }}
+        >
+          <code>justifyItems=&quot;{justifyItems}&quot;</code>
+          <Grid
+            itemMinWidth={100}
+            justifyItems={justifyItems}
+            data-color="neutral"
+            style={{ outline: '1px dashed var(--ds-color-neutral-border-default)' }}
+          >
+            {placeNames.map((placeName) => (
+              <Card key={placeName} data-color="accent">
+                <Paragraph>{placeName}</Paragraph>
+              </Card>
+            ))}
+          </Grid>
+        </Grid>
+      ))}
     </Grid>
   ),
 };
