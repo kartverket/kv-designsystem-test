@@ -9,58 +9,65 @@ import { List } from '../list/List';
 <ExperimentalComponent component='Grid og Flex' />
 # Layout
 
-Bruk layoutkomponenter for å organisere og strukturere innhold. De sørger for god flyt og konsistent avstand mellom elementer, også når innholdet må brekkes
+Bruk layoutkomponenter for å organisere og strukturere innhold. De sørger for konsistent avstand mellom elementer, også når innholdet må brekkes
 over flere linjer.
-
-- Bruk `Flex` når skal kunne ha ulik bredde.
-- Bruk `Grid` når alle barn skal ha lik bredde, eller når alle elementene skal ligge under hverandre.
-- Du kan også nøste `Flex` og `Grid` sammen for mer komplekse layoutbehov.
 
 ## Grid
 
-- Bruk `Grid` uten `itemMinWidth` når du vil stable elementer under hverander (som en VStack).
-- Bruk `Grid` med `itemMinWidth` for å gi alle elementer lik bredde, og la dem wrappe når det ikke er plass til alle på én rad.
-- Hvis du trenger å tilpasse kolonner og rader ytterligere, kan du bruke sette `gridTemplateColumns` og `gridTemplateRows` via `style` eller `className`.
+**Bruk `Grid` når**
+- du vil stable barn under hverandre i én kolonne (som en VStack)
+- du vil gi alle barn bestemte bredder
+- du trenger mer detaljert kontroll over kolonner og rader
+
+
+**Unngå `Grid` når**
+- du vil ha fleksibel horisontal layout, hvor barnas bredde bestemmes av innholdet – bruk heller `Flex`
 
 <Canvas of={GridStories.Preview} />
 <Controls of={GridStories.Preview} />
 
 ### Grid med flere kolonner
 
-Du kan gi alle kolonner i et `Grid` en bestemt bredde med `itemMinWidth`. Innholdet fylles opp i bredden med så mange kolonner det er plass til, og resten wrapper videre til neste rad.
-Kolonnene vil aldri bli smalere enn `itemMinWidth`.
+Som standard stabler `Grid` alle barna sine under hverandre i én kolonne. Hvis du setter `itemMinWidth`, vil barna i stedet stables horisontalt i så mange kolonner det er plass til i bredden.
+Kolonnene vil aldri bli smalere enn `itemMinWidth`, og overskytende barn brekker til ny rad.
 
 <Canvas of={GridStories.ItemMinWidth} />
 
 ### Plassering i kolonnen
 
-`justifyItems` plasserer hvert element horisontalt innenfor sin Grid-kolonne. Hvi den ikke er satt, fyller elementet hele kolonnebredden. `start`, `center` og `end` lar elementene bare ta opp plassen de trenger.
+Bruk `justify` når du vil plassere barn horisontalt innenfor sin egen kolonne. Når justify er satt til `start`, `center` eller `end`, vil barnas bredde bli styrt av innholdet i stedet for kolonnebredden.
 
-<Canvas of={GridStories.JustifyItems} />
+<Canvas of={GridStories.Justify} />
 
 ### Maksbredde
 
-`maxWidth` gir Grid en maksbredde og sentrerer hele containeren horisontalt. CSS-lengder er gyldige, for eksempel `40rem`, `70ch` eller `80%`.
-og det vil alltid være minst like mye luft på sidene som i `Header` og `Footer`.
+`maxWidth` gir Grid en maksbredde og senterer samtidig hele containeren horisontalt. Alle CSS-lengdeverdier (`40rem`, `45ch`, `80%`) er gyldige.
+Luften på sidene vil alltid være minst like stor som i `Header` og `Footer`.
 
 <Canvas of={GridStories.MaxWidth} />
 
-### Riktig HTML-element med asChild
+### Endre Grid sin HTML-tag med asChild
 
 `Grid` er i utgangspunktet en `div`. Hvis du trenger et annet element, kan du bruke `asChild`. Da får nærmeste barn Grid sin klasse og innstillinger, uten en ekstra `div` rundt.
 Maksbredde-eksemplet over gjør dette med et `form`-element.
 
-### Strekk et element over flere kolonner
+### Spesialtilpasning
 
-Du kan styre hvilke kolonner et element i et `Grid` skal strekke seg over med `gridColumn`. Du kan sette det i `style` eller med egne css-klasser.
+Enkelte layouts krever mer tilpasning av kolonner og rader enn det layoutkomponentene våre tilbyr ut av boksen. Hvis du har behov for spesialtilpasning,
+kan du sette ekstra css-egenskaper i `style` eller med egne css-klasser.
+
+#### Strekk et element over flere kolonner og rader
+
+Du kan styre antall kolonner og rader et element i et `Grid` skal strekke seg over med `gridColumn` og `gridRow`. Du kan sette det i `style` eller med egne css-klasser.
 
 - `gridColumn: '1 / -1'` strekker elementet over alle kolonnene.
-- `gridColumn: '1 / span 2'` lar elementet starte på gridlinje 1 og dekke to kolonner.
+- `gridColumn: '1 / span 2'` lar elementet starte på gridlinje 1 og strekke seg over to kolonner.
 - `gridColumn: '2 / 5'` lar elementet starte på gridlinje 2 og slutte på gridlinje 5.
+- `gridRow: '3 / span 2'` lar elementet starte på gridlinje 3 og strekke seg over to rader.
 
 <Canvas of={GridStories.ColumnSpans} />
 
-### Tilpassede Grid-kolonner
+#### Tilpassede Grid-kolonner
 
 Bruk `gridTemplateColumns` når du trenger mer kontroll over hvordan kolonnene i et `Grid` fordeles. Sett egenskapen i `style` eller en egen css-klasse. Eksempelet under kombinerer tilpassede kolonner med Grid-nøsting.
 
@@ -69,53 +76,54 @@ Bruk `gridTemplateColumns` når du trenger mer kontroll over hvordan kolonnene i
 ## Flex
 
 **Bruk `Flex` når**
-- barn skal ta opp plass basert på innholdets størrelse
+- barn skal ta opp plass basert på innholdets bredde
 
 **Unngå `Flex` når**
-- du skal stable elementer under hverandre. Bruk heller `Grid`
+- du skal stable elementer under hverandre – bruk heller `Grid`
 
 <Canvas of={FlexStories.Preview} />
 <Controls of={FlexStories.Preview} />
 
 <Alert data-color='info' className='sb-unstyled'>
   <List.Unordered>
-    <List.Item><code>Flex</code> brukes bare til horisontal layout. Komponenten har derfor ingen prop for retning.</List.Item>
-    <List.Item><code>justifyItems</code> bruker <code>justify-content</code> under panseret. Det gir samme visuelle resultat som <code>justifyItems</code> i <code>Grid</code>.</List.Item>
+    <List.Item>`Flex` brukes bare til horisontal layout. Komponenten har derfor ingen prop for `flex-direction`.</List.Item>
+    <List.Item>`justify` styrer barnas horisontale plassering. Den bruker `justify-content` i `Flex` og `justify-items` i `Grid`.</List.Item>
   </List.Unordered>
 </Alert>
 
 ### Elementer ved siden av hverandre
 
-Bruk `Flex` til å lage knapperader rader med tagger.
+Bruk `Flex` til å lage rader med knapper og tagger.
 
 <Canvas of={FlexStories.ButtonsAndTags} />
 
-### Elementer med foretrukket bredde
-
-Bruk `itemMinWidth` for å angi ønsket bredde før elementer begynner å brekke til ny linje. Elementene på siste linje vokser og fyller raden.
-`flexWrap='nowrap'` lar elementene krympe i stedet for å brekke.
-
-<Canvas of={FlexStories.ItemMinWidth} />
-
 ### Fordele plassen på en rad
 
-`justifyItems` fordeler elementene horisontalt. `alignItems` plasserer dem vertikalt.
+`justify` fordeler barna horisontalt. `alignItems` plasserer dem vertikalt.
 
 <Canvas of={FlexStories.SpaceBetween} />
 
+### Elementer med foretrukket bredde
+
+Bruk `itemMinWidth` for å angi ønsket bredde før elementer begynner å brekke til ny linje. Elementene på siste linje vil vokse til å fylle raden sin.
+`flexWrap='nowrap'` lar barn krympe forbi minimumsbredden i stedet for å brekke.
+
+<Canvas of={FlexStories.ItemMinWidth} />
+
 ### Style enkeltelementer
 
-`Flex` styrer bare containeren. Hvis du vil endre ett enkelt element, setter du vanlig CSS direkte med `style` eller en egen css-klasse.
+Hvis du vil endre oppførselen til ett eller flere barn, kan du sette barnas css-attributter via `style` eller med egne css-klasser.
 
-- `flexGrow: 1` lar et element ta fylle opp ledig plass.
+Noen eksempler:
+- `flexGrow: 1` lar et element fylle opp all ledig plass.
 - `flexGrow: 0` hindrer et element i å vokse når `itemMinWidth` er satt.
-- `alignSelf` plasserer et element annerledes enn resten.
+- `alignSelf` plasserer et element vertikalt i en rad annerledes enn resten.
 
 <Canvas of={FlexStories.StyleSingleItem} />
 
 ## En hel side
 
-Dette eksemplet bruker `Grid` til å stable sidens seksjoner og `Flex` til horisontale rader inni dem. Eiendomskortene ligger i et responsivt Grid, mens knappene og taggene ligger i `Flex`-rader.
+Dette eksemplet bruker `Grid` til å stable sidens seksjoner, og `Flex` til horisontale rader inni dem. Eiendomskortene ligger i et responsivt Grid, mens knappene og taggene ligger i `Flex`-rader.
 
 <Canvas of={GridStories.ComplexPage} />
 

@@ -54,7 +54,7 @@ export const Preview: Story = {
 
 export const ButtonsAndTags: Story = {
   render: (_args) => (
-    <Grid gap={4}>
+    <Grid>
       <Flex>
         <Button>Lagre</Button>
         <Button variant="secondary">Avbryt</Button>
@@ -73,10 +73,15 @@ export const ButtonsAndTags: Story = {
 
 export const SpaceBetween: Story = {
   render: (_args) => (
-    <Flex justifyItems="space-between" alignItems="center">
-      <Heading data-size="sm">
-        Mine eiendommer
-      </Heading>
+    <Flex
+      justify="space-between"
+      alignItems="center"
+      style={{
+        minHeight: '8rem',
+        outline: '1px dashed var(--ds-color-neutral-border-default)',
+      }}
+    >
+      <Heading data-size="sm">Mine eiendommer</Heading>
       <Button variant="secondary">Legg til eiendom</Button>
     </Flex>
   ),
@@ -102,7 +107,7 @@ export const ItemMinWidth: Story = {
       </Card>
       <Card>
         <Paragraph>
-          Elementene vokser og fyller raden. Blir det for trangt, brekker de til en ny linje.
+          Elementene vokser og fyller raden. Hvis det blir for trangt, brekker de til ny linje.
         </Paragraph>
       </Card>
     </Flex>
@@ -111,7 +116,7 @@ export const ItemMinWidth: Story = {
 
 export const StyleSingleItem: Story = {
   render: (_args) => (
-    <Flex flexWrap="nowrap" alignItems="end" gap={2}>
+    <Flex flexWrap="nowrap" alignItems="end">
       <Textfield label="Adresse" style={{ flexGrow: 1 }} />
       <Button>Lagre</Button>
     </Flex>

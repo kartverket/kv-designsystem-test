@@ -73,7 +73,6 @@ export type LayoutProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * Maximum width of the container. Takes any CSS length, e.g. `40rem`, `80ch` or `var(--kvds-frame-content-max-width)`.
    * Also centers the container and keeps the same space free on each side as `Header` and `Footer`.
-   * Change that space with the CSS variable `--kvdsc-layout-gutter`.
    */
   maxWidth?: string;
   /**
