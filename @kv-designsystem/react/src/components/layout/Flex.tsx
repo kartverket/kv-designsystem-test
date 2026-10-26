@@ -8,11 +8,8 @@ import { toLayoutAttributes, type LayoutProps } from './layoutProps';
 export type FlexProps = LayoutProps & {
   /**
    * Places the children horizontally.
-   *
-   * Uses `justify-content` in Flex and `justify-items` in Grid so the visual result and API stay
-   * the same for both components.
    */
-  justifyItems?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
+  justify?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
   /**
    * Whether the children should wrap to a new line when there is not enough room.
    * @default 'wrap'
@@ -24,7 +21,7 @@ export type FlexProps = LayoutProps & {
  * Places the children side by side horizontally. Use `Grid` to stack content vertically.
  */
 export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
-  { asChild = false, flexWrap, justifyItems, className, ...rest },
+  { asChild = false, flexWrap, justify, className, ...rest },
   ref,
 ) {
   const Component = asChild ? Slot : 'div';
@@ -33,7 +30,7 @@ export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
     <Component
       className={cl('kvds-flex', className)}
       data-flex-wrap={flexWrap}
-      data-justify-items={justifyItems}
+      data-justify={justify}
       ref={ref}
       {...toLayoutAttributes(rest)}
     />

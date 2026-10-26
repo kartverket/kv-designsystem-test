@@ -13,7 +13,7 @@ export type GridProps = LayoutProps & {
    * the same for both components.
    * @default 'stretch'
    */
-  justifyItems?: 'stretch' | 'start' | 'center' | 'end';
+  justify?: 'stretch' | 'start' | 'center' | 'end';
 };
 
 /**
@@ -21,7 +21,7 @@ export type GridProps = LayoutProps & {
  * Use `Flex` to place content side by side.
  */
 export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
-  { asChild = false, justifyItems, className, ...rest },
+  { asChild = false, justify, className, ...rest },
   ref,
 ) {
   const Component = asChild ? Slot : 'div';
@@ -29,7 +29,7 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
   return (
     <Component
       className={cl('kvds-grid', className)}
-      data-justify-items={justifyItems}
+      data-justify={justify}
       ref={ref}
       {...toLayoutAttributes(rest)}
     />

@@ -83,23 +83,22 @@
   flex-wrap: nowrap;
 }
 
-/* justify-items has no effect in flexbox, so the attribute is an alias for justify-content to match Grid */
-.kvds-flex[data-justify-items='start'] {
+.kvds-flex[data-justify='start'] {
   justify-content: start;
 }
-.kvds-flex[data-justify-items='center'] {
+.kvds-flex[data-justify='center'] {
   justify-content: center;
 }
-.kvds-flex[data-justify-items='end'] {
+.kvds-flex[data-justify='end'] {
   justify-content: end;
 }
-.kvds-flex[data-justify-items='space-between'] {
+.kvds-flex[data-justify='space-between'] {
   justify-content: space-between;
 }
-.kvds-flex[data-justify-items='space-around'] {
+.kvds-flex[data-justify='space-around'] {
   justify-content: space-around;
 }
-.kvds-flex[data-justify-items='space-evenly'] {
+.kvds-flex[data-justify='space-evenly'] {
   justify-content: space-evenly;
 }
 
@@ -115,15 +114,15 @@
   );
 }
 
-.kvds-grid[data-justify-items='stretch'] {
+.kvds-grid[data-justify='stretch'] {
   justify-items: stretch;
 }
-.kvds-grid[data-justify-items='start'] {
+.kvds-grid[data-justify='start'] {
   justify-items: start;
 }
-.kvds-grid[data-justify-items='center'] {
+.kvds-grid[data-justify='center'] {
   justify-items: center;
 }
-.kvds-grid[data-justify-items='end'] {
+.kvds-grid[data-justify='end'] {
   justify-items: end;
 }
