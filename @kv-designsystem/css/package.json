@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@internal/build-tools": "workspace:*",
+    "@internal/layout-tokens": "workspace:*",
     "autoprefixer": "catalog:",
     "cssnano": "catalog:",
     "postcss": "catalog:",

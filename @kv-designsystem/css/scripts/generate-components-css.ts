@@ -1,11 +1,8 @@
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-// Use the same token values as component props when generating CSS.
-import {
-  layoutItemMinWidths,
-  layoutSizes,
-} from '../../react/src/components/layout/layoutTokens.ts';
+// Generate CSS and React token source from the shared internal values.
+import { layoutItemMinWidths, layoutSizes } from '@internal/layout-tokens';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -14,6 +11,7 @@ const CSS_SOURCE_DIRECTORY = path.resolve(__dirname, '../src');
 const COMPONENTS_CSS_OUTPUT = path.resolve(CSS_SOURCE_DIRECTORY, 'components.css');
 const LAYOUT_DIRECTORY = path.resolve(COMPONENTS_DIRECTORY, 'layout');
 const LAYOUT_TOKENS_CSS_OUTPUT = path.resolve(LAYOUT_DIRECTORY, 'layoutTokens.generated.css');
+const LAYOUT_TOKENS_TYPESCRIPT_OUTPUT = path.resolve(LAYOUT_DIRECTORY, 'layoutTokens.ts');
 
 const gapProperties = ['gap', 'row-gap', 'column-gap'] as const;
 
@@ -74,11 +72,22 @@ function generateItemMinWidthRules(layoutItemMinWidths: readonly number[]): stri
     .join('\n\n');
 }
 
+function generateLayoutTokensTypeScript(): string {
+  const formatTokenArray = (values: readonly number[]) => `[\n  ${values.join(', ')},\n]`;
+
+  return `/* This file is generated from @internal/layout-tokens. Do not edit manually. */
+
+export const layoutSizes = ${formatTokenArray(layoutSizes)} as const;
+
+export const layoutItemMinWidths = ${formatTokenArray(layoutItemMinWidths)} as const;
+`;
+}
+
 function generateLayoutTokensCss(): string {
   const gapRules = generateGapRules(layoutSizes);
   const itemMinWidthRules = generateItemMinWidthRules(layoutItemMinWidths);
 
-  return `/* This file is generated from layoutTokens.ts. Do not edit manually. */
+  return `/* This file is generated from @internal/layout-tokens. Do not edit manually. */
 
 ${gapRules}
 
@@ -105,5 +114,6 @@ const layoutTokensImport =
 
 fs.writeFileSync(COMPONENTS_CSS_OUTPUT, `${layoutTokensImport}\n${componentCssImports}`);
 fs.writeFileSync(LAYOUT_TOKENS_CSS_OUTPUT, generateLayoutTokensCss());
+fs.writeFileSync(LAYOUT_TOKENS_TYPESCRIPT_OUTPUT, generateLayoutTokensTypeScript());
 
 console.log(`✅ Generated ${COMPONENTS_CSS_OUTPUT}`);
