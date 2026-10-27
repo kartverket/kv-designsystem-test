@@ -13,14 +13,37 @@
     ]
   },
   "targets": {
-    "prebuild": {
+    "generate-components-css": {
+      "executor": "nx:run-commands",
       "cache": true,
       "inputs": ["css", "default", "^default"],
-      "outputs": ["{projectRoot}/src/components.css"]
+      "outputs": ["{projectRoot}/src/components.css"],
+      "dependsOn": [
+        {
+          "projects": ["@kv-designsystem/react"],
+          "target": "generate-layout-tokens"
+        }
+      ],
+      "options": {
+        "command": "node scripts/generate-components-css.ts",
+        "cwd": "@kv-designsystem/css"
+      }
     },
     "build": {
       "cache": true,
-      "inputs": ["css", "default", "^default"]
+      "inputs": ["css", "default", "^default"],
+      "dependsOn": [
+        "lint",
+        "format:check",
+        "generate-components-css",
+        "^build",
+        "^install-dependencies"
+      ],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "postcss \"src/*.css\" --base src --dir dist && cp ../../@internal/build-tools/css-import.d.ts dist/css-import.d.ts",
+        "cwd": "@kv-designsystem/css"
+      }
     },
     "watch": {
       "continuous": true,

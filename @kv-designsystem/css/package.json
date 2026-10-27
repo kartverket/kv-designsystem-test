@@ -31,10 +31,10 @@
     "tag": "alpha"
   },
   "scripts": {
-    "build": "postcss \"src/*.css\" --base src --dir dist && cp ../../@internal/build-tools/css-import.d.ts dist/css-import.d.ts",
+    "build": "pnpm nx run @kv-designsystem/css:build",
     "format:check": "pnpm exec oxfmt --check .",
+    "generate-components-css": "pnpm nx run @kv-designsystem/css:generate-components-css",
     "lint": "oxlint --max-warnings 0",
-    "prebuild": "pnpm --filter @kv-designsystem/react generate-layout-tokens && node scripts/generate-components-css.ts",
     "typecheck": "tsgo --build",
     "watch": "pnpm build --watch"
   },

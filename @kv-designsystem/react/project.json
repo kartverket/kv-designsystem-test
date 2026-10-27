@@ -6,15 +6,35 @@
   "tags": [],
   "// targets": "to see all targets run: nx show project @kv-designsystem/react --web",
   "targets": {
+    "generate-layout-tokens": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": ["default", "^default"],
+      "outputs": ["{projectRoot}/src/components/layout/layoutTokens.generated.css"],
+      "options": {
+        "command": "node scripts/generate-layout-tokens-css.ts",
+        "cwd": "@kv-designsystem/react"
+      }
+    },
     "dev": {
       "continuous": true,
+      "dependsOn": ["build", { "projects": "!css", "target": "^watch" }]
+    },
+    "build": {
       "dependsOn": [
-        "build",
-        { "projects": "@kv-designsystem/css", "target": "lint" },
-        { "projects": "@kv-designsystem/css", "target": "format:check" },
-        { "projects": "!css", "target": "^watch" },
-        "lint-circular-dependencies"
-      ]
+        "lint",
+        "format:check",
+        "lint-circular-dependencies",
+        "lint-mdx-controls",
+        "generate-layout-tokens",
+        "^build",
+        "^install-dependencies"
+      ],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite build && cp ../../@internal/build-tools/css-import.d.ts dist/style/css-import.d.ts",
+        "cwd": "@kv-designsystem/react"
+      }
     },
     "build-storybook": {
       "dependsOn": ["^build"],
