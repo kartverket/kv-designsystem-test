@@ -1,77 +1,68 @@
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+// Use the same token values as component props when generating CSS.
+import {
+  layoutItemMinWidths,
+  layoutSizes,
+} from '../../react/src/components/layout/layoutTokens.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const ROOT = path.resolve(__dirname, '../../react/src/components');
-const OUTPUT = path.resolve(__dirname, '../src/components.css');
-const LAYOUT_TOKENS = path.resolve(
-  __dirname,
-  '../../react/src/components/layout/layoutTokens.ts',
-);
-const LAYOUT_TOKENS_CSS = path.resolve(
-  __dirname,
-  '../../react/src/components/layout/layoutTokens.generated.css',
-);
+const COMPONENTS_DIRECTORY = path.resolve(__dirname, '../../react/src/components');
+const CSS_SOURCE_DIRECTORY = path.resolve(__dirname, '../src');
+const COMPONENTS_CSS_OUTPUT = path.resolve(CSS_SOURCE_DIRECTORY, 'components.css');
+const LAYOUT_DIRECTORY = path.resolve(COMPONENTS_DIRECTORY, 'layout');
+const LAYOUT_TOKENS_CSS_OUTPUT = path.resolve(LAYOUT_DIRECTORY, 'layoutTokens.generated.css');
 
-function getCssFiles(dir: string): string[] {
-  let results: string[] = [];
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
+const gapProperties = ['gap', 'row-gap', 'column-gap'] as const;
+
+/**
+ * Find component CSS source files. Generated CSS is written separately.
+ * CSS modules are reserved for Storybook and documentation styling, so they are excluded from the
+ * shared component CSS published in the npm package.
+ */
+function findComponentCssFiles(directory: string): string[] {
+  let cssFiles: string[] = [];
+  const entries = fs.readdirSync(directory, { withFileTypes: true });
 
   for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
+    const filePath = path.join(directory, entry.name);
 
     if (entry.isDirectory()) {
-      results = results.concat(getCssFiles(fullPath));
+      cssFiles = cssFiles.concat(findComponentCssFiles(filePath));
     } else if (
       entry.isFile() &&
       entry.name.endsWith('.css') &&
       !entry.name.endsWith('.module.css') &&
       !entry.name.endsWith('.generated.css')
     ) {
-      results.push(fullPath);
+      cssFiles.push(filePath);
     }
   }
-  return results;
+
+  return cssFiles;
 }
 
-function getTokenValues(name: string): number[] {
-  const source = fs.readFileSync(LAYOUT_TOKENS, 'utf8');
-  const match = source.match(new RegExp(`export const ${name} = (\\[[^\\]]+\\]) as const;`));
-
-  if (!match) {
-    throw new Error(`Could not find ${name} in ${LAYOUT_TOKENS}`);
-  }
-
-  const values = match[1].match(/\d+/g);
-  if (!values) {
-    throw new Error(`Could not read values for ${name} in ${LAYOUT_TOKENS}`);
-  }
-
-  return values.map(Number);
-}
-
-function sizeValue(size: number): string {
+function getSizeValue(size: number): string {
   return size === 0 ? '0px' : `var(--ds-size-${size})`;
 }
 
-function generateLayoutTokensCss(): string {
-  const layoutSizes = getTokenValues('layoutSizes');
-  const layoutItemMinWidths = getTokenValues('layoutItemMinWidths');
-  const gaps = [
-    ['gap', 'gap'],
-    ['row-gap', 'row-gap'],
-    ['column-gap', 'column-gap'],
-  ]
-    .flatMap(([property, attribute]) =>
+function generateGapRules(layoutSizes: readonly number[]): string {
+  // Each gap property creates one rule for every token size.
+  return gapProperties
+    .flatMap((property) =>
       layoutSizes.map(
         (size) =>
-          `.kvds-flex[data-${attribute}='${size}'],\n.kvds-grid[data-${attribute}='${size}'] {\n  ${property}: ${sizeValue(size)};\n}`,
+          `.kvds-flex[data-${property}='${size}'],\n.kvds-grid[data-${property}='${size}'] {\n  ${property}: ${getSizeValue(size)};\n}`,
       ),
     )
     .join('\n\n');
-  const itemMinWidths = layoutItemMinWidths
+}
+
+function generateItemMinWidthRules(layoutItemMinWidths: readonly number[]): string {
+  // Each width creates one Flex rule and one Grid rule.
+  return layoutItemMinWidths
     .flatMap((width) => {
       const value = `calc(${width}rem / 16)`;
 
@@ -81,15 +72,30 @@ function generateLayoutTokensCss(): string {
       ];
     })
     .join('\n\n');
-
-  return `/* This file is generated from layoutTokens.ts. Do not edit manually. */\n\n${gaps}\n\n${itemMinWidths}\n`;
 }
 
-const files = getCssFiles(ROOT)
-  .sort() // important for deterministic builds
+function generateLayoutTokensCss(): string {
+  const gapRules = generateGapRules(layoutSizes);
+  const itemMinWidthRules = generateItemMinWidthRules(layoutItemMinWidths);
+
+  return `/* This file is generated from layoutTokens.ts. Do not edit manually. */
+
+${gapRules}
+
+/* Item widths use rem so they scale with the user's root font size.
+   Dividing by 16 makes a value such as 250 equal 250px at the default 16px root size. */
+
+${itemMinWidthRules}
+`;
+}
+
+/**
+ * Keep imports in a stable order so identical input always produces identical generated CSS.
+ */
+const componentCssImports = findComponentCssFiles(COMPONENTS_DIRECTORY)
+  .sort()
   .map((file) => {
-    // make path relative to the css package
-    const relativePath = path.relative(path.resolve('src'), file);
+    const relativePath = path.relative(CSS_SOURCE_DIRECTORY, file);
     return `@import "${relativePath}" layer(kv.components);`;
   })
   .join('\n');
@@ -97,7 +103,7 @@ const files = getCssFiles(ROOT)
 const layoutTokensImport =
   '@import "../../react/src/components/layout/layoutTokens.generated.css" layer(kv.components);';
 
-fs.writeFileSync(OUTPUT, `${layoutTokensImport}\n${files}`);
-fs.writeFileSync(LAYOUT_TOKENS_CSS, generateLayoutTokensCss());
+fs.writeFileSync(COMPONENTS_CSS_OUTPUT, `${layoutTokensImport}\n${componentCssImports}`);
+fs.writeFileSync(LAYOUT_TOKENS_CSS_OUTPUT, generateLayoutTokensCss());
 
-console.log(`✅ Generated ${OUTPUT}`);
+console.log(`✅ Generated ${COMPONENTS_CSS_OUTPUT}`);

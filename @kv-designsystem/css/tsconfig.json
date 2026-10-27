@@ -3,6 +3,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "noEmit": true,
     "outDir": "../../dist/out-tsc",
     "strict": true,
