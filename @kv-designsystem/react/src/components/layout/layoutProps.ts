@@ -2,12 +2,17 @@ import type { CSSProperties, HTMLAttributes } from 'react';
 import { layoutItemMinWidths, layoutSizes } from './layoutTokens';
 
 /**
+ * `layoutSizes` and `layoutItemMinWidths` list every supported value.
+ * Keeping the values only in these arrays makes the generated CSS and prop types always use the same allowed values.
+ * Because the arrays use `as const`, `(typeof array)[number]` creates a union type of their values.
+ */
+/**
  * Size tokens from Designsystemet. `4` means `var(--ds-size-4)`.
  */
 export type LayoutSize = (typeof layoutSizes)[number];
 
 /**
- * Preferred width of each child before items wrap, in px. It is converted to rem, so it follows
+ * Preferred width (in px) of each child before items wrap. It is converted to rem, so it follows
  * the user's font size.
  */
 export type LayoutItemMinWidth = (typeof layoutItemMinWidths)[number];
@@ -27,13 +32,13 @@ type LayoutAttributes<P extends LayoutProps> = Omit<
   | 'maxWidth'
   | 'style'
 > & {
-  'data-align-content': LayoutProps['alignContent'];
-  'data-align-items': LayoutProps['alignItems'];
-  'data-column-gap': LayoutProps['columnGap'];
   'data-gap': LayoutProps['gap'];
-  'data-item-min-width': LayoutProps['itemMinWidth'];
-  'data-max-width': '' | undefined;
   'data-row-gap': LayoutProps['rowGap'];
+  'data-column-gap': LayoutProps['columnGap'];
+  'data-item-min-width': LayoutProps['itemMinWidth'];
+  'data-align-items': LayoutProps['alignItems'];
+  'data-align-content': LayoutProps['alignContent'];
+  'data-max-width': '' | undefined;
   style: LayoutStyle | undefined;
 };
 
@@ -52,7 +57,7 @@ export type LayoutProps = HTMLAttributes<HTMLDivElement> & {
    */
   columnGap?: LayoutSize;
   /**
-   * Preferred width of each child before items wrap, in px.
+   * Preferred pixel width of each child before items wrap.
    */
   itemMinWidth?: LayoutItemMinWidth;
   /**

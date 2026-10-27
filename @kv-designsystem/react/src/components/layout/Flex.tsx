@@ -18,7 +18,8 @@ export type FlexProps = LayoutProps & {
 };
 
 /**
- * Places the children side by side horizontally. Use `Grid` to stack content vertically.
+ * Arranges children horizontally, using their content width by default.
+ * Use `Grid` for equally wide columns that fill the available space.
  */
 export const Flex = forwardRef<HTMLDivElement, FlexProps>(function Flex(
   { asChild = false, flexWrap, justify, className, ...rest },

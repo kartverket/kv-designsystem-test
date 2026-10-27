@@ -1,5 +1,5 @@
 /* Base rules with zero specificity. Note that this layer comes after Designsystemet's, so these rules
-   still beat Designsystemet's components, also when combined with asChild. Only reset what Flex and Grid need. */
+   still beat Designsystemet's components. Only reset what Flex and Grid need. */
 :where(.kvds-flex:not([hidden])) {
   display: flex;
   flex-wrap: wrap;
@@ -26,7 +26,7 @@
 .kvds-flex,
 .kvds-grid {
   &[data-max-width] {
-    /* The space kept free on each side. Declared on each container, so an override never leaks into
+    /* The space kept free on each side. Declared on each container, so potential overrides never leak into
        nested containers. Defaults to the padding of Header and Footer, so the content lines up with them. */
     --kvdsc-layout-gutter: var(--kvds-frame-padding-inline);
 

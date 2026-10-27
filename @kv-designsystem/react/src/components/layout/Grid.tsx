@@ -17,8 +17,8 @@ export type GridProps = LayoutProps & {
 };
 
 /**
- * Stacks the children vertically in one column, or in several equally wide columns with `itemMinWidth`.
- * Use `Flex` to place content side by side.
+ * Arranges children in equally wide columns that fill the available space.
+ * Without `itemMinWidth`, it uses one column. Use `Flex` when each child's width should be determined by their content.
  */
 export const Grid = forwardRef<HTMLDivElement, GridProps>(function Grid(
   { asChild = false, justify, className, ...rest },
