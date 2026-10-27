@@ -10,6 +10,8 @@
       "continuous": true,
       "dependsOn": [
         "build",
+        { "projects": "@kv-designsystem/css", "target": "lint" },
+        { "projects": "@kv-designsystem/css", "target": "format:check" },
         { "projects": "!css", "target": "^watch" },
         "lint-circular-dependencies"
       ]

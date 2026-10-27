@@ -3,6 +3,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "outDir": "../../dist/out-tsc",
     "erasableSyntaxOnly": true,
     "types": ["node"]

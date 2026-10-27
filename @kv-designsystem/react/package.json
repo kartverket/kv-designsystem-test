@@ -34,11 +34,13 @@
     "access": "public"
   },
   "scripts": {
+    "generate-layout-tokens": "node scripts/generate-layout-tokens-css.ts",
     "lint": "oxlint --type-aware --max-warnings 0",
     "lint-circular-dependencies": "pnpm madge --circular ./src/alpha.ts",
     "lint-mdx-controls": "node ./scripts/check-mdx-controls.ts",
     "typecheck": "tsgo --build",
     "install-dependencies": "pnpm i",
+    "prebuild": "pnpm generate-layout-tokens",
     "build": "vite build",
     "postbuild": "cp ../../@internal/build-tools/css-import.d.ts dist/style/css-import.d.ts",
     "dev": "storybook dev --port 6006 --ci",

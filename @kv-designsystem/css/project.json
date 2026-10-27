@@ -7,7 +7,9 @@
   "namedInputs": {
     "css": [
       "{workspaceRoot}/@kv-designsystem/react/src/components/**/*.css",
-      "!{workspaceRoot}/@kv-designsystem/react/src/components/**/*.module.css"
+      "!{workspaceRoot}/@kv-designsystem/react/src/components/**/*.module.css",
+      "{workspaceRoot}/@kv-designsystem/react/src/components/layout/layoutTokens.ts",
+      "{workspaceRoot}/@kv-designsystem/react/scripts/generate-layout-tokens-css.ts"
     ]
   },
   "targets": {

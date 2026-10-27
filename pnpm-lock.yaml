@@ -255,8 +255,6 @@ importers:
         specifier: 'catalog:'
         version: 18.1.0
 
-  '@internal/layout-tokens': {}
-
   '@kv-designsystem/css':
     dependencies:
       '@digdir/designsystemet-css':
@@ -269,9 +267,6 @@ importers:
       '@internal/build-tools':
         specifier: workspace:*
         version: link:../../@internal/build-tools
-      '@internal/layout-tokens':
-        specifier: workspace:*
-        version: link:../../@internal/layout-tokens
       autoprefixer:
         specifier: 'catalog:'
         version: 10.5.4(postcss@8.5.26)

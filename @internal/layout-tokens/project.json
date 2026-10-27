@@ -1,7 +1,0 @@
-{
-  "name": "@internal/layout-tokens",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "@internal/layout-tokens/src",
-  "projectType": "library",
-  "tags": []
-}

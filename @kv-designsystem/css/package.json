@@ -32,8 +32,9 @@
   },
   "scripts": {
     "build": "postcss \"src/*.css\" --base src --dir dist && cp ../../@internal/build-tools/css-import.d.ts dist/css-import.d.ts",
+    "format:check": "pnpm exec oxfmt --check .",
     "lint": "oxlint --max-warnings 0",
-    "prebuild": "node scripts/generate-components-css.ts",
+    "prebuild": "pnpm --filter @kv-designsystem/react generate-layout-tokens && node scripts/generate-components-css.ts",
     "typecheck": "tsgo --build",
     "watch": "pnpm build --watch"
   },
@@ -43,7 +44,6 @@
   },
   "devDependencies": {
     "@internal/build-tools": "workspace:*",
-    "@internal/layout-tokens": "workspace:*",
     "autoprefixer": "catalog:",
     "cssnano": "catalog:",
     "postcss": "catalog:",
