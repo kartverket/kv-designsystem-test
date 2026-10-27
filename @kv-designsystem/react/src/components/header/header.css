@@ -32,7 +32,8 @@
   height: 100%;
   margin: 0 auto;
   box-sizing: content-box;
-  padding: 0 var(--kvds-frame-padding-inline);
+  /* Check the legacy variable here so scoped overrides still work during the rename. */
+  padding: 0 var(--kvds-layout-padding-inline, var(--kvds-frame-padding-inline));
 
   display: flex;
   align-items: center;
@@ -217,7 +218,8 @@ body:has(.header .header-popover:popover-open) {
   display: grid;
   row-gap: var(--ds-size-4);
   margin: 0 auto;
-  padding: var(--ds-size-6) var(--kvds-frame-padding-inline);
+  /* Check the legacy variable here so scoped overrides still work during the rename. */
+  padding: var(--ds-size-6) var(--kvds-layout-padding-inline, var(--kvds-frame-padding-inline));
   box-sizing: border-box;
   container-type: inline-size;
   container-name: header-popover-content;

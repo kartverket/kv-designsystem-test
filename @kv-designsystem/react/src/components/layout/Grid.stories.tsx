@@ -179,6 +179,7 @@ export const MaxWidth: Story = {
         <Textfield label="Etternavn" maxLength={50} />
         <Textfield label="E-post" type="email" maxLength={64} />
         <Fieldset>
+          <Fieldset.Legend>Dato</Fieldset.Legend>
           <Flex>
             <Textfield
               label="Dag"

@@ -19,6 +19,7 @@
   min-width: 0; /* Lets children shrink below their content width instead of overflowing. https://css-tricks.com/preventing-a-grid-blowout/ */
 }
 
+.kvds-flex[data-item-min-width] > svg,
 .kvds-flex > svg {
   flex-shrink: 0; /* Never squeeze icons */
 }
@@ -32,8 +33,9 @@
 
     /* At most maxWidth wide, but always leaves the gutter free on each side. The space comes from the
        auto margins, not from padding, so padding set by consumers works as usual inside the box.
-       An explicit width also keeps the container from shrinking to its content inside a Grid or Flex. */
+       Explicit width and max-width also keep the container from shrinking to its content inside a Grid or Flex. */
     width: min(100% - 2 * var(--kvdsc-layout-gutter), var(--kvdsc-layout-max-width));
+    max-width: min(100% - 2 * var(--kvdsc-layout-gutter), var(--kvdsc-layout-max-width));
     margin-inline: auto;
   }
 
