@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Popover } from './Popover';
+import { subcomponents } from './docs/subcomponents';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Button } from '../button/Button';
 import { TrashIcon } from '@navikt/aksel-icons';
@@ -7,6 +8,7 @@ import { useState } from 'react';
 
 const meta = {
   component: Popover,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Popover>;
 
@@ -14,12 +16,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
+  render: (args) => (
     <Popover.TriggerContext>
       <Popover.Trigger>Åpne popover</Popover.Trigger>
-      <Popover placement='top'>
-        Popoveren gir en rask beskjed. Her kan du vise brukeren informasjon som
-        er relevant for konteksten.
+      <Popover placement="top" {...args}>
+        Popoveren gir en rask beskjed. Her kan du vise brukeren informasjon som er relevant for
+        konteksten.
       </Popover>
     </Popover.TriggerContext>
   ),
@@ -31,16 +33,11 @@ export const Interactive: Story = {
 
     return (
       <Popover.TriggerContext>
-        <Popover.Trigger
-          data-color='danger'
-          aria-label='Slett rad'
-          onClick={() => setOpen(!open)}>
-          <TrashIcon title='Slett rad' aria-hidden />
+        <Popover.Trigger data-color="danger" aria-label="Slett rad" onClick={() => setOpen(!open)}>
+          <TrashIcon title="Slett rad" aria-hidden />
         </Popover.Trigger>
-        <Popover open={open} data-color='danger'>
-          <Paragraph>
-            Er du sikker på at du vil slette raden? Handlingen kan ikke angres.
-          </Paragraph>
+        <Popover open={open} data-color="danger">
+          <Paragraph>Er du sikker på at du vil slette raden? Handlingen kan ikke angres.</Paragraph>
           <div
             style={{
               display: 'flex',
@@ -48,8 +45,15 @@ export const Interactive: Story = {
               marginTop: 'var(--ds-size-2)',
             }}
           >
-            <Button data-size='sm' onClick={() => setOpen(false)}>Ja, slett</Button>
-            <Button data-size='sm' variant='tertiary' data-color='neutral' onClick={() => setOpen(false)}>
+            <Button data-size="sm" onClick={() => setOpen(false)}>
+              Ja, slett
+            </Button>
+            <Button
+              data-size="sm"
+              variant="tertiary"
+              data-color="neutral"
+              onClick={() => setOpen(false)}
+            >
               Avbryt
             </Button>
           </div>
@@ -63,15 +67,17 @@ export const DottedUnderline: Story = {
   render: (_args) => (
     <Popover.TriggerContext>
       <Paragraph>
-        Systemet beregner avstander basert på valgt <Popover.Trigger inline>kartprojeksjon</Popover.Trigger>.
+        Systemet beregner avstander basert på valgt{' '}
+        <Popover.Trigger inline>kartprojeksjon</Popover.Trigger>.
       </Paragraph>
-      <Popover data-color='neutral'>
+      <Popover data-color="neutral">
         <Paragraph>
-          <strong>Kartprojeksjon</strong> er en matematisk metode som overfører jordens krumme overflate til et flatt kart.
+          <strong>Kartprojeksjon</strong> er en matematisk metode som overfører jordens krumme
+          overflate til et flatt kart.
         </Paragraph>
       </Popover>
     </Popover.TriggerContext>
-  )
+  ),
 };
 
 export const WithPopovertarget: Story = {
@@ -80,23 +86,14 @@ export const WithPopovertarget: Story = {
 
     return (
       <>
-        <Button
-          data-color='danger'
-          popovertarget='popover'
-          onClick={() => setOpen(!open)}
-        >
+        <Button data-color="danger" popovertarget="popover" onClick={() => setOpen(!open)}>
           Slett
         </Button>
-        <Popover
-          id='popover'
-          open={open}
-          onClose={() => setOpen(false)}
-          data-color='danger'
-        >
+        <Popover id="popover" open={open} onClose={() => setOpen(false)} data-color="danger">
           <Paragraph>Er du sikker på at du vil slette?</Paragraph>
           <Button
             onClick={() => setOpen(false)}
-            data-size='sm'
+            data-size="sm"
             style={{ marginTop: 'var(--ds-size-2)' }}
           >
             Slett

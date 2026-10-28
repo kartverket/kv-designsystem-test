@@ -6,9 +6,7 @@
     "paths": {
       "src/*": ["./src/*"],
       ".storybook/*": ["./.storybook/*"],
-      "@kv-designsystem/react/utilities/form/alpha": [
-        "./src/utilities/form/alpha.ts"
-      ],
+      "@kv-designsystem/react/utilities/form/alpha": ["./src/utilities/form/alpha.ts"],
       // Repeat paths form tsconfig.base.json because they apparently aren't included
       "@kv-designsystem/theme": ["../theme/src/index.ts"],
       // "@kv-designsystem/icons": ["icons/src/index.ts"],
@@ -16,7 +14,7 @@
       "@kv-designsystem/symbols": ["../symbols/generated-src/index.ts"],
       "@kv-designsystem/symbols/metadata": ["../symbols/generated-src/metadata.ts"]
     },
-    "types": ["vite/client", "./dist/html", "../theme/dist/types", "./src/types/css-modules"]
+    "types": ["vite/client", "../theme/dist/types", "./src/types/css-modules"]
   },
   "files": [],
   "exclude": [
@@ -30,6 +28,7 @@
     "src/**/*.test.js"
   ],
   "include": [
+    "src/html.ts",
     "src/**/*.stories.ts",
     "src/**/*.stories.js",
     "src/**/*.stories.jsx",

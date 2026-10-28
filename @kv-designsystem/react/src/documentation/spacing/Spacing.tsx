@@ -1,5 +1,6 @@
-import { Table } from "../../components/table/Table";
+import { Table } from '../../components/table/Table';
 
+// oxfmt-ignore
 const tokensSizes: {
   name: string;
   pxInSm: string;
@@ -30,6 +31,7 @@ const tokensSizes: {
     { name: '30', pxInSm: '106px', pxInMd: '120px', pxInLg: '139px', css: 'var(--ds-size-30)', tailwind: '[p|m]-30' },
   ];
 
+// oxfmt-ignore
 const headingSpacing: {
   variant: string;
   top: string;
@@ -45,6 +47,7 @@ const headingSpacing: {
     { variant: 'Heading 2xs (18px)', top: 'size-4 (16px)', toParagraph: 'size-1 (4px)', nextHeading: '-' },
   ];
 
+// oxfmt-ignore
 const paragraphSpacing: {
   variant: string;
   toParagraph: string;
@@ -59,6 +62,7 @@ const paragraphSpacing: {
   { variant: 'Paragraph xs (14px)', toParagraph: 'size-3 (12px)', toList: 'size-1 (4px)', toImage: 'size-5 (20px)', captionTop: 'size-3 (12px)' },
 ];
 
+// oxfmt-ignore
 const componentSpacing: {
   component: string;
   horizontal: string;
@@ -67,7 +71,7 @@ const componentSpacing: {
   { component: 'Buttons', horizontal: 'size-4 (16px) i md', vertical: 'size-6 (24px) i md' },
   { component: 'Inputs', horizontal: 'size-4 (16px) i md', vertical: 'size-6 (24px) i md' },
   { component: 'Cards', horizontal: 'size-8 (32px) i md', vertical: 'size-8 (32px)' },
-]
+];
 
 function SizingTable({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
@@ -75,7 +79,9 @@ function SizingTable({ headers, rows }: { headers: string[]; rows: string[][] })
       <Table.Head>
         <Table.Row>
           {headers.map((h) => (
-            <Table.HeaderCell key={h} scope='col'>{h}</Table.HeaderCell>
+            <Table.HeaderCell key={h} scope="col">
+              {h}
+            </Table.HeaderCell>
           ))}
         </Table.Row>
       </Table.Head>
@@ -115,7 +121,7 @@ export function HeadingSpacingTable() {
         'Variant',
         'Over (top) – utenom til en ny Heading',
         'Ned til Paragraph md (bottom)',
-        'Ned til et Heading-nivå under (bottom)'
+        'Ned til et Heading-nivå under (bottom)',
       ]}
       rows={headingSpacing.map((size) => [
         size.variant,
@@ -129,13 +135,13 @@ export function HeadingSpacingTable() {
 
 export function ParapgraphSpacingTable() {
   return (
-    <SizingTable 
+    <SizingTable
       headers={[
         'Variant',
         'Ned til Paragraph i samme strl',
         'Ned til List i samme strl',
         'Ned til et bilde',
-        'Over bildetekst'
+        'Over bildetekst',
       ]}
       rows={paragraphSpacing.map((size) => [
         size.variant,
@@ -150,12 +156,8 @@ export function ParapgraphSpacingTable() {
 
 export function ComponentSpacingTable() {
   return (
-    <SizingTable 
-      headers={[
-        'Komponent',
-        'Imellom horisontalt',
-        'Imellom vertikalt'
-      ]}
+    <SizingTable
+      headers={['Komponent', 'Imellom horisontalt', 'Imellom vertikalt']}
       rows={componentSpacing.map((component) => [
         component.component,
         component.horizontal,

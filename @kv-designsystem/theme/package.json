@@ -1,16 +1,15 @@
 {
   "name": "@kv-designsystem/theme",
+  "version": "1.0.0-alpha.4",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "github:kartverket/kv-designsystem-test",
     "directory": "@kv-designsystem/theme"
   },
-  "publishConfig": {
-    "access": "public",
-    "tag": "alpha"
-  },
-  "license": "MIT",
-  "version": "1.0.0-alpha.4",
+  "files": [
+    "./dist"
+  ],
   "type": "module",
   "exports": {
     "./types": "./dist/types.d.ts",
@@ -25,9 +24,15 @@
     "./tailwind": "./dist/tailwind.css",
     "./dist/*": "./dist/*"
   },
-  "files": [
-    "./dist"
-  ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "alpha"
+  },
+  "scripts": {
+    "copy-css": "cp ../../design-tokens/dist/*.* ./dist/ && rm ./dist/colors.d.ts ./dist/blue.tailwind.css && mv ./dist/green.tailwind.css ./dist/tailwind.css",
+    "clean": "rimraf ./dist && mkdir ./dist",
+    "build": "pnpm clean && pnpm copy-css"
+  },
   "dependencies": {
     "@digdir/designsystemet-types": "catalog:"
   },
@@ -35,10 +40,5 @@
     "@internal/build-tools": "workspace:*",
     "@kv-designsystem/tokens": "workspace:*",
     "rimraf": "catalog:"
-  },
-  "scripts": {
-    "copy-css": "cp ../../design-tokens/dist/*.* ./dist/ && rm ./dist/colors.d.ts ./dist/blue.tailwind.css && mv ./dist/green.tailwind.css ./dist/tailwind.css",
-    "clean": "rimraf ./dist && mkdir ./dist",
-    "build": "pnpm clean && pnpm copy-css"
   }
 }

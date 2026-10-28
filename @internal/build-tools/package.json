@@ -1,15 +1,13 @@
 {
   "name": "@internal/build-tools",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
-  "bin": {
-    "pretty-format-check": "bin/pretty-format-check.sh"
+  "type": "module",
+  "scripts": {
+    "lint": "oxlint --max-warnings 0"
   },
   "devDependencies": {
-    "@types/micromatch": "catalog:",
     "@types/yargs": "catalog:",
-    "micromatch": "catalog:",
     "tsx": "catalog:",
     "yargs": "catalog:"
   }

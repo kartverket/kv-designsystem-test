@@ -14,27 +14,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
+  render: (args) => (
     <div style={{ textAlign: 'center' }}>
-      <Paragraph >
-        Divider er brukt for å dele opp innhold i mindre deler.
-      </Paragraph>
-      <Divider />
-      <Paragraph>
-        Den kan også brukes for å skille innhold som er relatert til hverandre.
-      </Paragraph>
+      <Paragraph>Divider er brukt for å dele opp innhold i mindre deler.</Paragraph>
+      <Divider {...args} />
+      <Paragraph>Den kan også brukes for å skille innhold som er relatert til hverandre.</Paragraph>
     </div>
-  )
+  ),
 };
 
 export const InText: Story = {
   render: (_args) => (
     <div>
       <Heading
-        data-size='md'
+        data-size="md"
         level={1}
         style={{
-          marginBottom: 'var(--ds-size-2)'
+          marginBottom: 'var(--ds-size-2)',
         }}
       >
         Tinglysing av eiendom
@@ -53,13 +49,13 @@ export const InText: Story = {
       </Paragraph>
       <Divider
         style={{
-          margin: 'var(--ds-size-4) 0'
+          margin: 'var(--ds-size-4) 0',
         }}
       />
       <Heading
         level={2}
         style={{
-          marginBottom: 'var(--ds-size-2)'
+          marginBottom: 'var(--ds-size-2)',
         }}
       >
         Se også
@@ -67,25 +63,19 @@ export const InText: Story = {
       <List.Unordered
         style={{
           listStyle: 'none',
-          padding: 0
+          padding: 0,
         }}
       >
         <List.Item>
-          <Link href='#'>
-            Slik følger du saken din i grunnboken
-          </Link>
+          <Link href="#">Slik følger du saken din i grunnboken</Link>
         </List.Item>
         <List.Item>
-          <Link href='#'>
-            Slik retter du feil i et tinglyst dokument
-          </Link>
+          <Link href="#">Slik retter du feil i et tinglyst dokument</Link>
         </List.Item>
         <List.Item>
-          <Link href='#'>
-            Veiledning for eiendomsmegler og profesjonelle aktører
-          </Link>
+          <Link href="#">Veiledning for eiendomsmegler og profesjonelle aktører</Link>
         </List.Item>
       </List.Unordered>
     </div>
-  )
+  ),
 };

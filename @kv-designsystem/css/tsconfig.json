@@ -1,0 +1,13 @@
+// Build scripts in scripts/. Node runs them directly with type stripping, so only syntax that
+// can be erased is allowed.
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "outDir": "../../dist/out-tsc",
+    "strict": true,
+    "erasableSyntaxOnly": true,
+    "types": ["node"]
+  },
+  "include": ["scripts/**/*.ts"]
+}

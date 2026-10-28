@@ -30,7 +30,7 @@ const DoDontCard = ({ variant, description, children }: DoDontCardProps) => {
   const headingColor = variant === 'do' ? 'success' : 'danger';
 
   return (
-    <div className={cl('sb-unstyled', styles.doDontCard, styles[variant])}>
+    <div className={cl('sb-unstyled', styles.doDontCard)}>
       <div className={styles.header} data-color={headingColor}>
         {icon}
         <Heading data-size='xs' className='sb-unstyled'>{heading}</Heading>

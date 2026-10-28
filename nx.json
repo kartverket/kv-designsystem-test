@@ -20,20 +20,31 @@
     "build": {
       "outputs": ["{projectRoot}/dist"],
       "inputs": ["default", "^default"],
-      "dependsOn": ["lint-circular-dependencies", "^build", "^install-dependencies"],
+      "dependsOn": [
+        "lint-circular-dependencies",
+        "lint-mdx-controls",
+        "^build",
+        "^install-dependencies"
+      ],
       "cache": true
     },
     "lint": {
       "cache": true,
-      "options": {
-        "max-warnings": 0
-      }
+      "inputs": [
+        "default",
+        "^default",
+        "{workspaceRoot}/oxlint.config.ts",
+        { "externalDependencies": ["oxlint", "oxlint-tsgolint"] }
+      ]
     },
     "typecheck": {
       "cache": true,
       "dependsOn": ["build"]
     },
     "lint-circular-dependencies": {
+      "cache": true
+    },
+    "lint-mdx-controls": {
       "cache": true
     },
     "install-dependencies": {
@@ -45,14 +56,6 @@
       "dependsOn": ["build"]
     }
   },
-  "plugins": [
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    }
-  ],
   "namedInputs": {
     "sharedGlobals": [
       "{workspaceRoot}/.github/workflows/build.yml",

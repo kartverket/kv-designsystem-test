@@ -1,16 +1,15 @@
 {
   "name": "@kv-designsystem/css",
+  "version": "1.0.0-alpha.5",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "github:kartverket/kv-designsystem-test",
     "directory": "@kv-designsystem/css"
   },
-  "publishConfig": {
-    "access": "public",
-    "tag": "alpha"
-  },
-  "license": "MIT",
-  "version": "1.0.0-alpha.5",
+  "files": [
+    "./dist"
+  ],
   "type": "module",
   "exports": {
     "./green": {
@@ -27,9 +26,17 @@
     },
     "./components.css": "./dist/components.css"
   },
-  "files": [
-    "./dist"
-  ],
+  "publishConfig": {
+    "access": "public",
+    "tag": "alpha"
+  },
+  "scripts": {
+    "build": "postcss \"src/*.css\" --base src --dir dist && cp ../../@internal/build-tools/css-import.d.ts dist/css-import.d.ts",
+    "lint": "oxlint --max-warnings 0",
+    "prebuild": "node scripts/generate-components-css.ts",
+    "typecheck": "tsgo --build",
+    "watch": "pnpm build --watch"
+  },
   "dependencies": {
     "@digdir/designsystemet-css": "catalog:",
     "@kv-designsystem/theme": "workspace:*"
@@ -43,10 +50,5 @@
     "postcss-import": "catalog:",
     "postcss-load-config": "catalog:",
     "postcss-nesting": "catalog:"
-  },
-  "scripts": {
-    "prebuild": "node scripts/generate-components-css.js",
-    "build": "postcss \"src/*.css\" --base src --dir dist && cp ../../@internal/build-tools/css-import.d.ts dist/css-import.d.ts",
-    "watch": "pnpm build --watch"
   }
 }

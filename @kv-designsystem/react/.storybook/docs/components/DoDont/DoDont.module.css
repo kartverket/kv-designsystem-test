@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  > * {
+  >* {
     flex: 1 1 min(100%, 350px);
   }
 }
@@ -35,7 +35,7 @@
     padding: var(--ds-size-6);
     background-color: var(--ds-color-neutral-surface-default);
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
     gap: var(--ds-size-6);
     flex-wrap: wrap;

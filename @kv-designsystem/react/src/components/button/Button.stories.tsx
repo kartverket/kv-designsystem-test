@@ -42,7 +42,7 @@ export const Preview: Story = {
     children: 'Knapp',
     icon: false,
     disabled: false,
-  }
+  },
 };
 
 export const PrimaryButton: Story = {
@@ -50,7 +50,7 @@ export const PrimaryButton: Story = {
     ...Preview.args,
     variant: 'primary',
     children: 'Lagre',
-  }
+  },
 };
 
 export const SecondaryButton: Story = {
@@ -58,7 +58,7 @@ export const SecondaryButton: Story = {
     ...Preview.args,
     variant: 'secondary',
     children: 'Avbryt',
-  }
+  },
 };
 
 export const TertiaryButton: Story = {
@@ -66,24 +66,24 @@ export const TertiaryButton: Story = {
     ...Preview.args,
     variant: 'tertiary',
     children: [<NotePencilIcon aria-hidden />, 'Rediger'],
-  }
+  },
 };
 
 export const Colors: Story = {
   render: (args) => (
     <>
-      <Button variant='primary' data-color='accent' {...args}>
+      <Button variant="primary" data-color="accent" {...args}>
         Publiser
       </Button>
-      <Button variant='secondary' data-color='accent' {...args}>
+      <Button variant="secondary" data-color="accent" {...args}>
         Lagre kladd
       </Button>
-      <Button variant='tertiary' data-color='danger' {...args}>
+      <Button variant="tertiary" data-color="danger" {...args}>
         Slett
       </Button>
     </>
-  )
-}
+  ),
+};
 
 export const IconOnly: Story = {
   args: {
@@ -93,17 +93,17 @@ export const IconOnly: Story = {
   },
   render: (args) => (
     <>
-      <Tooltip content='Legg til ny'>
+      <Tooltip content="Legg til ny">
         <Button {...args}>
           <PlusCircleIcon aria-hidden />
         </Button>
       </Tooltip>
-      <Tooltip content='Varslinger'>
+      <Tooltip content="Varslinger">
         <Button {...args}>
           <BellIcon aria-hidden />
         </Button>
       </Tooltip>
-      <Tooltip content='Instillinger'>
+      <Tooltip content="Instillinger">
         <Button {...args}>
           <CogIcon aria-hidden />
         </Button>
@@ -118,11 +118,11 @@ export const TextAndIcon: Story = {
   },
   render: (args) => (
     <>
-      <Button variant='primary' {...args}>
+      <Button variant="primary" {...args}>
         Start utfylling
         <ArrowRightIcon aria-hidden />
       </Button>
-      <Button variant='secondary' {...args}>
+      <Button variant="secondary" {...args}>
         <ArrowUndoIcon aria-hidden />
         Angre
       </Button>
@@ -134,19 +134,19 @@ export const AsLink: Story = {
   args: {
     asChild: true,
     children: (
-      <a target='_blank' rel='noreferrer' href='https://www.kartverket.no/'>
+      <a target="_blank" rel="noreferrer" href="https://www.kartverket.no/">
         Gå til kartverket.no
       </a>
     ),
   },
 };
 
-const storyParams = { docs: { source: { type: 'code' }}}
+const storyParams = { docs: { source: { type: 'code' } } };
 
 export const Loading: Story = {
   parameters: storyParams,
-  args: { 
-    loading: true, 
+  args: {
+    loading: true,
   },
   render: (args) => {
     const [loading, setLoading] = useState(true);
@@ -154,20 +154,20 @@ export const Loading: Story = {
       if (!loading) {
         // Legg onClick-funksjonalitet her
       }
-    }
+    };
     return (
       <>
-        <Button variant='primary' {...args} onClick={handleClick}>
+        <Button variant="primary" {...args} onClick={handleClick}>
           Laster...
         </Button>
-        <Button variant='secondary' {...args} onClick={handleClick}>
+        <Button variant="secondary" {...args} onClick={handleClick}>
           Laster...
         </Button>
-        <Button variant='tertiary' {...args} onClick={handleClick}>
+        <Button variant="tertiary" {...args} onClick={handleClick}>
           Laster...
         </Button>
       </>
-    )
-  }
+    );
+  },
 };
 

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Pagination } from './Pagination';
+import { subcomponents } from './docs/subcomponents';
 import { useArgs } from 'storybook/preview-api';
 import {
   type UsePaginationProps,
@@ -7,9 +8,9 @@ import {
 } from '../../utilities/hooks/usePagination/usePagination';
 import { useState } from 'react';
 
-
 const meta = {
   component: Pagination,
+  subcomponents,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Pagination>;
 
@@ -17,23 +18,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
-  render: (_args) => (
-    <Pagination aria-label='Sidenavigering'>
+  render: (args) => (
+    <Pagination aria-label="Sidenavigering" {...args}>
       <Pagination.List>
         <Pagination.Item>
-          <Pagination.Button aria-label='Forrige side' data-variant='tertiary'>
+          <Pagination.Button aria-label="Forrige side" data-variant="tertiary">
             Forrige
           </Pagination.Button>
         </Pagination.Item>
 
         <Pagination.Item>
-          <Pagination.Button aria-label='Side 1' data-variant='tertiary'>
+          <Pagination.Button aria-label="Side 1" data-variant="tertiary">
             1
           </Pagination.Button>
         </Pagination.Item>
 
         <Pagination.Item>
-          <Pagination.Button aria-label='Side 2' data-variant='primary'>
+          <Pagination.Button aria-label="Side 2" data-variant="primary">
             2
           </Pagination.Button>
         </Pagination.Item>
@@ -41,25 +42,25 @@ export const Preview: Story = {
         <Pagination.Item />
 
         <Pagination.Item>
-          <Pagination.Button aria-label='Side 9' data-variant='tertiary'>
+          <Pagination.Button aria-label="Side 9" data-variant="tertiary">
             9
           </Pagination.Button>
         </Pagination.Item>
 
         <Pagination.Item>
-          <Pagination.Button aria-label='Side 10' data-variant='tertiary'>
+          <Pagination.Button aria-label="Side 10" data-variant="tertiary">
             10
           </Pagination.Button>
         </Pagination.Item>
 
         <Pagination.Item>
-          <Pagination.Button aria-label='Neste side' data-variant='tertiary'>
+          <Pagination.Button aria-label="Neste side" data-variant="tertiary">
             Neste
           </Pagination.Button>
         </Pagination.Item>
       </Pagination.List>
     </Pagination>
-  )
+  ),
 };
 
 export const WithAnchor: StoryObj<UsePaginationProps> = {
@@ -76,26 +77,18 @@ export const WithAnchor: StoryObj<UsePaginationProps> = {
     });
 
     return (
-      <Pagination aria-label='Sidenavigering'>
+      <Pagination aria-label="Sidenavigering">
         <Pagination.List>
           <Pagination.Item>
-            <Pagination.Button
-              asChild
-              aria-label='Forrige side'
-              {...prevButtonProps}
-            >
-              <a href='#forrige-side'>Forrige</a>
+            <Pagination.Button asChild aria-label="Forrige side" {...prevButtonProps}>
+              <a href="#forrige-side">Forrige</a>
             </Pagination.Button>
           </Pagination.Item>
 
           {pages.map(({ page, itemKey, buttonProps }) => (
             <Pagination.Item key={itemKey}>
               {typeof page === 'number' && (
-                <Pagination.Button
-                  asChild
-                  aria-label={`Side ${page}`}
-                  {...buttonProps}
-                >
+                <Pagination.Button asChild aria-label={`Side ${page}`} {...buttonProps}>
                   <a href={`#side-${page}`}>{page}</a>
                 </Pagination.Button>
               )}
@@ -103,12 +96,8 @@ export const WithAnchor: StoryObj<UsePaginationProps> = {
           ))}
 
           <Pagination.Item>
-            <Pagination.Button
-              asChild
-              aria-label='Neste side'
-              {...nextButtonProps}
-            >
-              <a href='#neste-side'>Neste</a>
+            <Pagination.Button asChild aria-label="Neste side" {...nextButtonProps}>
+              <a href="#neste-side">Neste</a>
             </Pagination.Button>
           </Pagination.Item>
         </Pagination.List>
@@ -128,10 +117,10 @@ export const Mobile: Story = {
     });
 
     return (
-      <Pagination aria-label='Sidenavigering' {...args}>
+      <Pagination aria-label="Sidenavigering" {...args}>
         <Pagination.List>
           <Pagination.Item>
-            <Pagination.Button aria-label='Forrige side' {...prevButtonProps} />
+            <Pagination.Button aria-label="Forrige side" {...prevButtonProps} />
           </Pagination.Item>
 
           {pages.map(({ page, itemKey, buttonProps }) => (
@@ -145,10 +134,10 @@ export const Mobile: Story = {
           ))}
 
           <Pagination.Item>
-            <Pagination.Button aria-label='Neste side' {...nextButtonProps} />
+            <Pagination.Button aria-label="Neste side" {...nextButtonProps} />
           </Pagination.Item>
         </Pagination.List>
       </Pagination>
     );
-  }
+  },
 };
