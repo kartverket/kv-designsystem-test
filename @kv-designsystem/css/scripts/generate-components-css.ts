@@ -35,19 +35,21 @@ function findComponentCssFiles(directory: string): string[] {
   return cssFiles;
 }
 
+function createCssImport(filePath: string): string {
+  const relativePath = path.relative(CSS_SOURCE_DIRECTORY, filePath);
+  return `@import "${relativePath}" layer(kv.components);`;
+}
+
 /**
  * Keep imports in a stable order so identical input always produces identical generated CSS.
  */
 const componentCssImports = findComponentCssFiles(COMPONENTS_DIRECTORY)
   .sort()
-  .map((file) => {
-    const relativePath = path.relative(CSS_SOURCE_DIRECTORY, file);
-    return `@import "${relativePath}" layer(kv.components);`;
-  })
+  .map(createCssImport)
   .join('\n');
 
-const layoutTokensImport =
-  '@import "../../react/src/components/layout/layoutTokens.generated.css" layer(kv.components);';
+const layoutTokensPath = path.join(COMPONENTS_DIRECTORY, 'layout', 'layoutTokens.generated.css');
+const layoutTokensImport = createCssImport(layoutTokensPath);
 
 fs.writeFileSync(COMPONENTS_CSS_OUTPUT, `${layoutTokensImport}\n${componentCssImports}`);
 
