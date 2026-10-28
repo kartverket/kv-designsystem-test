@@ -29,7 +29,7 @@
   &[data-max-width] {
     /* The space kept free on each side. Declared on each container, so potential overrides never leak into
        nested containers. Defaults to the padding of Header and Footer, so the content lines up with them. */
-    --kvdsc-layout-gutter: var(--kvds-frame-padding-inline);
+    --kvdsc-layout-gutter: var(--kvds-layout-padding-inline, var(--kvds-frame-padding-inline));
 
     /* At most maxWidth wide, but always leaves the gutter free on each side. The space comes from the
        auto margins, not from padding, so padding set by consumers works as usual inside the box.
