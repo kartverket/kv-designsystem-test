@@ -70,7 +70,7 @@ Dette er et pnpm-workspace som styres med [Nx](https://nx.dev/). Alle kommandoer
 | Fikse formatering                                  | `pnpm format <filer>`     |
 
 > [!NOTE]
-> `pnpm build` sjekker formatering og kjører deretter typesjekk, linting og bygg for alle prosjekter som er endret siden `main`. Det er det samme som CI kjører, så vi anbefaler den før du pusher.
+> `pnpm build` sjekker formatering og kjører deretter typesjekk, linting (inkludert sirkulære avhengigheter og MDX-kontroller) og bygg for alle prosjekter som er endret siden `main`. Det er det samme som CI kjører, så vi anbefaler den før du pusher.
 
 > [!WARNING]
 > Ikke bruk `pnpm nx format`, `pnpm nx format:check` eller `pnpm nx format:write`. Dette er Nx sine innebygde kommandoer, og de bruker fortsatt Prettier, ikke oxfmt. De vil derfor formatere filene annerledes enn det CI forventer. Bruk `pnpm format` og `pnpm format:check` i stedet.

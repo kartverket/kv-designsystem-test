@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "pnpm format:check && pnpm nx affected -t typecheck lint build",
+    "build": "pnpm format:check && pnpm nx affected -t typecheck lint lint-circular-dependencies lint-mdx-controls build",
     "format": "oxfmt",
     "format:check": "./@internal/build-tools/bin/format-check.sh"
   },
