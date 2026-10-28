@@ -1,0 +1,59 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as DescriptionListStories from './DescriptionList.stories';
+
+<Meta of={DescriptionListStories} />
+
+# DescriptionList
+
+Bruk `DescriptionList` for korte nøkkel-/verdi-par, for eksempel opplysninger om en eiendom. Komponenten bruker semantiske `dl`, `dt` og `dd`-elementer.
+
+<Primary />
+<Controls />
+
+`data-size` bruker samme size-mode som `List` (`sm`, `md`, `lg`). Den påvirker tekst, mellomrom og størrelsene til elementer i listen. `data-color` endrer ikke tekstfargen: vanlige ikoner følger tekstfargen, mens sirkelikoner bruker fargepaletten til bakgrunn og ikon. Inne i en `Card` eller `Alert` arver listen tekstfargen fra forelderen.
+
+<Canvas of={DescriptionListStories.WithinCard} />
+
+`listOrientation` styrer om parene står under eller ved siden av hverandre. `pairOrientation` styrer om nøkkel og verdi står under eller ved siden av hverandre i hvert par. Begge kan settes uavhengig av hverandre.
+
+## Vertikal liste
+
+Som standard står parene under hverandre (`listOrientation="vertical"`), med nøkkel og verdi ved siden av hverandre (`pairOrientation="horizontal"`). Nøkkelkolonnen har samme bredde for alle parene.
+
+<Canvas of={DescriptionListStories.Preview} />
+
+Sett `pairOrientation="vertical"` når nøkkel og verdi skal stå under hverandre, også når listen er vertikal.
+
+<Canvas of={DescriptionListStories.VerticalPairs} />
+
+## Horisontal liste
+
+Med `listOrientation="horizontal"` står parene ved siden av hverandre. Bredden tar utgangspunkt i innholdet, og parene deler ledig plass på raden. De brytes til neste rad når det blir trangt. Sett `pairOrientation="vertical"` hvis nøkkel og verdi skal stå under hverandre.
+
+<Canvas of={DescriptionListStories.Horizontal} />
+
+Parene kan også stå side om side med nøkkel og verdi ved siden av hverandre:
+
+<Canvas of={DescriptionListStories.HorizontalPairs} />
+
+Som standard vises parene i én kolonne når listen blir smalere enn `400` (omtrent 400 px ved vanlig skriftstørrelse). Under `300` stables nøkkel og verdi også i par med `pairOrientation="horizontal"`. SVG-ikoner blir fortsatt stående ved siden av verdien.
+
+Bruk `listWrapAt` og `pairWrapAt` for å velge grensene hver for seg. Begge har de samme verdiene som `itemMinWidth` i `Grid` og `Flex` (50, 100, …, 600), skalert med brukerens rot-skriftstørrelse. Du kan sette bare én av dem; den andre beholder standardverdien. Hvis `pairWrapAt` er større enn `listWrapAt`, stables nøkkel og verdi før listen går til én kolonne. I bred horisontal visning kan Flex bryte par til en ny rad før `listWrapAt` hvis innholdet krever det. Lengre beskrivelser brytes inne i paret.
+
+<Canvas of={DescriptionListStories.NarrowHorizontal} />
+
+<Canvas of={DescriptionListStories.CustomWrapPoints} />
+
+`gap`, `rowGap` og `columnGap` bruker de samme størrelsestokenene som `Grid` og `Flex`. På listen styrer `rowGap` avstanden mellom radene. I vertikal og smal horisontal visning styrer `columnGap` avstanden mellom nøkkel og verdi; i bred horisontal visning styrer den avstanden mellom parene. Sett props på `DescriptionList.Item` for å overstyre avstanden innenfor et enkelt par.
+
+<Canvas of={DescriptionListStories.CustomGaps} />
+
+Hvis nøkkelen er et SVG-ikon, står ikonet og verdien alltid ved siden av hverandre. Uten variant tar ikonet opp like mye plass som en linje i en vanlig `Paragraph` og er toppjustert, også når verdien går over flere linjer. Gi ikonet et tilgjengelig navn, for eksempel med `role="img"` og `aria-label`.
+
+<Canvas of={DescriptionListStories.WithIcon} />
+
+`variant="circle"` på `DescriptionList.Item` gir ikonet en tonet, rund bakgrunn og sentrerer det mot verdien. Uten `data-color` er sirkelikonet nøytralt, også hvis listen står inne i et element med en annen fargepalett. Sett `data-color` på listen for å velge en annen ikonfarge. Bruk sirkelvarianten konsekvent gjennom hele listen.
+
+<Canvas of={DescriptionListStories.WithCircle} />
+
+<Canvas of={DescriptionListStories.CircleWithVerticalList} />
