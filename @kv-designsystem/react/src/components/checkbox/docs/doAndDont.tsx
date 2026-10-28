@@ -71,9 +71,7 @@ export const CheckboxEx2 = () => {
             <Checkbox label="Videregående" />
           </Fieldset>
           <Fieldset>
-            <Fieldset.Legend>
-              Hvilke kartlag ønsker du å se?
-            </Fieldset.Legend>
+            <Fieldset.Legend>Hvilke kartlag ønsker du å se?</Fieldset.Legend>
             <Checkbox label="Kunnskapsløftet 2020" />
             <Checkbox label="Kunnskapsløftet 2006" />
           </Fieldset>

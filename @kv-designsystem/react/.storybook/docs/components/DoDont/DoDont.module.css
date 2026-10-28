@@ -2,8 +2,9 @@
   gap: var(--ds-size-6);
   display: flex;
   flex-wrap: wrap;
+  container-type: inline-size;
 
-  >* {
+  > * {
     flex: 1 1 min(100%, 350px);
   }
 }
@@ -14,6 +15,7 @@
   display: grid;
   overflow: hidden;
   grid-template-rows: auto 1fr auto;
+  max-width: calc(50% - (var(--ds-size-6) / 2));
 
   .header {
     border-bottom: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
@@ -46,5 +48,13 @@
     border-top: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
     padding: var(--ds-size-4) var(--ds-size-6);
     color: var(--ds-color-neutral-text-subtle);
+  }
+}
+
+/* At 728px, the available width is no longer sufficient to fit both cards side by side:
+  350px + 350px (flex-basis) + 24px (gap) + 4px (borders) = 728px. */
+@container (width <=728px) {
+  .doDontCard {
+    max-width: 100%;
   }
 }

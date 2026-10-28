@@ -1,6 +1,6 @@
-import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as LinkStories from './Link.stories';
-import { LinkEx1 } from './docs/doAndDont';
+import { Meta, Canvas, Controls, Primary } from "@storybook/addon-docs/blocks";
+import * as LinkStories from "./Link.stories";
+import { LinkEx1 } from "./docs/doAndDont";
 
 <Meta of={LinkStories} />
 
@@ -12,11 +12,13 @@ En `Link` er klikkbar tekst eller grafikk som tar brukeren videre til en annen s
 <Controls />
 
 **Bruk `Link` når**
+
 - du viser til en ny side, internt eller eksternt
 - du leder brukeren til et annet sted på samme side
 - en fil skal lastes ned
 
 **Unngå `Link` når**
+
 - brukeren skal utføre en handling, for eksempel «Lagre» eller «Logg inn» – bruk heller [`Button`](/docs/components-button--docs)
 - handlingen utløser en prosess i løsningen, for eksempel åpner en dialog eller starter en arbeidsflyt – bruk heller [`Button`](/docs/components-button--docs)
 
@@ -64,6 +66,7 @@ Ikoner kan skape misforståelser. Noen tror det betyr «åpnes i ny fane», andr
 Som hovedregel skal både interne og eksterne lenker åpnes i samme fane. Dette gir en forutsigbar brukeropplevelse.
 
 Unntak der ny fane kan være riktig:
+
 - hvis systemet må logge ut brukeren når de navigerer til en annen side, og det er hensiktsmessig å unngå at de blir logget ut.
 - hvis brukeren kan miste data i en pågående prosess
 - hvis brukeren trenger innhold, f.eks. veiledning, for å fullføre en oppgave

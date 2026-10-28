@@ -1,7 +1,7 @@
-import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as CheckboxStories from './Checkbox.stories';
-import * as useCheckboxGroupStories from '../../utilities/hooks/useCheckboxGroup/useCheckboxGroup.stories';
-import { CheckboxEx1, CheckboxEx2 } from './docs/doAndDont';
+import { Meta, Canvas, Controls, Primary } from "@storybook/addon-docs/blocks";
+import * as CheckboxStories from "./Checkbox.stories";
+import * as useCheckboxGroupStories from "../../utilities/hooks/useCheckboxGroup/useCheckboxGroup.stories";
+import { CheckboxEx1, CheckboxEx2 } from "./docs/doAndDont";
 
 <Meta of={CheckboxStories} />
 
@@ -13,10 +13,12 @@ En `Checkbox` lar brukeren velge ett eller flere alternativer, eller bekrefte en
 <Controls />
 
 **Bruk `Checkbox` når**
+
 - brukeren kan velge ett eller flere alternativer
 - brukeren skal bekrefte eller avkrefte noe (for eksempel at informasjon er lest og forstått)
 
 **Unngå `Checkbox` når**
+
 - brukeren kun kan velge ett alternativ – bruk heller [`Radio`](/docs/components-radio--docs)
 - brukeren møter mange alternativer – bruk heller [`Select`](/docs/components-select--docs) eller [`Suggestion`](/docs/components-suggestion--docs)
 - brukeren skal slå av eller på en funksjon – bruk heller [`Switch`](/docs/components-switch--docs)
@@ -29,11 +31,11 @@ En `Checkbox` kan stå alene når brukeren kun skal bekrefte noe, for eksempel k
 
 `Checkbox` for samtykke skal alltid kreve en aktiv handling. Boksen skal aldri være forhåndsvalgt. Dette sikrer at samtykket er frivillig og tydelig avgitt.
 
-<Canvas of={CheckboxStories.OneOption} /> 
+<Canvas of={CheckboxStories.OneOption} />
 
-### Gruppering 
+### Gruppering
 
-Bruk `Fieldset` og `useCheckboxGroup` for gruppering av flere valg. 
+Bruk `Fieldset` og `useCheckboxGroup` for gruppering av flere valg.
 
 I de fleste tilfeller brukes `Checkbox` i grupper, der brukeren kan velge flere alternativer. Gruppen bør ligge i et `Fieldset` med en tittel som beskriver hva valgene handler om. Dette gir struktur, tydelighet og bedre tilgjengelighet.
 
@@ -52,6 +54,7 @@ Når `Checkbox` brukes i grupper, skal feilmeldingen vises på Fieldset, ikke p�
 Med `variant='outline'` får valgene en større klikkflate.
 
 Dette kan være hensiktsmessig når
+
 - valget representerer et tydelig veivalg som bør skille seg ut i grensesnittet
 - informasjon som hører sammen med valget (beskrivelser og eventuelle tilleggsdetaljer) skal oppleves som én samlet og sammenhengende interaksjon
 - standard checkboxer ville gitt en visuelt svak layout
@@ -107,4 +110,5 @@ Det skal være mulig å flytte fokus til `Checkbox`, ved å trykke `Tab` på tas
 - Bruk `label` for at `Checkbox` skal ha et tilgjengelig navn. I spesielle tilfeller gir det mer mening å bruke `aria-label` eller `aria-labelledby`, for eksempel i en tabell.
 
 ## Kilde
+
 Løsningen bygger på etablerte prinsipper fra Digdirs og Udirs designsystem. Kartverket viderefører disse med fokus på tydelig struktur, tilgjengelighet og enkel navigasjon.

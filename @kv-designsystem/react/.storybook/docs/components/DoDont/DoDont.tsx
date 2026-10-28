@@ -13,19 +13,21 @@ type DoDontCardProps = DoDontProps & {
   variant: 'do' | 'dont';
 };
 
-
 type DoDontGroupProps = {
   children: React.ReactNode;
 };
-
 
 export const DoDontGroup = ({ children }: DoDontGroupProps) => (
   <div className={`${styles.dodontgroup} sb-unstyled`}>{children}</div>
 );
 
-
 const DoDontCard = ({ variant, description, children }: DoDontCardProps) => {
-  const icon = variant === 'do' ? <CheckmarkCircleFillIcon /> : <XMarkOctagonFillIcon />;
+  const icon =
+    variant === 'do' ? (
+      <CheckmarkCircleFillIcon aria-hidden />
+    ) : (
+      <XMarkOctagonFillIcon aria-hidden />
+    );
   const heading = variant === 'do' ? 'Gjør' : 'Unngå';
   const headingColor = variant === 'do' ? 'success' : 'danger';
 
@@ -33,22 +35,21 @@ const DoDontCard = ({ variant, description, children }: DoDontCardProps) => {
     <div className={cl('sb-unstyled', styles.doDontCard)}>
       <div className={styles.header} data-color={headingColor}>
         {icon}
-        <Heading data-size='xs' className='sb-unstyled'>{heading}</Heading>
+        <Heading data-size="xs" className="sb-unstyled">
+          {heading}
+        </Heading>
       </div>
       <div className={styles.contentWrapper}>{children}</div>
       <div className={styles.footer}>
-        <Paragraph className='sb-unstyled'>
-          {description}
-        </Paragraph>
+        <Paragraph className="sb-unstyled">{description}</Paragraph>
       </div>
-
     </div>
   );
 };
 
 export const Do = ({ description, children }: DoDontProps) => {
   return (
-    <DoDontCard variant='do' description={description}>
+    <DoDontCard variant="do" description={description}>
       {children}
     </DoDontCard>
   );
@@ -56,7 +57,7 @@ export const Do = ({ description, children }: DoDontProps) => {
 
 export const Dont = ({ description, children }: DoDontProps) => {
   return (
-    <DoDontCard variant='dont' description={description}>
+    <DoDontCard variant="dont" description={description}>
       {children}
     </DoDontCard>
   );

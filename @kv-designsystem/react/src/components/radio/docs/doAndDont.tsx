@@ -10,7 +10,11 @@ export const RadioEx1 = () => {
           <Fieldset.Legend>Hva vil du melde inn om eiendommen?</Fieldset.Legend>
           <Radio name="radio-ex-1-do" label="Feil i eiendomsgrenser" value="eiendomsgrenser" />
           <Radio name="radio-ex-1-do" label="Feil eller manglende adresse" value="adresse" />
-          <Radio name="radio-ex-1-do" label="Endring i bygningsinformasjon" value="bygningsinformasjon" />
+          <Radio
+            name="radio-ex-1-do"
+            label="Endring i bygningsinformasjon"
+            value="bygningsinformasjon"
+          />
         </Fieldset>
       </Do>
       <Dont description="Ikke bruk passivt språk.">
@@ -18,7 +22,11 @@ export const RadioEx1 = () => {
           <Fieldset.Legend>Meldes inn om eiendommen</Fieldset.Legend>
           <Radio name="radio-ex-1-dont" label="Feil i eiendomsgrenser" value="eiendomsgrenser" />
           <Radio name="radio-ex-1-dont" label="Feil eller manglende adresse" value="adresse" />
-          <Radio name="radio-ex-1-dont" label="Endring i bygningsinformasjon" value="bygningsinformasjon" />
+          <Radio
+            name="radio-ex-1-dont"
+            label="Endring i bygningsinformasjon"
+            value="bygningsinformasjon"
+          />
         </Fieldset>
       </Dont>
     </DoDontGroup>
