@@ -31,9 +31,9 @@
     "tag": "alpha"
   },
   "scripts": {
-    "build": "pnpm nx run @kv-designsystem/css:build",
+    "build": "postcss \"src/*.css\" --base src --dir dist && cp ../../@internal/build-tools/css-import.d.ts dist/css-import.d.ts",
     "format:check": "pnpm exec oxfmt --check .",
-    "generate-components-css": "pnpm nx run @kv-designsystem/css:generate-components-css",
+    "generate-components-css": "node scripts/generate-components-css.ts",
     "lint": "oxlint --max-warnings 0",
     "typecheck": "tsgo --build",
     "watch": "pnpm build --watch"
