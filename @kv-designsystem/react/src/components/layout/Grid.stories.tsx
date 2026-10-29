@@ -312,7 +312,7 @@ const properties = [
   { id: '0000-1-1', address: 'Eksempelgata 1, Eksempelby', tags: ['Bolig'] },
   { id: '0000-2-2', address: 'Testvegen 2, Testvik', tags: ['Næring'] },
   { id: '0000-3-3', address: 'Prøvealléen 3, Prøvedal', tags: ['Bolig'] },
-  { id: '0000-4-4', address: 'Demovegen 4, Demostad', tags: ['Fritid'] },
+  { id: '0000-4-4', address: 'Demoveien 4, Demostad', tags: ['Fritid'] },
 ];
 
 export const ComplexPage: Story = {
@@ -334,7 +334,7 @@ export const ComplexPage: Story = {
       </Flex>
 
       <Flex itemMinWidth={300} gap={8} alignItems="start">
-        <Grid itemMinWidth={250} data-color="neutral" rowGap={8} style={{ flexGrow: 3 }}>
+        <Grid itemMinWidth={250} data-color="neutral" style={{ flexGrow: 4 }}>
           {properties.map((property) => (
             <Card key={property.id}>
               <Flex gap={2}>
