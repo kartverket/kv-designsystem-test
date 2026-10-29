@@ -16,10 +16,7 @@ const listRules = `
 
   .kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal'] {
     grid-template-columns: fit-content(50%) minmax(0, 1fr);
-  }
-
-  .kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal']:not([data-gap], [data-column-gap]) {
-    column-gap: var(--ds-size-2);
+    column-gap: var(--kvdsc-description-list-pair-gap);
   }
 
   .kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal'] > .kvds-description-list-item:not([hidden]) {
@@ -28,7 +25,7 @@ const listRules = `
     grid-template-columns: subgrid;
   }
 
-  .kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal'] > .kvds-description-list-item:not([data-gap], [data-column-gap]) {
+  .kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal'] > .kvds-description-list-item {
     column-gap: inherit;
   }`;
 
@@ -52,7 +49,7 @@ function generateRules(attribute: 'list' | 'pair', rules: string): string {
   return layoutItemMinWidths
     .map(
       (width) =>
-        `@container kvds-description-list (width < calc(${width}rem / 16)) {\n${rules.replaceAll('.kvds-description-list[', `.kvds-description-list[data-${attribute}-wrap-at='${width}'][`)}\n}`,
+        `@container kvds-description-list (width < calc(${width}rem / 16)) {\n${rules.replaceAll('.kvds-description-list[', `.kvds-description-list[data-${attribute}-force-vertical-below='${width}'][`)}\n}`,
     )
     .join('\n\n');
 }

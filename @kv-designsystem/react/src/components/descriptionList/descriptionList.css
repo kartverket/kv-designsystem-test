@@ -1,6 +1,7 @@
 .kvds-description-list {
   --kvdsc-description-list-circle-size: var(--ds-size-10);
   --kvdsc-description-list-circle-icon-size: var(--ds-size-6);
+  --kvdsc-description-list-pair-gap: var(--ds-size-2);
 }
 
 .kvds-description-list-container {
@@ -17,13 +18,7 @@
 
 .kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal'] {
   grid-template-columns: fit-content(50%) minmax(0, 1fr);
-}
-
-.kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal']:not(
-    [data-gap],
-    [data-column-gap]
-  ) {
-  column-gap: var(--ds-size-2);
+  column-gap: var(--kvdsc-description-list-pair-gap);
 }
 
 .kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal']
@@ -34,7 +29,7 @@
 }
 
 .kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal']
-  > .kvds-description-list-item:not([data-gap], [data-column-gap]) {
+  > .kvds-description-list-item {
   column-gap: inherit;
 }
 
@@ -42,12 +37,9 @@
   line-height: var(--ds-line-height-sm);
 }
 
-.kvds-description-list-item:not([data-gap], [data-row-gap]) {
+.kvds-description-list-item {
   row-gap: var(--ds-size-2);
-}
-
-.kvds-description-list-item:not([data-gap], [data-column-gap]) {
-  column-gap: var(--ds-size-2);
+  column-gap: var(--kvdsc-description-list-pair-gap);
 }
 
 .kvds-description-list-item > dt {

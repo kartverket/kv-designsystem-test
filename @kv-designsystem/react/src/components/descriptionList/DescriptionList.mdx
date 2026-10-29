@@ -38,13 +38,19 @@ Parene kan også stå side om side med nøkkel og verdi ved siden av hverandre:
 
 Som standard vises parene i én kolonne når listen blir smalere enn `400` (omtrent 400 px ved vanlig skriftstørrelse). Under `300` stables nøkkel og verdi også i par med `pairOrientation="horizontal"`. SVG-ikoner blir fortsatt stående ved siden av verdien.
 
-Bruk `listWrapAt` og `pairWrapAt` for å velge grensene hver for seg. Begge har de samme verdiene som `itemMinWidth` i `Grid` og `Flex` (50, 100, …, 600), skalert med brukerens rot-skriftstørrelse. Du kan sette bare én av dem; den andre beholder standardverdien. Hvis `pairWrapAt` er større enn `listWrapAt`, stables nøkkel og verdi før listen går til én kolonne. I bred horisontal visning kan Flex bryte par til en ny rad før `listWrapAt` hvis innholdet krever det. Lengre beskrivelser brytes inne i paret.
+Bruk `listForceVerticalBelow` og `pairForceVerticalBelow` for å velge grensene hver for seg. Under den første blir en horisontal liste vertikal; under den andre blir horisontale nøkkel-/verdi-par vertikale, bortsett fra SVG-par. Begge har de samme verdiene som `itemMinWidth` i `Grid` og `Flex` (50, 100, …, 600), skalert med brukerens rot-skriftstørrelse. Du kan sette bare én av dem; den andre beholder standardverdien. Hvis `pairForceVerticalBelow` er større enn `listForceVerticalBelow`, stables nøkkel og verdi før listen går til én kolonne. I bred horisontal visning kan Flex bryte par til en ny rad før `listForceVerticalBelow` hvis innholdet krever det. Lengre beskrivelser brytes inne i paret.
 
 <Canvas of={DescriptionListStories.NarrowHorizontal} />
 
 <Canvas of={DescriptionListStories.CustomWrapPoints} />
 
-`gap`, `rowGap` og `columnGap` bruker de samme størrelsestokenene som `Grid` og `Flex`. På listen styrer `rowGap` avstanden mellom radene. I vertikal og smal horisontal visning styrer `columnGap` avstanden mellom nøkkel og verdi; i bred horisontal visning styrer den avstanden mellom parene. Sett props på `DescriptionList.Item` for å overstyre avstanden innenfor et enkelt par.
+I `Preview` er listen vertikal som standard, så `listForceVerticalBelow` har ingen synlig effekt før du velger `listOrientation="horizontal"`. Brytepunktene slår bare inn når containeren er smalere enn den valgte verdien. I `CustomWrapPoints` kan du endre begge verdiene i Controls for å sammenligne effekten på de tre eksemplene.
+
+Sett `style.width` på listen for å styre bredden på den responsive containeren. En prosentbredde måles mot forelderen og brukes bare én gang, slik at listebredden og brytepunktene samsvarer.
+
+<Canvas of={DescriptionListStories.PercentageWidth} />
+
+Bruk `gap`, `rowGap` og `columnGap` på listen for å styre avstanden mellom parene. Som i `Grid` og `Flex` overstyrer `rowGap` og `columnGap` hver sin retning av `gap`. `pairGap` styrer bare den horisontale avstanden mellom nøkkel og verdi (for eksempel `rowGap={8} columnGap={6} pairGap={2}`). Den vertikale avstanden mellom stablet nøkkel og verdi er alltid `var(--ds-size-2)`, samme standardavstand som Digdirs `Field` bruker mellom `Label` og input. Når parene står i én kolonne, finnes det ikke en horisontal avstand mellom parene; `columnGap` har da ingen synlig effekt.
 
 <Canvas of={DescriptionListStories.CustomGaps} />
 

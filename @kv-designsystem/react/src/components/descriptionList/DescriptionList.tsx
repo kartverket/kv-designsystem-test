@@ -1,13 +1,15 @@
 import cl from 'clsx/lite';
-import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
-import { Flex, type FlexProps } from '../layout/Flex';
+import { forwardRef, type CSSProperties, type HTMLAttributes, type ReactNode } from 'react';
+import { Flex } from '../layout/Flex';
 import { Grid, type GridProps } from '../layout/Grid';
-import type { LayoutItemMinWidth } from '../layout/layoutProps';
+import type { LayoutItemMinWidth, LayoutSize } from '../layout/layoutProps';
 import './descriptionList.css';
 import './descriptionListBreakpoints.generated.css';
 
 export type DescriptionListProps = HTMLAttributes<HTMLDListElement> &
   Pick<GridProps, 'gap' | 'rowGap' | 'columnGap'> & {
+    /** Horizontal space between the term and description, using the same size tokens as Grid and Flex. */
+    pairGap?: LayoutSize;
     /**
      * Whether the pairs are stacked or placed side by side.
      * @default 'vertical'
@@ -24,36 +26,29 @@ export type DescriptionListProps = HTMLAttributes<HTMLDListElement> &
      * Uses the same values as Grid and Flex itemMinWidth.
      * @default 400
      */
-    listWrapAt?: LayoutItemMinWidth;
+    listForceVerticalBelow?: LayoutItemMinWidth;
     /**
      * Container width below which horizontal text pairs stack their term and description.
      * SVG terms stay beside their description.
      * Uses the same values as Grid and Flex itemMinWidth.
      * @default 300
      */
-    pairWrapAt?: LayoutItemMinWidth;
+    pairForceVerticalBelow?: LayoutItemMinWidth;
   };
 
-export type DescriptionListItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> &
-  Pick<FlexProps, 'gap' | 'rowGap' | 'columnGap'> & {
-    /** The term, either text or an SVG icon with an accessible name. */
-    term: ReactNode;
-    children?: ReactNode;
-    /** Adds a tinted circle behind an SVG term. */
-    variant?: 'regular' | 'circle';
-  };
+export type DescriptionListItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
+  /** The term, either text or an SVG icon with an accessible name. */
+  term: ReactNode;
+  children?: ReactNode;
+  /** Adds a tinted circle behind an SVG term. */
+  variant?: 'regular' | 'circle';
+};
 
 const DescriptionListItem = forwardRef<HTMLDivElement, DescriptionListItemProps>(
-  function DescriptionListItem(
-    { term, children, variant, className, gap, rowGap, columnGap, ...rest },
-    ref,
-  ) {
+  function DescriptionListItem({ term, children, variant, className, ...rest }, ref) {
     return (
       <Flex
         asChild
-        gap={gap}
-        rowGap={rowGap}
-        columnGap={columnGap}
         flexWrap="nowrap"
         alignItems={variant === 'circle' ? 'center' : 'start'}
         className={cl('kvds-description-list-item', className)}
@@ -72,19 +67,28 @@ export const DescriptionList = Object.assign(
     {
       listOrientation = 'vertical',
       pairOrientation = 'horizontal',
-      listWrapAt = 400,
-      pairWrapAt = 300,
+      listForceVerticalBelow = 400,
+      pairForceVerticalBelow = 300,
       children,
       className,
       style,
       gap,
       rowGap,
       columnGap,
+      pairGap,
       ...rest
     },
     ref,
   ) {
     const Layout = listOrientation === 'horizontal' ? Flex : Grid;
+    const listStyle: CSSProperties & { '--kvdsc-description-list-pair-gap'?: string } = {
+      ...style,
+      width: undefined,
+      minWidth: undefined,
+      maxWidth: undefined,
+      '--kvdsc-description-list-pair-gap':
+        pairGap === undefined ? undefined : `var(--ds-size-${pairGap})`,
+    };
 
     return (
       <div
@@ -105,10 +109,10 @@ export const DescriptionList = Object.assign(
           <dl
             data-list-orientation={listOrientation}
             data-pair-orientation={pairOrientation}
-            data-list-wrap-at={listWrapAt}
-            data-pair-wrap-at={pairWrapAt}
+            data-list-force-vertical-below={listForceVerticalBelow}
+            data-pair-force-vertical-below={pairForceVerticalBelow}
             ref={ref}
-            style={style}
+            style={listStyle}
             {...rest}
           >
             {children}
