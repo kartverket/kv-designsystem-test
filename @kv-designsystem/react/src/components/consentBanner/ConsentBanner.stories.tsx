@@ -6,6 +6,7 @@ import { Button } from '../button/Button';
 import { Fieldset } from '../fieldset/Fieldset';
 import { Checkbox } from '../checkbox/Checkbox';
 import { ConsentBanner } from './ConsentBanner';
+import { Flex } from '../layout/Flex';
 
 const meta = {
   component: ConsentBanner,
@@ -75,14 +76,7 @@ export const MultipleOptions: Story = {
           <Checkbox label="Hvordan du bruker nettsiden" name="consent" value="usage" />
           <Checkbox label="Tekniske feil som oppstår" name="consent" value="technical-errors" />
         </Fieldset>
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 'var(--ds-size-4)',
-            marginTop: 'var(--ds-size-5)',
-          }}
-        >
+        <Flex style={{ marginTop: 'var(--ds-size-5)' }}>
           <Button name="action" type="submit" value="save">
             Lagre valg
           </Button>
@@ -92,7 +86,7 @@ export const MultipleOptions: Story = {
           <Button name="action" type="submit" value="decline-all">
             Avslå alle
           </Button>
-        </div>
+        </Flex>
       </form>
       <Paragraph data-size="sm">
         Vi lagrer også nødvendig informasjon som ikke kan velges bort. Dette gjør at nettsiden

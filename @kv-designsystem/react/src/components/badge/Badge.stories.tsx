@@ -3,6 +3,8 @@ import { Badge } from './Badge';
 import { subcomponents } from './docs/subcomponents';
 import { Tabs } from '../tabs/Tabs';
 import { EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
+import { Grid } from '../layout/Grid';
+import { Flex } from '../layout/Flex';
 
 const meta: Meta<typeof Badge> = {
   component: Badge,
@@ -63,18 +65,15 @@ const ColorsMap: {
 export const ColorVariants: Story = {
   decorators: [
     (Story) => (
-      <div
+      <Grid
+        gap={2}
+        justify="center"
         style={{
-          display: 'grid',
           gridTemplateColumns: 'repeat(4, 60px)',
-          gap: 'var(--ds-size-2)',
-          justifyContent: 'center',
-          height: '100%',
-          width: '100%',
         }}
       >
         <Story />
-      </div>
+      </Grid>
     ),
   ],
   render: (_args) => (
@@ -91,10 +90,10 @@ export const Status: Story = {
     'data-color': 'success',
   },
   render: (args) => (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+    <Flex alignItems="center" gap={0}>
       <Badge {...args} style={{ marginInlineEnd: '0.5rem' }} />
       Aktiv
-    </div>
+    </Flex>
   ),
 };
 

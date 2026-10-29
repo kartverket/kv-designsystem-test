@@ -8,6 +8,7 @@ import {
   cssVariableArgType,
   moveCssVariablesToStyle,
 } from '../../../.storybook/utils/cssVariableArgTypes';
+import { Flex } from '../layout/Flex';
 
 // Not a prop, but a CSS variable. Added so Controls shows the replacement for the deprecated
 // prop `variant`.
@@ -23,18 +24,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: 'var(--ds-size-4)',
-        }}
-      >
+      <Flex justify="center" alignItems="center" flexWrap="wrap">
         <Story />
-      </div>
+      </Flex>
     ),
   ],
 } satisfies Meta<AvatarStoryArgs>;
