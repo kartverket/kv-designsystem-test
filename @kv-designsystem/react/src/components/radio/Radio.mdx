@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as RadioStories from './Radio.stories';
-import * as useRadioGroupStories from '../../utilities/hooks/useRadioGroup/useRadioGroup.stories';
+import { Meta, Canvas, Controls, Primary } from "@storybook/addon-docs/blocks";
+import * as RadioStories from "./Radio.stories";
+import * as useRadioGroupStories from "../../utilities/hooks/useRadioGroup/useRadioGroup.stories";
+import { RadioEx1 } from "./docs/doAndDont";
 
 <Meta of={RadioStories} />
 
@@ -12,9 +13,11 @@ import * as useRadioGroupStories from '../../utilities/hooks/useRadioGroup/useRa
 <Controls />
 
 **Bruk `Radio` når**
+
 - brukeren skal velge ett av flere alternativer i et skjema
 
 **Unngå `Radio` når**
+
 - brukeren skal kunne velge flere alternativer – bruk heller [`Checkbox`](/docs/components-checkbox--docs)
 
 ## Varianter med eksempler
@@ -36,6 +39,7 @@ Hvis brukeren går videre uten å svare på et obligatorisk spørsmål, skal fei
 Med `variant='outline'` får valgene en større klikkflate.
 
 Dette kan være hensiktsmessig når
+
 - valget representerer et tydelig veivalg som bør skille seg ut i grensesnittet
 - informasjon som hører sammen med valget (beskrivelser og eventuelle tilleggsdetaljer) skal oppleves som én samlet og sammenhengende interaksjon
 - standard radio ville gitt en visuelt svak layout
@@ -91,19 +95,7 @@ Nav har en god forklaring på [hvorfor deaktiverte tilstander er problematiske, 
 
 Formuler forklaringen og alternativene som spørsmål og svar. Tenk på skjemaet som en samtale med den som svarer. Brukerne leser gjerne innholdet i den rekkefølgen det opptrer i skjemaet.
 
-{/* *Do/Don't Story - funksjonalitet må lages* 
-
-Eksempel - Gjør:
-Hva vil du melde inn om eiendommen?
-Feil i eiendomsgrenser
-Feil eller manglende adresse
-Endring i bygningsinformasjon
-
-Eksempel - Ikke gjør:
-Meldes inn om eiendommen
-Feil i eiendomsgrenser
-Feil eller manglende adresse
-Endring i bygningsinformasjon */}
+<RadioEx1 />
 
 ## Kilde
 

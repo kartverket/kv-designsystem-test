@@ -170,5 +170,3 @@ export const Loading: Story = {
     );
   },
 };
-
-// TODO: add do-dont to Retningslinjer, see Udir for inspiration
