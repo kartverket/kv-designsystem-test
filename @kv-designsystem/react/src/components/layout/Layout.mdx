@@ -1,0 +1,137 @@
+import { Canvas, Controls } from '@storybook/addon-docs/blocks';
+import ExperimentalComponent from '../../documentation/_shared/ExperimentalComponent';
+import { Alert } from '../alert/Alert';
+import * as FlexStories from './Flex.stories';
+import * as GridStories from './Grid.stories';
+import { List } from '../list/List';
+
+
+<ExperimentalComponent component='Grid og Flex' />
+# Layout
+
+Bruk layoutkomponenter for å organisere og strukturere innhold. De sørger for konsistent avstand mellom elementer, også når innholdet må brekkes
+over flere linjer.
+
+## Grid
+
+**Bruk `Grid` når**
+- du vil stable barn under hverandre i én kolonne (som en VStack)
+- du vil at barn skal fylle like brede kolonner
+- du trenger mer detaljert kontroll over kolonner og rader
+
+
+**Unngå `Grid` når**
+- du vil ha fleksibel horisontal layout, hvor barnas bredde bestemmes av innholdet – bruk heller `Flex`
+
+<Canvas of={GridStories.Preview} />
+<Controls of={GridStories.Preview} />
+
+### Grid med flere kolonner
+
+Som standard stabler `Grid` alle barna sine under hverandre i én kolonne. Hvis du setter `itemMinWidth`, vil barna i stedet stables horisontalt i så mange kolonner det er plass til i bredden.
+Kolonnene vil aldri bli smalere enn `itemMinWidth`, og overskytende barn brekker til ny rad.
+
+<Canvas of={GridStories.ItemMinWidth} />
+
+### Plassering i kolonnen
+
+Bruk `justify` når du vil plassere barn horisontalt innenfor sin egen kolonne. Når justify er satt til `start`, `center` eller `end`, vil barnas bredde bli styrt av innholdet i stedet for kolonnebredden.
+
+<Canvas of={GridStories.Justify} />
+
+### Maksbredde
+
+`maxWidth` gir Grid en maksbredde og senterer samtidig hele containeren horisontalt. Alle CSS-lengdeverdier (`40rem`, `45ch`, `80%`) er gyldige.
+Luften på sidene vil alltid være minst like stor som i `Header` og `Footer`.
+
+<Canvas of={GridStories.MaxWidth} />
+
+### Endre Grid sin HTML-tag med asChild
+
+`Grid` er i utgangspunktet en `div`. Hvis du trenger et annet element, kan du bruke `asChild`. Da får nærmeste barn Grid sin klasse og innstillinger, uten en ekstra `div` rundt.
+Maksbredde-eksemplet over gjør dette med et `form`-element.
+
+### Spesialtilpasning
+
+Enkelte layouts krever mer tilpasning av kolonner og rader enn det layoutkomponentene våre tilbyr ut av boksen. Hvis du har behov for spesialtilpasning,
+kan du sette ekstra css-egenskaper i `style` eller med egne css-klasser.
+
+#### Strekk et element over flere kolonner og rader
+
+Du kan styre antall kolonner og rader et element i et `Grid` skal strekke seg over med `gridColumn` og `gridRow`. Du kan sette det i `style` eller med egne css-klasser.
+
+- `gridColumn: '1 / -1'` strekker elementet over alle kolonnene.
+- `gridColumn: '1 / span 2'` lar elementet starte på gridlinje 1 og strekke seg over to kolonner.
+- `gridColumn: '2 / 5'` lar elementet starte på gridlinje 2 og slutte på gridlinje 5.
+- `gridRow: '3 / span 2'` lar elementet starte på gridlinje 3 og strekke seg over to rader.
+
+<Canvas of={GridStories.ColumnSpans} />
+
+#### Tilpassede Grid-kolonner
+
+Bruk `gridTemplateColumns` når du trenger mer kontroll over hvordan kolonnene i et `Grid` fordeles. Sett egenskapen i `style` eller en egen css-klasse. Eksempelet under kombinerer tilpassede kolonner med Grid-nøsting.
+
+<Canvas of={GridStories.ComplexGridLayout} />
+
+## Flex
+
+**Bruk `Flex` når**
+- barn skal plasseres horisontalt og ta opp plass basert på innholdets bredde
+
+**Unngå `Flex` når**
+- du vil at elementer skal fylle like brede kolonner – bruk heller `Grid`
+
+<Canvas of={FlexStories.Preview} />
+<Controls of={FlexStories.Preview} />
+
+<Alert data-color='info' className='sb-unstyled'>
+  <List.Unordered>
+    <List.Item>`Flex` brukes bare til horisontal layout. Komponenten har derfor ingen prop for `flex-direction`.</List.Item>
+    <List.Item>`justify` styrer barnas horisontale plassering. Den bruker `justify-content` i `Flex` og `justify-items` i `Grid`.</List.Item>
+  </List.Unordered>
+</Alert>
+
+### Elementer ved siden av hverandre
+
+Bruk `Flex` til å lage rader med knapper og tagger.
+
+<Canvas of={FlexStories.ButtonsAndTags} />
+
+### Fordele plassen på en rad
+
+`justify` fordeler barna horisontalt. `alignItems` plasserer dem vertikalt.
+
+<Canvas of={FlexStories.SpaceBetween} />
+
+### Elementer med foretrukket bredde
+
+Bruk `itemMinWidth` for å angi ønsket bredde før elementer begynner å brekke til ny linje. Elementene på siste linje vil vokse til å fylle raden sin.
+`flexWrap='nowrap'` lar barn krympe forbi minimumsbredden i stedet for å brekke.
+
+<Canvas of={FlexStories.ItemMinWidth} />
+
+### Style enkeltelementer
+
+Hvis du vil endre oppførselen til ett eller flere barn, kan du sette barnas css-attributter via `style` eller med egne css-klasser.
+
+Noen eksempler:
+- `flexGrow: 1` lar et element fylle opp all ledig plass.
+- `flexGrow: 0` hindrer et element i å vokse når `itemMinWidth` er satt.
+- `alignSelf` plasserer et element vertikalt i en rad annerledes enn resten.
+
+<Canvas of={FlexStories.StyleSingleItem} />
+
+## En hel side
+
+Dette eksemplet bruker `Grid` til å stable sidens seksjoner, og `Flex` til horisontale rader inni dem. Eiendomskortene ligger i et responsivt Grid, mens knappene og taggene ligger i `Flex`-rader.
+
+<Canvas of={GridStories.ComplexPage} />
+
+## Tilgjengelighet
+
+- Bruk `asChild` for å gi `Flex` og `Grid` semantiske elementer som `form`, `nav` eller `section`.
+- Hold den visuelle rekkefølgen lik rekkefølgen i koden. Ikke bytt rekkefølge med `order` eller `row-reverse`. Skjermlesere og tastaturnavigasjon følger koden.
+
+## Kilde
+
+Komponentene bygger på layout-komponentene i [Mattilsynets designsystem](https://github.com/Mattilsynet/design). Teknikken bak `itemMinWidth` i `Grid` er beskrevet i [Solutions to replace the 12-column grid](https://moderncss.dev/solutions-to-replace-the-12-column-grid/).

@@ -1,0 +1,130 @@
+/* Base rules with zero specificity. Note that this layer comes after Designsystemet's, so these rules
+   still beat Designsystemet's components. Only reset what Flex and Grid need. */
+:where(.kvds-flex:not([hidden])) {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+:where(.kvds-grid:not([hidden])) {
+  display: grid;
+}
+
+:where(.kvds-flex, .kvds-grid) {
+  box-sizing: border-box;
+  gap: var(--ds-size-4);
+}
+
+:where(.kvds-flex > *, .kvds-grid > *) {
+  margin-block: 0; /* The gap controls the spacing, so margins on headings, paragraphs and lists would add to it */
+  min-width: 0; /* Lets children shrink below their content width instead of overflowing. https://css-tricks.com/preventing-a-grid-blowout/ */
+}
+
+.kvds-flex[data-item-min-width] > svg,
+.kvds-flex > svg {
+  flex-shrink: 0; /* Never squeeze icons */
+}
+
+.kvds-flex,
+.kvds-grid {
+  &[data-max-width] {
+    /* The space kept free on each side. Declared on each container, so potential overrides never leak into
+       nested containers. Defaults to the padding of Header and Footer, so the content lines up with them. */
+    --kvdsc-layout-gutter: var(--kvds-layout-padding-inline, var(--kvds-frame-padding-inline));
+
+    /* At most maxWidth wide, but always leaves the gutter free on each side. The space comes from the
+       auto margins, not from padding, so padding set by consumers works as usual inside the box.
+       Explicit width and max-width also keep the container from shrinking to its content inside a Grid or Flex. */
+    width: min(100% - 2 * var(--kvdsc-layout-gutter), var(--kvdsc-layout-max-width));
+    max-width: min(100% - 2 * var(--kvdsc-layout-gutter), var(--kvdsc-layout-max-width));
+    margin-inline: auto;
+  }
+
+  &[data-align-items='stretch'] {
+    align-items: stretch;
+  }
+  &[data-align-items='start'] {
+    align-items: start;
+  }
+  &[data-align-items='center'] {
+    align-items: center;
+  }
+  &[data-align-items='end'] {
+    align-items: end;
+  }
+  &[data-align-items='baseline'] {
+    align-items: baseline;
+  }
+
+  &[data-align-content='start'] {
+    align-content: start;
+  }
+  &[data-align-content='center'] {
+    align-content: center;
+  }
+  &[data-align-content='end'] {
+    align-content: end;
+  }
+  &[data-align-content='stretch'] {
+    align-content: stretch;
+  }
+  &[data-align-content='space-between'] {
+    align-content: space-between;
+  }
+  &[data-align-content='space-around'] {
+    align-content: space-around;
+  }
+  &[data-align-content='space-evenly'] {
+    align-content: space-evenly;
+  }
+}
+
+/**
+ * Flex
+ */
+.kvds-flex[data-flex-wrap='nowrap'] {
+  flex-wrap: nowrap;
+}
+
+.kvds-flex[data-justify='start'] {
+  justify-content: start;
+}
+.kvds-flex[data-justify='center'] {
+  justify-content: center;
+}
+.kvds-flex[data-justify='end'] {
+  justify-content: end;
+}
+.kvds-flex[data-justify='space-between'] {
+  justify-content: space-between;
+}
+.kvds-flex[data-justify='space-around'] {
+  justify-content: space-around;
+}
+.kvds-flex[data-justify='space-evenly'] {
+  justify-content: space-evenly;
+}
+
+/**
+ * Grid
+ */
+.kvds-grid[data-item-min-width] {
+  /* As many columns as there is room for, each at least the preferred item width, but never wider
+     than the container. https://moderncss.dev/solutions-to-replace-the-12-column-grid/ */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--kvdsc-layout-item-min-width)), 1fr)
+  );
+}
+
+.kvds-grid[data-justify='stretch'] {
+  justify-items: stretch;
+}
+.kvds-grid[data-justify='start'] {
+  justify-items: start;
+}
+.kvds-grid[data-justify='center'] {
+  justify-items: center;
+}
+.kvds-grid[data-justify='end'] {
+  justify-items: end;
+}

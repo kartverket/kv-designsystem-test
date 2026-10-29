@@ -32,8 +32,9 @@
   },
   "scripts": {
     "build": "postcss \"src/*.css\" --base src --dir dist && cp ../../@internal/build-tools/css-import.d.ts dist/css-import.d.ts",
+    "format:check": "pnpm exec oxfmt --check .",
+    "generate-components-css": "node scripts/generate-components-css.ts",
     "lint": "oxlint --max-warnings 0",
-    "prebuild": "node scripts/generate-components-css.ts",
     "typecheck": "tsgo --build",
     "watch": "pnpm build --watch"
   },

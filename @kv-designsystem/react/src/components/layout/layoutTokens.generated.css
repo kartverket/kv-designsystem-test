@@ -1,0 +1,400 @@
+/* This file is generated from layoutTokens.ts. Do not edit manually. */
+
+.kvds-flex[data-gap='0'],
+.kvds-grid[data-gap='0'] {
+  gap: 0px;
+}
+
+.kvds-flex[data-gap='1'],
+.kvds-grid[data-gap='1'] {
+  gap: var(--ds-size-1);
+}
+
+.kvds-flex[data-gap='2'],
+.kvds-grid[data-gap='2'] {
+  gap: var(--ds-size-2);
+}
+
+.kvds-flex[data-gap='3'],
+.kvds-grid[data-gap='3'] {
+  gap: var(--ds-size-3);
+}
+
+.kvds-flex[data-gap='4'],
+.kvds-grid[data-gap='4'] {
+  gap: var(--ds-size-4);
+}
+
+.kvds-flex[data-gap='5'],
+.kvds-grid[data-gap='5'] {
+  gap: var(--ds-size-5);
+}
+
+.kvds-flex[data-gap='6'],
+.kvds-grid[data-gap='6'] {
+  gap: var(--ds-size-6);
+}
+
+.kvds-flex[data-gap='7'],
+.kvds-grid[data-gap='7'] {
+  gap: var(--ds-size-7);
+}
+
+.kvds-flex[data-gap='8'],
+.kvds-grid[data-gap='8'] {
+  gap: var(--ds-size-8);
+}
+
+.kvds-flex[data-gap='9'],
+.kvds-grid[data-gap='9'] {
+  gap: var(--ds-size-9);
+}
+
+.kvds-flex[data-gap='10'],
+.kvds-grid[data-gap='10'] {
+  gap: var(--ds-size-10);
+}
+
+.kvds-flex[data-gap='11'],
+.kvds-grid[data-gap='11'] {
+  gap: var(--ds-size-11);
+}
+
+.kvds-flex[data-gap='12'],
+.kvds-grid[data-gap='12'] {
+  gap: var(--ds-size-12);
+}
+
+.kvds-flex[data-gap='13'],
+.kvds-grid[data-gap='13'] {
+  gap: var(--ds-size-13);
+}
+
+.kvds-flex[data-gap='14'],
+.kvds-grid[data-gap='14'] {
+  gap: var(--ds-size-14);
+}
+
+.kvds-flex[data-gap='15'],
+.kvds-grid[data-gap='15'] {
+  gap: var(--ds-size-15);
+}
+
+.kvds-flex[data-gap='18'],
+.kvds-grid[data-gap='18'] {
+  gap: var(--ds-size-18);
+}
+
+.kvds-flex[data-gap='22'],
+.kvds-grid[data-gap='22'] {
+  gap: var(--ds-size-22);
+}
+
+.kvds-flex[data-gap='26'],
+.kvds-grid[data-gap='26'] {
+  gap: var(--ds-size-26);
+}
+
+.kvds-flex[data-gap='30'],
+.kvds-grid[data-gap='30'] {
+  gap: var(--ds-size-30);
+}
+
+.kvds-flex[data-row-gap='0'],
+.kvds-grid[data-row-gap='0'] {
+  row-gap: 0px;
+}
+
+.kvds-flex[data-row-gap='1'],
+.kvds-grid[data-row-gap='1'] {
+  row-gap: var(--ds-size-1);
+}
+
+.kvds-flex[data-row-gap='2'],
+.kvds-grid[data-row-gap='2'] {
+  row-gap: var(--ds-size-2);
+}
+
+.kvds-flex[data-row-gap='3'],
+.kvds-grid[data-row-gap='3'] {
+  row-gap: var(--ds-size-3);
+}
+
+.kvds-flex[data-row-gap='4'],
+.kvds-grid[data-row-gap='4'] {
+  row-gap: var(--ds-size-4);
+}
+
+.kvds-flex[data-row-gap='5'],
+.kvds-grid[data-row-gap='5'] {
+  row-gap: var(--ds-size-5);
+}
+
+.kvds-flex[data-row-gap='6'],
+.kvds-grid[data-row-gap='6'] {
+  row-gap: var(--ds-size-6);
+}
+
+.kvds-flex[data-row-gap='7'],
+.kvds-grid[data-row-gap='7'] {
+  row-gap: var(--ds-size-7);
+}
+
+.kvds-flex[data-row-gap='8'],
+.kvds-grid[data-row-gap='8'] {
+  row-gap: var(--ds-size-8);
+}
+
+.kvds-flex[data-row-gap='9'],
+.kvds-grid[data-row-gap='9'] {
+  row-gap: var(--ds-size-9);
+}
+
+.kvds-flex[data-row-gap='10'],
+.kvds-grid[data-row-gap='10'] {
+  row-gap: var(--ds-size-10);
+}
+
+.kvds-flex[data-row-gap='11'],
+.kvds-grid[data-row-gap='11'] {
+  row-gap: var(--ds-size-11);
+}
+
+.kvds-flex[data-row-gap='12'],
+.kvds-grid[data-row-gap='12'] {
+  row-gap: var(--ds-size-12);
+}
+
+.kvds-flex[data-row-gap='13'],
+.kvds-grid[data-row-gap='13'] {
+  row-gap: var(--ds-size-13);
+}
+
+.kvds-flex[data-row-gap='14'],
+.kvds-grid[data-row-gap='14'] {
+  row-gap: var(--ds-size-14);
+}
+
+.kvds-flex[data-row-gap='15'],
+.kvds-grid[data-row-gap='15'] {
+  row-gap: var(--ds-size-15);
+}
+
+.kvds-flex[data-row-gap='18'],
+.kvds-grid[data-row-gap='18'] {
+  row-gap: var(--ds-size-18);
+}
+
+.kvds-flex[data-row-gap='22'],
+.kvds-grid[data-row-gap='22'] {
+  row-gap: var(--ds-size-22);
+}
+
+.kvds-flex[data-row-gap='26'],
+.kvds-grid[data-row-gap='26'] {
+  row-gap: var(--ds-size-26);
+}
+
+.kvds-flex[data-row-gap='30'],
+.kvds-grid[data-row-gap='30'] {
+  row-gap: var(--ds-size-30);
+}
+
+.kvds-flex[data-column-gap='0'],
+.kvds-grid[data-column-gap='0'] {
+  column-gap: 0px;
+}
+
+.kvds-flex[data-column-gap='1'],
+.kvds-grid[data-column-gap='1'] {
+  column-gap: var(--ds-size-1);
+}
+
+.kvds-flex[data-column-gap='2'],
+.kvds-grid[data-column-gap='2'] {
+  column-gap: var(--ds-size-2);
+}
+
+.kvds-flex[data-column-gap='3'],
+.kvds-grid[data-column-gap='3'] {
+  column-gap: var(--ds-size-3);
+}
+
+.kvds-flex[data-column-gap='4'],
+.kvds-grid[data-column-gap='4'] {
+  column-gap: var(--ds-size-4);
+}
+
+.kvds-flex[data-column-gap='5'],
+.kvds-grid[data-column-gap='5'] {
+  column-gap: var(--ds-size-5);
+}
+
+.kvds-flex[data-column-gap='6'],
+.kvds-grid[data-column-gap='6'] {
+  column-gap: var(--ds-size-6);
+}
+
+.kvds-flex[data-column-gap='7'],
+.kvds-grid[data-column-gap='7'] {
+  column-gap: var(--ds-size-7);
+}
+
+.kvds-flex[data-column-gap='8'],
+.kvds-grid[data-column-gap='8'] {
+  column-gap: var(--ds-size-8);
+}
+
+.kvds-flex[data-column-gap='9'],
+.kvds-grid[data-column-gap='9'] {
+  column-gap: var(--ds-size-9);
+}
+
+.kvds-flex[data-column-gap='10'],
+.kvds-grid[data-column-gap='10'] {
+  column-gap: var(--ds-size-10);
+}
+
+.kvds-flex[data-column-gap='11'],
+.kvds-grid[data-column-gap='11'] {
+  column-gap: var(--ds-size-11);
+}
+
+.kvds-flex[data-column-gap='12'],
+.kvds-grid[data-column-gap='12'] {
+  column-gap: var(--ds-size-12);
+}
+
+.kvds-flex[data-column-gap='13'],
+.kvds-grid[data-column-gap='13'] {
+  column-gap: var(--ds-size-13);
+}
+
+.kvds-flex[data-column-gap='14'],
+.kvds-grid[data-column-gap='14'] {
+  column-gap: var(--ds-size-14);
+}
+
+.kvds-flex[data-column-gap='15'],
+.kvds-grid[data-column-gap='15'] {
+  column-gap: var(--ds-size-15);
+}
+
+.kvds-flex[data-column-gap='18'],
+.kvds-grid[data-column-gap='18'] {
+  column-gap: var(--ds-size-18);
+}
+
+.kvds-flex[data-column-gap='22'],
+.kvds-grid[data-column-gap='22'] {
+  column-gap: var(--ds-size-22);
+}
+
+.kvds-flex[data-column-gap='26'],
+.kvds-grid[data-column-gap='26'] {
+  column-gap: var(--ds-size-26);
+}
+
+.kvds-flex[data-column-gap='30'],
+.kvds-grid[data-column-gap='30'] {
+  column-gap: var(--ds-size-30);
+}
+
+/* Item widths use rem so they scale with the user's root font size.
+   Dividing by 16 makes a value such as 250 equal 250px at the default 16px root size. */
+
+.kvds-flex[data-item-min-width='50'] > * {
+  flex: 1 1 calc(50rem / 16);
+}
+
+.kvds-grid[data-item-min-width='50'] {
+  --kvdsc-layout-item-min-width: calc(50rem / 16);
+}
+
+.kvds-flex[data-item-min-width='100'] > * {
+  flex: 1 1 calc(100rem / 16);
+}
+
+.kvds-grid[data-item-min-width='100'] {
+  --kvdsc-layout-item-min-width: calc(100rem / 16);
+}
+
+.kvds-flex[data-item-min-width='150'] > * {
+  flex: 1 1 calc(150rem / 16);
+}
+
+.kvds-grid[data-item-min-width='150'] {
+  --kvdsc-layout-item-min-width: calc(150rem / 16);
+}
+
+.kvds-flex[data-item-min-width='200'] > * {
+  flex: 1 1 calc(200rem / 16);
+}
+
+.kvds-grid[data-item-min-width='200'] {
+  --kvdsc-layout-item-min-width: calc(200rem / 16);
+}
+
+.kvds-flex[data-item-min-width='250'] > * {
+  flex: 1 1 calc(250rem / 16);
+}
+
+.kvds-grid[data-item-min-width='250'] {
+  --kvdsc-layout-item-min-width: calc(250rem / 16);
+}
+
+.kvds-flex[data-item-min-width='300'] > * {
+  flex: 1 1 calc(300rem / 16);
+}
+
+.kvds-grid[data-item-min-width='300'] {
+  --kvdsc-layout-item-min-width: calc(300rem / 16);
+}
+
+.kvds-flex[data-item-min-width='350'] > * {
+  flex: 1 1 calc(350rem / 16);
+}
+
+.kvds-grid[data-item-min-width='350'] {
+  --kvdsc-layout-item-min-width: calc(350rem / 16);
+}
+
+.kvds-flex[data-item-min-width='400'] > * {
+  flex: 1 1 calc(400rem / 16);
+}
+
+.kvds-grid[data-item-min-width='400'] {
+  --kvdsc-layout-item-min-width: calc(400rem / 16);
+}
+
+.kvds-flex[data-item-min-width='450'] > * {
+  flex: 1 1 calc(450rem / 16);
+}
+
+.kvds-grid[data-item-min-width='450'] {
+  --kvdsc-layout-item-min-width: calc(450rem / 16);
+}
+
+.kvds-flex[data-item-min-width='500'] > * {
+  flex: 1 1 calc(500rem / 16);
+}
+
+.kvds-grid[data-item-min-width='500'] {
+  --kvdsc-layout-item-min-width: calc(500rem / 16);
+}
+
+.kvds-flex[data-item-min-width='550'] > * {
+  flex: 1 1 calc(550rem / 16);
+}
+
+.kvds-grid[data-item-min-width='550'] {
+  --kvdsc-layout-item-min-width: calc(550rem / 16);
+}
+
+.kvds-flex[data-item-min-width='600'] > * {
+  flex: 1 1 calc(600rem / 16);
+}
+
+.kvds-grid[data-item-min-width='600'] {
+  --kvdsc-layout-item-min-width: calc(600rem / 16);
+}

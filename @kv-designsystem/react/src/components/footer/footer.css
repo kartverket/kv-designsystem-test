@@ -22,7 +22,8 @@
   column-gap: var(--kvdsc-footer-column-gap);
 
   box-sizing: content-box;
-  padding: var(--ds-size-10) var(--kvds-layout-padding-inline);
+  /* Check the legacy variable here so scoped overrides still work during the rename. */
+  padding: var(--ds-size-10) var(--kvds-layout-padding-inline, var(--kvds-frame-padding-inline));
 }
 
 .footer-columns {

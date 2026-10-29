@@ -20,12 +20,7 @@
     "build": {
       "outputs": ["{projectRoot}/dist"],
       "inputs": ["default", "^default"],
-      "dependsOn": [
-        "lint-circular-dependencies",
-        "lint-mdx-controls",
-        "^build",
-        "^install-dependencies"
-      ],
+      "dependsOn": ["generate-layout-tokens", "generate-components-css", "^build"],
       "cache": true
     },
     "lint": {
@@ -39,7 +34,7 @@
     },
     "typecheck": {
       "cache": true,
-      "dependsOn": ["build"]
+      "dependsOn": ["^build"]
     },
     "lint-circular-dependencies": {
       "cache": true
@@ -47,8 +42,25 @@
     "lint-mdx-controls": {
       "cache": true
     },
-    "install-dependencies": {
-      "dependsOn": ["build"]
+    "generate-layout-tokens": {
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/scripts/generate-layout-tokens-css.ts",
+        "{projectRoot}/src/components/layout/layoutTokens.ts",
+        "sharedGlobals"
+      ],
+      "outputs": ["{projectRoot}/src/components/layout/layoutTokens.generated.css"]
+    },
+    "generate-components-css": {
+      "cache": true,
+      "inputs": ["css", "{projectRoot}/scripts/generate-components-css.ts", "sharedGlobals"],
+      "outputs": ["{projectRoot}/src/components.css"],
+      "dependsOn": [
+        {
+          "projects": ["@kv-designsystem/react"],
+          "target": "generate-layout-tokens"
+        }
+      ]
     },
     "test-storybook": {
       "outputs": ["{projectRoot}/test-reports/storybook"],

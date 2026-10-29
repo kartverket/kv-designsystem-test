@@ -8,11 +8,7 @@
   "targets": {
     "dev": {
       "continuous": true,
-      "dependsOn": [
-        "build",
-        { "projects": "!css", "target": "^watch" },
-        "lint-circular-dependencies"
-      ]
+      "dependsOn": ["build", { "projects": "!css", "target": "^watch" }]
     },
     "build-storybook": {
       "dependsOn": ["^build"],

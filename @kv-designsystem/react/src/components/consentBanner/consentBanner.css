@@ -7,7 +7,8 @@
 
 .consentBanner-container {
   max-width: var(--kvds-frame-content-max-width);
-  padding: var(--ds-size-6) var(--kvds-layout-padding-inline);
+  /* Check the legacy variable here so scoped overrides still work during the rename. */
+  padding: var(--ds-size-6) var(--kvds-layout-padding-inline, var(--kvds-frame-padding-inline));
   margin: 0 auto;
 
   & * {

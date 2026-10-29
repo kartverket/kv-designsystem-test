@@ -23,6 +23,8 @@ export * from './fileUpload/FileUpload';
 export * from './footer';
 export * from './header';
 export * from './input/Input';
+export * from './layout/Flex';
+export * from './layout/Grid';
 export * from './link/Link';
 export * from './list/List';
 export * from './logo/Logo';

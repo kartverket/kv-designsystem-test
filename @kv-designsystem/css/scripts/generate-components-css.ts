@@ -4,38 +4,53 @@ import path from 'node:path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const ROOT = path.resolve(__dirname, '../../react/src/components');
-const OUTPUT = path.resolve(__dirname, '../src/components.css');
+const COMPONENTS_DIRECTORY = path.resolve(__dirname, '../../react/src/components');
+const CSS_SOURCE_DIRECTORY = path.resolve(__dirname, '../src');
+const COMPONENTS_CSS_OUTPUT = path.resolve(CSS_SOURCE_DIRECTORY, 'components.css');
 
-function getCssFiles(dir: string): string[] {
-  let results: string[] = [];
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
+/**
+ * Find component CSS source files. Generated CSS is written separately.
+ * CSS modules are reserved for Storybook and documentation styling, so they are excluded from the
+ * shared component CSS published in the npm package.
+ */
+function findComponentCssFiles(directory: string): string[] {
+  let cssFiles: string[] = [];
+  const entries = fs.readdirSync(directory, { withFileTypes: true });
 
   for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
+    const filePath = path.join(directory, entry.name);
 
     if (entry.isDirectory()) {
-      results = results.concat(getCssFiles(fullPath));
+      cssFiles = cssFiles.concat(findComponentCssFiles(filePath));
     } else if (
       entry.isFile() &&
       entry.name.endsWith('.css') &&
-      !entry.name.endsWith('.module.css')
+      !entry.name.endsWith('.module.css') &&
+      !entry.name.endsWith('.generated.css')
     ) {
-      results.push(fullPath);
+      cssFiles.push(filePath);
     }
   }
-  return results;
+
+  return cssFiles;
 }
 
-const files = getCssFiles(ROOT)
-  .sort() // important for deterministic builds
-  .map((file) => {
-    // make path relative to the css package
-    const relativePath = path.relative(path.resolve('src'), file);
-    return `@import "${relativePath}" layer(kv.components);`;
-  })
+function createCssImport(filePath: string): string {
+  const relativePath = path.relative(CSS_SOURCE_DIRECTORY, filePath);
+  return `@import "${relativePath}" layer(kv.components);`;
+}
+
+/**
+ * Keep imports in a stable order so identical input always produces identical generated CSS.
+ */
+const componentCssImports = findComponentCssFiles(COMPONENTS_DIRECTORY)
+  .sort()
+  .map(createCssImport)
   .join('\n');
 
-fs.writeFileSync(OUTPUT, files);
+const layoutTokensPath = path.join(COMPONENTS_DIRECTORY, 'layout', 'layoutTokens.generated.css');
+const layoutTokensImport = createCssImport(layoutTokensPath);
 
-console.log(`✅ Generated ${OUTPUT}`);
+fs.writeFileSync(COMPONENTS_CSS_OUTPUT, `${layoutTokensImport}\n${componentCssImports}`);
+
+console.log(`✅ Generated ${COMPONENTS_CSS_OUTPUT}`);
