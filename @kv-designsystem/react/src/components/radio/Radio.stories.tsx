@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Radio } from './Radio';
 import { Fieldset } from '../fieldset/Fieldset';
+import { Flex } from '../layout/Flex';
 
 const meta = {
   component: Radio,
@@ -23,10 +24,10 @@ export const InLine: Story = {
   render: (_args) => (
     <Fieldset>
       <Fieldset.Legend>Vil du bli kontaktet på e-post?</Fieldset.Legend>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ds-size-6)' }}>
+      <Flex gap={6}>
         <Radio name="my-inline" label="Ja" value="ja" />
         <Radio name="my-inline" label="Nei" value="nei" />
-      </div>
+      </Flex>
     </Fieldset>
   ),
 };

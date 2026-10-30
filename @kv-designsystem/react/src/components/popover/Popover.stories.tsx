@@ -5,6 +5,7 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Button } from '../button/Button';
 import { TrashIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
+import { Flex } from '../layout/Flex';
 
 const meta = {
   component: Popover,
@@ -38,13 +39,7 @@ export const Interactive: Story = {
         </Popover.Trigger>
         <Popover open={open} data-color="danger">
           <Paragraph>Er du sikker på at du vil slette raden? Handlingen kan ikke angres.</Paragraph>
-          <div
-            style={{
-              display: 'flex',
-              gap: 'var(--ds-size-2)',
-              marginTop: 'var(--ds-size-2)',
-            }}
-          >
+          <Flex flexWrap="nowrap" style={{ marginTop: 'var(--ds-size-2)' }}>
             <Button data-size="sm" onClick={() => setOpen(false)}>
               Ja, slett
             </Button>
@@ -56,7 +51,7 @@ export const Interactive: Story = {
             >
               Avbryt
             </Button>
-          </div>
+          </Flex>
         </Popover>
       </Popover.TriggerContext>
     );

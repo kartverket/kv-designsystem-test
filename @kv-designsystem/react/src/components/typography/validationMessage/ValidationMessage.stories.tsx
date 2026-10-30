@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ValidationMessage } from './ValidationMessage';
+import { Grid } from 'src/components/layout/Grid';
 
 const meta = {
   component: ValidationMessage,
@@ -19,14 +20,11 @@ export const Preview: Story = {
 
 export const AllColors: Story = {
   render: (_args) => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <Grid>
       <ValidationMessage data-color="danger">Dette er en feilmelding.</ValidationMessage>
-
       <ValidationMessage data-color="success">Dette er en suksessmelding.</ValidationMessage>
-
       <ValidationMessage data-color="info">Dette er en informasjonsmelding.</ValidationMessage>
-
       <ValidationMessage data-color="warning">Dette er en advarsel.</ValidationMessage>
-    </div>
+    </Grid>
   ),
 };
