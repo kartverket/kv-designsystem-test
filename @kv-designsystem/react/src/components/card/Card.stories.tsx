@@ -17,8 +17,8 @@ const meta = {
   decorators: [
     (Story) => (
       <Grid
-        alignItems='center'
-        maxWidth='800px'
+        alignItems="center"
+        maxWidth="800px"
         style={{
           width: '100%',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px , 1fr))',
@@ -52,14 +52,14 @@ export const Variants: Story = {
     ...Preview.args,
   },
   render: (args) => (
-    <Flex flexWrap='nowrap'>
+    <Flex flexWrap="nowrap">
       <Card {...args} style={{ width: '320px' }}>
         <Tag data-color="accent" data-size="sm" variant="outline">
           Tinglyst
         </Tag>
         <Heading>Furusvingen 82</Heading>
         <Paragraph>Hovedeiendom</Paragraph>
-        <Flex justify='space-between' flexWrap='nowrap'>
+        <Flex justify="space-between" flexWrap="nowrap">
           <Tooltip content="Legg til i favoritter">
             <Button variant="tertiary">
               <HeartIcon aria-hidden />
@@ -78,7 +78,7 @@ export const Variants: Story = {
         </Tag>
         <Heading>Kongleveien 23C</Heading>
         <Paragraph>Eiendom til utleie</Paragraph>
-        <Flex justify='space-between' flexWrap='nowrap'>
+        <Flex justify="space-between" flexWrap="nowrap">
           <Tooltip content="Fjern fra favoritter">
             <Button variant="tertiary">
               <HeartFillIcon aria-hidden />

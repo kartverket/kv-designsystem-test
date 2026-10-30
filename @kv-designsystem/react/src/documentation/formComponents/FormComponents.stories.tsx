@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { type ChangeEvent, type SubmitEvent, useState } from 'react';
+import { Flex } from 'src/components/layout/Flex';
+import { Grid } from 'src/components/layout/Grid';
 import { Input } from '../../components/input/Input';
 import { Textarea } from '../../components/textarea/Textarea';
 import { Textfield } from '../../components/textfield/Textfield';
@@ -62,7 +64,7 @@ export const InputInTableCell: Story = {
 
 export const SimpleTextarea: Story = {
   render: () => (
-    <div style={{ display: 'grid', gap: 'var(--ds-size-2)', width: '20rem' }}>
+    <Grid gap={2} style={{ width: '20rem' }}>
       <Heading level={2} data-size="xs" id="remark-heading">
         Merknad til grensepåvisning
       </Heading>
@@ -70,13 +72,13 @@ export const SimpleTextarea: Story = {
         Beskriv eventuelle avvik du observerte ved oppmøtemerket.
       </Paragraph>
       <Textarea aria-labelledby="remark-heading" rows={4} />
-    </div>
+    </Grid>
   ),
 };
 
 export const TextfieldVariants: Story = {
   render: () => (
-    <div style={{ display: 'grid', gap: 'var(--ds-size-4)', width: '20rem' }}>
+    <Grid gap={2} style={{ width: '20rem' }}>
       <Textfield label="Stedsnavn" placeholder="F.eks. Kråkeberget" />
       <Textfield label="Beskrivelse av lokaliteten" multiline rows={3} />
       <Textfield label="Areal" type="number" suffix="m²" />
@@ -94,7 +96,7 @@ export const TextfieldVariants: Story = {
         ]}
         required
       />
-    </div>
+    </Grid>
   ),
 };
 
@@ -192,10 +194,10 @@ export const FieldsetAddress: Story = {
     <Fieldset>
       <Fieldset.Legend>Adresse til eiendommen</Fieldset.Legend>
       <Textfield label="Gate-/veiadresse" />
-      <div style={{ display: 'flex', gap: 'var(--ds-size-4)' }}>
+      <Flex flexWrap="nowrap">
         <Textfield label="Postnummer" style={{ width: '8rem' }} />
         <Textfield label="Poststed" />
-      </div>
+      </Flex>
     </Fieldset>
   ),
 };

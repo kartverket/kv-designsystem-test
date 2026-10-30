@@ -1,4 +1,5 @@
 import { Button } from '../../components/button/Button';
+import { Flex } from '../../components/layout/Flex';
 import { Link } from '../../components/link/Link';
 import { Heading, type HeadingProps } from '../../components/typography/heading/Heading';
 
@@ -26,15 +27,7 @@ export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: Hea
       >
         Hjelp oss med å forbedre designsystemet
       </Heading>
-      <div
-        className="sb-unstyled"
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          gap: 'var(--ds-size-4)',
-        }}
-      >
+      <Flex className="sb-unstyled">
         <Button asChild variant="secondary">
           <Link
             className="sb-unstyled"
@@ -51,7 +44,7 @@ export function FeedbackSection({ level = 2, 'data-size': dataSize = 'md' }: Hea
             Tilbakemeldingsskjema
           </Link>
         </Button>
-      </div>
+      </Flex>
     </section>
   );
 }

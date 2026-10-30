@@ -44,7 +44,7 @@ export const Button: Story = {
           <Search.Clear />
           <Search.Button type="submit" />
         </Search>
-        <Flex gap={2} alignItems='baseline'>
+        <Flex gap={2} alignItems="baseline">
           <Paragraph>Hurtigsøk: </Paragraph>
           <Chip.Button onClick={() => setInputValue('Høydedata')}>Høydedata</Chip.Button>
           <Chip.Button onClick={() => setInputValue('Terrengmodell')}>Terrengmodell</Chip.Button>

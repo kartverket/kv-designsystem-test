@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ErrorSummary } from './ErrorSummary';
 import { subcomponents } from './docs/subcomponents';
 import { Textfield } from '../textfield/Textfield';
+import { Grid } from '../layout/Grid';
 
 const meta = {
   component: ErrorSummary,
@@ -39,7 +40,7 @@ export const WithForm: Story = {
       if (id) document.getElementById(id)?.focus();
     };
     return (
-      <div style={{ display: 'grid', gap: 'var(--ds-size-4)' }}>
+      <Grid>
         <Textfield label="Fornavn" id="fornavn" error="Fornavn må være minst 2 tegn" />
         <Textfield
           label="Telefonnummer"
@@ -64,7 +65,7 @@ export const WithForm: Story = {
             </ErrorSummary.Item>
           </ErrorSummary.List>
         </ErrorSummary>
-      </div>
+      </Grid>
     );
   },
 };

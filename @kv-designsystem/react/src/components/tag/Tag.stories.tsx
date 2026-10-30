@@ -4,6 +4,7 @@ import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { RobotIcon } from '@navikt/aksel-icons';
 import { Card } from '../card/Card';
+import { Grid } from '../layout/Grid';
 
 const meta = {
   component: Tag,
@@ -47,11 +48,10 @@ const colorVariants = [
 
 export const Variants: Story = {
   render: (args) => (
-    <div
+    <Grid
+      gap={2}
       style={{
-        display: 'grid',
         gridTemplateColumns: 'repeat(4, max-content)',
-        gap: 'var(--ds-size-2)',
       }}
     >
       {colorVariants.map((color) => (
@@ -59,7 +59,7 @@ export const Variants: Story = {
           {color}
         </Tag>
       ))}
-    </div>
+    </Grid>
   ),
 };
 

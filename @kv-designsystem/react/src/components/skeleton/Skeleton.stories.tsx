@@ -4,6 +4,7 @@ import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Avatar } from '../avatar/Avatar';
 import { Button } from '../button/Button';
+import { Flex } from '../layout/Flex';
 
 const meta = {
   component: Skeleton,
@@ -26,17 +27,11 @@ const schoolImage =
 
 export const UsageExample: Story = {
   render: (args) => (
-    <div
-      style={{
-        display: 'flex',
-        gap: 'var(--ds-size-12)',
-        margin: 'var(--ds-size-12)',
-      }}
-    >
+    <Flex gap={12} style={{ margin: 'var(--ds-size-12)' }}>
       <div
         style={{
           flex: '1 1 200px',
-          gap: 'var(--ds-size-4)',
+          // gap: 'var(--ds-size-4)', har ingen effekt ettersom display='block'
         }}
       >
         <Skeleton height="200px" {...args} />
@@ -46,11 +41,10 @@ export const UsageExample: Story = {
           </Skeleton>
         </Heading>
 
-        <div
+        <Flex
+          gap={2}
+          alignItems="center"
           style={{
-            display: 'flex',
-            gap: '10px',
-            alignItems: 'center',
             padding: '5px 0 5px 0',
           }}
         >
@@ -58,7 +52,7 @@ export const UsageExample: Story = {
           <Skeleton variant="text" {...args}>
             Forfatter | sist endret
           </Skeleton>
-        </div>
+        </Flex>
 
         <Skeleton variant="text" width="200" />
       </div>
@@ -66,7 +60,7 @@ export const UsageExample: Story = {
       <div style={{ flex: '1 1 200px' }}>
         <img
           src={schoolImage}
-          alt="Kart"
+          alt="En hånd som setter en knappenål på et kart"
           style={{
             width: '100%',
             height: '200px',
@@ -77,10 +71,12 @@ export const UsageExample: Story = {
 
         <Heading>Søk midtpunktfølelsen</Heading>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Avatar data-size="xs" initials="KV" aria-label="Kartverket" />
+        <Flex alignItems="center" gap={2}>
+          <Avatar data-size="xs" aria-label="Kartverket">
+            KV
+          </Avatar>
           <Paragraph>Kartverket | 03.02.2026</Paragraph>
-        </div>
+        </Flex>
 
         <Paragraph>
           Geografisk midtpunkt i alle fylker og kommuner er oppdatert. Dra hit for å være i sentrum
@@ -88,7 +84,7 @@ export const UsageExample: Story = {
           høyeste punkt og mest øde sted.
         </Paragraph>
       </div>
-    </div>
+    </Flex>
   ),
 };
 

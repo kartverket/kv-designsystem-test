@@ -1,3 +1,5 @@
+import { Flex } from '../../components/layout/Flex';
+import { Grid } from '../../components/layout/Grid';
 import { Paragraph } from '../../components/typography/paragraph/Paragraph';
 import styles from './ColorBox.module.css';
 
@@ -21,7 +23,7 @@ type ColorItemProps = {
 
 function ColorItem({ hex, textColor, label }: ColorItemProps) {
   return (
-    <div className={`sb-unstyled ${styles.item}`} style={{ marginBottom: 'var(--ds-size-5)' }}>
+    <Grid justify="center" className="sb-unstyled" gap={2}>
       <div
         className={`sb-unstyled ${styles.box}`}
         style={{
@@ -31,16 +33,14 @@ function ColorItem({ hex, textColor, label }: ColorItemProps) {
       >
         {hex}
       </div>
-      <Paragraph data-size="xs" style={{ marginTop: 'var(--ds-size-2)' }}>
-        {label}
-      </Paragraph>
-    </div>
+      <Paragraph data-size="xs">{label}</Paragraph>
+    </Grid>
   );
 }
 
 export function ColorBox() {
   return (
-    <div className={`sb-unstyled ${styles.container}`}>
+    <Flex className="sb-unstyled" style={{ marginBottom: 'var(--ds-size-5)' }}>
       {colors.map((color) => (
         <ColorItem
           key={color.hex}
@@ -49,6 +49,6 @@ export function ColorBox() {
           label={color.label}
         />
       ))}
-    </div>
+    </Flex>
   );
 }
