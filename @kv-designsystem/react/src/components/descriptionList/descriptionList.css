@@ -1,4 +1,4 @@
-.kvds-description-list {
+.kvds-description-list-container {
   --kvdsc-description-list-circle-size: var(--ds-size-10);
   --kvdsc-description-list-circle-icon-size: var(--ds-size-6);
   --kvdsc-description-list-pair-gap: var(--ds-size-2);
@@ -7,6 +7,7 @@
   --kvdsc-description-list-term-max-width: 11rem;
 }
 
+/* The list cannot query its own width; this wrapper is the container for its breakpoints. */
 .kvds-description-list-container {
   container: kvds-description-list / inline-size;
   min-width: 0;
@@ -97,7 +98,6 @@
   display: block;
   width: 1lh;
   height: 1lh;
-  fill: currentColor;
 }
 
 .kvds-description-list-item:has(> dt[data-variant='circle'] > svg) {

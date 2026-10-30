@@ -82,10 +82,6 @@ export const DescriptionList = forwardRef<HTMLDListElement, DescriptionListProps
       '--kvdsc-description-list-term-min-width'?: string;
       '--kvdsc-description-list-description-min-width'?: string;
     } = {
-      ...style,
-      width: undefined,
-      minWidth: undefined,
-      maxWidth: undefined,
       '--kvdsc-description-list-pair-gap':
         pairGap === undefined ? undefined : `var(--ds-size-${pairGap})`,
       '--kvdsc-description-list-term-min-width': termMinWidth,
@@ -95,10 +91,10 @@ export const DescriptionList = forwardRef<HTMLDListElement, DescriptionListProps
     return (
       <div
         className="kvds-description-list-container"
+        hidden={rest.hidden}
         style={{
+          ...style,
           width: style?.width ?? '100%',
-          minWidth: style?.minWidth,
-          maxWidth: style?.maxWidth,
         }}
       >
         <Grid
