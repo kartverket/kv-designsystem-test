@@ -11,7 +11,7 @@ const output = path.resolve(
 
 const listRules = `
   .kvds-description-list[data-list-orientation='horizontal'] {
-    display: grid;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal'] {
@@ -30,19 +30,14 @@ const listRules = `
   }`;
 
 const pairRules = `
-  .kvds-description-list[data-list-orientation][data-pair-orientation='horizontal'] {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
   .kvds-description-list[data-list-orientation][data-pair-orientation='horizontal'] > .kvds-description-list-item:not([hidden], :has(> dt > svg)) {
     display: grid;
-    grid-column: 1 / -1;
     grid-template-columns: minmax(0, 1fr);
+    align-content: start;
   }
 
   .kvds-description-list[data-list-orientation][data-pair-orientation='horizontal'] > .kvds-description-list-item:not([hidden]):has(> dt > svg) {
     display: flex;
-    grid-column: 1 / -1;
   }`;
 
 function generateRules(attribute: 'list' | 'pair', rules: string): string {

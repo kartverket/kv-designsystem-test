@@ -2,6 +2,7 @@
   --kvdsc-description-list-circle-size: var(--ds-size-10);
   --kvdsc-description-list-circle-icon-size: var(--ds-size-6);
   --kvdsc-description-list-pair-gap: var(--ds-size-2);
+  --kvdsc-description-list-term-max-width: 11rem;
 }
 
 .kvds-description-list-container {
@@ -31,6 +32,16 @@
 .kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal']
   > .kvds-description-list-item {
   column-gap: inherit;
+}
+
+.kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal']
+  > .kvds-description-list-item:not([hidden], :has(> dt > svg)) {
+  display: grid;
+  grid-template-columns: minmax(0, min(50%, var(--kvdsc-description-list-term-max-width))) minmax(
+      0,
+      1fr
+    );
+  align-content: start;
 }
 
 .kvds-description-list-item {
@@ -89,10 +100,4 @@
   > .kvds-description-list-item:not([hidden], :has(> dt > svg)) {
   display: grid;
   align-content: start;
-}
-
-.kvds-description-list[data-list-orientation='horizontal']
-  > .kvds-description-list-item:not([hidden]) {
-  flex: auto;
-  max-width: 100%;
 }

@@ -1,40 +1,49 @@
 import cl from 'clsx/lite';
 import { forwardRef, type CSSProperties, type HTMLAttributes, type ReactNode } from 'react';
 import { Flex } from '../layout/Flex';
-import { Grid, type GridProps } from '../layout/Grid';
+import { Grid } from '../layout/Grid';
 import type { LayoutItemMinWidth, LayoutSize } from '../layout/layoutProps';
 import './descriptionList.css';
 import './descriptionListBreakpoints.generated.css';
 
-export type DescriptionListProps = HTMLAttributes<HTMLDListElement> &
-  Pick<GridProps, 'gap' | 'rowGap' | 'columnGap'> & {
-    /** Horizontal space between the term and description, using the same size tokens as Grid and Flex. */
-    pairGap?: LayoutSize;
-    /**
-     * Whether the pairs are stacked or placed side by side.
-     * @default 'vertical'
-     */
-    listOrientation?: 'vertical' | 'horizontal';
-    /**
-     * Whether the term and description within each pair are side by side or stacked.
-     * SVG terms always stay beside their description.
-     * @default 'horizontal'
-     */
-    pairOrientation?: 'vertical' | 'horizontal';
-    /**
-     * Container width below which a horizontal list displays one pair per row.
-     * Uses the same values as Grid and Flex itemMinWidth.
-     * @default 400
-     */
-    listForceVerticalBelow?: LayoutItemMinWidth;
-    /**
-     * Container width below which horizontal text pairs stack their term and description.
-     * SVG terms stay beside their description.
-     * Uses the same values as Grid and Flex itemMinWidth.
-     * @default 300
-     */
-    pairForceVerticalBelow?: LayoutItemMinWidth;
-  };
+export type DescriptionListProps = HTMLAttributes<HTMLDListElement> & {
+  /** Space between pairs in both directions when rowGap and columnGap are not set. */
+  gap?: LayoutSize;
+  /**
+   * Space between rows of pairs. Overrides gap.
+   */
+  rowGap?: LayoutSize;
+  /**
+   * Space between columns of pairs. Overrides gap.
+   */
+  columnGap?: LayoutSize;
+  /** Horizontal space between the term and description, using the same size tokens as Grid and Flex. */
+  pairGap?: LayoutSize;
+  /**
+   * Whether the pairs are stacked or placed side by side.
+   * @default 'vertical'
+   */
+  listOrientation?: 'vertical' | 'horizontal';
+  /**
+   * Whether the term and description within each pair are side by side or stacked.
+   * SVG terms always stay beside their description.
+   * @default 'horizontal'
+   */
+  pairOrientation?: 'vertical' | 'horizontal';
+  /**
+   * Container width below which a horizontal list displays one pair per row.
+   * Uses the same values as Grid and Flex itemMinWidth.
+   * @default 400
+   */
+  listForceVerticalBelow?: LayoutItemMinWidth;
+  /**
+   * Container width below which horizontal text pairs stack their term and description.
+   * SVG terms stay beside their description.
+   * Uses the same values as Grid and Flex itemMinWidth.
+   * @default 300
+   */
+  pairForceVerticalBelow?: LayoutItemMinWidth;
+};
 
 export type DescriptionListItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
   /** The term, either text or an SVG icon with an accessible name. */
@@ -80,7 +89,6 @@ export const DescriptionList = Object.assign(
     },
     ref,
   ) {
-    const Layout = listOrientation === 'horizontal' ? Flex : Grid;
     const listStyle: CSSProperties & { '--kvdsc-description-list-pair-gap'?: string } = {
       ...style,
       width: undefined,
@@ -99,11 +107,11 @@ export const DescriptionList = Object.assign(
           maxWidth: style?.maxWidth,
         }}
       >
-        <Layout
+        <Grid
           asChild
-          gap={gap}
-          rowGap={rowGap}
-          columnGap={columnGap}
+          itemMinWidth={listOrientation === 'horizontal' ? 350 : undefined}
+          rowGap={rowGap ?? gap ?? 3}
+          columnGap={columnGap ?? gap ?? 5}
           className={cl('kvds-description-list', className)}
         >
           <dl
@@ -117,7 +125,7 @@ export const DescriptionList = Object.assign(
           >
             {children}
           </dl>
-        </Layout>
+        </Grid>
       </div>
     );
   }),
