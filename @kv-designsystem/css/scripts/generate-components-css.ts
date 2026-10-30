@@ -50,7 +50,16 @@ const componentCssImports = findComponentCssFiles(COMPONENTS_DIRECTORY)
 
 const layoutTokensPath = path.join(COMPONENTS_DIRECTORY, 'layout', 'layoutTokens.generated.css');
 const layoutTokensImport = createCssImport(layoutTokensPath);
+const descriptionListBreakpointsPath = path.join(
+  COMPONENTS_DIRECTORY,
+  'descriptionList',
+  'descriptionListBreakpoints.generated.css',
+);
+const descriptionListBreakpointsImport = createCssImport(descriptionListBreakpointsPath);
 
-fs.writeFileSync(COMPONENTS_CSS_OUTPUT, `${layoutTokensImport}\n${componentCssImports}`);
+fs.writeFileSync(
+  COMPONENTS_CSS_OUTPUT,
+  `${layoutTokensImport}\n${componentCssImports}\n${descriptionListBreakpointsImport}`,
+);
 
 console.log(`✅ Generated ${COMPONENTS_CSS_OUTPUT}`);

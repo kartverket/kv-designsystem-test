@@ -1,6 +1,7 @@
 import path from 'node:path';
 import type { StorybookConfig } from '@storybook/react-vite';
 import { mergeConfig } from 'vite';
+import { layoutSizes } from '../src/components/layout/layoutTokens.ts';
 
 // Digdir types compound components as a type alias (`type Card = typeof Card & { Block: ... }`),
 // which react-docgen-typescript doesn't recognise as a component. Without these, the
@@ -50,6 +51,30 @@ const mergeDuplicateDefaults = (prop: { defaultValue: { value: unknown } | null 
   }
 };
 
+const isNumericOption = (option: unknown): option is { value: string } =>
+  typeof option === 'object' &&
+  option !== null &&
+  'value' in option &&
+  typeof option.value === 'string' &&
+  /^\d+$/.test(option.value);
+
+const sortLayoutSizeOptions = (prop: { type: { name: string; value?: unknown } }) => {
+  const { type } = prop;
+  if (type.name !== 'enum' || !Array.isArray(type.value)) return;
+
+  const options: unknown[] = type.value;
+  if (
+    options.length !== layoutSizes.length ||
+    !options.every(isNumericOption) ||
+    new Set(options.map((option) => Number(option.value))).size !== layoutSizes.length ||
+    !options.every((option) => layoutSizes.some((size) => size === Number(option.value)))
+  ) {
+    return;
+  }
+
+  type.value = [...options].sort((a, b) => Number(a.value) - Number(b.value));
+};
+
 const config: StorybookConfig = {
   stories: [
     '../src/documentation/introduction/Introduction.mdx',
@@ -89,6 +114,7 @@ const config: StorybookConfig = {
       propFilter: (prop) => {
         // propFilter is the only place docgen lets us change a prop before it's used
         mergeDuplicateDefaults(prop);
+        sortLayoutSizeOptions(prop);
 
         // src/html.ts adds data-color/data-size to every HTML element. If the component itself
         // doesn't declare them (e.g. Paragraph's data-color), they have no effect, so hide them.
