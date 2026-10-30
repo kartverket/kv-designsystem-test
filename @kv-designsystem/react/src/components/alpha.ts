@@ -13,7 +13,7 @@ export * from './chip/Chip';
 export * from './checkbox/Checkbox';
 export * from './consentBanner/ConsentBanner';
 export * from './details/Details';
-export * from './descriptionList/DescriptionList';
+export * from './descriptionList';
 export * from './dialog/Dialog';
 export * from './divider/Divider';
 export * from './dropdown/Dropdown';
