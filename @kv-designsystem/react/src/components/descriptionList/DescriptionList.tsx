@@ -91,6 +91,7 @@ export const DescriptionList = forwardRef<HTMLDListElement, DescriptionListProps
     return (
       <div
         className="kvds-description-list-container"
+        data-size={rest['data-size']}
         hidden={rest.hidden}
         style={{
           ...style,

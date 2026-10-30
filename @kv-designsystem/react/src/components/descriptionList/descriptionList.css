@@ -20,6 +20,24 @@
   max-width: 100%;
 }
 
+/* Generated container queries set these variables on the list. Reset them for nested lists. */
+.kvds-description-list {
+  --kvdsc-description-list-stacked-columns: initial;
+  --kvdsc-description-list-item-columns: initial;
+  --kvdsc-description-list-item-column: initial;
+  --kvdsc-description-list-icon-display: initial;
+  --kvdsc-description-list-pair-align: initial;
+}
+
+/* Match Grid's columns until the list breakpoint stacks items (or aligns horizontal pairs in two columns). */
+.kvds-description-list[data-list-orientation='horizontal'][data-item-min-width] {
+  grid-template-columns: var(
+    --kvdsc-description-list-stacked-columns,
+    repeat(auto-fit, minmax(min(100%, var(--kvdsc-layout-item-min-width)), 1fr))
+  );
+}
+
+/* Vertical lists share term/description columns; the pair breakpoint stacks text terms instead. */
 .kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal'] {
   grid-template-columns: fit-content(50%) minmax(0, 1fr);
   column-gap: var(--kvdsc-description-list-pair-gap);
@@ -29,7 +47,8 @@
   > .kvds-description-list-item:not([hidden]) {
   display: grid;
   grid-column: 1 / -1;
-  grid-template-columns: subgrid;
+  grid-template-columns: var(--kvdsc-description-list-item-columns, subgrid);
+  align-content: var(--kvdsc-description-list-pair-align, normal);
 }
 
 .kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal']
@@ -37,11 +56,30 @@
   column-gap: inherit;
 }
 
+/* SVG terms remain beside their descriptions when the pair breakpoint stacks text terms. */
+.kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal']
+  > .kvds-description-list-item:not([hidden]):has(> dt > svg) {
+  display: var(--kvdsc-description-list-icon-display, grid);
+}
+
 .kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal'] {
   --kvdsc-layout-item-min-width: calc(
     var(--kvdsc-description-list-term-min-width) +
       var(--kvdsc-description-list-description-min-width) + var(--kvdsc-description-list-pair-gap)
   );
+}
+
+/* The list breakpoint spans each item across both columns; the pair breakpoint changes its inner columns. */
+.kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal']
+  > .kvds-description-list-item:not([hidden]) {
+  grid-column: var(--kvdsc-description-list-item-column, auto);
+}
+
+/* A stacked list uses subgrid for icons until the pair breakpoint switches them back to flex. */
+.kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal']
+  > .kvds-description-list-item:not([hidden]):has(> dt > svg) {
+  display: var(--kvdsc-description-list-icon-display, flex);
+  grid-template-columns: var(--kvdsc-description-list-item-columns, none);
 }
 
 .kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal']
@@ -55,18 +93,20 @@
   );
 
   display: grid;
-  grid-template-columns:
+  grid-template-columns: var(
+    --kvdsc-description-list-item-columns,
     minmax(
-      min(
-        var(--kvdsc-description-list-term-min-width),
-        var(--kvdsc-description-list-term-available-width)
-      ),
-      min(
-        var(--kvdsc-description-list-term-max-width),
-        var(--kvdsc-description-list-term-available-width)
+        min(
+          var(--kvdsc-description-list-term-min-width),
+          var(--kvdsc-description-list-term-available-width)
+        ),
+        min(
+          var(--kvdsc-description-list-term-max-width),
+          var(--kvdsc-description-list-term-available-width)
+        )
       )
-    )
-    minmax(0, 1fr);
+      minmax(0, 1fr)
+  );
   align-content: start;
 }
 
