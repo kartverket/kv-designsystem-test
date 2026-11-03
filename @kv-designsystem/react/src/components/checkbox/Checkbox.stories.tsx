@@ -33,5 +33,3 @@ export const OneOption: Story = {
     </Fieldset>
   ),
 };
-
-// TODO: create Do-Don't-story functionality
