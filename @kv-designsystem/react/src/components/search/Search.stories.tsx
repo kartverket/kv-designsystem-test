@@ -7,6 +7,8 @@ import { useState, useEffect, type ComponentProps } from 'react';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
 import { screenReaderTextArgType } from '../../../.storybook/utils/screenReaderTextArgType';
+import { Grid } from '../layout/Grid';
+import { Flex } from '../layout/Flex';
 
 // Not a prop, but a data attribute Search reads its screen reader text from. Added so Controls
 // shows the replacement for the deprecated prop `aria-label` on Search.Clear.
@@ -75,15 +77,9 @@ export const LiveSearch: Story = {
   },
   decorators: [
     (Story) => (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--ds-size-2)',
-        }}
-      >
+      <Grid>
         <Story />
-      </div>
+      </Grid>
     ),
   ],
   render: (args) => {
@@ -116,16 +112,10 @@ export const LiveSearch: Story = {
           <Search.Clear />
         </Search>
         {searchValue !== '' && (
-          <div
-            style={{
-              display: 'flex',
-              gap: 'var(--ds-size-1)',
-              alignItems: 'center',
-            }}
-          >
+          <Flex gap={1} alignItems="center" flexWrap="nowrap">
             <Spinner aria-hidden data-size="xs" />
             <span>Søker etter: {searchValue}</span>
-          </div>
+          </Flex>
         )}
       </>
     );

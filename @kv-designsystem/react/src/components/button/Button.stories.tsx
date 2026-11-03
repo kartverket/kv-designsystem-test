@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button } from './Button';
 import { Tooltip } from '../tooltip/Tooltip';
-import { fn } from 'storybook/test';
 import {
   ArrowRightIcon,
   ArrowUndoIcon,
@@ -11,24 +10,16 @@ import {
   PlusCircleIcon,
 } from '@navikt/aksel-icons';
 import { useState } from 'react';
+import { Flex } from '../layout/Flex';
 
 const meta = {
   component: Button,
   tags: ['alpha', 'digdir'],
   decorators: [
     (Story) => (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: 'var(--ds-size-4)',
-        }}
-      >
+      <Flex justify="center" alignItems="center">
         <Story />
-      </div>
+      </Flex>
     ),
   ],
 } satisfies Meta<typeof Button>;

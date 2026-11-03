@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tooltip } from './Tooltip';
 import { Button } from '../button/Button';
 import { FilesIcon, FloppydiskIcon, PrinterSmallIcon, TrashIcon } from '@navikt/aksel-icons';
+import { Flex } from '../layout/Flex';
 
 const meta = {
   component: Tooltip,
@@ -40,7 +41,7 @@ export const Placement: Story = {
     content: '',
   },
   render: (_args) => (
-    <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
+    <Flex gap={2} flexWrap="nowrap">
       <Tooltip placement="left" content="Slett">
         <Button icon variant="secondary">
           <TrashIcon aria-hidden />
@@ -61,6 +62,6 @@ export const Placement: Story = {
           <FilesIcon aria-hidden />
         </Button>
       </Tooltip>
-    </div>
+    </Flex>
   ),
 };
