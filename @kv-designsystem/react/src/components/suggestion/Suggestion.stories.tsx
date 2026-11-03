@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { subcomponents } from './docs/subcomponents';
+import { useState, type ComponentProps } from 'react';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
-import { useState, type ComponentProps } from 'react';
 import { Spinner } from '../spinner/Spinner';
 import { screenReaderTextArgType } from '../../../.storybook/utils/screenReaderTextArgType';
+import { subcomponents } from './docs/subcomponents';
 import { Suggestion } from './Suggestion';
 
 // Not props, but data attributes Suggestion reads its screen reader texts from. Added so

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Fieldset } from '../fieldset/Fieldset';
-import { Switch } from './Switch';
-import { Heading } from '../typography/heading/Heading';
 import { Field } from '@digdir/designsystemet-react';
+import { Fieldset } from '../fieldset/Fieldset';
+import { Heading } from '../typography/heading/Heading';
+import { Switch } from './Switch';
 
 const meta = {
   title: 'Komponenter/Switch',
