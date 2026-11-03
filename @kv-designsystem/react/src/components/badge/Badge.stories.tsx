@@ -90,8 +90,8 @@ export const Status: Story = {
     'data-color': 'success',
   },
   render: (args) => (
-    <Flex alignItems="center" gap={0}>
-      <Badge {...args} style={{ marginInlineEnd: '0.5rem' }} />
+    <Flex alignItems="center" rowGap={0} columnGap={2}>
+      <Badge {...args} />
       Aktiv
     </Flex>
   ),

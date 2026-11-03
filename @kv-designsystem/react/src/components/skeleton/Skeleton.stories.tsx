@@ -5,6 +5,7 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Avatar } from '../avatar/Avatar';
 import { Button } from '../button/Button';
 import { Flex } from '../layout/Flex';
+import { Grid } from '../layout/Grid';
 
 const meta = {
   component: Skeleton,
@@ -28,40 +29,29 @@ const schoolImage =
 // TODO: fix spacing in this story, see Udir
 export const UsageExample: Story = {
   render: (args) => (
-    <Flex gap={12} style={{ margin: 'var(--ds-size-12)' }}>
-      <div
-        style={{
-          flex: '1 1 200px',
-          // gap: 'var(--ds-size-4)', har ingen effekt ettersom display='block'
-        }}
-      >
+    <Grid gap={12} itemMinWidth={250} maxWidth="750px">
+      <div>
         <Skeleton height="200px" {...args} />
-        <Heading>
+        <Heading data-size="md">
           <Skeleton variant="text" width="15">
-            Tittel
+            Passe lang tittel
           </Skeleton>
         </Heading>
 
-        <Flex
-          gap={2}
-          alignItems="center"
-          style={{
-            padding: '5px 0 5px 0',
-          }}
-        >
+        <Flex gap={2} alignItems="center">
           <Skeleton variant="circle" width="40px" height="40px" {...args} />
           <Skeleton variant="text" {...args}>
             Forfatter | sist endret
           </Skeleton>
         </Flex>
 
-        <Skeleton variant="text" width="200" />
+        <Skeleton variant="text" width="220" />
       </div>
 
-      <div style={{ flex: '1 1 200px' }}>
+      <div>
         <img
           src={schoolImage}
-          alt="En hånd som setter en knappenål på et kart"
+          alt="Kart"
           style={{
             width: '100%',
             height: '200px',
@@ -85,7 +75,7 @@ export const UsageExample: Story = {
           høyeste punkt og mest øde sted.
         </Paragraph>
       </div>
-    </Flex>
+    </Grid>
   ),
 };
 

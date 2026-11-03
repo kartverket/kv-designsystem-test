@@ -24,7 +24,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Flex justify="center" alignItems="center" flexWrap="wrap">
+      <Flex justify="center" alignItems="center">
         <Story />
       </Flex>
     ),
