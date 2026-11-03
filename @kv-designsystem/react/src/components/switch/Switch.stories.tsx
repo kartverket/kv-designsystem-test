@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Field } from '@digdir/designsystemet-react';
 import { Fieldset } from '../fieldset/Fieldset';
 import { Heading } from '../typography/heading/Heading';
 import { Switch } from './Switch';
