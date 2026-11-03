@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "emitDecoratorMetadata": true,
     "outDir": "../../dist/out-tsc",
     "paths": {

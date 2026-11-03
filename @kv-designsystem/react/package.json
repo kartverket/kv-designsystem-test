@@ -36,6 +36,7 @@
   "scripts": {
     "format:check": "pnpm exec oxfmt --check .",
     "generate-layout-tokens": "node scripts/generate-layout-tokens-css.ts",
+    "generate-description-list-breakpoints": "node scripts/generate-description-list-breakpoints-css.ts",
     "lint": "oxlint --type-aware --max-warnings 0",
     "lint-circular-dependencies": "pnpm madge --circular ./src/alpha.ts",
     "lint-mdx-controls": "node ./scripts/check-mdx-controls.ts",

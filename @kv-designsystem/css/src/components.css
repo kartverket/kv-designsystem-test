@@ -1,9 +1,11 @@
 @import "../../react/src/components/layout/layoutTokens.generated.css" layer(kv.components);
 @import "../../react/src/components/alert/alert.css" layer(kv.components);
 @import "../../react/src/components/consentBanner/consentBanner.css" layer(kv.components);
+@import "../../react/src/components/descriptionList/descriptionList.css" layer(kv.components);
 @import "../../react/src/components/dropdown/dropdown.css" layer(kv.components);
 @import "../../react/src/components/footer/footer.css" layer(kv.components);
 @import "../../react/src/components/header/header.css" layer(kv.components);
 @import "../../react/src/components/layout/layout.css" layer(kv.components);
 @import "../../react/src/components/logo/logo.css" layer(kv.components);
 @import "../../react/src/components/variables.css" layer(kv.components);
+@import "../../react/src/components/descriptionList/descriptionListBreakpoints.generated.css" layer(kv.components);
