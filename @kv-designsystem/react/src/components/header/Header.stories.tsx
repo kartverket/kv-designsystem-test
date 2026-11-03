@@ -5,12 +5,12 @@ import { Avatar } from '../avatar/Avatar';
 import { Button } from '../button/Button';
 import { Divider } from '../divider/Divider';
 import { Dropdown } from '../dropdown/Dropdown';
-import { Header } from './';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 import { List } from '../list/List';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Search } from '../search/Search';
+import { Header } from './';
 
 const meta = {
   component: Header,

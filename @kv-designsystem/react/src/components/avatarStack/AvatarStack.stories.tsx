@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Avatar } from '../avatar/Avatar';
 import { BriefcaseIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
+import { Tooltip } from '@digdir/designsystemet-react';
+import { Avatar } from '../avatar/Avatar';
 import { Checkbox } from '../checkbox/Checkbox';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
-import { Tooltip } from '@digdir/designsystemet-react';
 import {
   cssVariableArgType,
   moveCssVariablesToStyle,

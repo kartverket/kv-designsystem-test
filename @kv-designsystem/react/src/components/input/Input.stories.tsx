@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Field } from '../field/Field';
-import { Input } from './Input';
-import { Label } from '../typography/label/Label';
 import { ValidationMessage } from '@digdir/designsystemet-react';
+import { Field } from '../field/Field';
+import { Label } from '../typography/label/Label';
+import { Input } from './Input';
 
 const meta = {
   component: Input,

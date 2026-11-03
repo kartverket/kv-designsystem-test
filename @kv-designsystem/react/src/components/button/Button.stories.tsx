@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Tooltip } from '../tooltip/Tooltip';
 import { fn } from 'storybook/test';
 import {
   ArrowRightIcon,
@@ -10,6 +9,7 @@ import {
   PlusCircleIcon,
 } from '@navikt/aksel-icons';
 import { useState } from 'react';
+import { Tooltip } from '../tooltip/Tooltip';
 import { Button } from './Button';
 
 const meta = {

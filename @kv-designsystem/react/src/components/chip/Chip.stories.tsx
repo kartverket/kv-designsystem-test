@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { subcomponents } from './docs/subcomponents';
 import { useState } from 'react';
 import { Search } from '../search/Search';
 import { Paragraph } from '../typography/paragraph/Paragraph';
+import { subcomponents } from './docs/subcomponents';
 import { Chip } from './Chip';
 
 const meta = {

@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { subcomponents } from './docs/subcomponents';
 import { Label } from '../typography/label/Label';
 import { Input } from '../input/Input';
 import { ValidationMessage } from '../typography/validationMessage/ValidationMessage';
 import { Textarea } from '../textarea/Textarea';
+import { subcomponents } from './docs/subcomponents';
 import { Field } from './Field';
+
 const meta = {
   component: Field,
   subcomponents,

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { BriefcaseIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 import { Dropdown } from '../dropdown/Dropdown';
 import { Badge } from '../badge/Badge';
 import { Link } from '../link/Link';
-import { BriefcaseIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 import {
   cssVariableArgType,
   moveCssVariablesToStyle,

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { FilesIcon, FloppydiskIcon, PrinterSmallIcon, TrashIcon } from '@navikt/aksel-icons';
 import { Button } from '../button/Button';
 import { Tooltip } from './Tooltip';
-import { FilesIcon, FloppydiskIcon, PrinterSmallIcon, TrashIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Tooltip,

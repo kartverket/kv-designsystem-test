@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
 import { Tabs } from '../tabs/Tabs';
 import { Badge } from './Badge';
 import { subcomponents } from './docs/subcomponents';
-import { EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
 
 const meta: Meta<typeof Badge> = {
   component: Badge,

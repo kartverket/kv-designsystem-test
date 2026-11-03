@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Field } from '../field/Field';
+import { Label } from '../typography/label/Label';
 import { Select } from './Select';
 import { subcomponents } from './docs/subcomponents';
-import { Label } from '../typography/label/Label';
 
 const meta = {
   component: Select,

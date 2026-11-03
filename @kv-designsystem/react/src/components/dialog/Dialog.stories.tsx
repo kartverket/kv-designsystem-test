@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
+import type { ChangeEvent } from 'react';
 import { Heading } from '../typography/heading/Heading';
-import { Dialog } from './Dialog';
-import { subcomponents } from './docs/subcomponents';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Button } from '../button/Button';
 import { Label } from '../typography/label/Label';
 import { Textarea } from '../textarea/Textarea';
-import { useState } from 'react';
 import { Radio } from '../radio/Radio';
-import type { DialogProps } from './Dialog';
 import { Checkbox } from '../checkbox/Checkbox';
 import { Fieldset } from '../fieldset/Fieldset';
-import type { ChangeEvent } from 'react';
+import type { DialogProps } from './Dialog';
+import { subcomponents } from './docs/subcomponents';
+import { Dialog } from './Dialog';
 import styles from './Dialog.stories.module.css';
 
 const meta = {
