@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex } from './Flex';
 import { Grid } from './Grid';
 import { Button } from '../button/Button';
 import { Card } from '../card/Card';
@@ -7,6 +6,7 @@ import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Tag } from '../tag/Tag';
 import { Textfield } from '../textfield/Textfield';
+import { Flex } from './Flex';
 
 const meta = {
   component: Flex,

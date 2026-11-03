@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Radio } from './Radio';
 import { Fieldset } from '../fieldset/Fieldset';
+import { Radio } from './Radio';
 
 const meta = {
   component: Radio,

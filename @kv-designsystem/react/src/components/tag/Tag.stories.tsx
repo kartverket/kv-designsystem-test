@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Tag, type TagProps } from './Tag';
 import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { RobotIcon } from '@navikt/aksel-icons';
 import { Card } from '../card/Card';
+import { Tag, type TagProps } from './Tag';
 
 const meta = {
   component: Tag,

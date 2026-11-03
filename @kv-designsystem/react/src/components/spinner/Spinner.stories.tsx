@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Spinner } from './Spinner';
 import { Paragraph } from '../typography/paragraph/Paragraph';
+import { Spinner } from './Spinner';
 
 // Meta<typeof Spinner> to avoid decorators: [] to cast error on args
 const meta: Meta<typeof Spinner> = {

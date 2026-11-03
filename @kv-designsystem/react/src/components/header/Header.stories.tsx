@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useRef, useState } from 'react';
+import { EnterIcon, LanguageIcon } from '@navikt/aksel-icons';
 import { Avatar } from '../avatar/Avatar';
 import { Button } from '../button/Button';
 import { Divider } from '../divider/Divider';
@@ -10,7 +11,6 @@ import { Link } from '../link/Link';
 import { List } from '../list/List';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Search } from '../search/Search';
-import { EnterIcon, LanguageIcon } from '@navikt/aksel-icons';
 
 const meta = {
   component: Header,

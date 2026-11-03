@@ -21,9 +21,7 @@ const commonRestrictedImports = [
 
 export default defineConfig({
   ...base,
-  ignorePatterns: [
-    'src/components', // TODO: remove this to when components are ready to be linted
-  ],
+  ignorePatterns: [],
   overrides: [
     // Previously provided by the Nx `flat/react` config
     {

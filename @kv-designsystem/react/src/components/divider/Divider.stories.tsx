@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Divider } from './Divider';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { List } from '../list/List';
+import { Divider } from './Divider';
 
 const meta = {
   component: Divider,

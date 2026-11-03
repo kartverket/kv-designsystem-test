@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Search } from './Search';
 import { subcomponents } from './docs/subcomponents';
 import { Divider } from '../divider/Divider';
 import { Spinner } from '../spinner/Spinner';
@@ -7,6 +6,7 @@ import { useState, useEffect, type ComponentProps } from 'react';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
 import { screenReaderTextArgType } from '../../../.storybook/utils/screenReaderTextArgType';
+import { Search } from './Search';
 
 // Not a prop, but a data attribute Search reads its screen reader text from. Added so Controls
 // shows the replacement for the deprecated prop `aria-label` on Search.Clear.

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Button } from '../button/Button';
 import { Card } from './Card';
 import { subcomponents } from './docs/subcomponents';
-import { Button } from '../button/Button';
 import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Tag } from '../tag/Tag';
