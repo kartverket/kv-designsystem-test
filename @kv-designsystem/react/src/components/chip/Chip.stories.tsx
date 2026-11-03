@@ -6,6 +6,7 @@ import { Search } from '../search/Search';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 
 const meta = {
+  title: 'Komponenter/Chip',
   component: Chip.Radio,
   subcomponents,
   parameters: { layout: 'centered' },
