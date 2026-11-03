@@ -1,6 +1,7 @@
 import cl from 'clsx/lite';
 import type { Size } from '@digdir/designsystemet-types';
-import { CSSProperties, forwardRef, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
+import { CSSProperties, forwardRef } from 'react';
 import './footer.css';
 import { Logo } from '../logo/Logo';
 

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Alert } from './Alert';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
+import { Alert } from './Alert';
 
 const meta = {
   title: 'Komponenter/Alert',

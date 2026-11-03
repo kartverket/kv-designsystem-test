@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Skeleton } from './Skeleton';
 import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Avatar } from '../avatar/Avatar';
 import { Button } from '../button/Button';
 import { Flex } from '../layout/Flex';
 import { Grid } from '../layout/Grid';
+import { Skeleton } from './Skeleton';
 
 const meta = {
   title: 'Komponenter/Skeleton',

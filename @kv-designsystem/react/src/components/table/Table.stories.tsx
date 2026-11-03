@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { Table, TableHeaderCellProps } from './Table';
+import type { TableHeaderCellProps } from './Table';
+import { Table } from './Table';
 import { subcomponents } from './docs/subcomponents';
 import { Tag } from '../tag/Tag';
 import { Pagination } from '../pagination/Pagination';

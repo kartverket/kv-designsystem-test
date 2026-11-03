@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Tooltip } from '../tooltip/Tooltip';
 import { ToggleGroup } from './ToggleGroup';
 import { subcomponents } from './docs/subcomponents';
-import { Tooltip } from '../tooltip/Tooltip';
 import {
   CheckmarkCircleIcon,
   ExclamationmarkTriangleIcon,

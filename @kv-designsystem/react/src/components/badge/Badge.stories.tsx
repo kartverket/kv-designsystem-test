@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Tabs } from '../tabs/Tabs';
 import { Badge } from './Badge';
 import { subcomponents } from './docs/subcomponents';
-import { Tabs } from '../tabs/Tabs';
 import { EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
 import { Grid } from '../layout/Grid';
 import { Flex } from '../layout/Flex';

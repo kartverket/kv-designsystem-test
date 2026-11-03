@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Chip } from './Chip';
-import { subcomponents } from './docs/subcomponents';
 import { useState } from 'react';
 import { Search } from '../search/Search';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Grid } from '../layout/Grid';
 import { Flex } from '../layout/Flex';
+import { subcomponents } from './docs/subcomponents';
+import { Chip } from './Chip';
 
 const meta = {
   title: 'Komponenter/Chip',

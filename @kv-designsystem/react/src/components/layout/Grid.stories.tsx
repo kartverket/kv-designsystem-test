@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Fragment, type CSSProperties } from 'react';
-import { Grid } from './Grid';
 import { Flex } from './Flex';
 import { Button } from '../button/Button';
 import { Card } from '../card/Card';
@@ -10,6 +9,7 @@ import { Search } from '../search/Search';
 import { Tag } from '../tag/Tag';
 import { Textfield } from '../textfield/Textfield';
 import { Fieldset } from '../fieldset/Fieldset';
+import { Grid } from './Grid';
 
 const meta = {
   component: Grid,

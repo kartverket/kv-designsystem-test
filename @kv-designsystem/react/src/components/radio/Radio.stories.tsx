@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Radio } from './Radio';
 import { Fieldset } from '../fieldset/Fieldset';
 import { Flex } from '../layout/Flex';
+import { Radio } from './Radio';
 
 const meta = {
   title: 'Komponenter/Radio',

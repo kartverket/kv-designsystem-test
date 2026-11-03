@@ -1,5 +1,5 @@
+// oxlint-disable import-js/order
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Avatar, type AvatarProps } from './Avatar';
 import { Dropdown } from '../dropdown/Dropdown';
 import { Badge } from '../badge/Badge';
 import { Link } from '../link/Link';
@@ -9,6 +9,7 @@ import {
   moveCssVariablesToStyle,
 } from '../../../.storybook/utils/cssVariableArgTypes';
 import { Flex } from '../layout/Flex';
+import { Avatar, type AvatarProps } from './Avatar';
 
 // Not a prop, but a CSS variable. Added so Controls shows the replacement for the deprecated
 // prop `variant`.

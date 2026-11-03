@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Popover } from './Popover';
 import { subcomponents } from './docs/subcomponents';
-import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Button } from '../button/Button';
 import { TrashIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';

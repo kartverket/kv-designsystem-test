@@ -1,5 +1,5 @@
+// oxlint-disable import-js/order
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { AvatarStack, type AvatarStackProps } from './AvatarStack';
 import { Avatar } from '../avatar/Avatar';
 import { BriefcaseIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
@@ -13,6 +13,7 @@ import {
 } from '../../../.storybook/utils/cssVariableArgTypes';
 import { Flex } from '../layout/Flex';
 import { Grid } from '../layout/Grid';
+import { AvatarStack, type AvatarStackProps } from './AvatarStack';
 
 // Not props, but CSS variables. Added so Controls shows the replacements for the deprecated
 // props `gap`, `avatarSize` and `overlap`.
