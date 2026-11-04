@@ -54,7 +54,8 @@ export const Position: Story = {
   render: (_args) => (
     <Field position="end">
       <Label>Flymodus</Label>
-      <Input type="checkbox" role="switch" aria-checked />
+      {/* oxlint-disable-next-line jsx-a11y/role-has-required-aria-props -- native checkbox exposes checked state */}
+      <Input type="checkbox" role="switch" />
     </Field>
   ),
 };
