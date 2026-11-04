@@ -64,7 +64,7 @@ export const Preview: Story = {
       <AvatarStack {...args}>
         <li>
           <Avatar aria-label="Snille Simen">
-            <img src={profileImage1} aria-hidden />
+            <img src={profileImage1} alt="" />
           </Avatar>
         </li>
         <li>
@@ -192,12 +192,12 @@ export const Playground: Story = {
         >
           <li>
             <Avatar aria-label="Snille Simen">
-              <img src={profileImage1} aria-hidden />
+              <img src={profileImage1} alt="" />
             </Avatar>
           </li>
           <li>
             <Avatar aria-label="Rånete Randi">
-              <img src={profileImage2} aria-hidden />
+              <img src={profileImage2} alt="" />
             </Avatar>
           </li>
           <li>
@@ -205,12 +205,12 @@ export const Playground: Story = {
           </li>
           <li>
             <Avatar aria-label="Tøffe Tommy">
-              <img src={profileImage3} aria-hidden />
+              <img src={profileImage3} alt="" />
             </Avatar>
           </li>
           <li>
             <Avatar aria-label="Artige Astrid">
-              <img src={profileImage4} aria-hidden />
+              <img src={profileImage4} alt="" />
             </Avatar>
           </li>
           <li>+10</li>
@@ -231,22 +231,22 @@ export const DataSize: Story = {
     >
       <li>
         <Avatar aria-label="Snille Simen">
-          <img src={profileImage1} aria-hidden />
+          <img src={profileImage1} alt="" />
         </Avatar>
       </li>
       <li>
         <Avatar aria-label="Rånete Randi">
-          <img src={profileImage2} aria-hidden />
+          <img src={profileImage2} alt="" />
         </Avatar>
       </li>
       <li>
         <Avatar aria-label="Tøffe Tommy">
-          <img src={profileImage3} aria-hidden />
+          <img src={profileImage3} alt="" />
         </Avatar>
       </li>
       <li>
         <Avatar aria-label="Artige Astrid">
-          <img src={profileImage4} aria-hidden />
+          <img src={profileImage4} alt="" />
         </Avatar>
       </li>
     </AvatarStack>
@@ -276,7 +276,7 @@ export const Expandable: Story = {
         <AvatarStack expandable>
           <li>
             <Avatar aria-label="Snille Simen">
-              <img src={profileImage1} aria-hidden />
+              <img src={profileImage1} alt="" />
             </Avatar>
           </li>
           <li>
@@ -300,7 +300,7 @@ export const Expandable: Story = {
         <AvatarStack expandable="fixed">
           <li>
             <Avatar aria-label="Snille Simen">
-              <img src={profileImage1} aria-hidden />
+              <img src={profileImage1} alt="" />
             </Avatar>
           </li>
           <li>
@@ -332,7 +332,7 @@ export const Square: Story = {
     <AvatarStack {...args}>
       <li>
         <Avatar aria-label="Snille Simen">
-          <img src={profileImage1} aria-hidden />
+          <img src={profileImage1} alt="" />
         </Avatar>
       </li>
       <li>
@@ -359,7 +359,7 @@ export const AdditionalAvatars: Story = {
       <AvatarStack>
         <li>
           <Avatar aria-label="Snille Simen">
-            <img src={profileImage1} aria-hidden />
+            <img src={profileImage1} alt="" />
           </Avatar>
         </li>
         <li>
@@ -383,7 +383,7 @@ export const AdditionalAvatars: Story = {
       <AvatarStack>
         <li>
           <Avatar aria-label="Snille Simen">
-            <img src={profileImage1} aria-hidden />
+            <img src={profileImage1} alt="" />
           </Avatar>
         </li>
         <li>
@@ -413,7 +413,7 @@ export const WithTooltipAndLink: Story = {
             <Tooltip content="Snille Simen">
               <Avatar aria-label="Snille Simen" asChild>
                 <a href="#">
-                  <img src={profileImage1} aria-hidden />
+                  <img src={profileImage1} alt="" />
                 </a>
               </Avatar>
             </Tooltip>
@@ -422,7 +422,7 @@ export const WithTooltipAndLink: Story = {
             <Tooltip content="Rånete Randi">
               <Avatar aria-label="Rånete Randi" asChild>
                 <a href="#">
-                  <img src={profileImage2} aria-hidden />
+                  <img src={profileImage2} alt="" />
                 </a>
               </Avatar>
             </Tooltip>
@@ -431,7 +431,7 @@ export const WithTooltipAndLink: Story = {
             <Tooltip content="Tøffe Tommy">
               <Avatar aria-label="Tøffe Tommy" asChild>
                 <a href="">
-                  <img src={profileImage3} aria-hidden />
+                  <img src={profileImage3} alt="" />
                 </a>
               </Avatar>
             </Tooltip>
@@ -452,7 +452,7 @@ export const WithTooltipAndLink: Story = {
             <Tooltip content="Snille Simen">
               <Avatar aria-label="Snille Simen" asChild>
                 <a href="#">
-                  <img src={profileImage1} aria-hidden />
+                  <img src={profileImage1} alt="" />
                 </a>
               </Avatar>
             </Tooltip>
@@ -461,7 +461,7 @@ export const WithTooltipAndLink: Story = {
             <Tooltip content="Rånete Randi">
               <Avatar aria-label="Rånete Randi" asChild>
                 <a href="#">
-                  <img src={profileImage2} aria-hidden />
+                  <img src={profileImage2} alt="" />
                 </a>
               </Avatar>
             </Tooltip>
@@ -470,7 +470,7 @@ export const WithTooltipAndLink: Story = {
             <Tooltip content="Tøffe Tommy">
               <Avatar aria-label="Tøffe Tommy" asChild>
                 <a href="">
-                  <img src={profileImage3} aria-hidden />
+                  <img src={profileImage3} alt="" />
                 </a>
               </Avatar>
             </Tooltip>
