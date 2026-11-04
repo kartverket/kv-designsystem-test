@@ -148,7 +148,7 @@ export const Loading: Story = {
     loading: true,
   },
   render: (args) => {
-    const [loading, setLoading] = useState(true);
+    const [loading, _setLoading] = useState(true);
     const handleClick = () => {
       if (!loading) {
         // Legg onClick-funksjonalitet her

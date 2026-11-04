@@ -19,7 +19,7 @@ export const Preview: Story = {
 };
 
 export const WithLabel: Story = {
-  render: (args) => (
+  render: (_arg) => (
     <Field>
       <Label>Fødselsnummer</Label>
       <Input />

@@ -22,7 +22,7 @@ export const Group: Story = {
     label: 'Switch',
     defaultChecked: true,
   },
-  render: (args) => (
+  render: (_args) => (
     <Fieldset>
       <Fieldset.Legend>Matrikkeldata</Fieldset.Legend>
       <Switch label="Adresser" defaultChecked />
@@ -37,7 +37,7 @@ export const Outline: Story = {
     label: 'Switch',
     defaultChecked: true,
   },
-  render: (args) => (
+  render: (_args) => (
     <Fieldset>
       <Fieldset.Legend>Aktiver varslinger</Fieldset.Legend>
       <Switch variant="outline" label="Driftsmeldinger" defaultChecked />
@@ -55,7 +55,7 @@ export const RightAligned: Story = {
   args: {
     label: 'Switch',
   },
-  render: (args) => (
+  render: (_args) => (
     <Fieldset>
       <Fieldset.Legend>
         <Heading level={2}>Innstillinger</Heading>

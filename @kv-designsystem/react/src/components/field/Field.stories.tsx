@@ -53,7 +53,7 @@ export const Position: Story = {
   render: (_args) => (
     <Field position="end">
       <Label>Flymodus</Label>
-      <Input type="checkbox" role="switch" />
+      <Input type="checkbox" role="switch" aria-checked />
     </Field>
   ),
 };
