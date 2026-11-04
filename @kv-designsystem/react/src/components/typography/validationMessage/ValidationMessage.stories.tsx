@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ValidationMessage } from './ValidationMessage';
 
 const meta = {
+  title: 'Komponenter/Typography/ValidationMessage',
   component: ValidationMessage,
-  title: 'Components/Typography/ValidationMessage',
   parameters: { layout: 'centered' },
   tags: ['!autodocs'],
 } satisfies Meta<typeof ValidationMessage>;

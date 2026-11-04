@@ -13,6 +13,7 @@ import {
 import { useState } from 'react';
 
 const meta = {
+  title: 'Komponenter/Button',
   component: Button,
   tags: ['alpha', 'digdir'],
   decorators: [

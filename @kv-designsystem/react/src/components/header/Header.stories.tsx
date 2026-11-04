@@ -13,6 +13,7 @@ import { Search } from '../search/Search';
 import { EnterIcon, LanguageIcon } from '@navikt/aksel-icons';
 
 const meta = {
+  title: 'Komponenter/Header',
   component: Header,
   parameters: {
     docs: {

@@ -5,6 +5,7 @@ import { List } from './List';
 import { subcomponents } from './docs/subcomponents';
 
 const meta = {
+  title: 'Komponenter/List',
   component: List.Unordered,
   subcomponents,
   parameters: { layout: 'centered' },

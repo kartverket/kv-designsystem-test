@@ -14,6 +14,7 @@ import {
 type AvatarStoryArgs = AvatarProps & { '--dsc-avatar-radius'?: string };
 
 const meta = {
+  title: 'Komponenter/Avatar',
   component: Avatar,
   parameters: { layout: 'centered' },
   argTypes: {

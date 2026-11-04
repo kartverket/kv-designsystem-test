@@ -13,6 +13,7 @@ import { screenReaderTextArgType } from '../../../.storybook/utils/screenReaderT
 type SearchStoryArgs = ComponentProps<typeof Search> & { 'data-sr-clear'?: string };
 
 const meta = {
+  title: 'Komponenter/Search',
   component: Search,
   subcomponents,
   parameters: { layout: 'centered' },

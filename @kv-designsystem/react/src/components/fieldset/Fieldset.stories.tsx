@@ -6,6 +6,7 @@ import { Checkbox } from '../checkbox/Checkbox';
 import { Heading } from '../typography/heading/Heading';
 
 const meta = {
+  title: 'Komponenter/Fieldset',
   component: Fieldset,
   subcomponents,
   parameters: { layout: 'centered' },

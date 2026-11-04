@@ -5,6 +5,7 @@ import { Heading } from '../typography/heading/Heading';
 import { Field } from '@digdir/designsystemet-react';
 
 const meta = {
+  title: 'Komponenter/Switch',
   component: Switch,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Switch>;

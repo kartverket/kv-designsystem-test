@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Logo } from './Logo';
 
 const meta = {
+  title: 'Komponenter/Logo',
   component: Logo,
   parameters: {
     layout: 'centered',

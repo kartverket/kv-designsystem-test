@@ -4,6 +4,7 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 
 // Meta<typeof Spinner> to avoid decorators: [] to cast error on args
 const meta: Meta<typeof Spinner> = {
+  title: 'Komponenter/Spinner',
   component: Spinner,
   decorators: [
     (Story) => (

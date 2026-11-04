@@ -5,6 +5,7 @@ import { Tabs } from '../tabs/Tabs';
 import { EnvelopeClosedFillIcon } from '@navikt/aksel-icons';
 
 const meta: Meta<typeof Badge> = {
+  title: 'Komponenter/Badge',
   component: Badge,
   subcomponents,
   parameters: { layout: 'centered' },

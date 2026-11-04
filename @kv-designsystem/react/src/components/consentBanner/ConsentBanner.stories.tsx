@@ -8,6 +8,7 @@ import { Checkbox } from '../checkbox/Checkbox';
 import { ConsentBanner } from './ConsentBanner';
 
 const meta = {
+  title: 'Komponenter/ConsentBanner',
   component: ConsentBanner,
 } satisfies Meta<typeof ConsentBanner>;
 

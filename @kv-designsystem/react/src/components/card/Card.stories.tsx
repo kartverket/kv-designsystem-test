@@ -9,6 +9,7 @@ import { HeartIcon, HeartFillIcon, NotePencilIcon } from '@navikt/aksel-icons';
 import { Tooltip } from '@digdir/designsystemet-react';
 
 const meta = {
+  title: 'Komponenter/Card',
   component: Card,
   subcomponents,
   parameters: { layout: 'centered' },

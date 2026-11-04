@@ -4,6 +4,7 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Chat2Icon, FilePdfFillIcon } from '@navikt/aksel-icons';
 
 const meta = {
+  title: 'Komponenter/Link',
   component: Link,
   parameters: { layout: 'centered' },
   args: {

@@ -15,6 +15,7 @@ import type { ChangeEvent } from 'react';
 import styles from './Dialog.stories.module.css';
 
 const meta = {
+  title: 'Komponenter/Dialog',
   component: Dialog,
   subcomponents,
   parameters: { layout: 'centered' },

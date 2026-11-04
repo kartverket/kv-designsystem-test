@@ -44,6 +44,7 @@ const preview: Preview = {
       components: componentOverrides,
       extractArgTypes: extractKvdsArgTypes,
     },
+
   },
   globalTypes: {
     theme: {

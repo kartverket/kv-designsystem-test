@@ -6,6 +6,7 @@ import { Avatar } from '../avatar/Avatar';
 import { Button } from '../button/Button';
 
 const meta = {
+  title: 'Komponenter/Skeleton',
   component: Skeleton,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Skeleton>;

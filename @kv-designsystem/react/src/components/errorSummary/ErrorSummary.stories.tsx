@@ -4,6 +4,7 @@ import { subcomponents } from './docs/subcomponents';
 import { Textfield } from '../textfield/Textfield';
 
 const meta = {
+  title: 'Komponenter/ErrorSummary',
   component: ErrorSummary,
   subcomponents,
   parameters: { layout: 'centered' },

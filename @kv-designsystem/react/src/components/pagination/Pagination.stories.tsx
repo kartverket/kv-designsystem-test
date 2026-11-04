@@ -9,6 +9,7 @@ import {
 import { useState } from 'react';
 
 const meta = {
+  title: 'Komponenter/Pagination',
   component: Pagination,
   subcomponents,
   parameters: { layout: 'centered' },

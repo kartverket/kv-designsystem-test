@@ -12,6 +12,7 @@ import {
 } from '@navikt/aksel-icons';
 
 const meta = {
+  title: 'Komponenter/ToggleGroup',
   component: ToggleGroup,
   subcomponents,
   parameters: { layout: 'centered' },

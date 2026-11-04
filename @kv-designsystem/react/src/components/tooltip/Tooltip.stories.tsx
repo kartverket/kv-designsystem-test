@@ -4,6 +4,7 @@ import { Button } from '../button/Button';
 import { FilesIcon, FloppydiskIcon, PrinterSmallIcon, TrashIcon } from '@navikt/aksel-icons';
 
 const meta = {
+  title: 'Komponenter/Tooltip',
   component: Tooltip,
   parameters: { layout: 'centered' },
   args: {

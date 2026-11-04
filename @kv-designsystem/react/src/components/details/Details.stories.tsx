@@ -5,6 +5,7 @@ import { Card } from '../card/Card';
 import { Heading } from '../typography/heading/Heading';
 
 const meta = {
+  title: 'Komponenter/Details',
   component: Details,
   subcomponents,
 } satisfies Meta<typeof Details>;

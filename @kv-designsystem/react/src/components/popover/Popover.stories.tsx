@@ -7,6 +7,7 @@ import { TrashIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 
 const meta = {
+  title: 'Komponenter/Popover',
   component: Popover,
   subcomponents,
   parameters: { layout: 'centered' },

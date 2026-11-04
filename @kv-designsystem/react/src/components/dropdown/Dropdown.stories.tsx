@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Button } from '../button/Button';
 
 const meta = {
+  title: 'Komponenter/Dropdown',
   component: Dropdown,
   subcomponents,
   parameters: { layout: 'centered' },

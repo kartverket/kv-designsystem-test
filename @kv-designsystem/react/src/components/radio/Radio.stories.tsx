@@ -3,6 +3,7 @@ import { Radio } from './Radio';
 import { Fieldset } from '../fieldset/Fieldset';
 
 const meta = {
+  title: 'Komponenter/Radio',
   component: Radio,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Radio>;

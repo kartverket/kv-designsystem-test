@@ -13,7 +13,7 @@ import { Fieldset } from '../fieldset/Fieldset';
 
 const meta = {
   component: Grid,
-  title: 'Components/Layout/Grid',
+  title: 'Komponenter/Layout/Grid',
   tags: ['!autodocs'],
   argTypes: {
     // asChild needs exactly one child, so toggling it in the controls will crash the story
