@@ -108,33 +108,31 @@ export const WithMenu: Story = {
     },
   },
   render: (args) => (
-    <>
-      <Header {...args}>
-        <Header.MenuButton popovertarget="with-menu" />
-        <Header.Menu id="with-menu">
-          <Header.Nav>
-            <li>
-              <Heading data-size="sm">Temanavn</Heading>
-              <ul>
-                <Header.NavItem href="#">Tjenesteside</Header.NavItem>
-                <Header.NavItem href="#" aria-current="page">
-                  Tjenesteside
-                </Header.NavItem>
-                <Header.NavItem href="#">Tjenesteside</Header.NavItem>
-              </ul>
-            </li>
-            <li>
-              <Heading>Temanavn</Heading>
-              <ul>
-                <Header.NavItem href="#">Tjenesteside</Header.NavItem>
-                <Header.NavItem href="#">Tjenesteside</Header.NavItem>
-                <Header.NavItem href="#">Tjenesteside</Header.NavItem>
-              </ul>
-            </li>
-          </Header.Nav>
-        </Header.Menu>
-      </Header>
-    </>
+    <Header {...args}>
+      <Header.MenuButton popovertarget="with-menu" />
+      <Header.Menu id="with-menu">
+        <Header.Nav>
+          <li>
+            <Heading data-size="sm">Temanavn</Heading>
+            <ul>
+              <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+              <Header.NavItem href="#" aria-current="page">
+                Tjenesteside
+              </Header.NavItem>
+              <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+            </ul>
+          </li>
+          <li>
+            <Heading>Temanavn</Heading>
+            <ul>
+              <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+              <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+              <Header.NavItem href="#">Tjenesteside</Header.NavItem>
+            </ul>
+          </li>
+        </Header.Nav>
+      </Header.Menu>
+    </Header>
   ),
 };
 
@@ -234,25 +232,23 @@ export const WithSearch: Story = {
     applicationHref: '#',
   },
   render: (args) => (
-    <>
-      <Header {...args}>
-        <Header.ActionsList data-show-from="md">
-          <Search style={{ width: '250px' }}>
-            <Search.Input aria-label="Søk" />
-            <Search.Clear />
-          </Search>
-        </Header.ActionsList>
+    <Header {...args}>
+      <Header.ActionsList data-show-from="md">
+        <Search style={{ width: '250px' }}>
+          <Search.Input aria-label="Søk" />
+          <Search.Clear />
+        </Search>
+      </Header.ActionsList>
 
-        <Header.MenuButton popovertarget="with-search" data-hide-from="md" />
-        <Header.Menu id="with-search">
-          <Search data-hide-from="md">
-            <Search.Input aria-label="Søk" name="search" />
-            <Search.Clear />
-            <Search.Button type="submit" />
-          </Search>
-        </Header.Menu>
-      </Header>
-    </>
+      <Header.MenuButton popovertarget="with-search" data-hide-from="md" />
+      <Header.Menu id="with-search">
+        <Search data-hide-from="md">
+          <Search.Input aria-label="Søk" name="search" />
+          <Search.Clear />
+          <Search.Button type="submit" />
+        </Search>
+      </Header.Menu>
+    </Header>
   ),
 };
 
