@@ -243,6 +243,14 @@ export default defineConfig({
         'react/rules-of-hooks': 'off',
       },
     },
+    // Stories use `href="#"` as placeholder links
+    {
+      files: ['**/*.stories.{ts,tsx,js,jsx,mjs,cjs}', '**/*.story.{ts,tsx,js,jsx,mjs,cjs}'],
+      plugins: ['jsx-a11y'],
+      rules: {
+        'jsx-a11y/anchor-is-valid': 'off',
+      },
+    },
     {
       files: ['.storybook/main.{js,cjs,mjs,ts}'],
       jsPlugins: ['eslint-plugin-storybook'],
