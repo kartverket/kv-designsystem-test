@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Avatar, type AvatarProps } from './Avatar';
+import { BriefcaseIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 import { Dropdown } from '../dropdown/Dropdown';
 import { Badge } from '../badge/Badge';
 import { Link } from '../link/Link';
-import { BriefcaseIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 import {
   cssVariableArgType,
   moveCssVariablesToStyle,
 } from '../../../.storybook/utils/cssVariableArgTypes';
+import { Avatar, type AvatarProps } from './Avatar';
 
 // Not a prop, but a CSS variable. Added so Controls shows the replacement for the deprecated
 // prop `variant`.
@@ -74,7 +74,7 @@ export const Content: Story = {
         <BriefcaseIcon aria-hidden />
       </Avatar>
       <Avatar {...args}>
-        <img src={profileImage} aria-hidden />
+        <img src={profileImage} alt="" />
       </Avatar>
     </>
   ),
@@ -158,11 +158,11 @@ export const InDropdown: Story = {
   render: (_args: AvatarProps) => (
     <Dropdown.TriggerContext>
       <Dropdown.Trigger variant="tertiary">
-        <Avatar aria-hidden="true" data-size="sm">
+        <Avatar aria-hidden data-size="sm">
           on
         </Avatar>
         Ola Nordmann
-        <ChevronUpIcon aria-hidden="true" />
+        <ChevronUpIcon aria-hidden />
       </Dropdown.Trigger>
       <Dropdown placement="bottom-end" autoPlacement={false} data-size="md" open>
         <Dropdown.List>
@@ -170,7 +170,7 @@ export const InDropdown: Story = {
             <Dropdown.Button>
               <Badge.Position overlap="circle">
                 <Badge data-color="danger" data-size="sm" />
-                <Avatar aria-hidden="true" data-size="xs">
+                <Avatar aria-hidden data-size="xs">
                   on
                 </Avatar>
               </Badge.Position>
@@ -179,7 +179,7 @@ export const InDropdown: Story = {
           </Dropdown.Item>
           <Dropdown.Item>
             <Dropdown.Button>
-              <Avatar aria-hidden="true" data-size="xs" aria-label="Ola Nordmann">
+              <Avatar aria-hidden data-size="xs" aria-label="Ola Nordmann">
                 <BriefcaseIcon aria-hidden />
               </Avatar>
               Sogndal kommune

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Details } from './Details';
-import { subcomponents } from './docs/subcomponents';
 import { Card } from '../card/Card';
 import { Heading } from '../typography/heading/Heading';
+import { Details } from './Details';
+import { subcomponents } from './docs/subcomponents';
 
 const meta = {
   component: Details,

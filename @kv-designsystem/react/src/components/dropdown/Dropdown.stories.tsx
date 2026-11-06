@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Dropdown } from './Dropdown';
-import { subcomponents } from './docs/subcomponents';
-import { Divider } from '../divider/Divider';
 import { LinkIcon, ChevronDownIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
+import { Divider } from '../divider/Divider';
 import { Button } from '../button/Button';
+import { subcomponents } from './docs/subcomponents';
+import { Dropdown } from './Dropdown';
 
 const meta = {
   component: Dropdown,

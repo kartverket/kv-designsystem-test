@@ -1,6 +1,6 @@
 import cl from 'clsx/lite';
 import type { Size } from '@digdir/designsystemet-types';
-import { CSSProperties, forwardRef, type HTMLAttributes, type ReactNode } from 'react';
+import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import './header.css';
 import { PublicBrand, InternalBrand } from './HeaderBrand';

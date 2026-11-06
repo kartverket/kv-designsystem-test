@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Textfield } from './Textfield';
 import { Tag } from '../tag/Tag';
+import { Textfield } from './Textfield';
 
 const meta = {
   args: {

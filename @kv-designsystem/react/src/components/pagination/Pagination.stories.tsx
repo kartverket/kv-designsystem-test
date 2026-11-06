@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Pagination } from './Pagination';
-import { subcomponents } from './docs/subcomponents';
 import { useArgs } from 'storybook/preview-api';
+import { useState } from 'react';
 import {
   type UsePaginationProps,
   usePagination,
 } from '../../utilities/hooks/usePagination/usePagination';
-import { useState } from 'react';
+import { Pagination } from './Pagination';
+import { subcomponents } from './docs/subcomponents';
 
 const meta = {
   component: Pagination,

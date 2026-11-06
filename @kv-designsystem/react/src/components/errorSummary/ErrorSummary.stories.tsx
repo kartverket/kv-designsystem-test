@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Textfield } from '../textfield/Textfield';
 import { ErrorSummary } from './ErrorSummary';
 import { subcomponents } from './docs/subcomponents';
-import { Textfield } from '../textfield/Textfield';
 
 const meta = {
   component: ErrorSummary,

@@ -1,5 +1,5 @@
 import type { CSSProperties, HTMLAttributes } from 'react';
-import { layoutItemMinWidths, layoutSizes } from './layoutTokens';
+import type { layoutItemMinWidths, layoutSizes } from './layoutTokens';
 
 /**
  * `layoutSizes` and `layoutItemMinWidths` list every supported value.

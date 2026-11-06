@@ -1,8 +1,8 @@
 import cl from 'clsx/lite';
 import { forwardRef, type ForwardRefExoticComponent, type RefAttributes } from 'react';
+import { XMarkIcon } from '@navikt/aksel-icons';
 import type { ButtonProps } from '../button/Button';
 import { Button } from '../button/Button';
-import { XMarkIcon } from '@navikt/aksel-icons';
 
 export type HeaderPopoverTriggerProps = ButtonProps & {
   primaryIcon: typeof XMarkIcon;

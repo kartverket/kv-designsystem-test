@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Textarea } from './Textarea';
 import { Label } from '../typography/label/Label';
 import { Field } from '../field/Field';
+import { Textarea } from './Textarea';
 
 const meta = {
   component: Textarea,

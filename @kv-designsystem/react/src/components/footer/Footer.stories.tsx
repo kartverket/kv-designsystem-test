@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Footer } from './';
 import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
+import { Footer } from './';
 
 const meta = {
   component: Footer,

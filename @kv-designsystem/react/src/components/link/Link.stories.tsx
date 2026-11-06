@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Link } from './Link';
-import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Chat2Icon, FilePdfFillIcon } from '@navikt/aksel-icons';
+import { Paragraph } from '../typography/paragraph/Paragraph';
+import { Link } from './Link';
 
 const meta = {
   component: Link,

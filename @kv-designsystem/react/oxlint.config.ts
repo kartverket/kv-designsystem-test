@@ -21,9 +21,7 @@ const commonRestrictedImports = [
 
 export default defineConfig({
   ...base,
-  ignorePatterns: [
-    'src/components', // TODO: remove this to when components are ready to be linted
-  ],
+  ignorePatterns: [],
   overrides: [
     // Previously provided by the Nx `flat/react` config
     {
@@ -243,6 +241,14 @@ export default defineConfig({
         'storybook/use-storybook-testing-library': 'error',
         'import/no-anonymous-default-export': 'off',
         'react/rules-of-hooks': 'off',
+      },
+    },
+    // Stories use `href="#"` as placeholder links
+    {
+      files: ['**/*.stories.{ts,tsx,js,jsx,mjs,cjs}', '**/*.story.{ts,tsx,js,jsx,mjs,cjs}'],
+      plugins: ['jsx-a11y'],
+      rules: {
+        'jsx-a11y/anchor-is-valid': 'off',
       },
     },
     {

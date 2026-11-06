@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Card } from './Card';
-import { subcomponents } from './docs/subcomponents';
+import { HeartIcon, HeartFillIcon, NotePencilIcon } from '@navikt/aksel-icons';
+import { Tooltip } from '@digdir/designsystemet-react';
 import { Button } from '../button/Button';
 import { Heading } from '../typography/heading/Heading';
 import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Tag } from '../tag/Tag';
-import { HeartIcon, HeartFillIcon, NotePencilIcon } from '@navikt/aksel-icons';
-import { Tooltip } from '@digdir/designsystemet-react';
+import { subcomponents } from './docs/subcomponents';
+import { Card } from './Card';
 
 const meta = {
   component: Card,

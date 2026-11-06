@@ -1,5 +1,6 @@
 import cl from 'clsx/lite';
-import { forwardRef, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import { SkipLink } from '../skipLink/SkipLink';
 import './consentBanner.css';
 import { Card } from '../card/Card';

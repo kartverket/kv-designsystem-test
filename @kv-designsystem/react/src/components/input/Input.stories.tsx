@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Input } from './Input';
+import { ValidationMessage } from '@digdir/designsystemet-react';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
-import { ValidationMessage } from '@digdir/designsystemet-react';
+import { Input } from './Input';
 
 const meta = {
   component: Input,
@@ -19,7 +19,7 @@ export const Preview: Story = {
 };
 
 export const WithLabel: Story = {
-  render: (args) => (
+  render: (_arg) => (
     <Field>
       <Label>Fødselsnummer</Label>
       <Input />
