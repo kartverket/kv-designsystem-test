@@ -54,8 +54,9 @@ const preview: Preview = {
           'Designverdier',
           'Komponenter',
           'Hooks',
-          'Cookies og personvern', // Legger seg feil :/
-          'KVIB – Kartverkets gamle designsystem', // Hvorfor vil ikke denne ligge nederst i sidebaren?
+          'Ressurser',
+          // 'Cookies og personvern', // Legger seg feil :/
+          // 'KVIB – Kartverkets gamle designsystem', // Hvorfor vil ikke denne ligge nederst i sidebaren?
         ],
       },
     },
