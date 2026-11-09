@@ -36,7 +36,8 @@ const runtimeImport: Plugin = {
     builder.onResolve(
       { filter: /(?:^\.\/server|^\.\.\/src\/(?:catalog|server|runtime))\.js$/ },
       (args) => ({
-        path: args.importer.includes('/test/') ? '../runtime.mjs' : './runtime.mjs',
+        // The specifier, unlike the importer path, uses `/` on every platform.
+        path: args.path.startsWith('../src/') ? '../runtime.mjs' : './runtime.mjs',
         external: true,
       }),
     );

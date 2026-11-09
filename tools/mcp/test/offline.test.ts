@@ -318,6 +318,14 @@ test('search ranks by relevance, unknown names get suggestions, dependencies exp
     const escaped = (await loadCatalog(root)).status().dependencies[0];
     assert.equal(escaped?.indexed, false);
     assert.match(escaped?.note ?? '', /escapes repository/);
+    // A skipped link changes no indexed file, but the cached status must still report it.
+    const before = (await loadCatalog(root)).status().diagnostics.length;
+    await symlink('/etc/hosts', join(root, 'docs/linked.md'));
+    const linked = (await loadCatalog(root)).status().diagnostics;
+    assert.equal(linked.length, before + 1);
+    assert.ok(linked.some((item) => item.path === 'docs/linked.md'));
+    await rm(join(root, 'docs/linked.md'));
+    assert.equal((await loadCatalog(root)).status().diagnostics.length, before);
   } finally {
     await rm(root, { recursive: true, force: true });
   }
@@ -364,6 +372,33 @@ test('documents inline examples with package imports and exports resolve shared 
       ],
     );
     assert.throws(() => catalog.component('Lable'), /Did you mean: Label \(export\)/);
+
+    // Examples carry the file-local values they use, and string children keep their literal text.
+    await put(
+      root,
+      'docs/components/chip/Chip.stories.tsx',
+      "import { Button } from '../button/Button';\nconst meta = { title: 'Components/Chip', component: Button }; export default meta;\nconst unused = 1; const colors = ['red', 'blue']; const palette = colors.map((c) => c.toUpperCase());\nexport const Colors = { render: () => <>{palette.map((p) => <Button key={p}>{p}</Button>)}</> };\nexport const Reused = { render: Colors.render };\nexport const Braces = { args: { children: 'Show {name} & <b>', title: 'A & B' } };",
+    );
+    await put(
+      root,
+      'docs/components/chip/Chip.mdx',
+      "import * as Stories from './Chip.stories';\n<Meta of={Stories} />\n\n# Chip\n\n<Canvas of={Stories.Colors} />\n<Canvas of={Stories.Reused} />\n<Canvas of={Stories.Braces} />\n",
+    );
+    const chip = (await loadCatalog(root)).document('components-chip--docs').content;
+    assert.ok(
+      chip.includes(
+        "// declared in the example file:\nconst colors = ['red', 'blue'];\n\nconst palette = colors.map((c) => c.toUpperCase());\n\nexport const Colors",
+      ),
+      'transitive declarations come before the story, in source order',
+    );
+    assert.ok(
+      chip.includes(
+        'const palette = colors.map((c) => c.toUpperCase());\n\nexport const Colors = { render: () => <>{palette.map((p) => <Button key={p}>{p}</Button>)}</> };\n\nexport const Reused',
+      ),
+    );
+    assert.ok(!chip.includes('const unused'), 'unreferenced declarations are left out');
+    assert.ok(!chip.includes('const meta'), 'the meta object is not repeated');
+    assert.ok(chip.includes('<Button title={\'A & B\'}>{"Show {name} & <b>"}</Button>'));
   } finally {
     await rm(root, { recursive: true, force: true });
   }

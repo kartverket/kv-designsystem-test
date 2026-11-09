@@ -156,7 +156,11 @@ function storyJsx(
       children = items
         .map((item) => {
           const value = values.resolve(item) ?? item;
-          if (ts.isStringLiteralLike(value)) return value.text;
+          // Text with JSX syntax or edge whitespace would change meaning as a literal child.
+          if (ts.isStringLiteralLike(value))
+            return /[<>{}&\r\n\t]| {2}/.test(value.text) || value.text.trim() !== value.text
+              ? `{${JSON.stringify(value.text)}}`
+              : value.text;
           return ts.isJsxElement(value) ||
             ts.isJsxFragment(value) ||
             ts.isJsxSelfClosingElement(value)
@@ -174,15 +178,106 @@ function storyJsx(
     )
       continue;
     if (resolved.kind === ts.SyntaxKind.TrueKeyword) attributes.push(key);
-    else if (text !== undefined && !/["\n]/.test(text)) attributes.push(`${key}="${text}"`);
+    // JSX decodes entities such as &amp; in attribute strings, so `&` needs an expression too.
+    else if (text !== undefined && !/["\n&]/.test(text)) attributes.push(`${key}="${text}"`);
     else attributes.push(`${key}={${source}}`);
   }
   const open = [component, ...attributes].join(' ');
   return children ? `<${open}>${children}</${component}>` : `<${open} />`;
 }
 
-/** Example code for one story: its own render, the meta render, or JSX built from args. */
+interface LocalDeclaration {
+  order: number;
+  text: string;
+}
+
+/** Top-level value declarations of a story file by name, except the default-exported meta. */
+function localDeclarations(ast: ts.SourceFile): Map<string, LocalDeclaration> {
+  const exported = ast.statements.find(ts.isExportAssignment)?.expression;
+  const metaName = exported && ts.isIdentifier(exported) ? exported.text : undefined;
+  const locals = new Map<string, LocalDeclaration>();
+  ast.statements.forEach((statement, order) => {
+    if (ts.isVariableStatement(statement)) {
+      const list = statement.declarationList;
+      const keyword = list.flags & ts.NodeFlags.Const ? 'const' : 'let';
+      for (const declaration of list.declarations)
+        if (ts.isIdentifier(declaration.name) && declaration.name.text !== metaName)
+          locals.set(declaration.name.text, {
+            order,
+            text:
+              list.declarations.length === 1
+                ? statement.getText(ast)
+                : `${keyword} ${declaration.getText(ast)};`,
+          });
+    } else if (
+      (ts.isFunctionDeclaration(statement) ||
+        ts.isClassDeclaration(statement) ||
+        ts.isEnumDeclaration(statement)) &&
+      statement.name
+    )
+      locals.set(statement.name.text, { order, text: statement.getText(ast) });
+  });
+  return locals;
+}
+
+/** Identifiers that code reads, leaving out property, attribute and member names. */
+function referencedNames(code: string): Set<string> {
+  const ast = ts.createSourceFile(
+    'example.tsx',
+    code,
+    ts.ScriptTarget.Latest,
+    true,
+    ts.ScriptKind.TSX,
+  );
+  const names = new Set<string>();
+  const visit = (node: ts.Node): void => {
+    const parent = node.parent;
+    if (
+      ts.isIdentifier(node) &&
+      !(ts.isPropertyAccessExpression(parent) && parent.name === node) &&
+      !(ts.isPropertyAssignment(parent) && parent.name === node) &&
+      !(ts.isJsxAttribute(parent) && parent.name === node)
+    )
+      names.add(node.text);
+    ts.forEachChild(node, visit);
+  };
+  visit(ast);
+  return names;
+}
+
+/** Prepend the file-local declarations that code needs, transitively and in source order. */
+function withLocals(code: string, name: string, locals: Map<string, LocalDeclaration>): string {
+  const needed = new Map<string, LocalDeclaration>();
+  const pending = [code];
+  for (let text = pending.pop(); text !== undefined; text = pending.pop())
+    for (const reference of referencedNames(text)) {
+      const local = locals.get(reference);
+      if (!local || reference === name || needed.has(reference) || code.includes(local.text))
+        continue;
+      needed.set(reference, local);
+      pending.push(local.text);
+    }
+  if (!needed.size) return code;
+  const declarations = [
+    ...new Set([...needed.values()].sort((a, b) => a.order - b.order).map((item) => item.text)),
+  ];
+  return `// declared in the example file:\n${declarations.join('\n\n')}\n\n${code}`;
+}
+
+/** Example code for one story with the file-local declarations it uses. */
 function storyCode(
+  values: StaticValues,
+  locals: Map<string, LocalDeclaration>,
+  meta: ts.Expression | undefined,
+  name: string,
+  initializer: ts.Expression | undefined,
+  statement: ts.Node | undefined,
+): string {
+  return withLocals(ownStoryCode(values, meta, name, initializer, statement), name, locals);
+}
+
+/** Example code for one story: its own render, the meta render, or JSX built from args. */
+function ownStoryCode(
   values: StaticValues,
   meta: ts.Expression | undefined,
   name: string,
@@ -212,6 +307,7 @@ function parseStories(
 ): StoryGroup {
   const ast = ts.createSourceFile(path, content, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
   const values = new StaticValues(ast);
+  const locals = localDeclarations(ast);
   const meta = values.resolve(ast.statements.find(ts.isExportAssignment)?.expression);
   const titleNode = values.property(meta, 'title');
   const explicitTitle = values.string(titleNode);
@@ -251,7 +347,7 @@ function parseStories(
       examples: [],
       component: config.componentRoots.some((root) => under(path, root)),
       exportName,
-      code: storyCode(values, meta, exportName, initializer, statement),
+      code: storyCode(values, locals, meta, exportName, initializer, statement),
     });
   };
   for (const statement of ast.statements) {

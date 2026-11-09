@@ -58,6 +58,8 @@ async function load(root: string): Promise<Snapshot> {
     .update(configText)
     .update('\0')
     .update(sweep.candidates.map((item) => `${item.path}\0${item.signature}`).join('\n'))
+    // Skipped links and missing roots change these without changing the candidate files.
+    .update(JSON.stringify([sweep.diagnostics, sweep.dependencies]))
     .digest('hex');
   const cached = previous.get(root);
   if (cached && cached.signature === signature) return cached.snapshot;
