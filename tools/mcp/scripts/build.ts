@@ -94,7 +94,8 @@ for (const path of dependencies) {
 const notices: string[] = [];
 for (const [folder, pkg] of [...packages].sort(([a], [b]) => a.localeCompare(b))) {
   const licenses: string[] = [];
-  for (const name of [
+  const entries = await readdir(folder);
+  for (const wanted of [
     'LICENSE',
     'LICENSE.txt',
     'LICENSE.md',
@@ -102,11 +103,10 @@ for (const [folder, pkg] of [...packages].sort(([a], [b]) => a.localeCompare(b))
     'NOTICE.txt',
     'ThirdPartyNoticeText.txt',
   ]) {
-    try {
-      licenses.push(await readFile(resolve(folder, name), 'utf8'));
-    } catch (error) {
-      if (!(error instanceof Error && 'code' in error && error.code === 'ENOENT')) throw error;
-    }
+    // Packages such as path-key ship `license`. Match without case, because Linux file systems
+    // are case-sensitive and macOS file systems usually are not.
+    const name = entries.find((entry) => entry.toLowerCase() === wanted.toLowerCase());
+    if (name) licenses.push(await readFile(resolve(folder, name), 'utf8'));
   }
   if (!licenses.length) throw new Error(`Missing license text for ${pkg.name}`);
   notices.push(
