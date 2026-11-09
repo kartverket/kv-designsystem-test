@@ -1,4 +1,4 @@
-import { Paragraph } from '../../components/typography/paragraph/Paragraph';
+import { Paragraph } from '../../../components/typography/paragraph/Paragraph';
 import styles from './ColorBox.module.css';
 
 const colors = [

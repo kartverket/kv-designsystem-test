@@ -44,7 +44,21 @@ const preview: Preview = {
       components: componentOverrides,
       extractArgTypes: extractKvdsArgTypes,
     },
-
+    options: {
+      storySort: {
+        order: [
+          'Introduksjon',
+          'Komponentoversikt',
+          'Kom i gang',
+          'Guider',
+          'Designverdier',
+          'Komponenter',
+          'Hooks',
+          'Cookies og personvern', // Legger seg feil :/
+          'KVIB – Kartverkets gamle designsystem', // Hvorfor vil ikke denne ligge nederst i sidebaren?
+        ],
+      },
+    },
   },
   globalTypes: {
     theme: {

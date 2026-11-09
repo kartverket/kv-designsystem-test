@@ -1,21 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { type ChangeEvent, type SubmitEvent, useState } from 'react';
-import { Input } from '../../components/input/Input';
-import { Textarea } from '../../components/textarea/Textarea';
-import { Textfield } from '../../components/textfield/Textfield';
-import { Field } from '../../components/field/Field';
-import { Fieldset } from '../../components/fieldset/Fieldset';
-import { Select } from '../../components/select/Select';
-import { Radio } from '../../components/radio/Radio';
-import { Button } from '../../components/button/Button';
-import { Alert } from '../../components/alert/Alert';
-import { Label } from '../../components/typography/label/Label';
-import { Heading } from '../../components/typography/heading/Heading';
-import { Paragraph } from '../../components/typography/paragraph/Paragraph';
-import { ValidationMessage } from '../../components/typography/validationMessage/ValidationMessage';
-import { ErrorSummary } from '../../components/errorSummary/ErrorSummary';
-import { Table } from '../../components/table/Table';
-import { Tag } from '../../components/tag/Tag';
+import { Input } from '../../../components/input/Input';
+import { Textarea } from '../../../components/textarea/Textarea';
+import { Textfield } from '../../../components/textfield/Textfield';
+import { Field } from '../../../components/field/Field';
+import { Fieldset } from '../../../components/fieldset/Fieldset';
+import { Select } from '../../../components/select/Select';
+import { Radio } from '../../../components/radio/Radio';
+import { Button } from '../../../components/button/Button';
+import { Alert } from '../../../components/alert/Alert';
+import { Label } from '../../../components/typography/label/Label';
+import { Heading } from '../../../components/typography/heading/Heading';
+import { Paragraph } from '../../../components/typography/paragraph/Paragraph';
+import { ValidationMessage } from '../../../components/typography/validationMessage/ValidationMessage';
+import { ErrorSummary } from '../../../components/errorSummary/ErrorSummary';
+import { Table } from '../../../components/table/Table';
+import { Tag } from '../../../components/tag/Tag';
 
 const meta = {
   title: 'Skjemakomponenter',
