@@ -27,5 +27,13 @@ jobs:
       - name: Run root build script
         run: pnpm build
 
+      # Rebuilds the checked-in bundle from the lockfile and fails if it differs, then runs the tests.
+      # This catches a runtime.mjs that was edited together with build-manifest.json.
+      - name: Verify and test design-system MCP
+        working-directory: tools/mcp
+        run: |
+          npm ci --ignore-scripts
+          npm run check
+
       - name: Fail if the build changed any checked-in files
         run: git diff --stat --exit-code

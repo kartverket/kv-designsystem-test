@@ -1,0 +1,14 @@
+version: 2
+updates:
+  # tools/mcp has its own npm lockfile outside the pnpm workspace. Its dependencies are
+  # bundled into runtime.mjs, so each update needs `npm run build` before it can pass CI.
+  - package-ecosystem: npm
+    directory: /tools/mcp
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 1
+    groups:
+      mcp:
+        patterns: ['*']
+    open-pull-requests-limit: 2

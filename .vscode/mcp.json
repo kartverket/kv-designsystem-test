@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "kartverket-design": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["${workspaceFolder}/tools/mcp/start.mjs"]
+    }
+  }
+}

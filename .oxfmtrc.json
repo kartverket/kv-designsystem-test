@@ -15,6 +15,9 @@
     "*.mdx",
     "/@kv-designsystem/css/src/components.css",
     "/@kv-designsystem/theme/dist",
-    "/.security/risc/risc-404nL.risc.yaml"
+    "/.security/risc/risc-404nL.risc.yaml",
+    "/tools/mcp/runtime.mjs",
+    "/tools/mcp/start.mjs",
+    "/tools/mcp/test/*.mjs"
   ]
 }
