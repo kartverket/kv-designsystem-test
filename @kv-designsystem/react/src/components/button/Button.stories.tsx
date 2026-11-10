@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { Flex } from '../layout/Flex';
 
 const meta = {
+  title: 'Komponenter/Button',
   component: Button,
   tags: ['alpha', 'digdir'],
   decorators: [

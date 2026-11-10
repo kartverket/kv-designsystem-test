@@ -44,6 +44,20 @@ const preview: Preview = {
       components: componentOverrides,
       extractArgTypes: extractKvdsArgTypes,
     },
+    options: {
+      storySort: {
+        order: [
+          'Introduksjon',
+          'Komponentoversikt',
+          'Kom i gang',
+          'Guider',
+          'Designverdier',
+          'Komponenter',
+          'Hooks',
+          'Ressurser',
+        ],
+      },
+    },
   },
   globalTypes: {
     theme: {

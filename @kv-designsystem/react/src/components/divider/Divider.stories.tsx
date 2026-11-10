@@ -6,6 +6,7 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 import { List } from '../list/List';
 
 const meta = {
+  title: 'Komponenter/Divider',
   component: Divider,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Divider>;

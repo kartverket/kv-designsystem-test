@@ -3,6 +3,7 @@ import { Checkbox } from './Checkbox';
 import { Fieldset } from '../fieldset/Fieldset';
 
 const meta = {
+  title: 'Komponenter/Checkbox',
   component: Checkbox,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Checkbox>;

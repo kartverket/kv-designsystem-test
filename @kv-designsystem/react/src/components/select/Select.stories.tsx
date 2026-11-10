@@ -5,6 +5,7 @@ import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
 
 const meta = {
+  title: 'Komponenter/Select',
   component: Select,
   subcomponents,
   parameters: { layout: 'centered' },

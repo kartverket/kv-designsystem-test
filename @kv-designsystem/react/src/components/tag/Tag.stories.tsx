@@ -7,6 +7,7 @@ import { Card } from '../card/Card';
 import { Grid } from '../layout/Grid';
 
 const meta = {
+  title: 'Komponenter/Tag',
   component: Tag,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Tag>;

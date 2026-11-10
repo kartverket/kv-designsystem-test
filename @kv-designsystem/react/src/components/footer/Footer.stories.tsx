@@ -4,6 +4,7 @@ import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 
 const meta = {
+  title: 'Komponenter/Footer',
   component: Footer,
   subcomponents: {
     'Footer.List': Footer.List,

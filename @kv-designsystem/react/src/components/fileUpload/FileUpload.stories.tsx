@@ -5,6 +5,7 @@ import { Label } from '../typography/label/Label';
 import { Button } from '../button/Button';
 
 const meta = {
+  title: 'Komponenter/FileUpload',
   component: FileUpload,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof FileUpload>;

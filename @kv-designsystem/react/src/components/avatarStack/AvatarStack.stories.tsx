@@ -24,6 +24,7 @@ type AvatarStackStoryArgs = AvatarStackProps & {
 };
 
 const meta = {
+  title: 'Komponenter/AvatarStack',
   component: AvatarStack,
   parameters: { layout: 'centered' },
 } satisfies Meta<AvatarStackStoryArgs>;

@@ -4,6 +4,7 @@ import { Label } from '../typography/label/Label';
 import { Field } from '../field/Field';
 
 const meta = {
+  title: 'Komponenter/Textarea',
   component: Textarea,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Textarea>;

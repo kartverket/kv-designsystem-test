@@ -17,6 +17,7 @@ import { Flex } from '../layout/Flex';
 import { Grid } from '../layout/Grid';
 
 const meta = {
+  title: 'Komponenter/Dialog',
   component: Dialog,
   subcomponents,
   parameters: { layout: 'centered' },

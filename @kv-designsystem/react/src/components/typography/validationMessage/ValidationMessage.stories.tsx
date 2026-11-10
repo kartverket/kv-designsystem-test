@@ -3,8 +3,8 @@ import { ValidationMessage } from './ValidationMessage';
 import { Grid } from 'src/components/layout/Grid';
 
 const meta = {
+  title: 'Komponenter/Typography/ValidationMessage',
   component: ValidationMessage,
-  title: 'Components/Typography/ValidationMessage',
   parameters: { layout: 'centered' },
   tags: ['!autodocs'],
 } satisfies Meta<typeof ValidationMessage>;

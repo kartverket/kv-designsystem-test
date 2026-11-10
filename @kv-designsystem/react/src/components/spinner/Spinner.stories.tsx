@@ -5,6 +5,7 @@ import { Flex } from '../layout/Flex';
 
 // Meta<typeof Spinner> to avoid decorators: [] to cast error on args
 const meta: Meta<typeof Spinner> = {
+  title: 'Komponenter/Spinner',
   component: Spinner,
   decorators: [
     (Story) => (

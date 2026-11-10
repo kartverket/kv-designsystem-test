@@ -15,7 +15,7 @@ import * as DropdownStories from './Dropdown.stories';
 - alternativene er sekundære, men fortsatt bør være lett tilgjengelige
 
 **Unngå `Dropdown` når**
-- handlingen er primær eller utføres ofte – bruk heller en synlig [`Button`](/docs/components-button--docs)
+- handlingen er primær eller utføres ofte – bruk heller en synlig [`Button`](/docs/komponenter-button--docs)
 - det finnes kun ett valg – en `Dropdown` skaper da unødvendig kompleksitet
 
 ## Eksempler
@@ -36,7 +36,7 @@ Merk at vi ikke bruker `onClick` på triggeren, `Dropdown` håndterer dette inte
 
 ### Trigger
 
-Triggeren er en [`Button`](/docs/components-button--docs) som standard. Du kan bruke `asChild` for å endre `Dropdown.Trigger`-elementet. Dersom du skal legge på funksjoner som `onClick`, legg det på ditt element, og legg `asChild` på `Dropdown.Trigger`.
+Triggeren er en [`Button`](/docs/komponenter-button--docs) som standard. Du kan bruke `asChild` for å endre `Dropdown.Trigger`-elementet. Dersom du skal legge på funksjoner som `onClick`, legg det på ditt element, og legg `asChild` på `Dropdown.Trigger`.
 
 Fordi `Dropdown` bruker popover API-et, kan du også bruke `Dropdown` uten `Dropdown.Trigger`. Da må du legge til `popovertarget={id}` på komponenten som skal brukes som trigger, og `id` på `Dropdown`.
 

@@ -10,7 +10,7 @@ import { Textfield } from '../textfield/Textfield';
 
 const meta = {
   component: Flex,
-  title: 'Components/Layout/Flex',
+  title: 'Komponenter/Layout/Flex',
   tags: ['!autodocs'],
   argTypes: {
     // asChild needs exactly one child, so toggling it in the Preview would crash the story

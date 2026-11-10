@@ -1,6 +1,6 @@
-import { Flex } from '../../components/layout/Flex';
-import { Grid } from '../../components/layout/Grid';
-import { Paragraph } from '../../components/typography/paragraph/Paragraph';
+import { Flex } from '../../../components/layout/Flex';
+import { Grid } from '../../../components/layout/Grid';
+import { Paragraph } from '../../../components/typography/paragraph/Paragraph';
 import styles from './ColorBox.module.css';
 
 const colors = [

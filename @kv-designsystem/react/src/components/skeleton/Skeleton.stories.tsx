@@ -8,6 +8,7 @@ import { Flex } from '../layout/Flex';
 import { Grid } from '../layout/Grid';
 
 const meta = {
+  title: 'Komponenter/Skeleton',
   component: Skeleton,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Skeleton>;

@@ -11,6 +11,7 @@ import { Grid } from '../layout/Grid';
 import { Flex } from '../layout/Flex';
 
 const meta = {
+  title: 'Komponenter/Card',
   component: Card,
   subcomponents,
   parameters: { layout: 'centered' },

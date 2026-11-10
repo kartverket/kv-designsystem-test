@@ -9,6 +9,7 @@ import { ConsentBanner } from './ConsentBanner';
 import { Flex } from '../layout/Flex';
 
 const meta = {
+  title: 'Komponenter/ConsentBanner',
   component: ConsentBanner,
 } satisfies Meta<typeof ConsentBanner>;
 

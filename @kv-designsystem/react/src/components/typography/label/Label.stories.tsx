@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Label } from './Label';
 
 const meta = {
+  title: 'Komponenter/Typography/Label',
   component: Label,
-  title: 'Components/Typography/Label',
   parameters: { layout: 'centered' },
   tags: ['!autodocs'],
 } satisfies Meta<typeof Label>;

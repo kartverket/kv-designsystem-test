@@ -1,8 +1,8 @@
 import { Source } from '@storybook/addon-docs/blocks';
-import { Tabs } from '../../components/tabs/Tabs';
-import { Card } from '../../components/card/Card';
-import { Heading } from '../../components/typography/heading/Heading';
-import { List } from '../../components/list/List';
+import { Card } from '../../../components/card/Card';
+import { Tabs } from '../../../components/tabs/Tabs';
+import { Heading } from '../../../components/typography/heading/Heading';
+import { List } from '../../../components/list/List';
 
 export function SizeTabs() {
   return (

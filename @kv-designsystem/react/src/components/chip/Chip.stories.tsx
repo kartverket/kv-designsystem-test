@@ -8,6 +8,7 @@ import { Grid } from '../layout/Grid';
 import { Flex } from '../layout/Flex';
 
 const meta = {
+  title: 'Komponenter/Chip',
   component: Chip.Radio,
   subcomponents,
   parameters: { layout: 'centered' },

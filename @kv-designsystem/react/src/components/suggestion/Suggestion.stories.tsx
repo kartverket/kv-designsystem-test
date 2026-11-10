@@ -17,6 +17,7 @@ type SuggestionStoryArgs = ComponentProps<typeof Suggestion> & {
 };
 
 const meta = {
+  title: 'Komponenter/Suggestion',
   component: Suggestion,
   subcomponents,
   parameters: { layout: 'centered' },

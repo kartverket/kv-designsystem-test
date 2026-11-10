@@ -15,6 +15,7 @@ import { Flex } from '../layout/Flex';
 type SearchStoryArgs = ComponentProps<typeof Search> & { 'data-sr-clear'?: string };
 
 const meta = {
+  title: 'Komponenter/Search',
   component: Search,
   subcomponents,
   parameters: { layout: 'centered' },

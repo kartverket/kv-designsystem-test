@@ -27,7 +27,7 @@ export function ComponentIndex() {
         <Card className="sb-unstyled">
           <Card.Block>
             <Heading>
-              <Link href={getPath(`/docs/components-${toCamelCase(name)}--docs`)}>{name}</Link>
+              <Link href={getPath(`/docs/komponenter-${toCamelCase(name)}--docs`)}>{name}</Link>
             </Heading>
           </Card.Block>
         </Card>

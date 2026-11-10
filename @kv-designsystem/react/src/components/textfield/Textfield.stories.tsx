@@ -3,10 +3,11 @@ import { Textfield } from './Textfield';
 import { Tag } from '../tag/Tag';
 
 const meta = {
+  title: 'Komponenter/Textfield',
+  component: Textfield,
   args: {
     label: '',
   },
-  component: Textfield,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Textfield>;
 

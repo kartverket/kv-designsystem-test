@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Paragraph } from './Paragraph';
 
 const meta = {
+  title: 'Komponenter/Typography/Paragraph',
   component: Paragraph,
-  title: 'Components/Typography/Paragraph',
   parameters: { layout: 'centered' },
   tags: ['!autodocs'],
 } satisfies Meta<typeof Paragraph>;

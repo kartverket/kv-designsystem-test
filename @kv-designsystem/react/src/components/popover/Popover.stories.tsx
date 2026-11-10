@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { Flex } from '../layout/Flex';
 
 const meta = {
+  title: 'Komponenter/Popover',
   component: Popover,
   subcomponents,
   parameters: { layout: 'centered' },

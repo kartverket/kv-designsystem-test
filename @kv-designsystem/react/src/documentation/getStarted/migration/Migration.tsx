@@ -1,4 +1,4 @@
-import { Table } from '../../components/table/Table';
+import { Table } from '../../../components/table/Table';
 
 /**
  * Migreringsguide fra KVIB til vårt nye designsystem.

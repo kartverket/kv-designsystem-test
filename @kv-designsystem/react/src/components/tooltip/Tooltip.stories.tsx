@@ -5,6 +5,7 @@ import { FilesIcon, FloppydiskIcon, PrinterSmallIcon, TrashIcon } from '@navikt/
 import { Flex } from '../layout/Flex';
 
 const meta = {
+  title: 'Komponenter/Tooltip',
   component: Tooltip,
   parameters: { layout: 'centered' },
   args: {

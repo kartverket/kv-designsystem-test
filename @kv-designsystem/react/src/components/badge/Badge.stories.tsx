@@ -7,6 +7,7 @@ import { Grid } from '../layout/Grid';
 import { Flex } from '../layout/Flex';
 
 const meta: Meta<typeof Badge> = {
+  title: 'Komponenter/Badge',
   component: Badge,
   subcomponents,
   parameters: { layout: 'centered' },

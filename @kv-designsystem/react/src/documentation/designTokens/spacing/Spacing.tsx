@@ -1,4 +1,4 @@
-import { Table } from '../../components/table/Table';
+import { Table } from '../../../components/table/Table';
 
 // oxfmt-ignore
 const tokensSizes: {

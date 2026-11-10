@@ -5,6 +5,7 @@ import { Textfield } from '../textfield/Textfield';
 import { Grid } from '../layout/Grid';
 
 const meta = {
+  title: 'Komponenter/ErrorSummary',
   component: ErrorSummary,
   subcomponents,
   parameters: { layout: 'centered' },

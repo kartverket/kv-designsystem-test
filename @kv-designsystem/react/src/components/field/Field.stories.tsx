@@ -6,6 +6,7 @@ import { Input } from '../input/Input';
 import { ValidationMessage } from '../typography/validationMessage/ValidationMessage';
 import { Textarea } from '../textarea/Textarea';
 const meta = {
+  title: 'Komponenter/Field',
   component: Field,
   subcomponents,
   parameters: { layout: 'centered' },

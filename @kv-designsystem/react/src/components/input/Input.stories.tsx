@@ -5,6 +5,7 @@ import { Label } from '../typography/label/Label';
 import { ValidationMessage } from '@digdir/designsystemet-react';
 
 const meta = {
+  title: 'Komponenter/Input',
   component: Input,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Input>;

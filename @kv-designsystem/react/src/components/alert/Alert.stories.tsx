@@ -4,6 +4,7 @@ import { Heading } from '../typography/heading/Heading';
 import { Link } from '../link/Link';
 
 const meta = {
+  title: 'Komponenter/Alert',
   component: Alert,
 } satisfies Meta<typeof Alert>;
 

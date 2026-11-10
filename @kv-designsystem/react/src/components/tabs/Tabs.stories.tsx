@@ -5,6 +5,7 @@ import { Tooltip } from '../tooltip/Tooltip';
 import { Buildings2Icon, FilesIcon, CogIcon, BellIcon } from '@navikt/aksel-icons';
 
 const meta = {
+  title: 'Komponenter/Tabs',
   component: Tabs,
   subcomponents,
   parameters: { layout: 'centered' },

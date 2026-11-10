@@ -9,6 +9,7 @@ import { PencilIcon } from '@navikt/aksel-icons';
 import { Button } from '../button/Button';
 
 const meta = {
+  title: 'Komponenter/Table',
   component: Table,
   subcomponents,
 } satisfies Meta<typeof Table>;

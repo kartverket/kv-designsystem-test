@@ -3,6 +3,7 @@ import { Breadcrumbs } from './Breadcrumbs';
 import { subcomponents } from './docs/subcomponents';
 
 const meta = {
+  title: 'Komponenter/Breadcrumbs',
   component: Breadcrumbs,
   subcomponents,
   parameters: { layout: 'centered' },
