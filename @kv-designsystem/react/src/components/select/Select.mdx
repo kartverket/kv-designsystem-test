@@ -1,5 +1,6 @@
-import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as SelectStories from './Select.stories';
+import { Meta, Canvas, Controls, Primary } from "@storybook/addon-docs/blocks";
+import * as SelectStories from "./Select.stories";
+import { SelectEx1 } from "./docs/doAndDont";
 
 <Meta of={SelectStories} />
 
@@ -11,10 +12,12 @@ Vi bruker `Select` når brukeren skal velge ett alternativ fra en liste. Kompone
 <Controls />
 
 **Bruk `Select` når**
+
 - listen inneholder mange alternativer, og brukeren kun kan velge ett
 - du trenger en plassbesparende løsning som fungerer godt på både desktop og mobil
 
 **Unngå `Select` når**
+
 - du har få alternativer og god plass – bruk heller [`Radio`](/docs/components-radio--docs)
 - valget styrer navigasjon mellom sider eller seksjoner
 - brukeren skal velge flere alternativer. Selv om HTML Select støtter dette via `multiple`, er løsningen lite brukervennlig, særlig på mobil. Bruk heller [`Checkbox`](/docs/components-checkbox--docs) eller [`Suggestion`](/docs/components-suggestion--docs)
@@ -36,7 +39,8 @@ Bruk `aria-readonly` når en verdi skal vises, men ikke endres. Dette er aktuelt
 ### Unngå Disabled
 
 Vi anbefaler å unngå deaktiverte `Select`-komponenter der det er mulig. Brukere kan ha vansker med å forstå hvorfor feltet ikke er tilgjengelig. Les mer om [hvorfor deaktiverte tilstander er problematiske med alternative løsninger (nav.no)](https://aksel.nav.no/god-praksis/artikler/deaktiverte-tilstander).
-<Canvas of={SelectStories.Disabled} />
+
+<SelectEx1 />
 
 ## Retningslinjer
 
@@ -48,7 +52,7 @@ Vi anbefaler å unngå deaktiverte `Select`-komponenter der det er mulig. Bruker
 
 Merk: [Gov.uk anbefaler å unngå](https://design-system.service.gov.uk/components/select/) `Select` i offentlige digitale tjenester. Deres brukertester viser at brukere ofte synes komponenten er krevende. Det kan være bedre å stille flere og mer presise spørsmål for å redusere antallet alternativer før valget presenteres.
 
-## Tekst i Select 
+## Tekst i Select
 
 - `Select` skal alltid ha en ledetekst.
 - Ledetekst og eventuell beskrivelse plasseres over feltet for god synlighet, også på små skjermer.

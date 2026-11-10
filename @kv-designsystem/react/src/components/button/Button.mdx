@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as ButtonStories from './Button.stories';
-import { Alert } from '../alert/Alert';
-import { Heading } from '../typography/heading/Heading';
+import { Meta, Canvas, Controls, Primary } from "@storybook/addon-docs/blocks";
+import * as ButtonStories from "./Button.stories";
+import { Alert } from "../alert/Alert";
+import { Heading } from "../typography/heading/Heading";
+import { ButtonEx1, ButtonEx2 } from "./docs/doAndDont";
 
 <Meta of={ButtonStories} />
 
@@ -13,10 +14,12 @@ Vi benytter Button når brukeren skal utføre en tydelig handling.
 <Controls />
 
 **Bruk `Button` når**
+
 - brukeren skal utføre en konkret handling, som å lagre, sende inn, slette eller starte en prosess
 - handlingen setter i gang noe i løsningen, for eksempel åpner en dialog eller starter et steg-for-steg-løp
 
 **Unngå `Button` når**
+
 - brukeren skal navigere til andre sider eller tjenester – bruk heller [`Link`](/docs/components-link--docs)
 - brukeren skal filtrere innhold – bruk heller [`Chip`](/docs/components-chip--docs)
 - du skal vise brukeren hvilke filtre som er aktive – bruk heller [`Chip`](/docs/components-chip--docs)
@@ -48,7 +51,7 @@ Denne knappen bruker vi til mindre viktige handlinger. Hvis den brukes alene, b�
 
 - Knapper kan bruke alle designsystemets farger. Vurder hvilken farge som passer best i den aktuelle konteksten..
 - En gruppe knapper bør bruke samme fargevariant.
-    - Unntak: bruk danger-fargen for handlinger som brukeren ikke kan angre, for eksempel "Slett".
+  - Unntak: bruk danger-fargen for handlinger som brukeren ikke kan angre, for eksempel "Slett".
 - Unngå neutral på knapper som ligger på en farget bakgrunn, for eksempel i et tinted Card – bruk heller den samme fargevarianten.
 
 <Canvas of={ButtonStories.Colors} />
@@ -57,7 +60,7 @@ Denne knappen bruker vi til mindre viktige handlinger. Hvis den brukes alene, b�
 
 #### Knapp med kun ikon
 
-Vi kan bruke knapper med kun ikon når disse er godt kjente, for eksempel “Lukk” og “Slett”. Da må knappen ha tilgjengelig tekst som forklarer hva knappen gjør. Dette kan legges i  `title`, `aria-label` eller i en `Tooltip`.
+Vi kan bruke knapper med kun ikon når disse er godt kjente, for eksempel “Lukk” og “Slett”. Da må knappen ha tilgjengelig tekst som forklarer hva knappen gjør. Dette kan legges i `title`, `aria-label` eller i en `Tooltip`.
 
 <Canvas of={ButtonStories.IconOnly} />
 
@@ -91,9 +94,11 @@ Når en handling pågår, kan knappen vise en spinner for å signalisere at pros
 
 I eksempelet over blir `aria-disabled` satt av `loading='true'`. Skjermlesere og andre hjelpemidler vil bli informert om at knappen finnes, men ikke er aktiv. I motsetning til `disabled`, kan knappen fortsatt få fokus når noen navigerer med tastaturet.
 
-<Alert data-color='info' className='sb-unstyled'>
-    <Heading data-size='xs'>Vær oppmerksom på</Heading>
-    `loading='true'` eller `aria-disabled` stopper ikke automatisk knappen fra å utløse `onClick`. Du må selv passe på at callback-funksjonen ikke kjører når knappen er deaktivert.
+<Alert data-color="info" className="sb-unstyled">
+  <Heading data-size="xs">Vær oppmerksom på</Heading>
+  `loading='true'` eller `aria-disabled` stopper ikke automatisk knappen fra å
+  utløse `onClick`. Du må selv passe på at callback-funksjonen ikke kjører når
+  knappen er deaktivert.
 </Alert>
 
 ## Retningslinjer
@@ -102,15 +107,20 @@ I eksempelet over blir `aria-disabled` satt av `loading='true'`. Skjermlesere og
 
 Knappen skal beskrive én tydelig handling. Kombiner aldri flere handlinger i samme knapp.
 
+<ButtonEx1 />
+
 ### Én hovedhandling per side
 
 Sørg for at brukeren lett ser hva som er viktigst. Flere primærknapper på en side skaper usikkerhet.
+
+<ButtonEx2 />
 
 ### Plassering
 
 Når knapper står ved siden av hverandre skal Primary stå før Secondary.
 
 Unntak:
+
 - Ved «Forrige» og «Neste» skal Forrige stå først (selv om den er sekundær).
 
 ## Tekst i Button
@@ -118,8 +128,8 @@ Unntak:
 - Korte tekster – helst maks tre ord.
 - Bruk verb i imperativ («Send», «Lagre», «Endre»).
 - Unngå blanding av skrivestil.
-    - Første ord med stor forbokstav.
-    - Ikke bruk ALL CAPS.
+  - Første ord med stor forbokstav.
+  - Ikke bruk ALL CAPS.
 - Bruk de samme begrepene på knappetekster som går igjen i tjenesten.
 
 ## Kilde

@@ -1,5 +1,5 @@
-import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as TextfieldStories from './Textfield.stories';
+import { Meta, Canvas, Controls, Primary } from "@storybook/addon-docs/blocks";
+import * as TextfieldStories from "./Textfield.stories";
 
 <Meta of={TextfieldStories} />
 
@@ -15,11 +15,13 @@ import * as TextfieldStories from './Textfield.stories';
 <Controls />
 
 **Bruk `Textfield` når**
+
 - feltet inngår i et komplett skjemafelt med label, beskrivelse og valideringsmelding
 - feltet skal valideres underveis eller ved innsending
 - brukeren kan skrive inn en unik verdi som ikke kan velges fra en liste
 
 **Unngå `Textfield` når**
+
 - du kun trenger et enkelt input-felt uten skjemalogikk – bruk heller [`Input`](/docs/components-input--docs)
 - brukeren skal velge fra et begrenset sett med alternativer – bruk heller [`Radio`](/docs/components-radio--docs), [`Checkbox`](/docs/components-checkbox--docs), [`Select`](/docs/components-select--docs) eller [`Suggestion`](/docs/components-suggestion--docs)
 
@@ -42,16 +44,13 @@ Prefiks og suffiks brukes til å vise enheter, valuta eller annen relevant infor
 Bruk `counter` til å informere om antall tegn brukerne kan skrive i feltet.
 
 <Canvas of={TextfieldStories.Counter} />
- 
 ### Påkrevde og valgfrie felt
 
-Påkrevde felt må merkes tydelig, siden dette er lovpålagt. Når du plasserer en `Tag` i `label`, anbefaler vi `margin-inline-start: var(--ds-size-2)` for god avstand mellom tekst og tag. 
+Påkrevde felt må merkes tydelig, siden dette er lovpålagt. Når du plasserer en `Tag` i `label`, anbefaler vi `margin-inline-start: var(--ds-size-2)` for god avstand mellom tekst og tag.
 
 **OBS:** Ikke bruk stjerne (`*`) for å markere felt som må fylles ut.
 
 <Canvas of={TextfieldStories.Required} />
-
-{/* TODO: add do-dont that shows not to use asterisks (*) */}
 
 ## Retningslinjer
 
@@ -88,9 +87,10 @@ Hvis feltet gjelder en annen person enn brukeren, sett `autocomplete='off'`. Der
 
 #### Input-type
 
-Velg input-type som samsvarer med informasjonen du ber om, for eksempel tel, search eller email. Unngå `type='number'` med mindre du har klare brukerbehov som tilsier det. 
+Velg input-type som samsvarer med informasjonen du ber om, for eksempel tel, search eller email. Unngå `type='number'` med mindre du har klare brukerbehov som tilsier det.
 
 `type='number'` kan
+
 - fjerne innledende nuller
 - endre verdi ved scrolling
 - være utfordrende for skjermlesere
