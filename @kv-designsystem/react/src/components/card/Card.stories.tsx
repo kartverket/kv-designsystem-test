@@ -7,6 +7,8 @@ import { Paragraph } from '../typography/paragraph/Paragraph';
 import { Tag } from '../tag/Tag';
 import { HeartIcon, HeartFillIcon, NotePencilIcon } from '@navikt/aksel-icons';
 import { Tooltip } from '@digdir/designsystemet-react';
+import { Grid } from '../layout/Grid';
+import { Flex } from '../layout/Flex';
 
 const meta = {
   title: 'Komponenter/Card',
@@ -15,18 +17,16 @@ const meta = {
   parameters: { layout: 'centered' },
   decorators: [
     (Story) => (
-      <div
+      <Grid
+        alignItems="center"
+        maxWidth="800px"
         style={{
           width: '100%',
-          maxWidth: '800px',
-          alignItems: 'center',
-          display: 'grid',
-          gap: 'var(--ds-size-4)',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px , 1fr))',
         }}
       >
         <Story />
-      </div>
+      </Grid>
     ),
   ],
 } satisfies Meta<typeof Card>;
@@ -53,24 +53,14 @@ export const Variants: Story = {
     ...Preview.args,
   },
   render: (args) => (
-    <div
-      style={{
-        display: 'flex',
-        gap: '10px',
-      }}
-    >
+    <Flex flexWrap="nowrap">
       <Card {...args} style={{ width: '320px' }}>
         <Tag data-color="accent" data-size="sm" variant="outline">
           Tinglyst
         </Tag>
         <Heading>Furusvingen 82</Heading>
         <Paragraph>Hovedeiendom</Paragraph>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}
-        >
+        <Flex justify="space-between" flexWrap="nowrap">
           <Tooltip content="Legg til i favoritter">
             <Button variant="tertiary">
               <HeartIcon aria-hidden />
@@ -80,7 +70,7 @@ export const Variants: Story = {
             <NotePencilIcon aria-hidden />
             Rediger
           </Button>
-        </div>
+        </Flex>
       </Card>
 
       <Card {...args} variant="tinted" data-color="support-2" style={{ width: '320px' }}>
@@ -89,12 +79,7 @@ export const Variants: Story = {
         </Tag>
         <Heading>Kongleveien 23C</Heading>
         <Paragraph>Eiendom til utleie</Paragraph>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}
-        >
+        <Flex justify="space-between" flexWrap="nowrap">
           <Tooltip content="Fjern fra favoritter">
             <Button variant="tertiary">
               <HeartFillIcon aria-hidden />
@@ -104,9 +89,9 @@ export const Variants: Story = {
             <NotePencilIcon aria-hidden />
             Rediger
           </Button>
-        </div>
+        </Flex>
       </Card>
-    </div>
+    </Flex>
   ),
 };
 

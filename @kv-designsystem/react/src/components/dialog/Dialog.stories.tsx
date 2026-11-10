@@ -13,6 +13,8 @@ import { Checkbox } from '../checkbox/Checkbox';
 import { Fieldset } from '../fieldset/Fieldset';
 import type { ChangeEvent } from 'react';
 import styles from './Dialog.stories.module.css';
+import { Flex } from '../layout/Flex';
+import { Grid } from '../layout/Grid';
 
 const meta = {
   title: 'Komponenter/Dialog',
@@ -38,20 +40,14 @@ export const Preview: Story = {
           </Paragraph>
         </Dialog.Block>
         <Dialog.Block>
-          <div
-            style={{
-              display: 'flex',
-              gap: 'var(--ds-size-4)',
-              marginTop: 'var(--ds-size-4)',
-            }}
-          >
+          <Flex flexWrap="nowrap">
             <Button variant="primary" data-command="close">
               Lagre
             </Button>
             <Button variant="secondary" data-color="danger" data-command="close">
               Avbryt
             </Button>
-          </div>
+          </Flex>
         </Dialog.Block>
       </Dialog>
     </Dialog.TriggerContext>
@@ -68,11 +64,11 @@ export const DialogNonModal: Story = {
     },
   },
   render: (_args) => (
-    <div
+    <Flex
+      justify="center"
+      alignItems="center"
+      flexWrap="nowrap"
       style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         position: 'relative',
       }}
     >
@@ -99,7 +95,7 @@ export const DialogNonModal: Story = {
           <Button>Send inn</Button>
         </Dialog>
       </Dialog.TriggerContext>
-    </div>
+    </Flex>
   ),
 };
 
@@ -137,32 +133,20 @@ export const Drawer: Story = {
     const [modal, setModal] = useState(true);
 
     return (
-      <div
-        className={styles.disableStorybookScale}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Checkbox
-          label="Modal"
-          checked={modal}
-          style={{ marginBottom: 'var(--ds-size-4)' }}
-          onChange={(e) => setModal(e.target.checked)}
-        />
+      <Grid justify="center" className={styles.disableStorybookScale}>
+        <Checkbox label="Modal" checked={modal} onChange={(e) => setModal(e.target.checked)} />
         <Fieldset
           onChange={(e: ChangeEvent<HTMLFieldSetElement>) => {
             const target = e.target as unknown as HTMLInputElement;
             setPlacement(target.value as DialogProps['placement']);
           }}
         >
-          <div
+          <Fieldset.Legend>Velg plassering for dialogen</Fieldset.Legend>
+          <Flex
+            columnGap={6}
+            rowGap={4}
             style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: 'var(--ds-size-5)',
-              marginBottom: 'var(--ds-size-8)',
+              marginBottom: 'var(--ds-size-4)',
             }}
           >
             <Radio name="drawer" label="Midten" value="middle" />
@@ -170,7 +154,7 @@ export const Drawer: Story = {
             <Radio name="drawer" label="Bunn" value="bottom" />
             <Radio name="drawer" label="Venstre" value="left" />
             <Radio name="drawer" label="Høyre" value="right" />
-          </div>
+          </Flex>
         </Fieldset>
         <Dialog.TriggerContext>
           <Dialog.Trigger>Åpne Dialog</Dialog.Trigger>
@@ -183,7 +167,7 @@ export const Drawer: Story = {
             </Dialog.Block>
           </Dialog>
         </Dialog.TriggerContext>
-      </div>
+      </Grid>
     );
   },
 };

@@ -42,7 +42,13 @@ export const Preview: Story = {
     applicationName: 'Tjenestetittel',
     applicationHref: '#',
   },
-
+  parameters: {
+    docs: {
+      story: {
+        inline: true, // Render story inline to ensure Controls work correctly
+      },
+    },
+  },
   render: (args) => <Header {...args} />,
 };
 

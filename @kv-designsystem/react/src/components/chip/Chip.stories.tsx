@@ -4,6 +4,8 @@ import { subcomponents } from './docs/subcomponents';
 import { useState } from 'react';
 import { Search } from '../search/Search';
 import { Paragraph } from '../typography/paragraph/Paragraph';
+import { Grid } from '../layout/Grid';
+import { Flex } from '../layout/Flex';
 
 const meta = {
   title: 'Komponenter/Chip',
@@ -12,15 +14,9 @@ const meta = {
   parameters: { layout: 'centered' },
   decorators: [
     (Story) => (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--ds-size-4)',
-        }}
-      >
+      <Grid>
         <Story />
-      </div>
+      </Grid>
     ),
   ],
 } satisfies Meta<typeof Chip.Radio>;
@@ -39,13 +35,7 @@ export const Button: Story = {
     const [inputValue, setInputValue] = useState('');
 
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--ds-size-2)',
-        }}
-      >
+      <Grid gap={2}>
         <Search>
           <Search.Input
             aria-label="søk"
@@ -55,13 +45,13 @@ export const Button: Story = {
           <Search.Clear />
           <Search.Button type="submit" />
         </Search>
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--ds-size-2)' }}>
+        <Flex gap={2} alignItems="baseline">
           <Paragraph>Hurtigsøk: </Paragraph>
           <Chip.Button onClick={() => setInputValue('Høydedata')}>Høydedata</Chip.Button>
           <Chip.Button onClick={() => setInputValue('Terrengmodell')}>Terrengmodell</Chip.Button>
           <Chip.Button onClick={() => setInputValue('Laserdata')}>Laserdata</Chip.Button>
-        </div>
-      </div>
+        </Flex>
+      </Grid>
     );
   },
 };
@@ -71,22 +61,16 @@ export const Checkbox: Story = {
     const options = ['2020', '2021', '2022', '2023', '2024', '2025'];
 
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--ds-size-2)',
-        }}
-      >
+      <Grid gap={2}>
         <Paragraph>Vis data for</Paragraph>
-        <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
+        <Flex gap={2}>
           {options.map((year) => (
             <Chip.Checkbox key={year} aria-label={year}>
               {year}
             </Chip.Checkbox>
           ))}
-        </div>
-      </div>
+        </Flex>
+      </Grid>
     );
   },
 };
@@ -96,22 +80,16 @@ export const Radio: Story = {
     const options = ['Sjøkart', 'Dybder', 'Sjømerker'];
 
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--ds-size-2)',
-        }}
-      >
+      <Grid gap={2}>
         <Paragraph>Vis data for</Paragraph>
-        <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
+        <Flex gap={2}>
           {options.map((grade) => (
             <Chip.Radio name="my-radio" aria-label={grade}>
               {grade}
             </Chip.Radio>
           ))}
-        </div>
-      </div>
+        </Flex>
+      </Grid>
     );
   },
 };
@@ -122,7 +100,7 @@ export const Removable: Story = {
     const [filter, setFilter] = useState(mapOptions);
 
     return (
-      <div style={{ display: 'flex', gap: 'var(--ds-size-2)' }}>
+      <Flex gap={2}>
         {filter.map((item) => (
           <Chip.Removable
             key={item}
@@ -134,7 +112,7 @@ export const Removable: Story = {
             {item}
           </Chip.Removable>
         ))}
-      </div>
+      </Flex>
     );
   },
 };

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Spinner } from './Spinner';
 import { Paragraph } from '../typography/paragraph/Paragraph';
+import { Flex } from '../layout/Flex';
 
 // Meta<typeof Spinner> to avoid decorators: [] to cast error on args
 const meta: Meta<typeof Spinner> = {
@@ -8,17 +9,9 @@ const meta: Meta<typeof Spinner> = {
   component: Spinner,
   decorators: [
     (Story) => (
-      <div
-        style={{
-          display: 'flex',
-          gap: '1rem',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <Flex justify="center" alignItems="center">
         <Story />
-      </div>
+      </Flex>
     ),
   ],
 };

@@ -11,6 +11,8 @@ import {
   cssVariableArgType,
   moveCssVariablesToStyle,
 } from '../../../.storybook/utils/cssVariableArgTypes';
+import { Flex } from '../layout/Flex';
+import { Grid } from '../layout/Grid';
 
 // Not props, but CSS variables. Added so Controls shows the replacements for the deprecated
 // props `gap`, `avatarSize` and `overlap`.
@@ -101,11 +103,9 @@ export const Playground: Story = {
     };
 
     return (
-      <div
+      <Grid
+        gap={8}
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--ds-size-8)',
           minHeight: '395px',
           width: 'min(100%, 500px)',
           justifySelf: 'center',
@@ -118,19 +118,13 @@ export const Playground: Story = {
             gap: 'var(--ds-size-4)',
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              gap: 'var(--ds-size-3)',
-              alignItems: 'center',
-            }}
-          >
+          <Flex gap={3} alignItems="center">
             <Checkbox
               label="Expandable"
               checked={expandable}
               onChange={() => setExpandable(!expandable)}
             />
-          </div>
+          </Flex>
           <Field>
             <Label>Size {`${size}px`}</Label>
             <input
@@ -216,7 +210,7 @@ export const Playground: Story = {
           </li>
           <li>+10</li>
         </AvatarStack>
-      </div>
+      </Grid>
     );
   },
 };
@@ -264,14 +258,7 @@ export const Gap: Story = {
 
 export const Expandable: Story = {
   render: (_args) => (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        gap: 'var(--ds-size-4)',
-        flexWrap: 'wrap',
-      }}
-    >
+    <Flex>
       <fieldset>
         <legend>expandable</legend>
         <AvatarStack expandable>
@@ -320,7 +307,7 @@ export const Expandable: Story = {
           </li>
         </AvatarStack>
       </fieldset>
-    </div>
+    </Flex>
   ),
 };
 
@@ -406,7 +393,7 @@ export const AdditionalAvatars: Story = {
 
 export const WithTooltipAndLink: Story = {
   render: (_args) => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--ds-size-4)' }}>
+    <Flex>
       <fieldset>
         <legend>Link + Tooltip</legend>
         <AvatarStack aria-label="bidragsytere">
@@ -485,6 +472,6 @@ export const WithTooltipAndLink: Story = {
           </li>
         </AvatarStack>
       </fieldset>
-    </div>
+    </Flex>
   ),
 };
