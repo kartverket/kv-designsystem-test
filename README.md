@@ -122,7 +122,23 @@ Se [`test-apps/README.md`](./test-apps/README.md) for flere kommandoer.
 
 ## Designtokens
 
-Kilden til designtokens ligger i [`design-tokens`](./design-tokens) som DTCG-JSON, og bygges med Designsystemet-CLI-et til CSS, et Tailwind-preset og TypeScript-typer. Det finnes to temaer: `green` og `blue`.
+Designtokens ligger i [`design-tokens`](./design-tokens) og bygges med [Designsystemet-CLI-et](https://www.npmjs.com/package/@digdir/designsystemet). Det finnes to temaer: `green` og `blue`.
+
+Temaene (farger, border-radius og overstyringer) defineres i [`design-tokens/designsystemet.config.json`](./design-tokens/designsystemet.config.json). Feltet `output` i samme fil styrer hva CLI-et lager:
+
+| Output          | Mappe                | Innhold                                                 |
+| --------------- | -------------------- | ------------------------------------------------------- |
+| `design-tokens` | `design-tokens/src`  | DTCG-JSON generert fra temaene (sjekket inn)            |
+| `css`           | `design-tokens/dist` | CSS per tema og et Tailwind-preset (`"tailwind": "v3"`) |
+| `types`         | `design-tokens/dist` | TypeScript-typer for temafargene                        |
+
+```sh
+pnpm nx build design-tokens   # kjører `designsystemet` i design-tokens
+```
+
+Alle tre mappene tømmes og genereres på nytt ved hvert bygg (`cleanDir`), så gjør endringer i `designsystemet.config.json`, ikke direkte i `src`. Etter en endring i tokens eller en oppgradering av `@digdir/designsystemet` må du bygge på nytt og sjekke inn det som endrer seg i `design-tokens/src` og `@kv-designsystem/theme/dist`. CI feiler hvis et bygg endrer sporede filer.
+
+Når en ny versjon av CLI-et endrer konfigurasjonsformatet, stopper bygget og ber om en migrering. Kjør da `pnpm exec designsystemet` i `design-tokens` lokalt, godta migreringen og sjekk inn den oppdaterte konfigurasjonen.
 
 ```
 design-tokens (kilde, privat)

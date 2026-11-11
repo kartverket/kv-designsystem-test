@@ -1,6 +1,23 @@
 {
-  "$schema": "https://designsystemet.no/schemas/cli/1.19.0.json",
-  "outDir": "./src",
+  "$schema": "https://designsystemet.no/schemas/config/1.24.0.json",
+  "output": [
+    {
+      "type": "design-tokens",
+      "dir": "./src",
+      "cleanDir": true
+    },
+    {
+      "type": "css",
+      "dir": "./dist",
+      "cleanDir": true,
+      "tailwind": "v3"
+    },
+    {
+      "type": "types",
+      "dir": "./dist",
+      "cleanDir": true
+    }
+  ],
   "themes": {
     "green": {
       "colors": {

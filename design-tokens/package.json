@@ -8,13 +8,9 @@
     "./*": "./dist/*"
   },
   "scripts": {
-    "create": "designsystemet tokens create --clean",
-    "prebuild": "pnpm run create",
-    "build": "pnpm clean && designsystemet tokens build -t ./src -o ./dist --experimental-tailwind",
-    "clean": "rimraf dist"
+    "build": "designsystemet"
   },
   "devDependencies": {
-    "@digdir/designsystemet": "catalog:",
-    "rimraf": "catalog:"
+    "@digdir/designsystemet": "catalog:"
   }
 }
