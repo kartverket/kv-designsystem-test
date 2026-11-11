@@ -1,6 +1,6 @@
-import { Do, DoDontGroup, Dont } from '.storybook/docs/components/DoDont/DoDont';
 import { Fieldset } from 'src/components/fieldset/Fieldset';
 import { Radio } from '../Radio';
+import { Do, DoDontGroup, Dont } from '.storybook/docs/components/DoDont/DoDont';
 
 export const RadioEx1 = () => {
   return (

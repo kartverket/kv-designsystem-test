@@ -1,7 +1,7 @@
-import { DoDontGroup, Dont } from '.storybook/docs/components/DoDont/DoDont';
 import { Field } from 'src/components/field/Field';
 import { Label } from 'src/components/typography/label/Label';
 import { Select } from '../Select';
+import { DoDontGroup, Dont } from '.storybook/docs/components/DoDont/DoDont';
 
 export const SelectEx1 = () => {
   return (

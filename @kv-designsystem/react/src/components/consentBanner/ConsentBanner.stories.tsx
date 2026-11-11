@@ -5,8 +5,8 @@ import { Link } from '../link/Link';
 import { Button } from '../button/Button';
 import { Fieldset } from '../fieldset/Fieldset';
 import { Checkbox } from '../checkbox/Checkbox';
-import { ConsentBanner } from './ConsentBanner';
 import { Flex } from '../layout/Flex';
+import { ConsentBanner } from './ConsentBanner';
 
 const meta = {
   title: 'Komponenter/ConsentBanner',

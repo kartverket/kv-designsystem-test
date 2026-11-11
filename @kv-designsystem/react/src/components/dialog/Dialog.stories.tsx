@@ -9,12 +9,12 @@ import { Textarea } from '../textarea/Textarea';
 import { Radio } from '../radio/Radio';
 import { Checkbox } from '../checkbox/Checkbox';
 import { Fieldset } from '../fieldset/Fieldset';
+import { Flex } from '../layout/Flex';
+import { Grid } from '../layout/Grid';
 import type { DialogProps } from './Dialog';
 import { subcomponents } from './docs/subcomponents';
 import { Dialog } from './Dialog';
 import styles from './Dialog.stories.module.css';
-import { Flex } from '../layout/Flex';
-import { Grid } from '../layout/Grid';
 
 const meta = {
   title: 'Komponenter/Dialog',

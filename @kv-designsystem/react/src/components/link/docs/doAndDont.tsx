@@ -1,6 +1,6 @@
-import { Do, DoDontGroup, Dont } from '.storybook/docs/components/DoDont/DoDont';
-import { Link } from '../Link';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
+import { Link } from '../Link';
+import { Do, DoDontGroup, Dont } from '.storybook/docs/components/DoDont/DoDont';
 
 export const LinkEx1 = () => {
   return (
