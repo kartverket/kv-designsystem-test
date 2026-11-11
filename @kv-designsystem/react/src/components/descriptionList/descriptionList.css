@@ -1,0 +1,174 @@
+.kvds-description-list-container {
+  --kvdsc-description-list-circle-size: var(--ds-size-10);
+  --kvdsc-description-list-circle-icon-size: var(--ds-size-6);
+  --kvdsc-description-list-pair-gap: var(--ds-size-2);
+  --kvdsc-description-list-term-min-width: 11rem;
+  --kvdsc-description-list-description-min-width: 11rem;
+  --kvdsc-description-list-term-max-width: 11rem;
+}
+
+/* The list cannot query its own width; this wrapper is the container for its breakpoints. */
+.kvds-description-list-container {
+  container: kvds-description-list / inline-size;
+  min-width: 0;
+  max-width: 100%;
+}
+
+:where(.kvds-description-list:not([hidden])) {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Generated container queries set these variables on the list. Reset them for nested lists. */
+.kvds-description-list {
+  --kvdsc-description-list-stacked-columns: initial;
+  --kvdsc-description-list-item-columns: initial;
+  --kvdsc-description-list-item-column: initial;
+  --kvdsc-description-list-icon-display: initial;
+  --kvdsc-description-list-pair-align: initial;
+}
+
+/* Match Grid's columns until the list breakpoint stacks items (or aligns horizontal pairs in two columns). */
+.kvds-description-list[data-list-orientation='horizontal'][data-item-min-width] {
+  grid-template-columns: var(
+    --kvdsc-description-list-stacked-columns,
+    repeat(auto-fit, minmax(min(100%, var(--kvdsc-layout-item-min-width)), 1fr))
+  );
+}
+
+/* Vertical lists share term/description columns; the pair breakpoint stacks text terms instead. */
+.kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal'] {
+  grid-template-columns: fit-content(50%) minmax(0, 1fr);
+  column-gap: var(--kvdsc-description-list-pair-gap);
+}
+
+.kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal']
+  > .kvds-description-list-item:not([hidden]) {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: var(--kvdsc-description-list-item-columns, subgrid);
+  align-content: var(--kvdsc-description-list-pair-align, normal);
+}
+
+.kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal']
+  > .kvds-description-list-item {
+  column-gap: inherit;
+}
+
+/* SVG terms remain beside their descriptions when the pair breakpoint stacks text terms. */
+.kvds-description-list[data-list-orientation='vertical'][data-pair-orientation='horizontal']
+  > .kvds-description-list-item:not([hidden]):has(> dt > svg) {
+  display: var(--kvdsc-description-list-icon-display, grid);
+}
+
+.kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal'] {
+  --kvdsc-layout-item-min-width: calc(
+    var(--kvdsc-description-list-term-min-width) +
+      var(--kvdsc-description-list-description-min-width) + var(--kvdsc-description-list-pair-gap)
+  );
+}
+
+/* The list breakpoint spans each item across both columns; the pair breakpoint changes its inner columns. */
+.kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal']
+  > .kvds-description-list-item:not([hidden]) {
+  grid-column: var(--kvdsc-description-list-item-column, auto);
+}
+
+/* A stacked list uses subgrid for icons until the pair breakpoint switches them back to flex. */
+.kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal']
+  > .kvds-description-list-item:not([hidden]):has(> dt > svg) {
+  display: var(--kvdsc-description-list-icon-display, flex);
+  grid-template-columns: var(--kvdsc-description-list-item-columns, none);
+}
+
+.kvds-description-list[data-list-orientation='horizontal'][data-pair-orientation='horizontal']
+  > .kvds-description-list-item:not([hidden], :has(> dt > svg)) {
+  --kvdsc-description-list-term-available-width: max(
+    0px,
+    calc(
+      100% - var(--kvdsc-description-list-description-min-width) -
+        var(--kvdsc-description-list-pair-gap)
+    )
+  );
+
+  display: grid;
+  grid-template-columns: var(
+    --kvdsc-description-list-item-columns,
+    minmax(
+        min(
+          var(--kvdsc-description-list-term-min-width),
+          var(--kvdsc-description-list-term-available-width)
+        ),
+        min(
+          var(--kvdsc-description-list-term-max-width),
+          var(--kvdsc-description-list-term-available-width)
+        )
+      )
+      minmax(0, 1fr)
+  );
+  align-content: start;
+}
+
+.kvds-description-list-item {
+  line-height: var(--ds-line-height-sm);
+}
+
+.kvds-description-list-item {
+  row-gap: var(--ds-size-2);
+  column-gap: var(--kvdsc-description-list-pair-gap);
+}
+
+.kvds-description-list-item > dt {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.kvds-description-list-item > dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.kvds-description-list-item > dt:has(> svg) {
+  flex: none;
+  width: 1lh;
+}
+
+.kvds-description-list-item > dt > svg {
+  display: block;
+  width: 1lh;
+  height: 1lh;
+}
+
+.kvds-description-list-item:has(> dt[data-variant='circle'] > svg) {
+  align-items: center;
+}
+
+.kvds-description-list-item > dt[data-variant='circle']:has(> svg) {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  width: var(--kvdsc-description-list-circle-size);
+  height: var(--kvdsc-description-list-circle-size);
+  border-radius: var(--ds-border-radius-full);
+  background: var(--ds-color-neutral-background-tinted);
+  color: var(--ds-color-neutral-text-default);
+}
+
+.kvds-description-list[data-color]
+  > .kvds-description-list-item
+  > dt[data-variant='circle']:has(> svg) {
+  background: var(--ds-color-background-tinted);
+  color: var(--ds-color-text-default);
+}
+
+.kvds-description-list-item > dt[data-variant='circle'] > svg {
+  width: var(--kvdsc-description-list-circle-icon-size);
+  height: var(--kvdsc-description-list-circle-icon-size);
+}
+
+.kvds-description-list[data-pair-orientation='vertical']
+  > .kvds-description-list-item:not([hidden], :has(> dt > svg)) {
+  display: grid;
+  align-content: start;
+}

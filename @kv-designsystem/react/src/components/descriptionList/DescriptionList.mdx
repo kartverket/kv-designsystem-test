@@ -1,0 +1,90 @@
+import { Meta, Canvas, Controls, Primary } from '@storybook/addon-docs/blocks';
+import * as DescriptionListStories from './DescriptionList.stories';
+
+<Meta of={DescriptionListStories} />
+
+# DescriptionList
+
+Bruk `DescriptionList` til å vise opplysninger som hører sammen, for eksempel adresse og gårdsnummer for en eiendom. Listen bruker HTML-elementene `dl`, `dt` og `dd`. Legg `DescriptionList.Term` og deretter `DescriptionList.Description` direkte i hvert `DescriptionList.Item`.
+
+<Primary />
+<Controls />
+
+## Plasser parene
+
+`listOrientation` styrer om parene står under eller ved siden av hverandre. `pairOrientation` styrer om termen og beskrivelsen står under eller ved siden av hverandre i hvert par. Velg retningene uavhengig av hverandre.
+
+### Par under hverandre
+
+Som standard står parene under hverandre, mens termen og beskrivelsen står ved siden av hverandre. Termene deler én kolonne, slik at beskrivelsene flukter.
+
+<Canvas of={DescriptionListStories.Preview} />
+
+Sett `pairOrientation="vertical"` hvis du vil stable termen og beskrivelsen i hvert par.
+
+<Canvas of={DescriptionListStories.VerticalPairs} />
+
+### Par ved siden av hverandre
+
+Sett `listOrientation="horizontal"` for å plassere parene i like brede kolonner. De brytes til en ny rad når det blir trangt, og kolonnene flukter mellom radene. Når term og beskrivelse står under hverandre, kan du styre minste kolonnebredde med `itemMinWidth` (standard: 350). Eksemplet bruker 250 for å få plass til flere kolonner:
+
+<Canvas of={DescriptionListStories.Horizontal} />
+
+Eller du kan plassere termen og beskrivelsen ved siden av hverandre:
+
+<Canvas of={DescriptionListStories.HorizontalPairs} />
+
+## Tilpass til smale flater
+
+Listen tilpasser seg bredden på sin egen container. Som standard går en horisontal liste over til én kolonne under `400` (omtrent 400 px ved vanlig skriftstørrelse). Under `300` stables også term og beskrivelse i horisontale par. Et SVG-ikon blir alltid stående ved siden av beskrivelsen.
+
+<Canvas of={DescriptionListStories.NarrowHorizontal} />
+
+Bruk `listForceVerticalBelow` og `pairForceVerticalBelow` for å endre grensene hver for seg. Velg mellom 50, 100, …, 600, som for `itemMinWidth` i `Grid` og `Flex`. Verdiene skaleres med brukerens rot-skriftstørrelse. Hvis du bare setter én grense, gjelder standardverdien for den andre.
+
+Endre bredden på visningsområdet for å se hvordan de to grensene virker. En horisontal liste kan få færre kolonner før listegrensen nås dersom parene trenger mer plass.
+
+<Canvas of={DescriptionListStories.CustomWrapPoints} />
+
+Sett `style.width` på listen for å velge en bredde relativt til forelderen. De responsive grensene måles mot den bredden, ikke mot nettleservinduet.
+
+<Canvas of={DescriptionListStories.PercentageWidth} />
+
+## Juster avstand og bredde
+
+Bruk `gap` for å sette samme avstand mellom parene i begge retninger. Bruk `rowGap` eller `columnGap` for å overstyre én retning. Standardverdiene er `rowGap={3}` og `columnGap={5}`. `pairGap` styrer den horisontale avstanden mellom term og beskrivelse. Når de står under hverandre, er avstanden alltid `--ds-size-2`.
+
+<Canvas of={DescriptionListStories.CustomGaps} />
+
+I en horisontal liste med term og beskrivelse ved siden av hverandre har begge en minstebredde på `11rem`. Sett `termMinWidth` og `descriptionMinWidth` til CSS-lengder hvis du trenger andre bredder. `pairGap` inngår også i den minste kolonnebredden. Øker du avstanden eller breddene, brytes listen tidligere i stedet for at tekst flyter inn i neste kolonne.
+
+<Canvas of={DescriptionListStories.CustomPairWidths} />
+
+## Bruk ikoner som termer
+
+Legg SVG-ikonet direkte i `DescriptionList.Term`. Ikonet står alltid ved siden av beskrivelsen, også når andre termer stables. Vanlige ikoner er toppjustert og følger tekstfargen. Gi ikonene et tilgjengelig navn, for eksempel med `role="img"` og `aria-label`.
+
+<Canvas of={DescriptionListStories.WithIcon} />
+
+Sett `variant="circle"` på `DescriptionList.Term` for å gi SVG-ikonet en tonet sirkel og sentrere det mot beskrivelsen. Sirkelikonet er nøytralt hvis listen ikke har `data-color`, selv inni en farget `Card`. Sett `data-color` på listen for å velge en annen farge. Bruk samme ikonvariant gjennom hele listen.
+
+<Canvas of={DescriptionListStories.CircleColors} />
+
+Som standard bruker sirkelen `--ds-size-10` og ikonet `--ds-size-6`. Juster størrelsene for hele listen med CSS-variablene `--kvdsc-description-list-circle-size` og `--kvdsc-description-list-circle-icon-size`. Eksemplet setter dem med `style` på listen. Du kan også bruke en CSS-klasse:
+
+```css
+.kvds-description-list.storre-ikoner {
+  --kvdsc-description-list-circle-size: var(--ds-size-12);
+  --kvdsc-description-list-circle-icon-size: var(--ds-size-8);
+}
+```
+
+Sett da `className="storre-ikoner"` på `DescriptionList`.
+
+<Canvas of={DescriptionListStories.CustomCircleSizes} />
+
+## Bruk listen i andre komponenter
+
+Du kan legge `DescriptionList` i en `Card` eller `Alert`. Listen beholder den semantiske strukturen og tilpasser seg bredden den får. Den arver også tekstfargen fra komponenten rundt seg.
+
+<Canvas of={DescriptionListStories.InContainers} />
