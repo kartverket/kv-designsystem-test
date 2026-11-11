@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Select } from './Select';
-import { subcomponents } from './docs/subcomponents';
 import { Field } from '../field/Field';
 import { Label } from '../typography/label/Label';
+import { Select } from './Select';
+import { subcomponents } from './docs/subcomponents';
 
 const meta = {
   title: 'Komponenter/Select',

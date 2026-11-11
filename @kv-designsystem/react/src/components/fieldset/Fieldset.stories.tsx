@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Fieldset } from './Fieldset';
-import { subcomponents } from './docs/subcomponents';
 import { Radio } from '../radio/Radio';
 import { Checkbox } from '../checkbox/Checkbox';
 import { Heading } from '../typography/heading/Heading';
+import { subcomponents } from './docs/subcomponents';
+import { Fieldset } from './Fieldset';
 
 const meta = {
   title: 'Komponenter/Fieldset',

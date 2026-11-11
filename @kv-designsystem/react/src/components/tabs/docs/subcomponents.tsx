@@ -1,5 +1,5 @@
 import type { ComponentProps, FunctionComponent, ReactNode } from 'react';
-import { Tabs } from '../Tabs';
+import type { Tabs } from '../Tabs';
 
 // Docgen only shows `children` when it has a description. These components only exist to
 // add one. Omit removes React's own `children`, which has none and would hide ours.

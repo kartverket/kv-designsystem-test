@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button } from './Button';
-import { Tooltip } from '../tooltip/Tooltip';
 import {
   ArrowRightIcon,
   ArrowUndoIcon,
@@ -10,7 +8,9 @@ import {
   PlusCircleIcon,
 } from '@navikt/aksel-icons';
 import { useState } from 'react';
+import { Tooltip } from '../tooltip/Tooltip';
 import { Flex } from '../layout/Flex';
+import { Button } from './Button';
 
 const meta = {
   title: 'Komponenter/Button',
@@ -141,7 +141,7 @@ export const Loading: Story = {
     loading: true,
   },
   render: (args) => {
-    const [loading, setLoading] = useState(true);
+    const [loading, _setLoading] = useState(true);
     const handleClick = () => {
       if (!loading) {
         // Legg onClick-funksjonalitet her

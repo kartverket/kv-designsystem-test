@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Field } from './Field';
-import { subcomponents } from './docs/subcomponents';
 import { Label } from '../typography/label/Label';
 import { Input } from '../input/Input';
 import { ValidationMessage } from '../typography/validationMessage/ValidationMessage';
 import { Textarea } from '../textarea/Textarea';
+import { subcomponents } from './docs/subcomponents';
+import { Field } from './Field';
+
 const meta = {
   title: 'Komponenter/Field',
   component: Field,
@@ -53,6 +54,7 @@ export const Position: Story = {
   render: (_args) => (
     <Field position="end">
       <Label>Flymodus</Label>
+      {/* oxlint-disable-next-line jsx-a11y/role-has-required-aria-props -- native checkbox exposes checked state */}
       <Input type="checkbox" role="switch" />
     </Field>
   ),

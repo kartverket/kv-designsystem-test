@@ -1,7 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ToggleGroup } from './ToggleGroup';
-import { subcomponents } from './docs/subcomponents';
-import { Tooltip } from '../tooltip/Tooltip';
 import {
   CheckmarkCircleIcon,
   ExclamationmarkTriangleIcon,
@@ -10,6 +7,9 @@ import {
   AlignCenterIcon,
   AlignRightIcon,
 } from '@navikt/aksel-icons';
+import { Tooltip } from '../tooltip/Tooltip';
+import { ToggleGroup } from './ToggleGroup';
+import { subcomponents } from './docs/subcomponents';
 
 const meta = {
   title: 'Komponenter/ToggleGroup',

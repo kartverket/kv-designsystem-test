@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { Table, TableHeaderCellProps } from './Table';
-import { subcomponents } from './docs/subcomponents';
+import { PencilIcon } from '@navikt/aksel-icons';
 import { Tag } from '../tag/Tag';
 import { Pagination } from '../pagination/Pagination';
 import { usePagination } from '../../utilities/hooks/usePagination/usePagination';
-import { PencilIcon } from '@navikt/aksel-icons';
 import { Button } from '../button/Button';
+import type { TableHeaderCellProps } from './Table';
+import { Table } from './Table';
+import { subcomponents } from './docs/subcomponents';
 
 const meta = {
   title: 'Komponenter/Table',

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ValidationMessage } from './ValidationMessage';
 import { Grid } from 'src/components/layout/Grid';
+import { ValidationMessage } from './ValidationMessage';
 
 const meta = {
   title: 'Komponenter/Typography/ValidationMessage',
