@@ -59,8 +59,9 @@ catalog:
 
 minimumReleaseAge: 1440
 
-onlyBuiltDependencies:
-  - esbuild
+allowBuilds:
+  esbuild: true
+  nx: false
 
 overrides:
   brace-expansion@<1.1.21: ^1.1.21
@@ -83,5 +84,3 @@ packageExtensions:
         optional: true
       react:
         optional: true
-
-useNodeVersion: 24.13.0
