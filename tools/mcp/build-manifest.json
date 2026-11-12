@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "inputs": {
+    "src/catalog.ts": "073ec49e2a89540f99cc92e17dfe3d8464f0148f2f904d25793b3ef799628efb",
+    "src/config.ts": "b6f602a31c9167b793855f0ef85d4522fd9ac4cc405cd7d03a76f25e6a152d79",
+    "src/css-variables.ts": "81a82856f153dfe20baf295257699e022639e040d9a8bcb41dc0a60af1018ae2",
+    "src/exports.ts": "edc01ec887b4b8e35446b637ff387b57db84a920cdd8fa376418a10e29eeb0b7",
+    "src/index-entries.ts": "c7e246500f4f1183c8bcc515ade8c55965ca06995360788b50e7061ff70f2bda",
+    "src/local-sources.ts": "99743bfd70cf981ea6740f077f856d22c80874fc6b9940186fd5f7b1a8e0606b",
+    "src/runtime.ts": "45e2d47ad7739e54415d824df3a60d72bb8d2abedaf83f56fff8153bbc273c07",
+    "src/server.ts": "daa065355e98b5e5f96d0a60165eb13c176b423a6d0e87a0d177c30b6b2b3fd8",
+    "src/start.ts": "c8853ee463654fe8d6866477aac736b585dcc5aa8382a539012988de5bfa93ca",
+    "src/tokens.ts": "6851a24623304ef242ac63b6962d681b10a716580428fad581d13eb43c795fa1",
+    "src/types.ts": "f7d97f71b651be818ed6d3933a3fc16b33019548a35dd0fc2704794af156bcb4",
+    "scripts/build.mjs": "3aed50fd843b3afe5ebcbef4e4b96d9bb88619f1215cc7425cfdace6a3ad8550",
+    "scripts/build.ts": "f11f0cfe77abc4cb2fac60da0a9ac8819af3bac2cc566cd026dc805bd6ee5fda",
+    "test/deny-network.ts": "3dbbfbfbe1180da53d41fd2208446f2744e74a8cd92a1fcfe21e23d03639e3d9",
+    "test/offline.test.ts": "7be68cd978f02b47cc8c23aec9c588b47f8f242b5fe94cf95d0a402e9ecb9291",
+    "package.json": "7d3276cc937ecba8fefc634380f88d32459e25432d1cd54c478530e892845321",
+    "package-lock.json": "dce4322448218a875bb5cc4c4ca34aa3b5923270294c4baef7a660c82990996a",
+    "tsconfig.json": "7276f363d92c4e15094bf48f4a0c4a170e0f3fca3dedb9586472e80941934062"
+  },
+  "outputs": {
+    "runtime.mjs": "18cb872bf59f8d72c6a4eb80b773bc25e624f833fdd7440dfe387a870dc2052f",
+    "start.mjs": "1f3dc55e1a0c63ba860060c9d19c0d6f14179e47d5b842471eb759b7f37f969c",
+    "test/deny-network.mjs": "f59931d439fe1c38ec076659dab4f9cc0767df225645d69ece0592c7246cf64e",
+    "test/offline.test.mjs": "f4c83e014b89c01a16a70aa2144324d4278573e26d0427729b9fcc8892af2267",
+    "THIRD_PARTY_NOTICES.txt": "cfff06f97bcfdca3effaeb6f69af800a519225f2f537a2e1c7fc9b6728976cf5"
+  }
+}

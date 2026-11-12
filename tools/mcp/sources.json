@@ -1,0 +1,23 @@
+{
+  "documentationRoot": "@kv-designsystem/react/src",
+  "componentRoots": ["@kv-designsystem/react/src/components"],
+  "tokenRoots": ["design-tokens/src"],
+  "sourceRoots": [
+    "@kv-designsystem/react/src",
+    "@kv-designsystem/css/src",
+    "@kv-designsystem/theme/dist",
+    "design-tokens/src",
+    "LICENSES"
+  ],
+  "additionalFiles": [
+    "@kv-designsystem/react/package.json",
+    "@kv-designsystem/css/package.json",
+    "@kv-designsystem/theme/package.json"
+  ],
+  "entryPoints": ["@kv-designsystem/react/src/alpha.ts"],
+  "dependencyRoots": [
+    "@kv-designsystem/react/node_modules/@digdir/designsystemet-react",
+    "@kv-designsystem/react/node_modules/@digdir/designsystemet-css/dist/src"
+  ],
+  "storybookBaseUrl": "https://design.kartverket.no/"
+}
