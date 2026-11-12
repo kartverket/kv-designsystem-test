@@ -152,6 +152,7 @@ export default defineConfig({
       files: ['**/*.{ts,tsx}'],
       plugins: ['typescript'],
       rules: {
+        'typescript/no-deprecated': 'warn',
         'no-unused-vars': [
           'error',
           {

@@ -309,6 +309,18 @@ export default defineConfig({
         ],
       },
     },
+    // Search is deprecated in Designsystemet, but we still export and document it until it's
+    // removed in their next major version. Remove files from this list as they're migrated.
+    {
+      files: [
+        'src/components/search/**',
+        'src/components/header/Header.stories.tsx',
+        'src/components/chip/Chip.stories.tsx',
+        'src/components/layout/Grid.stories.tsx',
+      ],
+      plugins: ['typescript'],
+      rules: { 'typescript/no-deprecated': 'off' },
+    },
     // The barrel files themselves may import from other barrel files
     {
       files: ['src/alpha.ts', 'src/beta.ts', 'src/stable.ts'],
