@@ -263,11 +263,15 @@ const modernOnly: Row[] = [
     note: 'Ingen direkte erstatning. Bruk <Radio variant="outline">.',
   },
   { kvib: 'Rating', ds: '—', note: 'Ingen erstatning.' },
-  { kvib: 'Search', ds: 'Search' },
+  {
+    kvib: 'Search',
+    ds: 'Input',
+    note: 'Search er utgått i Designsystemet. Bruk Input med type="search" i et Field, og eventuelt en Button med type="submit".',
+  },
   {
     kvib: 'SearchAsync',
-    ds: 'Suggestion / Search',
-    note: 'Søkbar/asynkron liste med treff → Suggestion. Ren søkeboks → Search.',
+    ds: 'Suggestion / Input',
+    note: 'Søkbar/asynkron liste med treff → Suggestion. Ren søkeboks → Input med type="search".',
   },
   { kvib: 'Select (Native)', ds: 'Select', note: 'DS Select er native-basert.' },
   { kvib: 'Separator', ds: 'Divider', note: 'Het Divider i KVIB v4 og eldre.' },
