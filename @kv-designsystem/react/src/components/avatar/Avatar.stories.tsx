@@ -2,6 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BriefcaseIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 import { Dropdown } from '../dropdown/Dropdown';
+import { Button } from '../button/Button';
 import { Badge } from '../badge/Badge';
 import { Link } from '../link/Link';
 import {
@@ -150,15 +151,21 @@ export const InDropdown: Story = {
     },
   },
   render: (_args: AvatarProps) => (
-    <Dropdown.TriggerContext>
-      <Dropdown.Trigger variant="tertiary">
+    <>
+      <Button variant="tertiary" popovertarget="avatar-dropdown">
         <Avatar aria-hidden data-size="sm">
           on
         </Avatar>
         Ola Nordmann
         <ChevronUpIcon aria-hidden />
-      </Dropdown.Trigger>
-      <Dropdown placement="bottom-end" autoPlacement={false} data-size="md" open>
+      </Button>
+      <Dropdown
+        id="avatar-dropdown"
+        placement="bottom-end"
+        autoPlacement={false}
+        data-size="md"
+        open
+      >
         <Dropdown.List>
           <Dropdown.Item>
             <Dropdown.Button>
@@ -181,7 +188,7 @@ export const InDropdown: Story = {
           </Dropdown.Item>
         </Dropdown.List>
       </Dropdown>
-    </Dropdown.TriggerContext>
+    </>
   ),
 };
 

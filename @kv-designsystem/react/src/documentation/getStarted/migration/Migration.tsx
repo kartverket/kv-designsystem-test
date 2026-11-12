@@ -81,7 +81,7 @@ const shared: Row[] = [
   {
     kvib: 'Popover',
     ds: 'Popover',
-    note: 'Legg i en Popover.TriggerContext med en Popover.Trigger, eller bruk <Button popovertarget="[popover-id]">.',
+    note: 'Koble til med <Button popovertarget="[popover-id]">.',
   },
   { kvib: 'Portal', ds: '—', note: 'Ingen egen. Bruk React sin createPortal.' },
   { kvib: 'Progress', ds: '—', note: 'Foreløpig ingen erstatning.' },

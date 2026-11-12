@@ -28,9 +28,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   render: (args) => (
-    <Dialog.TriggerContext>
-      <Dialog.Trigger>Åpne modal Dialog</Dialog.Trigger>
-      <Dialog {...args}>
+    <>
+      <Button command="show-modal" commandfor="dialog-preview">
+        Åpne modal Dialog
+      </Button>
+      <Dialog id="dialog-preview" {...args}>
         <Dialog.Block>
           <Heading>Lagre før du går videre</Heading>
         </Dialog.Block>
@@ -50,7 +52,7 @@ export const Preview: Story = {
           </Flex>
         </Dialog.Block>
       </Dialog>
-    </Dialog.TriggerContext>
+    </>
   ),
 };
 
@@ -72,29 +74,30 @@ export const DialogNonModal: Story = {
         position: 'relative',
       }}
     >
-      <Dialog.TriggerContext>
-        <Dialog.Trigger>Åpne ikke-modal Dialog</Dialog.Trigger>
-        <Dialog
-          modal={false}
+      <Button command="--show-non-modal" commandfor="dialog-non-modal">
+        Åpne ikke-modal Dialog
+      </Button>
+      <Dialog
+        id="dialog-non-modal"
+        modal={false}
+        style={{
+          zIndex: '10',
+          top: 'calc(100vh - 290px)',
+          left: 'calc(100vw - 385px)',
+          margin: 0,
+          maxWidth: '350px',
+        }}
+      >
+        <Heading style={{ marginBottom: 'var(--ds-size-4)' }}>Vi ønsker din mening</Heading>
+        <Label htmlFor="my-textarea">Hvordan var din opplevelse?</Label>
+        <Textarea
+          id="my-textarea"
           style={{
-            zIndex: '10',
-            top: 'calc(100vh - 290px)',
-            left: 'calc(100vw - 385px)',
-            margin: 0,
-            maxWidth: '350px',
+            marginBottom: 'var(--ds-size-6)',
           }}
-        >
-          <Heading style={{ marginBottom: 'var(--ds-size-4)' }}>Vi ønsker din mening</Heading>
-          <Label htmlFor="my-textarea">Hvordan var din opplevelse?</Label>
-          <Textarea
-            id="my-textarea"
-            style={{
-              marginBottom: 'var(--ds-size-6)',
-            }}
-          />
-          <Button>Send inn</Button>
-        </Dialog>
-      </Dialog.TriggerContext>
+        />
+        <Button>Send inn</Button>
+      </Dialog>
     </Flex>
   ),
 };
@@ -156,17 +159,23 @@ export const Drawer: Story = {
             <Radio name="drawer" label="Høyre" value="right" />
           </Flex>
         </Fieldset>
-        <Dialog.TriggerContext>
-          <Dialog.Trigger>Åpne Dialog</Dialog.Trigger>
-          <Dialog modal={modal} closedby="any" placement={placement} style={{ zIndex: '10' }}>
-            <Dialog.Block>
-              <Paragraph>
-                Dette er en {modal ? 'modal' : 'non-modal'} Dialog med{' '}
-                <code>placement='{placement}'</code>
-              </Paragraph>
-            </Dialog.Block>
-          </Dialog>
-        </Dialog.TriggerContext>
+        <Button command={modal ? 'show-modal' : '--show-non-modal'} commandfor="dialog-drawer">
+          Åpne Dialog
+        </Button>
+        <Dialog
+          id="dialog-drawer"
+          modal={modal}
+          closedby="any"
+          placement={placement}
+          style={{ zIndex: '10' }}
+        >
+          <Dialog.Block>
+            <Paragraph>
+              Dette er en {modal ? 'modal' : 'non-modal'} Dialog med{' '}
+              <code>placement='{placement}'</code>
+            </Paragraph>
+          </Dialog.Block>
+        </Dialog>
       </Grid>
     );
   },

@@ -30,17 +30,15 @@ Du kan kombinere ikoner og tekst i elementene for å gjøre valgene tydeligere. 
 
 Dersom du sender inn `open`, så bruker du `Dropdown` kontrollert. Du kan bruke `onOpen` og `onClose` for å få beskjed når `Dropdown` vil åpnes og lukkes.
 
-Merk at vi ikke bruker `onClick` på triggeren, `Dropdown` håndterer dette internt og sender til `onOpen` og `onClose`.
+Merk at vi ikke bruker `onClick` på knappen, `Dropdown` håndterer dette internt og sender til `onOpen` og `onClose`.
 
 <Canvas of={DropdownStories.Controlled}/>
 
 ### Trigger
 
-Triggeren er en [`Button`](/docs/komponenter-button--docs) som standard. Du kan bruke `asChild` for å endre `Dropdown.Trigger`-elementet. Dersom du skal legge på funksjoner som `onClick`, legg det på ditt element, og legg `asChild` på `Dropdown.Trigger`.
+`Dropdown` bruker popover API-et. Du åpner den med en [`Button`](/docs/komponenter-button--docs) som har `popovertarget={id}`, der `id` er satt på `Dropdown`.
 
-Fordi `Dropdown` bruker popover API-et, kan du også bruke `Dropdown` uten `Dropdown.Trigger`. Da må du legge til `popovertarget={id}` på komponenten som skal brukes som trigger, og `id` på `Dropdown`.
-
-<Canvas of={DropdownStories.WithPopovertarget}/>
+`Dropdown.Trigger` og `Dropdown.TriggerContext` er utgått og fjernes i neste hovedversjon av Designsystemet.
 
 ### Vis aktivt element
 
@@ -58,7 +56,7 @@ Du kan bruke `aria-current='true'`på et `Dropdown.Item` for å indikere hvilket
 
 ## Tilgjengelighet
 
-Det er innebygd tilgjengelighet i `Dropdown.Trigger` med `aria-expanded={true/false}` i henhold til åpnet/lukket tilstand, og `aria-haspopup='menu'`. Du kan lese mer om [Popover API-et i MDN-dokumentasjonen](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API).
+Når knappen er koblet til `Dropdown` med `popovertarget`, gir nettleseren selv beskjed til skjermlesere om dropdownen er åpen eller lukket. Du kan lese mer om [Popover API-et i MDN-dokumentasjonen](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API).
 
 ## Kilde
 

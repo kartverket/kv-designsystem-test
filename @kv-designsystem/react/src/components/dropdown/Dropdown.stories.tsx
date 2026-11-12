@@ -18,9 +18,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Preview: Story = {
   render: (args) => (
-    <Dropdown.TriggerContext>
-      <Dropdown.Trigger>Åpne Dropdown</Dropdown.Trigger>
-      <Dropdown placement="bottom-end" {...args}>
+    <>
+      <Button popovertarget="dropdown-preview">Åpne Dropdown</Button>
+      <Dropdown id="dropdown-preview" placement="bottom-end" {...args}>
         <Dropdown.Heading>Overskrift 1</Dropdown.Heading>
         <Dropdown.List>
           <Dropdown.Item>
@@ -44,7 +44,7 @@ export const Preview: Story = {
           </Dropdown.Item>
         </Dropdown.List>
       </Dropdown>
-    </Dropdown.TriggerContext>
+    </>
   ),
 };
 
@@ -53,9 +53,9 @@ export const WithIcons: Story = {
     placement: 'bottom-end',
   },
   render: (args) => (
-    <Dropdown.TriggerContext>
-      <Dropdown.Trigger>Nyttige lenker</Dropdown.Trigger>
-      <Dropdown {...args}>
+    <>
+      <Button popovertarget="dropdown-with-icons">Nyttige lenker</Button>
+      <Dropdown id="dropdown-with-icons" {...args}>
         <Dropdown.List>
           <Dropdown.Item>
             <Dropdown.Button asChild>
@@ -83,7 +83,7 @@ export const WithIcons: Story = {
           </Dropdown.Item>
         </Dropdown.List>
       </Dropdown>
-    </Dropdown.TriggerContext>
+    </>
   ),
 };
 
@@ -95,12 +95,18 @@ export const Controlled: Story = {
     const [open, setOpen] = useState(false);
 
     return (
-      <Dropdown.TriggerContext>
-        <Dropdown.Trigger>
+      <>
+        <Button popovertarget="dropdown-controlled">
           Dropdown
           {open ? <ChevronUpIcon aria-hidden /> : <ChevronDownIcon aria-hidden />}
-        </Dropdown.Trigger>
-        <Dropdown open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)} {...args}>
+        </Button>
+        <Dropdown
+          id="dropdown-controlled"
+          open={open}
+          onClose={() => setOpen(false)}
+          onOpen={() => setOpen(true)}
+          {...args}
+        >
           <Dropdown.List>
             <Dropdown.Item>
               <Dropdown.Button onClick={() => setOpen(false)}>
@@ -112,30 +118,9 @@ export const Controlled: Story = {
             </Dropdown.Item>
           </Dropdown.List>
         </Dropdown>
-      </Dropdown.TriggerContext>
+      </>
     );
   },
-};
-
-export const WithPopovertarget: Story = {
-  args: {
-    placement: 'bottom-end',
-  },
-  render: (args) => (
-    <>
-      <Button popovertarget="dropdown">Trigger</Button>
-      <Dropdown id="dropdown" {...args}>
-        <Dropdown.List>
-          <Dropdown.Item>
-            <Dropdown.Button>Knapp 1</Dropdown.Button>
-          </Dropdown.Item>
-          <Dropdown.Item>
-            <Dropdown.Button>Knapp 2</Dropdown.Button>
-          </Dropdown.Item>
-        </Dropdown.List>
-      </Dropdown>
-    </>
-  ),
 };
 
 // TODO: when selecting another element the "selected mark" doesn't move
@@ -144,9 +129,11 @@ export const Selected: Story = {
     placement: 'bottom-end',
   },
   render: (args) => (
-    <Dropdown.TriggerContext>
-      <Dropdown.Trigger variant="secondary">Velg kartlag</Dropdown.Trigger>
-      <Dropdown {...args}>
+    <>
+      <Button variant="secondary" popovertarget="dropdown-selected">
+        Velg kartlag
+      </Button>
+      <Dropdown id="dropdown-selected" {...args}>
         <Dropdown.List>
           <Dropdown.Item>
             <Dropdown.Button>Eiendom</Dropdown.Button>
@@ -159,6 +146,6 @@ export const Selected: Story = {
           </Dropdown.Item>
         </Dropdown.List>
       </Dropdown>
-    </Dropdown.TriggerContext>
+    </>
   ),
 };
