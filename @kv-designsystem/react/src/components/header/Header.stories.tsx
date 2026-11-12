@@ -153,7 +153,7 @@ export const WithButtonsAndMenu: Story = {
       <style>
         {`
           /* Styles defined in application-specific css */
-          .withButtonsAndMenu-small-initials:before {
+          .withButtonsAndMenu-small-initials {
             font-size: var(--ds-size-4);
           }
         `}
@@ -172,12 +172,9 @@ export const WithButtonsAndMenu: Story = {
             variant="tertiary"
             style={{ display: 'flex', padding: '0 var(--ds-size-2)', gap: 'var(--ds-size-2)' }}
           >
-            <Avatar
-              className="withButtonsAndMenu-small-initials"
-              aria-label="none"
-              data-size="xs"
-              initials="ON"
-            />
+            <Avatar className="withButtonsAndMenu-small-initials" aria-label="none" data-size="xs">
+              ON
+            </Avatar>
             <span data-show-from="lg">Ola Nordmann</span>
           </Button>
         </Header.ActionsList>

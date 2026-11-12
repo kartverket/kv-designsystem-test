@@ -53,7 +53,7 @@ export const TextAndIcons: Story = {
 
 export const OnlyIcons: Story = {
   render: (_args) => (
-    <ToggleGroup data-toggle-group="Tekstjustering" defaultValue="option-1" data-color="neutral">
+    <ToggleGroup aria-label="Tekstjustering" defaultValue="option-1" data-color="neutral">
       <Tooltip content="Venstrestilt">
         <ToggleGroup.Item value="option-1">
           <AlignLeftIcon aria-hidden />
@@ -75,7 +75,7 @@ export const OnlyIcons: Story = {
 
 export const Secondary: Story = {
   render: (_args) => (
-    <ToggleGroup data-toggle-group="Filter" defaultValue="innboks" variant="secondary">
+    <ToggleGroup aria-label="Filter" defaultValue="innboks" variant="secondary">
       <ToggleGroup.Item value="innboks">Innboks</ToggleGroup.Item>
       <ToggleGroup.Item value="utkast">Utkast</ToggleGroup.Item>
       <ToggleGroup.Item value="arkiv">Arkiv</ToggleGroup.Item>
